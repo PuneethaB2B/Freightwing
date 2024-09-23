@@ -4,7 +4,7 @@ codeunit 50007 "Export.-Get BS HAWB Item"
 
     trigger OnRun()
     begin
-        HAWBHeader.GET("HAWB No.");
+        HAWBHeader.GET(Rec."HAWB No.");
 
         BookingSheetHAWBAllocation.SETRANGE("HAWB No.", HAWBHeader."No.");
         BookingSheetHAWBAllocation.SETRANGE("HAWB Prepared", FALSE);
@@ -27,19 +27,17 @@ codeunit 50007 "Export.-Get BS HAWB Item"
     var
         TransferLine: Boolean;
     begin
-        WITH BookingSheetHAWBAllocation2 DO BEGIN
-            IF FIND('-') THEN BEGIN
-                HAWBLine.LOCKTABLE;
-                HAWBLine.SETRANGE("HAWB No.", HAWBHeader."No.");
-                HAWBLine."HAWB No." := HAWBHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        BookingSheetHAWBAllocation := BookingSheetHAWBAllocation2;
-                        BookingSheetHAWBAllocation.InsertHAWBFromBookingSheetHAWBItem(HAWBLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF BookingSheetHAWBAllocation2.FIND('-') THEN BEGIN
+            HAWBLine.LOCKTABLE;
+            HAWBLine.SETRANGE("HAWB No.", HAWBHeader."No.");
+            HAWBLine."HAWB No." := HAWBHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    BookingSheetHAWBAllocation := BookingSheetHAWBAllocation2;
+                    BookingSheetHAWBAllocation.InsertHAWBFromBookingSheetHAWBItem(HAWBLine);
+                END;
+            UNTIL BookingSheetHAWBAllocation2.NEXT = 0;
         END;
     end;
 

@@ -3,7 +3,7 @@ page 50155 "MAWB Invoice Entries"
     Editable = false;
     PageType = List;
     SourceTable = Table17;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice),
+    SourceTableView = WHERE(Document Type=FILTER(Invoice),
                             System-Created Entry=FILTER(No));
 
     layout

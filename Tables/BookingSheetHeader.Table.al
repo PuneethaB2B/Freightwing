@@ -28,29 +28,29 @@ table 50053 "Booking Sheet Header"
             trigger OnValidate()
             begin
                 Shipper.GET("Shipper Code");
-                "Shipper Name":=Shipper.Name;
-                Description:=Text005+' '+"Shipper Code";
+                "Shipper Name" := Shipper.Name;
+                Description := Text005 + ' ' + "Shipper Code";
             end;
         }
-        field(4;"Shipper Name";Text[30])
+        field(4; "Shipper Name"; Text[30])
         {
             Editable = false;
         }
-        field(5;"Consignee Code";Code[20])
+        field(5; "Consignee Code"; Code[20])
         {
             TableRelation = Consignee.No.;
         }
-        field(6;"Clearing Agent Code";Code[20])
+        field(6; "Clearing Agent Code"; Code[20])
         {
             TableRelation = "Shipping Agent".Code;
         }
-        field(7;"Airline Code";Code[20])
+        field(7; "Airline Code"; Code[20])
         {
             TableRelation = Airline.Code;
         }
-        field(8;"Flight Code";Code[20])
+        field(8; "Flight Code"; Code[20])
         {
-            TableRelation = "Pre Alert Line"."HAWB No" WHERE (Pre Alert No=FIELD(Airline Code),
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE(Pre Alert No=FIELD(Airline Code),
                                                               C&F Agent=FIELD(Booking Date),
                                                               Consignee Code=FIELD(Destination Code));
         }

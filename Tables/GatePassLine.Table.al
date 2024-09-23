@@ -7,45 +7,45 @@ table 50069 "Gate Pass Line"
         {
             TableRelation = "Gate Pass Header".No.;
         }
-        field(2;"Item No.";Code[20])
+        field(2; "Item No."; Code[20])
         {
             TableRelation = Item;
 
             trigger OnValidate()
             begin
                 Item.GET("Item No.");
-                Description:=Item.Description;
+                Description := Item.Description;
             end;
         }
-        field(3;"Unit of Measure Code";Code[20])
+        field(3; "Unit of Measure Code"; Code[20])
         {
             TableRelation = "Unit of Measure".Code;
         }
-        field(4;Quantity;Decimal)
+        field(4; Quantity; Decimal)
         {
         }
-        field(5;"Vehicle No.";Code[20])
+        field(5; "Vehicle No."; Code[20])
         {
         }
-        field(6;"Driver Name";Text[50])
+        field(6; "Driver Name"; Text[50])
         {
         }
-        field(7;"Escort Vehicle No.";Code[20])
+        field(7; "Escort Vehicle No."; Code[20])
         {
         }
-        field(8;"Supervisor Name";Text[50])
+        field(8; "Supervisor Name"; Text[50])
         {
         }
-        field(9;Description;Text[50])
+        field(9; Description; Text[50])
         {
         }
-        field(10;"ULD Type";Code[20])
+        field(10; "ULD Type"; Code[20])
         {
             TableRelation = "ULD Type".Code;
         }
-        field(11;"ULD No.";Code[50])
+        field(11; "ULD No."; Code[50])
         {
-            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE (MWAB No.=FIELD(MAWB No.),
+            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE(MWAB No.=FIELD(MAWB No.),
                                                                             Released=FILTER(No));
         }
         field(12;"Line No.";Integer)

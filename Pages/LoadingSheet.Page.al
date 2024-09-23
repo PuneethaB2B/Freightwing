@@ -3,7 +3,7 @@ page 50080 "Loading Sheet"
     PageType = Card;
     RefreshOnActivate = true;
     SourceTable = Table50060;
-    SourceTableView = WHERE (Shipped = FILTER (No));
+    SourceTableView = WHERE(Shipped = FILTER(No));
 
     layout
     {

@@ -5,42 +5,42 @@ table 50003 "Beneficiary Details"
     {
         field(1; "Bank Code"; Code[50])
         {
-            TableRelation = "Bank Account".No. WHERE (Blocked=FILTER(No));
+            TableRelation = "Bank Account".No. WHERE(Blocked = FILTER(No));
 
             trigger OnValidate()
             begin
                 Banks.GET("Bank Code");
-                "Bank Name":=Banks.Name;
-                "Account Number":=Banks."Bank Account No.";
-                 Branch:=Banks."Bank Branch No.";
+                "Bank Name" := Banks.Name;
+                "Account Number" := Banks."Bank Account No.";
+                Branch := Banks."Bank Branch No.";
             end;
         }
-        field(2;"Bank Name";Code[50])
+        field(2; "Bank Name"; Code[50])
         {
             Editable = false;
             NotBlank = true;
         }
-        field(3;"Account Number";Code[50])
+        field(3; "Account Number"; Code[50])
         {
         }
-        field(4;"Beneficiary Name";Code[50])
+        field(4; "Beneficiary Name"; Code[50])
         {
         }
-        field(5;"Intermediary Bank";Code[50])
+        field(5; "Intermediary Bank"; Code[50])
         {
-            TableRelation = "Bank Account".No. WHERE (Blocked=FILTER(Yes));
+            TableRelation = "Bank Account".No. WHERE(Blocked = FILTER(Yes));
         }
-        field(6;Branch;Code[50])
+        field(6; Branch; Code[50])
         {
         }
-        field(50000;"Currency Code";Code[10])
+        field(50000; "Currency Code"; Code[10])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Intermediary Bank","Bank Code")
+        key(Key1; "Intermediary Bank", "Bank Code")
         {
             Clustered = true;
         }

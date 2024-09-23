@@ -7,7 +7,7 @@ report 50045 "Airline Freight Monthly"
     {
         dataitem(DataItem1000000000; Table50077)
         {
-            DataItemTableView = WHERE (Purchase Posting Date=FILTER(<>''));
+            DataItemTableView = WHERE(Purchase Posting Date=FILTER(<>''));
             RequestFilterFields = "No.","Airline Code","Purchase Posting Date";
             column(MAWB_AirlineCode;"MAWB Header 2"."Airline Code")
             {

@@ -3,7 +3,7 @@ page 50069 "Booking Sheet Subform"
     AutoSplitKey = true;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = Table50054;
+    SourceTable = 50054;
 
     layout
     {
@@ -11,10 +11,10 @@ page 50069 "Booking Sheet Subform"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                 }
@@ -22,17 +22,17 @@ page 50069 "Booking Sheet Subform"
                 {
                     Visible = false;
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                     Caption = 'Booked Weight As per Distribution';
                     DecimalPlaces = 2 : 2;
                     Editable = false;
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     Editable = false;
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                     Caption = 'Received Weight';
                 }
@@ -136,13 +136,13 @@ page 50069 "Booking Sheet Subform"
                     Caption = '& Pallet/ULD Allocation';
                     Image = EntriesList;
                     RunObject = Page 50072;
-                    RunPageLink = Booking Sheet No.=FIELD(Booking Sheet No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Shipper Code=FIELD(Shipper Code),
-                                  Item No.=FIELD(Item No.),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Shipper Code" = FIELD("Shipper Code"),
+                                  "Item No." = FIELD("Item No."),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport");
                     Visible = false;
 
                     trigger OnAction()
@@ -156,13 +156,13 @@ page 50069 "Booking Sheet Subform"
                     Caption = '& Consignee/HAWB Allocation';
                     Image = EntriesList;
                     RunObject = Page 50073;
-                                    RunPageLink = Booking Sheet No.=FIELD(Booking Sheet No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Shipper Code=FIELD(Shipper Code),
-                                  Item No.=FIELD(Item No.),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Shipper Code" = FIELD("Shipper Code"),
+                                  "Item No." = FIELD("Item No."),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport");
                     Visible = false;
 
                     trigger OnAction()
@@ -176,13 +176,13 @@ page 50069 "Booking Sheet Subform"
                     Caption = '& Notify Parties';
                     Image = EntriesList;
                     RunObject = Page 50074;
-                                    RunPageLink = Booking Sheet No.=FIELD(Booking Sheet No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Item No.=FIELD(Item No.),
-                                  Shipper Code=FIELD(Shipper Code),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Item No." = FIELD("Item No."),
+                                  "Shipper Code" = FIELD("Shipper Code"),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport");
 
                     trigger OnAction()
                     begin
@@ -195,14 +195,14 @@ page 50069 "Booking Sheet Subform"
                     Caption = '& MAWB Allocations';
                     Image = EntriesList;
                     RunObject = Page 50065;
-                                    RunPageLink = Booking Sheet No=FIELD(Booking Sheet No.),
-                                  Item No=FIELD(Item No.),
-                                  Line No.=FIELD(Line No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight No=FIELD(Flight Code),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport),
-                                  Shipper Code=FIELD(Shipper Code);
+                    RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
+                                  "Item No" = FIELD("Item No."),
+                                  "Line No." = FIELD("Line No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight No" = FIELD("Flight Code"),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport"),
+                                 "Shipper Code" = FIELD('Shipper Code');
 
                     trigger OnAction()
                     begin
@@ -215,29 +215,29 @@ page 50069 "Booking Sheet Subform"
                     Caption = '& FAM Allocations';
                     Image = EntriesList;
                     RunObject = Page 50075;
-                                    RunPageLink = Booking Sheet No=FIELD(Booking Sheet No.),
-                                  Shipper Code=FIELD(Shipper Code),
-                                  Item No=FIELD(Item No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
+                                  "Shipper Code" = FIELD("Shipper Code"),
+                                  "Item No" = FIELD("Item No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport");
                     Visible = false;
 
                     trigger OnAction()
                     begin
-                         IF "Shipper Code" <> 'C000041' THEN
-                         ERROR('');
+                        IF "Shipper Code" <> 'C000041' THEN
+                            ERROR('');
                     end;
                 }
             }
         }
     }
 
-    [Scope('Internal')]
+
     procedure GetDistributionLines()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Export.-Get Distribution",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Export.-Get Distribution", Rec);
     end;
 }
 

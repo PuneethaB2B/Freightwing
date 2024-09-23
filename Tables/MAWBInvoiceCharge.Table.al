@@ -5,7 +5,7 @@ table 50073 "MAWB Invoice Charge"
     {
         field(1; "Invoice No."; Code[20])
         {
-            TableRelation = "Sales Line"."Document No." WHERE (Document Type=FILTER(Invoice));
+            TableRelation = "Sales Line"."Document No." WHERE(Document Type=FILTER(Invoice));
         }
         field(3;"Item No.";Code[20])
         {

@@ -9,10 +9,8 @@ report 50040 "Update Dist"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "Dl. Weight Dist. Header" DO BEGIN
-                    "Dl. Weight Dist. Header"."Week No" := DATE2DWY("Dl. Weight Dist. Header"."Distribution Date", 2);
-                    "Dl. Weight Dist. Header".MODIFY;
-                END;
+                "Dl. Weight Dist. Header"."Week No" := DATE2DWY("Dl. Weight Dist. Header"."Distribution Date", 2);
+                "Dl. Weight Dist. Header".MODIFY;
             end;
         }
     }

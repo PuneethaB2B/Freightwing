@@ -8,29 +8,24 @@ codeunit 50034 "Using Report Functions"
         CurrentUser := USERID;
 
         // Save the request page parameters to the database table
-        WITH ReportParameters DO BEGIN
-            // Cleanup
-            IF GET(116, CurrentUser) THEN
-                DELETE;
-            SETAUTOCALCFIELDS(Parameters);
-            ReportID := 116;
-            UserID := CurrentUser;
-            Parameters.CREATEOUTSTREAM(OStream, TEXTENCODING::UTF8);
-            //MESSAGE(XmlParameters);
-            OStream.WRITETEXT(XmlParameters);
-            INSERT;
-        END;
+        // Cleanup
+        IF ReportParameters.GET(116, CurrentUser) THEN
+            ReportParameters.DELETE;
+        ReportParameters.SETAUTOCALCFIELDS(Parameters);
+        ReportParameters.ReportID := 116;
+        ReportParameters.UserID := CurrentUser;
+        ReportParameters.Parameters.CREATEOUTSTREAM(OStream, TEXTENCODING::UTF8);
+        //MESSAGE(XmlParameters);
+        OStream.WRITETEXT(XmlParameters);
+        ReportParameters.INSERT;
         CLEAR(ReportParameters);
         XmlParameters := '';
 
         // Read the request page parameters from the database table
-
-        WITH ReportParameters DO BEGIN
-            SETAUTOCALCFIELDS(Parameters);
-            GET(116, CurrentUser);
-            Parameters.CREATEINSTREAM(IStream, TEXTENCODING::UTF8);
-            IStream.READTEXT(XmlParameters);
-        END;
+        ReportParameters.SETAUTOCALCFIELDS(Parameters);
+        ReportParameters.GET(116, CurrentUser);
+        ReportParameters.Parameters.CREATEINSTREAM(IStream, TEXTENCODING::UTF8);
+        IStream.READTEXT(XmlParameters);
 
         // Use the REPORT.SAVEAS function to save the report as a PDF file
 

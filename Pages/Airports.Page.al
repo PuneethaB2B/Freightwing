@@ -1,7 +1,7 @@
 page 50029 Airports
 {
     PageType = List;
-    SourceTable = Table50019;
+    SourceTable = 50019;
 
     layout
     {
@@ -9,13 +9,13 @@ page 50029 Airports
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field("Country Code"; "Country Code")
+                field("Country Code"; Rec."Country Code")
                 {
                 }
                 field(Location; Location)

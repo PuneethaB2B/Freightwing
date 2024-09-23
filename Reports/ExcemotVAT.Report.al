@@ -9,8 +9,8 @@ report 50062 "Excemot VAT"
     {
         dataitem(DataItem1000000000; Table254)
         {
-            DataItemTableView = WHERE (Type = FILTER (Sale),
-                                      Amount = FILTER (0),
+            DataItemTableView = WHERE(Type = FILTER(Sale),
+                                      Amount = FILTER(0),
                                       VAT Prod. Posting Group=FILTER(VATE));
             column(Desc;Desc)
             {

@@ -4,10 +4,10 @@ page 50083 "Loading Sheets"
     Editable = false;
     PageType = List;
     SourceTable = Table50060;
-    SourceTableView = SORTING (No.)
+    SourceTableView = SORTING(No.)
                       ORDER(Descending)
-                      WHERE (Shipped = FILTER (No),
-                            Status = FILTER (<> Closed));
+                      WHERE(Shipped = FILTER(No),
+                            Status = FILTER(<> Closed));
 
     layout
     {

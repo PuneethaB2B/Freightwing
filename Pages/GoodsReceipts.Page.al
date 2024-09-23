@@ -4,8 +4,8 @@ page 50132 "Goods Receipts"
     Editable = false;
     PageType = List;
     SourceTable = Table50052;
-    SourceTableView = WHERE (Received = FILTER (No),
-                            Status = FILTER (Open | Submitted));
+    SourceTableView = WHERE(Received = FILTER(No),
+                            Status = FILTER(Open | Submitted));
 
     layout
     {

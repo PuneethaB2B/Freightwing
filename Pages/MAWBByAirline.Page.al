@@ -41,7 +41,7 @@ page 50047 "MAWB By Airline"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50228;
-                    RunPageLink = Field5 = FIELD (Airline Code);
+                    RunPageLink = Field5 = FIELD(Airline Code);
 
                     trigger OnAction()
                     begin

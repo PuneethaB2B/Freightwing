@@ -4,7 +4,7 @@ page 50164 "Cr. QR Code."
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = CardPart;
-    SourceTable = Table114;
+    SourceTable = 114;
 
     layout
     {

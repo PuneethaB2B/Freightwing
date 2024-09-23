@@ -8,7 +8,7 @@ tableextension 70000017 tableextension70000017 extends "Purchases & Payables Set
         }
         field(50001; "Item Journal Batch"; Code[10])
         {
-            TableRelation = "Item Journal Batch".Name WHERE (Journal Template Name=FIELD(Item journal Template));
+            TableRelation = "Item Journal Batch".Name WHERE(Journal Template Name=FIELD(Item journal Template));
         }
         field(50002; "Item journal Template"; Code[10])
         {

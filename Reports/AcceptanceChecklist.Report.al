@@ -272,15 +272,13 @@ report 50003 "Acceptance Checklist"
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Good Receipt Line" DO BEGIN
-                        GRNUldAllocc.RESET;
-                        GRNUldAllocc.SETRANGE(GRNUldAllocc."Good Receipt No.", "Good Receipt Line"."Good Receipt No.");
-                        IF GRNUldAllocc.FINDSET THEN BEGIN
-                            REPEAT
-                                ULDAllocations += 1;
-                            UNTIL GRNUldAllocc.NEXT = 0;
-                        END
-                    END;
+                    GRNUldAllocc.RESET;
+                    GRNUldAllocc.SETRANGE(GRNUldAllocc."Good Receipt No.", "Good Receipt Line"."Good Receipt No.");
+                    IF GRNUldAllocc.FINDSET THEN BEGIN
+                        REPEAT
+                            ULDAllocations += 1;
+                        UNTIL GRNUldAllocc.NEXT = 0;
+                    END
                 end;
             }
 

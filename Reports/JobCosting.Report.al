@@ -22,7 +22,7 @@ report 50043 "Job Costing"
             dataitem(DataItem1000000001; Table123)
             {
                 DataItemLink = Document No.=FIELD(No.);
-                DataItemTableView = WHERE (Payment Voucher No.=FILTER(<>''));
+                DataItemTableView = WHERE(Payment Voucher No.=FILTER(<>''));
                 column(Weight;Weight)
                 {
                 }

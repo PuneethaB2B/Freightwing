@@ -7,7 +7,7 @@ report 50049 "Exports By Dest. AirLines"
     {
         dataitem(DataItem1000000000; Table112)
         {
-            DataItemTableView = WHERE (Bill-to Name=FILTER(<>''),
+            DataItemTableView = WHERE(Bill-to Name=FILTER(<>''),
                                       MAWB No.=FILTER(<>''));
             RequestFilterFields = "Airline Code";
             column(Company_Address;gRecCompanyInfo.Address)

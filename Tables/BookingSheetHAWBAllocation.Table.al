@@ -13,7 +13,7 @@ table 50056 "Booking Sheet HAWB Allocation"
         }
         field(3; "Consignee Code"; Code[20])
         {
-            TableRelation = "Shipper Consignee"."Consignee No." WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Consignee"."Consignee No." WHERE(Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin

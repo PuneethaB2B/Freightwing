@@ -8,7 +8,7 @@ report 50080 "Monthly Airline Export"
     {
         dataitem(DataItem1000000056; Table50039)
         {
-            DataItemTableView = WHERE (Assigned Date=FILTER(<>''),
+            DataItemTableView = WHERE(Assigned Date=FILTER(<>''),
                                       MAWB No.=FILTER(<>''));
             RequestFilterFields = "Airline Code","MAWB No.","Assigned Date";
             column(Logo;CompanyInfo.Picture)

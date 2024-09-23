@@ -111,7 +111,7 @@ report 50071 "Close Invoiced MAWBs"
         IF BsMawb.FINDSET THEN BEGIN
             REPEAT
                 "No." += 1;
-                //MESSAGE('%1 MWAB  %2',"No.",MAWBno);
+            //MESSAGE('%1 MWAB  %2',"No.",MAWBno);
             UNTIL BsMawb.NEXT = 0;
         END;
         //MESSAGE('Shippers %1',"No.");

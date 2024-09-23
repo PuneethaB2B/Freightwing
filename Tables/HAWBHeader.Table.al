@@ -5,7 +5,7 @@ table 50075 "HAWB Header"
     {
         field(1; "No."; Code[20])
         {
-            TableRelation = "HAWB Receipt"."HAWB No." WHERE (Assigned = FILTER (No));
+            TableRelation = "HAWB Receipt"."HAWB No." WHERE(Assigned = FILTER(No));
         }
         field(2; "Shipper Code"; Code[20])
         {
@@ -14,21 +14,21 @@ table 50075 "HAWB Header"
             trigger OnValidate()
             begin
                 Shipper.GET("Shipper Code");
-                "Shipper Name":=Shipper.Name;
-                "Shipper Address":=Shipper.Address;
+                "Shipper Name" := Shipper.Name;
+                "Shipper Address" := Shipper.Address;
             end;
         }
-        field(3;"Shipper Address";Text[30])
+        field(3; "Shipper Address"; Text[30])
         {
             Editable = false;
         }
-        field(4;"Shipper Name";Text[30])
+        field(4; "Shipper Name"; Text[30])
         {
             Editable = false;
         }
-        field(5;"Consignee Code";Code[20])
+        field(5; "Consignee Code"; Code[20])
         {
-            TableRelation = "Loading Sheet Line"."Consignee Code" WHERE (Shipper Code=FIELD(Shipper Code),
+            TableRelation = "Loading Sheet Line"."Consignee Code" WHERE(Shipper Code=FIELD(Shipper Code),
                                                                          MAWB No.=FIELD(MAWB No.));
 
             trigger OnValidate()

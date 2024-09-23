@@ -6,7 +6,7 @@ page 50145 "Posted MAWB Invoice"
     PromotedActionCategories = ' New,Process,Reports,Documents & Charges,C5,C6,C7,C8,C9,C10';
     RefreshOnActivate = true;
     SourceTable = Table36;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice),
+    SourceTableView = WHERE(Document Type=FILTER(Invoice),
                             Posted=FILTER(Yes));
 
     layout

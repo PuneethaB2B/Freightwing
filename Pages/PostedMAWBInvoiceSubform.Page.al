@@ -9,7 +9,7 @@ page 50146 "Posted MAWB Invoice Subform"
     PageType = ListPart;
     PromotedActionCategories = ' New,Posting,Reports,Documents/Certificates,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = Table37;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice));
+    SourceTableView = WHERE(Document Type=FILTER(Invoice));
 
     layout
     {

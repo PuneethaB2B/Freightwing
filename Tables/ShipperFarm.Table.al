@@ -10,7 +10,7 @@ table 50014 "Shipper Farm"
             NotBlank = true;
             TableRelation = Customer.No.;
         }
-        field(2;"Farm Code";Code[20])
+        field(2; "Farm Code"; Code[20])
         {
             Caption = 'Farm Code';
             TableRelation = Division/Farm.Code;

@@ -7,7 +7,7 @@ report 50120 "Purchase Sale Comparison"
     {
         dataitem(DataItem1000000000; Table50039)
         {
-            DataItemTableView = WHERE (MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
             column(AirlineCode_MAWBReceipt;"MAWB Receipt"."Airline Code")
             {
             }

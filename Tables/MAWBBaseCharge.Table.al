@@ -24,11 +24,11 @@ table 50005 "MAWB Base Charge"
         {
             TableRelation = "G/L Account".No.;
         }
-        field(5;"Airline Code";Code[20])
+        field(5; "Airline Code"; Code[20])
         {
             TableRelation = Airline.Code;
         }
-        field(6;"Currency Code";Code[10])
+        field(6; "Currency Code"; Code[10])
         {
             Caption = 'Currency Code';
             TableRelation = Currency;
@@ -37,7 +37,7 @@ table 50005 "MAWB Base Charge"
 
     keys
     {
-        key(Key1;"Code","Airline Code")
+        key(Key1; "Code", "Airline Code")
         {
             Clustered = true;
         }

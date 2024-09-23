@@ -7,7 +7,7 @@ report 50027 "Curr Reconciliation Customer"
     {
         dataitem(DataItem1000000000; Table379)
         {
-            DataItemTableView = WHERE (Entry Type=FILTER(Unrealized Loss|Unrealized Gain));
+            DataItemTableView = WHERE(Entry Type=FILTER(Unrealized Loss|Unrealized Gain));
             column(PostingDate;"Detailed Cust. Ledg. Entry"."Posting Date")
             {
             }

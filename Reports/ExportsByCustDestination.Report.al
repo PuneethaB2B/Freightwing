@@ -7,7 +7,7 @@ report 50054 "Exports By Cust. Destination"
     {
         dataitem(DataItem1000000000; Table112)
         {
-            DataItemTableView = WHERE (Bill-to Name=FILTER(<>''),
+            DataItemTableView = WHERE(Bill-to Name=FILTER(<>''),
                                       MAWB No.=FILTER(<>''));
             RequestFilterFields = "Bill-to Customer No.";
             column(Company_Address;gRecCompanyInfo.Address)

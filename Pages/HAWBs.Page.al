@@ -4,7 +4,7 @@ page 50108 HAWBs
     CardPageID = HAWB;
     PageType = List;
     SourceTable = Table50075;
-    SourceTableView = WHERE (Status = FILTER (<> Archived));
+    SourceTableView = WHERE(Status = FILTER(<> Archived));
 
     layout
     {

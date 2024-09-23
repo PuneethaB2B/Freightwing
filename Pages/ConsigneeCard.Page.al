@@ -2,7 +2,7 @@ page 50022 "Consignee Card"
 {
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Banks,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50015;
+    SourceTable = 50015;
 
     layout
     {
@@ -10,7 +10,7 @@ page 50022 "Consignee Card"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
@@ -19,23 +19,23 @@ page 50022 "Consignee Card"
                             CurrPage.UPDATE;
                     end;
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field("Internet Address"; "Internet Address")
+                field("Internet Address"; Rec."Internet Address")
                 {
                     Caption = 'Home Page';
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                 }
                 field("Country/Region Code"; "Country/Region Code")
                 {
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                 }
                 field("Phone No."; "Phone No.")
@@ -74,7 +74,7 @@ page 50022 "Consignee Card"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50024;
-                    RunPageLink = Activity Code=FIELD(No.);
+                    RunPageLink = "Activity Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin
@@ -88,8 +88,8 @@ page 50022 "Consignee Card"
                 {
                     Image = Email;
                     RunObject = Page 50088;
-                                    RunPageLink = Type=CONST(Consignee),
-                                  No.=FIELD(No.);
+                    RunPageLink = Type = CONST(Consignee),
+                                  "No." = FIELD("No.");
                 }
             }
         }

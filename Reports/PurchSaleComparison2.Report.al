@@ -7,7 +7,7 @@ report 50119 "Purch. Sale Comparison 2"
     {
         dataitem(DataItem1000000000; Table50039)
         {
-            DataItemTableView = WHERE (MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
             RequestFilterFields = "Invioced Date";
             column(AirlineCode_MAWBReceipt;"MAWB Receipt"."Airline Code")
             {

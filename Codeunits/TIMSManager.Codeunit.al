@@ -659,7 +659,7 @@ codeunit 50035 "TIMS Manager."
 
                 TotalPrice := ROUND(TotalPrice, 1, '=');
 
-                //Here
+            //Here
             UNTIL SalesInvLine.NEXT = 0;
 
         EXIT(TotalPrice);
@@ -694,7 +694,7 @@ codeunit 50035 "TIMS Manager."
                 END;
 
                 TotalPrice := ROUND(TotalPrice, 1, '=');
-                //Here
+            //Here
             UNTIL SalesInvLine.NEXT = 0;
         EXIT(TotalPrice);
     end;
@@ -730,9 +730,9 @@ codeunit 50035 "TIMS Manager."
                 END;
 
                 TotalPrice := ROUND(TotalPrice, 1, '=');
-                //TotalPrice := Round(TotalPrice,0.01);
+            //TotalPrice := Round(TotalPrice,0.01);
 
-                //Here
+            //Here
             UNTIL SalesCrMemoLine.NEXT = 0;
         EXIT(TotalPrice);
     end;
@@ -766,7 +766,7 @@ codeunit 50035 "TIMS Manager."
                 END;
                 //TotalPrice := ROUND(TotalPrice,1,'=');
                 TotalPrice := ROUND(TotalPrice, 0.01);
-                //Here
+            //Here
             UNTIL SalesCrMemoLine.NEXT = 0;
         EXIT(TotalPrice);
     end;

@@ -1,7 +1,7 @@
 page 50008 "Delivered Imports Header"
 {
     Editable = false;
-    SourceTable = Table50030;
+    SourceTable = 50030;
 
     layout
     {
@@ -9,13 +9,13 @@ page 50008 "Delivered Imports Header"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
                 field("Item No."; "Item No.")
@@ -30,16 +30,16 @@ page 50008 "Delivered Imports Header"
                 field(Quantity; Quantity)
                 {
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
                 field("Flight Code"; "Flight Code")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
                 field("Port of Discharge"; "Port of Discharge")
@@ -87,7 +87,7 @@ page 50008 "Delivered Imports Header"
             }
             part(; 50007)
             {
-                SubPageLink = Pre Alert No=FIELD(No.);
+                SubPageLink = "Pre Alert No" = FIELD("No.");
             }
         }
     }
@@ -109,8 +109,8 @@ page 50008 "Delivered Imports Header"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50032;
-                    RunPageLink = Manifest No=FIELD(Flight Code),
-                                  Delivery Agent=FIELD(Country of Discharge);
+                    RunPageLink = "Manifest No" = FIELD("Flight Code"),
+                                  "Delivery Agent" = FIELD("Country of Discharge");
 
                     trigger OnAction()
                     begin

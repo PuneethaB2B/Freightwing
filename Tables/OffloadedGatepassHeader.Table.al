@@ -10,7 +10,7 @@ table 50071 "Offloaded Gatepass Header"
         field(2; "ULD No"; Code[50])
         {
             NotBlank = true;
-            TableRelation = "Gate Pass Line"."ULD No." WHERE (Gate-Pass No.=FIELD(Gate Pass No),
+            TableRelation = "Gate Pass Line"."ULD No." WHERE(Gate-Pass No.=FIELD(Gate Pass No),
                                                               Offloaded=FILTER(No));
 
             trigger OnValidate()

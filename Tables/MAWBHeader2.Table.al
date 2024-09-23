@@ -6,8 +6,8 @@ table 50077 "MAWB Header 2"
         field(1; "No."; Code[20])
         {
             NotBlank = true;
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned = FILTER (Yes),
-                                                             Prepared = FILTER (No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(Yes),
+                                                             Prepared = FILTER(No));
 
             trigger OnValidate()
             begin
@@ -147,61 +147,62 @@ table 50077 "MAWB Header 2"
 
             trigger OnValidate()
             begin
-                IF "Shipper Code" = '' THEN BEGIN END ELSE BEGIN
-                Shipper.GET("Shipper Code");
-                "Shipper Name":=Shipper.Name;
-                "Shipper Address":=Shipper.Address;
+                IF "Shipper Code" = '' THEN BEGIN
+                END ELSE BEGIN
+                    Shipper.GET("Shipper Code");
+                    "Shipper Name" := Shipper.Name;
+                    "Shipper Address" := Shipper.Address;
                 END;
             end;
         }
-        field(3;"Shipper Address";Text[30])
+        field(3; "Shipper Address"; Text[30])
         {
             Editable = false;
         }
-        field(4;"Shipper Name";Text[30])
+        field(4; "Shipper Name"; Text[30])
         {
             Editable = false;
         }
-        field(5;"Consignee Code";Code[20])
+        field(5; "Consignee Code"; Code[20])
         {
             TableRelation = Consignee.No.;
 
             trigger OnValidate()
             begin
                 Consignee.GET("Consignee Code");
-                "Consignee Name":=Consignee.Name;
+                "Consignee Name" := Consignee.Name;
             end;
         }
-        field(6;"Consignee Name";Code[20])
+        field(6; "Consignee Name"; Code[20])
         {
             Editable = false;
         }
-        field(7;"Agent's IATA Code";Code[20])
+        field(7; "Agent's IATA Code"; Code[20])
         {
             TableRelation = "Shipping Agent".Code;
         }
-        field(8;"Carrier Agent Code";Code[20])
+        field(8; "Carrier Agent Code"; Code[20])
         {
             TableRelation = "Shipping Agent".Code;
         }
-        field(9;"Source Airport";Code[20])
+        field(9; "Source Airport"; Code[20])
         {
             TableRelation = Airport.Code;
         }
-        field(10;"Airline Code";Code[20])
+        field(10; "Airline Code"; Code[20])
         {
             TableRelation = Airline.Code;
 
             trigger OnValidate()
             begin
-                IF "Airline Code"<> xRec."Airline Code" THEN BEGIN
-                  "Flight Code":='';
+                IF "Airline Code" <> xRec."Airline Code" THEN BEGIN
+                    "Flight Code" := '';
                 END;
             end;
         }
-        field(11;"Destination Airport";Code[20])
+        field(11; "Destination Airport"; Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE(Country Code=FIELD(Destination Code));
 
             trigger OnValidate()
             begin

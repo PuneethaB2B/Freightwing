@@ -22,7 +22,7 @@ table 50030 "Pre Alert Header"
         }
         field(3; "MAWB No"; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned = FILTER (No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(No));
         }
         field(4; "Delivery Agent"; Code[20])
         {
@@ -49,7 +49,7 @@ table 50030 "Pre Alert Header"
         }
         field(6; "Port of Origin"; Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Country of Origin));
+            TableRelation = Airport.Code WHERE(Country Code=FIELD(Country of Origin));
         }
         field(7;"Port of Discharge";Code[20])
         {

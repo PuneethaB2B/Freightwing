@@ -4,7 +4,7 @@ codeunit 50004 "Export.-Get Distribution"
 
     trigger OnRun()
     begin
-        OrderBookingHeader.GET("Booking Sheet No.");
+        OrderBookingHeader.GET(Rec."Booking Sheet No.");
 
         DailyWeightDistByItem.SETRANGE("Customer No.", OrderBookingHeader."Shipper Code");
         DailyWeightDistByItem.SETRANGE("Distribution Date", OrderBookingHeader."Booking Date");
@@ -30,20 +30,18 @@ codeunit 50004 "Export.-Get Distribution"
     var
         TransferLine: Boolean;
     begin
-        WITH DailyWeightDistByItem2 DO BEGIN
 
-            IF FIND('-') THEN BEGIN
-                OrderBookingLine.LOCKTABLE;
-                OrderBookingLine.SETRANGE("Booking Sheet No.", OrderBookingHeader."No.");
-                OrderBookingLine."Booking Sheet No." := OrderBookingHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        DailyWeightDistByItem := DailyWeightDistByItem2;
-                        DailyWeightDistByItem.InsertOrderBookingLineFromDailyWeightDistByItem(OrderBookingLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF DailyWeightDistByItem2.FIND('-') THEN BEGIN
+            OrderBookingLine.LOCKTABLE;
+            OrderBookingLine.SETRANGE("Booking Sheet No.", OrderBookingHeader."No.");
+            OrderBookingLine."Booking Sheet No." := OrderBookingHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    DailyWeightDistByItem := DailyWeightDistByItem2;
+                    DailyWeightDistByItem.InsertOrderBookingLineFromDailyWeightDistByItem(OrderBookingLine);
+                END;
+            UNTIL DailyWeightDistByItem2.NEXT = 0;
         END;
     end;
 

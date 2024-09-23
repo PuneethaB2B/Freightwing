@@ -7,7 +7,7 @@ report 50050 "Currency Reconciliation Report"
     {
         dataitem(DataItem1000000000; Table21)
         {
-            DataItemTableView = WHERE (Open = CONST (Yes),
+            DataItemTableView = WHERE(Open = CONST(Yes),
                                       Currency Code=FILTER(<>''));
             column(ShowCustomer;gBoolShowCustomer)
             {

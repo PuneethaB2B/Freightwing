@@ -2,7 +2,7 @@ page 50074 "Booking Sheet Notify Parties"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = Table50057;
+    SourceTable = 50057;
 
     layout
     {
@@ -14,7 +14,7 @@ page 50074 "Booking Sheet Notify Parties"
                 {
                     Editable = false;
                 }
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
                 field("Notify-Party Name"; "Notify-Party Name")
@@ -43,7 +43,7 @@ page 50074 "Booking Sheet Notify Parties"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record "112";
+                        SalesInvHeader: Record 112;
                     begin
                         /*BookingSheetNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(BookingSheetNotifyParty);
@@ -51,7 +51,7 @@ page 50074 "Booking Sheet Notify Parties"
 
                         IF CONFIRM(Text001, FALSE) THEN BEGIN
                             BookingSheetNotifyParty.RESET;
-                            BookingSheetNotifyParty.SETRANGE(BookingSheetNotifyParty."Booking Sheet No.", "Booking Sheet No.");
+                            BookingSheetNotifyParty.SETRANGE(BookingSheetNotifyParty."Booking Sheet No.", Rec."Booking Sheet No.");
                             IF BookingSheetNotifyParty.FINDSET THEN BEGIN
                                 REPEAT
                                     BookingSheetNotifyParty2.RESET;
@@ -72,8 +72,8 @@ page 50074 "Booking Sheet Notify Parties"
     }
 
     var
-        BookingSheetNotifyParty: Record "50057";
-        BookingSheetNotifyParty2: Record "50057";
+        BookingSheetNotifyParty: Record 50057;
+        BookingSheetNotifyParty2: Record 50057;
         Text001: Label 'Do you want to send the email notifications?';
 }
 

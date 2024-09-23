@@ -22,17 +22,17 @@ table 50060 "Loading Sheet Header"
             trigger OnValidate()
             begin
                 Shipper.GET("Shipper Code");
-                "Shipper Name":=Shipper.Name;
-                Description:=Text004+"Shipper Name";
+                "Shipper Name" := Shipper.Name;
+                Description := Text004 + "Shipper Name";
             end;
         }
-        field(4;"Shipper Name";Text[50])
+        field(4; "Shipper Name"; Text[50])
         {
             Editable = false;
         }
-        field(5;"MAWB No.";Code[20])
+        field(5; "MAWB No."; Code[20])
         {
-            TableRelation = "Good Receipt Line"."MAWB No." WHERE (Shipper Code=FIELD(Shipper Code),
+            TableRelation = "Good Receipt Line"."MAWB No." WHERE(Shipper Code=FIELD(Shipper Code),
                                                                   Status=FILTER(Shipped Part|Received),
                                                                   Loading Sheet No.=FILTER(''));
 

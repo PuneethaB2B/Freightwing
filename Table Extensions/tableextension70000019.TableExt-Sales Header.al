@@ -94,9 +94,9 @@ tableextension 70000019 tableextension70000019 extends "Sales Header"
         //end;
         field(50000; "MAWB No."; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Prepared = FILTER (Yes),
-                                                             Assigned = FILTER (Yes),
-                                                             Invoiced = FILTER (No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Prepared = FILTER(Yes),
+                                                             Assigned = FILTER(Yes),
+                                                             Invoiced = FILTER(No));
 
             trigger OnValidate()
             begin
@@ -152,7 +152,7 @@ tableextension 70000019 tableextension70000019 extends "Sales Header"
         }
         field(50003; "Flight Code"; Code[20])
         {
-            TableRelation = Flight."Flight Code" WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight Code" WHERE(Airline Code=FIELD(Airline Code));
         }
         field(50004;"Destination Code";Code[20])
         {

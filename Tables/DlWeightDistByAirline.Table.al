@@ -7,36 +7,35 @@ table 50041 "Dl. Weight Dist. By Airline"
         {
             TableRelation = "Dl. Weight Dist. Header".No.;
         }
-        field(2;"Airline Code";Code[20])
+        field(2; "Airline Code"; Code[20])
         {
             TableRelation = Airline.Code;
 
             trigger OnValidate()
             begin
                 DailyWeightDistHeader.RESET;
-                DailyWeightDistHeader.SETRANGE(DailyWeightDistHeader."No.","Daily No.");
-                IF DailyWeightDistHeader.FINDFIRST THEN
-                BEGIN
-                  DailyWeightDistHeader.TESTFIELD("Distribution Date");
-                  DailyWeightDistHeader.TESTFIELD(Description);
-                  EVALUATE(DayofWeek,DailyWeightDistHeader."Day of Week");
-                  "Day of Week":=DayofWeek;
-                  "Distribution Date":=DailyWeightDistHeader."Distribution Date";
-                  Airline.RESET;
-                  Airline.SETRANGE(Airline.Code,"Airline Code");
-                  IF Airline.FINDFIRST THEN BEGIN
-                  "Airline Name":=Airline.Name;
-                  END;
+                DailyWeightDistHeader.SETRANGE(DailyWeightDistHeader."No.", "Daily No.");
+                IF DailyWeightDistHeader.FINDFIRST THEN BEGIN
+                    DailyWeightDistHeader.TESTFIELD("Distribution Date");
+                    DailyWeightDistHeader.TESTFIELD(Description);
+                    EVALUATE(DayofWeek, DailyWeightDistHeader."Day of Week");
+                    "Day of Week" := DayofWeek;
+                    "Distribution Date" := DailyWeightDistHeader."Distribution Date";
+                    Airline.RESET;
+                    Airline.SETRANGE(Airline.Code, "Airline Code");
+                    IF Airline.FINDFIRST THEN BEGIN
+                        "Airline Name" := Airline.Name;
+                    END;
                 END;
             end;
         }
-        field(3;"Airline Name";Text[50])
+        field(3; "Airline Name"; Text[50])
         {
             Editable = false;
         }
-        field(4;"Total Capacity Planned";Decimal)
+        field(4; "Total Capacity Planned"; Decimal)
         {
-            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code),
+            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE(Airline Code=FIELD(Airline Code),
                                                                                          Destination Code=FIELD(Destination Code),
                                                                                          Day of Week=FIELD(Day of Week),
                                                                                          Destination Airport=FIELD(Destination Airport),

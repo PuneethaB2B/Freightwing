@@ -7,7 +7,7 @@ report 50089 "Sales Purch Comp"
     {
         dataitem(DataItem1000000000; Table50039)
         {
-            DataItemTableView = WHERE (MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
             RequestFilterFields = "Airline Code","MAWB No.";
             column(AirlineCode_MAWBReceipt;Airlines.Name)
             {

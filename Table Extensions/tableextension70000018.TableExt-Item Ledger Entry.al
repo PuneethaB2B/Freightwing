@@ -6,7 +6,7 @@ tableextension 70000018 tableextension70000018 extends "Item Ledger Entry"
         {
             TableRelation = Customer.No.;
         }
-        field(50001;Weight;Decimal)
+        field(50001; Weight; Decimal)
         {
         }
     }

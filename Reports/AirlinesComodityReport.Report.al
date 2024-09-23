@@ -7,7 +7,7 @@ report 50074 "Airlines Comodity Report"
     {
         dataitem(DataItem1000000079; Table50039)
         {
-            DataItemTableView = WHERE (Assigned Date=FILTER(<>''));
+            DataItemTableView = WHERE(Assigned Date=FILTER(<>''));
             RequestFilterFields = "Airline Code","Assigned Date";
             column(Filters;Filters)
             {

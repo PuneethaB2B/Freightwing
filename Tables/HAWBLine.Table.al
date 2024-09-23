@@ -5,7 +5,7 @@ table 50074 "HAWB Line"
     {
         field(1; "HAWB No."; Code[20])
         {
-            TableRelation = "HAWB Receipt"."HAWB No." WHERE (Assigned = FILTER (No));
+            TableRelation = "HAWB Receipt"."HAWB No." WHERE(Assigned = FILTER(No));
 
             trigger OnValidate()
             begin
@@ -24,42 +24,42 @@ table 50074 "HAWB Line"
             trigger OnValidate()
             begin
                 Item.GET("Item No.");
-                Description:=Item.Description;
+                Description := Item.Description;
             end;
         }
-        field(3;Description;Text[50])
+        field(3; Description; Text[50])
         {
         }
-        field(4;"Gross Weight";Decimal)
+        field(4; "Gross Weight"; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = true;
         }
-        field(5;"Unit of Measure";Code[20])
+        field(5; "Unit of Measure"; Code[20])
         {
         }
-        field(6;"Rate/Charge";Decimal)
+        field(6; "Rate/Charge"; Decimal)
         {
         }
-        field(7;"Chargeable Weight";Decimal)
+        field(7; "Chargeable Weight"; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = true;
         }
-        field(8;"Invoice No.";Code[20])
+        field(8; "Invoice No."; Code[20])
         {
         }
-        field(9;"Line Amount";Decimal)
+        field(9; "Line Amount"; Decimal)
         {
         }
-        field(10;Quantity;Decimal)
+        field(10; Quantity; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
         }
-        field(11;"Line No.";Integer)
+        field(11; "Line No."; Integer)
         {
         }
-        field(12;"Division/Farm Code";Code[20])
+        field(12; "Division/Farm Code"; Code[20])
         {
             TableRelation = Division/Farm.Code;
         }

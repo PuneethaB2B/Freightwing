@@ -7,7 +7,7 @@ page 50129 "Received Booking Sheets"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = Table50053;
-    SourceTableView = WHERE (Status = FILTER (Received));
+    SourceTableView = WHERE(Status = FILTER(Received));
 
     layout
     {

@@ -8,8 +8,8 @@ page 50077 "Archived MAWBs"
     PageType = List;
     RefreshOnActivate = true;
     ShowFilter = true;
-    SourceTable = Table50077;
-    SourceTableView = WHERE (Status = FILTER (Archived));
+    SourceTable = 50077;
+    SourceTableView = WHERE(Status = FILTER(Archived));
 
     layout
     {
@@ -17,10 +17,10 @@ page 50077 "Archived MAWBs"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
                 field("Phyto Certificate"; "Phyto Certificate")
@@ -83,7 +83,7 @@ page 50077 "Archived MAWBs"
                 trigger OnAction()
                 begin
                     "Gate Pass Prepared" := TRUE;
-                    MODIFY;
+                    Rec.MODIFY;
                 end;
             }
         }

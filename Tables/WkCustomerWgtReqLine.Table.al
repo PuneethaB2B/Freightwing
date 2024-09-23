@@ -7,9 +7,9 @@ table 50048 "Wk. Customer Wgt. Req. Line"
         {
             TableRelation = "Wk. Customer Wgt. Req. Header".No.;
         }
-        field(2;"Customer No.";Code[20])
+        field(2; "Customer No."; Code[20])
         {
-            TableRelation = Customer.No. WHERE (Customer Type=FILTER(Group|Third Party));
+            TableRelation = Customer.No. WHERE(Customer Type=FILTER(Group|Third Party));
 
             trigger OnValidate()
             begin

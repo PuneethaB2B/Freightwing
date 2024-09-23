@@ -3,8 +3,8 @@ page 50071 "Booking Sheets"
     CardPageID = "Booking Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = Table50053;
-    SourceTableView = WHERE (Status = FILTER (Open | Submitted));
+    SourceTable = 50053;
+    SourceTableView = WHERE(Status = FILTER(Open | Submitted));
 
     layout
     {
@@ -12,19 +12,19 @@ page 50071 "Booking Sheets"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Booking Date"; "Booking Date")
+                field("Booking Date"; Rec."Booking Date")
                 {
                 }
                 field(Description; Description)
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
                 field("Prepared By"; "Prepared By")
@@ -58,6 +58,6 @@ page 50071 "Booking Sheets"
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

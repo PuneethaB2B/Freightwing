@@ -8,7 +8,7 @@ report 50079 "Detail Trial Balance FWL"
     {
         dataitem(DataItem6710; Table15)
         {
-            DataItemTableView = WHERE (Account Type=CONST(Posting));
+            DataItemTableView = WHERE(Account Type=CONST(Posting));
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Search Name", "Income/Balance", "Debit/Credit", "Date Filter";
             column(PeriodGLDtFilter; STRSUBSTNO(Text000, GLDateFilter))
@@ -73,8 +73,8 @@ report 50079 "Detail Trial Balance FWL"
             }
             dataitem(PageCounter; Table2000000026)
             {
-                DataItemTableView = SORTING (Number)
-                                    WHERE (Number = CONST (1));
+                DataItemTableView = SORTING(Number)
+                                    WHERE(Number = CONST(1));
                 column(Name_GLAcc; "G/L Account".Name)
                 {
                 }

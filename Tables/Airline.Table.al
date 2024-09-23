@@ -24,27 +24,27 @@ table 50021 Airline
 
             trigger OnValidate()
             begin
-                Ok:=Vendor.GET("Default Vendor No");
-                "Vendor Name":=Vendor.Name;
+                Ok := Vendor.GET("Default Vendor No");
+                "Vendor Name" := Vendor.Name;
             end;
         }
-        field(7;"Vendor Name";Text[250])
+        field(7; "Vendor Name"; Text[250])
         {
             Editable = false;
         }
-        field(8;"Created By";Code[50])
+        field(8; "Created By"; Code[50])
         {
             Editable = false;
         }
-        field(9;"Created On";Date)
+        field(9; "Created On"; Date)
         {
             Editable = false;
         }
-        field(10;"Last Updated By";Code[50])
+        field(10; "Last Updated By"; Code[50])
         {
             Editable = false;
         }
-        field(11;"Last Updated On";Date)
+        field(11; "Last Updated On"; Date)
         {
             Editable = false;
         }
@@ -52,7 +52,7 @@ table 50021 Airline
 
     keys
     {
-        key(Key1;"Code")
+        key(Key1; "Code")
         {
             Clustered = true;
         }
@@ -65,23 +65,23 @@ table 50021 Airline
     trigger OnDelete()
     begin
         Flight.RESET;
-        Flight.SETRANGE("Airline Code",Code);
+        Flight.SETRANGE("Airline Code", Code);
         IF Flight.FINDFIRST THEN
-          ERROR(Text001,Code,Flight.TABLENAME);
+            ERROR(Text001, Code, Flight.TABLENAME);
     end;
 
     trigger OnInsert()
     begin
-        "Created By":=USERID;
-        "Created On":=TODAY;
-        "Last Updated By":=USERID;
-        "Last Updated On":=TODAY;
+        "Created By" := USERID;
+        "Created On" := TODAY;
+        "Last Updated By" := USERID;
+        "Last Updated On" := TODAY;
     end;
 
     trigger OnModify()
     begin
-        "Last Updated By":=USERID;
-        "Last Updated On":=TODAY;
+        "Last Updated By" := USERID;
+        "Last Updated On" := TODAY;
         MODIFY;
     end;
 

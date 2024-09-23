@@ -6,8 +6,8 @@ page 50103 "Archived HAWBs"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    SourceTable = Table50075;
-    SourceTableView = WHERE (Status = FILTER (Archived));
+    SourceTable = 50075;
+    SourceTableView = WHERE(Status = FILTER(Archived));
 
     layout
     {
@@ -18,16 +18,16 @@ page 50103 "Archived HAWBs"
                 field("MAWB No."; "MAWB No.")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Address"; "Shipper Address")
+                field("Shipper Address"; Rec."Shipper Address")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
                 field("Consignee Name"; "Consignee Name")

@@ -141,7 +141,7 @@ report 50006 "Accounts Receivable Ageing"
             dataitem(DataItem8503; Table21)
             {
                 DataItemLink = Customer No.=FIELD(No.);
-                DataItemTableView = SORTING (Customer No., Posting Date, Currency Code);
+                DataItemTableView = SORTING(Customer No., Posting Date, Currency Code);
 
                 trigger OnAfterGetRecord()
                 var
@@ -182,7 +182,7 @@ report 50006 "Accounts Receivable Ageing"
             dataitem(OpenCustLedgEntry; Table21)
             {
                 DataItemLink = Customer No.=FIELD(No.);
-                DataItemTableView = SORTING (Customer No., Open, Positive, Due Date, Currency Code);
+                DataItemTableView = SORTING(Customer No., Open, Positive, Due Date, Currency Code);
 
                 trigger OnAfterGetRecord()
                 begin
@@ -206,13 +206,13 @@ report 50006 "Accounts Receivable Ageing"
             }
             dataitem(CurrencyLoop; Table2000000026)
             {
-                DataItemTableView = SORTING (Number)
-                                    WHERE (Number = FILTER (1 ..));
+                DataItemTableView = SORTING(Number)
+                                    WHERE(Number = FILTER(1 ..));
                 PrintOnlyIfDetail = true;
                 dataitem(TempCustLedgEntryLoop; Table2000000026)
                 {
-                    DataItemTableView = SORTING (Number)
-                                        WHERE (Number = FILTER (1 ..));
+                    DataItemTableView = SORTING(Number)
+                                        WHERE(Number = FILTER(1 ..));
                     column(Name1_Cust; Customer.Name)
                     {
                         IncludeCaption = true;
@@ -547,8 +547,8 @@ report 50006 "Accounts Receivable Ageing"
         }
         dataitem(CurrencyTotals; Table2000000026)
         {
-            DataItemTableView = SORTING (Number)
-                                WHERE (Number = FILTER (1 ..));
+            DataItemTableView = SORTING(Number)
+                                WHERE(Number = FILTER(1 ..));
             column(CurrNo; Number = 1)
             {
             }
@@ -817,32 +817,30 @@ report 50006 "Accounts Receivable Ageing"
     var
         Currency: Record "4";
     begin
-        WITH TempCustLedgEntry DO BEGIN
-            IF GET(CustLedgEntry."Entry No.") THEN
-                EXIT;
-            TempCustLedgEntry := CustLedgEntry;
-            INSERT;
-            IF PrintAmountInLCY THEN BEGIN
-                CLEAR(TempCurrency);
-                TempCurrency."Amount Rounding Precision" := GLSetup."Amount Rounding Precision";
-                IF TempCurrency.INSERT THEN;
-                EXIT;
-            END;
-            IF TempCurrency.GET("Currency Code") THEN
-                EXIT;
-            IF TempCurrency.GET('') AND ("Currency Code" = GLSetup."LCY Code") THEN
-                EXIT;
-            IF TempCurrency.GET(GLSetup."LCY Code") AND ("Currency Code" = '') THEN
-                EXIT;
-            IF "Currency Code" <> '' THEN
-                Currency.GET("Currency Code")
-            ELSE BEGIN
-                CLEAR(Currency);
-                Currency."Amount Rounding Precision" := GLSetup."Amount Rounding Precision";
-            END;
-            TempCurrency := Currency;
-            TempCurrency.INSERT;
+        IF TempCustLedgEntry.GET(CustLedgEntry."Entry No.") THEN
+            EXIT;
+        TempCustLedgEntry := CustLedgEntry;
+        TempCustLedgEntry.INSERT;
+        IF PrintAmountInLCY THEN BEGIN
+            CLEAR(TempCurrency);
+            TempCurrency."Amount Rounding Precision" := GLSetup."Amount Rounding Precision";
+            IF TempCurrency.INSERT THEN;
+            EXIT;
         END;
+        IF TempCurrency.GET(TempCustLedgEntry."Currency Code") THEN
+            EXIT;
+        IF TempCurrency.GET('') AND (TempCustLedgEntry."Currency Code" = GLSetup."LCY Code") THEN
+            EXIT;
+        IF TempCurrency.GET(GLSetup."LCY Code") AND (TempCustLedgEntry."Currency Code" = '') THEN
+            EXIT;
+        IF TempCustLedgEntry."Currency Code" <> '' THEN
+            Currency.GET(TempCustLedgEntry."Currency Code")
+        ELSE BEGIN
+            CLEAR(Currency);
+            Currency."Amount Rounding Precision" := GLSetup."Amount Rounding Precision";
+        END;
+        TempCurrency := Currency;
+        TempCurrency.INSERT;
     end;
 
     local procedure GetPeriodIndex(Date: Date): Integer
@@ -866,31 +864,29 @@ report 50006 "Accounts Receivable Ageing"
     begin
         TempCurrency2.Code := CurrencyCode;
         IF TempCurrency2.INSERT THEN;
-        WITH TempCurrencyAmount DO BEGIN
-            FOR i := 1 TO ARRAYLEN(TotalCustLedgEntry) DO BEGIN
-                "Currency Code" := CurrencyCode;
-                Date := PeriodStartDate[i];
-                IF FIND THEN BEGIN
-                    Amount := Amount + TotalCustLedgEntry[i]."Remaining Amount";
-                    MODIFY;
-                END ELSE BEGIN
-                    "Currency Code" := CurrencyCode;
-                    Date := PeriodStartDate[i];
-                    Amount := TotalCustLedgEntry[i]."Remaining Amount";
-                    INSERT;
-                END;
-            END;
-            "Currency Code" := CurrencyCode;
-            Date := 31129999D;
-            IF FIND THEN BEGIN
-                Amount := Amount + TotalCustLedgEntry[1].Amount;
-                MODIFY;
+        FOR i := 1 TO ARRAYLEN(TotalCustLedgEntry) DO BEGIN
+            TempCurrencyAmount."Currency Code" := CurrencyCode;
+            TempCurrencyAmount.Date := PeriodStartDate[i];
+            IF TempCurrencyAmount.FIND THEN BEGIN
+                TempCurrencyAmount.Amount := TempCurrencyAmount.Amount + TotalCustLedgEntry[i]."Remaining Amount";
+                TempCurrencyAmount.MODIFY;
             END ELSE BEGIN
-                "Currency Code" := CurrencyCode;
-                Date := 31129999D;
-                Amount := TotalCustLedgEntry[1].Amount;
-                INSERT;
+                TempCurrencyAmount."Currency Code" := CurrencyCode;
+                TempCurrencyAmount.Date := PeriodStartDate[i];
+                TempCurrencyAmount.Amount := TotalCustLedgEntry[i]."Remaining Amount";
+                TempCurrencyAmount.INSERT;
             END;
+        END;
+        TempCurrencyAmount."Currency Code" := CurrencyCode;
+        TempCurrencyAmount.Date := 31129999D;
+        IF TempCurrencyAmount.FIND THEN BEGIN
+            TempCurrencyAmount.Amount := TempCurrencyAmount.Amount + TotalCustLedgEntry[1].Amount;
+            TempCurrencyAmount.MODIFY;
+        END ELSE BEGIN
+            TempCurrencyAmount."Currency Code" := CurrencyCode;
+            TempCurrencyAmount.Date := 31129999D;
+            TempCurrencyAmount.Amount := TotalCustLedgEntry[1].Amount;
+            TempCurrencyAmount.INSERT;
         END;
     end;
 

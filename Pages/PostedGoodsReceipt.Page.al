@@ -3,7 +3,7 @@ page 50137 "Posted Goods Receipt"
     Editable = false;
     PageType = Card;
     SourceTable = Table50052;
-    SourceTableView = WHERE (Received = FILTER (Yes));
+    SourceTableView = WHERE(Received = FILTER(Yes));
 
     layout
     {

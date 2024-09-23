@@ -8,7 +8,7 @@ report 50059 "Zero Rated VAT"
     {
         dataitem(DataItem1000000000; Table254)
         {
-            DataItemTableView = WHERE (Type = FILTER (Sale),
+            DataItemTableView = WHERE(Type = FILTER(Sale),
                                       VAT Prod. Posting Group=FILTER(VAT0|NOVAT),
                                       Source Code=FILTER(SALES));
             column(Desc;Desc)

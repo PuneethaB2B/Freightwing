@@ -7,7 +7,7 @@ table 50076 "MAWB Line"
         {
             TableRelation = "MAWB Header 2".No.;
         }
-        field(2;"Item No.";Code[20])
+        field(2; "Item No."; Code[20])
         {
             Editable = false;
             TableRelation = Item.No.;
@@ -18,47 +18,47 @@ table 50076 "MAWB Line"
                 Description := Item.Description;
 
                 IF gRecMAWBHr.GET("MAWB No.") THEN BEGIN
-                  gRecMAWBHr."Item Description" := Description;
-                  gRecMAWBHr.MODIFY;
+                    gRecMAWBHr."Item Description" := Description;
+                    gRecMAWBHr.MODIFY;
                 END;
             end;
         }
-        field(3;Description;Text[50])
+        field(3; Description; Text[50])
         {
             Editable = false;
         }
-        field(4;"Split Weight";Decimal)
+        field(4; "Split Weight"; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = false;
         }
-        field(5;"Unit of Measure";Code[20])
+        field(5; "Unit of Measure"; Code[20])
         {
         }
-        field(6;"Rate/Charge";Decimal)
+        field(6; "Rate/Charge"; Decimal)
         {
         }
-        field(7;"Chargeable Weight";Decimal)
+        field(7; "Chargeable Weight"; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             FieldClass = Normal;
         }
-        field(8;"HAWB No.";Code[20])
+        field(8; "HAWB No."; Code[20])
         {
             Editable = false;
         }
-        field(9;"Line Amount";Decimal)
+        field(9; "Line Amount"; Decimal)
         {
         }
-        field(10;Quantity;Decimal)
+        field(10; Quantity; Decimal)
         {
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = true;
         }
-        field(11;"Line No.";Integer)
+        field(11; "Line No."; Integer)
         {
         }
-        field(12;"Division Code";Code[20])
+        field(12; "Division Code"; Code[20])
         {
             TableRelation = Division/Farm.Code;
         }

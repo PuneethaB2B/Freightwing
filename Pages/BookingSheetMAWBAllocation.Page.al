@@ -1,7 +1,7 @@
 page 50065 "Booking Sheet MAWB Allocation"
 {
     PageType = List;
-    SourceTable = Table50070;
+    SourceTable = 50070;
 
     layout
     {
@@ -9,22 +9,22 @@ page 50065 "Booking Sheet MAWB Allocation"
         {
             repeater(Group)
             {
-                field("Booking Sheet No"; "Booking Sheet No")
+                field("Booking Sheet No"; Rec."Booking Sheet No")
                 {
                     Visible = false;
                 }
-                field("Item No"; "Item No")
+                field("Item No"; Rec."Item No")
                 {
                     Visible = false;
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
                 field("Weight Allocated"; "Weight Allocated")
                 {
                     Editable = false;
                 }
-                field("Line No."; "Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     Visible = false;
                 }
@@ -60,12 +60,12 @@ page 50065 "Booking Sheet MAWB Allocation"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 RunObject = Page 50073;
-                RunPageLink = Booking Sheet No.=FIELD(Booking Sheet No),
-                              Airline Code=FIELD(Airline Code),
-                              Destination Airport=FIELD(Destination Airport),
-                              Source Airport=FIELD(Source Airport),
-                              MAWB No.=FIELD(MAWB No),
-                              Shipper Code=FIELD(Shipper Code);
+                RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No"),
+                              "Airline Code" = FIELD("Airline Code"),
+                              "Destination Airport" = FIELD("Destination Airport"),
+                              "Source Airport" = FIELD("Source Airport"),
+                              "MAWB No." = FIELD("MAWB No"),
+                              "Shipper Code" = FIELD("Shipper Code");
             }
         }
     }

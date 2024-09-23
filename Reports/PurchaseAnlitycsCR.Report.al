@@ -7,7 +7,7 @@ report 50078 "Purchase Anlitycs.CR"
     {
         dataitem(DataItem1000000000; Table125)
         {
-            DataItemTableView = WHERE (Amount = FILTER (<> 0),
+            DataItemTableView = WHERE(Amount = FILTER(<> 0),
                                       Payment Voucher No.=FILTER(<>0));
             RequestFilterFields = "Posting Date","Document No.";
             column(No_PurchInvLine;"Purch. Cr. Memo Line"."No.")

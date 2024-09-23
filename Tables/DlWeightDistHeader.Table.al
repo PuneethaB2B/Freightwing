@@ -106,17 +106,15 @@ table 50040 "Dl. Weight Dist. Header"
     [Scope('Internal')]
     procedure AssistEdit(OldDailyWeightDistHeader: Record "50040"): Boolean
     begin
-        WITH DailyWeightDistHeader DO BEGIN
-            DailyWeightDistHeader := Rec;
+        DailyWeightDistHeader := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Daily Analysis Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Daily Analysis Nos.", OldDailyWeightDistHeader."No. Series", DailyWeightDistHeader."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Daily Analysis Nos.");
-            IF NoSeriesMgt.SelectSeries(ImportExportSetup."Daily Analysis Nos.", OldDailyWeightDistHeader."No. Series", "No. Series") THEN BEGIN
-                ImportExportSetup.GET;
-                ImportExportSetup.TESTFIELD("Daily Analysis Nos.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := OldDailyWeightDistHeader;
-                EXIT(TRUE);
-            END;
+            NoSeriesMgt.SetSeries(DailyWeightDistHeader."No.");
+            Rec := OldDailyWeightDistHeader;
+            EXIT(TRUE);
         END;
     end;
 }

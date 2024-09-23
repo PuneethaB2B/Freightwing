@@ -6,7 +6,7 @@ tableextension 70000028 tableextension70000028 extends "Item Journal Line"
         {
             TableRelation = Customer.No.;
         }
-        field(50001;Weight;Decimal)
+        field(50001; Weight; Decimal)
         {
         }
     }

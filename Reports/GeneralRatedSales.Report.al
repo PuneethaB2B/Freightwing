@@ -8,7 +8,7 @@ report 50058 "General Rated Sales"
     {
         dataitem(DataItem1000000000; Table254)
         {
-            DataItemTableView = WHERE (Type = FILTER (Sale),
+            DataItemTableView = WHERE(Type = FILTER(Sale),
                                       VAT Prod. Posting Group=FILTER(VAT16|VAT14),
                                       Source Code=FILTER(<>REVERSAL));
             column(Descrip;Desc)

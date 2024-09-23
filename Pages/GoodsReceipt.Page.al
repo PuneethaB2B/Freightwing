@@ -2,7 +2,7 @@ page 50130 "Goods Receipt"
 {
     PageType = Card;
     SourceTable = Table50052;
-    SourceTableView = WHERE (Received = FILTER (No));
+    SourceTableView = WHERE(Received = FILTER(No));
 
     layout
     {

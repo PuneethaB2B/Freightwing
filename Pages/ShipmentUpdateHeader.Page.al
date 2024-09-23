@@ -52,7 +52,7 @@ page 50032 "Shipment Update Header"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50026;
-                    RunPageView = WHERE (Type = CONST (Management));
+                    RunPageView = WHERE(Type = CONST(Management));
                     Visible = true;
                 }
             }

@@ -1,7 +1,7 @@
 page 50068 "Booking Sheet"
 {
     PageType = Card;
-    SourceTable = Table50053;
+    SourceTable = 50053;
 
     layout
     {
@@ -9,7 +9,7 @@ page 50068 "Booking Sheet"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
@@ -18,17 +18,17 @@ page 50068 "Booking Sheet"
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Booking Date"; "Booking Date")
+                field("Booking Date"; Rec."Booking Date")
                 {
                 }
                 field("Booking Day"; "Booking Day")
                 {
                     Editable = false;
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
                 field(Description; Description)
@@ -52,8 +52,8 @@ page 50068 "Booking Sheet"
             }
             part(; 50069)
             {
-                SubPageLink = Booking Sheet No.=FIELD(No.),
-                              Booking Date=FIELD(Booking Date);
+                SubPageLink = "Booking Sheet No." = FIELD("No."),
+                              "Booking Date" = FIELD("Booking Date");
             }
         }
     }
@@ -62,7 +62,7 @@ page 50068 "Booking Sheet"
     {
         area(processing)
         {
-            group()
+            group(a)
             {
                 action("&Print")
                 {
@@ -77,10 +77,9 @@ page 50068 "Booking Sheet"
                     trigger OnAction()
                     begin
                         BookingSheetHeader.RESET;
-                        BookingSheetHeader.SETRANGE("No.","No.");
-                        IF BookingSheetHeader.FINDFIRST THEN
-                        BEGIN
-                          REPORT.RUN(50019,TRUE,FALSE, BookingSheetHeader);
+                        BookingSheetHeader.SETRANGE("No.", Rec."No.");
+                        IF BookingSheetHeader.FINDFIRST THEN BEGIN
+                            REPORT.RUN(50019, TRUE, FALSE, BookingSheetHeader);
                         END;
                     end;
                 }
@@ -92,12 +91,11 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
-                        IF CONFIRM(' Do you want to email ') THEN
-                        BEGIN
-                          MESSAGE('Emailed;');
+                        IF CONFIRM(' Do you want to email ') THEN BEGIN
+                            MESSAGE('Emailed;');
                         END;
                     end;
                 }
@@ -110,45 +108,43 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     begin
-                        IF CONFIRM('Do you want to Submit?') THEN
-                        BEGIN
-                        BookingSheetLine.RESET;
-                        BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.","No.");
-                        IF BookingSheetLine.FINDSET THEN
-                        BEGIN
-                          REPEAT
-                            BookingSheetLine.TESTFIELD(BookingSheetLine."Type of Delivery");
-                            MAWBAlloc.RESET;
-                            MAWBAlloc.SETRANGE(MAWBAlloc."Booking Sheet No",BookingSheetLine."Booking Sheet No.");
-                            MAWBAlloc.SETRANGE(MAWBAlloc."Flight No",BookingSheetLine."Flight Code");
-                            MAWBAlloc.SETRANGE(MAWBAlloc."Source Airport",BookingSheetLine."Source Airport");
-                            MAWBAlloc.SETRANGE(MAWBAlloc."Destination Airport",BookingSheetLine."Destination Airport");
-                            IF MAWBAlloc.FIND('-') THEN BEGIN
-                              MAWBAlloc.TESTFIELD(MAWBAlloc."MAWB No");
-                              BSConsignee.RESET;
-                              BSConsignee.SETRANGE(BSConsignee."MAWB No.", MAWBAlloc."MAWB No");
-                              IF BSConsignee.FINDFIRST THEN
-                              BEGIN
-                              //===============Send Pre Alert=============>
-                              /*IF CONFIRM('Do you want to Email Pre - Alerts?') THEN
-                              BEGIN
-                                IF CustomMail.SendBookingSheetPreAlert("No.") THEN
-                                MESSAGE('Pre Alert Sent');
-                                CurrPage.CLOSE;
-                              END; */
-                              //<========================
-                              Status:=Status::Submitted;
-                              "Submitted on":=TODAY;
-                              "Submitted at":=TIME;
-                              MODIFY;
-                              CurrPage.CLOSE;
-                              END ELSE BEGIN
-                              ERROR('THE MAWB No. %1 For %2 From %3 To %4 Has no Consignee',MAWBAlloc."MAWB No",MAWBAlloc."Airline Code",MAWBAlloc."Source Airport",MAWBAlloc."Destination Airport");
-                              END;
-                            END ELSE BEGIN
-                            ERROR('Booking Sheet Lines are missing MAWB Nos %1,%2,%3',BookingSheetLine."Flight Code",BookingSheetLine."Source Airport",BookingSheetLine."Destination Airport");END;
-                          UNTIL BookingSheetLine.NEXT = 0;
-                        END;
+                        IF CONFIRM('Do you want to Submit?') THEN BEGIN
+                            BookingSheetLine.RESET;
+                            BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", Rec."No.");
+                            IF BookingSheetLine.FINDSET THEN BEGIN
+                                REPEAT
+                                    BookingSheetLine.TESTFIELD(BookingSheetLine."Type of Delivery");
+                                    MAWBAlloc.RESET;
+                                    MAWBAlloc.SETRANGE(MAWBAlloc."Booking Sheet No", BookingSheetLine."Booking Sheet No.");
+                                    MAWBAlloc.SETRANGE(MAWBAlloc."Flight No", BookingSheetLine."Flight Code");
+                                    MAWBAlloc.SETRANGE(MAWBAlloc."Source Airport", BookingSheetLine."Source Airport");
+                                    MAWBAlloc.SETRANGE(MAWBAlloc."Destination Airport", BookingSheetLine."Destination Airport");
+                                    IF MAWBAlloc.FIND('-') THEN BEGIN
+                                        MAWBAlloc.TESTFIELD(MAWBAlloc."MAWB No");
+                                        BSConsignee.RESET;
+                                        BSConsignee.SETRANGE(BSConsignee."MAWB No.", MAWBAlloc."MAWB No");
+                                        IF BSConsignee.FINDFIRST THEN BEGIN
+                                            //===============Send Pre Alert=============>
+                                            /*IF CONFIRM('Do you want to Email Pre - Alerts?') THEN
+                                            BEGIN
+                                              IF CustomMail.SendBookingSheetPreAlert("No.") THEN
+                                              MESSAGE('Pre Alert Sent');
+                                              CurrPage.CLOSE;
+                                            END; */
+                                            //<========================
+                                            Status := Status::Submitted;
+                                            "Submitted on" := TODAY;
+                                            "Submitted at" := TIME;
+                                            Rec.MODIFY;
+                                            CurrPage.CLOSE;
+                                        END ELSE BEGIN
+                                            ERROR('THE MAWB No. %1 For %2 From %3 To %4 Has no Consignee', MAWBAlloc."MAWB No", MAWBAlloc."Airline Code", MAWBAlloc."Source Airport", MAWBAlloc."Destination Airport");
+                                        END;
+                                    END ELSE BEGIN
+                                        ERROR('Booking Sheet Lines are missing MAWB Nos %1,%2,%3', BookingSheetLine."Flight Code", BookingSheetLine."Source Airport", BookingSheetLine."Destination Airport");
+                                    END;
+                                UNTIL BookingSheetLine.NEXT = 0;
+                            END;
                         END;
 
                     end;
@@ -181,12 +177,11 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status,Status::Submitted);
-                        IF CONFIRM('Do you want to Email Pre - Alerts?') THEN
-                        BEGIN
-                          IF CustomMail.SendBookingSheetPreAlert2("No.") THEN
-                          MESSAGE('Pre Alert Sent');
-                          CurrPage.CLOSE;
+                        Rec.TESTFIELD(Status, Status::Submitted);
+                        IF CONFIRM('Do you want to Email Pre - Alerts?') THEN BEGIN
+                            IF CustomMail.SendBookingSheetPreAlert2(Rec."No.") THEN
+                                MESSAGE('Pre Alert Sent');
+                            CurrPage.CLOSE;
                         END;
                     end;
                 }
@@ -195,11 +190,11 @@ page 50068 "Booking Sheet"
     }
 
     var
-        BookingSheetHeader: Record "50053";
-        BookingSheetLine: Record "50054";
-        MAWBAlloc: Record "50070";
-        BSConsignee: Record "50056";
-        GRNLine: Record "50052";
-        CustomMail: Codeunit "50030";
+        BookingSheetHeader: Record 50053;
+        BookingSheetLine: Record 50054;
+        MAWBAlloc: Record 50070;
+        BSConsignee: Record 50056;
+        GRNLine: Record 50052;
+        CustomMail: Codeunit 50030;
 }
 

@@ -93,75 +93,75 @@ table 50068 "Gate Pass Header"
             trigger OnValidate()
             begin
                 LoadingSheetHeader.GET("Loading Sheet No.");
-                "Vehicle No.":=LoadingSheetHeader."Vehicle No.";
-                "Loading Sheet Date":=LoadingSheetHeader."Loading Date";
+                "Vehicle No." := LoadingSheetHeader."Vehicle No.";
+                "Loading Sheet Date" := LoadingSheetHeader."Loading Date";
             end;
         }
-        field(7;"Loading Sheet Date";Date)
+        field(7; "Loading Sheet Date"; Date)
         {
             Editable = false;
         }
-        field(8;"Shipper Code";Code[20])
+        field(8; "Shipper Code"; Code[20])
         {
             Editable = false;
         }
-        field(9;"Consignee Code";Code[20])
+        field(9; "Consignee Code"; Code[20])
         {
             Editable = false;
         }
-        field(10;"Prepared By";Code[50])
+        field(10; "Prepared By"; Code[50])
         {
             Editable = false;
         }
-        field(11;"No. Series";Code[20])
+        field(11; "No. Series"; Code[20])
         {
         }
-        field(12;"Shipper Name";Text[50])
-        {
-            Editable = false;
-        }
-        field(13;"Consignee Name";Text[50])
+        field(12; "Shipper Name"; Text[50])
         {
             Editable = false;
         }
-        field(14;"Vehicle No.";Code[20])
-        {
-        }
-        field(15;"Driver Name";Text[50])
-        {
-        }
-        field(16;"Escort Vehicle No.";Code[20])
-        {
-        }
-        field(17;"Supervisor Name";Text[50])
-        {
-        }
-        field(18;"Actual Departure Time";Time)
-        {
-        }
-        field(19;Shade;Text[50])
-        {
-        }
-        field(20;"Created Time";Time)
+        field(13; "Consignee Name"; Text[50])
         {
             Editable = false;
         }
-        field(21;Status;Option)
+        field(14; "Vehicle No."; Code[20])
+        {
+        }
+        field(15; "Driver Name"; Text[50])
+        {
+        }
+        field(16; "Escort Vehicle No."; Code[20])
+        {
+        }
+        field(17; "Supervisor Name"; Text[50])
+        {
+        }
+        field(18; "Actual Departure Time"; Time)
+        {
+        }
+        field(19; Shade; Text[50])
+        {
+        }
+        field(20; "Created Time"; Time)
+        {
+            Editable = false;
+        }
+        field(21; Status; Option)
         {
             OptionCaption = 'New,Released';
             OptionMembers = New,Released;
         }
-        field(22;"Released By";Code[50])
+        field(22; "Released By"; Code[50])
         {
         }
-        field(23;"Prepared Date";Date)
+        field(23; "Prepared Date"; Date)
         {
         }
     }
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
@@ -174,11 +174,11 @@ table 50068 "Gate Pass Header"
     trigger OnInsert()
     begin
         ImportExportSetup.GET;
-        IF "No."='' THEN
-          NoSeriesMgt.InitSeries(ImportExportSetup."Gate Pass Nos.",xRec."No. Series",0D,"No.","No. Series");
-          "Prepared By":=USERID;
-          "Prepared Date":=TODAY;
-          "Created Time":=TIME;
+        IF "No." = '' THEN
+            NoSeriesMgt.InitSeries(ImportExportSetup."Gate Pass Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        "Prepared By" := USERID;
+        "Prepared Date" := TODAY;
+        "Created Time" := TIME;
     end;
 
     var
@@ -206,17 +206,15 @@ table 50068 "Gate Pass Header"
     [Scope('Internal')]
     procedure AssistEdit(OldGatePassHeader: Record "50068"): Boolean
     begin
-        WITH GatePassHeader DO BEGIN
-          GatePassHeader := Rec;
-          ImportExportSetup.GET;
-          ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-          IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.",OldGatePassHeader."No. Series","No. Series") THEN BEGIN
+        GatePassHeader := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Gate Pass Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.", OldGatePassHeader."No. Series", GatePassHeader."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-            NoSeriesMgt.SetSeries("No.");
-            Rec :=GatePassHeader;
+            NoSeriesMgt.SetSeries(GatePassHeader."No.");
+            Rec := GatePassHeader;
             EXIT(TRUE);
-          END;
         END;
     end;
 }

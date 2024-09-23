@@ -23,20 +23,20 @@ table 50007 "Import Charge"
         {
             TableRelation = "G/L Account".No.;
         }
-        field(4;"VAT Bus. Posting Group";Code[10])
+        field(4; "VAT Bus. Posting Group"; Code[10])
         {
             Caption = 'VAT Bus. Posting Group';
             TableRelation = "VAT Business Posting Group";
         }
-        field(5;"VAT Prod. Posting Group";Code[10])
+        field(5; "VAT Prod. Posting Group"; Code[10])
         {
             Caption = 'VAT Prod. Posting Group';
             TableRelation = "VAT Product Posting Group";
         }
-        field(6;"Import Charge";Decimal)
+        field(6; "Import Charge"; Decimal)
         {
         }
-        field(7;Currency;Code[10])
+        field(7; Currency; Code[10])
         {
             TableRelation = Currency.Code;
         }
@@ -44,7 +44,7 @@ table 50007 "Import Charge"
 
     keys
     {
-        key(Key1;"Code")
+        key(Key1; "Code")
         {
             Clustered = true;
         }

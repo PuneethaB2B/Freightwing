@@ -36,14 +36,11 @@ report 50038 Update
 
             trigger OnAfterGetRecord()
             begin
-                WITH "Booking Sheet MAWB Allocation" DO BEGIN
-                    BookingSheetLine.RESET;
-                    BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", "Booking Sheet MAWB Allocation"."Booking Sheet No");
-                    IF BookingSheetLine.FINDFIRST THEN BEGIN
-                        "Booking Sheet MAWB Allocation"."Shipper Code" := BookingSheetLine."Shipper Code";
-                        "Booking Sheet MAWB Allocation".MODIFY;
-
-                    END;
+                BookingSheetLine.RESET;
+                BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", "Booking Sheet MAWB Allocation"."Booking Sheet No");
+                IF BookingSheetLine.FINDFIRST THEN BEGIN
+                    "Booking Sheet MAWB Allocation"."Shipper Code" := BookingSheetLine."Shipper Code";
+                    "Booking Sheet MAWB Allocation".MODIFY;
 
                 END;
             end;

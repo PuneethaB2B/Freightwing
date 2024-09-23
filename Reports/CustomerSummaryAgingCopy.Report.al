@@ -8,7 +8,7 @@ report 50009 "Customer - Summary AgingCopy"
     {
         dataitem(DataItem6836; Table18)
         {
-            DataItemTableView = SORTING (No.);
+            DataItemTableView = SORTING(No.);
             RequestFilterFields = "No.", "Search Name", "Customer Posting Group", "Currency Filter", "Salesperson Code";
             column(COMPANYNAME; COMPANYNAME)
             {
@@ -143,8 +143,8 @@ report 50009 "Customer - Summary AgingCopy"
             }
             dataitem(DataItem5444; Table2000000026)
             {
-                DataItemTableView = SORTING (Number)
-                                    WHERE (Number = FILTER (1 ..));
+                DataItemTableView = SORTING(Number)
+                                    WHERE(Number = FILTER(1 ..));
                 column(LineTotalCustBalance_Control67; LineTotalCustBalance)
                 {
                     AutoFormatExpression = Currency2.Code;

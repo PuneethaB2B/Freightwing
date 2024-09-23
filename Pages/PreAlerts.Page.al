@@ -3,7 +3,7 @@ page 50153 "Pre Alerts"
     CardPageID = "Pre Alert";
     PageType = List;
     SourceTable = Table50030;
-    SourceTableView = WHERE (Status = CONST (Pre-Alert));
+    SourceTableView = WHERE(Status = CONST(Pre-Alert));
 
     layout
     {

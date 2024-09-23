@@ -10,7 +10,7 @@ tableextension 70000021 tableextension70000021 extends "Purchase Header"
         }
         field(50001; "MAWB No."; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned = FILTER (Yes));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(Yes));
         }
         field(50002; "Request for Quotation No."; Code[20])
         {

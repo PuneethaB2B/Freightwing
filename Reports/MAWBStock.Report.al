@@ -38,9 +38,9 @@ report 50041 "MAWB Stock"
             dataitem(DataItem1000000006; Table50039)
             {
                 DataItemLink = Airline Code=FIELD(Airline Code);
-                DataItemTableView = SORTING (Airline Code, MAWB No.)
+                DataItemTableView = SORTING(Airline Code, MAWB No.)
                                     ORDER(Ascending)
-                                    WHERE (MAWB No.=FILTER(<>''));
+                                    WHERE(MAWB No.=FILTER(<>''));
                 column(AirlineCode_MAWBReceipt;"MAWB Receipt"."Airline Code")
                 {
                 }

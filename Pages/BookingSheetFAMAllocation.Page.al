@@ -1,7 +1,7 @@
 page 50075 "Booking Sheet FAM Allocation"
 {
     PageType = List;
-    SourceTable = Table50058;
+    SourceTable = 50058;
 
     layout
     {
@@ -9,7 +9,7 @@ page 50075 "Booking Sheet FAM Allocation"
         {
             repeater(Group)
             {
-                field("Farm Code"; "Farm Code")
+                field("Farm Code"; Rec."Farm Code")
                 {
                 }
                 field("FAM Name"; "FAM Name")

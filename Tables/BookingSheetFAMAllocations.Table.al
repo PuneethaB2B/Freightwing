@@ -13,7 +13,7 @@ table 50058 "Booking Sheet FAM Allocations"
         }
         field(3; "Farm Code"; Code[50])
         {
-            TableRelation = "Shipper Farm"."Farm Code" WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Farm"."Farm Code" WHERE(Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin

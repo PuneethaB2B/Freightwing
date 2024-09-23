@@ -46,7 +46,7 @@ table 50035 "Weight Agreement By Day"
         }
         field(5; "Gross Weight"; Decimal)
         {
-            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code),
+            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE(Airline Code=FIELD(Airline Code),
                                                                                          Source Code=FIELD(Source Code),
                                                                                          Destination Code=FIELD(Destination Code),
                                                                                          Day of Week=FIELD(Day of Week),

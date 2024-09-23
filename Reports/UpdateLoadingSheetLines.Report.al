@@ -9,20 +9,18 @@ report 50066 "Update Loading Sheet Lines"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "Loading Sheet Header" DO BEGIN
-                    Window.UPDATE(1, "Loading Sheet Header"."No.");
-                    Window.UPDATE(2, "Loading Sheet Header"."Shipper Name");
-                    LSLine.RESET;
-                    LSLine.SETRANGE(LSLine."Loading Sheet No.", "Loading Sheet Header"."No.");
-                    LSLine.SETFILTER(LSLine."Shipper Code", '<>%1', "Loading Sheet Header"."Shipper Code");
-                    IF LSLine.FINDSET THEN BEGIN
-                        REPEAT
-                            Window.UPDATE(3, LSLine."Line No.");
-                            SLEEP(200);
-                            LSLine."Shipper Code" := "Loading Sheet Header"."Shipper Code";
-                            LSLine.MODIFY;
-                        UNTIL LSLine.NEXT = 0;
-                    END;
+                Window.UPDATE(1, "Loading Sheet Header"."No.");
+                Window.UPDATE(2, "Loading Sheet Header"."Shipper Name");
+                LSLine.RESET;
+                LSLine.SETRANGE(LSLine."Loading Sheet No.", "Loading Sheet Header"."No.");
+                LSLine.SETFILTER(LSLine."Shipper Code", '<>%1', "Loading Sheet Header"."Shipper Code");
+                IF LSLine.FINDSET THEN BEGIN
+                    REPEAT
+                        Window.UPDATE(3, LSLine."Line No.");
+                        SLEEP(200);
+                        LSLine."Shipper Code" := "Loading Sheet Header"."Shipper Code";
+                        LSLine.MODIFY;
+                    UNTIL LSLine.NEXT = 0;
                 END;
             end;
 

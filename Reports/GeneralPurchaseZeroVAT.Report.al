@@ -8,7 +8,7 @@ report 50028 "General Purchase Zero VAT"
     {
         dataitem(DataItem1000000000; Table254)
         {
-            DataItemTableView = WHERE (Type = FILTER (Purchase),
+            DataItemTableView = WHERE(Type = FILTER(Purchase),
                                       Source Code=FILTER(<>REVERSAL),
                                       VAT Prod. Posting Group=FILTER(NOVAT|VAT0));
             column(VendorName;Vendors.Name)

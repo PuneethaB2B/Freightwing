@@ -53,8 +53,8 @@ report 50088 "Sales & Purchase Comparision"
             dataitem(DataItem7; Table112)
             {
                 DataItemLink = MAWB No.=FIELD(MAWB No.);
-                DataItemTableView = SORTING (No.)
-                                    WHERE (MAWB No.=FILTER(<>''));
+                DataItemTableView = SORTING(No.)
+                                    WHERE(MAWB No.=FILTER(<>''));
                 column(Sales_Invoice_No;"Sales Invoice Header"."No.")
                 {
                 }

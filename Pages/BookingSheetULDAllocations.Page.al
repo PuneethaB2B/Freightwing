@@ -1,7 +1,7 @@
 page 50072 "Booking Sheet ULD Allocations"
 {
     PageType = List;
-    SourceTable = Table50055;
+    SourceTable = 50055;
 
     layout
     {
@@ -9,13 +9,13 @@ page 50072 "Booking Sheet ULD Allocations"
         {
             repeater(Group)
             {
-                field("ULD Type Code"; "ULD Type Code")
+                field("ULD Type Code"; Rec."ULD Type Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field(Remarks; Remarks)
+                field(Remarks; Rec.Remarks)
                 {
                 }
             }

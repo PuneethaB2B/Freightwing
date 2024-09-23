@@ -9,19 +9,17 @@ report 50037 "Update Booking Sheet Line"
 
             trigger OnAfterGetRecord()
             begin
-                WITH Flight DO BEGIN
-                    BKMawb.RESET;
-                    BKMawb.SETRANGE(BKMawb."Flight No", Flight."Flight No.");
-                    IF BKMawb.FINDSET THEN BEGIN
-                        REPEAT
-                            BKMawb."Source Airport" := Flight."Source Airport";
-                            //BkMawb."Source Code":= Flight."Source Code";
-                            //BkMawb."Destination Code":=  Flight."Destination Code";
-                            BKMawb."Destination Airport" := Flight."Destination Airport";
-                            BKMawb.MODIFY;
-                            MESSAGE('Updated %1', Flight."Flight No.");
-                        UNTIL BKMawb.NEXT = 0;
-                    END;
+                BKMawb.RESET;
+                BKMawb.SETRANGE(BKMawb."Flight No", Flight."Flight No.");
+                IF BKMawb.FINDSET THEN BEGIN
+                    REPEAT
+                        BKMawb."Source Airport" := Flight."Source Airport";
+                        //BkMawb."Source Code":= Flight."Source Code";
+                        //BkMawb."Destination Code":=  Flight."Destination Code";
+                        BKMawb."Destination Airport" := Flight."Destination Airport";
+                        BKMawb.MODIFY;
+                        MESSAGE('Updated %1', Flight."Flight No.");
+                    UNTIL BKMawb.NEXT = 0;
                 END;
             end;
         }

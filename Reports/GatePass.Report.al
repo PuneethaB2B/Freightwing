@@ -235,20 +235,18 @@ report 50016 "Gate Pass"
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Gate Pass Line" DO BEGIN
-                        NumberOfBoxes := 0.0;
-                        LoadingUld.RESET;
-                        //LoadingUld.SETRANGE(LoadingUld."Loading Sheet No.","Gate Pass Line"."Loading Sheet No.");
-                        LoadingUld.SETRANGE(LoadingUld."MWAB No.", "Gate Pass Line"."MAWB No.");
-                        LoadingUld.SETRANGE(LoadingUld."ULD No.", "Gate Pass Line"."ULD No.");
-                        IF LoadingUld.FINDFIRST THEN BEGIN
-                            NumberOfBoxes := LoadingUld."No. Of Boxes";
-                            ULDWeight := LoadingUld."FWL Docket Weight";
-                            Items.GET(LoadingUld."Item No.");
-                            Product := Items.Description;
-                            Airlines.GET(LoadingUld."Airline Code");
-                            Shade := Airlines.Shade;
-                        END;
+                    NumberOfBoxes := 0.0;
+                    LoadingUld.RESET;
+                    //LoadingUld.SETRANGE(LoadingUld."Loading Sheet No.","Gate Pass Line"."Loading Sheet No.");
+                    LoadingUld.SETRANGE(LoadingUld."MWAB No.", "Gate Pass Line"."MAWB No.");
+                    LoadingUld.SETRANGE(LoadingUld."ULD No.", "Gate Pass Line"."ULD No.");
+                    IF LoadingUld.FINDFIRST THEN BEGIN
+                        NumberOfBoxes := LoadingUld."No. Of Boxes";
+                        ULDWeight := LoadingUld."FWL Docket Weight";
+                        Items.GET(LoadingUld."Item No.");
+                        Product := Items.Description;
+                        Airlines.GET(LoadingUld."Airline Code");
+                        Shade := Airlines.Shade;
                     END;
                 end;
             }

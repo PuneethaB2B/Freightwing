@@ -5,7 +5,7 @@ page 50104 "Archived HAWB"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = Table50075;
+    SourceTable = 50075;
 
     layout
     {
@@ -16,19 +16,19 @@ page 50104 "Archived HAWB"
                 field("MAWB No."; "MAWB No.")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Shipper Address"; "Shipper Address")
+                field("Shipper Address"; Rec."Shipper Address")
                 {
                 }
                 field("Booking Sheet No."; "Booking Sheet No.")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
                 field("Consignee Name"; "Consignee Name")
@@ -97,9 +97,9 @@ page 50104 "Archived HAWB"
 
                 trigger OnAction()
                 begin
-                    IF CONFIRM('Do you want to Archive the Hawb No. ' + FORMAT("No.") + '?') THEN BEGIN
+                    IF CONFIRM('Do you want to Archive the Hawb No. ' + FORMAT(Rec."No.") + '?') THEN BEGIN
                         Status := Status::Submitted;
-                        MODIFY();
+                        Rec.MODIFY();
                         CurrPage.CLOSE();
                     END;
                 end;

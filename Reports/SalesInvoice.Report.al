@@ -10,7 +10,7 @@ report 50031 "Sales Invoice"
     {
         dataitem(DataItem5581; Table112)
         {
-            DataItemTableView = SORTING (No.);
+            DataItemTableView = SORTING(No.);
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Posted Sales Invoice';
             column(No_SalesInvHdr; "No.")
@@ -120,11 +120,11 @@ report 50031 "Sales Invoice"
             }
             dataitem(CopyLoop; Table2000000026)
             {
-                DataItemTableView = SORTING (Number);
+                DataItemTableView = SORTING(Number);
                 dataitem(PageLoop; Table2000000026)
                 {
-                    DataItemTableView = SORTING (Number)
-                                        WHERE (Number = CONST (1));
+                    DataItemTableView = SORTING(Number)
+                                        WHERE(Number = CONST(1));
                     column(HomePage; CompanyInfo."Home Page")
                     {
                     }
@@ -293,8 +293,8 @@ report 50031 "Sales Invoice"
                     dataitem(DimensionLoop1; Table2000000026)
                     {
                         DataItemLinkReference = "Sales Invoice Header";
-                        DataItemTableView = SORTING (Number)
-                                            WHERE (Number = FILTER (1 ..));
+                        DataItemTableView = SORTING(Number)
+                                            WHERE(Number = FILTER(1 ..));
                         column(DimText; DimText)
                         {
                         }
@@ -343,7 +343,7 @@ report 50031 "Sales Invoice"
                     {
                         DataItemLink = Document No.=FIELD(No.);
                         DataItemLinkReference = "Sales Invoice Header";
-                        DataItemTableView = SORTING (Document No., Line No.);
+                        DataItemTableView = SORTING(Document No., Line No.);
                         column(LineAmt_SalesInvLine; "Line Amount")
                         {
                             AutoFormatExpression = GetCurrencyCode;
@@ -504,7 +504,7 @@ report 50031 "Sales Invoice"
                         }
                         dataitem("Sales Shipment Buffer"; Table2000000026)
                         {
-                            DataItemTableView = SORTING (Number);
+                            DataItemTableView = SORTING(Number);
                             column(SalesShptBufferPostDate; FORMAT(SalesShipmentBuffer."Posting Date"))
                             {
                             }
@@ -534,8 +534,8 @@ report 50031 "Sales Invoice"
                         }
                         dataitem(DimensionLoop2; Table2000000026)
                         {
-                            DataItemTableView = SORTING (Number)
-                                                WHERE (Number = FILTER (1 ..));
+                            DataItemTableView = SORTING(Number)
+                                                WHERE(Number = FILTER(1 ..));
                             column(DimText_DimLoop; DimText)
                             {
                             }
@@ -581,7 +581,7 @@ report 50031 "Sales Invoice"
                         }
                         dataitem(AsmLoop; Table2000000026)
                         {
-                            DataItemTableView = SORTING (Number);
+                            DataItemTableView = SORTING(Number);
                             column(TempPostedAsmLineNo; BlanksForIndent + TempPostedAsmLine."No.")
                             {
                             }
@@ -707,7 +707,7 @@ report 50031 "Sales Invoice"
                     }
                     dataitem(VATCounter; Table2000000026)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VATAmtLineVATBase; VATAmountLine."VAT Base")
                         {
                             AutoFormatExpression = "Sales Invoice Line".GetCurrencyCode;
@@ -765,7 +765,7 @@ report 50031 "Sales Invoice"
                     }
                     dataitem(VATClauseEntryCounter; Table2000000026)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VATClauseVATIdentifier; VATAmountLine."VAT Identifier")
                         {
                         }
@@ -810,7 +810,7 @@ report 50031 "Sales Invoice"
                     }
                     dataitem(VatCounterLCY; Table2000000026)
                     {
-                        DataItemTableView = SORTING (Number);
+                        DataItemTableView = SORTING(Number);
                         column(VALSpecLCYHeader; VALSpecLCYHeader)
                         {
                         }
@@ -868,8 +868,8 @@ report 50031 "Sales Invoice"
                     }
                     dataitem(Total; Table2000000026)
                     {
-                        DataItemTableView = SORTING (Number)
-                                            WHERE (Number = CONST (1));
+                        DataItemTableView = SORTING(Number)
+                                            WHERE(Number = CONST(1));
                         column(SelltoCustNo_SalesInvHdr; "Sales Invoice Header"."Sell-to Customer No.")
                         {
                         }
@@ -1439,17 +1439,15 @@ report 50031 "Sales Invoice"
             EXIT;
         END;
 
-        WITH SalesShipmentBuffer DO BEGIN
-            "Document No." := SalesInvoiceLine."Document No.";
-            "Line No." := SalesInvoiceLine."Line No.";
-            "Entry No." := NextEntryNo;
-            Type := SalesInvoiceLine.Type;
-            "No." := SalesInvoiceLine."No.";
-            Quantity := QtyOnShipment;
-            "Posting Date" := PostingDate;
-            INSERT;
-            NextEntryNo := NextEntryNo + 1
-        END;
+        SalesShipmentBuffer."Document No." := SalesInvoiceLine."Document No.";
+        SalesShipmentBuffer."Line No." := SalesInvoiceLine."Line No.";
+        SalesShipmentBuffer."Entry No." := NextEntryNo;
+        SalesShipmentBuffer.Type := SalesInvoiceLine.Type;
+        SalesShipmentBuffer."No." := SalesInvoiceLine."No.";
+        SalesShipmentBuffer.Quantity := QtyOnShipment;
+        SalesShipmentBuffer."Posting Date" := PostingDate;
+        SalesShipmentBuffer.INSERT;
+        NextEntryNo := NextEntryNo + 1
     end;
 
     local procedure DocumentCaption(): Text[250]
@@ -1480,15 +1478,13 @@ report 50031 "Sales Invoice"
         TempPostedAsmLine.DELETEALL;
         IF "Sales Invoice Line".Type <> "Sales Invoice Line".Type::Item THEN
             EXIT;
-        WITH ValueEntry DO BEGIN
-            SETCURRENTKEY("Document No.");
-            SETRANGE("Document No.", "Sales Invoice Line"."Document No.");
-            SETRANGE("Document Type", "Document Type"::"Sales Invoice");
-            SETRANGE("Document Line No.", "Sales Invoice Line"."Line No.");
-            SETRANGE(Adjustment, FALSE);
-            IF NOT FINDSET THEN
-                EXIT;
-        END;
+        ValueEntry.SETCURRENTKEY("Document No.");
+        ValueEntry.SETRANGE("Document No.", "Sales Invoice Line"."Document No.");
+        ValueEntry.SETRANGE("Document Type", ValueEntry."Document Type"::"Sales Invoice");
+        ValueEntry.SETRANGE("Document Line No.", "Sales Invoice Line"."Line No.");
+        ValueEntry.SETRANGE(Adjustment, FALSE);
+        IF NOT ValueEntry.FINDSET THEN
+            EXIT;
         REPEAT
             IF ItemLedgerEntry.GET(ValueEntry."Item Ledger Entry No.") THEN
                 IF ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::"Sales Shipment" THEN BEGIN

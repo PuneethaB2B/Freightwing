@@ -4,7 +4,7 @@ page 50014 "Sales Invoice - Import"
     PageType = Document;
     RefreshOnActivate = true;
     SourceTable = Table36;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice));
+    SourceTableView = WHERE(Document Type=FILTER(Invoice));
 
     layout
     {

@@ -1,7 +1,7 @@
 page 50141 Beneficiary
 {
     PageType = List;
-    SourceTable = Table50003;
+    SourceTable = 50003;
 
     layout
     {
@@ -9,22 +9,22 @@ page 50141 Beneficiary
         {
             repeater(Group)
             {
-                field("Bank Code"; "Bank Code")
+                field("Bank Code"; Rec."Bank Code")
                 {
                 }
-                field("Bank Name"; "Bank Name")
+                field("Bank Name"; Rec."Bank Name")
                 {
                 }
-                field("Account Number"; "Account Number")
+                field("Account Number"; Rec."Account Number")
                 {
                 }
-                field("Beneficiary Name"; "Beneficiary Name")
+                field("Beneficiary Name"; Rec."Beneficiary Name")
                 {
                 }
-                field(Branch; Branch)
+                field(Branch; Rec.Branch)
                 {
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
             }

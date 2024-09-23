@@ -31,9 +31,9 @@ table 50036 "Weight Agreement By Item"
                 "Unit of Measure" := Item."Base Unit of Measure";
             end;
         }
-        field(6;Description;Text[50])
+        field(6; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE (No.=FIELD(Item No.)));
+            CalcFormula = Lookup(Item.Description WHERE(No.=FIELD(Item No.)));
             Editable = false;
             FieldClass = FlowField;
         }

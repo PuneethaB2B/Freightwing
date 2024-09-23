@@ -6,7 +6,7 @@ report 50104 "Copy Charges -Job"
     {
         dataitem(DataItem1000000000; Table50025)
         {
-            DataItemTableView = SORTING (Airline Code, Effective Start Date, Effective End Date)
+            DataItemTableView = SORTING(Airline Code, Effective Start Date, Effective End Date)
                                 ORDER(Ascending);
 
             trigger OnAfterGetRecord()

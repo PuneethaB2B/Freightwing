@@ -6,7 +6,7 @@ page 50116 "MAWB Invoices"
     Editable = false;
     PageType = List;
     SourceTable = Table36;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice),
+    SourceTableView = WHERE(Document Type=FILTER(Invoice),
                             Posted=FILTER(No));
 
     layout

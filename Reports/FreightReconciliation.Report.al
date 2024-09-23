@@ -7,7 +7,7 @@ report 50082 "Freight Reconciliation"
     {
         dataitem(DataItem1000000009; Table50077)
         {
-            DataItemTableView = SORTING (No.);
+            DataItemTableView = SORTING(No.);
             RequestFilterFields = "No.";
             dataitem(DataItem1000000000; Table123)
             {

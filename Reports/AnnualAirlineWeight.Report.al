@@ -36,7 +36,7 @@ report 50053 "Annual Airline Weight"
             dataitem(DataItem1000000000; Table50061)
             {
                 DataItemLink = Loading Sheet No.=FIELD(No.);
-                DataItemTableView = SORTING (Loading Sheet No., MAWB No., Division/Farm Code, Destination Code, Line No., Consignee Code)
+                DataItemTableView = SORTING(Loading Sheet No., MAWB No., Division/Farm Code, Destination Code, Line No., Consignee Code)
                                     ORDER(Ascending);
                 column(AirlineName; Airlines.Name)
                 {
@@ -173,10 +173,8 @@ report 50053 "Annual Airline Weight"
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Loading Sheet Line" DO BEGIN
-                        IF "Loading Sheet Line"."Airline Code" <> '' THEN
-                            Airlines.GET("Loading Sheet Line"."Airline Code");
-                    END;
+                    IF "Loading Sheet Line"."Airline Code" <> '' THEN
+                        Airlines.GET("Loading Sheet Line"."Airline Code");
                 end;
             }
 
@@ -294,9 +292,9 @@ report 50053 "Annual Airline Weight"
                             "To" := DMY2DATE(30, 11, Year);
                         END
                     ELSE BEGIN
-                            From := DMY2DATE(1, 12, Year);
-                            "To" := DMY2DATE(31, 12, Year);
-                        END;
+                        From := DMY2DATE(1, 12, Year);
+                        "To" := DMY2DATE(31, 12, Year);
+                    END;
                 END;
             END;
         end;

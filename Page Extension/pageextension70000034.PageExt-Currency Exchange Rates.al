@@ -17,7 +17,7 @@ pageextension 70000034 pageextension70000034 extends "Currency Exchange Rates"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50230;
-                    RunPageLink = Field1 = FIELD (Currency Code);
+                    RunPageLink = Field1 = FIELD(Currency Code);
                 }
             }
         }

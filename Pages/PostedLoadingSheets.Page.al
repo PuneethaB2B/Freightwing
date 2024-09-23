@@ -4,7 +4,7 @@ page 50102 "Posted Loading Sheets"
     Editable = false;
     PageType = List;
     SourceTable = Table50060;
-    SourceTableView = WHERE (Shipped = FILTER (Yes));
+    SourceTableView = WHERE(Shipped = FILTER(Yes));
 
     layout
     {

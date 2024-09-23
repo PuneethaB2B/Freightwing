@@ -348,25 +348,23 @@ report 50055 "Export Sales"
             trigger OnAfterGetRecord()
             begin
                 CompanyInfo.CALCFIELDS(Picture);
-                WITH "Sales Invoice Line" DO BEGIN
-                    IF "Sales Invoice Line"."Sell-to Customer No." <> '' THEN
-                        Cust.GET("Sales Invoice Line"."Sell-to Customer No.");
-                    LSLine.RESET;
-                    LSLine.SETRANGE(LSLine."MAWB No.", "Sales Invoice Line"."MAWB No.");
-                    Salesheader.GET("Sales Invoice Line"."Document No.");
-                    LSLine.SETRANGE(LSLine."Shipper Code", Salesheader."Sell-to Customer No.");
-                    IF LSLine.FINDSET THEN BEGIN
-                        Weight := 0;
-                        Qty := 0;
-                        REPEAT
-                            LSLine.CALCFIELDS(LSLine."FWL Docket Weight");
-                            LSLine.CALCFIELDS(LSLine.Quantity);
-                            Weight += LSLine."FWL Docket Weight";
-                            Qty += LSLine.Quantity;
-                        UNTIL LSLine.NEXT = 0;
-                    END;
-                    //MESSAGE('%1',Weight);
+                IF "Sales Invoice Line"."Sell-to Customer No." <> '' THEN
+                    Cust.GET("Sales Invoice Line"."Sell-to Customer No.");
+                LSLine.RESET;
+                LSLine.SETRANGE(LSLine."MAWB No.", "Sales Invoice Line"."MAWB No.");
+                Salesheader.GET("Sales Invoice Line"."Document No.");
+                LSLine.SETRANGE(LSLine."Shipper Code", Salesheader."Sell-to Customer No.");
+                IF LSLine.FINDSET THEN BEGIN
+                    Weight := 0;
+                    Qty := 0;
+                    REPEAT
+                        LSLine.CALCFIELDS(LSLine."FWL Docket Weight");
+                        LSLine.CALCFIELDS(LSLine.Quantity);
+                        Weight += LSLine."FWL Docket Weight";
+                        Qty += LSLine.Quantity;
+                    UNTIL LSLine.NEXT = 0;
                 END;
+                //MESSAGE('%1',Weight);
             end;
 
             trigger OnPreDataItem()

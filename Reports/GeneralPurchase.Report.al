@@ -8,7 +8,7 @@ report 50057 "General Purchase"
     {
         dataitem(DataItem1000000000; Table254)
         {
-            DataItemTableView = WHERE (Type = FILTER (Purchase),
+            DataItemTableView = WHERE(Type = FILTER(Purchase),
                                       Source Code=FILTER(<>REVERSAL));
             column(VendorName;Vendors.Name)
             {

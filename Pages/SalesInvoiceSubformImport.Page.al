@@ -7,7 +7,7 @@ page 50013 "Sales Invoice Subform - Import"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = Table37;
-    SourceTableView = WHERE (Document Type=FILTER(Invoice));
+    SourceTableView = WHERE(Document Type=FILTER(Invoice));
 
     layout
     {

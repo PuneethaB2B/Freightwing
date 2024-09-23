@@ -4,7 +4,7 @@ page 50100 MAWBs
     CardPageID = MAWB;
     PageType = List;
     SourceTable = Table50077;
-    SourceTableView = WHERE (Status = FILTER (<> Archived));
+    SourceTableView = WHERE(Status = FILTER(<> Archived));
 
     layout
     {

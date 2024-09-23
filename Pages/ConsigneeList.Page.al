@@ -3,7 +3,7 @@ page 50023 "Consignee List"
     CardPageID = "Consignee Card";
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Banks,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50015;
+    SourceTable = 50015;
 
     layout
     {
@@ -11,23 +11,23 @@ page 50023 "Consignee List"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field("Internet Address"; "Internet Address")
+                field("Internet Address"; Rec."Internet Address")
                 {
                     Caption = 'Home Page';
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                 }
                 field("Phone No."; "Phone No.")
@@ -66,7 +66,7 @@ page 50023 "Consignee List"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50024;
-                    RunPageLink = Activity Code=FIELD(No.);
+                    RunPageLink = "Activity Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin

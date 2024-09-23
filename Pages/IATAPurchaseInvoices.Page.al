@@ -6,7 +6,7 @@ page 50149 "IATA Purchase Invoices"
     MultipleNewLines = true;
     PageType = List;
     SourceTable = Table50016;
-    SourceTableView = WHERE (Converted = FILTER (No));
+    SourceTableView = WHERE(Converted = FILTER(No));
 
     layout
     {

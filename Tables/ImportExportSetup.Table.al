@@ -28,7 +28,7 @@ table 50010 "Import/Export Setup"
         }
         field(7; "Item Journal Batch"; Code[10])
         {
-            TableRelation = "Item Journal Batch".Name WHERE (Journal Template Name=FIELD(Item Journal Template));
+            TableRelation = "Item Journal Batch".Name WHERE(Journal Template Name=FIELD(Item Journal Template));
         }
         field(8; "Item Journal Template"; Code[10])
         {
@@ -56,7 +56,7 @@ table 50010 "Import/Export Setup"
         }
         field(14; "Sales Journal Batch"; Code[10])
         {
-            TableRelation = "Gen. Journal Batch".Name WHERE (Journal Template Name=FIELD(Sales Journal Template));
+            TableRelation = "Gen. Journal Batch".Name WHERE(Journal Template Name=FIELD(Sales Journal Template));
         }
         field(15; "Sales Journal Template"; Code[10])
         {
@@ -104,43 +104,43 @@ table 50010 "Import/Export Setup"
         {
             TableRelation = "G/L Account".No.;
         }
-        field(25;"Third Party Purchase A/C Code";Code[10])
+        field(25; "Third Party Purchase A/C Code"; Code[10])
         {
             TableRelation = "G/L Account".No.;
         }
-        field(26;"Division Factor";Decimal)
+        field(26; "Division Factor"; Decimal)
         {
         }
-        field(27;"Offload Nos.";Code[20])
+        field(27; "Offload Nos."; Code[20])
         {
             TableRelation = "No. Series".Code;
         }
-        field(28;"ETR PIN.";Code[100])
+        field(28; "ETR PIN."; Code[100])
         {
         }
-        field(29;"IATA Purchase Acc.Group";Code[40])
-        {
-            TableRelation = "G/L Account".No.;
-        }
-        field(30;"IATA Purchase Acc.TP";Code[40])
+        field(29; "IATA Purchase Acc.Group"; Code[40])
         {
             TableRelation = "G/L Account".No.;
         }
-        field(31;"Default IATA Vendor";Code[40])
+        field(30; "IATA Purchase Acc.TP"; Code[40])
+        {
+            TableRelation = "G/L Account".No.;
+        }
+        field(31; "Default IATA Vendor"; Code[40])
         {
             TableRelation = Vendor.No.;
         }
-        field(32;"KRA Pin";Code[50])
+        field(32; "KRA Pin"; Code[50])
         {
         }
-        field(33;"CutOff Time";Integer)
+        field(33; "CutOff Time"; Integer)
         {
         }
     }
 
     keys
     {
-        key(Key1;"Primary Key")
+        key(Key1; "Primary Key")
         {
             Clustered = true;
         }

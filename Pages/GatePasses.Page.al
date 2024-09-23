@@ -3,7 +3,7 @@ page 50091 "Gate Passes"
     CardPageID = "Gate Pass";
     PageType = List;
     SourceTable = Table50068;
-    SourceTableView = WHERE (Status = FILTER (<> Released));
+    SourceTableView = WHERE(Status = FILTER(<> Released));
 
     layout
     {

@@ -341,7 +341,7 @@ report 50100 "Sales By Dimension"
                 dataitem(DataItem1000000111; Table480)
                 {
                     DataItemLink = Dimension Set ID=FIELD(Dimension Set ID);
-                    DataItemTableView = WHERE (Dimension Code=FILTER(PRODUCTGROUP));
+                    DataItemTableView = WHERE(Dimension Code=FILTER(PRODUCTGROUP));
                     column(DimensionSetID_DimensionSetEntry;"Dimension Set Entry"."Dimension Set ID")
                     {
                     }

@@ -4,7 +4,7 @@ codeunit 50005 "Export.-Get Loading Sheet"
 
     trigger OnRun()
     begin
-        GatePassHeader.GET("Gate-Pass No.");
+        GatePassHeader.GET(Rec."Gate-Pass No.");
 
         LoadingSheetLine.SETRANGE("Loading Sheet No.", GatePassHeader."Loading Sheet No.");
         //LoadingSheetLine.SETRANGE("MAWB No.",GatePassHeader."MAWB No.");
@@ -28,20 +28,18 @@ codeunit 50005 "Export.-Get Loading Sheet"
     var
         TransferLine: Boolean;
     begin
-        WITH LoadingSheetLine2 DO BEGIN
 
-            IF FIND('-') THEN BEGIN
-                GatePassLine.LOCKTABLE;
-                GatePassLine.SETRANGE("Gate-Pass No.", GatePassHeader."No.");
-                GatePassLine."Gate-Pass No." := GatePassHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        LoadingSheetLine := LoadingSheetLine2;
-                        LoadingSheetLine.InsertGatePassFromLoadingSheet(GatePassLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF LoadingSheetLine2.FIND('-') THEN BEGIN
+            GatePassLine.LOCKTABLE;
+            GatePassLine.SETRANGE("Gate-Pass No.", GatePassHeader."No.");
+            GatePassLine."Gate-Pass No." := GatePassHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    LoadingSheetLine := LoadingSheetLine2;
+                    LoadingSheetLine.InsertGatePassFromLoadingSheet(GatePassLine);
+                END;
+            UNTIL LoadingSheetLine2.NEXT = 0;
         END;
     end;
 

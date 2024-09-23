@@ -13,7 +13,7 @@ table 50057 "Booking Sheet Notify Party"
         }
         field(3; "Notify-Party No."; Code[20])
         {
-            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE(Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin

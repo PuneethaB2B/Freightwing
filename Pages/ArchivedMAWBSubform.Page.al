@@ -2,7 +2,7 @@ page 50126 "Archived MAWB Subform"
 {
     Caption = 'Master Airway Bill Subform';
     PageType = ListPart;
-    SourceTable = Table50076;
+    SourceTable = 50076;
 
     layout
     {
@@ -10,23 +10,23 @@ page 50126 "Archived MAWB Subform"
         {
             repeater(Group)
             {
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
                 field("Unit of Measure Code"; "Unit of Measure Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("Chargeable Weight"; Rec."Chargeable Weight")
                 {
                 }
                 field("Shipper Code"; "Shipper Code")
@@ -91,13 +91,13 @@ page 50126 "Archived MAWB Subform"
         Text001: Label 'Master Airway Bill No. %1 does not have any lines';
         TotalWeight: Decimal;
         BookedWeight: Decimal;
-        BookingSheetLine: Record "50054";
-        MAWBLine: Record "50076";
-        LoadingSheetLine: Record "50061";
+        BookingSheetLine: Record 50054;
+        MAWBLine: Record 50076;
+        LoadingSheetLine: Record 50061;
         ShippedWeight: Decimal;
-        MAWBAllocation: Record "50070";
+        MAWBAllocation: Record 50070;
 
-    [Scope('Internal')]
+
     procedure GetHAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get HAWB Line", Rec);
@@ -105,10 +105,10 @@ page 50126 "Archived MAWB Subform"
 
     local procedure GetTotalWeight(MAWB: Code[50]) Total: Decimal
     var
-        MAWBLine1: Record "50076";
+        MAWBLine1: Record 50076;
     begin
         MAWBLine1.RESET;
-        MAWBLine1.SETRANGE(MAWBLine1."MAWB No.", "MAWB No.");
+        MAWBLine1.SETRANGE(MAWBLine1."MAWB No.", Rec."MAWB No.");
         IF MAWBLine1.FIND('-') THEN BEGIN
             REPEAT
                 Total := Total + MAWBLine1."Chargeable Weight";

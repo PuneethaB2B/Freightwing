@@ -7,12 +7,12 @@ tableextension 70000002 tableextension70000002 extends "Sales Invoice Line"
             Editable = false;
             TableRelation = "HAWB Header".No.;
         }
-        field(50001;"HAWB No.";Code[20])
+        field(50001; "HAWB No."; Code[20])
         {
             Editable = false;
             TableRelation = "HS Codes".Code;
         }
-        field(50002;"Division Code";Code[20])
+        field(50002; "Division Code"; Code[20])
         {
             TableRelation = Division/Farm.Code;
 

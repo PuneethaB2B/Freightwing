@@ -31,16 +31,14 @@ codeunit 50013 "Export Document-Mailing"
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToCustNo, EmailDocName);
 
-        WITH TempEmailItem DO BEGIN
-            "Send to" := GetToAddressFromDailyWeightDistByCustomer(SendEmaillToCustNo);
-            Subject := COPYSTR(
-                STRSUBSTNO(
-                  EmailSubjectCapTxt, SendEmaillToCustName, EmailDocName), 1,
-                MAXSTRLEN(Subject));
-            "Attachment File Path" := AttachmentFilePath;
-            "Attachment Name" := AttachmentFileName;
-            Send(FALSE);
-        END;
+        TempEmailItem."Send to" := GetToAddressFromDailyWeightDistByCustomer(SendEmaillToCustNo);
+        TempEmailItem.Subject := COPYSTR(
+            STRSUBSTNO(
+              EmailSubjectCapTxt, SendEmaillToCustName, EmailDocName), 1,
+            MAXSTRLEN(TempEmailItem.Subject));
+        TempEmailItem."Attachment File Path" := AttachmentFilePath;
+        TempEmailItem."Attachment Name" := AttachmentFileName;
+        TempEmailItem.Send(FALSE);
     end;
 
     local procedure GetToAddressFromDailyWeightDistByCustomer(BillToCustomerNo: Code[20]): Text[250]
@@ -80,16 +78,14 @@ codeunit 50013 "Export Document-Mailing"
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
-        WITH TempEmailItem DO BEGIN
-            "Send to" := GetToAddressFromBookingSheetNotifyParty(SendEmaillToNPNo);
-            Subject := COPYSTR(
-                STRSUBSTNO(
-                  EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
-                MAXSTRLEN(Subject));
-            "Attachment File Path" := AttachmentFilePath;
-            "Attachment Name" := AttachmentFileName;
-            Send(FALSE);
-        END;
+        TempEmailItem."Send to" := GetToAddressFromBookingSheetNotifyParty(SendEmaillToNPNo);
+        TempEmailItem.Subject := COPYSTR(
+            STRSUBSTNO(
+              EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
+            MAXSTRLEN(TempEmailItem.Subject));
+        TempEmailItem."Attachment File Path" := AttachmentFilePath;
+        TempEmailItem."Attachment Name" := AttachmentFileName;
+        TempEmailItem.Send(FALSE);
     end;
 
     local procedure GetToAddressFromBookingSheetNotifyParty(NotifyPartyNo: Code[20]): Text[250]
@@ -128,16 +124,14 @@ codeunit 50013 "Export Document-Mailing"
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
-        WITH TempEmailItem DO BEGIN
-            "Send to" := GetToAddressFromGoodReceiptNotifyParty(SendEmaillToNPNo);
-            Subject := COPYSTR(
-                STRSUBSTNO(
-                  EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
-                MAXSTRLEN(Subject));
-            "Attachment File Path" := AttachmentFilePath;
-            "Attachment Name" := AttachmentFileName;
-            Send(FALSE);
-        END;
+        TempEmailItem."Send to" := GetToAddressFromGoodReceiptNotifyParty(SendEmaillToNPNo);
+        TempEmailItem.Subject := COPYSTR(
+            STRSUBSTNO(
+              EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
+            MAXSTRLEN(TempEmailItem.Subject));
+        TempEmailItem."Attachment File Path" := AttachmentFilePath;
+        TempEmailItem."Attachment Name" := AttachmentFileName;
+        TempEmailItem.Send(FALSE);
     end;
 
     local procedure GetToAddressFromGoodReceiptNotifyParty(NotifyPartyNo: Code[20]): Text[250]
@@ -176,16 +170,14 @@ codeunit 50013 "Export Document-Mailing"
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
-        WITH TempEmailItem DO BEGIN
-            "Send to" := GetToAddressFromMAWBInvoiceNotifyParty(SendEmaillToNPNo);
-            Subject := COPYSTR(
-                STRSUBSTNO(
-                  EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
-                MAXSTRLEN(Subject));
-            "Attachment File Path" := AttachmentFilePath;
-            "Attachment Name" := AttachmentFileName;
-            Send(FALSE);
-        END;
+        TempEmailItem."Send to" := GetToAddressFromMAWBInvoiceNotifyParty(SendEmaillToNPNo);
+        TempEmailItem.Subject := COPYSTR(
+            STRSUBSTNO(
+              EmailSubjectCapTxt, SendEmaillToNPName, EmailDocName), 1,
+            MAXSTRLEN(TempEmailItem.Subject));
+        TempEmailItem."Attachment File Path" := AttachmentFilePath;
+        TempEmailItem."Attachment Name" := AttachmentFileName;
+        TempEmailItem.Send(FALSE);
     end;
 
     local procedure GetToAddressFromMAWBInvoiceNotifyParty(NotifyPartyNo: Code[20]): Text[250]

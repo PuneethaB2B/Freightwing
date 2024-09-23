@@ -9,30 +9,28 @@ report 50063 "Update MAWB Dates"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "MAWB Line" DO BEGIN
-                    bookingsheetmawb.RESET;
-                    bookingsheetmawb.SETRANGE(bookingsheetmawb."MAWB No", "MAWB Line"."MAWB No.");
-                    //bookingsheetmawb.SETRANGE(bookingsheetmawb."Item No","MAWB Line"."Item No.");
-                    // bookingsheetmawb.SETRANGE(bookingsheetmawb."Shipper Code","MAWB Line"."Shipper Code");
-                    //bookingsheetmawb.SETRANGE(bookingsheetmawb."Flight No","MAWB Line"."Flight Code");
-                    IF bookingsheetmawb.FINDFIRST THEN BEGIN
-                        IF "MAWB Line"."Airline Code" <> '' THEN BEGIN
-                            Airlines.GET("MAWB Line"."Airline Code");
-                        END ELSE BEGIN
-                            "MAWB Line"."Airline Code" := bookingsheetmawb."Airline Code";
-                            Airlines.GET(bookingsheetmawb."Airline Code");
-                        END;
-                        Window.UPDATE(1, Airlines.Name);
-                        Window.UPDATE(2, bookingsheetmawb."MAWB No");
-                        Window.UPDATE(3, 'Booking Sheet');
-                        SLEEP(100);
-                        BookingSheet.GET(bookingsheetmawb."Booking Sheet No");
-                        "MAWB Line"."Flight Date" := BookingSheet."Booking Date";
-                        //"MAWB Line"."Shipper Code":=bookingsheetmawb."Shipper Code";
-                        "MAWB Line"."Flight Code" := bookingsheetmawb."Flight No";
-                        "MAWB Line".MODIFY();
+                bookingsheetmawb.RESET;
+                bookingsheetmawb.SETRANGE(bookingsheetmawb."MAWB No", "MAWB Line"."MAWB No.");
+                //bookingsheetmawb.SETRANGE(bookingsheetmawb."Item No","MAWB Line"."Item No.");
+                // bookingsheetmawb.SETRANGE(bookingsheetmawb."Shipper Code","MAWB Line"."Shipper Code");
+                //bookingsheetmawb.SETRANGE(bookingsheetmawb."Flight No","MAWB Line"."Flight Code");
+                IF bookingsheetmawb.FINDFIRST THEN BEGIN
+                    IF "MAWB Line"."Airline Code" <> '' THEN BEGIN
+                        Airlines.GET("MAWB Line"."Airline Code");
                     END ELSE BEGIN
+                        "MAWB Line"."Airline Code" := bookingsheetmawb."Airline Code";
+                        Airlines.GET(bookingsheetmawb."Airline Code");
                     END;
+                    Window.UPDATE(1, Airlines.Name);
+                    Window.UPDATE(2, bookingsheetmawb."MAWB No");
+                    Window.UPDATE(3, 'Booking Sheet');
+                    SLEEP(100);
+                    BookingSheet.GET(bookingsheetmawb."Booking Sheet No");
+                    "MAWB Line"."Flight Date" := BookingSheet."Booking Date";
+                    //"MAWB Line"."Shipper Code":=bookingsheetmawb."Shipper Code";
+                    "MAWB Line"."Flight Code" := bookingsheetmawb."Flight No";
+                    "MAWB Line".MODIFY();
+                END ELSE BEGIN
                 END;
                 //Window.CLOSE;
 

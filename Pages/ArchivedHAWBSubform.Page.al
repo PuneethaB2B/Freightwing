@@ -7,7 +7,7 @@ page 50105 "Archived HAWB Subform"
     ModifyAllowed = false;
     PageType = ListPart;
     ShowFilter = false;
-    SourceTable = Table50074;
+    SourceTable = 50074;
 
     layout
     {
@@ -15,33 +15,33 @@ page 50105 "Archived HAWB Subform"
         {
             repeater(Group)
             {
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Division/Farm Code"; "Division/Farm Code")
+                field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                 }
                 field("Unit of Measure Code"; "Unit of Measure Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
-                field("Rate/Charge"; "Rate/Charge")
+                field("Rate/Charge"; Rec."Rate/Charge")
                 {
                     Visible = false;
                 }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("Chargeable Weight"; Rec."Chargeable Weight")
                 {
                 }
             }
@@ -71,7 +71,7 @@ page 50105 "Archived HAWB Subform"
         }
     }
 
-    [Scope('Internal')]
+
     procedure GetHAWBItem()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get BS HAWB Item", Rec);

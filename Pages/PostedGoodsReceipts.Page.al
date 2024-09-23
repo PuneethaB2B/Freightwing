@@ -4,7 +4,7 @@ page 50139 "Posted Goods Receipts"
     Editable = false;
     PageType = List;
     SourceTable = Table50052;
-    SourceTableView = WHERE (Received = FILTER (Yes));
+    SourceTableView = WHERE(Received = FILTER(Yes));
 
     layout
     {

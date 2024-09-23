@@ -13,7 +13,7 @@ table 50049 "Good Receipt Notify Party"
         }
         field(3; "Notify-Party No."; Code[20])
         {
-            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE(Shipper Code=FIELD(Shipper Code));
         }
         field(4;"Notify-Party Name";Text[50])
         {

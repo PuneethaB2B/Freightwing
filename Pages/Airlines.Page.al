@@ -2,7 +2,7 @@ page 50030 Airlines
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Flights,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50021;
+    SourceTable = 50021;
 
     layout
     {
@@ -10,25 +10,25 @@ page 50030 Airlines
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field(Shade; Shade)
+                field(Shade; Rec.Shade)
                 {
                 }
-                field("Prefix Code"; "Prefix Code")
+                field("Prefix Code"; Rec."Prefix Code")
                 {
                 }
-                field("AWB Fee"; "AWB Fee")
+                field("AWB Fee"; Rec."AWB Fee")
                 {
                 }
-                field("Default Vendor No"; "Default Vendor No")
+                field("Default Vendor No"; Rec."Default Vendor No")
                 {
                 }
-                field("Vendor Name"; "Vendor Name")
+                field("Vendor Name"; Rec."Vendor Name")
                 {
                 }
             }

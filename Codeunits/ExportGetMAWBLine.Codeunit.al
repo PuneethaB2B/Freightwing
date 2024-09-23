@@ -4,7 +4,7 @@ codeunit 50008 "Export.-Get MAWB Line"
 
     trigger OnRun()
     begin
-        SalesHeader.GET("Document Type", "Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         MAWBLine.SETRANGE("MAWB No.", SalesHeader."MAWB No.");
         MAWBLine.SETRANGE("Shipper Code", SalesHeader."Sell-to Customer No.");
         MAWBLine.SETFILTER("Invoice No.", '%1', '');
@@ -27,21 +27,19 @@ codeunit 50008 "Export.-Get MAWB Line"
     var
         TransferLine: Boolean;
     begin
-        WITH MAWBLine2 DO BEGIN
-            IF FIND('-') THEN BEGIN
-                SalesLine.LOCKTABLE;
-                SalesLine.SETRANGE("Document Type", SalesHeader."Document Type");
-                SalesLine.SETRANGE("Document No.", SalesHeader."No.");
-                SalesLine."Document No." := SalesHeader."No.";
-                SalesLine."Document Type" := SalesHeader."Document Type";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        MAWBLine := MAWBLine2;
-                        MAWBLine.InsertSalesInvoiceFromMAWBLine(SalesLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF MAWBLine2.FIND('-') THEN BEGIN
+            SalesLine.LOCKTABLE;
+            SalesLine.SETRANGE("Document Type", SalesHeader."Document Type");
+            SalesLine.SETRANGE("Document No.", SalesHeader."No.");
+            SalesLine."Document No." := SalesHeader."No.";
+            SalesLine."Document Type" := SalesHeader."Document Type";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    MAWBLine := MAWBLine2;
+                    MAWBLine.InsertSalesInvoiceFromMAWBLine(SalesLine);
+                END;
+            UNTIL MAWBLine2.NEXT = 0;
         END;
     end;
 

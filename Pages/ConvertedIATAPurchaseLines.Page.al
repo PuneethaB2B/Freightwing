@@ -5,8 +5,8 @@ page 50148 "Converted IATA Purchase Lines"
     ModifyAllowed = false;
     MultipleNewLines = true;
     PageType = List;
-    SourceTable = Table50016;
-    SourceTableView = WHERE (Converted = CONST (Yes));
+    SourceTable = 50016;
+    SourceTableView = WHERE(Converted = CONST(true));
 
     layout
     {
@@ -14,55 +14,55 @@ page 50148 "Converted IATA Purchase Lines"
         {
             repeater(Group)
             {
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Vendor No."; "Vendor No.")
+                field("Vendor No."; Rec."Vendor No.")
                 {
                 }
-                field("Vendor Name"; "Vendor Name")
+                field("Vendor Name"; Rec."Vendor Name")
                 {
                 }
-                field("Purchase A/C Code"; "Purchase A/C Code")
+                field("Purchase A/C Code"; Rec."Purchase A/C Code")
                 {
                 }
-                field("Weight As Per FWL"; "Weight As Per FWL")
+                field("Weight As Per FWL"; Rec."Weight As Per FWL")
                 {
                 }
-                field("Amount As Per FWL"; "Amount As Per FWL")
+                field("Amount As Per FWL"; Rec."Amount As Per FWL")
                 {
                 }
-                field("Rate Per Kilo As Per FWL"; "Rate Per Kilo As Per FWL")
+                field("Rate Per Kilo As Per FWL"; Rec."Rate Per Kilo As Per FWL")
                 {
                 }
-                field("Airline Invoice No"; "Airline Invoice No")
+                field("Airline Invoice No"; Rec."Airline Invoice No")
                 {
                 }
-                field("Airline Invoice Date"; "Airline Invoice Date")
+                field("Airline Invoice Date"; Rec."Airline Invoice Date")
                 {
                 }
-                field("Weight as per Airline"; "Weight as per Airline")
+                field("Weight as per Airline"; Rec."Weight as per Airline")
                 {
                 }
-                field("Amount as per Airline"; "Amount as per Airline")
+                field("Amount as per Airline"; Rec."Amount as per Airline")
                 {
                 }
-                field("Airline Kilo Rate"; "Airline Kilo Rate")
+                field("Airline Kilo Rate"; Rec."Airline Kilo Rate")
                 {
                 }
-                field("Difference in Weight"; "Difference in Weight")
+                field("Difference in Weight"; Rec."Difference in Weight")
                 {
                 }
-                field("Rate Difference"; "Rate Difference")
+                field("Rate Difference"; Rec."Rate Difference")
                 {
                 }
-                field("Difference In Amount"; "Difference In Amount")
+                field("Difference In Amount"; Rec."Difference In Amount")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
             }
@@ -117,16 +117,16 @@ page 50148 "Converted IATA Purchase Lines"
     }
 
     var
-        IATAPurchaseInvoice: Record "50016";
+        IATAPurchaseInvoice: Record 50016;
         Text001: Label 'Do you wish to convert the lines  into  Purchase Invoices?';
         Text002: Label 'The Lines have been converted into purchase invoices successfully';
         Window: Dialog;
-        ImportExportSetup: Record "50010";
-        AmmendCharges: Codeunit "50031";
+        ImportExportSetup: Record 50010;
+        AmmendCharges: Codeunit 50031;
 
     local procedure GetTotalCharge("MAWB no": Code[50]) TotalCharge: Decimal
     var
-        MawbInvoiceCharge: Record "50073";
+        MawbInvoiceCharge: Record 50073;
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB no");
@@ -141,9 +141,9 @@ page 50148 "Converted IATA Purchase Lines"
 
     local procedure GetTotalWeight("MAWB No": Code[50]) TotalWeight: Decimal
     var
-        LoadingSheet: Record "50060";
-        LoadingSheetLine: Record "50061";
-        MawbInvoiceCharge: Record "50073";
+        LoadingSheet: Record 50060;
+        LoadingSheetLine: Record 50061;
+        MawbInvoiceCharge: Record 50073;
     begin
         /*AmmendCharges.ClearCalculatedCharges("MAWB no");
         AmmendCharges.CalculateMAWBCharges("MAWB no");
@@ -160,8 +160,8 @@ page 50148 "Converted IATA Purchase Lines"
 
     local procedure GetPurchaseAcc(MAWB: Code[50]) AccNo: Code[50]
     var
-        BookingSheetMawb: Record "50070";
-        Cust: Record "18";
+        BookingSheetMawb: Record 50070;
+        Cust: Record 18;
     begin
         BookingSheetMawb.RESET;
         BookingSheetMawb.SETRANGE(BookingSheetMawb."MAWB No", MAWB);

@@ -7,17 +7,17 @@ table 50051 "Good Receipt Line"
         {
             TableRelation = "Good Receipt Header".No.;
         }
-        field(2;"Line No.";Integer)
+        field(2; "Line No."; Integer)
         {
         }
-        field(3;Description;Text[50])
+        field(3; Description; Text[50])
         {
         }
-        field(4;"Unit of Measure Code";Code[20])
+        field(4; "Unit of Measure Code"; Code[20])
         {
             TableRelation = "Unit of Measure".Code;
         }
-        field(5;Type;Option)
+        field(5; Type; Option)
         {
             Caption = 'Type';
             Editable = false;
@@ -25,7 +25,7 @@ table 50051 "Good Receipt Line"
             OptionCaption = ' ,G/L Account,Item,,Fixed Asset,Charge (Item)';
             OptionMembers = " ","G/L Account",Item,,"Fixed Asset","Charge (Item)";
         }
-        field(6;"Item No.";Code[20])
+        field(6; "Item No."; Code[20])
         {
             Caption = 'Item No.';
             Editable = false;
@@ -39,28 +39,28 @@ table 50051 "Good Receipt Line"
             begin
             end;
         }
-        field(7;"Booked Weight";Decimal)
+        field(7; "Booked Weight"; Decimal)
         {
             Caption = 'Booked Weight';
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = false;
         }
-        field(8;"Actual Weight";Decimal)
+        field(8; "Actual Weight"; Decimal)
         {
 
             trigger OnValidate()
             begin
-                "Weight Difference":="Booked Weight"-"Actual Weight";
-                 "FWL Gross Weight":=   "Actual Weight";
+                "Weight Difference" := "Booked Weight" - "Actual Weight";
+                "FWL Gross Weight" := "Actual Weight";
             end;
         }
-        field(11;"ULD Type Code";Code[20])
+        field(11; "ULD Type Code"; Code[20])
         {
             TableRelation = "ULD Type".Code;
         }
-        field(12;"ULD No.";Code[20])
+        field(12; "ULD No."; Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE(ULD Type Code=FIELD(ULD Type Code));
         }
         field(13;Quantity;Decimal)
         {

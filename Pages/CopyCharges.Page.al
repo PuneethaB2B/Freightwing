@@ -105,28 +105,28 @@ page 50002 "Copy Charges"
     end;
 
     var
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
+        FreightChargeByAirline: Record 50025;
+        FreightChargeByFlight: Record 50026;
+        FreightChargeByItem: Record 50027;
+        FreightItemCharge: Record 50028;
+        FreightItemChargeMatrix: Record 50029;
         StartDate: Date;
         EndDate: Date;
         Window: Dialog;
-        FreightChargeByAirline1: Record "50025";
-        FreightChargeByFlight1: Record "50026";
-        FreightChargeByItem1: Record "50027";
-        FreightItemCharge1: Record "50028";
-        FreightItemChargeMatrix1: Record "50029";
+        FreightChargeByAirline1: Record 50025;
+        FreightChargeByFlight1: Record 50026;
+        FreightChargeByItem1: Record 50027;
+        FreightItemCharge1: Record 50028;
+        FreightItemChargeMatrix1: Record 50029;
         j: Integer;
         CopyFromDate: Date;
         CopyToDate: Date;
-        ByAirline: Record "50025";
+        ByAirline: Record 50025;
         Airline: Code[10];
         Start: Date;
         Endd: Date;
 
-    local procedure CopyFreightChargeByAirline(From: Record "50025"; CopyTo: Record "50025"; Strt: Date; Edd: Date)
+    local procedure CopyFreightChargeByAirline(From: Record 50025; CopyTo: Record 50025; Strt: Date; Edd: Date)
     begin
         CopyTo.INIT;
         CopyTo."Airline Code" := From."Airline Code";
@@ -137,7 +137,7 @@ page 50002 "Copy Charges"
         //MESSAGE('Inserted');
     end;
 
-    local procedure CopyFreightChargeByFlight(From: Record "50026"; CopyTo: Record "50026"; Str: Date; Edd: Date)
+    local procedure CopyFreightChargeByFlight(From: Record 50026; CopyTo: Record 50026; Str: Date; Edd: Date)
     var
         i: Integer;
     begin
@@ -156,7 +156,7 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-    local procedure CopyFreightChargeByItem(From: Record "50027"; CopyTo: Record "50027"; str: Date; edd: Date)
+    local procedure CopyFreightChargeByItem(From: Record 50027; CopyTo: Record 50027; str: Date; edd: Date)
     begin
         CopyTo.INIT;
         CopyTo."Airline Code" := From."Airline Code";
@@ -170,7 +170,7 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-    local procedure CopyFreightItemCharge(From: Record "50028"; CopyTo: Record "50028"; Strt: Date; Edd: Date)
+    local procedure CopyFreightItemCharge(From: Record 50028; CopyTo: Record 50028; Strt: Date; Edd: Date)
     begin
         CopyTo.INIT;
         CopyTo."Airline Code" := From."Airline Code";
@@ -187,7 +187,7 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-    local procedure CopyFreightItemChargeMatrix(From: Record "50029"; CopyTo: Record "50029"; Strt: Date; Edd: Date)
+    local procedure CopyFreightItemChargeMatrix(From: Record 50029; CopyTo: Record 50029; Strt: Date; Edd: Date)
     begin
         CopyTo.INIT;
         CopyTo."Airline Code" := From."Airline Code";
@@ -210,8 +210,8 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-    [Scope('Internal')]
-    procedure initParam(pCharg: Record "50025")
+
+    procedure initParam(pCharg: Record 50025)
     begin
         Start := pCharg."Effective Start Date";
         Endd := pCharg."Effective End Date";

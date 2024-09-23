@@ -5,7 +5,7 @@ codeunit 50009 "Export.-Get Goods Receipt"
     trigger OnRun()
     begin
         LoadingSheetHeader.RESET;
-        LoadingSheetHeader.SETRANGE(LoadingSheetHeader."No.", "Loading Sheet No.");
+        LoadingSheetHeader.SETRANGE(LoadingSheetHeader."No.", Rec."Loading Sheet No.");
         IF LoadingSheetHeader.FINDFIRST THEN BEGIN
             GoodReceiptLine.SETRANGE(GoodReceiptLine."Shipper Code", LoadingSheetHeader."Shipper Code");
             GoodReceiptLine.SETRANGE(GoodReceiptLine."MAWB No.", LoadingSheetHeader."MAWB No.");
@@ -31,19 +31,17 @@ codeunit 50009 "Export.-Get Goods Receipt"
     var
         TransferLine: Boolean;
     begin
-        WITH GoodReceiptLine2 DO BEGIN
-            IF FIND('-') THEN BEGIN
-                LoadingSheetLine.LOCKTABLE;
-                LoadingSheetLine.SETRANGE("Loading Sheet No.", LoadingSheetHeader."No.");
-                LoadingSheetLine."Loading Sheet No." := LoadingSheetHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        GoodReceiptLine := GoodReceiptLine2;
-                        GoodReceiptLine.InsertLoadingSheetFromGoodReceiptLine(LoadingSheetLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF GoodReceiptLine2.FIND('-') THEN BEGIN
+            LoadingSheetLine.LOCKTABLE;
+            LoadingSheetLine.SETRANGE("Loading Sheet No.", LoadingSheetHeader."No.");
+            LoadingSheetLine."Loading Sheet No." := LoadingSheetHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    GoodReceiptLine := GoodReceiptLine2;
+                    GoodReceiptLine.InsertLoadingSheetFromGoodReceiptLine(LoadingSheetLine);
+                END;
+            UNTIL GoodReceiptLine2.NEXT = 0;
         END;
     end;
 

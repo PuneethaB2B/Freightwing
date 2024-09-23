@@ -7,19 +7,19 @@ table 50061 "Loading Sheet Line"
         {
             TableRelation = "Loading Sheet Header".No.;
         }
-        field(2;"Line No.";Integer)
+        field(2; "Line No."; Integer)
         {
         }
-        field(3;Description;Text[50])
+        field(3; Description; Text[50])
         {
         }
-        field(4;"Unit of Measure Code";Code[20])
+        field(4; "Unit of Measure Code"; Code[20])
         {
             TableRelation = "Unit of Measure".Code;
         }
-        field(8;"Division/Farm Code";Code[20])
+        field(8; "Division/Farm Code"; Code[20])
         {
-            TableRelation = "Shipper Farm"."Farm Code" WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Farm"."Farm Code" WHERE(Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin

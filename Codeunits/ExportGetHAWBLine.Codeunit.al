@@ -4,7 +4,7 @@ codeunit 50006 "Export.-Get HAWB Line"
 
     trigger OnRun()
     begin
-        MAWBHeader.GET("MAWB No.");
+        MAWBHeader.GET(Rec."MAWB No.");
 
         HAWBLine.SETRANGE("MAWB No.", MAWBHeader."No.");
         HAWBLine.SETRANGE("MAWB Prepared", FALSE);
@@ -27,20 +27,18 @@ codeunit 50006 "Export.-Get HAWB Line"
     var
         TransferLine: Boolean;
     begin
-        WITH HAWBLine2 DO BEGIN
-            IF FIND('-') THEN BEGIN
-                MAWBLine.LOCKTABLE;
-                MAWBLine.SETRANGE("MAWB No.", MAWBHeader."No.");
-                MAWBLine."MAWB No." := MAWBHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        HAWBLine := HAWBLine2;
-                        HAWBLine.InsertMAWBFromHAWBLine(MAWBLine);
+        IF HAWBLine2.FIND('-') THEN BEGIN
+            MAWBLine.LOCKTABLE;
+            MAWBLine.SETRANGE("MAWB No.", MAWBHeader."No.");
+            MAWBLine."MAWB No." := MAWBHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    HAWBLine := HAWBLine2;
+                    HAWBLine.InsertMAWBFromHAWBLine(MAWBLine);
 
-                    END;
-                UNTIL NEXT = 0;
-            END;
+                END;
+            UNTIL HAWBLine2.NEXT = 0;
         END;
     end;
 

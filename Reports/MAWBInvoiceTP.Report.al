@@ -268,23 +268,21 @@ report 50039 "MAWB Invoice TP"
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Sales Line" DO BEGIN
-                        Division := '';
-                        DivWeight := 0;
-                        DivCustom := '';
-                        DivEuro := '';
-                        DivNoOfBoxes := 0;
-                        MAWBLine.RESET;
-                        MAWBLine.SETRANGE(MAWBLine."Shipper Code", "Sales Line"."Sell-to Customer No.");
-                        MAWBLine.SETRANGE(MAWBLine."MAWB No.", "Sales Line"."MAWB No.");
-                        MAWBLine.SETRANGE(MAWBLine."HAWB No.", "Sales Line"."HAWB No.");
-                        IF MAWBLine.FINDFIRST THEN BEGIN
-                            Division := MAWBLine."Division/Farm Code";
-                            DivWeight := MAWBLine."Chargeable Weight";
-                            DivCustom := MAWBLine."Custom Enrty No";
-                            DivEuro := MAWBLine."Certificate of Origin";
-                            DivNoOfBoxes := MAWBLine.Quantity;
-                        END;
+                    Division := '';
+                    DivWeight := 0;
+                    DivCustom := '';
+                    DivEuro := '';
+                    DivNoOfBoxes := 0;
+                    MAWBLine.RESET;
+                    MAWBLine.SETRANGE(MAWBLine."Shipper Code", "Sales Line"."Sell-to Customer No.");
+                    MAWBLine.SETRANGE(MAWBLine."MAWB No.", "Sales Line"."MAWB No.");
+                    MAWBLine.SETRANGE(MAWBLine."HAWB No.", "Sales Line"."HAWB No.");
+                    IF MAWBLine.FINDFIRST THEN BEGIN
+                        Division := MAWBLine."Division/Farm Code";
+                        DivWeight := MAWBLine."Chargeable Weight";
+                        DivCustom := MAWBLine."Custom Enrty No";
+                        DivEuro := MAWBLine."Certificate of Origin";
+                        DivNoOfBoxes := MAWBLine.Quantity;
                     END;
                     // *********************** TBL Commenting previous code and rewrite it *******************
                     MAWBLine.RESET;
@@ -312,12 +310,10 @@ report 50039 "MAWB Invoice TP"
             begin
                 BookingSheetMAWB.RESET;
                 BookingSheetMAWB.SETRANGE(BookingSheetMAWB."MAWB No", "Sales Header"."MAWB No.");
-                WITH "Sales Header" DO BEGIN
-                    IF "Sales Header"."Bill-to Customer No." <> '' THEN
-                        Cust.GET("Sales Header"."Bill-to Customer No.");
-                    //MESSAGE(Cust.Name);
-                    BillToAddress := 'P.O. Box ' + Cust.Address + ',' + Cust."Post Code" + ' ,' + Cust.City + ' - ' + Cust."Country/Region Code";
-                END;
+                IF "Sales Header"."Bill-to Customer No." <> '' THEN
+                    Cust.GET("Sales Header"."Bill-to Customer No.");
+                //MESSAGE(Cust.Name);
+                BillToAddress := 'P.O. Box ' + Cust.Address + ',' + Cust."Post Code" + ' ,' + Cust.City + ' - ' + Cust."Country/Region Code";
                 IF BookingSheetMAWB.FINDFIRST THEN BEGIN
                     ConsigneeName := BookingSheetMAWB."Consignee Name";
                     Airports.RESET;

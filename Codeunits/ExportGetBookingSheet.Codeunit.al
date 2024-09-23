@@ -4,7 +4,7 @@ codeunit 50010 "Export.-Get Booking Sheet"
 
     trigger OnRun()
     begin
-        GoodReceiptHeader.GET("Good Receipt No.");
+        GoodReceiptHeader.GET(Rec."Good Receipt No.");
         BookingSheetHeader.RESET;
         BookingSheetHeader.SETRANGE(BookingSheetHeader."Booking Date", GoodReceiptHeader."Receipt Date");
         BookingSheetHeader.SETRANGE(BookingSheetHeader."Shipper Code", GoodReceiptHeader."Shipper Code");
@@ -35,19 +35,17 @@ codeunit 50010 "Export.-Get Booking Sheet"
     var
         TransferLine: Boolean;
     begin
-        WITH BookingSheetLine2 DO BEGIN
-            IF FIND('-') THEN BEGIN
-                GoodReceiptLine.LOCKTABLE;
-                GoodReceiptLine.SETRANGE("Good Receipt No.", GoodReceiptHeader."No.");
-                GoodReceiptLine."Good Receipt No." := GoodReceiptHeader."No.";
-                REPEAT
-                    TransferLine := TRUE;
-                    IF TransferLine THEN BEGIN
-                        BookingSheetLine := BookingSheetLine2;
-                        BookingSheetLine.InsertGoodsReceiptFromBookingSheetLine(GoodReceiptLine);
-                    END;
-                UNTIL NEXT = 0;
-            END;
+        IF BookingSheetLine2.FIND('-') THEN BEGIN
+            GoodReceiptLine.LOCKTABLE;
+            GoodReceiptLine.SETRANGE("Good Receipt No.", GoodReceiptHeader."No.");
+            GoodReceiptLine."Good Receipt No." := GoodReceiptHeader."No.";
+            REPEAT
+                TransferLine := TRUE;
+                IF TransferLine THEN BEGIN
+                    BookingSheetLine := BookingSheetLine2;
+                    BookingSheetLine.InsertGoodsReceiptFromBookingSheetLine(GoodReceiptLine);
+                END;
+            UNTIL BookingSheetLine2.NEXT = 0;
         END;
     end;
 

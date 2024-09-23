@@ -10,7 +10,7 @@ table 50011 "Shipper Agent"
             NotBlank = true;
             TableRelation = Customer.No.;
         }
-        field(2;"Agent Code";Code[20])
+        field(2; "Agent Code"; Code[20])
         {
             Caption = 'Agent Code';
             TableRelation = "Shipping Agent".Code;
@@ -18,10 +18,10 @@ table 50011 "Shipper Agent"
             trigger OnValidate()
             begin
                 ShippingAgent.GET("Agent Code");
-                "Agent Name":=ShippingAgent.Name;
+                "Agent Name" := ShippingAgent.Name;
             end;
         }
-        field(3;"Agent Name";Text[50])
+        field(3; "Agent Name"; Text[50])
         {
             Editable = false;
         }
@@ -29,7 +29,7 @@ table 50011 "Shipper Agent"
 
     keys
     {
-        key(Key1;"Shipper Code","Agent Code")
+        key(Key1; "Shipper Code", "Agent Code")
         {
             Clustered = true;
         }

@@ -7,7 +7,7 @@ report 50081 "Shipment Report"
     {
         dataitem(DataItem1000000049; Table50039)
         {
-            DataItemTableView = WHERE (MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
             dataitem(DataItem1000000000;Table50077)
             {
                 DataItemLink = No.=FIELD(MAWB No.);

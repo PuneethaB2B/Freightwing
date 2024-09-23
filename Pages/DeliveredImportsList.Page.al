@@ -2,8 +2,8 @@ page 50006 "Delivered Imports List"
 {
     CardPageID = "Delivered Imports Header";
     PageType = List;
-    SourceTable = Table50030;
-    SourceTableView = WHERE (Status = CONST (Delivered));
+    SourceTable = 50030;
+    SourceTableView = WHERE(Status = CONST(Delivered));
 
     layout
     {
@@ -11,25 +11,25 @@ page 50006 "Delivered Imports List"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
                 field("MAWB Date"; "MAWB Date")
                 {
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
                 field("Port of Discharge"; "Port of Discharge")

@@ -63,12 +63,12 @@ tableextension 70000020 tableextension70000020 extends "Sales Line"
             Editable = false;
             TableRelation = "HAWB Header".No.;
         }
-        field(50001;"HAWB No.";Code[20])
+        field(50001; "HAWB No."; Code[20])
         {
             Editable = false;
             TableRelation = "HAWB Header".No.;
         }
-        field(50002;"Division Code";Code[20])
+        field(50002; "Division Code"; Code[20])
         {
             TableRelation = Division/Farm.Code;
         }

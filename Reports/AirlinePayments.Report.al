@@ -7,7 +7,7 @@ report 50052 "Airline Payments"
     {
         dataitem(DataItem1000000000; Table50039)
         {
-            DataItemTableView = WHERE (Airline Code=FILTER(<>''));
+            DataItemTableView = WHERE(Airline Code=FILTER(<>''));
             column("Filter";Filter)
             {
             }

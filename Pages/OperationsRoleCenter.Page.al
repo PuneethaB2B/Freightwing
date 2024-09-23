@@ -92,7 +92,7 @@ page 50094 "Operations Role Center"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 RunObject = Page 50071;
-                RunPageView = WHERE (Status = FILTER (Submitted));
+                RunPageView = WHERE(Status = FILTER(Submitted));
                 Visible = true;
             }
             action("Print Loading Sheet")

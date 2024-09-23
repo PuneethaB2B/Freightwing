@@ -4,7 +4,7 @@ page 50082 "FWL Cargo Receipts"
     InsertAllowed = false;
     PageType = List;
     SourceTable = Table50030;
-    SourceTableView = WHERE (Status = CONST (FWL Receipt));
+    SourceTableView = WHERE(Status = CONST(FWL Receipt));
 
     layout
     {

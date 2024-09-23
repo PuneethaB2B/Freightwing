@@ -8,7 +8,7 @@ report 50051 "MAWB Sales Purch. Comp"
     {
         dataitem(DataItem1000000001; Table50077)
         {
-            DataItemTableView = SORTING (No.)
+            DataItemTableView = SORTING(No.)
                                 ORDER(Ascending);
             column(No_MAWBHeader; "MAWB Header 2"."No.")
             {
@@ -28,7 +28,7 @@ report 50051 "MAWB Sales Purch. Comp"
             dataitem(DataItem1000000000; Table113)
             {
                 DataItemLink = MAWB No.=FIELD(No.);
-                DataItemTableView = WHERE (MAWB No.=FILTER(<>''));
+                DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
                 RequestFilterHeading = 'Posting Date';
                 column(SelltoCustomerNo_SalesInvoiceLine;"Sales Invoice Line"."Sell-to Customer No.")
                 {

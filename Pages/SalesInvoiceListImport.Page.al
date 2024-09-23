@@ -5,7 +5,7 @@ page 50012 "Sales Invoice List - Import"
     Editable = false;
     PageType = List;
     SourceTable = Table36;
-    SourceTableView = WHERE (Document Type=CONST(Invoice));
+    SourceTableView = WHERE(Document Type=CONST(Invoice));
 
     layout
     {
