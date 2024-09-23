@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>a9627cca-c978-4882-a20b-6bd77f011b0a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="LoadingSheetNo_LoadingSheetNotifyParty">
+          <DataField>LoadingSheetNo_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetNotifyParty">
+          <DataField>AirlineCode_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="NotifyPartyNo_LoadingSheetNotifyParty">
+          <DataField>NotifyPartyNo_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="NotifyPartyName_LoadingSheetNotifyParty">
+          <DataField>NotifyPartyName_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="ItemNo_LoadingSheetNotifyParty">
+          <DataField>ItemNo_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="ShipperCode_LoadingSheetNotifyParty">
+          <DataField>ShipperCode_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="FlightCode_LoadingSheetNotifyParty">
+          <DataField>FlightCode_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="SourceCode_LoadingSheetNotifyParty">
+          <DataField>SourceCode_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="SourceType_LoadingSheetNotifyParty">
+          <DataField>SourceType_LoadingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="No_LoadingSheetHeader">
+          <DataField>No_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="LoadingDate_LoadingSheetHeader">
+          <DataField>LoadingDate_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_LoadingSheetHeader">
+          <DataField>ShipperCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_LoadingSheetHeader">
+          <DataField>ShipperName_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetHeader">
+          <DataField>MAWBNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_LoadingSheetHeader">
+          <DataField>BookingSheetNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetDate_LoadingSheetHeader">
+          <DataField>BookingSheetDate_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_LoadingSheetHeader">
+          <DataField>FlightCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_LoadingSheetHeader">
+          <DataField>DestinationCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingStartTime_LoadingSheetHeader">
+          <DataField>OffloadingStartTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingEndTime_LoadingSheetHeader">
+          <DataField>OffloadingEndTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="VehicleNo_LoadingSheetHeader">
+          <DataField>VehicleNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="VehicleArrivalTime_LoadingSheetHeader">
+          <DataField>VehicleArrivalTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="SealNo_LoadingSheetHeader">
+          <DataField>SealNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ScreenerName_LoadingSheetHeader">
+          <DataField>ScreenerName_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="CommodityOrigin_LoadingSheetHeader">
+          <DataField>CommodityOrigin_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_LoadingSheetHeader">
+          <DataField>ConsigneeCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingPlace_LoadingSheetHeader">
+          <DataField>OffloadingPlace_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetHeader">
+          <DataField>AirlineCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="PreparedBy_LoadingSheetHeader">
+          <DataField>PreparedBy_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_LoadingSheetHeader">
+          <DataField>NoSeries_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="Description_LoadingSheetHeader">
+          <DataField>Description_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="Shipped_LoadingSheetHeader">
+          <DataField>Shipped_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="CompName">
+          <DataField>CompName</DataField>
+        </Field>
+        <Field Name="CompPicture">
+          <DataField>CompPicture</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_LoadingSheetLine">
+          <DataField>LoadingSheetNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LineNo_LoadingSheetLine">
+          <DataField>LineNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Description_LoadingSheetLine">
+          <DataField>Description_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_LoadingSheetLine">
+          <DataField>UnitofMeasureCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_LoadingSheetLine">
+          <DataField>DivisionFarmCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketNo_LoadingSheetLine">
+          <DataField>FWLDocketNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLine">
+          <DataField>FWLDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLineFormat">
+          <DataField>FWLDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLine">
+          <DataField>FWLGrossWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLineFormat">
+          <DataField>FWLGrossWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLine">
+          <DataField>AirlineDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLineFormat">
+          <DataField>AirlineDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetLine">
+          <DataField>Quantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetLineFormat">
+          <DataField>Quantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_LoadingSheetLine">
+          <DataField>ULDTypeCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLine">
+          <DataField>SkidPer_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLineFormat">
+          <DataField>SkidPer_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDNo_LoadingSheetLine">
+          <DataField>ULDNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDQuantity_LoadingSheetLine">
+          <DataField>ULDQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDQuantity_LoadingSheetLineFormat">
+          <DataField>ULDQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Position_LoadingSheetLine">
+          <DataField>Position_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_LoadingSheetLine">
+          <DataField>ArrivalTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_LoadingSheetLineFormat">
+          <DataField>ArrivalTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLine">
+          <DataField>DepartureTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLineFormat">
+          <DataField>DepartureTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="XRay_LoadingSheetLine">
+          <DataField>XRay_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_LoadingSheetLine">
+          <DataField>ShipperCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FlightCode_LoadingSheetLine">
+          <DataField>FlightCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_LoadingSheetLine">
+          <DataField>DestinationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_LoadingSheetLine">
+          <DataField>ConsigneeCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetLine">
+          <DataField>AirlineCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetLine">
+          <DataField>MAWBNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Type_LoadingSheetLine">
+          <DataField>Type_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ItemNo_LoadingSheetLine">
+          <DataField>ItemNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LocationCode_LoadingSheetLine">
+          <DataField>LocationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="QuantityAvailable_LoadingSheetLine">
+          <DataField>QuantityAvailable_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="QuantityAvailable_LoadingSheetLineFormat">
+          <DataField>QuantityAvailable_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="LoadingQuantity_LoadingSheetLine">
+          <DataField>LoadingQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LoadingQuantity_LoadingSheetLineFormat">
+          <DataField>LoadingQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ShippedQuantity_LoadingSheetLine">
+          <DataField>ShippedQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ShippedQuantity_LoadingSheetLineFormat">
+          <DataField>ShippedQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="BalanceQuantity_LoadingSheetLine">
+          <DataField>BalanceQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="BalanceQuantity_LoadingSheetLineFormat">
+          <DataField>BalanceQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Temperature_LoadingSheetLine">
+          <DataField>Temperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Temperature_LoadingSheetLineFormat">
+          <DataField>Temperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Return_LoadingSheetLine">
+          <DataField>Return_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ReturntoLocationCode_LoadingSheetLine">
+          <DataField>ReturntoLocationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="GatePassNo_LoadingSheetLine">
+          <DataField>GatePassNo_LoadingSheetLine</DataField>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet</rd:DataSetName>
+        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
+        <rd:TableName>Result</rd:TableName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.06785cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.04139cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.88806cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Item No.</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Loading Qty</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox9">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Shipped Qty.</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Balance Qty.</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Airline DW</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox15">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">MAWB No.</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox17">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">XRay</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ItemNo_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ItemNo_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ItemNo_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="LoadingQuantity_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!LoadingQuantity_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>LoadingQuantity_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ShippedQuantity_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ShippedQuantity_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ShippedQuantity_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="BalanceQuantity_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!BalanceQuantity_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>BalanceQuantity_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="AirlineDocketWeight_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!AirlineDocketWeight_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>AirlineDocketWeight_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="MAWBNo_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!MAWBNo_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>MAWBNo_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="XRay_LoadingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!XRay_LoadingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>XRay_LoadingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Top>0.34078cm</Top>
+            <Left>0.34078cm</Left>
+            <Height>1.2cm</Height>
+            <Width>16.9973cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>5.08cm</Height>
+        <Style />
+      </Body>
+      <Width>18cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>3.78354cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=Globals!PageNumber</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.61694cm</Top>
+              <Left>14.6812cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!No_LoadingSheetHeader.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>2.16063cm</Top>
+              <Left>14.6812cm</Left>
+              <Height>1.2791cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">="Loading Sheet"</Value>
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>1.32278cm</Top>
+              <Left>6.34771cm</Left>
+              <Height>0.6cm</Height>
+              <Width>7.2625cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!CompName.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>segoeui</FontFamily>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.3259cm</Top>
+              <Left>6.34771cm</Left>
+              <Height>0.92632cm</Height>
+              <Width>7.2625cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Image Name="Image1">
+              <Source>Database</Source>
+              <Value>=First(Fields!CompPicture.Value, "DataSet_Result")</Value>
+              <MIMEType>image/bmp</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0cm</Top>
+              <Left>0cm</Left>
+              <Height>3.03389cm</Height>
+              <Width>5.94183cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+</Report>
