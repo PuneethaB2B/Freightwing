@@ -1,0 +1,66 @@
+page 50030 Airlines
+{
+    PageType = List;
+    PromotedActionCategories = ' New,Posting,Reports,Flights,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
+    SourceTable = Table50021;
+
+    layout
+    {
+        area(content)
+        {
+            repeater(Group)
+            {
+                field(Code; Code)
+                {
+                }
+                field(Name; Name)
+                {
+                }
+                field(Shade; Shade)
+                {
+                }
+                field("Prefix Code"; "Prefix Code")
+                {
+                }
+                field("AWB Fee"; "AWB Fee")
+                {
+                }
+                field("Default Vendor No"; "Default Vendor No")
+                {
+                }
+                field("Vendor Name"; "Vendor Name")
+                {
+                }
+            }
+        }
+    }
+
+    actions
+    {
+        area(navigation)
+        {
+            group(Flights)
+            {
+                Caption = 'Flights';
+                Image = Print;
+                action("&Flight")
+                {
+                    Caption = '&Flight';
+                    Ellipsis = false;
+                    Image = SetupList;
+                    Promoted = true;
+                    PromotedCategory = Category4;
+                    PromotedIsBig = true;
+                    RunObject = Page 50031;
+                    RunPageLink = Airline Code=FIELD(Code);
+
+                    trigger OnAction()
+                    begin
+                        //DocPrint.PrintPurchHeader(Rec);
+                    end;
+                }
+            }
+        }
+    }
+}
+

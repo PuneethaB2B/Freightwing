@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>c2ead660-2947-4867-9f94-7b1396b9f8dc</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="BookingSheetNo_BookingSheetNotifyParty">
+          <DataField>BookingSheetNo_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetNotifyParty">
+          <DataField>AirlineCode_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="NotifyPartyNo_BookingSheetNotifyParty">
+          <DataField>NotifyPartyNo_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="NotifyPartyName_BookingSheetNotifyParty">
+          <DataField>NotifyPartyName_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetNotifyParty">
+          <DataField>ItemNo_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetNotifyParty">
+          <DataField>ShipperCode_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetNotifyParty">
+          <DataField>FlightCode_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="SourceCode_BookingSheetNotifyParty">
+          <DataField>SourceCode_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="SourceType_BookingSheetNotifyParty">
+          <DataField>SourceType_BookingSheetNotifyParty</DataField>
+        </Field>
+        <Field Name="CompPicture">
+          <DataField>CompPicture</DataField>
+        </Field>
+        <Field Name="CompName">
+          <DataField>CompName</DataField>
+        </Field>
+        <Field Name="No_BookingSheetHeader">
+          <DataField>No_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetHeader">
+          <DataField>BookingDate_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetHeader">
+          <DataField>ShipperCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_BookingSheetHeader">
+          <DataField>ShipperName_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetHeader">
+          <DataField>ConsigneeCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_BookingSheetHeader">
+          <DataField>ClearingAgentCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetHeader">
+          <DataField>AirlineCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetHeader">
+          <DataField>FlightCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetHeader">
+          <DataField>MAWBNo_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperAddress_BookingSheetHeader">
+          <DataField>ShipperAddress_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Description_BookingSheetHeader">
+          <DataField>Description_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PortofLoading_BookingSheetHeader">
+          <DataField>PortofLoading_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetHeader">
+          <DataField>CutoffTime_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_BookingSheetHeader">
+          <DataField>DestinationCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PortofDischarge_BookingSheetHeader">
+          <DataField>PortofDischarge_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_BookingSheetHeader">
+          <DataField>PlaceofDelivery_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_BookingSheetHeader">
+          <DataField>ViaRouteTransist_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetHeader">
+          <DataField>BookedWeight_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetHeaderFormat">
+          <DataField>BookedWeight_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetHeader">
+          <DataField>ActualWeight_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetHeaderFormat">
+          <DataField>ActualWeight_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="PreparedBy_BookingSheetHeader">
+          <DataField>PreparedBy_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_BookingSheetHeader">
+          <DataField>NoSeries_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetHeader">
+          <DataField>WeightDifference_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetHeaderFormat">
+          <DataField>WeightDifference_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="MAWBDate_BookingSheetHeader">
+          <DataField>MAWBDate_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Received_BookingSheetHeader">
+          <DataField>Received_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Invoiced_BookingSheetHeader">
+          <DataField>Invoiced_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetHeader">
+          <DataField>TypeofDelivery_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Description_BookingSheetLine">
+          <DataField>Description_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_BookingSheetLine">
+          <DataField>UnitofMeasure_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Type_BookingSheetLine">
+          <DataField>Type_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetLine">
+          <DataField>ItemNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLine">
+          <DataField>BookedWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLineFormat">
+          <DataField>BookedWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLine">
+          <DataField>ActualWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLineFormat">
+          <DataField>ActualWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_BookingSheetLine">
+          <DataField>ULDTypeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDNo_BookingSheetLine">
+          <DataField>ULDNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLine">
+          <DataField>Quantity_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLineFormat">
+          <DataField>Quantity_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLine">
+          <DataField>WeightDifference_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLineFormat">
+          <DataField>WeightDifference_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLine">
+          <DataField>BookedLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLineFormat">
+          <DataField>BookedLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLine">
+          <DataField>ActualLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLineFormat">
+          <DataField>ActualLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLine">
+          <DataField>RateAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLineFormat">
+          <DataField>RateAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="LocationCode_BookingSheetLine">
+          <DataField>LocationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ProductGroupCode_BookingSheetLine">
+          <DataField>ProductGroupCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Status_BookingSheetLine">
+          <DataField>Status_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovedBy_BookingSheetLine">
+          <DataField>ApprovedBy_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovalDate_BookingSheetLine">
+          <DataField>ApprovalDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetLine">
+          <DataField>ConsigneeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_BookingSheetLine">
+          <DataField>ClearingAgentCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetLine">
+          <DataField>AirlineCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetLine">
+          <DataField>FlightCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetLine">
+          <DataField>MAWBNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofLoading_BookingSheetLine">
+          <DataField>PortofLoading_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetLine">
+          <DataField>CutoffTime_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_BookingSheetLine">
+          <DataField>DestinationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofDischarge_BookingSheetLine">
+          <DataField>PortofDischarge_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_BookingSheetLine">
+          <DataField>PlaceofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_BookingSheetLine">
+          <DataField>ViaRouteTransist_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBDate_BookingSheetLine">
+          <DataField>MAWBDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetLine">
+          <DataField>TypeofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetLine">
+          <DataField>BookingDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetLine">
+          <DataField>ShipperCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_BookingSheetLine">
+          <DataField>DivisionFarmCode_BookingSheetLine</DataField>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet</rd:DataSetName>
+        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
+        <rd:TableName>Result</rd:TableName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.1875in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.6405in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.14583in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.88541in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Item No.</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Description</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Division</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Unit of Measure</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Booked Weight</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox9">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">Actual Weight</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">MAWB No.</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>10pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.25in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ItemNo_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ItemNo_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ItemNo_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Description_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!Description_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Description_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DivisionFarmCode_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!DivisionFarmCode_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DivisionFarmCode_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UnitofMeasure_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!UnitofMeasure_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>UnitofMeasure_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="BookedWeight_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!BookedWeight_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>N</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>BookedWeight_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ActualWeight_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!ActualWeight_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Format>N</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ActualWeight_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="MAWBNo_BookingSheetLine">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Auto">=Fields!MAWBNo_BookingSheetLine.Value</Value>
+                                  <Style>
+                                    <FontFamily>segoe ui</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                                <LineHeight>20pt</LineHeight>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>MAWBNo_BookingSheetLine</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Code.AlternateColor("White","WhiteSmoke", True)</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Top>0.24875in</Top>
+            <Left>0.12908in</Left>
+            <Height>0.5in</Height>
+            <Width>6.85924in</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Style>Solid</Style>
+              </TopBorder>
+              <BottomBorder>
+                <Style>Solid</Style>
+              </BottomBorder>
+              <LeftBorder>
+                <Style>Solid</Style>
+              </LeftBorder>
+              <RightBorder>
+                <Style>Solid</Style>
+              </RightBorder>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>27.7cm</Height>
+        <Style />
+      </Body>
+      <Width>18cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>3.25438cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!No_BookingSheetHeader.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox17</rd:DefaultName>
+              <Top>0.26736in</Top>
+              <Left>5.84249in</Left>
+              <Height>0.4757in</Height>
+              <Width>1in</Width>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox19">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!BookingDate_BookingSheetHeader.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>d</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox17</rd:DefaultName>
+              <Top>0.96181in</Top>
+              <Left>5.84249in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox20">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">="Booking Sheet"</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox20</rd:DefaultName>
+              <Top>0.51736in</Top>
+              <Left>2.61333in</Left>
+              <Height>0.30208in</Height>
+              <Width>3.07291in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Image Name="Image1">
+              <Source>Database</Source>
+              <Value>=First(Fields!CompPicture.Value, "DataSet_Result")</Value>
+              <MIMEType>image/bmp</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.31432cm</Top>
+              <Left>0.32786cm</Left>
+              <Height>2.79894cm</Height>
+              <Width>6.13361cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox21">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Auto">=First(Fields!CompName.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox20</rd:DefaultName>
+              <Top>0.2118in</Top>
+              <Left>2.61333in</Left>
+              <Height>0.30556in</Height>
+              <Width>3.07291in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Private bOddRow As Boolean
+Public Function AlternateColor(ByVal OddColor As String, ByVal EvenColor as String, ByVal Toggle As Boolean) As String
+If Toggle Then 
+bOddRow = Not bOddRow
+End If
+If bOddRow Then
+Return OddColor
+Else
+Return EvenColor
+End If
+End Function</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+</Report>
