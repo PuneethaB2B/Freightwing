@@ -15,11 +15,11 @@ table 50022 Flight
         }
         field(4; "Source Code"; Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(5;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(6;"Departure Time";Time)
         {
@@ -34,11 +34,11 @@ table 50022 Flight
         }
         field(8;"Source Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Source Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Source Code"));
         }
         field(9;"Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(10;Frequency;Option)
         {

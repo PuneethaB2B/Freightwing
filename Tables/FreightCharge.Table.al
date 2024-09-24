@@ -11,7 +11,7 @@ table 50018 "Freight Charge"
         }
         field(3; "G/L Account"; Code[20])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(4; "VAT Bus. Posting Group"; Code[10])
         {
@@ -42,7 +42,7 @@ table 50018 "Freight Charge"
         }
         field(12; "Purchase A/C Code"; Code[10])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(13; "Handling Charge"; Boolean)
         {

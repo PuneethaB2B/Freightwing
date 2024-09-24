@@ -115,7 +115,7 @@ page 50099 "MAWB Subform"
         ShippedWeight: Decimal;
         MAWBAllocation: Record "50070";
 
-    [Scope('Internal')]
+
     procedure GetHAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get HAWB Line", Rec);

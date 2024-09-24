@@ -28,7 +28,7 @@ codeunit 50030 "Custom Mail"
         SMTPCU.Send;
     end;
 
-    [Scope('Internal')]
+
     procedure SendBookingSheetPreAlert("BSNo.": Code[50]) Mailed: Boolean
     var
         Header: Label 'Dear %1';
@@ -123,7 +123,7 @@ codeunit 50030 "Custom Mail"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure SendInvoice(InvoiceNo: Code[50]; BillTo: Code[50]) Mailed: Boolean
     var
         MailingConfiguration: Record "50020";
@@ -167,7 +167,7 @@ codeunit 50030 "Custom Mail"
         EXIT(Mailed);
     end;
 
-    [Scope('Internal')]
+
     procedure SendBookingSheetPreAlert2("BSNo.": Code[50]) Mailed: Boolean
     var
         Header: Label 'Dear %1';

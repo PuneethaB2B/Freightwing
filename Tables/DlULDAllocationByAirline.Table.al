@@ -23,7 +23,7 @@ table 50044 "Dl. ULD Allocation By Airline"
         }
         field(6; Flight; Code[10])
         {
-            TableRelation = Flight."Flight No." WHERE(Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
         }
         field(7;"Destination Airport";Code[10])
         {

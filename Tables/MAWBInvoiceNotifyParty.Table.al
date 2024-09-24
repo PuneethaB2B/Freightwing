@@ -5,7 +5,7 @@ table 50072 "MAWB Invoice Notify Party"
     {
         field(1; "Invoice No."; Code[20])
         {
-            TableRelation = "Sales Header".No.;
+            TableRelation = "Sales Header"."No.";
         }
         field(3; "Notify-Party No."; Code[20])
         {
@@ -46,7 +46,7 @@ table 50072 "MAWB Invoice Notify Party"
     var
         Text001: Label 'Do you want to notify: %1';
 
-    [Scope('Internal')]
+
     procedure EmailRecords(ShowRequestForm: Boolean)
     begin
         SendRecords(ShowRequestForm, TRUE);
@@ -54,31 +54,33 @@ table 50072 "MAWB Invoice Notify Party"
 
     local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean)
     var
-        ReportSelections: Record "77";
-        MAWBInvoiceNotifyParty: Record "50072";
-        BookingSheetHeader: Record "50053";
+        ReportSelections: Record 77;
+        MAWBInvoiceNotifyParty: Record 50072;
+        BookingSheetHeader: Record 50053;
     begin
-        MAWBInvoiceNotifyParty.COPY(Rec);
-        ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"MAWB Invoice");
-        ReportSelections.SETFILTER("Report ID", '<>0');
-        ReportSelections.FIND('-');
-        REPEAT
-            IF NOT CONFIRM(Text001, FALSE, MAWBInvoiceNotifyParty."Notify-Party Name") THEN
-                EXIT;
+        WITH MAWBInvoiceNotifyParty DO BEGIN
+          COPY(Rec);
+          ReportSelections.SETRANGE(Usage,ReportSelections.Usage::"MAWB Invoice");
+          ReportSelections.SETFILTER("Report ID",'<>0');
+          ReportSelections.FIND('-');
+          REPEAT
+           IF NOT CONFIRM(Text001,FALSE,"Notify-Party Name") THEN
+             EXIT;
             IF NOT SendAsEmail THEN BEGIN
-                REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, MAWBInvoiceNotifyParty)
-            END ELSE BEGIN
-                REPEAT
-                    SendReport(ReportSelections."Report ID", MAWBInvoiceNotifyParty);
-                UNTIL MAWBInvoiceNotifyParty.NEXT = 0;
+              REPORT.RUNMODAL(ReportSelections."Report ID",ShowRequestForm,FALSE,MAWBInvoiceNotifyParty)
+            END ELSE  BEGIN
+            REPEAT
+              SendReport(ReportSelections."Report ID",MAWBInvoiceNotifyParty);
+            UNTIL MAWBInvoiceNotifyParty.NEXT=0;
             END;
-        UNTIL ReportSelections.NEXT = 0;
+          UNTIL ReportSelections.NEXT = 0;
+        END;
     end;
 
-    local procedure SendReport(ReportId: Integer; var MAWBInvoiceNotifyParty: Record "50072")
+    local procedure SendReport(ReportId: Integer;var MAWBInvoiceNotifyParty: Record "50072")
     var
-        DocumentMailing: Codeunit "50013";
-        FileManagement: Codeunit "419";
+        DocumentMailing: Codeunit 50013;
+        FileManagement: Codeunit 419;
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);

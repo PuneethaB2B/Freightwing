@@ -84,7 +84,7 @@ page 50067 "Released Gate Pass Subform"
         }
     }
 
-    [Scope('Internal')]
+    
     procedure GetLoadingSheet()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Loading Sheet",Rec);

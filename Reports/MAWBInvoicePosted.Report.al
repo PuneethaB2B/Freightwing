@@ -487,7 +487,7 @@ report 50064 "MAWB Invoice Posted"
         TBLSalesHeader: Record "36";
         TBLRatePerKG: Decimal;
 
-    [Scope('Internal')]
+
     procedure ConvertToText(MyAmount: Text[259]; CurrencyCode: Code[10]) txtConvertedAmount: Text[250]
     var
         txtMyAmount: Text[250];
@@ -603,7 +603,7 @@ report 50064 "MAWB Invoice Posted"
 
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetTens(txtTens_in: Text[2]) txtTens_out: Text[100]
     var
         txtTemp: Text[50];
@@ -670,7 +670,7 @@ report 50064 "MAWB Invoice Posted"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetDigits(txtDigits_in: Text[1]) txtDigits_out: Text[100]
     begin
         IF txtDigits_in = '1' THEN
@@ -693,7 +693,7 @@ report 50064 "MAWB Invoice Posted"
             txtDigits_out := 'NINE';
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetHundreds(txtHundreds_in: Text[50]) txtHundreds_out: Text[100]
     var
         txtMyNumber: Text[100];

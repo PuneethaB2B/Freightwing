@@ -31,8 +31,8 @@ table 50017 "Notify Party"
         field(6; City; Text[30])
         {
             Caption = 'City';
-            TableRelation = IF (Country/Region Code=CONST()) "Post Code".City
-                            ELSE IF (Country/Region Code=FILTER(<>'')) "Post Code".City WHERE (Country/Region Code=FIELD(Country/Region Code));
+            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code".City
+                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code".City WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -45,7 +45,7 @@ table 50017 "Notify Party"
         field(8;"Country/Region Code";Code[10])
         {
             Caption = 'Country/Region Code';
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(9;Blocked;Boolean)
         {
@@ -54,8 +54,8 @@ table 50017 "Notify Party"
         field(10;"Post Code";Code[20])
         {
             Caption = 'Post Code';
-            TableRelation = IF (Country/Region Code=CONST()) "Post Code"
-                            ELSE IF (Country/Region Code=FILTER(<>'')) "Post Code" WHERE (Country/Region Code=FIELD(Country/Region Code));
+            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code"
+                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code" WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -122,15 +122,15 @@ table 50017 "Notify Party"
     end;
 
     var
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        Cust: Record "18";
-        Consignee: Record "50015";
-        NotifyParty: Record "50017";
-        Employee: Record "5200";
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        Cust: Record 18;
+        Consignee: Record 50015;
+        NotifyParty: Record 50017;
+        Employee: Record 5200;
 
-    [Scope('Internal')]
-    procedure AssistEdit(OldNotifyParty: Record "50017"): Boolean
+    
+    procedure AssistEdit(OldNotifyParty: Record 50017): Boolean
     begin
         WITH NotifyParty DO BEGIN
           NotifyParty := Rec;

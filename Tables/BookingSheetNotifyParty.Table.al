@@ -13,7 +13,7 @@ table 50057 "Booking Sheet Notify Party"
         }
         field(3; "Notify-Party No."; Code[20])
         {
-            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE(Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE (Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin
@@ -76,20 +76,20 @@ table 50057 "Booking Sheet Notify Party"
     }
 
     var
-        ShipperNotifyParty: Record "50067";
+        ShipperNotifyParty: Record 50067;
         Text001: Label 'Do you want to notify: %1';
 
-    [Scope('Internal')]
-    procedure EmailRecords(ShowRequestForm: Boolean;var BookingSheetNotifyParty: Record "50057")
+    
+    procedure EmailRecords(ShowRequestForm: Boolean;var BookingSheetNotifyParty: Record 50057)
     begin
         SendRecords(ShowRequestForm,TRUE,BookingSheetNotifyParty);
     end;
 
-    local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean;var BookingSheetNotifyParty: Record "50057")
+    local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean;var BookingSheetNotifyParty: Record 50057)
     var
-        ReportSelections: Record "77";
-        BookingSheetHeader: Record "50053";
-        BookingSheetULDAllocation: Record "50055";
+        ReportSelections: Record 77;
+        BookingSheetHeader: Record 50053;
+        BookingSheetULDAllocation: Record 50055;
     begin
         /*WITH BookingSheetNotifyParty DO BEGIN
           COPY(Rec);
@@ -143,10 +143,10 @@ table 50057 "Booking Sheet Notify Party"
 
     end;
 
-    local procedure SendReport(ReportId: Integer;var BookingSheetNotifyParty: Record "50057")
+    local procedure SendReport(ReportId: Integer;var BookingSheetNotifyParty: Record 50057)
     var
-        DocumentMailing: Codeunit "50013";
-        FileManagement: Codeunit "419";
+        DocumentMailing: Codeunit 50013;
+        FileManagement: Codeunit 419;
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'),1,250);

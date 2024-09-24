@@ -89,7 +89,7 @@ page 50092 "Get Loading Sheet Lines"
             "Item No.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetGatePassHeader(var GatePassHeader2: Record "50068")
     begin
         GatePassHeader.GET(GatePassHeader2."No.");

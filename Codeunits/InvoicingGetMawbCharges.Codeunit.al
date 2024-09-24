@@ -5,7 +5,7 @@ codeunit 50029 "Invoicing Get Mawb Charges"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure GetCalculatedCharges(SalesLine: Record "113"; MawbNo: Code[50])
     var
         MawbInvoiceCharge: Record "50073";

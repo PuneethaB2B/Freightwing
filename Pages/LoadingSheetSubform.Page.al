@@ -179,7 +179,7 @@ page 50081 "Loading Sheet Subform"
         }
     }
 
-    [Scope('Internal')]
+    
     procedure GetBookingSheetLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Goods Receipt",Rec);

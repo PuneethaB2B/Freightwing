@@ -5,7 +5,7 @@ table 50054 "Booking Sheet Line"
     {
         field(1; "Booking Sheet No."; Code[20])
         {
-            TableRelation = "Booking Sheet Header".No.;
+            TableRelation = "Booking Sheet Header"."No.";
         }
         field(2; "Line No."; Integer)
         {
@@ -28,13 +28,13 @@ table 50054 "Booking Sheet Line"
         field(6; "Item No."; Code[20])
         {
             Caption = 'Item No.';
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             var
-                ICPartner: Record "413";
-                ItemCrossReference: Record "5717";
-                PrepmtMgt: Codeunit "441";
+                ICPartner: Record 413;
+                ItemCrossReference: Record 5717;
+                PrepmtMgt: Codeunit 441;
             begin
                 Item.GET("Item No.");
                 Description := Item.Description;
@@ -83,7 +83,7 @@ table 50054 "Booking Sheet Line"
         }
         field(12; "ULD No."; Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE(ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
         }
         field(13;Quantity;Decimal)
         {
@@ -129,7 +129,7 @@ table 50054 "Booking Sheet Line"
         }
         field(23;"Consignee Code";Code[20])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
         }
         field(24;"Clearing Agent Code";Code[20])
         {
@@ -141,12 +141,12 @@ table 50054 "Booking Sheet Line"
         }
         field(26;"Flight Code";Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(27;"MAWB No.";Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Airline Code=FIELD(Airline Code),
-                                                             Prepared=FILTER(No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"),
+                                                             Prepared=FILTER(false));
         }
         field(28;"Port of Loading";Code[20])
         {
@@ -163,20 +163,20 @@ table 50054 "Booking Sheet Line"
         }
         field(30;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(31;"Port of Discharge";Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(32;"Place of Delivery";Text[30])
         {
         }
         field(33;"Via Route/Transist";Code[20])
         {
-            TableRelation = "Via Destination"."Via Destination Code" WHERE (Airline Code=FIELD(Airline Code),
-                                                                            Flight Code=FIELD(Via Route/Transist),
-                                                                            FS Destination Code=FIELD(Destination Code));
+            TableRelation = "Via Destination"."Via Destination Code" WHERE ("Airline Code"=FIELD("Airline Code"),
+                                                                            "Flight Code"=FIELD("Via Route/Transist"),
+                                                                            "FS Destination Code"=FIELD("Destination Code"));
         }
         field(34;"MAWB Date";Date)
         {
@@ -195,7 +195,7 @@ table 50054 "Booking Sheet Line"
         }
         field(38;"Division/Farm Code";Code[20])
         {
-            TableRelation = "Shipper Farm"."Farm Code" WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Farm"."Farm Code" WHERE ("Shipper Code"=FIELD("Shipper Code"));
         }
         field(40;"Good Receipt No.";Code[20])
         {
@@ -216,7 +216,7 @@ table 50054 "Booking Sheet Line"
         }
         field(42;"Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(43;"Source Code";Code[50])
         {
@@ -227,7 +227,7 @@ table 50054 "Booking Sheet Line"
         }
         field(45;"Connecting Flight No.";Code[10])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Connecting Airline));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Connecting Airline"));
         }
         field(46;"Connecting Flight Date";Date)
         {
@@ -367,38 +367,38 @@ table 50054 "Booking Sheet Line"
     end;
 
     var
-        HAWBReceipt: Record "50037";
+        HAWBReceipt: Record 50037;
         Item: Record "27";
-        BookingSheetHeader: Record "50053";
-        DailyWeightDistByCustomer: Record "50042";
-        DailyWeightDistByItem: Record "50043";
-        Shipper: Record "18";
-        DailyWeightDistByAirline: Record "50041";
-        BookingSheetULDAllocation: Record "50055";
-        BSConsignee: Record "50056";
-        GoodReceiptULDAllocation: Record "50046";
+        BookingSheetHeader: Record 50053;
+        DailyWeightDistByCustomer: Record 50042;
+        DailyWeightDistByItem: Record 50043;
+        Shipper: Record 18;
+        DailyWeightDistByAirline: Record 50041;
+        BookingSheetULDAllocation: Record 50055;
+        BSConsignee: Record 50056;
+        GoodReceiptULDAllocation: Record 50046;
         Text001: Label 'You cannot delete Item No. %1 because it has entries associated with it';
-        BookingSheetNotifyParty: Record "50057";
-        GoodReceiptNotifyParty: Record "50049";
-        NotifyParty: Record "50017";
-        BookingSheetMAWBAllocation: Record "50070";
-        ViaDestination: Record "50024";
-        Flight: Record "50022";
-        Farms: Record "50058";
-        ImportExportSetup: Record "50010";
+        BookingSheetNotifyParty: Record 50057;
+        GoodReceiptNotifyParty: Record 50049;
+        NotifyParty: Record 50017;
+        BookingSheetMAWBAllocation: Record 50070;
+        ViaDestination: Record 50024;
+        Flight: Record 50022;
+        Farms: Record 50058;
+        ImportExportSetup: Record 50010;
 
-    [Scope('Internal')]
-    procedure InsertGoodsReceiptFromBookingSheetLine(var GoodReceiptLine: Record "50051")
+    
+    procedure InsertGoodsReceiptFromBookingSheetLine(var GoodReceiptLine: Record 50051)
     var
-        GoodReceiptHeader: Record "50052";
-        GoodReceiptAllocationHeader: Record "50052";
-        GoodReceiptAllocationLine: Record "50051";
-        TempGoodReceiptLine: Record "50051";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        GoodReceiptHeader: Record 50052;
+        GoodReceiptAllocationHeader: Record 50052;
+        GoodReceiptAllocationLine: Record 50051;
+        TempGoodReceiptLine: Record 50051;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
     begin
         BookingSheetMAWBAllocation.RESET;
         BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."Booking Sheet No","Booking Sheet No.");
@@ -605,9 +605,9 @@ table 50054 "Booking Sheet Line"
         END;//MAWBs
     end;
 
-    local procedure GetFARMS(mawb: Record "50070") no: Integer
+    local procedure GetFARMS(mawb: Record 50070) no: Integer
     var
-        lines: Record "50054";
+        lines: Record 50054;
     begin
         lines.RESET;
         lines.SETRANGE(lines."Booking Sheet No.",BookingSheetMAWBAllocation."Booking Sheet No");

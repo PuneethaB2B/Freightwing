@@ -21,7 +21,7 @@ table 50007 "Import Charge"
         }
         field(3; "G/L Account"; Code[20])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(4; "VAT Bus. Posting Group"; Code[10])
         {
@@ -55,6 +55,6 @@ table 50007 "Import Charge"
     }
 
     var
-        FreightCharge: Record "50018";
+        FreightCharge: Record 50018;
 }
 

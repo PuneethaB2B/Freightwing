@@ -102,7 +102,7 @@ page 50110 "Posted Loading Sheet Subform"
     var
         CompanyInfo: Record "79";
 
-    [Scope('Internal')]
+
     procedure GetBookingSheetLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Goods Receipt", Rec);

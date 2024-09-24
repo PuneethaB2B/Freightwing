@@ -22,7 +22,7 @@ codeunit 50007 "Export.-Get BS HAWB Item"
         BookingSheetHAWBAllocation: Record "50056";
         GetHAWBItemLines: Page "50109";
 
-    [Scope('Internal')]
+
     procedure CreateHAWBLines(var BookingSheetHAWBAllocation2: Record "50056")
     var
         TransferLine: Boolean;
@@ -41,7 +41,7 @@ codeunit 50007 "Export.-Get BS HAWB Item"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetHAWBHeader(var HAWBHeader2: Record "50075")
     begin
         HAWBHeader.GET(HAWBHeader2."No.");

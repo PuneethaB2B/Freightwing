@@ -87,12 +87,12 @@ codeunit 50031 "Ammend Charges"
         Ok: Boolean;
         BookingSheetHeader: Record "50053";
 
-    [Scope('Internal')]
+
     procedure AmmendCharges("mawb no": Code[50]; Weight: Decimal)
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure CalculateMAWBCharges("No.": Code[50])
     var
         BookingSheetLine: Record "50054";
@@ -396,7 +396,7 @@ codeunit 50031 "Ammend Charges"
 
     end;
 
-    [Scope('Internal')]
+
     procedure CalculateHandlingFees("No.": Code[50])
     var
         BookingSheetLine: Record "50054";
@@ -512,7 +512,7 @@ codeunit 50031 "Ammend Charges"
         END;  //END MAWBInvoiceCharge
     end;
 
-    [Scope('Internal')]
+
     procedure ClearCalculatedCharges("MAWB No": Code[50])
     var
         CalculatedCharges: Record "50073";
@@ -524,7 +524,7 @@ codeunit 50031 "Ammend Charges"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure CheckAllCharges("MAWB No": Code[50]; "Invoice No.": Code[50])
     var
         BookingMAWB: Record "50070";
@@ -557,7 +557,7 @@ codeunit 50031 "Ammend Charges"
         END;//Booking Sheet MAWB Alloc
     end;
 
-    [Scope('Internal')]
+
     procedure ChackAWBStatus(MAWB: Code[50])
     var
         BSmawb: Record "50070";
@@ -597,7 +597,7 @@ codeunit 50031 "Ammend Charges"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure BSA(MAWb: Code[50]) BSAWeight: Decimal
     var
         MAWBLine: Record "50076";

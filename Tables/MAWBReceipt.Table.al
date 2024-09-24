@@ -124,6 +124,6 @@ table 50039 "MAWB Receipt"
     end;
 
     var
-        MAWBByAirline: Record "50038";
+        MAWBByAirline: Record 50038;
 }
 

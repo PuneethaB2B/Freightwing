@@ -22,7 +22,7 @@ table 50030 "Pre Alert Header"
         }
         field(3; "MAWB No"; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned = FILTER (No));
         }
         field(4; "Delivery Agent"; Code[20])
         {
@@ -49,11 +49,11 @@ table 50030 "Pre Alert Header"
         }
         field(6; "Port of Origin"; Code[20])
         {
-            TableRelation = Airport.Code WHERE(Country Code=FIELD(Country of Origin));
+            TableRelation = Airport.Code WHERE (Country Code=FIELD(Country of Origin));
         }
         field(7;"Port of Discharge";Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Country of Discharge));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Country of Discharge"));
         }
         field(8;VIA;Code[10])
         {
@@ -61,11 +61,11 @@ table 50030 "Pre Alert Header"
         }
         field(9;"Country of Origin";Text[30])
         {
-            TableRelation = Country/Region.Code;
+            TableRelation = "Country/Region".Code;
         }
         field(10;"Country of Discharge";Text[30])
         {
-            TableRelation = Country/Region.Code;
+            TableRelation = "Country/Region".Code;
         }
         field(12;"Scheduled Date";Date)
         {
@@ -120,13 +120,13 @@ table 50030 "Pre Alert Header"
         {
             Caption = 'Item No.';
             Editable = false;
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             var
-                ICPartner: Record "413";
-                ItemCrossReference: Record "5717";
-                PrepmtMgt: Codeunit "441";
+                ICPartner: Record 413;
+                ItemCrossReference: Record 5717;
+                PrepmtMgt: Codeunit 441;
             begin
             end;
         }
@@ -223,8 +223,8 @@ table 50030 "Pre Alert Header"
     end;
 
     var
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        Flights: Record "50022";
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        Flights: Record 50022;
 }
 

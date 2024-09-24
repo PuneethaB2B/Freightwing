@@ -88,7 +88,7 @@ table 50068 "Gate Pass Header"
         }
         field(6; "Loading Sheet No."; Code[20])
         {
-            TableRelation = "Loading Sheet Header".No.;
+            TableRelation = "Loading Sheet Header"."No.";
 
             trigger OnValidate()
             begin
@@ -182,39 +182,41 @@ table 50068 "Gate Pass Header"
     end;
 
     var
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        LoadingSheetHeader: Record "50060";
-        Shipper: Record "18";
-        Consignee: Record "50015";
-        GatePassHeader: Record "50068";
-        BookingSheetLine: Record "50054";
-        GatePassLine: Record "50069";
-        BookingSheetLine2: Record "50054";
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        LoadingSheetHeader: Record 50060;
+        Shipper: Record 18;
+        Consignee: Record 50015;
+        GatePassHeader: Record 50068;
+        BookingSheetLine: Record 50054;
+        GatePassLine: Record 50069;
+        BookingSheetLine2: Record 50054;
         NextLineNo: Decimal;
         HAWBConsignee: Text[255];
-        LoadingSheetLine: Record "50061";
+        LoadingSheetLine: Record 50061;
         LoadingSheetNos: Text[255];
-        BookingSheetHAWBAllocation: Record "50056";
-        LoadingSheetULDAllocation: Record "50063";
+        BookingSheetHAWBAllocation: Record 50056;
+        LoadingSheetULDAllocation: Record 50063;
         ULDNos: Text[255];
-        Airlines: Record "50021";
-        MAWB: Record "50077";
-        HAWBLine: Record "50074";
-        HAWBHeader: Record "50075";
+        Airlines: Record 50021;
+        MAWB: Record 50077;
+        HAWBLine: Record 50074;
+        HAWBHeader: Record 50075;
 
-    [Scope('Internal')]
-    procedure AssistEdit(OldGatePassHeader: Record "50068"): Boolean
+
+    procedure AssistEdit(OldGatePassHeader: Record 50068): Boolean
     begin
-        GatePassHeader := Rec;
-        ImportExportSetup.GET;
-        ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.", OldGatePassHeader."No. Series", GatePassHeader."No. Series") THEN BEGIN
+        WITH GatePassHeader DO BEGIN
+          GatePassHeader := Rec;
+          ImportExportSetup.GET;
+          ImportExportSetup.TESTFIELD("Gate Pass Nos.");
+          IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.",OldGatePassHeader."No. Series","No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-            NoSeriesMgt.SetSeries(GatePassHeader."No.");
-            Rec := GatePassHeader;
+            NoSeriesMgt.SetSeries("No.");
+            Rec :=GatePassHeader;
             EXIT(TRUE);
+          END;
         END;
     end;
 }

@@ -10,7 +10,7 @@ table 50071 "Offloaded Gatepass Header"
         field(2; "ULD No"; Code[50])
         {
             NotBlank = true;
-            TableRelation = "Gate Pass Line"."ULD No." WHERE(Gate-Pass No.=FIELD(Gate Pass No),
+            TableRelation = "Gate Pass Line"."ULD No." WHERE (Gate-Pass No.=FIELD(Gate Pass No),
                                                               Offloaded=FILTER(No));
 
             trigger OnValidate()
@@ -46,7 +46,7 @@ table 50071 "Offloaded Gatepass Header"
         }
         field(3;"Gate Pass No";Code[50])
         {
-            TableRelation = "Gate Pass Header".No. WHERE (Status=FILTER(Released));
+            TableRelation = "Gate Pass Header"."No." WHERE (Status=FILTER(Released));
 
             trigger OnValidate()
             begin
@@ -200,25 +200,25 @@ table 50071 "Offloaded Gatepass Header"
         }
         field(25;"Total Loaded Boxes";Decimal)
         {
-            CalcFormula = Sum("Offloaded Gatepass Line".Quantity WHERE (Gate-Pass No.=FIELD(Gate Pass No)));
+            CalcFormula = Sum("Offloaded Gatepass Line".Quantity WHERE ("Gate-Pass No."=FIELD("Gate Pass No")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(26;"Total Loaded Docket Weight";Decimal)
         {
-            CalcFormula = Sum("Offloaded Gatepass Line"."Loaded Weight" WHERE (Gate-Pass No.=FIELD(Gate Pass No)));
+            CalcFormula = Sum("Offloaded Gatepass Line"."Loaded Weight" WHERE ("Gate-Pass No."=FIELD("Gate Pass No")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(27;"Total Offloaded Boxes";Decimal)
         {
-            CalcFormula = Sum("Offloaded Gatepass Line"."Offloaded Boxes" WHERE (Gate-Pass No.=FIELD(Gate Pass No)));
+            CalcFormula = Sum("Offloaded Gatepass Line"."Offloaded Boxes" WHERE ("Gate-Pass No."=FIELD("Gate Pass No")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(28;"Total Offloaded Weight";Decimal)
         {
-            CalcFormula = Sum("Offloaded Gatepass Line"."Offloaded Weight" WHERE (Gate-Pass No.=FIELD(Gate Pass No)));
+            CalcFormula = Sum("Offloaded Gatepass Line"."Offloaded Weight" WHERE ("Gate-Pass No."=FIELD("Gate Pass No")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -260,28 +260,28 @@ table 50071 "Offloaded Gatepass Header"
     end;
 
     var
-        LoadingSheetULD: Record "50063";
-        GatePassLine: Record "50069";
-        Shippers: Record "18";
-        LoadingSheet: Record "50060";
-        Consignees: Record "50015";
-        Airlines: Record "50021";
+        LoadingSheetULD: Record 50063;
+        GatePassLine: Record 50069;
+        Shippers: Record 18;
+        LoadingSheet: Record 50060;
+        Consignees: Record 50015;
+        Airlines: Record 50021;
         NextNo: Integer;
-        Items: Record "27";
-        Fams: Record "50013";
-        Offload: Record "50071";
-        OffloadedLines: Record "50065";
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
+        Items: Record 27;
+        Fams: Record 50013;
+        Offload: Record 50071;
+        OffloadedLines: Record 50065;
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
         JournalTemplate: Code[50];
         JournalBatch: Code[50];
-        ItemJnLine: Record "83";
-        ItemLedgerEntry: Record "32";
-        MAWBLine: Record "50076";
-        OffloadedLines2: Record "50065";
+        ItemJnLine: Record 83;
+        ItemLedgerEntry: Record 32;
+        MAWBLine: Record 50076;
+        OffloadedLines2: Record 50065;
         Chargeable: Decimal;
 
-    [Scope('Internal')]
+    
     procedure Process()
     begin
         ImportExportSetup.GET();

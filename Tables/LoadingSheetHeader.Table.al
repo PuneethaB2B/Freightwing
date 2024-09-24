@@ -17,7 +17,7 @@ table 50060 "Loading Sheet Header"
         }
         field(3; "Shipper Code"; Code[20])
         {
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
 
             trigger OnValidate()
             begin
@@ -32,7 +32,7 @@ table 50060 "Loading Sheet Header"
         }
         field(5; "MAWB No."; Code[20])
         {
-            TableRelation = "Good Receipt Line"."MAWB No." WHERE(Shipper Code=FIELD(Shipper Code),
+            TableRelation = "Good Receipt Line"."MAWB No." WHERE (Shipper Code=FIELD(Shipper Code),
                                                                   Status=FILTER(Shipped Part|Received),
                                                                   Loading Sheet No.=FILTER(''));
 
@@ -54,7 +54,7 @@ table 50060 "Loading Sheet Header"
         field(6;"Booking Sheet No.";Code[20])
         {
             Editable = false;
-            TableRelation = "Booking Sheet Header".No.;
+            TableRelation = "Booking Sheet Header"."No.";
         }
         field(7;"Booking Sheet Date";Date)
         {
@@ -63,12 +63,12 @@ table 50060 "Loading Sheet Header"
         field(8;"Flight Code";Code[20])
         {
             Editable = false;
-            TableRelation = Flight."Flight Code" WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight Code" WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(9;"Destination Code";Code[20])
         {
             Editable = false;
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(10;"Offloading Start Time";Time)
         {
@@ -95,7 +95,7 @@ table 50060 "Loading Sheet Header"
         field(17;"Consignee Code";Code[10])
         {
             Editable = false;
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
         }
         field(18;"Offloading Place";Option)
         {
@@ -136,9 +136,9 @@ table 50060 "Loading Sheet Header"
         }
         field(25;"Loading Sheet MAWB No";Code[50])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned=FILTER(Yes),
-                                                             Airline Code=FIELD(Airline Code),
-                                                             Prepared=FILTER(No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned=FILTER(true),
+                                                             "Airline Code"=FIELD("Airline Code"),
+                                                             Prepared=FILTER(false));
 
             trigger OnValidate()
             begin
@@ -207,30 +207,30 @@ table 50060 "Loading Sheet Header"
     end;
 
     var
-        Shipper: Record "18";
-        BookingSheetHeader: Record "50053";
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        LoadingSheetLine: Record "50061";
-        BookingSheetLine: Record "50054";
+        Shipper: Record 18;
+        BookingSheetHeader: Record 50053;
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        LoadingSheetLine: Record 50061;
+        BookingSheetLine: Record 50054;
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
-        ItemJnline: Record "83";
+        ItemJnline: Record 83;
         PostingOption: Integer;
-        ItemLedgerEntry: Record "32";
+        ItemLedgerEntry: Record 32;
         Text001: Label 'Loading Sheet %1 does not have any lines';
         Text002: Label 'Ship';
         Text003: Label 'Loading Sheet %1 have not yet been received';
-        LoadingSheetHeader: Record "50060";
+        LoadingSheetHeader: Record 50060;
         Text004: Label 'Loading Sheet for-';
         Text005: Label 'Are you sure that you want to post the loading sheet';
-        GRNLine: Record "50051";
-        LoadingSheetLines: Record "50061";
-        MAWBReceipt: Record "50039";
-        Header: Record "50060";
-        TempLoadingSheetLine: Record "50061";
+        GRNLine: Record 50051;
+        LoadingSheetLines: Record 50061;
+        MAWBReceipt: Record 50039;
+        Header: Record 50060;
+        TempLoadingSheetLine: Record 50061;
 
-    [Scope('Internal')]
+    
     procedure LoadingSheetLinesExist(): Boolean
     begin
         LoadingSheetLine.RESET;
@@ -238,7 +238,7 @@ table 50060 "Loading Sheet Header"
         EXIT(LoadingSheetLine.FINDFIRST);
     end;
 
-    [Scope('Internal')]
+    
     procedure PostLoadingSheet()
     begin
         TESTFIELD("Loading Date");
@@ -328,8 +328,8 @@ table 50060 "Loading Sheet Header"
           MODIFY;
     end;
 
-    [Scope('Internal')]
-    procedure AssistEdit(OldLoadingSheetHeader: Record "50060"): Boolean
+    
+    procedure AssistEdit(OldLoadingSheetHeader: Record 50060): Boolean
     begin
         WITH LoadingSheetHeader DO BEGIN
           LoadingSheetHeader := Rec;
@@ -347,8 +347,8 @@ table 50060 "Loading Sheet Header"
 
     local procedure GetGoodReceiptStatus(GRNNo: Code[50];GRNMawb: Code[50];Division: Code[10];Item: Code[50]) State: Boolean
     var
-        GRNLine1: Record "50051";
-        LoadingSheetLine1: Record "50061";
+        GRNLine1: Record 50051;
+        LoadingSheetLine1: Record 50061;
         ReceivedBoxes: Decimal;
         ShippedBoxes: Decimal;
     begin
@@ -390,11 +390,11 @@ table 50060 "Loading Sheet Header"
 
     local procedure UpdateLoadingSheetLines(No: Code[50];MAWb: Code[50])
     var
-        Lines: Record "50061";
+        Lines: Record 50061;
     begin
     end;
 
-    [Scope('Internal')]
+    
     procedure PostLoadingSheetReversal()
     begin
         TESTFIELD("Loading Date");

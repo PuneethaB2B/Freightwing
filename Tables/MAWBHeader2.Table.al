@@ -143,7 +143,7 @@ table 50077 "MAWB Header 2"
         }
         field(2; "Shipper Code"; Code[20])
         {
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
 
             trigger OnValidate()
             begin
@@ -165,7 +165,7 @@ table 50077 "MAWB Header 2"
         }
         field(5; "Consignee Code"; Code[20])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
 
             trigger OnValidate()
             begin
@@ -202,7 +202,7 @@ table 50077 "MAWB Header 2"
         }
         field(11; "Destination Airport"; Code[20])
         {
-            TableRelation = Airport.Code WHERE(Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
 
             trigger OnValidate()
             begin
@@ -215,11 +215,11 @@ table 50077 "MAWB Header 2"
         }
         field(13;"Flight Code";Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(14;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
 
             trigger OnValidate()
             begin
@@ -255,13 +255,13 @@ table 50077 "MAWB Header 2"
         }
         field(26;"Chargeable Weight";Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."Chargeable Weight" WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("MAWB Line"."Chargeable Weight" WHERE ("MAWB No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(27;"Booked Weight";Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE ("MAWB No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -336,7 +336,7 @@ table 50077 "MAWB Header 2"
         }
         field(45;"Total Quantity";Decimal)
         {
-            CalcFormula = Sum("MAWB Line".Quantity WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("MAWB Line".Quantity WHERE ("MAWB No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -345,17 +345,17 @@ table 50077 "MAWB Header 2"
         }
         field(50001;"Total Docket Weight";Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."FWL Docket Weight" WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("MAWB Line"."FWL Docket Weight" WHERE ("MAWB No."=FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50002;"Total Gross Weight";Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."FWL Gross Weight" WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("MAWB Line"."FWL Gross Weight" WHERE ("MAWB No."=FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50003;"Total Volume Metric Weight";Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."Volume Metric Weight" WHERE (MAWB No.=FIELD(No.)));
+            CalcFormula = Sum("MAWB Line"."Volume Metric Weight" WHERE ("MAWB No."=FIELD("No.")));
             FieldClass = FlowField;
         }
     }
@@ -402,40 +402,40 @@ table 50077 "MAWB Header 2"
     end;
 
     var
-        Airport: Record "50019";
-        BKMawb: Record "50070";
-        ExchangeRates1: Record "330";
-        ExchangeRates: Record "330";
+        Airport: Record 50019;
+        BKMawb: Record 50070;
+        ExchangeRates1: Record 330;
+        ExchangeRates: Record 330;
         Tot: Decimal;
         ChargeBle: Decimal;
-        ExportSetup: Record "50010";
-        LoadingSheetHeader: Record "50060";
+        ExportSetup: Record 50010;
+        LoadingSheetHeader: Record 50060;
         HasHouses: Boolean;
         LineNo: Integer;
-        MAWBs: Record "50077";
-        BookingSheetMAWBAlloc: Record "50070";
-        MAWBLine4: Record "50076";
-        MAWBInCharges1: Record "50073";
-        MAWBLine2: Record "50076";
-        BookingSheetLine: Record "50054";
-        MAWBLine: Record "50076";
-        BookingSheetLine2: Record "50054";
+        MAWBs: Record 50077;
+        BookingSheetMAWBAlloc: Record 50070;
+        MAWBLine4: Record 50076;
+        MAWBInCharges1: Record 50073;
+        MAWBLine2: Record 50076;
+        BookingSheetLine: Record 50054;
+        MAWBLine: Record 50076;
+        BookingSheetLine2: Record 50054;
         ShipperCount: Integer;
-        Shipper: Record "18";
-        BookingSheetHAWBAllocation: Record "50056";
-        Consignee: Record "50015";
-        HAWBLine: Record "50074";
-        HAWBLine2: Record "50074";
+        Shipper: Record 18;
+        BookingSheetHAWBAllocation: Record 50056;
+        Consignee: Record 50015;
+        HAWBLine: Record 50074;
+        HAWBLine2: Record 50074;
         TotalQuantity: Decimal;
         SplitFactor: Decimal;
-        MAWBReceipt: Record "50039";
-        MAWBHeader: Record "50077";
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
-        MAWBInvoiceCharge: Record "50073";
+        MAWBReceipt: Record 50039;
+        MAWBHeader: Record 50077;
+        FreightChargeByAirline: Record 50025;
+        FreightChargeByFlight: Record 50026;
+        FreightChargeByItem: Record 50027;
+        FreightItemCharge: Record 50028;
+        FreightItemChargeMatrix: Record 50029;
+        MAWBInvoiceCharge: Record 50073;
         CostAmount: Decimal;
         SalesAmount: Decimal;
         VATAmount: Decimal;
@@ -445,35 +445,35 @@ table 50077 "MAWB Header 2"
         SplitVATAmount: Decimal;
         SplitMarginAmount: Decimal;
         SplitSalesAmountIncVAT: Decimal;
-        MAWBInvoiceNotifyParty: Record "50072";
-        NotifyParty: Record "50017";
+        MAWBInvoiceNotifyParty: Record 50072;
+        NotifyParty: Record 50017;
         Text50000: Label '-VAT';
         Text50001: Label '%1 %2 does not have any lines';
         Text50002: Label 'Do you want to calculate total charges for %1 %2?';
         Text50003: Label 'Do you want to split %1 %2?';
         Text50004: Label 'The booking date is not within the allowed flight charge effective dates';
-        GenJnlLine: Record "81";
-        VATPostingSetup: Record "325";
-        Currency: Record "4";
+        GenJnlLine: Record 81;
+        VATPostingSetup: Record 325;
+        Currency: Record 4;
         TotalWeight: Decimal;
-        MAWBLineCharge: Record "50004";
-        UnrecoveredCharge: Record "50006";
+        MAWBLineCharge: Record 50004;
+        UnrecoveredCharge: Record 50006;
         TotalAmount: Decimal;
         PreviousT0weight: Decimal;
         PreviousT0weight2: Decimal;
-        FreightCharge: Record "50018";
-        VATPostingSetup2: Record "325";
-        ImportExportSetup: Record "50010";
-        GeneralLedgerSetup: Record "98";
-        MAWBReceipt2: Record "50039";
+        FreightCharge: Record 50018;
+        VATPostingSetup2: Record 325;
+        ImportExportSetup: Record 50010;
+        GeneralLedgerSetup: Record 98;
+        MAWBReceipt2: Record 50039;
         MAWBReceiptdate: Date;
         InvoiceCurrency: Code[10];
-        ImpExpSetup: Record "50010";
-        BookingSheetMawbAllocation: Record "50070";
-        LoadingSheetLine: Record "50061";
-        gRecCustomer: Record "18";
+        ImpExpSetup: Record 50010;
+        BookingSheetMawbAllocation: Record 50070;
+        LoadingSheetLine: Record 50061;
+        gRecCustomer: Record 18;
 
-    [Scope('Internal')]
+    
     procedure DistinctRec()
     begin
         TotalQuantity:=0;
@@ -508,18 +508,18 @@ table 50077 "MAWB Header 2"
         END;
     end;
 
-    [Scope('Internal')]
+    
     procedure CalculateMAWBCharges()
     var
-        BookingSheetLine: Record "50054";
-        Customer: Record "18";
-        FreightCharge: Record "50018";
-        HandlingSlab: Record "50045";
+        BookingSheetLine: Record 50054;
+        Customer: Record 18;
+        FreightCharge: Record 50018;
+        HandlingSlab: Record 50045;
         TotalSales: Decimal;
-        Items: Record "27";
+        Items: Record 27;
         FreightCost: Decimal;
-        FreightCharge3: Record "50018";
-        MAWBInvoiceCharge3: Record "50073";
+        FreightCharge3: Record 50018;
+        MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Freight charge  has already been calculated';
     begin
          //=====================Philip==========
@@ -776,23 +776,23 @@ table 50077 "MAWB Header 2"
          END;
     end;
 
-    [Scope('Internal')]
+    
     procedure CalculateHandlingFees()
     var
-        BookingSheetLine: Record "50054";
-        Customer: Record "18";
-        FreightCharge: Record "50018";
-        HandlingSlab: Record "50045";
+        BookingSheetLine: Record 50054;
+        Customer: Record 18;
+        FreightCharge: Record 50018;
+        HandlingSlab: Record 50045;
         TotalSales: Decimal;
-        Items: Record "27";
+        Items: Record 27;
         FreightCost: Decimal;
-        MAWBInvoiceCharge: Record "50073";
-        HandlingSlabMatrix: Record "50045";
-        FreightItemCharge: Record "50028";
-        FreightCharge2: Record "50018";
+        MAWBInvoiceCharge: Record 50073;
+        HandlingSlabMatrix: Record 50045;
+        FreightItemCharge: Record 50028;
+        FreightCharge2: Record 50018;
         Text001: Label 'Are you sure that you want to calculate the Handling fees?';
-        FreightCharge3: Record "50018";
-        MAWBInvoiceCharge3: Record "50073";
+        FreightCharge3: Record 50018;
+        MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Handling Fee has already been calculated';
     begin
           FreightCharge3.RESET;
@@ -870,10 +870,10 @@ table 50077 "MAWB Header 2"
           END;  //END MAWBInvoiceCharge
     end;
 
-    [Scope('Internal')]
+    
     procedure ClearCalculatedCharges("MAWB No": Code[50])
     var
-        CalculatedCharges: Record "50073";
+        CalculatedCharges: Record 50073;
     begin
         CalculatedCharges.RESET;
         CalculatedCharges.SETRANGE(CalculatedCharges."MAWB No.","MAWB No");
@@ -883,11 +883,11 @@ table 50077 "MAWB Header 2"
         END;
     end;
 
-    [Scope('Internal')]
+    
     procedure ArchiveHouses("MAWB No": Code[50])
     var
-        HAWBHeaders: Record "50075";
-        HAWBLines: Record "50074";
+        HAWBHeaders: Record 50075;
+        HAWBLines: Record 50074;
     begin
         HAWBHeaders.RESET;
         HAWBHeaders.SETRANGE(HAWBHeaders."MAWB No.","MAWB No");
@@ -903,8 +903,8 @@ table 50077 "MAWB Header 2"
 
     local procedure CountMAWb(MAWB: Code[40]) Equal: Boolean
     var
-        HAWB: Record "50074";
-        Fams: Record "50058";
+        HAWB: Record 50074;
+        Fams: Record 50058;
         i: Integer;
         j: Integer;
     begin

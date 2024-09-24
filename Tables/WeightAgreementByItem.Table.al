@@ -23,7 +23,7 @@ table 50036 "Weight Agreement By Item"
         }
         field(5; "Item No."; Code[20])
         {
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             begin
@@ -33,7 +33,7 @@ table 50036 "Weight Agreement By Item"
         }
         field(6; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE(No.=FIELD(Item No.)));
+            CalcFormula = Lookup(Item.Description WHERE (No.=FIELD(Item No.)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -53,11 +53,11 @@ table 50036 "Weight Agreement By Item"
         }
         field(11;"Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(12;"Source Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Source Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Source Code"));
         }
     }
 
@@ -74,6 +74,6 @@ table 50036 "Weight Agreement By Item"
     }
 
     var
-        Item: Record "27";
+        Item: Record 27;
 }
 

@@ -968,7 +968,7 @@ report 50002 "FWL Check"
         TransportCaptionLbl: Label 'Transport';
         InitialDocNo: Code[10];
 
-    [Scope('Internal')]
+
     procedure FormatNoText(var NoText: array[2] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
         PrintExponent: Boolean;
@@ -1184,7 +1184,7 @@ report 50002 "FWL Check"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure InitTextVariable()
     begin
         OnesText[1] := Text032;
@@ -1223,7 +1223,7 @@ report 50002 "FWL Check"
         ExponentText[4] := Text061;
     end;
 
-    [Scope('Internal')]
+
     procedure InitializeRequest(BankAcc: Code[20]; LastCheckNo: Code[20]; NewOneCheckPrVend: Boolean; NewReprintChecks: Boolean; NewTestPrint: Boolean; NewPreprintedStub: Boolean)
     begin
         IF BankAcc <> '' THEN
@@ -1236,7 +1236,7 @@ report 50002 "FWL Check"
             END;
     end;
 
-    [Scope('Internal')]
+
     procedure ExchangeAmt(PostingDate: Date; CurrencyCode: Code[10]; CurrencyCode2: Code[10]; Amount: Decimal) Amount2: Decimal
     begin
         IF (CurrencyCode <> '') AND (CurrencyCode2 = '') THEN
@@ -1255,7 +1255,7 @@ report 50002 "FWL Check"
                     Amount2 := Amount;
     end;
 
-    [Scope('Internal')]
+
     procedure ABSMin(Decimal1: Decimal; Decimal2: Decimal): Decimal
     begin
         IF ABS(Decimal1) < ABS(Decimal2) THEN
@@ -1263,7 +1263,7 @@ report 50002 "FWL Check"
         EXIT(Decimal2);
     end;
 
-    [Scope('Internal')]
+
     procedure InputBankAccount()
     begin
         IF BankAcc2."No." <> '' THEN BEGIN

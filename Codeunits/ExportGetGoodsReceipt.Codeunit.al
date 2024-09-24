@@ -26,7 +26,7 @@ codeunit 50009 "Export.-Get Goods Receipt"
         LoadingSheetLine: Record "50061";
         GetGoodReceiptLines: Page "50084";
 
-    [Scope('Internal')]
+
     procedure CreateLoadingSheetLines(var GoodReceiptLine2: Record "50051")
     var
         TransferLine: Boolean;
@@ -45,7 +45,7 @@ codeunit 50009 "Export.-Get Goods Receipt"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record "50060")
     begin
         LoadingSheetHeader.RESET;

@@ -35,6 +35,6 @@ table 50067 "Shipper Notify Party"
     }
 
     var
-        NotifyParty: Record "50017";
+        NotifyParty: Record 50017;
 }
 

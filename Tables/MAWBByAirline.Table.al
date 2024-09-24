@@ -50,8 +50,8 @@ table 50038 "MAWB By Airline"
     end;
 
     var
-        Airline: Record "50021";
-        MAWBReceipt: Record "50039";
+        Airline: Record 50021;
+        MAWBReceipt: Record 50039;
         Text001: Label 'You cannot delete Airline %1 because it has records associated with it';
 }
 

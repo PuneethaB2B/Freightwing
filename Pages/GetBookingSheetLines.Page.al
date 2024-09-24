@@ -96,7 +96,7 @@ page 50133 "Get Booking Sheet Lines"
             "BookingSheetNo.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetGoodReceiptHeader(var GoodReceiptHeader2: Record "50052")
     begin
         GoodReceiptHeader.GET(GoodReceiptHeader2."No.");

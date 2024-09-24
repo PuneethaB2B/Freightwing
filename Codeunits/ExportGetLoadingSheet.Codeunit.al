@@ -23,7 +23,7 @@ codeunit 50005 "Export.-Get Loading Sheet"
         LoadingSheetLine: Record "50061";
         GetLoadingSheet: Page "50092";
 
-    [Scope('Internal')]
+
     procedure CreateGatePassLines(var LoadingSheetLine2: Record "50061")
     var
         TransferLine: Boolean;
@@ -43,7 +43,7 @@ codeunit 50005 "Export.-Get Loading Sheet"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetGatePassHeader(var GatePassHeader2: Record "50068")
     begin
         GatePassHeader.GET(GatePassHeader2."No.");

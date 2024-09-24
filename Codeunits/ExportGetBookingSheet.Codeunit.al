@@ -30,7 +30,7 @@ codeunit 50010 "Export.-Get Booking Sheet"
         BookingSheetLine: Record "50054";
         GetBookingSheetLines: Page "50133";
 
-    [Scope('Internal')]
+
     procedure CreateGoodsReceiptLines(var BookingSheetLine2: Record "50054")
     var
         TransferLine: Boolean;
@@ -49,7 +49,7 @@ codeunit 50010 "Export.-Get Booking Sheet"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetGoodsReceiptHeader(var GoodReceiptHeader2: Record "50052")
     begin
         GoodReceiptHeader.GET(GoodReceiptHeader2."No.");

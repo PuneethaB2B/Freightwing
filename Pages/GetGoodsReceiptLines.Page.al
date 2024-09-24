@@ -97,7 +97,7 @@ page 50084 "Get Goods Receipt Lines"
             "GoodReceiptNo.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record "50060")
     begin
         LoadingSheetHeader.RESET;

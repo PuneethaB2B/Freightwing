@@ -109,11 +109,11 @@ table 50065 "Offloaded Gatepass Line"
         }
         field(20; "Loading Sheet No."; Code[20])
         {
-            TableRelation = "Loading Sheet Header".No. WHERE(Status = FILTER(Closed));
+            TableRelation = "Loading Sheet Header".No. WHERE (Status=FILTER(Closed));
         }
         field(21; "HAWB No"; Code[50])
         {
-            TableRelation = "HAWB Line"."HAWB No." WHERE(MAWB No.=FIELD(MAWB No.));
+            TableRelation = "HAWB Line"."HAWB No." WHERE (MAWB No.=FIELD(MAWB No.));
         }
         field(23;"Certificate Of Origin";Code[20])
         {
@@ -186,14 +186,14 @@ table 50065 "Offloaded Gatepass Line"
     end;
 
     var
-        Item: Record "27";
-        LoadingSheetLine: Record "50061";
-        GatePassHeader: Record "50068";
-        GatePassULDAllocation: Record "50070";
-        HAWBLine: Record "50074";
-        HAWBHeader: Record "50075";
-        LoadingSheetULDAlloc: Record "50063";
+        Item: Record 27;
+        LoadingSheetLine: Record 50061;
+        GatePassHeader: Record 50068;
+        GatePassULDAllocation: Record 50070;
+        HAWBLine: Record 50074;
+        HAWBHeader: Record 50075;
+        LoadingSheetULDAlloc: Record 50063;
         Style: Boolean;
-        Shippers: Record "18";
+        Shippers: Record 18;
 }
 

@@ -39,6 +39,6 @@ table 50012 "Shipper Item"
     }
 
     var
-        Item: Record "27";
+        Item: Record 27;
 }
 

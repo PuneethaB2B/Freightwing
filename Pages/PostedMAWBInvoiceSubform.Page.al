@@ -444,31 +444,31 @@ page 50146 "Posted MAWB Invoice Subform"
         [InDataSet]
         "HAWB No.HideValue": Boolean;
 
-    [Scope('Internal')]
+    
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)",Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure CalcInvDisc()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount",Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure ExplodeBOM()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM",Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure GetShipment()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Get Shipment",Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         IF TransferExtendedText.SalesCheckIfAnyExtText(Rec,Unconditionally) THEN BEGIN
@@ -480,13 +480,13 @@ page 50146 "Posted MAWB Invoice Subform"
           UpdateForm(TRUE);
     end;
 
-    [Scope('Internal')]
+    
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.UPDATE(SetSaveRecord);
     end;
 
-    [Scope('Internal')]
+    
     procedure ShowPrices()
     begin
         SalesHeader.GET("Document Type","Document No.");
@@ -494,7 +494,7 @@ page 50146 "Posted MAWB Invoice Subform"
         SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader,Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure ShowLineDisc()
     begin
         SalesHeader.GET("Document Type","Document No.");
@@ -502,13 +502,13 @@ page 50146 "Posted MAWB Invoice Subform"
         SalesPriceCalcMgt.GetSalesLineLineDisc(SalesHeader,Rec);
     end;
 
-    [Scope('Internal')]
+    
     procedure SetUpdateAllowed(UpdateAllowed: Boolean)
     begin
         UpdateAllowedVar := UpdateAllowed;
     end;
 
-    [Scope('Internal')]
+    
     procedure UpdateAllowed(): Boolean
     begin
         IF UpdateAllowedVar = FALSE THEN BEGIN
@@ -563,7 +563,7 @@ page 50146 "Posted MAWB Invoice Subform"
         CurrPage.UPDATE;
     end;
 
-    [Scope('Internal')]
+    
     procedure GetMAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get MAWB Line",Rec);

@@ -13,7 +13,7 @@ table 50024 "Via Destination"
         }
         field(3; "Via Destination Code"; Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(7;"Departure Time";Time)
         {
@@ -58,15 +58,15 @@ table 50024 "Via Destination"
         }
         field(16;"Source Airport";Code[50])
         {
-            TableRelation = Flight."Source Airport" WHERE (Flight No.=FIELD(Flight Code));
+            TableRelation = Flight."Source Airport" WHERE ("Flight No."=FIELD("Flight Code"));
         }
         field(17;"Destination Airport";Code[50])
         {
-            TableRelation = Flight."Destination Airport" WHERE (Flight No.=FIELD(Flight Code));
+            TableRelation = Flight."Destination Airport" WHERE ("Flight No."=FIELD("Flight Code"));
         }
         field(18;"Via Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Via Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Via Destination Code"));
 
             trigger OnValidate()
             begin
@@ -91,7 +91,7 @@ table 50024 "Via Destination"
         }
         field(20;"Connecting Flight";Code[50])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Connecting Airline));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Connecting Airline"));
         }
     }
 
@@ -142,7 +142,7 @@ table 50024 "Via Destination"
         Text003: Label '%1 %2 cannot be less than %3 %4';
         Text004: Label '%1 %2 cannot be greater than %3 %4';
         Text005: Label '%1 %2 cannot be blank';
-        Flights: Record "50022";
+        Flights: Record 50022;
 
     local procedure ValidateTime()
     begin

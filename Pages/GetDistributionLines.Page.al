@@ -86,7 +86,7 @@ page 50070 "Get Distribution Lines"
             "Item No.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetOrderBookingHeader(var OrderBookingHeader2: Record "50053")
     begin
         OrderBookingHeader.GET(OrderBookingHeader2."No.");

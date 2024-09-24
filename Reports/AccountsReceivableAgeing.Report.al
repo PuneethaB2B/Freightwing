@@ -890,7 +890,7 @@ report 50006 "Accounts Receivable Ageing"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure MakeExcelInfo()
     begin
         ExcelBuf.SetUseInfoSheet;
@@ -945,7 +945,7 @@ report 50006 "Accounts Receivable Ageing"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure MakeExcelDataBody()
     begin
         ExcelBuf.NewRow;
@@ -965,14 +965,14 @@ report 50006 "Accounts Receivable Ageing"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure CreateExcelbook()
     begin
         ExcelBuf.CreateBookAndOpenExcel(Text011, Text012, COMPANYNAME, USERID);
         ERROR('');
     end;
 
-    [Scope('Internal')]
+
     procedure InitializeRequest(NewEndingDate: Date; NewAgingBy: Option; NewPeriodLength: DateFormula; NewPrintAmountInLCY: Boolean; NewPrintDetails: Boolean; NewHeadingType: Option; NewPagePercust: Boolean; NewPrintToExcel: Boolean)
     begin
         EndingDate := NewEndingDate;

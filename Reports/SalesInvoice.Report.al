@@ -1272,13 +1272,13 @@ report 50031 "Sales Invoice"
         CurrencyText: Codeunit "50017";
         NumberToText: Text[160];
 
-    [Scope('Internal')]
+
     procedure InitLogInteraction()
     begin
         LogInteraction := SegManagement.FindInteractTmplCode(4) <> '';
     end;
 
-    [Scope('Internal')]
+
     procedure FindPostedShipmentDate(): Date
     var
         SalesShipmentHeader: Record "110";
@@ -1322,7 +1322,7 @@ report 50031 "Sales Invoice"
             EXIT("Sales Invoice Header"."Posting Date");
     end;
 
-    [Scope('Internal')]
+
     procedure GenerateBufferFromValueEntry(SalesInvoiceLine2: Record "113")
     var
         ValueEntry: Record "5802";
@@ -1353,7 +1353,7 @@ report 50031 "Sales Invoice"
             UNTIL (ValueEntry.NEXT = 0) OR (TotalQuantity = 0);
     end;
 
-    [Scope('Internal')]
+
     procedure GenerateBufferFromShipment(SalesInvoiceLine: Record "113")
     var
         SalesInvoiceHeader: Record "112";
@@ -1413,7 +1413,7 @@ report 50031 "Sales Invoice"
             UNTIL (SalesShipmentLine.NEXT = 0) OR (TotalQuantity = 0);
     end;
 
-    [Scope('Internal')]
+
     procedure CorrectShipment(var SalesShipmentLine: Record "111")
     var
         SalesInvoiceLine: Record "113";
@@ -1427,7 +1427,7 @@ report 50031 "Sales Invoice"
             UNTIL SalesInvoiceLine.NEXT = 0;
     end;
 
-    [Scope('Internal')]
+
     procedure AddBufferEntry(SalesInvoiceLine: Record "113"; QtyOnShipment: Decimal; PostingDate: Date)
     begin
         SalesShipmentBuffer.SETRANGE("Document No.", SalesInvoiceLine."Document No.");
@@ -1457,7 +1457,7 @@ report 50031 "Sales Invoice"
         EXIT(Text004);
     end;
 
-    [Scope('Internal')]
+
     procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewLogInteraction: Boolean; DisplayAsmInfo: Boolean)
     begin
         NoOfCopies := NewNoOfCopies;
@@ -1466,7 +1466,7 @@ report 50031 "Sales Invoice"
         DisplayAssemblyInformation := DisplayAsmInfo;
     end;
 
-    [Scope('Internal')]
+
     procedure CollectAsmInformation()
     var
         ValueEntry: Record "5802";
@@ -1500,7 +1500,7 @@ report 50031 "Sales Invoice"
         UNTIL ValueEntry.NEXT = 0;
     end;
 
-    [Scope('Internal')]
+
     procedure TreatAsmLineBuffer(PostedAsmLine: Record "911")
     begin
         CLEAR(TempPostedAsmLine);
@@ -1519,7 +1519,7 @@ report 50031 "Sales Invoice"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure GetUOMText(UOMCode: Code[10]): Text[10]
     var
         UnitOfMeasure: Record "204";
@@ -1529,7 +1529,7 @@ report 50031 "Sales Invoice"
         EXIT(UnitOfMeasure.Description);
     end;
 
-    [Scope('Internal')]
+
     procedure BlanksForIndent(): Text[10]
     begin
         EXIT(PADSTR('', 2, ' '));

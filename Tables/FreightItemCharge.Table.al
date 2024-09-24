@@ -13,7 +13,7 @@ table 50028 "Freight Item Charge"
         }
         field(3; "Item No."; Code[20])
         {
-            TableRelation = "Freight Charge By Item".No.;
+            TableRelation = "Freight Charge By Item"."No.";
         }
         field(4; "Code"; Code[20])
         {
@@ -77,7 +77,7 @@ table 50028 "Freight Item Charge"
     end;
 
     var
-        FreightCharge: Record "50018";
-        ChargeMatrix: Record "50029";
+        FreightCharge: Record 50018;
+        ChargeMatrix: Record 50029;
 }
 

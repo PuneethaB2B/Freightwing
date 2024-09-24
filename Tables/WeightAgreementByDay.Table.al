@@ -46,7 +46,7 @@ table 50035 "Weight Agreement By Day"
         }
         field(5; "Gross Weight"; Decimal)
         {
-            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE(Airline Code=FIELD(Airline Code),
+            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code),
                                                                                          Source Code=FIELD(Source Code),
                                                                                          Destination Code=FIELD(Destination Code),
                                                                                          Day of Week=FIELD(Day of Week),
@@ -57,11 +57,11 @@ table 50035 "Weight Agreement By Day"
         }
         field(6;"Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(7;"Source Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Source Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Source Code"));
         }
     }
 
@@ -90,7 +90,7 @@ table 50035 "Weight Agreement By Day"
 
     var
         Text001: Label 'You cannot delete %1 because there is at least one item entries associated with it.';
-        WeightAgreementByItem: Record "50036";
+        WeightAgreementByItem: Record 50036;
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
 }
 

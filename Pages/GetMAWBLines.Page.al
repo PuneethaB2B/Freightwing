@@ -112,7 +112,7 @@ page 50121 "Get MAWB Lines"
             "MAWB No.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetSalesHeader(var SalesHeader2: Record "36")
     begin
         SalesHeader.GET(SalesHeader2."Document Type", SalesHeader2."No.");

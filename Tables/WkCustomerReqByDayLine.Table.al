@@ -32,7 +32,7 @@ table 50078 "Wk. Customer Req. By Day Line"
         field(7; "Destination Code"; Code[20])
         {
             Editable = false;
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
     }
 
@@ -49,8 +49,8 @@ table 50078 "Wk. Customer Req. By Day Line"
     }
 
     var
-        WeeklyCustWeightReqLine: Record "50048";
-        WeeklyCustWeightReqHeader: Record "50047";
+        WeeklyCustWeightReqLine: Record 50048;
+        WeeklyCustWeightReqHeader: Record 50047;
         Text001: Label 'The %1 is not within the weekly schedule dates';
 }
 

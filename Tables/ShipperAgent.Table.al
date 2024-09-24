@@ -8,7 +8,7 @@ table 50011 "Shipper Agent"
         {
             Caption = 'Code';
             NotBlank = true;
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
         }
         field(2; "Agent Code"; Code[20])
         {
@@ -40,7 +40,7 @@ table 50011 "Shipper Agent"
     }
 
     var
-        PostCode: Record "225";
-        ShippingAgent: Record "291";
+        PostCode: Record 225;
+        ShippingAgent: Record 291;
 }
 

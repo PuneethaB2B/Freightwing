@@ -167,7 +167,7 @@ report 50001 "Create MAWB"
         "Cost Per One Airway Bill": Decimal;
         rec: Record "50021";
 
-    [Scope('Internal')]
+
     procedure SetPar(pAirlineCode: Code[20]; pMAWBFees: Decimal; pKAAFees: Decimal; pFreightChargeCode: Code[20]; Prefix: Code[10])
     var
         Airlines: Record "50021";

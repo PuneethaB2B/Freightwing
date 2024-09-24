@@ -5,7 +5,7 @@ table 50051 "Good Receipt Line"
     {
         field(1; "Good Receipt No."; Code[20])
         {
-            TableRelation = "Good Receipt Header".No.;
+            TableRelation = "Good Receipt Header"."No.";
         }
         field(2; "Line No."; Integer)
         {
@@ -29,13 +29,13 @@ table 50051 "Good Receipt Line"
         {
             Caption = 'Item No.';
             Editable = false;
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             var
-                ICPartner: Record "413";
-                ItemCrossReference: Record "5717";
-                PrepmtMgt: Codeunit "441";
+                ICPartner: Record 413;
+                ItemCrossReference: Record 5717;
+                PrepmtMgt: Codeunit 441;
             begin
             end;
         }
@@ -60,7 +60,7 @@ table 50051 "Good Receipt Line"
         }
         field(12; "ULD No."; Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE(ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
         }
         field(13;Quantity;Decimal)
         {
@@ -106,7 +106,7 @@ table 50051 "Good Receipt Line"
         }
         field(23;"Consignee Code";Code[20])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
 
             trigger OnValidate()
             begin
@@ -127,12 +127,12 @@ table 50051 "Good Receipt Line"
         field(26;"Flight Code";Code[20])
         {
             Editable = false;
-            TableRelation = "Pre Alert Line"."HAWB No" WHERE (Pre Alert No=FIELD(Airline Code),
-                                                              C&F Agent=FIELD(Booking Date));
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE ("Pre Alert No"=FIELD("Airline Code"),
+                                                              "C&F Agent"=FIELD("Booking Date"));
         }
         field(27;"MAWB No.";Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(28;"Port of Loading";Code[20])
         {
@@ -316,40 +316,40 @@ table 50051 "Good Receipt Line"
     end;
 
     var
-        HAWBReceipt: Record "50037";
-        Item: Record "27";
-        BookingSheetHeader: Record "50053";
-        BookingSheetLine: Record "50054";
-        Shipper: Record "18";
-        DailyWeightDistByAirline: Record "50041";
-        BookingSheetULDAllocation: Record "50055";
-        BookingSheetHAWBAllocation: Record "50056";
-        LoadingSheetULDAllocation: Record "50063";
+        HAWBReceipt: Record 50037;
+        Item: Record 27;
+        BookingSheetHeader: Record 50053;
+        BookingSheetLine: Record 50054;
+        Shipper: Record 18;
+        DailyWeightDistByAirline: Record 50041;
+        BookingSheetULDAllocation: Record 50055;
+        BookingSheetHAWBAllocation: Record 50056;
+        LoadingSheetULDAllocation: Record 50063;
         Text001: Label 'You cannot delete Item No. %1 because it has entries associated with it';
-        LoadingSheetNotifyParty: Record "50064";
-        GoodReceiptNotifyParty: Record "50049";
-        GoodReceiptULDAllocation: Record "50046";
-        GRHeader: Record "50052";
-        GRNLine: Record "50051";
-        LoadingSheetLine1: Record "50061";
+        LoadingSheetNotifyParty: Record 50064;
+        GoodReceiptNotifyParty: Record 50049;
+        GoodReceiptULDAllocation: Record 50046;
+        GRHeader: Record 50052;
+        GRNLine: Record 50051;
+        LoadingSheetLine1: Record 50061;
         ShippedQty: Decimal;
-        LoadingSheetLine2: Record "50061";
+        LoadingSheetLine2: Record 50061;
         Consignees: Record "50015";
-        BookingSheetMAWBAllocation: Record "50070";
-        LoadingSheetHeader: Record "50060";
+        BookingSheetMAWBAllocation: Record 50070;
+        LoadingSheetHeader: Record 50060;
 
-    [Scope('Internal')]
-    procedure InsertLoadingSheetFromGoodReceiptLine(var LoadingSheetLine: Record "50061")
+    
+    procedure InsertLoadingSheetFromGoodReceiptLine(var LoadingSheetLine: Record 50061)
     var
-        LoadingSheetHeader: Record "50060";
-        LoadingSheetGRNHeader: Record "50060";
-        LoadingSheetGRNLine: Record "50061";
-        TempLoadingSheetLine: Record "50061";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        LoadingSheetHeader: Record 50060;
+        LoadingSheetGRNHeader: Record 50060;
+        LoadingSheetGRNLine: Record 50061;
+        TempLoadingSheetLine: Record 50061;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        GoodReceiptLine: Record "50051";
+        GoodReceiptLine: Record 50051;
     begin
         SETRANGE("Good Receipt No.","Good Receipt No.");
         SETRANGE("Shipper Code","Shipper Code");

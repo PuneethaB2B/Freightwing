@@ -5,7 +5,7 @@ codeunit 50018 "TBL Functions"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure UpdateBookingDetails(ArchiveMAWB: Record "50077")
     var
         lRecBookingSheetMAWBAlloc: Record "50070";

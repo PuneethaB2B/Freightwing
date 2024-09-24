@@ -79,7 +79,7 @@ page 50090 "Gate Pass Subform"
         }
     }
 
-    [Scope('Internal')]
+    
     procedure GetLoadingSheet()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Loading Sheet",Rec);

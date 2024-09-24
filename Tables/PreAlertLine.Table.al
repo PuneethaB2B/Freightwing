@@ -5,18 +5,18 @@ table 50023 "Pre Alert Line"
     {
         field(1; "Pre Alert No"; Code[10])
         {
-            TableRelation = "Pre Alert Header".No.;
+            TableRelation = "Pre Alert Header"."No.";
         }
         field(2; "HAWB No"; Code[10])
         {
         }
         field(3; "Shipper Code"; Code[10])
         {
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
         }
         field(4; "Consignee Code"; Code[10])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
         }
         field(5; "C&F Agent"; Code[10])
         {

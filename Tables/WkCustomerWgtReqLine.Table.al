@@ -5,11 +5,11 @@ table 50048 "Wk. Customer Wgt. Req. Line"
     {
         field(1; "Weekly No."; Code[20])
         {
-            TableRelation = "Wk. Customer Wgt. Req. Header".No.;
+            TableRelation = "Wk. Customer Wgt. Req. Header"."No.";
         }
         field(2; "Customer No."; Code[20])
         {
-            TableRelation = Customer.No. WHERE(Customer Type=FILTER(Group|Third Party));
+            TableRelation = Customer.No. WHERE (Customer Type=FILTER(Group|Third Party));
 
             trigger OnValidate()
             begin
@@ -33,8 +33,8 @@ table 50048 "Wk. Customer Wgt. Req. Line"
         }
         field(4;"Line Weight";Decimal)
         {
-            CalcFormula = Sum("Wk. Customer Req. By Day Line"."Line Weight" WHERE (Weekly No.=FIELD(Weekly No.),
-                                                                                   Customer No.=FIELD(Customer No.)));
+            CalcFormula = Sum("Wk. Customer Req. By Day Line"."Line Weight" WHERE ("Weekly No."=FIELD("Weekly No."),
+                                                                                   "Customer No."=FIELD("Customer No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -45,7 +45,7 @@ table 50048 "Wk. Customer Wgt. Req. Line"
         }
         field(7;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
     }
 
@@ -62,10 +62,10 @@ table 50048 "Wk. Customer Wgt. Req. Line"
     }
 
     var
-        WeeklyCustWeighttReqHeader: Record "50047";
+        WeeklyCustWeighttReqHeader: Record 50047;
         DayName: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         NextDate: Date;
-        Cust: Record "18";
+        Cust: Record 18;
         Text001: Label 'You cannot delete Customer No. %1 because it has entries associated with it';
 }
 

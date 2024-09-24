@@ -14,7 +14,7 @@ table 50047 "Wk. Customer Wgt. Req. Header"
         }
         field(2; "Destination Code"; Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
 
             trigger OnValidate()
             begin
@@ -111,11 +111,11 @@ table 50047 "Wk. Customer Wgt. Req. Header"
     end;
 
     var
-        Cust: Record "18";
-        WeeklyCustWgtReqLine: Record "50048";
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        Country: Record "9";
+        Cust: Record 18;
+        WeeklyCustWgtReqLine: Record 50048;
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        Country: Record 9;
         Text001: Label 'Customer Weight Requirements for Week';
         Text002: Label 'You cannot delete Weekly Analysis %1 because it has entries associated with it';
 }

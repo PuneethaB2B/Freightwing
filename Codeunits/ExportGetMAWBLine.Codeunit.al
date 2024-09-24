@@ -22,7 +22,7 @@ codeunit 50008 "Export.-Get MAWB Line"
         MAWBLine: Record "50076";
         GetSplitMAWBLines: Page "50121";
 
-    [Scope('Internal')]
+
     procedure CreateSalesInvoiceLines(var MAWBLine2: Record "50076")
     var
         TransferLine: Boolean;
@@ -43,7 +43,7 @@ codeunit 50008 "Export.-Get MAWB Line"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetSalesHeader(var SalesHeader2: Record "36")
     begin
         SalesHeader.GET(SalesHeader2."Document Type", SalesHeader2."No.");

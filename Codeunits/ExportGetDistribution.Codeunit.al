@@ -25,7 +25,7 @@ codeunit 50004 "Export.-Get Distribution"
         DailyWeightDistByAirline: Record "50041";
         DailyWeightDistByCustomer: Record "50042";
 
-    [Scope('Internal')]
+
     procedure CreateOrderBookingLines(var DailyWeightDistByItem2: Record "50043")
     var
         TransferLine: Boolean;
@@ -45,7 +45,7 @@ codeunit 50004 "Export.-Get Distribution"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetOrderBookingHeader(var OrderBookingHeader2: Record "50053")
     begin
         OrderBookingHeader.GET(OrderBookingHeader2."No.");

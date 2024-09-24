@@ -5,7 +5,7 @@ table 50061 "Loading Sheet Line"
     {
         field(1; "Loading Sheet No."; Code[20])
         {
-            TableRelation = "Loading Sheet Header".No.;
+            TableRelation = "Loading Sheet Header"."No.";
         }
         field(2; "Line No."; Integer)
         {
@@ -19,7 +19,7 @@ table 50061 "Loading Sheet Line"
         }
         field(8; "Division/Farm Code"; Code[20])
         {
-            TableRelation = "Shipper Farm"."Farm Code" WHERE(Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Farm"."Farm Code" WHERE (Shipper Code=FIELD(Shipper Code));
 
             trigger OnValidate()
             begin
@@ -32,12 +32,12 @@ table 50061 "Loading Sheet Line"
         }
         field(10;"FWL Docket Weight";Decimal)
         {
-            CalcFormula = Sum("Loading Sheet ULD Allocation"."FWL Docket Weight" WHERE (Loading Sheet No.=FIELD(Loading Sheet No.),
-                                                                                        Airline Code=FIELD(Airline Code),
-                                                                                        Item No.=FIELD(Item No.),
-                                                                                        MWAB No.=FIELD(MAWB No.),
-                                                                                        FAM=FIELD(Division/Farm Code),
-                                                                                        Consignee=FIELD(Consignee Code)));
+            CalcFormula = Sum("Loading Sheet ULD Allocation"."FWL Docket Weight" WHERE ("Loading Sheet No."=FIELD("Loading Sheet No."),
+                                                                                        "Airline Code"=FIELD("Airline Code"),
+                                                                                        "Item No."=FIELD("Item No."),
+                                                                                        "MWAB No."=FIELD("MAWB No."),
+                                                                                        FAM=FIELD("Division/Farm Code"),
+                                                                                        Consignee=FIELD("Consignee Code")));
             FieldClass = FlowField;
         }
         field(11;"FWL Gross Weight";Decimal)
@@ -45,21 +45,21 @@ table 50061 "Loading Sheet Line"
         }
         field(12;"Airline Docket Weight";Decimal)
         {
-            CalcFormula = Sum("Loading Sheet ULD Allocation"."Airline Docket Weight" WHERE (Loading Sheet No.=FIELD(Loading Sheet No.),
-                                                                                            Airline Code=FIELD(Airline Code),
-                                                                                            Item No.=FIELD(Item No.),
-                                                                                            MWAB No.=FIELD(MAWB No.),
-                                                                                            FAM=FIELD(Division/Farm Code)));
+            CalcFormula = Sum("Loading Sheet ULD Allocation"."Airline Docket Weight" WHERE ("Loading Sheet No."=FIELD("Loading Sheet No."),
+                                                                                            "Airline Code"=FIELD("Airline Code"),
+                                                                                            "Item No."=FIELD("Item No."),
+                                                                                            "MWAB No."=FIELD("MAWB No."),
+                                                                                            FAM=FIELD("Division/Farm Code")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(13;Quantity;Decimal)
         {
-            CalcFormula = Sum("Loading Sheet ULD Allocation"."No. Of Boxes" WHERE (Loading Sheet No.=FIELD(Loading Sheet No.),
-                                                                                   Airline Code=FIELD(Airline Code),
-                                                                                   MWAB No.=FIELD(MAWB No.),
-                                                                                   FAM=FIELD(Division/Farm Code),
-                                                                                   Consignee=FIELD(Consignee Code)));
+            CalcFormula = Sum("Loading Sheet ULD Allocation"."No. Of Boxes" WHERE ("Loading Sheet No."=FIELD("Loading Sheet No."),
+                                                                                   "Airline Code"=FIELD("Airline Code"),
+                                                                                  "MWAB No."=FIELD("MAWB No."),
+                                                                                   FAM=FIELD("Division/Farm Code"),
+                                                                                   Consignee=FIELD("Consignee Code")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -72,7 +72,7 @@ table 50061 "Loading Sheet Line"
         }
         field(16;"ULD No.";Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE ("ULD Type Code"=FIELD("ULD Type Code"));
         }
         field(17;"ULD Quantity";Decimal)
         {
@@ -95,15 +95,15 @@ table 50061 "Loading Sheet Line"
         }
         field(23;"Flight Code";Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(24;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(25;"Consignee Code";Code[10])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
 
             trigger OnValidate()
             begin
@@ -117,7 +117,7 @@ table 50061 "Loading Sheet Line"
         }
         field(27;"MAWB No.";Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(28;Type;Option)
         {
@@ -130,13 +130,13 @@ table 50061 "Loading Sheet Line"
         field(29;"Item No.";Code[20])
         {
             Caption = 'Item No.';
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             var
-                ICPartner: Record "413";
-                ItemCrossReference: Record "5717";
-                PrepmtMgt: Codeunit "441";
+                ICPartner: Record 413;
+                ItemCrossReference: Record 5717;
+                PrepmtMgt: Codeunit 441;
             begin
                 Item.GET("Item No.");
                 Description:=Item.Description;
@@ -275,28 +275,28 @@ table 50061 "Loading Sheet Line"
     end;
 
     var
-        FarmDivision: Record "50013";
-        LoadingSheetULDAllocation: Record "50063";
-        GoodReceiptLine: Record "50051";
-        LoadingSheetHeader: Record "50060";
-        GatePassULDAllocation: Record "50070";
-        LoadingSheetNotifyParty: Record "50064";
-        GRNheader: Record "50052";
-        Consignee: Record "50015";
-        Item: Record "27";
+        FarmDivision: Record 50013;
+        LoadingSheetULDAllocation: Record 50063;
+        GoodReceiptLine: Record 50051;
+        LoadingSheetHeader: Record 50060;
+        GatePassULDAllocation: Record 50070;
+        LoadingSheetNotifyParty: Record 50064;
+        GRNheader: Record 50052;
+        Consignee: Record 50015;
+        Item: Record 27;
 
-    [Scope('Internal')]
-    procedure InsertGatePassFromLoadingSheet(var GatePassLine: Record "50069")
+    
+    procedure InsertGatePassFromLoadingSheet(var GatePassLine: Record 50069)
     var
-        BookingSheetHeader: Record "50068";
-        GatePassLSheetHeader: Record "50068";
-        GatePassLSheetLine: Record "50069";
+        BookingSheetHeader: Record 50068;
+        GatePassLSheetHeader: Record 50068;
+        GatePassLSheetLine: Record 50069;
         TempGatePassLine: Record "50069";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        LoadingSheetLine: Record "50061";
+        LoadingSheetLine: Record 50061;
     begin
         SETRANGE("Loading Sheet No.","Loading Sheet No.");
         SETRANGE("Item No.","Item No.");

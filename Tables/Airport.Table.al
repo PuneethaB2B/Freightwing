@@ -11,7 +11,7 @@ table 50019 Airport
         }
         field(3; "Country Code"; Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(4;Location;Text[50])
         {

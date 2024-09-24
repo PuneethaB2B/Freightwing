@@ -5,12 +5,12 @@ table 50076 "MAWB Line"
     {
         field(1; "MAWB No."; Code[20])
         {
-            TableRelation = "MAWB Header 2".No.;
+            TableRelation = "MAWB Header 2"."No.";
         }
         field(2; "Item No."; Code[20])
         {
             Editable = false;
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             begin
@@ -60,7 +60,7 @@ table 50076 "MAWB Line"
         }
         field(12; "Division Code"; Code[20])
         {
-            TableRelation = Division/Farm.Code;
+            TableRelation = "Division/Farm".Code;
         }
         field(13;"Gross Weight";Decimal)
         {
@@ -76,11 +76,11 @@ table 50076 "MAWB Line"
         }
         field(16;"Flight Code";Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(17;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(18;"Flight Date";Date)
         {
@@ -104,7 +104,7 @@ table 50076 "MAWB Line"
         }
         field(23;"Division/Farm Code";Code[20])
         {
-            TableRelation = Division/Farm;
+            TableRelation = "Division/Farm";
         }
         field(24;"Split Factor";Decimal)
         {
@@ -180,13 +180,13 @@ table 50076 "MAWB Line"
     end;
 
     var
-        Item: Record "27";
-        HAWBLine: Record "50074";
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
+        Item: Record 27;
+        HAWBLine: Record 50074;
+        FreightChargeByAirline: Record 50025;
+        FreightChargeByFlight: Record 50026;
+        FreightChargeByItem: Record 50027;
+        FreightItemCharge: Record 50028;
+        FreightItemChargeMatrix: Record 50029;
         Day: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         WeekDay: Text;
         i: Integer;
@@ -196,54 +196,54 @@ table 50076 "MAWB Line"
         TotalRateAmount: Decimal;
         RemainingWeight: Decimal;
         ChargeableWeight: Decimal;
-        FreightCharge: Record "50018";
+        FreightCharge: Record 50018;
         SalesChargesAmount: Decimal;
-        VATPostingSetup: Record "325";
+        VATPostingSetup: Record 325;
         VATAmount: Decimal;
-        WeightAgreementByAirline: Record "50033";
-        WeightAgreementDestination: Record "50034";
-        WeightAgreementByDay: Record "50035";
-        WeightAgreementByItem: Record "50036";
+        WeightAgreementByAirline: Record 50033;
+        WeightAgreementDestination: Record 50034;
+        WeightAgreementByDay: Record 50035;
+        WeightAgreementByItem: Record 50036;
         SalesWeightAmount: Decimal;
         Text001: Label '%1 is not within the Airline Charges Effective Date';
-        MAWBReceipt: Record "50039";
+        MAWBReceipt: Record 50039;
         SplitFactor: Decimal;
         SpitWeight: Decimal;
         TotalQuantity: Decimal;
-        MAWBInvoiceCharge: Record "50073";
-        SalesHeader: Record "36";
-        MAWBInvoiceNotifyParty: Record "50072";
-        BookingSheetHAWBAllocation: Record "50056";
-        NotifyParty: Record "50017";
+        MAWBInvoiceCharge: Record 50073;
+        SalesHeader: Record 36;
+        MAWBInvoiceNotifyParty: Record 50072;
+        BookingSheetHAWBAllocation: Record 50056;
+        NotifyParty: Record 50017;
         Text002: Label 'Freight Charge Code %1 , %2 does not have a Purchase Invoice attached to it.';
         Text003: Label 'Freight Charge Code %1 , %2 has not been calculated.';
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
         BookedWeight: Decimal;
         TotalWeight: Decimal;
-        MAWBLine: Record "50076";
+        MAWBLine: Record 50076;
         AmntLcy: Decimal;
         AmntInv: Decimal;
-        ImportSetup: Record "50010";
-        TBLPurchInvHeader: Record "122";
-        gRecMAWBHr: Record "50077";
+        ImportSetup: Record 50010;
+        TBLPurchInvHeader: Record 122;
+        gRecMAWBHr: Record 50077;
 
-    [Scope('Internal')]
-    procedure InsertSalesInvoiceFromMAWBLine(var SalesLine: Record "37")
+    
+    procedure InsertSalesInvoiceFromMAWBLine(var SalesLine: Record 37)
     var
-        SalesHeader: Record "36";
-        SalesAllocationHeader: Record "36";
-        SalesAllocationLine: Record "37";
-        TempSalesLine: Record "37";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        SalesHeader: Record 36;
+        SalesAllocationHeader: Record 36;
+        SalesAllocationLine: Record 37;
+        TempSalesLine: Record 37;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
         ItemCount: Integer;
-        MAWBLine2: Record "50076";
-        MAWBLine: Record "50076";
-        Customer: Record "18";
-        GLAccount: Record "15";
+        MAWBLine2: Record 50076;
+        MAWBLine: Record 50076;
+        Customer: Record 18;
+        GLAccount: Record 15;
     begin
         SETRANGE("Shipper Code","Shipper Code");
         SETRANGE("MAWB No.","MAWB No.");
@@ -307,7 +307,7 @@ table 50076 "MAWB Line"
         END;
     end;
 
-    [Scope('Internal')]
+    
     procedure MAWBLinesExist(): Boolean
     begin
         RESET;
@@ -315,31 +315,31 @@ table 50076 "MAWB Line"
         EXIT(FINDFIRST);
     end;
 
-    [Scope('Internal')]
-    procedure InsertMAWBInvoiceFromMAWBLine(var SalesLine: Record "37")
+    
+    procedure InsertMAWBInvoiceFromMAWBLine(var SalesLine: Record 37)
     var
-        SalesHeader: Record "36";
-        SalesAllocationHeader: Record "36";
-        SalesAllocationLine: Record "37";
-        TempSalesLine: Record "37";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        SalesHeader: Record 36;
+        SalesAllocationHeader: Record 36;
+        SalesAllocationLine: Record 37;
+        TempSalesLine: Record 37;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
         ItemCount: Integer;
-        MAWBLine2: Record "50076";
-        MAWBLine: Record "50076";
+        MAWBLine2: Record 50076;
+        MAWBLine: Record 50076;
     begin
     end;
 
     local procedure GetPurchaseInvoiceLines("MAWB No": Code[50];"Invoice No": Code[50])
     var
-        PurchaseInvoice: Record "122";
-        PurchaseInvoiceLine: Record "123";
-        SalesInvoiceLine: Record "37";
+        PurchaseInvoice: Record 122;
+        PurchaseInvoiceLine: Record 123;
+        SalesInvoiceLine: Record 37;
         NextLine: Integer;
-        SalesInvoiceHeader: Record "36";
+        SalesInvoiceHeader: Record 36;
         ExchangeRate: Decimal;
     begin
         ImportSetup.GET;
@@ -415,7 +415,7 @@ table 50076 "MAWB Line"
 
     local procedure GetExchangeRate(From: Code[10];Dates: Date) Rate: Decimal
     var
-        ExchangeRates: Record "330";
+        ExchangeRates: Record 330;
     begin
         ExchangeRates.RESET;
         //MESSAGE(From);
@@ -432,14 +432,14 @@ table 50076 "MAWB Line"
 
     local procedure GetAWBFee(MAWB: Code[50];"Invoice No": Code[50])
     var
-        FreightCharge: Record "50018";
-        SalesLine: Record "37";
-        SalesHeader: Record "36";
-        MAWBReceipt: Record "50039";
+        FreightCharge: Record 50018;
+        SalesLine: Record 37;
+        SalesHeader: Record 36;
+        MAWBReceipt: Record 50039;
         NextLine: Integer;
-        Customer: Record "18";
-        BookingSheetMAWBAllocation: Record "50070";
-        GLAccount: Record "15";
+        Customer: Record 18;
+        BookingSheetMAWBAllocation: Record 50070;
+        GLAccount: Record 15;
     begin
          MAWBReceipt.RESET;
          MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.",MAWB);

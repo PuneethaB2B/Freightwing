@@ -119,7 +119,7 @@ page 50107 "HAWB Subform"
         GrossWeight: Decimal;
         HAWB: Record "50075";
 
-    [Scope('Internal')]
+
     procedure GetHAWBItem()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get BS HAWB Item", Rec);

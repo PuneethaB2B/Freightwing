@@ -13,11 +13,11 @@ table 50027 "Freight Charge By Item"
         }
         field(3; "No."; Code[20])
         {
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
         }
         field(4; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE(No.=FIELD(No.)));
+            CalcFormula = Lookup(Item.Description WHERE (No.=FIELD(No.)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -62,6 +62,6 @@ table 50027 "Freight Charge By Item"
     end;
 
     var
-        ItemCharge: Record "50028";
+        ItemCharge: Record 50028;
 }
 

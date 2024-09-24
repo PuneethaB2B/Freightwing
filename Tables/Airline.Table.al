@@ -20,7 +20,7 @@ table 50021 Airline
         }
         field(6; "Default Vendor No"; Code[20])
         {
-            TableRelation = Vendor.No.;
+            TableRelation = Vendor."No.";
 
             trigger OnValidate()
             begin
@@ -86,9 +86,9 @@ table 50021 Airline
     end;
 
     var
-        Flight: Record "50022";
+        Flight: Record 50022;
         Text001: Label 'You cannot delete Airline %1 because there is at least one %2  associated with it.';
-        Vendor: Record "23";
+        Vendor: Record 23;
         Ok: Boolean;
 }
 

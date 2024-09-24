@@ -135,7 +135,7 @@ page 50001 "Received Booking Sheet Subform"
         BookingSheetHeader: Record "50053";
         GoodReceiptHeader: Record "50052";
 
-    [Scope('Internal')]
+
     procedure GetDistributionLines()
     begin
     end;

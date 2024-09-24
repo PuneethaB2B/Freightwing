@@ -349,7 +349,7 @@ report 50009 "Customer - Summary AgingCopy"
         LineTotalCustBalanceCaptionLbl: Label 'Balance';
         Total_LCY_CaptionLbl: Label 'Total (LCY)';
 
-    [Scope('Internal')]
+
     procedure InitializeRequest(StartingDate: Date; SetPeriodLength: Text[1024]; ShowAmountInLCY: Boolean)
     begin
         PeriodStartDate[2] := StartingDate;

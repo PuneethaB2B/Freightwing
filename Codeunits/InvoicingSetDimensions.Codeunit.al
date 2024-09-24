@@ -18,7 +18,7 @@ codeunit 50028 "Invoicing Set Dimensions"
         PurchaseHeader: Record "38";
         Ok: Boolean;
 
-    [Scope('Internal')]
+
     procedure SetDimensions(MAWBNo: Code[50]; ShipperCode: Code[50])
     var
         LoadingSheet: Record "50060";
@@ -74,7 +74,7 @@ codeunit 50028 "Invoicing Set Dimensions"
         TempDimensionSetEntry.DELETEALL;
     end;
 
-    [Scope('Internal')]
+
     procedure SetDimensionsPurch(MAWBNo: Code[50]; PurchLine: Record "39")
     var
         ls: Record "50060";

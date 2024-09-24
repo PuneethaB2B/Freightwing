@@ -53,7 +53,7 @@ codeunit 50035 "TIMS Manager."
         QRFileName: Text;
         JsonText: Text;
 
-    [Scope('Internal')]
+
     procedure ProcessSalesDocument(SourceDoc: Variant)
     var
         AmountInc: Decimal;
@@ -596,7 +596,7 @@ codeunit 50035 "TIMS Manager."
             END;
     end;
 
-    [Scope('Internal')]
+
     procedure GetQRCodeProvider()
     begin
         Encoder := Encoder.EncodingOptions();
@@ -612,7 +612,7 @@ codeunit 50035 "TIMS Manager."
         QRFileName := MoveToPath(FileNameTxt);
     end;
 
-    [Scope('Internal')]
+
     procedure MoveToPath(SourceFileName: Text) DestinationFileName: Text
     begin
         DestinationFileName := Setup."QR Location" + SourceFileName + BmpFormat;
@@ -771,7 +771,7 @@ codeunit 50035 "TIMS Manager."
         EXIT(TotalPrice);
     end;
 
-    [Scope('Internal')]
+
     procedure GetJSONData(SourceDoc: Variant)
     var
         AmountInc: Decimal;

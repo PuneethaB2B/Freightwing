@@ -83,7 +83,7 @@ page 50109 "Get HAWB Item Lines"
             "HAWB No.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetHAWBHeader(var HAWBHeader2: Record "50075")
     begin
         HAWBHeader.GET(HAWBHeader2."No.");

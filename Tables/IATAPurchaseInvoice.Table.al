@@ -67,7 +67,7 @@ table 50016 "IATA Purchase Invoice"
         }
         field(16; "Vendor No."; Code[20])
         {
-            TableRelation = Vendor.No.;
+            TableRelation = Vendor."No.";
 
             trigger OnValidate()
             begin
@@ -197,27 +197,27 @@ table 50016 "IATA Purchase Invoice"
     end;
 
     var
-        PurchaseInvoiceHeader: Record "38";
-        PurchaseInvoiceLine: Record "39";
+        PurchaseInvoiceHeader: Record 38;
+        PurchaseInvoiceLine: Record 39;
         Text001: Label 'Do you wish to convert MAWB No. %1  into a Purchase Invoice?';
         Text002: Label 'MAWB No. %1 has been converted into a Purchase Invoice number %2';
-        GLAccount: Record "15";
-        Vendors: Record "23";
-        IATAPurchaseInvoice1: Record "50016";
-        IATAPurchaseInvoice: Record "50016";
-        ImportExportSetup: Record "50010";
+        GLAccount: Record 15;
+        Vendors: Record 23;
+        IATAPurchaseInvoice1: Record 50016;
+        IATAPurchaseInvoice: Record 50016;
+        ImportExportSetup: Record 50010;
         LineNo: Integer;
-        Airlines: Record "50021";
-        InvoicingSetDimensions: Codeunit "50028";
+        Airlines: Record 50021;
+        InvoicingSetDimensions: Codeunit 50028;
         Ok: Boolean;
-        IATAPurchaseInvoice2: Record "50016";
+        IATAPurchaseInvoice2: Record 50016;
 
-    [Scope('Internal')]
-    procedure ConvertIATATempToPurchInvoice(var IATAPurchaseInvoice: Record "50016")
+
+    procedure ConvertIATATempToPurchInvoice(var IATAPurchaseInvoice: Record 50016)
     var
-        Vend: Record "23";
+        Vend: Record 23;
         Window: Dialog;
-        Airlines: Record "50021";
+        Airlines: Record 50021;
     begin
         Window.OPEN('Converting IATA Lines to Purchase Invoice Lines \Converting Airline #1### \Invoice Number #2### \Adding MAWB #3####');
 
@@ -301,8 +301,8 @@ table 50016 "IATA Purchase Invoice"
 
     local procedure getChargeCode(MAWB: Code[50]) Charge: Code[50]
     var
-        cust: Record "18";
-        ls: Record "50060";
+        cust: Record 18;
+        ls: Record 50060;
     begin
         ls.RESET;
         ls.SETRANGE(ls."MAWB No.", MAWB);

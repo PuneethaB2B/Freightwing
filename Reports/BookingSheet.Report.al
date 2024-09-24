@@ -472,7 +472,7 @@ report 50019 "Booking Sheet"
         Main: Boolean;
         Remarks: Text[259];
 
-    [Scope('Internal')]
+    
     procedure BSLineFilters(BSNo: Code[50];FlightNo: Code[50])
     begin
         IF FlightNo<>'' THEN BEGIN

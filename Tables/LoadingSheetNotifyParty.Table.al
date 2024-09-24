@@ -13,7 +13,7 @@ table 50064 "Loading Sheet Notify Party"
         }
         field(3; "Notify-Party No."; Code[20])
         {
-            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE(Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE (Shipper Code=FIELD(Shipper Code));
         }
         field(4;"Notify-Party Name";Text[50])
         {
@@ -66,10 +66,10 @@ table 50064 "Loading Sheet Notify Party"
     }
 
     var
-        ShipperNotifyParty: Record "50067";
+        ShipperNotifyParty: Record 50067;
         Text001: Label 'Do you want to notify: %1';
 
-    [Scope('Internal')]
+    
     procedure EmailRecords(ShowRequestForm: Boolean)
     begin
         SendRecords(ShowRequestForm,TRUE);
@@ -77,9 +77,9 @@ table 50064 "Loading Sheet Notify Party"
 
     local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean)
     var
-        ReportSelections: Record "77";
-        BookingSheetNotifyParty: Record "50057";
-        BookingSheetHeader: Record "50053";
+        ReportSelections: Record 77;
+        BookingSheetNotifyParty: Record 50057;
+        BookingSheetHeader: Record 50053;
     begin
         WITH BookingSheetNotifyParty DO BEGIN
           COPY(Rec);
@@ -100,10 +100,10 @@ table 50064 "Loading Sheet Notify Party"
         END;
     end;
 
-    local procedure SendReport(ReportId: Integer;var BookingSheetNotifyParty: Record "50057")
+    local procedure SendReport(ReportId: Integer;var BookingSheetNotifyParty: Record 50057)
     var
-        DocumentMailing: Codeunit "50013";
-        FileManagement: Codeunit "419";
+        DocumentMailing: Codeunit 50013;
+        FileManagement: Codeunit 419;
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'),1,250);

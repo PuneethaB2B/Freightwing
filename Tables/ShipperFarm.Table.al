@@ -8,12 +8,12 @@ table 50014 "Shipper Farm"
         {
             Caption = 'Code';
             NotBlank = true;
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
         }
         field(2; "Farm Code"; Code[20])
         {
             Caption = 'Farm Code';
-            TableRelation = Division/Farm.Code;
+            TableRelation = "Division/Farm".Code;
 
             trigger OnValidate()
             begin
@@ -40,6 +40,6 @@ table 50014 "Shipper Farm"
     }
 
     var
-        Farm: Record "50013";
+        Farm: Record 50013;
 }
 

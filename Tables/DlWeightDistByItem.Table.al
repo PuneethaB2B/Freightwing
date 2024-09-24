@@ -17,7 +17,7 @@ table 50043 "Dl. Weight Dist. By Item"
         }
         field(4; "Item No."; Code[20])
         {
-            TableRelation = "Shipper Item"."Item No." WHERE(Shipper Code=FIELD(Customer No.));
+            TableRelation = "Shipper Item"."Item No." WHERE (Shipper Code=FIELD(Customer No.));
 
             trigger OnValidate()
             begin
@@ -95,38 +95,38 @@ table 50043 "Dl. Weight Dist. By Item"
     }
 
     var
-        OrderBookingHeader: Record "50053";
+        OrderBookingHeader: Record 50053;
         Day: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         WeekDay: Text;
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
+        FreightChargeByAirline: Record 50025;
+        FreightChargeByFlight: Record 50026;
+        FreightChargeByItem: Record 50027;
+        FreightItemCharge: Record 50028;
+        FreightItemChargeMatrix: Record 50029;
         Text001: Label 'The %1 is not within the Freight Charge Effective Dates';
-        DailyWeightDistByAirline: Record "50041";
-        DailyWeightDistByCustomer: Record "50042";
-        DailyWeightDistHeader: Record "50040";
-        Item: Record "27";
-        DailyULDAllocationByAirline: Record "50044";
-        BookingSheetULDAllocation: Record "50055";
+        DailyWeightDistByAirline: Record 50041;
+        DailyWeightDistByCustomer: Record 50042;
+        DailyWeightDistHeader: Record 50040;
+        Item: Record 27;
+        DailyULDAllocationByAirline: Record 50044;
+        BookingSheetULDAllocation: Record 50055;
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
-        BookingSheetNotifyParty: Record "50057";
-        NotifyParty: Record "50017";
+        BookingSheetNotifyParty: Record 50057;
+        NotifyParty: Record 50017;
         NotifyPartyLineNo: Integer;
-        DlWeightDistByCust: Record "50042";
-        Airports: Record "50019";
+        DlWeightDistByCust: Record 50042;
+        Airports: Record 50019;
 
-    [Scope('Internal')]
-    procedure InsertOrderBookingLineFromDailyWeightDistByItem(var OrderBookingLine: Record "50054")
+    
+    procedure InsertOrderBookingLineFromDailyWeightDistByItem(var OrderBookingLine: Record 50054)
     var
-        OrderBookingHeader: Record "50053";
-        OrderBookingOrderHeader: Record "50053";
-        OrderBookingOrderLine: Record "50054";
-        TempOrderBookingLine: Record "50054";
-        PurchSetup: Record "312";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        OrderBookingHeader: Record 50053;
+        OrderBookingOrderHeader: Record 50053;
+        OrderBookingOrderLine: Record 50054;
+        TempOrderBookingLine: Record 50054;
+        PurchSetup: Record 312;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
     begin

@@ -98,6 +98,7 @@ page 50126 "Archived MAWB Subform"
         MAWBAllocation: Record 50070;
 
 
+    [Scope('Internal')]
     procedure GetHAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get HAWB Line", Rec);

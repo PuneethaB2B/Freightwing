@@ -234,7 +234,7 @@ page 50069 "Booking Sheet Subform"
         }
     }
 
-
+    [Scope('Internal')]
     procedure GetDistributionLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Distribution", Rec);

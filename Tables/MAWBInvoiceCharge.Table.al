@@ -5,7 +5,7 @@ table 50073 "MAWB Invoice Charge"
     {
         field(1; "Invoice No."; Code[20])
         {
-            TableRelation = "Sales Line"."Document No." WHERE(Document Type=FILTER(Invoice));
+            TableRelation = "Sales Line"."Document No." WHERE (Document Type=FILTER(Invoice));
         }
         field(3;"Item No.";Code[20])
         {
@@ -86,12 +86,12 @@ table 50073 "MAWB Invoice Charge"
         }
         field(18;"Freight Cost";Boolean)
         {
-            CalcFormula = Lookup("Freight Charge"."Freight Cost" WHERE (Code=FIELD(Freight Charge Code)));
+            CalcFormula = Lookup("Freight Charge"."Freight Cost" WHERE (Code=FIELD("Freight Charge Code")));
             FieldClass = FlowField;
         }
         field(19;"Purchase A/C Code";Code[20])
         {
-            CalcFormula = Lookup("Freight Charge"."Purchase A/C Code" WHERE (Code=FIELD(Freight Charge Code)));
+            CalcFormula = Lookup("Freight Charge"."Purchase A/C Code" WHERE (Code=FIELD("Freight Charge Code")));
             FieldClass = FlowField;
         }
         field(20;"Purchase Invoice No.";Code[20])
@@ -156,6 +156,6 @@ table 50073 "MAWB Invoice Charge"
     end;
 
     var
-        Charges: Record "50018";
+        Charges: Record 50018;
 }
 

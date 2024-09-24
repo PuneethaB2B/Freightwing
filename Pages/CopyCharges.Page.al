@@ -210,8 +210,8 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-
-    procedure initParam(pCharg: Record 50025)
+    [Scope('Internal')]
+    procedure initParam(pCharg: Record "50025")
     begin
         Start := pCharg."Effective Start Date";
         Endd := pCharg."Effective End Date";

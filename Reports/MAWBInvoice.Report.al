@@ -450,7 +450,7 @@ report 50015 "MAWB Invoice"
         TBLRatePerKG: Decimal;
         TBLTotalLCY: Decimal;
 
-    [Scope('Internal')]
+
     procedure ConvertToText(MyAmount: Text[30]; CurrencyCode: Code[10]) txtConvertedAmount: Text[250]
     var
         txtMyAmount: Text[30];
@@ -559,7 +559,7 @@ report 50015 "MAWB Invoice"
 
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetTens(txtTens_in: Text[2]) txtTens_out: Text[100]
     var
         txtTemp: Text[50];
@@ -626,7 +626,7 @@ report 50015 "MAWB Invoice"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetDigits(txtDigits_in: Text[1]) txtDigits_out: Text[100]
     begin
         IF txtDigits_in = '1' THEN
@@ -649,7 +649,7 @@ report 50015 "MAWB Invoice"
             txtDigits_out := 'NINE';
     end;
 
-    [Scope('Internal')]
+
     procedure fnGetHundreds(txtHundreds_in: Text[50]) txtHundreds_out: Text[100]
     var
         txtMyNumber: Text[100];

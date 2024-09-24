@@ -10,7 +10,7 @@ codeunit 50013 "Export Document-Mailing"
         i: Integer;
         ReportAsPdfFileNameMsg: Label '%1-%2.pdf', Comment = '%1 = Document Type %2 = Invoice No.';
 
-    [Scope('Internal')]
+
     procedure EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "50042"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
@@ -57,7 +57,7 @@ codeunit 50013 "Export Document-Mailing"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty: Record "50057"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
@@ -103,7 +103,7 @@ codeunit 50013 "Export Document-Mailing"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty: Record "50049"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
@@ -149,7 +149,7 @@ codeunit 50013 "Export Document-Mailing"
     begin
     end;
 
-    [Scope('Internal')]
+
     procedure EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty: Record "50072"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;

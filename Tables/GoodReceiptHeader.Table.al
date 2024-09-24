@@ -18,7 +18,7 @@ table 50052 "Good Receipt Header"
         field(3; "Shipper Code"; Code[20])
         {
             NotBlank = true;
-            TableRelation = Customer.No.;
+            TableRelation = Customer."No.";
 
             trigger OnValidate()
             begin
@@ -33,7 +33,7 @@ table 50052 "Good Receipt Header"
         }
         field(5; "Consignee Code"; Code[20])
         {
-            TableRelation = Consignee.No.;
+            TableRelation = Consignee."No.";
         }
         field(6; "Clearing Agent Code"; Code[20])
         {
@@ -45,13 +45,13 @@ table 50052 "Good Receipt Header"
         }
         field(8; "Flight Code"; Code[20])
         {
-            TableRelation = "Pre Alert Line"."HAWB No" WHERE(Pre Alert No=FIELD(Airline Code),
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE (Pre Alert No=FIELD(Airline Code),
                                                               C&F Agent=FIELD(Receipt Date),
                                                               Consignee Code=FIELD(Destination Code));
         }
         field(9;"MAWB No.";Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"));
 
             trigger OnValidate()
             begin
@@ -63,7 +63,7 @@ table 50052 "Good Receipt Header"
         }
         field(10;"Shipper Address";Text[30])
         {
-            CalcFormula = Lookup(Customer.Address WHERE (No.=FIELD(Shipper Code)));
+            CalcFormula = Lookup(Customer.Address WHERE ("No."=FIELD("Shipper Code")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -80,30 +80,30 @@ table 50052 "Good Receipt Header"
         }
         field(14;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(15;"Port of Discharge";Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(16;"Place of Delivery";Text[30])
         {
         }
         field(17;"Via Route/Transist";Code[20])
         {
-            TableRelation = "Via Destination"."Via Destination Code" WHERE (Airline Code=FIELD(Airline Code),
-                                                                            Flight Code=FIELD(Via Route/Transist),
-                                                                            FS Destination Code=FIELD(Destination Code));
+            TableRelation = "Via Destination"."Via Destination Code" WHERE ("Airline Code"=FIELD("Airline Code"),
+                                                                            "Flight Code"=FIELD("Via Route/Transist"),
+                                                                            "FS Destination Code"=FIELD("Destination Code"));
         }
         field(18;"Booked Weight";Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE (Good Receipt No.=FIELD(No.)));
+            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE ("Good Receipt No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(19;"Actual Weight";Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Actual Weight" WHERE (Good Receipt No.=FIELD(No.)));
+            CalcFormula = Sum("Good Receipt Line"."Actual Weight" WHERE ("Good Receipt No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -115,7 +115,7 @@ table 50052 "Good Receipt Header"
         }
         field(22;"Weight Difference";Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Weight Difference" WHERE (Good Receipt No.=FIELD(No.)));
+            CalcFormula = Sum("Good Receipt Line"."Weight Difference" WHERE ("Good Receipt No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -135,7 +135,7 @@ table 50052 "Good Receipt Header"
         }
         field(27;"Booking Sheet No.";Code[20])
         {
-            TableRelation = "Booking Sheet Header" WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Booking Sheet Header" WHERE ("Shipper Code"=FIELD("Shipper Code"));
         }
         field(28;"Vehicle No.";Code[100])
         {
@@ -222,30 +222,30 @@ table 50052 "Good Receipt Header"
     end;
 
     var
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
-        DailyWeightDistByItem: Record "50043";
-        DailyWeightDistHeader: Record "50040";
-        BookingSheetLine: Record "50054";
-        DailyWeightDistByAirline: Record "50041";
-        MAWBReceipt: Record "50039";
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
+        DailyWeightDistByItem: Record 50043;
+        DailyWeightDistHeader: Record 50040;
+        BookingSheetLine: Record 50054;
+        DailyWeightDistByAirline: Record 50041;
+        MAWBReceipt: Record 50039;
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
-        ItemJnline: Record "83";
+        ItemJnline: Record 83;
         Text001: Label 'Goods Receipt %1 does not have any lines';
         Text002: Label 'Receive';
         PostingOption: Integer;
         Text003: Label 'Good Receipt %1 have not yet been received';
-        ItemLedgerEntry: Record "32";
-        Shipper: Record "18";
+        ItemLedgerEntry: Record 32;
+        Shipper: Record 18;
         Text004: Label 'You cannot delete Goods Receipt %1 because it has entries associated with it';
         Text005: Label 'Good Receipt for';
-        GoodReceiptLine: Record "50051";
-        GoodReceiptHeader: Record "50052";
+        GoodReceiptLine: Record 50051;
+        GoodReceiptHeader: Record 50052;
         NextLineNo: Decimal;
-        BookingSheet: Record "50053";
+        BookingSheet: Record 50053;
 
-    [Scope('Internal')]
+    
     procedure GoodReceiptLinesExist(): Boolean
     begin
         GoodReceiptLine.RESET;
@@ -253,7 +253,7 @@ table 50052 "Good Receipt Header"
         EXIT(GoodReceiptLine.FINDFIRST);
     end;
 
-    [Scope('Internal')]
+    
     procedure PostGoodReceipt()
     begin
 
@@ -329,8 +329,8 @@ table 50052 "Good Receipt Header"
         MODIFY;
     end;
 
-    [Scope('Internal')]
-    procedure AssistEdit(OldGoodReceiptHeader: Record "50052"): Boolean
+    
+    procedure AssistEdit(OldGoodReceiptHeader: Record 50052): Boolean
     begin
         WITH GoodReceiptHeader DO BEGIN
           GoodReceiptHeader := Rec;
@@ -346,11 +346,11 @@ table 50052 "Good Receipt Header"
         END;
     end;
 
-    [Scope('Internal')]
+    
     procedure CloseBookingSheet(BookingSheetNo: Code[50])
     var
-        BSHeader: Record "50053";
-        BSLine: Record "50054";
+        BSHeader: Record 50053;
+        BSLine: Record 50054;
     begin
          IF BSHeader.GET(BookingSheetNo) THEN BEGIN
             BSLine.RESET;
@@ -366,7 +366,7 @@ table 50052 "Good Receipt Header"
          END;
     end;
 
-    [Scope('Internal')]
+    
     procedure PostGoodReceiptReversal()
     begin
 

@@ -5,7 +5,7 @@ table 50041 "Dl. Weight Dist. By Airline"
     {
         field(1; "Daily No."; Code[20])
         {
-            TableRelation = "Dl. Weight Dist. Header".No.;
+            TableRelation = "Dl. Weight Dist. Header"."No.";
         }
         field(2; "Airline Code"; Code[20])
         {
@@ -35,7 +35,7 @@ table 50041 "Dl. Weight Dist. By Airline"
         }
         field(4; "Total Capacity Planned"; Decimal)
         {
-            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE(Airline Code=FIELD(Airline Code),
+            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code),
                                                                                          Destination Code=FIELD(Destination Code),
                                                                                          Day of Week=FIELD(Day of Week),
                                                                                          Destination Airport=FIELD(Destination Airport),
@@ -60,11 +60,11 @@ table 50041 "Dl. Weight Dist. By Airline"
         }
         field(9;"Total Weight Allocated";Decimal)
         {
-            CalcFormula = Sum("Dl. Weight Dist. By Item"."Gross Weight" WHERE (Daily No.=FIELD(Daily No.),
-                                                                               Airline Code=FIELD(Airline Code),
-                                                                               Flight Code=FIELD(Flight Code),
-                                                                               Destination Code=FIELD(Destination Code),
-                                                                               Destination Airport=FIELD(Destination Airport)));
+            CalcFormula = Sum("Dl. Weight Dist. By Item"."Gross Weight" WHERE ("Daily No."=FIELD("Daily No."),
+                                                                               "Airline Code"=FIELD("Airline Code"),
+                                                                               "Flight Code"=FIELD("Flight Code"),
+                                                                               "Destination Code"=FIELD("Destination Code"),
+                                                                               "Destination Airport"=FIELD("Destination Airport")));
             Editable = false;
             FieldClass = FlowField;
         }

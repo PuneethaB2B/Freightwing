@@ -31,8 +31,8 @@ table 50015 Consignee
         field(6; City; Text[30])
         {
             Caption = 'City';
-            TableRelation = IF (Country/Region Code=CONST()) "Post Code".City
-                            ELSE IF (Country/Region Code=FILTER(<>'')) "Post Code".City WHERE (Country/Region Code=FIELD(Country/Region Code));
+            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code".City
+                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code".City WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -45,7 +45,7 @@ table 50015 Consignee
         field(8;"Country/Region Code";Code[10])
         {
             Caption = 'Country/Region Code';
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(9;Blocked;Boolean)
         {
@@ -54,8 +54,8 @@ table 50015 Consignee
         field(10;"Post Code";Code[20])
         {
             Caption = 'Post Code';
-            TableRelation = IF (Country/Region Code=CONST()) "Post Code"
-                            ELSE IF (Country/Region Code=FILTER(<>'')) "Post Code" WHERE (Country/Region Code=FIELD(Country/Region Code));
+            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code"
+                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code" WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -93,13 +93,13 @@ table 50015 Consignee
     end;
 
     var
-        ImportExportSetup: Record "50010";
-        NoSeriesMgt: Codeunit "396";
+        ImportExportSetup: Record 50010;
+        NoSeriesMgt: Codeunit 396;
         Text001: Label 'You cannot delete Consignee %1 because there is at least one %2  associated with it.';
-        Consignee: Record "50015";
+        Consignee: Record 50015;
 
-    [Scope('Internal')]
-    procedure AssistEdit(OldConsignee: Record "50015"): Boolean
+    
+    procedure AssistEdit(OldConsignee: Record 50015): Boolean
     begin
         WITH Consignee DO BEGIN
           Consignee := Rec;

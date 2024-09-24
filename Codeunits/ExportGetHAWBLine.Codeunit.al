@@ -22,7 +22,7 @@ codeunit 50006 "Export.-Get HAWB Line"
         HAWBLine: Record "50074";
         GetHAWBAllocationLines: Page "50117";
 
-    [Scope('Internal')]
+
     procedure CreateMAWBLines(var HAWBLine2: Record "50074")
     var
         TransferLine: Boolean;
@@ -42,7 +42,7 @@ codeunit 50006 "Export.-Get HAWB Line"
         END;
     end;
 
-    [Scope('Internal')]
+
     procedure SetMAWBHeader(var MAWBHeader2: Record "50077")
     begin
         MAWBHeader.GET(MAWBHeader2."No.");

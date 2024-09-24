@@ -13,7 +13,7 @@ table 50042 "Dl. Weight Dist. By Customer"
         }
         field(3; "Customer No."; Code[20])
         {
-            TableRelation = Customer.No. WHERE(Customer Type=FILTER(Group|Third Party));
+            TableRelation = Customer.No. WHERE (Customer Type=FILTER(Group|Third Party));
 
             trigger OnValidate()
             begin
@@ -44,12 +44,12 @@ table 50042 "Dl. Weight Dist. By Customer"
         }
         field(5;"Gross Weight";Decimal)
         {
-            CalcFormula = Sum("Dl. Weight Dist. By Item"."Gross Weight" WHERE (Daily No.=FIELD(Daily No.),
-                                                                               Airline Code=FIELD(Airline Code),
-                                                                               Customer No.=FIELD(Customer No.),
-                                                                               Flight Code=FIELD(Flight Code),
-                                                                               Destination Code=FIELD(Destination Code),
-                                                                               Destination Airport=FIELD(Destination Airport)));
+            CalcFormula = Sum("Dl. Weight Dist. By Item"."Gross Weight" WHERE ("Daily No."=FIELD("Daily No."),
+                                                                               "Airline Code"=FIELD("Airline Code"),
+                                                                               "Customer No."=FIELD("Customer No."),
+                                                                               "Flight Code"=FIELD("Flight Code"),
+                                                                               "Destination Code"=FIELD("Destination Code"),
+                                                                               "Destination Airport"=FIELD("Destination Airport")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -84,16 +84,16 @@ table 50042 "Dl. Weight Dist. By Customer"
         }
         field(17;"Destination Airport";Code[50])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(18;"Shipped Weight";Decimal)
         {
-            CalcFormula = Sum("Dl. Weight Dist. By Item"."Shipped Weight" WHERE (Daily No.=FIELD(Daily No.),
-                                                                                 Airline Code=FIELD(Airline Code),
-                                                                                 Customer No.=FIELD(Customer No.),
-                                                                                 Flight Code=FIELD(Flight Code),
-                                                                                 Destination Code=FIELD(Destination Code),
-                                                                                 Destination Airport=FIELD(Destination Airport)));
+            CalcFormula = Sum("Dl. Weight Dist. By Item"."Shipped Weight" WHERE ("Daily No."=FIELD("Daily No."),
+                                                                                 "Airline Code"=FIELD("Airline Code"),
+                                                                                 "Customer No."=FIELD("Customer No."),
+                                                                                 "Flight Code"=FIELD("Flight Code"),
+                                                                                 "Destination Code"=FIELD("Destination Code"),
+                                                                                 "Destination Airport"=FIELD("Destination Airport")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -112,25 +112,25 @@ table 50042 "Dl. Weight Dist. By Customer"
     }
 
     var
-        DailyWeightDistByAirline: Record "50041";
-        Cust: Record "18";
-        DailyWeightDistHeader: Record "50040";
+        DailyWeightDistByAirline: Record 50041;
+        Cust: Record 18;
+        DailyWeightDistHeader: Record 50040;
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         Text001: Label 'Do you want to notify: %1';
         Text002: Label 'Do you want to send the notifications';
-        WeightByItem: Record "50043";
-        Flights: Record "50022";
-        ByAirline: Record "50041";
+        WeightByItem: Record 50043;
+        Flights: Record 50022;
+        ByAirline: Record 50041;
 
-    [Scope('Internal')]
-    procedure EmailRecords(ShowRequestForm: Boolean;var DailyWeightDistByCust: Record "50042")
+    
+    procedure EmailRecords(ShowRequestForm: Boolean;var DailyWeightDistByCust: Record 50042)
     begin
         SendRecords(ShowRequestForm,FALSE,DailyWeightDistByCust);
     end;
 
-    local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean;var DailyWeightDistByCust: Record "50042")
+    local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean;var DailyWeightDistByCust: Record 50042)
     var
-        ReportSelections: Record "77";
+        ReportSelections: Record 77;
     begin
         /*WITH DailyWeightDistByCust DO BEGIN
           COPY(Rec);
@@ -170,10 +170,10 @@ table 50042 "Dl. Weight Dist. By Customer"
 
     end;
 
-    local procedure SendReport(ReportId: Integer;var DailyWeightDistByCust: Record "50042")
+    local procedure SendReport(ReportId: Integer;var DailyWeightDistByCust: Record 50042)
     var
-        DocumentMailing: Codeunit "50013";
-        FileManagement: Codeunit "419";
+        DocumentMailing: Codeunit 50013;
+        FileManagement: Codeunit 419;
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'),1,250);

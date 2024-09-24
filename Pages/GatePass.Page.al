@@ -144,7 +144,7 @@ page 50089 "Gate Pass"
         GatePassHeader: Record "50068";
         GPLine: Record "50069";
 
-    [Scope('Internal')]
+
     procedure ReleaseShipment(GPno: Code[50])
     var
         GPline: Record "50069";
@@ -173,7 +173,7 @@ page 50089 "Gate Pass"
         MODIFY;
     end;
 
-    [Scope('Internal')]
+
     procedure CloseMAWB(GPNO: Code[50])
     var
         LoadingSheetULD: Record "50063";

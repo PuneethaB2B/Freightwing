@@ -10,7 +10,7 @@ codeunit 50036 "Base64 Convert."
         Convert: DotNet Convert;
         ConvertedArray: DotNet Array;
 
-    [Scope('Internal')]
+
     procedure ToBase64(InS: InStream): Text
     var
         Base64String: Text;
@@ -24,7 +24,7 @@ codeunit 50036 "Base64 Convert."
         EXIT(Base64String);
     end;
 
-    [Scope('Internal')]
+
     procedure FromBase64(Base64String: Text; var OutS: OutStream)
     begin
         IF Base64String = '' THEN

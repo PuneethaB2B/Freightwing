@@ -105,7 +105,7 @@ page 50138 "Posted Goods Receipt Subform"
         }
     }
 
-    [Scope('Internal')]
+    
     procedure GetBookingSheetLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Booking Sheet",Rec);

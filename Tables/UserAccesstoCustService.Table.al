@@ -43,6 +43,6 @@ table 50050 "User Access to Cust Service"
     }
 
     var
-        gRecUser: Record "2000000120";
+        gRecUser: Record 2000000120;
 }
 

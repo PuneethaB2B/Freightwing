@@ -28,7 +28,7 @@ table 50010 "Import/Export Setup"
         }
         field(7; "Item Journal Batch"; Code[10])
         {
-            TableRelation = "Item Journal Batch".Name WHERE(Journal Template Name=FIELD(Item Journal Template));
+            TableRelation = "Item Journal Batch".Name WHERE (Journal Template Name=FIELD(Item Journal Template));
         }
         field(8; "Item Journal Template"; Code[10])
         {
@@ -56,7 +56,7 @@ table 50010 "Import/Export Setup"
         }
         field(14; "Sales Journal Batch"; Code[10])
         {
-            TableRelation = "Gen. Journal Batch".Name WHERE(Journal Template Name=FIELD(Sales Journal Template));
+            TableRelation = "Gen. Journal Batch".Name WHERE (Journal Template Name=FIELD(Sales Journal Template));
         }
         field(15; "Sales Journal Template"; Code[10])
         {
@@ -102,11 +102,11 @@ table 50010 "Import/Export Setup"
         }
         field(24; "Group Purchase A/C Code"; Code[10])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(25; "Third Party Purchase A/C Code"; Code[10])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(26; "Division Factor"; Decimal)
         {
@@ -120,15 +120,15 @@ table 50010 "Import/Export Setup"
         }
         field(29; "IATA Purchase Acc.Group"; Code[40])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(30; "IATA Purchase Acc.TP"; Code[40])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(31; "Default IATA Vendor"; Code[40])
         {
-            TableRelation = Vendor.No.;
+            TableRelation = Vendor."No.";
         }
         field(32; "KRA Pin"; Code[50])
         {
@@ -151,6 +151,6 @@ table 50010 "Import/Export Setup"
     }
 
     var
-        Vend: Record "23";
+        Vend: Record 23;
 }
 

@@ -156,7 +156,7 @@ page 50131 "Goods Receipt Subform"
         }
     }
 
-    [Scope('Internal')]
+    
     procedure GetBookingSheetLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Booking Sheet",Rec);

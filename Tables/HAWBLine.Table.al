@@ -5,7 +5,7 @@ table 50074 "HAWB Line"
     {
         field(1; "HAWB No."; Code[20])
         {
-            TableRelation = "HAWB Receipt"."HAWB No." WHERE(Assigned = FILTER(No));
+            TableRelation = "HAWB Receipt"."HAWB No." WHERE (Assigned = FILTER (No));
 
             trigger OnValidate()
             begin
@@ -19,7 +19,7 @@ table 50074 "HAWB Line"
         }
         field(2; "Item No."; Code[20])
         {
-            TableRelation = Item.No.;
+            TableRelation = Item."No.";
 
             trigger OnValidate()
             begin
@@ -61,7 +61,7 @@ table 50074 "HAWB Line"
         }
         field(12; "Division/Farm Code"; Code[20])
         {
-            TableRelation = Division/Farm.Code;
+            TableRelation = "Division/Farm".Code;
         }
         field(14;"Airline Code";Code[20])
         {
@@ -73,11 +73,11 @@ table 50074 "HAWB Line"
         }
         field(16;"Flight Code";Code[20])
         {
-            TableRelation = Flight."Flight Code" WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight Code" WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(17;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(18;"Flight Date";Date)
         {
@@ -185,29 +185,29 @@ table 50074 "HAWB Line"
     end;
 
     var
-        Item: Record "27";
-        BookingSheetHAWBAllocation: Record "50056";
-        BookingSheetLine: Record "50054";
+        Item: Record 27;
+        BookingSheetHAWBAllocation: Record 50056;
+        BookingSheetLine: Record 50054;
         TotalQuantity: Decimal;
         RoundDirection: Text;
         RoundPrecision: Decimal;
-        ImportExport: Record "50010";
+        ImportExport: Record 50010;
         NxtLineNo: Integer;
-        HawbLine: Record "50074";
+        HawbLine: Record 50074;
         GrossWeight: Decimal;
         BookedWeight: Decimal;
-        HAWBReceipt: Record "50037";
+        HAWBReceipt: Record 50037;
 
-    [Scope('Internal')]
-    procedure InsertMAWBFromHAWBLine(MAWBLine: Record "50076")
+    
+    procedure InsertMAWBFromHAWBLine(MAWBLine: Record 50076)
     var
-        MAWBAllocationLine: Record "50076";
-        TempMAWBLine: Record "50076";
-        TransferOldExtLines: Codeunit "379";
-        ItemTrackingMgt: Codeunit "6500";
+        MAWBAllocationLine: Record 50076;
+        TempMAWBLine: Record 50076;
+        TransferOldExtLines: Codeunit 379;
+        ItemTrackingMgt: Codeunit 6500;
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
     begin
         SETRANGE("MAWB No.","MAWB No.");
         SETRANGE("HAWB No.","HAWB No.");

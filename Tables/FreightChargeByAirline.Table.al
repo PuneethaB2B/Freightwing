@@ -50,8 +50,8 @@ table 50025 "Freight Charge By Airline"
     end;
 
     var
-        Airline: Record "50021";
-        FreightChargeByFlight: Record "50026";
+        Airline: Record 50021;
+        FreightChargeByFlight: Record 50026;
         Text001: Label 'You cannot delete Airline %1 because there is at least one flight associated with it.';
 }
 

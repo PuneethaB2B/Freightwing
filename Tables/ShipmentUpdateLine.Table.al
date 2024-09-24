@@ -9,7 +9,7 @@ table 50008 "Shipment Update Line"
         }
         field(2; "Pre Alert No"; Code[50])
         {
-            TableRelation = "Pre Alert Header".No.;
+            TableRelation = "Pre Alert Header"."No.";
         }
         field(3; Date; Date)
         {
@@ -92,13 +92,13 @@ table 50008 "Shipment Update Line"
         Text001: Label 'Are you sure you want to send status Alerts';
         Body: Text[1024];
         Email: Text[250];
-        SMTP: Codeunit "400";
+        SMTP: Codeunit 400;
         Name: Text[100];
-        Notifyparty: Record "50017";
-        ImportActivities: Record "50009";
+        Notifyparty: Record 50017;
+        ImportActivities: Record 50009;
         Activity: Text;
         CRLF: Text[2];
-        PreAlertHeader: Record "50030";
+        PreAlertHeader: Record 50030;
         LineFeed: Char;
         CarriageReturn: Char;
 }

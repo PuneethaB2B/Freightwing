@@ -22,7 +22,7 @@ table 50005 "MAWB Base Charge"
         }
         field(4; "G/L Account"; Code[20])
         {
-            TableRelation = "G/L Account".No.;
+            TableRelation = "G/L Account"."No.";
         }
         field(5; "Airline Code"; Code[20])
         {
@@ -48,6 +48,6 @@ table 50005 "MAWB Base Charge"
     }
 
     var
-        FreightCharge: Record "50018";
+        FreightCharge: Record 50018;
 }
 

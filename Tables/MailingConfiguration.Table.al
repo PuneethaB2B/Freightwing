@@ -9,8 +9,8 @@ table 50020 "Mailing Configuration"
         }
         field(2; "No."; Code[10])
         {
-            TableRelation = IF (Type = CONST(Shipper)) Customer.No.
-                            ELSE IF (Type = CONST(Consignee)) Consignee.No.;
+            TableRelation = IF (Type = CONST (Shipper)) Customer.No.
+                            ELSE IF (Type=CONST(Consignee)) Consignee.No.;
 
             trigger OnValidate()
             begin
@@ -86,7 +86,7 @@ table 50020 "Mailing Configuration"
     end;
 
     var
-        Cust: Record "18";
-        Consignee: Record "50015";
+        Cust: Record 18;
+        Consignee: Record 50015;
 }
 

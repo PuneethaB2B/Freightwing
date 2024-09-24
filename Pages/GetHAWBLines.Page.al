@@ -86,7 +86,7 @@ page 50117 "Get HAWB Lines"
             "MAWB No.HideValue" := TRUE;
     end;
 
-    [Scope('Internal')]
+
     procedure SetMAWBHeader(var MAWBHeader2: Record "50077")
     begin
         MAWBHeader.GET(MAWBHeader2."No.");

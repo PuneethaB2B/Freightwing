@@ -8,15 +8,15 @@ table 50026 "Freight Charge By Flight"
         }
         field(2; "Flight Code"; Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE(Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
         }
         field(3;Transist;Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(4;"Destination Code";Code[20])
         {
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
 
             trigger OnValidate()
             begin
@@ -85,13 +85,13 @@ table 50026 "Freight Charge By Flight"
     end;
 
     var
-        FreightChargeByAirline: Record "50025";
-        CountryRegion: Record "9";
-        Flight: Record "50022";
-        ByFlight: Record "50026";
-        ViaDest: Record "50024";
-        ByFlight2: Record "50026";
-        ByItem: Record "50027";
+        FreightChargeByAirline: Record 50025;
+        CountryRegion: Record 9;
+        Flight: Record 50022;
+        ByFlight: Record 50026;
+        ViaDest: Record 50024;
+        ByFlight2: Record 50026;
+        ByItem: Record 50027;
 
     local procedure GetDestinations(FlightNo: Code[50])
     begin

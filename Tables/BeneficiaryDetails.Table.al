@@ -5,7 +5,7 @@ table 50003 "Beneficiary Details"
     {
         field(1; "Bank Code"; Code[50])
         {
-            TableRelation = "Bank Account".No. WHERE(Blocked = FILTER(No));
+            TableRelation = "Bank Account".No. WHERE (Blocked=FILTER(No));
 
             trigger OnValidate()
             begin
@@ -28,7 +28,7 @@ table 50003 "Beneficiary Details"
         }
         field(5; "Intermediary Bank"; Code[50])
         {
-            TableRelation = "Bank Account".No. WHERE(Blocked = FILTER(Yes));
+            TableRelation = "Bank Account".No. WHERE (Blocked=FILTER(Yes));
         }
         field(6; Branch; Code[50])
         {
@@ -51,6 +51,6 @@ table 50003 "Beneficiary Details"
     }
 
     var
-        Banks: Record "270";
+        Banks: Record 270;
 }
 

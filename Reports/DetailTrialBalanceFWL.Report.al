@@ -319,7 +319,7 @@ report 50079 "Detail Trial Balance FWL"
         FundCheckTxt: array [2] of Text;
         StringLen: Integer;
 
-    [Scope('Internal')]
+    
     procedure InitializeRequest(NewPrintOnlyOnePerPage: Boolean;NewExcludeBalanceOnly: Boolean;NewPrintClosingEntries: Boolean;NewPrintReversedEntries: Boolean;NewPrintOnlyCorrections: Boolean)
     begin
         PrintOnlyOnePerPage := NewPrintOnlyOnePerPage;
