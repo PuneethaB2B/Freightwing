@@ -32,9 +32,9 @@ table 50060 "Loading Sheet Header"
         }
         field(5; "MAWB No."; Code[20])
         {
-            TableRelation = "Good Receipt Line"."MAWB No." WHERE (Shipper Code=FIELD(Shipper Code),
-                                                                  Status=FILTER(Shipped Part|Received),
-                                                                  Loading Sheet No.=FILTER(''));
+            TableRelation = "Good Receipt Line"."MAWB No." WHERE ("Shipper Code"=FIELD("Shipper Code"),
+                                                                  Status=FILTER("Shipped Part"|Received),
+                                                                  "Loading Sheet No."=FILTER(''));
 
             trigger OnValidate()
             begin

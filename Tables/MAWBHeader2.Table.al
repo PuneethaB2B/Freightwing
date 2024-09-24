@@ -6,8 +6,8 @@ table 50077 "MAWB Header 2"
         field(1; "No."; Code[20])
         {
             NotBlank = true;
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(Yes),
-                                                             Prepared = FILTER(No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(true),
+                                                             Prepared = FILTER(false));
 
             trigger OnValidate()
             begin
@@ -202,7 +202,7 @@ table 50077 "MAWB Header 2"
         }
         field(11; "Destination Airport"; Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
 
             trigger OnValidate()
             begin

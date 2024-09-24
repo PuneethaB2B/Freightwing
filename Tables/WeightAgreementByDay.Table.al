@@ -46,28 +46,28 @@ table 50035 "Weight Agreement By Day"
         }
         field(5; "Gross Weight"; Decimal)
         {
-            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code),
-                                                                                         Source Code=FIELD(Source Code),
-                                                                                         Destination Code=FIELD(Destination Code),
-                                                                                         Day of Week=FIELD(Day of Week),
-                                                                                         Destination Airport=FIELD(Destination Airport),
-                                                                                         Source Airport=FIELD(Source Airport)));
+            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE("Airline Code" = FIELD("Airline Code"),
+                                                                                         "Source Code" = FIELD("Source Code"),
+                                                                                         "Destination Code" = FIELD("Destination Code"),
+                                                                                         "Day of Week" = FIELD("Day of Week"),
+                                                                                         "Destination Airport" = FIELD("Destination Airport"),
+                                                                                         "Source Airport" = FIELD("Source Airport")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(6;"Destination Airport";Code[50])
+        field(6; "Destination Airport"; Code[50])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Destination Code"));
         }
-        field(7;"Source Airport";Code[50])
+        field(7; "Source Airport"; Code[50])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Source Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Source Code"));
         }
     }
 
     keys
     {
-        key(Key1;"Airline Code","Source Code","Destination Code","Day of Week","Source Airport","Destination Airport")
+        key(Key1; "Airline Code", "Source Code", "Destination Code", "Day of Week", "Source Airport", "Destination Airport")
         {
             Clustered = true;
         }
@@ -80,12 +80,12 @@ table 50035 "Weight Agreement By Day"
     trigger OnDelete()
     begin
         WeightAgreementByItem.RESET;
-        WeightAgreementByItem.SETRANGE("Airline Code","Airline Code");
-        WeightAgreementByItem.SETRANGE("Source Code","Source Code");
-        WeightAgreementByItem.SETRANGE("Destination Code","Destination Code");
-        WeightAgreementByItem.SETRANGE("Day of Week","Day of Week");
+        WeightAgreementByItem.SETRANGE("Airline Code", "Airline Code");
+        WeightAgreementByItem.SETRANGE("Source Code", "Source Code");
+        WeightAgreementByItem.SETRANGE("Destination Code", "Destination Code");
+        WeightAgreementByItem.SETRANGE("Day of Week", "Day of Week");
         IF WeightAgreementByItem.FINDFIRST THEN
-          ERROR(Text001,"Day of Week");
+            ERROR(Text001, "Day of Week");
     end;
 
     var

@@ -8,7 +8,7 @@ table 50026 "Freight Charge By Flight"
         }
         field(2; "Flight Code"; Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE (Airline Code=FIELD(Airline Code));
+            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
         }
         field(3;Transist;Code[20])
         {

@@ -45,156 +45,156 @@ table 50052 "Good Receipt Header"
         }
         field(8; "Flight Code"; Code[20])
         {
-            TableRelation = "Pre Alert Line"."HAWB No" WHERE (Pre Alert No=FIELD(Airline Code),
-                                                              C&F Agent=FIELD(Receipt Date),
-                                                              Consignee Code=FIELD(Destination Code));
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE("Pre Alert No" = FIELD("Airline Code"),
+                                                              "C&F Agent" = FIELD("Receipt Date"),
+                                                              "Consignee Code" = FIELD("Destination Code"));
         }
-        field(9;"MAWB No.";Code[20])
+        field(9; "MAWB No."; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE("Airline Code" = FIELD("Airline Code"));
 
             trigger OnValidate()
             begin
                 MAWBReceipt.RESET;
-                MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.","MAWB No.");
+                MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.", "MAWB No.");
                 IF MAWBReceipt.FINDFIRST THEN
-                  "MAWB Date":=MAWBReceipt."Receipt Date";
+                    "MAWB Date" := MAWBReceipt."Receipt Date";
             end;
         }
-        field(10;"Shipper Address";Text[30])
+        field(10; "Shipper Address"; Text[30])
         {
-            CalcFormula = Lookup(Customer.Address WHERE ("No."=FIELD("Shipper Code")));
+            CalcFormula = Lookup(Customer.Address WHERE("No." = FIELD("Shipper Code")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(11;Description;Text[30])
+        field(11; Description; Text[30])
         {
         }
-        field(12;"Port of Loading";Code[20])
+        field(12; "Port of Loading"; Code[20])
         {
             TableRelation = Airport.Code;
         }
-        field(13;"Cut-off Time";Time)
+        field(13; "Cut-off Time"; Time)
         {
             Editable = false;
         }
-        field(14;"Destination Code";Code[20])
+        field(14; "Destination Code"; Code[20])
         {
             TableRelation = "Country/Region";
         }
-        field(15;"Port of Discharge";Code[20])
+        field(15; "Port of Discharge"; Code[20])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Destination Code"));
         }
-        field(16;"Place of Delivery";Text[30])
+        field(16; "Place of Delivery"; Text[30])
         {
         }
-        field(17;"Via Route/Transist";Code[20])
+        field(17; "Via Route/Transist"; Code[20])
         {
-            TableRelation = "Via Destination"."Via Destination Code" WHERE ("Airline Code"=FIELD("Airline Code"),
-                                                                            "Flight Code"=FIELD("Via Route/Transist"),
-                                                                            "FS Destination Code"=FIELD("Destination Code"));
+            TableRelation = "Via Destination"."Via Destination Code" WHERE("Airline Code" = FIELD("Airline Code"),
+                                                                            "Flight Code" = FIELD("Via Route/Transist"),
+                                                                            "FS Destination Code" = FIELD("Destination Code"));
         }
-        field(18;"Booked Weight";Decimal)
+        field(18; "Booked Weight"; Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE ("Good Receipt No."=FIELD("No.")));
+            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE("Good Receipt No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(19;"Actual Weight";Decimal)
+        field(19; "Actual Weight"; Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Actual Weight" WHERE ("Good Receipt No."=FIELD("No.")));
+            CalcFormula = Sum("Good Receipt Line"."Actual Weight" WHERE("Good Receipt No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(20;"Prepared By";Code[50])
+        field(20; "Prepared By"; Code[50])
         {
         }
-        field(21;"No. Series";Code[20])
+        field(21; "No. Series"; Code[20])
         {
         }
-        field(22;"Weight Difference";Decimal)
+        field(22; "Weight Difference"; Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Weight Difference" WHERE ("Good Receipt No."=FIELD("No.")));
+            CalcFormula = Sum("Good Receipt Line"."Weight Difference" WHERE("Good Receipt No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(23;"MAWB Date";Date)
+        field(23; "MAWB Date"; Date)
         {
             Editable = false;
         }
-        field(24;Received;Boolean)
+        field(24; Received; Boolean)
         {
         }
-        field(25;Invoiced;Boolean)
+        field(25; Invoiced; Boolean)
         {
         }
-        field(26;"Type of Delivery";Code[20])
+        field(26; "Type of Delivery"; Code[20])
         {
             TableRelation = "Delivery Type";
         }
-        field(27;"Booking Sheet No.";Code[20])
+        field(27; "Booking Sheet No."; Code[20])
         {
-            TableRelation = "Booking Sheet Header" WHERE ("Shipper Code"=FIELD("Shipper Code"));
+            TableRelation = "Booking Sheet Header" WHERE("Shipper Code" = FIELD("Shipper Code"));
         }
-        field(28;"Vehicle No.";Code[100])
-        {
-        }
-        field(29;"Driver Name";Text[250])
+        field(28; "Vehicle No."; Code[100])
         {
         }
-        field(30;"Escort Vehicle No.";Code[20])
+        field(29; "Driver Name"; Text[250])
         {
         }
-        field(31;"Offloading Start Time";Time)
+        field(30; "Escort Vehicle No."; Code[20])
         {
         }
-        field(32;"Offloading End Time";Time)
+        field(31; "Offloading Start Time"; Time)
         {
         }
-        field(33;"Vehicle Arrival Time";Time)
+        field(32; "Offloading End Time"; Time)
         {
         }
-        field(34;"Seal No.";Code[20])
+        field(33; "Vehicle Arrival Time"; Time)
         {
         }
-        field(35;"Screener Name";Text[30])
+        field(34; "Seal No."; Code[20])
         {
         }
-        field(36;"Commodity Origin";Code[20])
+        field(35; "Screener Name"; Text[30])
+        {
+        }
+        field(36; "Commodity Origin"; Code[20])
         {
             TableRelation = Airport.Code;
         }
-        field(37;"Offloading Place";Option)
+        field(37; "Offloading Place"; Option)
         {
             OptionMembers = " ","FWL Warehouse","Vegpro Warehouse";
         }
-        field(38;"External Doc No.";Code[50])
+        field(38; "External Doc No."; Code[50])
         {
             Caption = 'Acceptance Checklist Serial No.';
         }
-        field(39;Status;Option)
+        field(39; Status; Option)
         {
             OptionCaption = 'Open,Submitted,Received,Loaded';
             OptionMembers = Open,Submitted,Received,Loaded;
         }
-        field(40;"Posted By";Code[50])
+        field(40; "Posted By"; Code[50])
         {
         }
-        field(41;"Delivery No.";Code[50])
+        field(41; "Delivery No."; Code[50])
         {
         }
-        field(42;"Delivery Date";Date)
+        field(42; "Delivery Date"; Date)
         {
         }
-        field(43;Loaded;Boolean)
+        field(43; Loaded; Boolean)
         {
         }
     }
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
@@ -207,18 +207,18 @@ table 50052 "Good Receipt Header"
     trigger OnDelete()
     begin
         GoodReceiptLine.RESET;
-        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.","No.");
+        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.", "No.");
         IF GoodReceiptLine.FIND('-') THEN
-        ERROR('The Goods Receipt has Associated Lines. Please Delete Them First');
+            ERROR('The Goods Receipt has Associated Lines. Please Delete Them First');
     end;
 
     trigger OnInsert()
     begin
         ImportExportSetup.GET;
-        IF "No."='' THEN
-          NoSeriesMgt.InitSeries(ImportExportSetup."Good Receipt Nos.",xRec."No. Series",0D,"No.","No. Series");
-          "Prepared By":=USERID;
-           "Receipt Date":=TODAY;
+        IF "No." = '' THEN
+            NoSeriesMgt.InitSeries(ImportExportSetup."Good Receipt Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        "Prepared By" := USERID;
+        "Receipt Date" := TODAY;
     end;
 
     var
@@ -245,15 +245,15 @@ table 50052 "Good Receipt Header"
         NextLineNo: Decimal;
         BookingSheet: Record 50053;
 
-    
+
     procedure GoodReceiptLinesExist(): Boolean
     begin
         GoodReceiptLine.RESET;
-        GoodReceiptLine.SETRANGE("Good Receipt No.","No.");
+        GoodReceiptLine.SETRANGE("Good Receipt No.", "No.");
         EXIT(GoodReceiptLine.FINDFIRST);
     end;
 
-    
+
     procedure PostGoodReceipt()
     begin
 
@@ -261,112 +261,111 @@ table 50052 "Good Receipt Header"
         TESTFIELD(Description);
 
         //................CHECK IF ORDER BOOKING HAVE ANY LINES........................
-        PostingOption:=DIALOG.STRMENU(Text002);
-        IF NOT GoodReceiptLinesExist  THEN
-          ERROR(Text001,"No.");
+        PostingOption := DIALOG.STRMENU(Text002);
+        IF NOT GoodReceiptLinesExist THEN
+            ERROR(Text001, "No.");
 
-         //...........CHECK IF QUANTITY IS ZERO......................
-         GoodReceiptLine.RESET;
-         GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.","No.");
-         IF GoodReceiptLine.FIND('-') THEN BEGIN
-          GoodReceiptLine.TESTFIELD("Unit of Measure Code");
-          GoodReceiptLine.TESTFIELD("Location Code");
-         // GoodReceiptLine.TESTFIELD("Division/Farm Code");
-          GoodReceiptLine.TESTFIELD(Quantity);
-          GoodReceiptLine.TESTFIELD("Actual Weight");
-         // GoodReceiptLine.TESTFIELD("MAWB No.");
-         END;
-          IF PostingOption=1 THEN BEGIN
+        //...........CHECK IF QUANTITY IS ZERO......................
+        GoodReceiptLine.RESET;
+        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.", "No.");
+        IF GoodReceiptLine.FIND('-') THEN BEGIN
+            GoodReceiptLine.TESTFIELD("Unit of Measure Code");
+            GoodReceiptLine.TESTFIELD("Location Code");
+            // GoodReceiptLine.TESTFIELD("Division/Farm Code");
+            GoodReceiptLine.TESTFIELD(Quantity);
+            GoodReceiptLine.TESTFIELD("Actual Weight");
+            // GoodReceiptLine.TESTFIELD("MAWB No.");
+        END;
+        IF PostingOption = 1 THEN BEGIN
             //....... DELETE ANY LINE ITEM THAT MAY BE PRESENT
             ImportExportSetup.GET();
-            JournalTemplate:=ImportExportSetup."Item Journal Template";
-            JournalBatch:=ImportExportSetup."Item Journal Batch";
+            JournalTemplate := ImportExportSetup."Item Journal Template";
+            JournalBatch := ImportExportSetup."Item Journal Batch";
 
             ItemJnline.RESET;
-            ItemJnline.SETRANGE(ItemJnline."Journal Template Name",JournalTemplate);
-            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name",JournalBatch);
+            ItemJnline.SETRANGE(ItemJnline."Journal Template Name", JournalTemplate);
+            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name", JournalBatch);
             ItemJnline.DELETEALL;
 
             //..INSERT ITEM TRANSACTION.................................................
-            GoodReceiptLine.SETRANGE("Good Receipt No.","No.");
+            GoodReceiptLine.SETRANGE("Good Receipt No.", "No.");
             IF GoodReceiptLine.FIND('-') THEN BEGIN
-              REPEAT
-                ItemJnline."Journal Template Name":=ImportExportSetup."Item Journal Template";
-                ItemJnline."Journal Batch Name":=ImportExportSetup."Item Journal Batch";
-                ItemJnline."Line No.":=ItemJnline."Line No."+1000;
-                ItemJnline."Entry Type":=ItemJnline."Entry Type"::"Positive Adjmt.";
-                ItemJnline."Source Code":= 'ITEMJNL';
-                ItemJnline."Document No.":=GoodReceiptLine."Good Receipt No.";
-                ItemJnline."Item No.":=GoodReceiptLine."Item No.";
-                ItemJnline.VALIDATE("Item No.");
-                ItemJnline."Posting Date":="Receipt Date";
-                ItemJnline.Description:=GoodReceiptLine.Description;
-                ItemJnline."Unit of Measure Code":=GoodReceiptLine."Unit of Measure Code";
-                ItemJnline.Quantity:=GoodReceiptLine.Quantity;
-                ItemJnline.VALIDATE(Quantity);
-                ItemJnline."Shipper Code":="Shipper Code";
-                ItemJnline.Weight:=GoodReceiptLine."Actual Weight";
-                ItemJnline."Location Code":=GoodReceiptLine."Location Code";
-                ItemJnline.INSERT;
-                GoodReceiptLine.Status:=GoodReceiptLine.Status::Received;
-                GoodReceiptLine.MODIFY;
-               UNTIL GoodReceiptLine.NEXT=0;
+                REPEAT
+                    ItemJnline."Journal Template Name" := ImportExportSetup."Item Journal Template";
+                    ItemJnline."Journal Batch Name" := ImportExportSetup."Item Journal Batch";
+                    ItemJnline."Line No." := ItemJnline."Line No." + 1000;
+                    ItemJnline."Entry Type" := ItemJnline."Entry Type"::"Positive Adjmt.";
+                    ItemJnline."Source Code" := 'ITEMJNL';
+                    ItemJnline."Document No." := GoodReceiptLine."Good Receipt No.";
+                    ItemJnline."Item No." := GoodReceiptLine."Item No.";
+                    ItemJnline.VALIDATE("Item No.");
+                    ItemJnline."Posting Date" := "Receipt Date";
+                    ItemJnline.Description := GoodReceiptLine.Description;
+                    ItemJnline."Unit of Measure Code" := GoodReceiptLine."Unit of Measure Code";
+                    ItemJnline.Quantity := GoodReceiptLine.Quantity;
+                    ItemJnline.VALIDATE(Quantity);
+                    ItemJnline."Shipper Code" := "Shipper Code";
+                    ItemJnline.Weight := GoodReceiptLine."Actual Weight";
+                    ItemJnline."Location Code" := GoodReceiptLine."Location Code";
+                    ItemJnline.INSERT;
+                    GoodReceiptLine.Status := GoodReceiptLine.Status::Received;
+                    GoodReceiptLine.MODIFY;
+                UNTIL GoodReceiptLine.NEXT = 0;
             END;
-                ItemJnline.RESET;
-                ItemJnline.SETRANGE(ItemJnline."Journal Template Name",JournalTemplate);
-                ItemJnline.SETRANGE(ItemJnline."Journal Batch Name",JournalBatch);
-            IF  ItemJnline.FIND('-') THEN BEGIN
-                CODEUNIT.RUN(CODEUNIT::"Item Jnl.-Post",ItemJnline);
+            ItemJnline.RESET;
+            ItemJnline.SETRANGE(ItemJnline."Journal Template Name", JournalTemplate);
+            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name", JournalBatch);
+            IF ItemJnline.FIND('-') THEN BEGIN
+                CODEUNIT.RUN(CODEUNIT::"Item Jnl.-Post", ItemJnline);
 
                 ItemLedgerEntry.RESET;
-                ItemLedgerEntry.SETRANGE(ItemLedgerEntry."Document No.","No.");
+                ItemLedgerEntry.SETRANGE(ItemLedgerEntry."Document No.", "No.");
                 IF ItemLedgerEntry.FINDFIRST THEN
-                  Received:=TRUE;
+                    Received := TRUE;
             END;
-           END;
-        "Posted By":=USERID;
-        Status:=Status::Received;
+        END;
+        "Posted By" := USERID;
+        Status := Status::Received;
         MODIFY;
     end;
 
-    
+
     procedure AssistEdit(OldGoodReceiptHeader: Record 50052): Boolean
     begin
         WITH GoodReceiptHeader DO BEGIN
-          GoodReceiptHeader := Rec;
-          ImportExportSetup.GET;
-          ImportExportSetup.TESTFIELD("Good Receipt Nos.");
-          IF NoSeriesMgt.SelectSeries(ImportExportSetup."Good Receipt Nos.",OldGoodReceiptHeader."No. Series","No. Series") THEN BEGIN
+            GoodReceiptHeader := Rec;
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Good Receipt Nos.");
-            NoSeriesMgt.SetSeries("No.");
-            Rec :=GoodReceiptHeader;
-            EXIT(TRUE);
-          END;
+            IF NoSeriesMgt.SelectSeries(ImportExportSetup."Good Receipt Nos.", OldGoodReceiptHeader."No. Series", "No. Series") THEN BEGIN
+                ImportExportSetup.GET;
+                ImportExportSetup.TESTFIELD("Good Receipt Nos.");
+                NoSeriesMgt.SetSeries("No.");
+                Rec := GoodReceiptHeader;
+                EXIT(TRUE);
+            END;
         END;
     end;
 
-    
+
     procedure CloseBookingSheet(BookingSheetNo: Code[50])
     var
         BSHeader: Record 50053;
         BSLine: Record 50054;
     begin
-         IF BSHeader.GET(BookingSheetNo) THEN BEGIN
+        IF BSHeader.GET(BookingSheetNo) THEN BEGIN
             BSLine.RESET;
-            BSLine.SETRANGE(BSLine."Booking Sheet No.",BSHeader."No.");
-            BSLine.SETRANGE(BSLine."Good Receipt No.",'');
-            IF BSLine.FINDFIRST THEN
-            BEGIN
-              //MESSAGE('Booking Sheet Still Open. Not All Booked Lines were Received');
+            BSLine.SETRANGE(BSLine."Booking Sheet No.", BSHeader."No.");
+            BSLine.SETRANGE(BSLine."Good Receipt No.", '');
+            IF BSLine.FINDFIRST THEN BEGIN
+                //MESSAGE('Booking Sheet Still Open. Not All Booked Lines were Received');
             END ELSE BEGIN
-              BSHeader.Status:=BSHeader.Status::Received;
-              BSHeader.MODIFY;
+                BSHeader.Status := BSHeader.Status::Received;
+                BSHeader.MODIFY;
             END;
-         END;
+        END;
     end;
 
-    
+
     procedure PostGoodReceiptReversal()
     begin
 
@@ -374,72 +373,72 @@ table 50052 "Good Receipt Header"
         TESTFIELD(Description);
 
         //................CHECK IF ORDER BOOKING HAVE ANY LINES........................
-        PostingOption:=DIALOG.STRMENU(Text002);
-        IF NOT GoodReceiptLinesExist  THEN
-          ERROR(Text001,"No.");
+        PostingOption := DIALOG.STRMENU(Text002);
+        IF NOT GoodReceiptLinesExist THEN
+            ERROR(Text001, "No.");
 
-         //...........CHECK IF QUANTITY IS ZERO......................
-         GoodReceiptLine.RESET;
-         GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.","No.");
-         IF GoodReceiptLine.FIND('-') THEN BEGIN
-          GoodReceiptLine.TESTFIELD("Unit of Measure Code");
-          GoodReceiptLine.TESTFIELD("Location Code");
-         // GoodReceiptLine.TESTFIELD("Division/Farm Code");
-          GoodReceiptLine.TESTFIELD(Quantity);
-          GoodReceiptLine.TESTFIELD("Actual Weight");
-         // GoodReceiptLine.TESTFIELD("MAWB No.");
-         END;
-          IF PostingOption=1 THEN BEGIN
+        //...........CHECK IF QUANTITY IS ZERO......................
+        GoodReceiptLine.RESET;
+        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.", "No.");
+        IF GoodReceiptLine.FIND('-') THEN BEGIN
+            GoodReceiptLine.TESTFIELD("Unit of Measure Code");
+            GoodReceiptLine.TESTFIELD("Location Code");
+            // GoodReceiptLine.TESTFIELD("Division/Farm Code");
+            GoodReceiptLine.TESTFIELD(Quantity);
+            GoodReceiptLine.TESTFIELD("Actual Weight");
+            // GoodReceiptLine.TESTFIELD("MAWB No.");
+        END;
+        IF PostingOption = 1 THEN BEGIN
             //....... DELETE ANY LINE ITEM THAT MAY BE PRESENT
             ImportExportSetup.GET();
-            JournalTemplate:=ImportExportSetup."Item Journal Template";
-            JournalBatch:=ImportExportSetup."Item Journal Batch";
+            JournalTemplate := ImportExportSetup."Item Journal Template";
+            JournalBatch := ImportExportSetup."Item Journal Batch";
 
             ItemJnline.RESET;
-            ItemJnline.SETRANGE(ItemJnline."Journal Template Name",JournalTemplate);
-            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name",JournalBatch);
+            ItemJnline.SETRANGE(ItemJnline."Journal Template Name", JournalTemplate);
+            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name", JournalBatch);
             ItemJnline.DELETEALL;
 
             //..INSERT ITEM TRANSACTION.................................................
-            GoodReceiptLine.SETRANGE("Good Receipt No.","No.");
+            GoodReceiptLine.SETRANGE("Good Receipt No.", "No.");
             IF GoodReceiptLine.FIND('-') THEN BEGIN
-              REPEAT
-                ItemJnline."Journal Template Name":=ImportExportSetup."Item Journal Template";
-                ItemJnline."Journal Batch Name":=ImportExportSetup."Item Journal Batch";
-                ItemJnline."Line No.":=ItemJnline."Line No."+1000;
-                ItemJnline."Entry Type":=ItemJnline."Entry Type"::"Negative Adjmt.";
-                ItemJnline."Source Code":= 'ITEMJNL';
-                ItemJnline."Document No.":=GoodReceiptLine."Good Receipt No.";
-                ItemJnline."Item No.":=GoodReceiptLine."Item No.";
-                ItemJnline.VALIDATE("Item No.");
-                ItemJnline."Posting Date":="Receipt Date";
-                ItemJnline.Description:='Reversal - '+GoodReceiptLine.Description;
-                ItemJnline."Unit of Measure Code":=GoodReceiptLine."Unit of Measure Code";
-                ItemJnline.Quantity:=GoodReceiptLine.Quantity;
-                ItemJnline.VALIDATE(Quantity);
-                ItemJnline."Shipper Code":="Shipper Code";
-                ItemJnline.Weight:=GoodReceiptLine."Actual Weight";
-                ItemJnline."Location Code":=GoodReceiptLine."Location Code";
-                ItemJnline.INSERT;
-                GoodReceiptLine."Loading Sheet No.":='';
-                GoodReceiptLine.Status:=GoodReceiptLine.Status::Received;
-                GoodReceiptLine.MODIFY;
-               UNTIL GoodReceiptLine.NEXT=0;
+                REPEAT
+                    ItemJnline."Journal Template Name" := ImportExportSetup."Item Journal Template";
+                    ItemJnline."Journal Batch Name" := ImportExportSetup."Item Journal Batch";
+                    ItemJnline."Line No." := ItemJnline."Line No." + 1000;
+                    ItemJnline."Entry Type" := ItemJnline."Entry Type"::"Negative Adjmt.";
+                    ItemJnline."Source Code" := 'ITEMJNL';
+                    ItemJnline."Document No." := GoodReceiptLine."Good Receipt No.";
+                    ItemJnline."Item No." := GoodReceiptLine."Item No.";
+                    ItemJnline.VALIDATE("Item No.");
+                    ItemJnline."Posting Date" := "Receipt Date";
+                    ItemJnline.Description := 'Reversal - ' + GoodReceiptLine.Description;
+                    ItemJnline."Unit of Measure Code" := GoodReceiptLine."Unit of Measure Code";
+                    ItemJnline.Quantity := GoodReceiptLine.Quantity;
+                    ItemJnline.VALIDATE(Quantity);
+                    ItemJnline."Shipper Code" := "Shipper Code";
+                    ItemJnline.Weight := GoodReceiptLine."Actual Weight";
+                    ItemJnline."Location Code" := GoodReceiptLine."Location Code";
+                    ItemJnline.INSERT;
+                    GoodReceiptLine."Loading Sheet No." := '';
+                    GoodReceiptLine.Status := GoodReceiptLine.Status::Received;
+                    GoodReceiptLine.MODIFY;
+                UNTIL GoodReceiptLine.NEXT = 0;
             END;
-                ItemJnline.RESET;
-                ItemJnline.SETRANGE(ItemJnline."Journal Template Name",JournalTemplate);
-                ItemJnline.SETRANGE(ItemJnline."Journal Batch Name",JournalBatch);
-            IF  ItemJnline.FIND('-') THEN BEGIN
-                CODEUNIT.RUN(CODEUNIT::"Item Jnl.-Post",ItemJnline);
+            ItemJnline.RESET;
+            ItemJnline.SETRANGE(ItemJnline."Journal Template Name", JournalTemplate);
+            ItemJnline.SETRANGE(ItemJnline."Journal Batch Name", JournalBatch);
+            IF ItemJnline.FIND('-') THEN BEGIN
+                CODEUNIT.RUN(CODEUNIT::"Item Jnl.-Post", ItemJnline);
 
                 ItemLedgerEntry.RESET;
-                ItemLedgerEntry.SETRANGE(ItemLedgerEntry."Document No.","No.");
+                ItemLedgerEntry.SETRANGE(ItemLedgerEntry."Document No.", "No.");
                 IF ItemLedgerEntry.FINDFIRST THEN
-                  Received:=TRUE;
+                    Received := TRUE;
             END;
-           END;
-        "Posted By":=USERID;
-        Status:=Status::Open;
+        END;
+        "Posted By" := USERID;
+        Status := Status::Open;
         MODIFY;
     end;
 }

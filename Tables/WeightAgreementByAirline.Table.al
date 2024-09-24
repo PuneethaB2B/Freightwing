@@ -21,7 +21,7 @@ table 50033 "Weight Agreement By Airline"
         }
         field(3; "Total Capacity"; Decimal)
         {
-            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE (Airline Code=FIELD(Airline Code)));
+            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE ("Airline Code"=FIELD("Airline Code")));
             Editable = false;
             FieldClass = FlowField;
         }

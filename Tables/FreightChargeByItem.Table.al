@@ -17,7 +17,7 @@ table 50027 "Freight Charge By Item"
         }
         field(4; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE (No.=FIELD(No.)));
+            CalcFormula = Lookup(Item.Description WHERE ("No."=FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }

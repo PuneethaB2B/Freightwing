@@ -109,11 +109,11 @@ table 50065 "Offloaded Gatepass Line"
         }
         field(20; "Loading Sheet No."; Code[20])
         {
-            TableRelation = "Loading Sheet Header".No. WHERE (Status=FILTER(Closed));
+            TableRelation = "Loading Sheet Header"."No." WHERE (Status=FILTER(Closed));
         }
         field(21; "HAWB No"; Code[50])
         {
-            TableRelation = "HAWB Line"."HAWB No." WHERE (MAWB No.=FIELD(MAWB No.));
+            TableRelation = "HAWB Line"."HAWB No." WHERE ("MAWB No."=FIELD("MAWB No."));
         }
         field(23;"Certificate Of Origin";Code[20])
         {

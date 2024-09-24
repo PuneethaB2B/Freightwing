@@ -33,7 +33,7 @@ table 50036 "Weight Agreement By Item"
         }
         field(6; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE (No.=FIELD(Item No.)));
+            CalcFormula = Lookup(Item.Description WHERE ("No."=FIELD("Item No.")));
             Editable = false;
             FieldClass = FlowField;
         }

@@ -34,7 +34,7 @@ table 50051 "Good Receipt Line"
             trigger OnValidate()
             var
                 ICPartner: Record 413;
-                ItemCrossReference: Record 5717;
+                ItemCrossReference: Record "Item Reference";
                 PrepmtMgt: Codeunit 441;
             begin
             end;
@@ -60,51 +60,51 @@ table 50051 "Good Receipt Line"
         }
         field(12; "ULD No."; Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE("ULD Type Code" = FIELD("ULD Type Code"));
         }
-        field(13;Quantity;Decimal)
+        field(13; Quantity; Decimal)
         {
         }
-        field(14;"Weight Difference";Decimal)
-        {
-            Editable = false;
-        }
-        field(15;"Booked Line Amount";Decimal)
+        field(14; "Weight Difference"; Decimal)
         {
             Editable = false;
         }
-        field(16;"Actual Line Amount";Decimal)
+        field(15; "Booked Line Amount"; Decimal)
         {
             Editable = false;
         }
-        field(17;"Rate Amount";Decimal)
+        field(16; "Actual Line Amount"; Decimal)
         {
             Editable = false;
         }
-        field(18;"Location Code";Code[20])
+        field(17; "Rate Amount"; Decimal)
+        {
+            Editable = false;
+        }
+        field(18; "Location Code"; Code[20])
         {
             TableRelation = Location;
         }
-        field(19;"Product Group Code";Code[20])
+        field(19; "Product Group Code"; Code[20])
         {
-            TableRelation = "Product Group".Code;
+            TableRelation = "Item Category".Code;
         }
-        field(20;Status;Option)
+        field(20; Status; Option)
         {
             Caption = 'Status';
             Editable = true;
             OptionCaption = 'Open,Released,Pending Approval,Pending Prepayment,Shipped Full,Shipped Part,Received';
             OptionMembers = Open,Released,"Pending Approval","Pending Prepayment","Shipped Full","Shipped Part",Received;
         }
-        field(21;"Approved By";Code[20])
+        field(21; "Approved By"; Code[20])
         {
             Editable = false;
         }
-        field(22;"Approval Date";Date)
+        field(22; "Approval Date"; Date)
         {
             Editable = false;
         }
-        field(23;"Consignee Code";Code[20])
+        field(23; "Consignee Code"; Code[20])
         {
             TableRelation = Consignee."No.";
 
@@ -112,53 +112,54 @@ table 50051 "Good Receipt Line"
             begin
                 Consignees.RESET;
                 IF Consignees.GET("Consignee Code") THEN BEGIN
-                "Consignee Name":=Consignees.Name;            END;
+                    "Consignee Name" := Consignees.Name;
+                END;
             end;
         }
-        field(24;"Clearing Agent Code";Code[20])
+        field(24; "Clearing Agent Code"; Code[20])
         {
             TableRelation = "Shipping Agent".Code;
         }
-        field(25;"Airline Code";Code[20])
+        field(25; "Airline Code"; Code[20])
         {
             Editable = false;
             TableRelation = Airline.Code;
         }
-        field(26;"Flight Code";Code[20])
+        field(26; "Flight Code"; Code[20])
         {
             Editable = false;
-            TableRelation = "Pre Alert Line"."HAWB No" WHERE ("Pre Alert No"=FIELD("Airline Code"),
-                                                              "C&F Agent"=FIELD("Booking Date"));
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE("Pre Alert No" = FIELD("Airline Code"),
+                                                              "C&F Agent" = FIELD("Booking Date"));
         }
-        field(27;"MAWB No.";Code[20])
+        field(27; "MAWB No."; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE("Airline Code" = FIELD("Airline Code"));
         }
-        field(28;"Port of Loading";Code[20])
+        field(28; "Port of Loading"; Code[20])
         {
             TableRelation = Airport.Code;
         }
-        field(29;"Cut-off Time";Time)
+        field(29; "Cut-off Time"; Time)
         {
             Editable = false;
         }
-        field(30;"Destination Code";Code[20])
+        field(30; "Destination Code"; Code[20])
         {
             Editable = false;
-            TableRelation = Country/Region;
+            TableRelation = "Country/Region";
         }
         field(31;"Port of Discharge";Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Destination Code));
+            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
         }
         field(32;"Place of Delivery";Text[30])
         {
         }
         field(33;"Via Route/Transist";Code[20])
         {
-            TableRelation = "Via Destination"."Via Destination Code" WHERE (Airline Code=FIELD(Airline Code),
-                                                                            Flight Code=FIELD(Via Route/Transist),
-                                                                            FS Destination Code=FIELD(Destination Code));
+            TableRelation = "Via Destination"."Via Destination Code" WHERE ("Airline Code"=FIELD("Airline Code"),
+                                                                            "Flight Code"=FIELD("Via Route/Transist"),
+                                                                            "FS Destination Code"=FIELD("Destination Code"));
         }
         field(34;"MAWB Date";Date)
         {
@@ -178,7 +179,7 @@ table 50051 "Good Receipt Line"
         field(38;"Division/Farm Code";Code[20])
         {
             Editable = false;
-            TableRelation = "Shipper Farm"."Farm Code" WHERE (Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Shipper Farm"."Farm Code" WHERE ("Shipper Code"=FIELD("Shipper Code"));
         }
         field(39;"Loading Sheet No.";Code[20])
         {
@@ -189,11 +190,11 @@ table 50051 "Good Receipt Line"
         }
         field(41;"FWL Docket Weight";Decimal)
         {
-            CalcFormula = Sum("Good Receipt ULD Allocation"."FWL Docket Weight" WHERE (Good Receipt No.=FIELD(Good Receipt No.),
-                                                                                       Airline Code=FIELD(Airline Code),
-                                                                                       Flight Code=FIELD(Flight Code),
-                                                                                       Shipper Code=FIELD(Shipper Code),
-                                                                                       MAWB No=FIELD(MAWB No.)));
+            CalcFormula = Sum("Good Receipt ULD Allocation"."FWL Docket Weight" WHERE ("Good Receipt No."=FIELD("Good Receipt No."),
+                                                                                       "Airline Code"=FIELD("Airline Code"),
+                                                                                       "Flight Code"=FIELD("Flight Code"),
+                                                                                       "Shipper Code"=FIELD("Shipper Code"),
+                                                                                       "MAWB No"=FIELD("MAWB No.")));
             FieldClass = FlowField;
         }
         field(42;"FWL Gross Weight";Decimal)
@@ -334,7 +335,7 @@ table 50051 "Good Receipt Line"
         LoadingSheetLine1: Record 50061;
         ShippedQty: Decimal;
         LoadingSheetLine2: Record 50061;
-        Consignees: Record "50015";
+        Consignees: Record 50015;
         BookingSheetMAWBAllocation: Record 50070;
         LoadingSheetHeader: Record 50060;
 
@@ -345,8 +346,8 @@ table 50051 "Good Receipt Line"
         LoadingSheetGRNHeader: Record 50060;
         LoadingSheetGRNLine: Record 50061;
         TempLoadingSheetLine: Record 50061;
-        TransferOldExtLines: Codeunit 379;
-        ItemTrackingMgt: Codeunit 6500;
+        TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
+        ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
         GoodReceiptLine: Record 50051;

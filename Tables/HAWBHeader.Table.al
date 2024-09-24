@@ -5,7 +5,7 @@ table 50075 "HAWB Header"
     {
         field(1; "No."; Code[20])
         {
-            TableRelation = "HAWB Receipt"."HAWB No." WHERE (Assigned = FILTER (No));
+            TableRelation = "HAWB Receipt"."HAWB No." WHERE (Assigned = FILTER (false));
         }
         field(2; "Shipper Code"; Code[20])
         {
@@ -28,8 +28,8 @@ table 50075 "HAWB Header"
         }
         field(5; "Consignee Code"; Code[20])
         {
-            TableRelation = "Loading Sheet Line"."Consignee Code" WHERE (Shipper Code=FIELD(Shipper Code),
-                                                                         MAWB No.=FIELD(MAWB No.));
+            TableRelation = "Loading Sheet Line"."Consignee Code" WHERE ("Shipper Code"=FIELD("Shipper Code"),
+                                                                         "MAWB No."=FIELD("MAWB No."));
 
             trigger OnValidate()
             begin

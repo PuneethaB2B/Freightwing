@@ -95,7 +95,7 @@ table 50040 "Dl. Weight Dist. Header"
     var
         ImportExportSetup: Record 50010;
         NoSeriesMgt: Codeunit 396;
-        Country: Record "9";
+        Country: Record 9;
         DailyWeightDistByItem: Record 50043;
         Text001: Label 'Daily weight distribution to';
         DailyWeightDistByAirline: Record 50041;

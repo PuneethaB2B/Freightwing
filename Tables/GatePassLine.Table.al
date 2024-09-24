@@ -45,8 +45,8 @@ table 50069 "Gate Pass Line"
         }
         field(11; "ULD No."; Code[50])
         {
-            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE (MWAB No.=FIELD(MAWB No.),
-                                                                            Released=FILTER(No));
+            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE ("MWAB No."=FIELD("MAWB No."),
+                                                                            Released=FILTER(false));
         }
         field(12; "Line No."; Integer)
         {

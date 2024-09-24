@@ -33,7 +33,7 @@ table 50054 "Booking Sheet Line"
             trigger OnValidate()
             var
                 ICPartner: Record 413;
-                ItemCrossReference: Record 5717;
+                ItemCrossReference: Record "Item Reference";
                 PrepmtMgt: Codeunit 441;
             begin
                 Item.GET("Item No.");
@@ -83,7 +83,7 @@ table 50054 "Booking Sheet Line"
         }
         field(12; "ULD No."; Code[20])
         {
-            TableRelation = ULD."ULD No." WHERE (ULD Type Code=FIELD(ULD Type Code));
+            TableRelation = ULD."ULD No." WHERE ("ULD Type Code"=FIELD("ULD Type Code"));
         }
         field(13;Quantity;Decimal)
         {
@@ -110,7 +110,7 @@ table 50054 "Booking Sheet Line"
         }
         field(19;"Product Group Code";Code[20])
         {
-            TableRelation = "Product Group".Code;
+            TableRelation ="Item Category".Code;
         }
         field(20;Status;Option)
         {
@@ -368,7 +368,7 @@ table 50054 "Booking Sheet Line"
 
     var
         HAWBReceipt: Record 50037;
-        Item: Record "27";
+        Item: Record 27;
         BookingSheetHeader: Record 50053;
         DailyWeightDistByCustomer: Record 50042;
         DailyWeightDistByItem: Record 50043;

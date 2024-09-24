@@ -77,7 +77,7 @@ table 50072 "MAWB Invoice Notify Party"
         END;
     end;
 
-    local procedure SendReport(ReportId: Integer;var MAWBInvoiceNotifyParty: Record "50072")
+    local procedure SendReport(ReportId: Integer;var MAWBInvoiceNotifyParty: Record 50072)
     var
         DocumentMailing: Codeunit 50013;
         FileManagement: Codeunit 419;

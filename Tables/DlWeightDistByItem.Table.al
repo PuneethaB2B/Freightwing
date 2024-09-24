@@ -17,7 +17,7 @@ table 50043 "Dl. Weight Dist. By Item"
         }
         field(4; "Item No."; Code[20])
         {
-            TableRelation = "Shipper Item"."Item No." WHERE (Shipper Code=FIELD(Customer No.));
+            TableRelation = "Shipper Item"."Item No." WHERE ("Shipper Code"=FIELD("Customer No."));
 
             trigger OnValidate()
             begin

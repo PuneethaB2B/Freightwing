@@ -13,7 +13,7 @@ table 50042 "Dl. Weight Dist. By Customer"
         }
         field(3; "Customer No."; Code[20])
         {
-            TableRelation = Customer.No. WHERE (Customer Type=FILTER(Group|Third Party));
+            TableRelation = Customer."No." WHERE ("Customer Type"=FILTER(Group|"Third Party"));
 
             trigger OnValidate()
             begin

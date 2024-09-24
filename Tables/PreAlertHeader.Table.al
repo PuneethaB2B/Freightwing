@@ -22,7 +22,7 @@ table 50030 "Pre Alert Header"
         }
         field(3; "MAWB No"; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE (Assigned = FILTER (No));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(false));
         }
         field(4; "Delivery Agent"; Code[20])
         {
@@ -49,74 +49,74 @@ table 50030 "Pre Alert Header"
         }
         field(6; "Port of Origin"; Code[20])
         {
-            TableRelation = Airport.Code WHERE (Country Code=FIELD(Country of Origin));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Country of Origin"));
         }
-        field(7;"Port of Discharge";Code[20])
+        field(7; "Port of Discharge"; Code[20])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Country of Discharge"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Country of Discharge"));
         }
-        field(8;VIA;Code[10])
+        field(8; VIA; Code[10])
         {
             TableRelation = Airport.Code;
         }
-        field(9;"Country of Origin";Text[30])
+        field(9; "Country of Origin"; Text[30])
         {
             TableRelation = "Country/Region".Code;
         }
-        field(10;"Country of Discharge";Text[30])
+        field(10; "Country of Discharge"; Text[30])
         {
             TableRelation = "Country/Region".Code;
         }
-        field(12;"Scheduled Date";Date)
+        field(12; "Scheduled Date"; Date)
         {
         }
-        field(13;"Scheduled Time";Time)
+        field(13; "Scheduled Time"; Time)
         {
         }
-        field(14;"Pre-Alert Date";Date)
+        field(14; "Pre-Alert Date"; Date)
         {
         }
-        field(15;"Menifest Date";Date)
+        field(15; "Menifest Date"; Date)
         {
         }
-        field(16;"MAWB Date";Date)
+        field(16; "MAWB Date"; Date)
         {
         }
-        field(17;"Mode of Payment";Code[50])
+        field(17; "Mode of Payment"; Code[50])
         {
             TableRelation = "Payment Method".Code;
         }
-        field(18;"IDF No";Code[10])
+        field(18; "IDF No"; Code[10])
         {
         }
-        field(19;"Prepared By";Code[30])
+        field(19; "Prepared By"; Code[30])
         {
             Editable = false;
         }
-        field(20;"No. Series";Code[20])
+        field(20; "No. Series"; Code[20])
         {
         }
-        field(21;"Flight Code";Code[10])
+        field(21; "Flight Code"; Code[10])
         {
             TableRelation = Flight."Flight Code";
         }
-        field(22;"Cargo Receipt No";Code[10])
+        field(22; "Cargo Receipt No"; Code[10])
         {
         }
-        field(23;"CIF Value";Decimal)
+        field(23; "CIF Value"; Decimal)
         {
         }
-        field(24;"Actual Arrival Date";Date)
+        field(24; "Actual Arrival Date"; Date)
         {
         }
-        field(25;"Actual Arrival Time";Time)
+        field(25; "Actual Arrival Time"; Time)
         {
         }
-        field(26;Status;Option)
+        field(26; Status; Option)
         {
             OptionMembers = ,"Pre-Alert","Airport Receipt","FWL Receipt",Delivered;
         }
-        field(27;"Item No.";Code[20])
+        field(27; "Item No."; Code[20])
         {
             Caption = 'Item No.';
             Editable = false;
@@ -125,60 +125,60 @@ table 50030 "Pre Alert Header"
             trigger OnValidate()
             var
                 ICPartner: Record 413;
-                ItemCrossReference: Record 5717;
+                ItemCrossReference: Record "Item Reference";
                 PrepmtMgt: Codeunit 441;
             begin
             end;
         }
-        field(28;Weight;Decimal)
+        field(28; Weight; Decimal)
         {
             Caption = 'Booked Weight';
-            DecimalPlaces = 0:5;
+            DecimalPlaces = 0 : 5;
             Editable = false;
         }
-        field(29;Quantity;Decimal)
+        field(29; Quantity; Decimal)
         {
         }
-        field(30;Invoiced;Boolean)
+        field(30; Invoiced; Boolean)
         {
         }
-        field(31;Updates;Option)
+        field(31; Updates; Option)
         {
             OptionMembers = ,Active,Archived;
         }
-        field(32;Currency;Code[10])
+        field(32; Currency; Code[10])
         {
             TableRelation = Currency.Code;
         }
-        field(33;"Arrival Date FWL";Date)
+        field(33; "Arrival Date FWL"; Date)
         {
         }
-        field(34;"Arrival Time FWL";Time)
+        field(34; "Arrival Time FWL"; Time)
         {
         }
-        field(35;"Delivery Date";Date)
+        field(35; "Delivery Date"; Date)
         {
         }
-        field(36;"Delivery Time";Time)
+        field(36; "Delivery Time"; Time)
         {
         }
-        field(37;"Created By";Code[50])
-        {
-            Editable = false;
-        }
-        field(38;"Created On";Date)
+        field(37; "Created By"; Code[50])
         {
             Editable = false;
         }
-        field(39;"Last Updated By";Code[50])
+        field(38; "Created On"; Date)
         {
             Editable = false;
         }
-        field(40;"Last Updated On";Date)
+        field(39; "Last Updated By"; Code[50])
         {
             Editable = false;
         }
-        field(41;"Last Updated At";Time)
+        field(40; "Last Updated On"; Date)
+        {
+            Editable = false;
+        }
+        field(41; "Last Updated At"; Time)
         {
             Editable = false;
         }
@@ -186,7 +186,7 @@ table 50030 "Pre Alert Header"
 
     keys
     {
-        key(Key1;"No.","MAWB No")
+        key(Key1; "No.", "MAWB No")
         {
             Clustered = true;
         }
@@ -194,7 +194,7 @@ table 50030 "Pre Alert Header"
 
     fieldgroups
     {
-        fieldgroup(DropDown;"MAWB No","No.","Flight No","Country of Origin","Country of Discharge")
+        fieldgroup(DropDown; "MAWB No", "No.", "Flight No", "Country of Origin", "Country of Discharge")
         {
         }
     }
@@ -202,24 +202,24 @@ table 50030 "Pre Alert Header"
     trigger OnInsert()
     begin
         ImportExportSetup.GET;
-        IF "No."='' THEN
-          NoSeriesMgt.InitSeries(ImportExportSetup."Pre Alert Nos.",xRec."No. Series",0D,"No.","No. Series");
-          "Prepared By":=USERID;
-           Status:=Status::"Pre-Alert";
-           Invoiced:=FALSE;
-           Updates:= Updates::Active;
-        "Last Updated At":=TIME;
-        "Last Updated On":=TODAY;
-        "Last Updated By":=USERID;
-        "Created On":=TODAY;
-        "Created By":=USERID;
+        IF "No." = '' THEN
+            NoSeriesMgt.InitSeries(ImportExportSetup."Pre Alert Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        "Prepared By" := USERID;
+        Status := Status::"Pre-Alert";
+        Invoiced := FALSE;
+        Updates := Updates::Active;
+        "Last Updated At" := TIME;
+        "Last Updated On" := TODAY;
+        "Last Updated By" := USERID;
+        "Created On" := TODAY;
+        "Created By" := USERID;
     end;
 
     trigger OnModify()
     begin
-        "Last Updated At":=TIME;
-        "Last Updated On":=TODAY;
-        "Last Updated By":=USERID;
+        "Last Updated At" := TIME;
+        "Last Updated On" := TODAY;
+        "Last Updated By" := USERID;
     end;
 
     var

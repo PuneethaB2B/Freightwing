@@ -34,9 +34,9 @@ table 50055 "Booking Sheet ULD Allocation"
         }
         field(10; "MAVB No."; Code[50])
         {
-            TableRelation = "Booking Sheet HAWB Allocation"."MAWB No." WHERE (Booking Sheet No.=FIELD(Booking Sheet No.),
-                                                                              Airline Code=FIELD(Airline Code),
-                                                                              Shipper Code=FIELD(Shipper Code));
+            TableRelation = "Booking Sheet HAWB Allocation"."MAWB No." WHERE ("Booking Sheet No."=FIELD("Booking Sheet No."),
+                                                                              "Airline Code"=FIELD("Airline Code"),
+                                                                              "Shipper Code"=FIELD("Shipper Code"));
         }
         field(11;"Source Airport";Code[50])
         {
