@@ -3,7 +3,7 @@ page 50045 "Wt. Agreement By Airlines"
     Caption = 'Weight Agreement By Airlines';
     CardPageID = "Wt. Agreement By Airline";
     PageType = List;
-    SourceTable = Table50033;
+    SourceTable = 50033;
 
     layout
     {
@@ -11,10 +11,10 @@ page 50045 "Wt. Agreement By Airlines"
         {
             repeater(Group)
             {
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Airline Name"; "Airline Name")
+                field("Airline Name"; Rec."Airline Name")
                 {
                 }
             }
@@ -34,6 +34,6 @@ page 50045 "Wt. Agreement By Airlines"
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

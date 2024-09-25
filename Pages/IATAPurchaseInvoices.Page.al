@@ -5,8 +5,8 @@ page 50149 "IATA Purchase Invoices"
     LinksAllowed = false;
     MultipleNewLines = true;
     PageType = List;
-    SourceTable = Table50016;
-    SourceTableView = WHERE(Converted = FILTER(No));
+    SourceTable = 50016;
+    SourceTableView = WHERE(Converted = FILTER(false));
 
     layout
     {
@@ -14,52 +14,52 @@ page 50149 "IATA Purchase Invoices"
         {
             repeater(Group)
             {
-                field("Airline Invoice Date"; "Airline Invoice Date")
+                field("Airline Invoice Date"; Rec."Airline Invoice Date")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Weight As Per FWL"; "Weight As Per FWL")
+                field("Weight As Per FWL"; Rec."Weight As Per FWL")
                 {
                 }
-                field("Amount As Per FWL"; "Amount As Per FWL")
+                field("Amount As Per FWL"; Rec."Amount As Per FWL")
                 {
                 }
-                field("Rate Per Kilo As Per FWL"; "Rate Per Kilo As Per FWL")
+                field("Rate Per Kilo As Per FWL"; Rec."Rate Per Kilo As Per FWL")
                 {
                 }
-                field("Airline Invoice No"; "Airline Invoice No")
+                field("Airline Invoice No"; Rec."Airline Invoice No")
                 {
                 }
-                field("Weight as per Airline"; "Weight as per Airline")
+                field("Weight as per Airline"; Rec."Weight as per Airline")
                 {
                 }
-                field("Amount as per Airline"; "Amount as per Airline")
+                field("Amount as per Airline"; Rec."Amount as per Airline")
                 {
                 }
-                field("Airline Kilo Rate"; "Airline Kilo Rate")
+                field("Airline Kilo Rate"; Rec."Airline Kilo Rate")
                 {
                 }
-                field("Difference in Weight"; "Difference in Weight")
+                field("Difference in Weight"; Rec."Difference in Weight")
                 {
                 }
-                field("Rate Difference"; "Rate Difference")
+                field("Rate Difference"; Rec."Rate Difference")
                 {
                 }
-                field("Difference In Amount"; "Difference In Amount")
+                field("Difference In Amount"; Rec."Difference In Amount")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
-                field(Reconciled; Reconciled)
+                field(Reconciled; Rec.Reconciled)
                 {
                 }
-                field(Converted; Converted)
+                field(Converted; Rec.Converted)
                 {
                 }
             }
@@ -90,7 +90,7 @@ page 50149 "IATA Purchase Invoices"
                         IATAPurchaseInvoice.SETRANGE(IATAPurchaseInvoice.Converted, FALSE);
                         IF IATAPurchaseInvoice.FINDSET THEN BEGIN
                             REPEAT
-                                ok := Airlines.GET("Airline Code");
+                                ok := Airlines.GET(Rec."Airline Code");
                                 //  ok:=AirlineGroups.GET(Airlines."Default Vendor No");
                                 Window.UPDATE(1, IATAPurchaseInvoice."Airline Code");
                                 Window.UPDATE(2, IATAPurchaseInvoice."MAWB No.");
@@ -146,7 +146,7 @@ page 50149 "IATA Purchase Invoices"
                     trigger OnAction()
                     begin
                         IF CONFIRM(Text001, FALSE) THEN BEGIN
-                            ConvertIATATempToPurchInvoice(IATAPurchaseInvoice);
+                            Rec.ConvertIATATempToPurchInvoice(IATAPurchaseInvoice);
                         END;
                     end;
                 }
@@ -164,7 +164,7 @@ page 50149 "IATA Purchase Invoices"
 
                     trigger OnAction()
                     begin
-                        DELETE;
+                        Rec.DELETE;
                     end;
                 }
             }
@@ -172,18 +172,18 @@ page 50149 "IATA Purchase Invoices"
     }
 
     var
-        IATAPurchaseInvoice: Record "50016";
+        IATAPurchaseInvoice: Record 50016;
         Text001: Label 'Do you wish to convert the lines  into  Purchase Invoices?';
         Text002: Label 'The Lines have been converted into purchase invoices successfully';
-        ImportExportSetup: Record "50010";
+        ImportExportSetup: Record 50010;
         Window: Dialog;
-        AmmendCharges: Codeunit "50031";
-        Airlines: Record "50021";
+        AmmendCharges: Codeunit 50031;
+        Airlines: Record 50021;
         ok: Boolean;
 
     local procedure GetTotalCharge("MAWB no": Code[50]) TotalCharge: Decimal
     var
-        MawbInvoiceCharge: Record "50073";
+        MawbInvoiceCharge: Record 50073;
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB no");
@@ -198,9 +198,9 @@ page 50149 "IATA Purchase Invoices"
 
     local procedure GetTotalWeight("MAWB No": Code[50]) TotalWeight: Decimal
     var
-        LoadingSheet: Record "50060";
-        LoadingSheetLine: Record "50061";
-        MawbInvoiceCharge: Record "50073";
+        LoadingSheet: Record 50060;
+        LoadingSheetLine: Record 50061;
+        MawbInvoiceCharge: Record 50073;
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB No");
@@ -213,8 +213,8 @@ page 50149 "IATA Purchase Invoices"
 
     local procedure GetPurchaseAcc(MAWB: Code[50]) AccNo: Code[50]
     var
-        BookingSheetMawb: Record "50070";
-        Cust: Record "18";
+        BookingSheetMawb: Record 50070;
+        Cust: Record 18;
     begin
         BookingSheetMawb.RESET;
         BookingSheetMawb.SETRANGE(BookingSheetMawb."MAWB No", MAWB);

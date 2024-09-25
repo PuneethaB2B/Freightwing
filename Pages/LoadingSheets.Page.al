@@ -3,10 +3,10 @@ page 50083 "Loading Sheets"
     CardPageID = "Loading Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = Table50060;
-    SourceTableView = SORTING(No.)
+    SourceTable = 50060;
+    SourceTableView = SORTING("No.")
                       ORDER(Descending)
-                      WHERE(Shipped = FILTER(No),
+                      WHERE(Shipped = FILTER(false),
                             Status = FILTER(<> Closed));
 
     layout
@@ -15,26 +15,26 @@ page 50083 "Loading Sheets"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Loading Date"; "Loading Date")
+                field("Loading Date"; Rec."Loading Date")
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
             }

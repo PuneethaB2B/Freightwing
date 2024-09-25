@@ -21,19 +21,19 @@ page 50119 "Airport Cargo Receipts"
                 field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     Caption = 'Weight';
                     Editable = true;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
                 field("Delivery Agent"; Rec."Delivery Agent")
@@ -45,22 +45,22 @@ page 50119 "Airport Cargo Receipts"
                 field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                 }
-                field("CIF Value"; "CIF Value")
+                field("CIF Value"; Rec."CIF Value")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                 }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                 }
             }

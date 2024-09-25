@@ -1,7 +1,7 @@
 page 50059 "ULD Subform"
 {
     PageType = ListPart;
-    SourceTable = Table50032;
+    SourceTable = 50032;
 
     layout
     {
@@ -9,7 +9,7 @@ page 50059 "ULD Subform"
         {
             repeater(Group)
             {
-                field("ULD No."; "ULD No.")
+                field("ULD No."; Rec."ULD No.")
                 {
                 }
             }

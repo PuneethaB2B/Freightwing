@@ -2,7 +2,8 @@ page 50086 "Loading Sheet Notify Parties"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = Table50064;
+    SourceTable =
+    50064;
 
     layout
     {
@@ -10,13 +11,13 @@ page 50086 "Loading Sheet Notify Parties"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                 }
             }
@@ -41,7 +42,7 @@ page 50086 "Loading Sheet Notify Parties"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record "112";
+                        SalesInvHeader: Record 112;
                     begin
                         /*BookingSheetNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(BookingSheetNotifyParty);
@@ -55,6 +56,6 @@ page 50086 "Loading Sheet Notify Parties"
     }
 
     var
-        BookingSheetNotifyParty: Record "50057";
+        BookingSheetNotifyParty: Record 50057;
 }
 

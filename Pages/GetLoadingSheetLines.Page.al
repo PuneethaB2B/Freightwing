@@ -2,7 +2,7 @@ page 50092 "Get Loading Sheet Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50061;
+    SourceTable = 50061;
 
     layout
     {
@@ -10,31 +10,31 @@ page 50092 "Get Loading Sheet Lines"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field("Division/Farm Code"; "Division/Farm Code")
+                field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                 }
-                field("FWL Docket No."; "FWL Docket No.")
+                field("FWL Docket No."; Rec."FWL Docket No.")
                 {
                 }
-                field("FWL Docket Weight"; "FWL Docket Weight")
+                field("FWL Docket Weight"; Rec."FWL Docket Weight")
                 {
                 }
-                field("FWL Gross Weight"; "FWL Gross Weight")
+                field("FWL Gross Weight"; Rec."FWL Gross Weight")
                 {
                 }
-                field("Airline Docket Weight"; "Airline Docket Weight")
+                field("Airline Docket Weight"; Rec."Airline Docket Weight")
                 {
                 }
             }
@@ -58,28 +58,28 @@ page 50092 "Get Loading Sheet Lines"
     end;
 
     var
-        GatePassHeader: Record "50068";
-        TempLoadingSheetLine: Record "50061" temporary;
-        GetLoadingSheets: Codeunit "50005";
-        [InDataSet]
+        GatePassHeader: Record 50068;
+        TempLoadingSheetLine: Record 50061 temporary;
+        GetLoadingSheets: Codeunit 50005;
+
         "Item No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        LoadingSheetLine: Record "50061";
+        LoadingSheetLine: Record 50061;
     begin
         TempLoadingSheetLine.RESET;
         TempLoadingSheetLine.COPYFILTERS(Rec);
-        TempLoadingSheetLine.SETRANGE("Loading Sheet No.", "Loading Sheet No.");
+        TempLoadingSheetLine.SETRANGE("Loading Sheet No.", Rec."Loading Sheet No.");
         IF NOT TempLoadingSheetLine.FINDFIRST THEN BEGIN
             LoadingSheetLine.COPYFILTERS(Rec);
-            LoadingSheetLine.SETRANGE("Loading Sheet No.", "Loading Sheet No.");
+            LoadingSheetLine.SETRANGE("Loading Sheet No.", Rec."Loading Sheet No.");
             IF LoadingSheetLine.FINDFIRST THEN BEGIN
                 TempLoadingSheetLine := LoadingSheetLine;
                 TempLoadingSheetLine.INSERT;
             END;
         END;
-        IF "Item No." = TempLoadingSheetLine."Item No." THEN
+        IF Rec."Item No." = TempLoadingSheetLine."Item No." THEN
             EXIT(TRUE);
     end;
 
@@ -90,7 +90,7 @@ page 50092 "Get Loading Sheet Lines"
     end;
 
 
-    procedure SetGatePassHeader(var GatePassHeader2: Record "50068")
+    procedure SetGatePassHeader(var GatePassHeader2: Record 50068)
     begin
         GatePassHeader.GET(GatePassHeader2."No.");
     end;

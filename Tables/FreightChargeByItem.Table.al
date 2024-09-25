@@ -17,27 +17,27 @@ table 50027 "Freight Charge By Item"
         }
         field(4; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE ("No."=FIELD("No.")));
+            CalcFormula = Lookup(Item.Description WHERE("No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(5;"Source Airport";Code[50])
+        field(5; "Source Airport"; Code[50])
         {
         }
-        field(6;"Destination Airport";Code[50])
+        field(6; "Destination Airport"; Code[50])
         {
         }
-        field(7;"Effective Start Date";Date)
+        field(7; "Effective Start Date"; Date)
         {
         }
-        field(8;"Effective End Date";Date)
+        field(8; "Effective End Date"; Date)
         {
         }
     }
 
     keys
     {
-        key(Key1;"Airline Code","Flight Code","No.","Source Airport","Destination Airport","Effective Start Date","Effective End Date")
+        key(Key1; "Airline Code", "Flight Code", "No.", "Source Airport", "Destination Airport", "Effective Start Date", "Effective End Date")
         {
             Clustered = true;
         }
@@ -51,14 +51,14 @@ table 50027 "Freight Charge By Item"
     begin
         ItemCharge.RESET;
         ItemCharge.SETRANGE(ItemCharge."Airline Code", "Airline Code");
-        ItemCharge.SETRANGE(ItemCharge."Flight Code","Flight Code");
-        ItemCharge.SETRANGE(ItemCharge."Item No.","No.");
-        ItemCharge.SETRANGE(ItemCharge."Source Airport","Source Airport");
-        ItemCharge.SETRANGE(ItemCharge."Destination Airport","Destination Airport");
-        ItemCharge.SETRANGE(ItemCharge."Effective Start Date","Effective Start Date");
-        ItemCharge.SETRANGE(ItemCharge."Effective End Date","Effective End Date");
+        ItemCharge.SETRANGE(ItemCharge."Flight Code", "Flight Code");
+        ItemCharge.SETRANGE(ItemCharge."Item No.", "No.");
+        ItemCharge.SETRANGE(ItemCharge."Source Airport", "Source Airport");
+        ItemCharge.SETRANGE(ItemCharge."Destination Airport", "Destination Airport");
+        ItemCharge.SETRANGE(ItemCharge."Effective Start Date", "Effective Start Date");
+        ItemCharge.SETRANGE(ItemCharge."Effective End Date", "Effective End Date");
         IF ItemCharge.FIND('-') THEN
-        ItemCharge.DELETEALL;
+            ItemCharge.DELETEALL;
     end;
 
     var

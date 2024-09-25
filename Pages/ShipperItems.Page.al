@@ -1,7 +1,7 @@
 page 50123 "Shipper Items"
 {
     PageType = List;
-    SourceTable = Table50012;
+    SourceTable = 50012;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50123 "Shipper Items"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

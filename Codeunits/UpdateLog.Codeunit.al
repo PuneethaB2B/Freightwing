@@ -14,12 +14,12 @@ codeunit 50032 "Update Log"
             REPEAT
                 IF ((Rec."Destination Airport" <> BKMawb."Destination Airport") OR (BKMawb."Airline Code" <> Rec."Airline Code")) THEN BEGIN
                     IF CONFIRM('Do you want to rename the MAWB Details?') THEN BEGIN
-                        BKMawb.RENAME(BKMawb."Booking Sheet No", BKMawb."Line No.", BKMawb."Item No", Rec."No.", Rec."Airline Code", "Flight Code", Rec."Source Airport", Rec."Destination Airport", BKMawb."Shipper Code");
+                        BKMawb.RENAME(BKMawb."Booking Sheet No", BKMawb."Line No.", BKMawb."Item No", Rec."No.", Rec."Airline Code", Rec."Flight Code", Rec."Source Airport", Rec."Destination Airport", BKMawb."Shipper Code");
                         BKLine.RESET;
                         BKLine.SETRANGE(BKLine."Booking Sheet No.", BKMawb."Booking Sheet No");
                         IF BKLine.FINDSET THEN BEGIN
                             REPEAT
-                                BKLine.RENAME(BKLine."Booking Sheet No.", BKLine."Line No.", Rec."Airline Code", "Flight Code");
+                                BKLine.RENAME(BKLine."Booking Sheet No.", BKLine."Line No.", Rec."Airline Code", Rec."Flight Code");
                                 BKLine1.RESET;
                                 BKLine1.SETRANGE(BKLine1."Booking Sheet No.", BKLine."Booking Sheet No.");
                                 BKLine1.SETRANGE(BKLine1."Line No.", BKLine."Line No.");

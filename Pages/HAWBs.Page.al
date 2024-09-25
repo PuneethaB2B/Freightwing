@@ -3,7 +3,7 @@ page 50108 HAWBs
     Caption = 'House Airway Bills';
     CardPageID = HAWB;
     PageType = List;
-    SourceTable = Table50075;
+    SourceTable = 50075;
     SourceTableView = WHERE(Status = FILTER(<> Archived));
 
     layout
@@ -12,40 +12,40 @@ page 50108 HAWBs
         {
             repeater(General)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Address"; "Shipper Address")
+                field("Shipper Address"; Rec."Shipper Address")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
-                field("Carrier Agent Code"; "Carrier Agent Code")
+                field("Carrier Agent Code"; Rec."Carrier Agent Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
             }

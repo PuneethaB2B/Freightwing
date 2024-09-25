@@ -7,43 +7,43 @@ page 50115 "MAWB Invoice Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     PromotedActionCategories = ' New,Posting,Reports,Documents/Certificates,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table37;
-    SourceTableView = WHERE(Document Type=FILTER(Invoice));
+    SourceTable = 37;
+    SourceTableView = WHERE("Document Type" = FILTER(Invoice));
 
     layout
     {
         area(content)
         {
-            repeater()
+            repeater(fw)
             {
-                field("Document Type";"Document Type")
+                field("Document Type"; Rec."Document Type")
                 {
                 }
-                field("Sell-to Customer No.";"Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Visible = false;
                 }
-                field("Document No.";"Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                 }
-                field("Line No.";"Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                 }
-                field(Quantity;Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("HAWB No.";"HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                     HideValue = "HAWB No.HideValue";
                     Style = Favorable;
                     StyleExpr = TRUE;
                 }
-                field(Type;Type)
+                field(Type; Rec.Type)
                 {
                     Style = Favorable;
                     StyleExpr = StyleText;
                 }
-                field("No.";"No.")
+                field("No."; Rec."No.")
                 {
                     ShowMandatory = TypeChosen;
                     Style = Favorable;
@@ -51,25 +51,25 @@ page 50115 "MAWB Invoice Subform"
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                         NoOnAfterValidate;
 
                         IF xRec."No." <> '' THEN
-                          RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Freight Charge Code";"Freight Charge Code")
+                field("Freight Charge Code"; Rec."Freight Charge Code")
                 {
                 }
-                field("Freight Handling Type";"Freight Handling Type")
+                field("Freight Handling Type"; Rec."Freight Handling Type")
                 {
                 }
-                field(Description;Description)
+                field(Description; Rec.Description)
                 {
                     Style = Favorable;
                     StyleExpr = StyleText;
                 }
-                field("Unit of Measure Code";"Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     Style = Favorable;
                     StyleExpr = StyleText;
@@ -80,110 +80,108 @@ page 50115 "MAWB Invoice Subform"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Currency Code";"Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     Editable = true;
                 }
-                field("Split Weight";"Split Weight")
+                field("Split Weight"; Rec."Split Weight")
                 {
                     Editable = true;
                     Style = Favorable;
                     StyleExpr = StyleText;
                 }
-                field("Split Factor";"Split Factor")
+                field("Split Factor"; Rec."Split Factor")
                 {
                     Editable = true;
                 }
-                field("Cost Amount";"Cost Amount")
+                field("Cost Amount"; Rec."Cost Amount")
                 {
                     Editable = true;
                 }
-                field("VAT %";"VAT %")
+                field("VAT %"; Rec."VAT %")
                 {
                     Editable = false;
                 }
-                field("VAT Amount";"VAT Amount")
+                field("VAT Amount"; Rec."VAT Amount")
                 {
                     Editable = true;
                     Style = Favorable;
                     StyleExpr = StyleText;
                 }
-                field("Margin %";"Margin %")
+                field("Margin %"; Rec."Margin %")
                 {
                     Caption = 'Margin (G=%, TP=Cents)';
 
                     trigger OnValidate()
                     begin
                         // ***************************** TBL calculating the cost amount ****************
-                        IF ("Freight Charge Code" = '14') OR ("Freight Charge Code" = '82') THEN
-                          BEGIN
-                               "Margin Amount" := "Margin %" * "Cost Amount";
-                               "Line Amount" := "Cost Amount" + "Margin Amount";
-                               "Amount Including VAT" := "Line Amount" + "VAT Amount";
-                          END;
+                        IF (Rec."Freight Charge Code" = '14') OR (Rec."Freight Charge Code" = '82') THEN BEGIN
+                            Rec."Margin Amount" := Rec."Margin %" * Rec."Cost Amount";
+                            Rec."Line Amount" := Rec."Cost Amount" + Rec."Margin Amount";
+                            Rec."Amount Including VAT" := Rec."Line Amount" + Rec."VAT Amount";
+                        END;
                     end;
                 }
-                field("Margin Amount";"Margin Amount")
+                field("Margin Amount"; Rec."Margin Amount")
                 {
                     Editable = true;
 
                     trigger OnValidate()
                     begin
                         // ***************************** TBL calculating the cost amount ****************
-                        IF ("Freight Charge Code" = '14') OR ("Freight Charge Code" = '82') THEN
-                          BEGIN
-                               //"Margin %" := "Margin Amount" / "Split Weight";
-                               "Line Amount" := "Cost Amount" + "Margin Amount";
-                               "Amount Including VAT" := "Line Amount" + "VAT Amount";
-                          END;
+                        IF (Rec."Freight Charge Code" = '14') OR (Rec."Freight Charge Code" = '82') THEN BEGIN
+                            //"Margin %" := "Margin Amount" / "Split Weight";
+                            Rec."Line Amount" := Rec."Cost Amount" + Rec."Margin Amount";
+                            Rec."Amount Including VAT" := Rec."Line Amount" + Rec."VAT Amount";
+                        END;
                     end;
                 }
-                field("Unit Price";"Unit Price")
+                field("Unit Price"; Rec."Unit Price")
                 {
                 }
-                field("Line Amount";"Line Amount")
+                field("Line Amount"; Rec."Line Amount")
                 {
                     Editable = true;
                 }
-                field("Gen. Prod. Posting Group";"Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                 }
-                field("Gen. Bus. Posting Group";"Gen. Bus. Posting Group")
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
                 }
-                field("Amount Including VAT";"Amount Including VAT")
+                field("Amount Including VAT"; Rec."Amount Including VAT")
                 {
                     Editable = true;
                     Style = Favorable;
                     StyleExpr = StyleText;
                 }
-                field("VAT Bus. Posting Group";"VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("VAT Prod. Posting Group";"VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                 }
-                field("Shortcut Dimension 1 Code";"Shortcut Dimension 1 Code")
-                {
-                    Visible = false;
-                }
-                field("Shortcut Dimension 2 Code";"Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                 }
-                field(ShortcutDimCode[3];ShortcutDimCode[3])
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
+                {
+                    Visible = false;
+                }
+                field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     CaptionClass = '1,2,3';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(3,ShortcutDimCode[3]);
+                        Rec.LookupShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(3,ShortcutDimCode[3]);
+                        Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
                 }
             }
@@ -191,45 +189,45 @@ page 50115 "MAWB Invoice Subform"
             {
                 group()
                 {
-                    field("Agreed Rate";"Agreed Rate")
+                    field("Agreed Rate"; Rec."Agreed Rate")
                     {
                         Editable = false;
                         Visible = false;
                     }
-                    field("Agreed Rate2";TBLSalesLine."Agreed Rate")
+                    field("Agreed Rate2"; TBLSalesLine."Agreed Rate")
                     {
                         Caption = 'Agreed Rate';
                         Editable = false;
                         Visible = false;
                     }
-                    field("Description 2";"Description 2")
+                    field("Description 2"; Rec."Description 2")
                     {
                         Caption = 'Commodity';
                         Enabled = false;
                         Visible = false;
                     }
-                    field("Description 22";TBLSalesLine."Description 2")
+                    field("Description 22"; TBLSalesLine."Description 2")
                     {
                         Caption = 'Commodity';
                         Enabled = false;
                         Visible = false;
                     }
-                    field("Item Code Description";ShortcutDimCode[3])
+                    field("Item Code Description"; ShortcutDimCode[3])
                     {
                         Visible = true;
                     }
-                    field("Total weight";"Total weight")
+                    field("Total weight"; Rec."Total weight")
                     {
                         Editable = false;
                         Visible = false;
                     }
-                    field("Total weight2";TBLSalesLine."Total weight")
+                    field("Total weight2"; TBLSalesLine."Total weight")
                     {
                         Caption = 'Total weight';
                         Editable = false;
                         Visible = false;
                     }
-                    field("Invoice Discount Amount";TotalSalesLine."Inv. Discount Amount")
+                    field("Invoice Discount Amount"; TotalSalesLine."Inv. Discount Amount")
                     {
                         AutoFormatType = 1;
                         Caption = 'Invoice Discount Amount';
@@ -240,17 +238,17 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnValidate()
                         var
-                            SalesHeader: Record "36";
+                            SalesHeader: Record 36;
                         begin
-                            SalesHeader.GET("Document Type","Document No.");
-                            SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount",SalesHeader);
+                            SalesHeader.GET(Rec."Document Type", Rec."Document No.");
+                            SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount", SalesHeader);
                             CurrPage.UPDATE(FALSE);
                         end;
                     }
-                    field("Invoice Disc. Pct.";SalesCalcDiscByType.GetCustInvoiceDiscountPct(Rec))
+                    field("Invoice Disc. Pct."; SalesCalcDiscByType.GetCustInvoiceDiscountPct(Rec))
                     {
                         Caption = 'Invoice Discount %';
-                        DecimalPlaces = 0:2;
+                        DecimalPlaces = 0 : 2;
                         Editable = false;
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
@@ -259,7 +257,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 group()
                 {
-                    field("Total Amount Excl. VAT";TotalSalesLine.Amount)
+                    field("Total Amount Excl. VAT"; TotalSalesLine.Amount)
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalExclVATCaption(SalesHeader."Currency Code");
@@ -270,19 +268,19 @@ page 50115 "MAWB Invoice Subform"
                         StyleExpr = RefreshMessageEnabled;
                         Visible = true;
                     }
-                    field("<Total Amount Excl. VATT>";"Total Amount Excl. VAT")
+                    field("<Total Amount Excl. VATT>"; Rec."Total Amount Excl. VAT")
                     {
                         Caption = 'Total Amount Excl. VAT';
                         Editable = false;
                         Visible = false;
                     }
-                    field("Total Amount Excl.VAT2";TBLSalesLine."Total Amount Excl. VAT")
+                    field("Total Amount Excl.VAT2"; TBLSalesLine."Total Amount Excl. VAT")
                     {
                         Caption = 'Total Amount Excl. VAT';
                         Editable = false;
                         Visible = false;
                     }
-                    field("Total VAT Amount";VATAmount)
+                    field("Total VAT Amount"; VATAmount)
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalVATCaption(SalesHeader."Currency Code");
@@ -291,7 +289,7 @@ page 50115 "MAWB Invoice Subform"
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
                     }
-                    field("Total Amount Incl. VATT";TotalSalesLine."Amount Including VAT")
+                    field("Total Amount Incl. VATT"; TotalSalesLine."Amount Including VAT")
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalInclVATCaption(SalesHeader."Currency Code");
@@ -301,20 +299,20 @@ page 50115 "MAWB Invoice Subform"
                         StyleExpr = TotalAmountStyle;
                         Visible = true;
                     }
-                    field("Total Amount Incl. VAT";"Total Amount Incl. VAT")
+                    field("Total Amount Incl. VAT"; Rec."Total Amount Incl. VAT")
                     {
                         Caption = 'Total Amount Incl. VAT (USD)';
                         Editable = false;
                         Enabled = true;
                         Visible = false;
                     }
-                    field("Total Amount Incl. VAT2";TBLSalesLine."Total Amount Incl. VAT")
+                    field("Total Amount Incl. VAT2"; TBLSalesLine."Total Amount Incl. VAT")
                     {
                         Caption = 'Total Amount Incl. VAT (USD)';
                         Editable = false;
                         Visible = false;
                     }
-                    field(RefreshTotals;RefreshMessageText)
+                    field(RefreshTotals; RefreshMessageText)
                     {
                         DrillDown = true;
                         Editable = false;
@@ -323,7 +321,7 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnDrillDown()
                         begin
-                            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec,VATAmount,TotalSalesLine);
+                            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
                             CurrPage.UPDATE(FALSE);
                         end;
                     }
@@ -342,7 +340,7 @@ page 50115 "MAWB Invoice Subform"
                 Image = "Action";
                 action("Get &Price")
                 {
-                    AccessByPermission = TableData 7002=R;
+                    AccessByPermission = TableData 7002 = R;
                     Caption = 'Get &Price';
                     Ellipsis = true;
                     Image = Price;
@@ -355,7 +353,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("Get Li&ne Discount")
                 {
-                    AccessByPermission = TableData 7004=R;
+                    AccessByPermission = TableData 7004 = R;
                     Caption = 'Get Li&ne Discount';
                     Ellipsis = true;
                     Image = LineDiscount;
@@ -368,7 +366,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("E&xplode BOM")
                 {
-                    AccessByPermission = TableData 90=R;
+                    AccessByPermission = TableData 90 = R;
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
                     Visible = false;
@@ -380,7 +378,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("Insert &Ext. Texts")
                 {
-                    AccessByPermission = TableData 279=R;
+                    AccessByPermission = TableData 279 = R;
                     Caption = 'Insert &Ext. Texts';
                     Image = Text;
                     Visible = false;
@@ -392,7 +390,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action(GetShipmentLines)
                 {
-                    AccessByPermission = TableData 110=R;
+                    AccessByPermission = TableData 110 = R;
                     Caption = 'Get &Shipment Lines';
                     Ellipsis = true;
                     Image = Shipment;
@@ -420,92 +418,85 @@ page 50115 "MAWB Invoice Subform"
 
                     trigger OnAction()
                     begin
-                        IF (TBLSalesHeader.GET(Rec."Document Type",Rec."Document No.")) THEN
-                          BEGIN
-                                IF (TBLSalesHeader.Status = 0) THEN
-                                    BEGIN
-                                         // ****************************** Calculating total weight ***************
-                                          TBLHNo1 := '';
-                                          TBLHNo2 := '';
-                                          TBLSalesLine.FINDSET;
-                                          REPEAT
-                                            IF (TBLSalesLine."Document No." = "Document No.") THEN
-                                              BEGIN
-                                                IF (TBLSalesLine."HAWB No." <> '') AND (TBLHNo1 = '') THEN
-                                                  TBLHNo1 := TBLSalesLine."HAWB No."
-                                                ELSE IF (TBLSalesLine."HAWB No." <> '') AND (TBLHNo1 <> '') THEN
-                                                  TBLHNo2 := TBLSalesLine."HAWB No.";
-                                              END;
-                                          UNTIL TBLSalesLine.NEXT = 0;
-                                         // ========
-                                         TBLTotalWeight := 0;
-                                         IF ((TBLHNo1 = '') AND (TBLHNo2 = '')) OR (((TBLHNo1 <> '') AND (TBLHNo2 <> '')) AND (TBLHNo1 <> TBLHNo2)) THEN
-                                           BEGIN
-                                              TBLMAWBLine.FINDSET;
-                                              REPEAT
-                                                IF (TBLMAWBLine."MAWB No." = "MAWB No.") THEN
-                                                  TBLTotalWeight := TBLTotalWeight + TBLMAWBLine."Chargeable Weight";
-                                              UNTIL TBLMAWBLine.NEXT = 0;
-                                              "Total weight" := TBLTotalWeight;
-                                           END ELSE
-                                           BEGIN
-                                             TBLMAWBLine.FINDSET;
-                                             REPEAT
-                                              IF (TBLMAWBLine."MAWB No." = "MAWB No.") AND (TBLMAWBLine."HAWB No." = TBLHNo1) THEN
-                                                TBLTotalWeight := TBLMAWBLine."Chargeable Weight";
-                                             UNTIL TBLMAWBLine.NEXT = 0;
-                                             "Total weight" := TBLTotalWeight;
-                                           END;
-                                           "Total weight" := CheckTotalWeightAndCorrect(TBLTotalWeight);
-                                         // ****************************** Calculating agreed rate ********************
-                                         TBLAgreedRate := 0;
-                                         TBLMAWBInvoiceCharge.FINDSET;
-                                         REPEAT
-                                             IF (TBLMAWBInvoiceCharge."MAWB No." = "MAWB No.") THEN
-                                                BEGIN
-                                                      TBLAgreedRate := TBLAgreedRate + TBLMAWBInvoiceCharge."Agreed Rate";
-                                                      TBLItemNo := TBLMAWBInvoiceCharge."Item No.";
-                                                END;
-                                         UNTIL TBLMAWBInvoiceCharge.NEXT = 0;
-                                         "Agreed Rate" := TBLAgreedRate;
-                                         // ******************************* getting the item number *******************
-                                         TBLItem.GET(TBLItemNo);
-                                         "Description 2" := TBLItem."Search Description";
-                                         TBLCommodity := TBLItem."Search Description";
-                                         // ******************************** calculating total amount ******************
-                                        TBLTotalVATIncl := 0;
-                                        TBLTotalVATExcl := 0;
-                                        TBLSalesLine.RESET;
-                                        TBLSalesLine.FINDSET;
-                                        REPEAT
-                                            IF (TBLSalesLine."Document No." = "Document No.") THEN
-                                                BEGIN
-                                                     TBLTotalVATIncl := TBLTotalVATIncl + TBLSalesLine."Amount Including VAT";
-                                                     TBLTotalVATExcl := TBLTotalVATExcl + TBLSalesLine."Line Amount";
-                                                END;
-                                       UNTIL TBLSalesLine.NEXT = 0;
-                                       "Total Amount Incl. VAT" := TBLTotalVATIncl;
-                                       "Total Amount Excl. VAT" := TBLTotalVATExcl;
-                                       //TotalSalesLine."Amount Including VAT" := TBLTotalVATIncl;
-                                       // ********************************* modifying the sales line ********************
-                                       /*TBLSalesLine.FINDSET;
-                                        REPEAT
-                                            IF (TBLSalesLine."Document No." = "Document No.") THEN
-                                                BEGIN
-                                                      TBLSalesLine."Total Amount Incl. VAT" := TBLTotalVATIncl;
-                                                      TBLSalesLine.MODIFY;
-                                                END;
-                                       UNTIL TBLSalesLine.NEXT = 0;  */
-                                    END
-                                ELSE
-                                    MESSAGE(TxtInfo);
-                                // **************************** modifying the sales header *************************
-                                TBLSalesHeader."Total Weight" := TBLTotalWeight;
-                                TBLSalesHeader."Total Amount" := TBLTotalVATIncl;
-                                TBLSalesHeader."Agreed Rate" := TBLAgreedRate;
-                                TBLSalesHeader.Commodity := TBLCommodity;
-                                TBLSalesHeader.MODIFY;
-                          END;
+                        IF (TBLSalesHeader.GET(Rec."Document Type", Rec."Document No.")) THEN BEGIN
+                            IF (TBLSalesHeader.Status = 0) THEN BEGIN
+                                // ****************************** Calculating total weight ***************
+                                TBLHNo1 := '';
+                                TBLHNo2 := '';
+                                TBLSalesLine.FINDSET;
+                                REPEAT
+                                    IF (TBLSalesLine."Document No." = Rec."Document No.") THEN BEGIN
+                                        IF (TBLSalesLine."HAWB No." <> '') AND (TBLHNo1 = '') THEN
+                                            TBLHNo1 := TBLSalesLine."HAWB No."
+                                        ELSE IF (TBLSalesLine."HAWB No." <> '') AND (TBLHNo1 <> '') THEN
+                                            TBLHNo2 := TBLSalesLine."HAWB No.";
+                                    END;
+                                UNTIL TBLSalesLine.NEXT = 0;
+                                // ========
+                                TBLTotalWeight := 0;
+                                IF ((TBLHNo1 = '') AND (TBLHNo2 = '')) OR (((TBLHNo1 <> '') AND (TBLHNo2 <> '')) AND (TBLHNo1 <> TBLHNo2)) THEN BEGIN
+                                    TBLMAWBLine.FINDSET;
+                                    REPEAT
+                                        IF (TBLMAWBLine."MAWB No." = Rec."MAWB No.") THEN
+                                            TBLTotalWeight := TBLTotalWeight + TBLMAWBLine."Chargeable Weight";
+                                    UNTIL TBLMAWBLine.NEXT = 0;
+                                    Rec."Total weight" := TBLTotalWeight;
+                                END ELSE BEGIN
+                                    TBLMAWBLine.FINDSET;
+                                    REPEAT
+                                        IF (TBLMAWBLine."MAWB No." = Rec."MAWB No.") AND (TBLMAWBLine."HAWB No." = TBLHNo1) THEN
+                                            TBLTotalWeight := TBLMAWBLine."Chargeable Weight";
+                                    UNTIL TBLMAWBLine.NEXT = 0;
+                                    Rec."Total weight" := TBLTotalWeight;
+                                END;
+                                Rec."Total weight" := CheckTotalWeightAndCorrect(TBLTotalWeight);
+                                // ****************************** Calculating agreed rate ********************
+                                TBLAgreedRate := 0;
+                                TBLMAWBInvoiceCharge.FINDSET;
+                                REPEAT
+                                    IF (TBLMAWBInvoiceCharge."MAWB No." = Rec."MAWB No.") THEN BEGIN
+                                        TBLAgreedRate := TBLAgreedRate + TBLMAWBInvoiceCharge."Agreed Rate";
+                                        TBLItemNo := TBLMAWBInvoiceCharge."Item No.";
+                                    END;
+                                UNTIL TBLMAWBInvoiceCharge.NEXT = 0;
+                                Rec."Agreed Rate" := TBLAgreedRate;
+                                // ******************************* getting the item number *******************
+                                TBLItem.GET(TBLItemNo);
+                                Rec."Description 2" := TBLItem."Search Description";
+                                TBLCommodity := TBLItem."Search Description";
+                                // ******************************** calculating total amount ******************
+                                TBLTotalVATIncl := 0;
+                                TBLTotalVATExcl := 0;
+                                TBLSalesLine.RESET;
+                                TBLSalesLine.FINDSET;
+                                REPEAT
+                                    IF (TBLSalesLine."Document No." = Rec."Document No.") THEN BEGIN
+                                        TBLTotalVATIncl := TBLTotalVATIncl + TBLSalesLine."Amount Including VAT";
+                                        TBLTotalVATExcl := TBLTotalVATExcl + TBLSalesLine."Line Amount";
+                                    END;
+                                UNTIL TBLSalesLine.NEXT = 0;
+                                Rec."Total Amount Incl. VAT" := TBLTotalVATIncl;
+                                Rec."Total Amount Excl. VAT" := TBLTotalVATExcl;
+                                //TotalSalesLine."Amount Including VAT" := TBLTotalVATIncl;
+                                // ********************************* modifying the sales line ********************
+                                /*TBLSalesLine.FINDSET;
+                                 REPEAT
+                                     IF (TBLSalesLine."Document No." = "Document No.") THEN
+                                         BEGIN
+                                               TBLSalesLine."Total Amount Incl. VAT" := TBLTotalVATIncl;
+                                               TBLSalesLine.MODIFY;
+                                         END;
+                                UNTIL TBLSalesLine.NEXT = 0;  */
+                            END
+                            ELSE
+                                MESSAGE(TxtInfo);
+                            // **************************** modifying the sales header *************************
+                            TBLSalesHeader."Total Weight" := TBLTotalWeight;
+                            TBLSalesHeader."Total Amount" := TBLTotalVATIncl;
+                            TBLSalesHeader."Agreed Rate" := TBLAgreedRate;
+                            TBLSalesHeader.Commodity := TBLCommodity;
+                            TBLSalesHeader.MODIFY;
+                        END;
                         // ******************** Displaying non updatable fields *****************
                         TBLSalesLine."Total Amount Incl. VAT" := TBLTotalVATIncl;
                         TBLSalesLine."Total Amount Excl. VAT" := TBLTotalVATExcl;
@@ -532,7 +523,7 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByEvent)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByEvent)
                         end;
                     }
                     action(Period)
@@ -542,7 +533,7 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByPeriod)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByPeriod)
                         end;
                     }
                     action(Variant)
@@ -552,18 +543,18 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByVariant)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByVariant)
                         end;
                     }
                     action(Location)
                     {
-                        AccessByPermission = TableData 14=R;
+                        AccessByPermission = TableData 14 = R;
                         Caption = 'Location';
                         Image = Warehouse;
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByLocation)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByLocation)
                         end;
                     }
                     action("BOM Level")
@@ -573,20 +564,20 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByBOM)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByBOM)
                         end;
                     }
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348=R;
+                    AccessByPermission = TableData 348 = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
 
                     trigger OnAction()
                     begin
-                        ShowDimensions;
+                        Rec.ShowDimensions;
                     end;
                 }
                 action("Co&mments")
@@ -596,17 +587,17 @@ page 50115 "MAWB Invoice Subform"
 
                     trigger OnAction()
                     begin
-                        ShowLineComments;
+                        Rec.ShowLineComments;
                     end;
                 }
                 action("Item Charge &Assignment")
                 {
-                    AccessByPermission = TableData 5800=R;
+                    AccessByPermission = TableData 5800 = R;
                     Caption = 'Item Charge &Assignment';
 
                     trigger OnAction()
                     begin
-                        ShowItemChargeAssgnt;
+                        Rec.ShowItemChargeAssgnt;
                     end;
                 }
                 action("Item &Tracking Lines")
@@ -617,7 +608,7 @@ page 50115 "MAWB Invoice Subform"
 
                     trigger OnAction()
                     begin
-                        OpenItemTrackingLines;
+                        Rec.OpenItemTrackingLines;
                     end;
                 }
             }
@@ -626,17 +617,17 @@ page 50115 "MAWB Invoice Subform"
 
     trigger OnAfterGetCurrRecord()
     begin
-        IF SalesHeader.GET("Document Type","Document No.") THEN;
+        IF SalesHeader.GET(Rec."Document Type", Rec."Document No.") THEN;
 
-        DocumentTotals.SalesUpdateTotalsControls(Rec,TotalSalesHeader,TotalSalesLine,RefreshMessageEnabled,
-          TotalAmountStyle,RefreshMessageText,InvDiscAmountEditable,VATAmount);
+        DocumentTotals.SalesUpdateTotalsControls(Rec, TotalSalesHeader, TotalSalesLine, RefreshMessageEnabled,
+          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, VATAmount);
 
-        TypeChosen := Type <> Type::" ";
+        TypeChosen := Rec.Type <> Rec.Type::" ";
     end;
 
     trigger OnAfterGetRecord()
     begin
-        ShowShortcutDimCode(ShortcutDimCode);
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
 
         //SetStyle;
         "HAWB No.HideValue" := FALSE;
@@ -647,13 +638,13 @@ page 50115 "MAWB Invoice Subform"
 
     trigger OnDeleteRecord(): Boolean
     var
-        ReserveSalesLine: Codeunit "99000832";
+        ReserveSalesLine: Codeunit 99000832;
     begin
-        IF (Quantity <> 0) AND ItemExists("No.") THEN BEGIN
-          COMMIT;
-          IF NOT ReserveSalesLine.DeleteLineConfirm(Rec) THEN
-            EXIT(FALSE);
-          ReserveSalesLine.DeleteLine(Rec);
+        IF (Rec.Quantity <> 0) AND Rec.ItemExists(Rec."No.") THEN BEGIN
+            COMMIT;
+            IF NOT ReserveSalesLine.DeleteLineConfirm(Rec) THEN
+                EXIT(FALSE);
+            ReserveSalesLine.DeleteLine(Rec);
         END;
     end;
 
@@ -664,24 +655,24 @@ page 50115 "MAWB Invoice Subform"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        InitType;
+        Rec.InitType;
         CLEAR(ShortcutDimCode);
     end;
 
     var
-        TotalSalesHeader: Record "36";
-        TotalSalesLine: Record "37";
-        SalesHeader: Record "36";
-        TransferExtendedText: Codeunit "378";
-        SalesPriceCalcMgt: Codeunit "7000";
-        ItemAvailFormsMgt: Codeunit "353";
-        SalesCalcDiscByType: Codeunit "56";
-        DocumentTotals: Codeunit "57";
+        TotalSalesHeader: Record 36;
+        TotalSalesLine: Record 37;
+        SalesHeader: Record 36;
+        TransferExtendedText: Codeunit 378;
+        SalesPriceCalcMgt: Codeunit 7000;
+        ItemAvailFormsMgt: Codeunit 353;
+        SalesCalcDiscByType: Codeunit 56;
+        DocumentTotals: Codeunit 57;
         VATAmount: Decimal;
-        ShortcutDimCode: array [8] of Code[20];
+        ShortcutDimCode: array[8] of Code[20];
         UpdateAllowedVar: Boolean;
         Text000: Label 'Unable to run this function while in View mode.';
-        [InDataSet]
+
         ItemPanelVisible: Boolean;
         InvDiscAmountEditable: Boolean;
         TotalAmountStyle: Text;
@@ -689,14 +680,14 @@ page 50115 "MAWB Invoice Subform"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
         StyleText: Boolean;
-        TempSalesLine: Record "37" temporary;
-        [InDataSet]
+        TempSalesLine: Record 37 temporary;
+
         "HAWB No.HideValue": Boolean;
-        TBLCustomer: Record "18";
-        TBLSalesHeader: Record "36";
-        TBLSalesLine: Record "37";
-        TBLMAWBLine: Record "50076";
-        TBLFreightItemCharge: Record "50029";
+        TBLCustomer: Record 18;
+        TBLSalesHeader: Record 36;
+        TBLSalesLine: Record 37;
+        TBLMAWBLine: Record 50076;
+        TBLFreightItemCharge: Record 50029;
         TBLFlightCode: Code[10];
         TBLHNo: Integer;
         TBLFlag: Boolean;
@@ -705,106 +696,106 @@ page 50115 "MAWB Invoice Subform"
         TBLRowFlag: Boolean;
         TxtInfo: Label 'Totals can''t be caculated while the sales invioce is not open.';
         TBLAgreedRate: Decimal;
-        TBLMAWBInvoiceCharge: Record "50073";
+        TBLMAWBInvoiceCharge: Record 50073;
         TBLItemNo: Code[20];
-        TBLItem: Record "27";
+        TBLItem: Record 27;
         TBLHNo1: Code[20];
         TBLHNo2: Code[20];
         TBLTotalVATExcl: Decimal;
-        TBLPurchInvLine: Record "123";
-        TBLPurchInvHeader: Record "122";
-        TBLExchangeRate: Record "330";
+        TBLPurchInvLine: Record 123;
+        TBLPurchInvHeader: Record 122;
+        TBLExchangeRate: Record 330;
         TBLCurrecnyCode: Code[10];
         TBLAmountLCY: Decimal;
         TBLAmountUSD: Decimal;
         TBLCommodity: Text[100];
 
-    
+
     procedure ApproveCalcInvDisc()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
     end;
 
-    
+
     procedure CalcInvDisc()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount", Rec);
     end;
 
-    
+
     procedure ExplodeBOM()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM", Rec);
     end;
 
-    
+
     procedure GetShipment()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Get Shipment",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Get Shipment", Rec);
     end;
 
-    
+
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
-        IF TransferExtendedText.SalesCheckIfAnyExtText(Rec,Unconditionally) THEN BEGIN
-          CurrPage.SAVERECORD;
-          COMMIT;
-          TransferExtendedText.InsertSalesExtText(Rec);
+        IF TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) THEN BEGIN
+            CurrPage.SAVERECORD;
+            COMMIT;
+            TransferExtendedText.InsertSalesExtText(Rec);
         END;
         IF TransferExtendedText.MakeUpdate THEN
-          UpdateForm(TRUE);
+            UpdateForm(TRUE);
     end;
 
-    
+
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.UPDATE(SetSaveRecord);
     end;
 
-    
+
     procedure ShowPrices()
     begin
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         CLEAR(SalesPriceCalcMgt);
-        SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader,Rec);
+        SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader, Rec);
     end;
 
-    
+
     procedure ShowLineDisc()
     begin
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         CLEAR(SalesPriceCalcMgt);
-        SalesPriceCalcMgt.GetSalesLineLineDisc(SalesHeader,Rec);
+        SalesPriceCalcMgt.GetSalesLineLineDisc(SalesHeader, Rec);
     end;
 
-    
+
     procedure SetUpdateAllowed(UpdateAllowed: Boolean)
     begin
         UpdateAllowedVar := UpdateAllowed;
     end;
 
-    
+
     procedure UpdateAllowed(): Boolean
     begin
         IF UpdateAllowedVar = FALSE THEN BEGIN
-          MESSAGE(Text000);
-          EXIT(FALSE);
+            MESSAGE(Text000);
+            EXIT(FALSE);
         END;
         EXIT(TRUE);
     end;
 
     local procedure TypeOnAfterValidate()
     begin
-        ItemPanelVisible := Type = Type::Item;
+        ItemPanelVisible := Rec.Type = Rec.Type::Item;
     end;
 
     local procedure NoOnAfterValidate()
     begin
         InsertExtendedText(FALSE);
-        IF (Type = Type::"Charge (Item)") AND ("No." <> xRec."No.") AND
+        IF (Rec.Type = Rec.Type::"Charge (Item)") AND (Rec."No." <> xRec."No.") AND
            (xRec."No." <> '')
         THEN
-          CurrPage.SAVERECORD;
+            CurrPage.SAVERECORD;
     end;
 
     local procedure CrossReferenceNoOnAfterValidat()
@@ -814,17 +805,17 @@ page 50115 "MAWB Invoice Subform"
 
     local procedure QuantityOnAfterValidate()
     begin
-        IF Reserve = Reserve::Always THEN BEGIN
-          CurrPage.SAVERECORD;
-          AutoReserve;
+        IF Rec.Reserve = Rec.Reserve::Always THEN BEGIN
+            CurrPage.SAVERECORD;
+            Rec.AutoReserve;
         END;
     end;
 
     local procedure UnitofMeasureCodeOnAfterValida()
     begin
-        IF Reserve = Reserve::Always THEN BEGIN
-          CurrPage.SAVERECORD;
-          AutoReserve;
+        IF Rec.Reserve = Rec.Reserve::Always THEN BEGIN
+            CurrPage.SAVERECORD;
+            Rec.AutoReserve;
         END;
     end;
 
@@ -832,136 +823,136 @@ page 50115 "MAWB Invoice Subform"
     begin
         CurrPage.SAVERECORD;
 
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         IF DocumentTotals.SalesCheckNumberOfLinesLimit(SalesHeader) THEN
-          DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec,VATAmount,TotalSalesLine);
+            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
         CurrPage.UPDATE;
     end;
 
-    
+
     procedure GetMAWBAllocation()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Export.-Get MAWB Line",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Export.-Get MAWB Line", Rec);
     end;
 
     local procedure SetStyle()
     begin
-        IF "HAWB No."<>'' THEN
-          StyleText:=TRUE
+        IF Rec."HAWB No." <> '' THEN
+            StyleText := TRUE
         ELSE
-          StyleText:=FALSE;
+            StyleText := FALSE;
     end;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        SalesLine: Record "37";
+        SalesLine: Record 37;
     begin
         TempSalesLine.RESET;
         TempSalesLine.COPYFILTERS(Rec);
-        TempSalesLine.SETRANGE("Document Type","Document Type");
-        TempSalesLine.SETRANGE("Document No.","Document No.");
-        TempSalesLine.SETRANGE("MAWB No.","MAWB No.");
-        TempSalesLine.SETRANGE("HAWB No.","HAWB No.");
+        TempSalesLine.SETRANGE("Document Type", Rec."Document Type");
+        TempSalesLine.SETRANGE("Document No.", Rec."Document No.");
+        TempSalesLine.SETRANGE("MAWB No.", Rec."MAWB No.");
+        TempSalesLine.SETRANGE("HAWB No.", Rec."HAWB No.");
         IF NOT TempSalesLine.FINDFIRST THEN BEGIN
-          COPYFILTERS(Rec);
-          SalesLine.SETRANGE("Document Type","Document Type");
-          SalesLine.SETRANGE("Document No.","Document No.");
-          SalesLine.SETRANGE("MAWB No.","MAWB No.");
-          SalesLine.SETRANGE("HAWB No.","HAWB No.");
-          IF SalesLine.FINDFIRST THEN BEGIN
-            TempSalesLine :=SalesLine;
-            TempSalesLine.INSERT;
-          END;
+            Rec.COPYFILTERS(Rec);
+            SalesLine.SETRANGE("Document Type", Rec."Document Type");
+            SalesLine.SETRANGE("Document No.", Rec."Document No.");
+            SalesLine.SETRANGE("MAWB No.", Rec."MAWB No.");
+            SalesLine.SETRANGE("HAWB No.", Rec."HAWB No.");
+            IF SalesLine.FINDFIRST THEN BEGIN
+                TempSalesLine := SalesLine;
+                TempSalesLine.INSERT;
+            END;
         END;
-        IF "Line No." = TempSalesLine."Line No." THEN
-          EXIT(TRUE);
+        IF Rec."Line No." = TempSalesLine."Line No." THEN
+            EXIT(TRUE);
     end;
 
     local procedure HAWBNoOnFormat()
     begin
         IF NOT IsFirstDocLine THEN
-          "HAWB No.HideValue" := TRUE;
+            "HAWB No.HideValue" := TRUE;
     end;
 
     local procedure GetDefaultCharges()
     var
-        MAWBReceipt: Record "50039";
-        FreightCharge: Record "50018";
-        SalesLine: Record "37";
-        MAWBLine: Record "50076";
+        MAWBReceipt: Record 50039;
+        FreightCharge: Record 50018;
+        SalesLine: Record 37;
+        MAWBLine: Record 50076;
     begin
         //*******INSERT MAWB CHARGES*******
         IF SalesLine.FINDLAST THEN BEGIN
-          SalesHeader.GET("Document Type","Document No.");
-          MAWBReceipt.RESET;
-          MAWBReceipt.SETRANGE("MAWB No.",SalesHeader."MAWB No.");
-          IF MAWBReceipt.FINDFIRST THEN BEGIN
-            SalesLine.INIT;
-            SalesLine."Document Type":=SalesHeader."Document Type";
-            SalesLine."Document No.":=SalesHeader."No.";
-            SalesLine."Line No.":=SalesLine."Line No."+10000;
-            SalesLine.Type:=SalesLine.Type::"G/L Account";
-            SalesLine."No.":=MAWBReceipt."Freight Charge Code";
-            SalesLine."Line Amount":=MAWBReceipt."MAWB Fees";
+            SalesHeader.GET(Rec."Document Type", Rec."Document No.");
+            MAWBReceipt.RESET;
+            MAWBReceipt.SETRANGE("MAWB No.", SalesHeader."MAWB No.");
+            IF MAWBReceipt.FINDFIRST THEN BEGIN
+                SalesLine.INIT;
+                SalesLine."Document Type" := SalesHeader."Document Type";
+                SalesLine."Document No." := SalesHeader."No.";
+                SalesLine."Line No." := SalesLine."Line No." + 10000;
+                SalesLine.Type := SalesLine.Type::"G/L Account";
+                SalesLine."No." := MAWBReceipt."Freight Charge Code";
+                SalesLine."Line Amount" := MAWBReceipt."MAWB Fees";
 
-            FreightCharge.RESET;
-            FreightCharge.SETRANGE(Code,MAWBReceipt."Freight Charge Code");
-            IF FreightCharge.FINDFIRST THEN BEGIN
-              SalesLine.Description:=FreightCharge.Description;
+                FreightCharge.RESET;
+                FreightCharge.SETRANGE(Code, MAWBReceipt."Freight Charge Code");
+                IF FreightCharge.FINDFIRST THEN BEGIN
+                    SalesLine.Description := FreightCharge.Description;
+                END;
+                MAWBLine.RESET;
+                MAWBLine.SETRANGE("MAWB No.", SalesHeader."MAWB No.");
+                MAWBLine.SETRANGE("Shipper Code", SalesHeader."Sell-to Customer No.");
+                IF MAWBLine.FINDFIRST THEN BEGIN
+                    SalesLine.Quantity := 0;
+                    SalesLine."Split Weight" := 0;
+                    SalesLine."Gross Weight" := 0;
+                    SalesLine."MAWB No." := MAWBLine."MAWB No.";
+                    SalesLine."Airline Code" := MAWBLine."Airline Code";
+                    SalesLine."Consignee Code" := MAWBLine."Consignee Code";
+                    SalesLine."Unit of Measure Code" := '';
+                    SalesLine."Flight Code" := MAWBLine."Flight Code";
+                    SalesLine."Destination Code" := MAWBLine."Destination Code";
+                    SalesLine."Flight Date" := MAWBLine."Flight Date";
+                    SalesLine."Qty. to Ship" := Rec.Quantity;
+                    SalesLine."Qty. to Invoice" := Rec.Quantity;
+                    SalesLine."Qty. to Assign" := Rec.Quantity;
+                    SalesLine."Qty. Assigned" := Rec.Quantity;
+
+                END;
+                SalesLine.INSERT;
+
             END;
-            MAWBLine.RESET;
-            MAWBLine.SETRANGE("MAWB No.",SalesHeader."MAWB No.");
-            MAWBLine.SETRANGE("Shipper Code",SalesHeader."Sell-to Customer No.");
-            IF MAWBLine.FINDFIRST THEN BEGIN
-              SalesLine.Quantity:=0;
-              SalesLine."Split Weight":=0;
-              SalesLine."Gross Weight":=0;
-              SalesLine."MAWB No.":=MAWBLine."MAWB No.";
-              SalesLine."Airline Code":=MAWBLine."Airline Code";
-              SalesLine."Consignee Code":=MAWBLine."Consignee Code";
-              SalesLine."Unit of Measure Code":='';
-              SalesLine."Flight Code":=MAWBLine."Flight Code";
-              SalesLine."Destination Code":=MAWBLine."Destination Code";
-              SalesLine."Flight Date":=MAWBLine."Flight Date";
-              SalesLine."Qty. to Ship":=Quantity;
-              SalesLine."Qty. to Invoice":=Quantity;
-              SalesLine."Qty. to Assign":=Quantity;
-              SalesLine."Qty. Assigned":=Quantity;
-
-              END;
-            SalesLine.INSERT;
-
-        END;
         END;
     end;
 
     local procedure CheckTotalWeightAndCorrect(var pDecTotalWeight: Decimal): Decimal
     var
-        lRecSalesLine: Record "37";
+        lRecSalesLine: Record 37;
         lDecSalesLineWeight: Decimal;
         lCodeTempHAWBNo: Code[20];
     begin
         lDecSalesLineWeight := 0;
         lCodeTempHAWBNo := '';
         lRecSalesLine.RESET;
-        lRecSalesLine.SETRANGE("Document No.","Document No.");
-        lRecSalesLine.SETFILTER("HAWB No.",'<>%1','');
+        lRecSalesLine.SETRANGE("Document No.", Rec."Document No.");
+        lRecSalesLine.SETFILTER("HAWB No.", '<>%1', '');
         IF lRecSalesLine.FINDSET THEN
-          REPEAT
-            IF lCodeTempHAWBNo <> lRecSalesLine."HAWB No." THEN
-              lDecSalesLineWeight += lRecSalesLine."Split Weight";
-            lCodeTempHAWBNo := lRecSalesLine."HAWB No.";
-          UNTIL lRecSalesLine.NEXT = 0
+            REPEAT
+                IF lCodeTempHAWBNo <> lRecSalesLine."HAWB No." THEN
+                    lDecSalesLineWeight += lRecSalesLine."Split Weight";
+                lCodeTempHAWBNo := lRecSalesLine."HAWB No.";
+            UNTIL lRecSalesLine.NEXT = 0
         ELSE BEGIN
-          lRecSalesLine.RESET;
-          lRecSalesLine.SETRANGE("Document No.","Document No.");
-          lRecSalesLine.SETFILTER("HAWB No.",'%1','');
-          IF lRecSalesLine.FINDFIRST THEN
-            lDecSalesLineWeight := lRecSalesLine."Split Weight";
+            lRecSalesLine.RESET;
+            lRecSalesLine.SETRANGE("Document No.", Rec."Document No.");
+            lRecSalesLine.SETFILTER("HAWB No.", '%1', '');
+            IF lRecSalesLine.FINDFIRST THEN
+                lDecSalesLineWeight := lRecSalesLine."Split Weight";
         END;
         //Check if Weight is Same or not
         IF pDecTotalWeight <> lDecSalesLineWeight THEN
-          pDecTotalWeight := lDecSalesLineWeight;
+            pDecTotalWeight := lDecSalesLineWeight;
     end;
 }
 

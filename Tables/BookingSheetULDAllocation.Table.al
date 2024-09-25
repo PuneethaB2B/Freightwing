@@ -34,24 +34,24 @@ table 50055 "Booking Sheet ULD Allocation"
         }
         field(10; "MAVB No."; Code[50])
         {
-            TableRelation = "Booking Sheet HAWB Allocation"."MAWB No." WHERE ("Booking Sheet No."=FIELD("Booking Sheet No."),
-                                                                              "Airline Code"=FIELD("Airline Code"),
-                                                                              "Shipper Code"=FIELD("Shipper Code"));
+            TableRelation = "Booking Sheet HAWB Allocation"."MAWB No." WHERE("Booking Sheet No." = FIELD("Booking Sheet No."),
+                                                                              "Airline Code" = FIELD("Airline Code"),
+                                                                              "Shipper Code" = FIELD("Shipper Code"));
         }
-        field(11;"Source Airport";Code[50])
+        field(11; "Source Airport"; Code[50])
         {
         }
-        field(12;"Destination Airport";Code[50])
+        field(12; "Destination Airport"; Code[50])
         {
         }
-        field(13;Consignee;Code[10])
+        field(13; Consignee; Code[10])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Booking Sheet No.","Airline Code","Flight Code","Shipper Code","Item No.","ULD Type Code","Destination Airport","Source Airport","MAVB No.",Consignee)
+        key(Key1; "Booking Sheet No.", "Airline Code", "Flight Code", "Shipper Code", "Item No.", "ULD Type Code", "Destination Airport", "Source Airport", "MAVB No.", Consignee)
         {
             Clustered = true;
         }

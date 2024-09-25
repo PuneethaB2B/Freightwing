@@ -2,7 +2,7 @@ page 50036 "Freight Charge By Item"
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Freight Charges,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50027;
+    SourceTable = 50027;
 
     layout
     {
@@ -10,10 +10,10 @@ page 50036 "Freight Charge By Item"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }
@@ -37,13 +37,13 @@ page 50036 "Freight Charge By Item"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50037;
-                    RunPageLink = Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Item No.=FIELD(No.),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport),
-                                  Effective Start Date=FIELD(Effective Start Date),
-                                  Effective End Date=FIELD(Effective End Date);
+                    RunPageLink = "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Item No." = FIELD("No."),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport"),
+                                  "Effective Start Date" = FIELD("Effective Start Date"),
+                                  "Effective End Date" = FIELD("Effective End Date");
 
                     trigger OnAction()
                     begin

@@ -2,7 +2,7 @@ page 50044 "Wt. Agreement By Item List"
 {
     Caption = 'Weight Agreement By Item';
     PageType = List;
-    SourceTable = Table50036;
+    SourceTable = 50036;
 
     layout
     {
@@ -10,16 +10,16 @@ page 50044 "Wt. Agreement By Item List"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure"; "Unit of Measure")
+                field("Unit of Measure"; Rec."Unit of Measure")
                 {
                 }
-                field("Min. Chargeable Weight"; "Min. Chargeable Weight")
+                field("Min. Chargeable Weight"; Rec."Min. Chargeable Weight")
                 {
                 }
             }

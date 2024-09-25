@@ -4,7 +4,7 @@ page 50150 "Received Booking Sheet"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = Table50053;
+    SourceTable = 50053;
 
     layout
     {
@@ -12,51 +12,51 @@ page 50150 "Received Booking Sheet"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Booking Date"; "Booking Date")
+                field("Booking Date"; Rec."Booking Date")
                 {
                 }
-                field("Booking Day"; "Booking Day")
+                field("Booking Day"; Rec."Booking Day")
                 {
                     Editable = false;
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                 }
-                field("Weight Difference"; "Weight Difference")
+                field("Weight Difference"; Rec."Weight Difference")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
             }
-            part(; 50001)
+            part(Page; 50001)
             {
-                SubPageLink = Booking Sheet No.=FIELD(No.),
-                              Booking Date=FIELD(Booking Date);
+                SubPageLink = "Booking Sheet No." = FIELD("No."),
+                              "Booking Date" = FIELD("Booking Date");
             }
         }
     }
@@ -65,7 +65,7 @@ page 50150 "Received Booking Sheet"
     {
         area(processing)
         {
-            group()
+            group(fw)
             {
                 action("&Print")
                 {
@@ -80,10 +80,9 @@ page 50150 "Received Booking Sheet"
                     trigger OnAction()
                     begin
                         BookingSheetHeader.RESET;
-                        BookingSheetHeader.SETRANGE("No.","No.");
-                        IF BookingSheetHeader.FINDFIRST THEN
-                        BEGIN
-                          REPORT.RUN(50019,TRUE,FALSE, BookingSheetHeader);
+                        BookingSheetHeader.SETRANGE("No.", Rec."No.");
+                        IF BookingSheetHeader.FINDFIRST THEN BEGIN
+                            REPORT.RUN(50019, TRUE, FALSE, BookingSheetHeader);
                         END;
                     end;
                 }
@@ -95,12 +94,11 @@ page 50150 "Received Booking Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit "Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
-                        IF CONFIRM(' Do you want to email ') THEN
-                        BEGIN
-                          MESSAGE('Emailed;');
+                        IF CONFIRM(' Do you want to email ') THEN BEGIN
+                            MESSAGE('Emailed;');
                         END;
                     end;
                 }
@@ -132,12 +130,11 @@ page 50150 "Received Booking Sheet"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status,Status::Submitted);
-                        IF CONFIRM('Do you want to Email Pre - Alerts?') THEN
-                        BEGIN
-                          IF CustomMail.SendBookingSheetPreAlert("No.") THEN
-                          MESSAGE('Pre Alert Sent');
-                          CurrPage.CLOSE;
+                        Rec.TESTFIELD(Status, Rec.Status::Submitted);
+                        IF CONFIRM('Do you want to Email Pre - Alerts?') THEN BEGIN
+                            IF CustomMail.SendBookingSheetPreAlert(Rec."No.") THEN
+                                MESSAGE('Pre Alert Sent');
+                            CurrPage.CLOSE;
                         END;
                     end;
                 }
@@ -147,8 +144,8 @@ page 50150 "Received Booking Sheet"
                     trigger OnAction()
                     begin
                         IF CONFIRM('Do you want to reopen Booking Sheet ') THEN BEGIN
-                          Status:=Status::Open;
-                          MODIFY();
+                            Rec.Status := Rec.Status::Open;
+                            Rec.MODIFY();
 
                         END;
                     end;
@@ -158,11 +155,11 @@ page 50150 "Received Booking Sheet"
     }
 
     var
-        BookingSheetHeader: Record "50053";
-        BookingSheetLine: Record "50054";
-        MAWBAlloc: Record "50070";
-        BSConsignee: Record "50056";
-        GRNLine: Record "50052";
-        CustomMail: Codeunit "50030";
+        BookingSheetHeader: Record 50053;
+        BookingSheetLine: Record 50054;
+        MAWBAlloc: Record 50070;
+        BSConsignee: Record 50056;
+        GRNLine: Record 50052;
+        CustomMail: Codeunit 50030;
 }
 

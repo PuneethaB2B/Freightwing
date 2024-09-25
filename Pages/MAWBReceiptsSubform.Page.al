@@ -2,7 +2,7 @@ page 50048 "MAWB Receipts Subform"
 {
     Editable = true;
     PageType = ListPart;
-    SourceTable = Table50039;
+    SourceTable = 50039;
 
     layout
     {
@@ -10,17 +10,17 @@ page 50048 "MAWB Receipts Subform"
         {
             repeater(Group)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Receipt Date"; "Receipt Date")
+                field("Receipt Date"; Rec."Receipt Date")
                 {
                 }
-                field(Prepared; Prepared)
+                field(Prepared; Rec.Prepared)
                 {
                     Editable = false;
                 }
-                field(Assigned; Assigned)
+                field(Assigned; Rec.Assigned)
                 {
                     Editable = false;
                 }
@@ -44,7 +44,7 @@ page 50048 "MAWB Receipts Subform"
                     trigger OnAction()
                     begin
                         //CLEAR(CreateMAWB);
-                        MAWBByAirline.GET("Airline Code");
+                        MAWBByAirline.GET(Rec."Airline Code");
                         Airline.GET(MAWBByAirline."Airline Code");
                         //Message(Airline."Prefix Code");
                         //CreateMAWB.RUNMODAL;
@@ -60,8 +60,8 @@ page 50048 "MAWB Receipts Subform"
                     Caption = '&Charges';
                     Image = EntriesList;
                     RunObject = Page 50229;
-                    RunPageLink = Field5 = FIELD(Airline Code),
-                                  Field6=FIELD(MAWB No.);
+                    RunPageLink = Field5 = FIELD("Airline Code"),
+                                  Field6 = FIELD("MAWB No.");
 
                     trigger OnAction()
                     begin
@@ -73,10 +73,10 @@ page 50048 "MAWB Receipts Subform"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Invoiced,FALSE);
+                        Rec.TESTFIELD(Invoiced, FALSE);
                         IF CONFIRM('Do you want to reset the MAWB to Documentation?') THEN BEGIN
-                          Prepared:=FALSE;
-                          MODIFY();
+                            Rec.Prepared := FALSE;
+                            Rec.MODIFY();
                         END;
                     end;
                 }
@@ -86,9 +86,9 @@ page 50048 "MAWB Receipts Subform"
                     trigger OnAction()
                     begin
                         IF CONFIRM('') THEN BEGIN
-                          Invoiced:=FALSE;
-                          "Invioced Date":=0D;
-                          MODIFY;
+                            Rec.Invoiced := FALSE;
+                            Rec."Invioced Date" := 0D;
+                            Rec.MODIFY;
                         END;
                     end;
                 }
@@ -97,7 +97,7 @@ page 50048 "MAWB Receipts Subform"
     }
 
     var
-        MAWBByAirline: Record "50038";
-        Airline: Record "50021";
+        MAWBByAirline: Record 50038;
+        Airline: Record 50021;
 }
 

@@ -3,7 +3,7 @@ page 50052 "Dl. Weight Dist. By Customer"
     Caption = 'Daily Weight Distribution By Customer';
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Weight,Notification,C6,C7,C8,C9,C10';
-    SourceTable = Table50042;
+    SourceTable = 50042;
 
     layout
     {
@@ -11,16 +11,16 @@ page 50052 "Dl. Weight Dist. By Customer"
         {
             repeater(Group)
             {
-                field("Customer No."; "Customer No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                 }
-                field("Customer Name"; "Customer Name")
+                field("Customer Name"; Rec."Customer Name")
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
-                field("Shipped Weight"; "Shipped Weight")
+                field("Shipped Weight"; Rec."Shipped Weight")
                 {
                 }
             }
@@ -44,12 +44,12 @@ page 50052 "Dl. Weight Dist. By Customer"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50053;
-                    RunPageLink = Daily No.=FIELD(Daily No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Destination Code=FIELD(Destination Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Customer No.=FIELD(Customer No.),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Daily No." = FIELD("Daily No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Destination Code" = FIELD("Destination Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Customer No." = FIELD("Customer No."),
+                                  "Destination Airport" = FIELD("Destination Airport");
 
                     trigger OnAction()
                     begin
@@ -71,23 +71,23 @@ page 50052 "Dl. Weight Dist. By Customer"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record "112";
+                        SalesInvHeader: Record 112;
                     begin
-                         //DailyWeightDistByCustomer := Rec;
-                         //CurrPage.SETSELECTIONFILTER(DailyWeightDistByCustomer);
-                         IF CONFIRM(Text001,FALSE) THEN BEGIN
-                          DailyWeightDistByCustomer.RESET;
-                          DailyWeightDistByCustomer.SETRANGE(DailyWeightDistByCustomer."Daily No.","Daily No.");
-                          IF DailyWeightDistByCustomer.FINDSET THEN BEGIN
-                           REPEAT
-                            DailyWeightDistByCustomer2.RESET;
-                            DailyWeightDistByCustomer2.COPY(DailyWeightDistByCustomer);
-                            DailyWeightDistByCustomer2.SETRANGE(DailyWeightDistByCustomer2."Customer No.",DailyWeightDistByCustomer."Customer No.");
-                            IF DailyWeightDistByCustomer2.FINDFIRST THEN BEGIN
-                             DailyWeightDistByCustomer2.EmailRecords(FALSE,DailyWeightDistByCustomer2);
+                        //DailyWeightDistByCustomer := Rec;
+                        //CurrPage.SETSELECTIONFILTER(DailyWeightDistByCustomer);
+                        IF CONFIRM(Text001, FALSE) THEN BEGIN
+                            DailyWeightDistByCustomer.RESET;
+                            DailyWeightDistByCustomer.SETRANGE(DailyWeightDistByCustomer."Daily No.", Rec."Daily No.");
+                            IF DailyWeightDistByCustomer.FINDSET THEN BEGIN
+                                REPEAT
+                                    DailyWeightDistByCustomer2.RESET;
+                                    DailyWeightDistByCustomer2.COPY(DailyWeightDistByCustomer);
+                                    DailyWeightDistByCustomer2.SETRANGE(DailyWeightDistByCustomer2."Customer No.", DailyWeightDistByCustomer."Customer No.");
+                                    IF DailyWeightDistByCustomer2.FINDFIRST THEN BEGIN
+                                        DailyWeightDistByCustomer2.EmailRecords(FALSE, DailyWeightDistByCustomer2);
+                                    END;
+                                UNTIL DailyWeightDistByCustomer.NEXT = 0;
                             END;
-                           UNTIL DailyWeightDistByCustomer.NEXT=0;
-                          END;
                         END;
                     end;
                 }
@@ -97,26 +97,24 @@ page 50052 "Dl. Weight Dist. By Customer"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        IF DELETE THEN
-        BEGIN
-        WeightByItem.RESET;
-        WeightByItem.SETRANGE(WeightByItem."Daily No.","Daily No.");
-        WeightByItem.SETRANGE(WeightByItem."Airline Code","Airline Code");
-        WeightByItem.SETRANGE(WeightByItem."Flight Code","Flight Code");
-        WeightByItem.SETRANGE(WeightByItem."Destination Code","Destination Code");
-        WeightByItem.SETRANGE(WeightByItem."Customer No.","Customer No.");
-        IF WeightByItem.FINDSET THEN
-        BEGIN
-            WeightByItem.DELETEALL;
-        END;
+        IF Rec.DELETE THEN BEGIN
+            WeightByItem.RESET;
+            WeightByItem.SETRANGE(WeightByItem."Daily No.", Rec."Daily No.");
+            WeightByItem.SETRANGE(WeightByItem."Airline Code", Rec."Airline Code");
+            WeightByItem.SETRANGE(WeightByItem."Flight Code", Rec."Flight Code");
+            WeightByItem.SETRANGE(WeightByItem."Destination Code", Rec."Destination Code");
+            WeightByItem.SETRANGE(WeightByItem."Customer No.", Rec."Customer No.");
+            IF WeightByItem.FINDSET THEN BEGIN
+                WeightByItem.DELETEALL;
+            END;
         END;
     end;
 
     var
-        DailyWeightDistByAirline: Record "50041";
-        DailyWeightDistByCustomer: Record "50042";
+        DailyWeightDistByAirline: Record 50041;
+        DailyWeightDistByCustomer: Record 50042;
         Text001: Label 'Do you want to send the notifications';
-        DailyWeightDistByCustomer2: Record "50042";
-        WeightByItem: Record "50043";
+        DailyWeightDistByCustomer2: Record 50042;
+        WeightByItem: Record 50043;
 }
 

@@ -1,7 +1,7 @@
 page 50136 "Received Booking Sheet ULD"
 {
     PageType = List;
-    SourceTable = Table50055;
+    SourceTable = 50055;
 
     layout
     {
@@ -9,20 +9,20 @@ page 50136 "Received Booking Sheet ULD"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                 }
-                field("ULD Type Code"; "ULD Type Code")
+                field("ULD Type Code"; Rec."ULD Type Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field(Remarks; Remarks)
+                field(Remarks; Rec.Remarks)
                 {
                 }
-                field("MAVB No."; "MAVB No.")
+                field("MAVB No."; Rec."MAVB No.")
                 {
                     Caption = 'Linked MAWB No.';
                 }

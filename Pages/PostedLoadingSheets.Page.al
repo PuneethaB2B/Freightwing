@@ -3,8 +3,8 @@ page 50102 "Posted Loading Sheets"
     CardPageID = "Posted Loading Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = Table50060;
-    SourceTableView = WHERE(Shipped = FILTER(Yes));
+    SourceTable = 50060;
+    SourceTableView = WHERE(Shipped = FILTER(true));
 
     layout
     {
@@ -12,31 +12,31 @@ page 50102 "Posted Loading Sheets"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Loading Date"; "Loading Date")
+                field("Loading Date"; Rec."Loading Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field("Posted By"; "Posted By")
+                field("Posted By"; Rec."Posted By")
                 {
                 }
-                field("Posted Time"; "Posted Time")
+                field("Posted Time"; Rec."Posted Time")
                 {
                 }
             }

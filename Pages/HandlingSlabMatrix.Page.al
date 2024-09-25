@@ -2,7 +2,7 @@ page 50151 "Handling Slab Matrix"
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Matrix Daywise,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50045;
+    SourceTable = 50045;
 
     layout
     {
@@ -10,22 +10,22 @@ page 50151 "Handling Slab Matrix"
         {
             repeater(Group)
             {
-                field("From Weight"; "From Weight")
+                field("From Weight"; Rec."From Weight")
                 {
                     Caption = 'From';
                 }
-                field("To Weight"; "To Weight")
+                field("To Weight"; Rec."To Weight")
                 {
                     Caption = 'To';
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     Visible = false;
                 }
-                field("Rate Amount"; "Rate Amount")
+                field("Rate Amount"; Rec."Rate Amount")
                 {
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
             }

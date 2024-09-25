@@ -2,7 +2,7 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
 {
     Caption = 'Weekly Customer Requirement Subform';
     PageType = ListPart;
-    SourceTable = Table50048;
+    SourceTable = 50048;
 
     layout
     {
@@ -10,13 +10,13 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
         {
             repeater(Group)
             {
-                field("Customer No."; "Customer No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                 }
-                field("Customer Name"; "Customer Name")
+                field("Customer Name"; Rec."Customer Name")
                 {
                 }
-                field("Line Weight"; "Line Weight")
+                field("Line Weight"; Rec."Line Weight")
                 {
                 }
             }
@@ -36,8 +36,8 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
                     Caption = 'Weight By Day of Week';
                     Image = EntriesList;
                     RunObject = Page 50063;
-                    RunPageLink = Good Receipt No.=FIELD(Weekly No.),
-                                  Airline Code=FIELD(Customer No.);
+                    RunPageLink = "Good Receipt No." = FIELD("Weekly No."),
+                                  "Airline Code" = FIELD("Customer No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }

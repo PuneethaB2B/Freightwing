@@ -3,7 +3,7 @@ page 50064 "Wk. Customer Wgt. Requirements"
     Caption = 'Weekly Customer Weight  Requirements';
     CardPageID = "Wk. Customer Wgt. Requirement";
     PageType = List;
-    SourceTable = Table50047;
+    SourceTable = 50047;
 
     layout
     {
@@ -11,19 +11,19 @@ page 50064 "Wk. Customer Wgt. Requirements"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Destination Name"; "Destination Name")
+                field("Destination Name"; Rec."Destination Name")
                 {
                 }
-                field("Start Date"; "Start Date")
+                field("Start Date"; Rec."Start Date")
                 {
                 }
-                field("End Date"; "End Date")
+                field("End Date"; Rec."End Date")
                 {
                 }
             }
@@ -44,6 +44,6 @@ page 50064 "Wk. Customer Wgt. Requirements"
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

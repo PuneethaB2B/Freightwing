@@ -332,17 +332,15 @@ table 50052 "Good Receipt Header"
 
     procedure AssistEdit(OldGoodReceiptHeader: Record 50052): Boolean
     begin
-        WITH GoodReceiptHeader DO BEGIN
-            GoodReceiptHeader := Rec;
+        GoodReceiptHeader := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Good Receipt Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Good Receipt Nos.", OldGoodReceiptHeader."No. Series", GoodReceiptHeader."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Good Receipt Nos.");
-            IF NoSeriesMgt.SelectSeries(ImportExportSetup."Good Receipt Nos.", OldGoodReceiptHeader."No. Series", "No. Series") THEN BEGIN
-                ImportExportSetup.GET;
-                ImportExportSetup.TESTFIELD("Good Receipt Nos.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := GoodReceiptHeader;
-                EXIT(TRUE);
-            END;
+            NoSeriesMgt.SetSeries(GoodReceiptHeader."No.");
+            Rec := GoodReceiptHeader;
+            EXIT(TRUE);
         END;
     end;
 

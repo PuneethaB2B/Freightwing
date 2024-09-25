@@ -2,8 +2,8 @@ page 50137 "Posted Goods Receipt"
 {
     Editable = false;
     PageType = Card;
-    SourceTable = Table50052;
-    SourceTableView = WHERE(Received = FILTER(Yes));
+    SourceTable = 50052;
+    SourceTableView = WHERE(Received = FILTER(true));
 
     layout
     {
@@ -11,46 +11,46 @@ page 50137 "Posted Goods Receipt"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Receipt Date"; "Receipt Date")
+                field("Receipt Date"; Rec."Receipt Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Booking Sheet No."; "Booking Sheet No.")
+                field("Booking Sheet No."; Rec."Booking Sheet No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                 }
-                field("Weight Difference"; "Weight Difference")
+                field("Weight Difference"; Rec."Weight Difference")
                 {
                 }
-                field(Loaded; Loaded)
+                field(Loaded; Rec.Loaded)
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field("Posted By"; "Posted By")
+                field("Posted By"; Rec."Posted By")
                 {
                 }
             }
-            part(; 50138)
+            part(Page1; 50138)
             {
-                SubPageLink = Good Receipt No.=FIELD(No.);
+                SubPageLink = "Good Receipt No." = FIELD("No.");
             }
         }
     }
@@ -59,7 +59,7 @@ page 50137 "Posted Goods Receipt"
     {
         area(processing)
         {
-            group()
+            group(fw)
             {
                 action("&Print")
                 {
@@ -74,7 +74,7 @@ page 50137 "Posted Goods Receipt"
                     trigger OnAction()
                     begin
                         GoodReceiptHeader.RESET;
-                        GoodReceiptHeader.SETRANGE("No.", "No.");
+                        GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
                             REPORT.RUNMODAL(50018, TRUE, FALSE, GoodReceiptHeader);
                     end;
@@ -87,7 +87,7 @@ page 50137 "Posted Goods Receipt"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit "Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -102,7 +102,7 @@ page 50137 "Posted Goods Receipt"
                     trigger OnAction()
                     begin
                         GoodReceiptLine.RESET;
-                        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.", "No.");
+                        GoodReceiptLine.SETRANGE(GoodReceiptLine."Good Receipt No.", Rec."No.");
                         IF GoodReceiptLine.FINDSET THEN BEGIN
                             REPEAT
                                 LoadingSheetHeader.RESET;
@@ -116,11 +116,11 @@ page 50137 "Posted Goods Receipt"
                                 END;
                             UNTIL GoodReceiptLine.NEXT = 0;
                         END;
-                        PostGoodReceiptReversal;
-                        Status := Status::Open;
-                        Received := FALSE;
-                        Loaded := FALSE;
-                        MODIFY;
+                        Rec.PostGoodReceiptReversal;
+                        Rec.Status := Rec.Status::Open;
+                        Rec.Received := FALSE;
+                        Rec.Loaded := FALSE;
+                        Rec.MODIFY;
                         CurrPage.CLOSE;
                     end;
                 }
@@ -129,8 +129,8 @@ page 50137 "Posted Goods Receipt"
     }
 
     var
-        GoodReceiptHeader: Record "50052";
-        LoadingSheetHeader: Record "50060";
-        GoodReceiptLine: Record "50051";
+        GoodReceiptHeader: Record 50052;
+        LoadingSheetHeader: Record 50060;
+        GoodReceiptLine: Record 50051;
 }
 

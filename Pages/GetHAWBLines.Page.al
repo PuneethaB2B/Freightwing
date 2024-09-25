@@ -2,7 +2,7 @@ page 50117 "Get HAWB Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50074;
+    SourceTable = 50074;
 
     layout
     {
@@ -10,28 +10,28 @@ page 50117 "Get HAWB Lines"
         {
             repeater(Group)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     HideValue = "MAWB No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
             }
@@ -55,28 +55,28 @@ page 50117 "Get HAWB Lines"
     end;
 
     var
-        MAWBHeader: Record "50077";
-        TempHAWBLine: Record "50074" temporary;
-        ExportGetHAWBAllocation: Codeunit "50006";
-        [InDataSet]
+        MAWBHeader: Record 50077;
+        TempHAWBLine: Record 50074 temporary;
+        ExportGetHAWBAllocation: Codeunit 50006;
+
         "MAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        HAWBLine: Record "50074";
+        HAWBLine: Record 50074;
     begin
         TempHAWBLine.RESET;
         TempHAWBLine.COPYFILTERS(Rec);
-        TempHAWBLine.SETRANGE("MAWB No.", "MAWB No.");
+        TempHAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
         IF NOT TempHAWBLine.FINDFIRST THEN BEGIN
             HAWBLine.COPYFILTERS(Rec);
-            HAWBLine.SETRANGE("MAWB No.", "MAWB No.");
+            HAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
             IF HAWBLine.FINDFIRST THEN BEGIN
                 TempHAWBLine := HAWBLine;
                 TempHAWBLine.INSERT;
             END;
         END;
-        IF "HAWB No." = TempHAWBLine."HAWB No." THEN
+        IF Rec."HAWB No." = TempHAWBLine."HAWB No." THEN
             EXIT(TRUE);
     end;
 
@@ -87,7 +87,7 @@ page 50117 "Get HAWB Lines"
     end;
 
 
-    procedure SetMAWBHeader(var MAWBHeader2: Record "50077")
+    procedure SetMAWBHeader(var MAWBHeader2: Record 50077)
     begin
         MAWBHeader.GET(MAWBHeader2."No.");
     end;

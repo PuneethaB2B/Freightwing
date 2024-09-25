@@ -4,8 +4,8 @@ page 50012 "Sales Invoice List - Import"
     CardPageID = "Sales Invoice - Import";
     Editable = false;
     PageType = List;
-    SourceTable = Table36;
-    SourceTableView = WHERE(Document Type=CONST(Invoice));
+    SourceTable = 36;
+    SourceTableView = WHERE("Document Type" = CONST(Invoice));
 
     layout
     {
@@ -13,134 +13,134 @@ page 50012 "Sales Invoice List - Import"
         {
             repeater()
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Import MAWB No."; "Import MAWB No.")
+                field("Import MAWB No."; Rec."Import MAWB No.")
                 {
                     Caption = 'MAWB No.';
                 }
-                field("Sell-to Customer No."; "Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                 }
-                field("Sell-to Customer Name"; "Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                 }
-                field("External Document No."; "External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                 }
-                field("Sell-to Post Code"; "Sell-to Post Code")
-                {
-                    Visible = false;
-                }
-                field("Sell-to Country/Region Code"; "Sell-to Country/Region Code")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     Visible = false;
                 }
-                field("Sell-to Contact"; "Sell-to Contact")
+                field("Sell-to Country/Region Code"; Rec."Sell-to Country/Region Code")
                 {
                     Visible = false;
                 }
-                field("Bill-to Customer No."; "Bill-to Customer No.")
+                field("Sell-to Contact"; Rec."Sell-to Contact")
                 {
                     Visible = false;
                 }
-                field("Bill-to Name"; "Bill-to Name")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     Visible = false;
                 }
-                field("Bill-to Post Code"; "Bill-to Post Code")
+                field("Bill-to Name"; Rec."Bill-to Name")
                 {
                     Visible = false;
                 }
-                field("Bill-to Country/Region Code"; "Bill-to Country/Region Code")
+                field("Bill-to Post Code"; Rec."Bill-to Post Code")
                 {
                     Visible = false;
                 }
-                field("Bill-to Contact"; "Bill-to Contact")
+                field("Bill-to Country/Region Code"; Rec."Bill-to Country/Region Code")
                 {
                     Visible = false;
                 }
-                field("Ship-to Code"; "Ship-to Code")
+                field("Bill-to Contact"; Rec."Bill-to Contact")
                 {
                     Visible = false;
                 }
-                field("Ship-to Name"; "Ship-to Name")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     Visible = false;
                 }
-                field("Ship-to Post Code"; "Ship-to Post Code")
+                field("Ship-to Name"; Rec."Ship-to Name")
                 {
                     Visible = false;
                 }
-                field("Ship-to Country/Region Code"; "Ship-to Country/Region Code")
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
                     Visible = false;
                 }
-                field("Ship-to Contact"; "Ship-to Contact")
+                field("Ship-to Country/Region Code"; Rec."Ship-to Country/Region Code")
                 {
                     Visible = false;
                 }
-                field("Posting Date"; "Posting Date")
+                field("Ship-to Contact"; Rec."Ship-to Contact")
                 {
                     Visible = false;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Posting Date"; Rec."Posting Date")
                 {
                     Visible = false;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                 }
-                field("Location Code"; "Location Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
+                {
+                    Visible = false;
+                }
+                field("Location Code"; Rec."Location Code")
                 {
                     Visible = true;
                 }
-                field("Salesperson Code"; "Salesperson Code")
+                field("Salesperson Code"; Rec."Salesperson Code")
                 {
                     Visible = false;
                 }
-                field("Assigned User ID"; "Assigned User ID")
+                field("Assigned User ID"; Rec."Assigned User ID")
                 {
                 }
-                field("Currency Code"; "Currency Code")
-                {
-                    Visible = false;
-                }
-                field("Document Date"; "Document Date")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     Visible = false;
                 }
-                field("Campaign No."; "Campaign No.")
+                field("Document Date"; Rec."Document Date")
                 {
                     Visible = false;
                 }
-                field(Status; Status)
+                field("Campaign No."; Rec."Campaign No.")
                 {
                     Visible = false;
                 }
-                field("Payment Terms Code"; "Payment Terms Code")
+                field(Status; Rec.Status)
                 {
                     Visible = false;
                 }
-                field("Due Date"; "Due Date")
+                field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     Visible = false;
                 }
-                field("Payment Discount %"; "Payment Discount %")
+                field("Due Date"; Rec."Due Date")
                 {
                     Visible = false;
                 }
-                field("Shipment Method Code"; "Shipment Method Code")
+                field("Payment Discount %"; Rec."Payment Discount %")
                 {
                     Visible = false;
                 }
-                field("Shipment Date"; "Shipment Date")
+                field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
                     Visible = false;
                 }
-                field("Job Queue Status"; "Job Queue Status")
+                field("Shipment Date"; Rec."Shipment Date")
+                {
+                    Visible = false;
+                }
+                field("Job Queue Status"; Rec."Job Queue Status")
                 {
                     Visible = JobQueueActive;
                 }
@@ -148,23 +148,23 @@ page 50012 "Sales Invoice List - Import"
         }
         area(factboxes)
         {
-            part(; 9082)
+            part(Page1; 9082)
             {
-                SubPageLink = No.=FIELD(Bill-to Customer No.),
-                              Date Filter=FIELD(Date Filter);
+                SubPageLink = "No."=FIELD("Bill-to Customer No."),
+                              "Date Filter"=FIELD("Date Filter");
                 Visible = true;
             }
-            part(;9084)
+            part(Page;9084)
             {
-                SubPageLink = No.=FIELD(Bill-to Customer No.),
-                              Date Filter=FIELD(Date Filter);
+                SubPageLink = "No."=FIELD("Bill-to Customer No."),
+                              "Date Filter"=FIELD("Date Filter");
                 Visible = true;
             }
-            systempart(;Links)
+            systempart(fw;Links)
             {
                 Visible = false;
             }
-            systempart(;Notes)
+            systempart(fw1;Notes)
             {
                 Visible = true;
             }
@@ -199,9 +199,9 @@ page 50012 "Sales Invoice List - Import"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = Document Type=FIELD(Document Type),
-                                  No.=FIELD(No.),
-                                  Document Line No.=CONST(0);
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                  "No."=FIELD("No."),
+                                  "Document Line No."=CONST(0);
                 }
                 action(Dimensions)
                 {
@@ -222,7 +222,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page "658";
+                        ApprovalEntries: Page 658;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -244,7 +244,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -256,7 +256,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
@@ -273,7 +273,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -285,7 +285,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
@@ -346,7 +346,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit "Sales-Post + Print";
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -382,15 +382,14 @@ page 50012 "Sales Invoice List - Import"
 
     trigger OnOpenPage()
     var
-        SalesSetup: Record "311";
+        SalesSetup: Record 311;
     begin
         SetSecurityFilterOnRespCenter;
         JobQueueActive := SalesSetup.JobQueueActive;
     end;
 
     var
-        ReportPrint: Codeunit "228";
-        [InDataSet]
+        ReportPrint: Codeunit 228;
         JobQueueActive: Boolean;
 }
 

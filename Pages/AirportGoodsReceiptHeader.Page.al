@@ -1,7 +1,7 @@
 page 50118 "Airport Goods Receipt Header"
 {
     InsertAllowed = false;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
 
     layout
     {
@@ -18,22 +18,22 @@ page 50118 "Airport Goods Receipt Header"
                 field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     Caption = 'Weight';
                     Editable = true;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
                 field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
                 field("Flight No"; Rec."Flight No")
@@ -42,61 +42,61 @@ page 50118 "Airport Goods Receipt Header"
                 field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field(VIA; VIA)
+                field(VIA; Rec.VIA)
                 {
                 }
-                field("Country of Origin"; "Country of Origin")
+                field("Country of Origin"; Rec."Country of Origin")
                 {
                 }
-                field("Country of Discharge"; "Country of Discharge")
+                field("Country of Discharge"; Rec."Country of Discharge")
                 {
                 }
-                field("Scheduled Date"; "Scheduled Date")
+                field("Scheduled Date"; Rec."Scheduled Date")
                 {
                 }
-                field("Scheduled Time"; "Scheduled Time")
+                field("Scheduled Time"; Rec."Scheduled Time")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                     Caption = 'Manifest Date';
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
-                field("Mode of Payment"; "Mode of Payment")
+                field("Mode of Payment"; Rec."Mode of Payment")
                 {
                 }
-                field("IDF No"; "IDF No")
+                field("IDF No"; Rec."IDF No")
                 {
                 }
-                field("CIF Value"; "CIF Value")
+                field("CIF Value"; Rec."CIF Value")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
-                {
-                    Editable = false;
-                }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                     Editable = false;
                 }
-                field("Arrival Date FWL"; "Arrival Date FWL")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
+                {
+                    Editable = false;
+                }
+                field("Arrival Date FWL"; Rec."Arrival Date FWL")
                 {
                 }
-                field("Arrival Time FWL"; "Arrival Time FWL")
+                field("Arrival Time FWL"; Rec."Arrival Time FWL")
                 {
                 }
             }
-            part(; 50154)
+            part(PreAlertSubform; "Pre Alert Subform")
             {
-                SubPageLink = Pre Alert No=FIELD(No.);
+                SubPageLink = "Pre Alert No" = FIELD("No.");
             }
         }
     }
@@ -118,8 +118,8 @@ page 50118 "Airport Goods Receipt Header"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50032;
-                    RunPageLink = Manifest No=FIELD(Flight Code),
-                                  Delivery Agent=FIELD(Country of Discharge);
+                    RunPageLink = "Manifest No" = FIELD("Flight Code"),
+                                  "Delivery Agent" = FIELD("Country of Discharge");
 
                     trigger OnAction()
                     begin
@@ -140,9 +140,9 @@ page 50118 "Airport Goods Receipt Header"
                         //TESTFIELD("Actual Arrival Date");
                         //TESTFIELD("Actual Arrival Time");
                         IF CONFIRM(Text001) THEN
-                         Status:=Status::"FWL Receipt";
-                        "Arrival Date FWL":=TODAY;
-                        "Arrival Time FWL":=TIME;
+                            Rec.Status := Rec.Status::"FWL Receipt";
+                        Rec."Arrival Date FWL" := TODAY;
+                        Rec."Arrival Time FWL" := TIME;
                         CurrPage.CLOSE;
                     end;
                 }

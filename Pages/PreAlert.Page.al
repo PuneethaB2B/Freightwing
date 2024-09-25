@@ -1,6 +1,6 @@
 page 50156 "Pre Alert"
 {
-    SourceTable = Table50030;
+    SourceTable = 50030;
 
     layout
     {
@@ -8,98 +8,98 @@ page 50156 "Pre Alert"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
-                {
-                    ShowMandatory = true;
-                }
-                field("MAWB No"; "MAWB No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                     ShowMandatory = true;
                 }
-                field("Item No."; "Item No.")
+                field("MAWB No"; Rec."MAWB No")
+                {
+                    ShowMandatory = true;
+                }
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                     ShowMandatory = true;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     Caption = 'Weight';
                     Editable = true;
                     ShowMandatory = true;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ShowMandatory = true;
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                     ShowMandatory = true;
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field(VIA; VIA)
+                field(VIA; Rec.VIA)
                 {
                 }
-                field("Country of Origin"; "Country of Origin")
+                field("Country of Origin"; Rec."Country of Origin")
                 {
                 }
-                field("Country of Discharge"; "Country of Discharge")
+                field("Country of Discharge"; Rec."Country of Discharge")
                 {
                 }
-                field("Scheduled Date"; "Scheduled Date")
-                {
-                    ShowMandatory = true;
-                }
-                field("Scheduled Time"; "Scheduled Time")
+                field("Scheduled Date"; Rec."Scheduled Date")
                 {
                     ShowMandatory = true;
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Scheduled Time"; Rec."Scheduled Time")
                 {
                     ShowMandatory = true;
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
+                {
+                    ShowMandatory = true;
+                }
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                     Caption = 'Manifest Date';
                     ShowMandatory = true;
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                     ShowMandatory = true;
                 }
-                field("Mode of Payment"; "Mode of Payment")
+                field("Mode of Payment"; Rec."Mode of Payment")
                 {
                 }
-                field("IDF No"; "IDF No")
+                field("IDF No"; Rec."IDF No")
                 {
                     ShowMandatory = true;
                 }
-                field("CIF Value"; "CIF Value")
+                field("CIF Value"; Rec."CIF Value")
                 {
                     Visible = true;
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                     ShowMandatory = true;
                 }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                     ShowMandatory = true;
                 }
             }
-            part(; 50154)
+            part(Page; 50154)
             {
-                SubPageLink = Pre Alert No=FIELD(No.);
+                SubPageLink = "Pre Alert No" = FIELD("No.");
             }
         }
     }
@@ -121,9 +121,9 @@ page 50156 "Pre Alert"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50031;
-                    RunPageLink = Flight No.=FIELD(Flight Code),
-                                  Source Code=FIELD(Country of Origin),
-                                  Destination Code=FIELD(Country of Discharge);
+                    RunPageLink = "Flight No." = FIELD("Flight Code"),
+                                  "Source Code" = FIELD("Country of Origin"),
+                                  "Destination Code" = FIELD("Country of Discharge");
 
                     trigger OnAction()
                     begin
@@ -141,10 +141,10 @@ page 50156 "Pre Alert"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD("Actual Arrival Date");
-                        TESTFIELD("Actual Arrival Time");
+                        Rec.TESTFIELD("Actual Arrival Date");
+                        Rec.TESTFIELD("Actual Arrival Time");
                         IF CONFIRM(Text001) THEN
-                         Status:=Status::"Airport Receipt";
+                            Rec.status := rec.Status::"Airport Receipt";
                     end;
                 }
             }

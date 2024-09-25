@@ -18,10 +18,10 @@ table 50014 "Shipper Farm"
             trigger OnValidate()
             begin
                 Farm.GET("Farm Code");
-                Description:=Farm.Description;
+                Description := Farm.Description;
             end;
         }
-        field(3;Description;Text[50])
+        field(3; Description; Text[50])
         {
             Editable = false;
         }
@@ -29,7 +29,7 @@ table 50014 "Shipper Farm"
 
     keys
     {
-        key(Key1;"Shipper Code","Farm Code")
+        key(Key1; "Shipper Code", "Farm Code")
         {
             Clustered = true;
         }

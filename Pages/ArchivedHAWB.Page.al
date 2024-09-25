@@ -13,7 +13,7 @@ page 50104 "Archived HAWB"
         {
             group(General)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
                 field("Shipper Code"; Rec."Shipper Code")
@@ -25,61 +25,61 @@ page 50104 "Archived HAWB"
                 field("Shipper Address"; Rec."Shipper Address")
                 {
                 }
-                field("Booking Sheet No."; "Booking Sheet No.")
+                field("Booking Sheet No."; Rec."Booking Sheet No.")
                 {
                 }
                 field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Flight Date"; "Flight Date")
+                field("Flight Date"; Rec."Flight Date")
                 {
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
-                field("Carrier Agent Code"; "Carrier Agent Code")
+                field("Carrier Agent Code"; Rec."Carrier Agent Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field("Euro Form No."; "Euro Form No.")
-                {
-                    ShowMandatory = true;
-                }
-                field("Customer Entry No."; "Customer Entry No.")
-                {
-                }
-                field("Phyto Certificate No."; "Phyto Certificate No.")
+                field("Euro Form No."; Rec."Euro Form No.")
                 {
                     ShowMandatory = true;
                 }
-                field(Comments; Comments)
+                field("Customer Entry No."; Rec."Customer Entry No.")
                 {
                 }
-                field(Status; Status)
+                field("Phyto Certificate No."; Rec."Phyto Certificate No.")
+                {
+                    ShowMandatory = true;
+                }
+                field(Comments; Rec.Comments)
+                {
+                }
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
             }
-            part(; 50105)
+            part(ArchivedHAWBSubform; "Archived HAWB Subform")
             {
-                SubPageLink = MAWB No.=FIELD(MAWB No.);
+                SubPageLink = "MAWB No." = FIELD("MAWB No.");
             }
         }
     }
@@ -98,7 +98,7 @@ page 50104 "Archived HAWB"
                 trigger OnAction()
                 begin
                     IF CONFIRM('Do you want to Archive the Hawb No. ' + FORMAT(Rec."No.") + '?') THEN BEGIN
-                        Status := Status::Submitted;
+                        Rec.Status := Rec.Status::Submitted;
                         Rec.MODIFY();
                         CurrPage.CLOSE();
                     END;

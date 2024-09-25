@@ -23,16 +23,16 @@ table 50044 "Dl. ULD Allocation By Airline"
         }
         field(6; Flight; Code[10])
         {
-            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
+            TableRelation = Flight."Flight No." WHERE("Airline Code" = FIELD("Airline Code"));
         }
-        field(7;"Destination Airport";Code[10])
+        field(7; "Destination Airport"; Code[10])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Daily No.","Airline Code","ULD Type",Flight,"Destination Airport")
+        key(Key1; "Daily No.", "Airline Code", "ULD Type", Flight, "Destination Airport")
         {
             Clustered = true;
         }

@@ -15,7 +15,7 @@ page 50103 "Archived HAWBs"
         {
             repeater(General)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
                 field("Shipper Code"; Rec."Shipper Code")
@@ -30,22 +30,22 @@ page 50103 "Archived HAWBs"
                 field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
-                field("Carrier Agent Code"; "Carrier Agent Code")
+                field("Carrier Agent Code"; Rec."Carrier Agent Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
             }

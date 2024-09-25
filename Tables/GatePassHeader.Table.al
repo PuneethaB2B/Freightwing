@@ -206,17 +206,15 @@ table 50068 "Gate Pass Header"
 
     procedure AssistEdit(OldGatePassHeader: Record 50068): Boolean
     begin
-        WITH GatePassHeader DO BEGIN
-          GatePassHeader := Rec;
-          ImportExportSetup.GET;
-          ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-          IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.",OldGatePassHeader."No. Series","No. Series") THEN BEGIN
+        GatePassHeader := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Gate Pass Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Gate Pass Nos.", OldGatePassHeader."No. Series", GatePassHeader."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Gate Pass Nos.");
-            NoSeriesMgt.SetSeries("No.");
-            Rec :=GatePassHeader;
+            NoSeriesMgt.SetSeries(GatePassHeader."No.");
+            Rec := GatePassHeader;
             EXIT(TRUE);
-          END;
         END;
     end;
 }

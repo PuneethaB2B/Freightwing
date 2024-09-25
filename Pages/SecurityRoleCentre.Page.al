@@ -7,57 +7,58 @@ page 50097 "Security Role Centre"
     {
         area(rolecenter)
         {
-            group()
+            group(fw)
             {
-                part(; 9073)
+                part(Page; 9073)
                 {
                 }
-                part(; 9175)
+                part(Page1; 9175)
                 {
                 }
             }
-            group()
+            group(fw1)
             {
-                part(; 762)
+                part(Page3; 762)
                 {
                     Visible = false;
                 }
-                part(; 762)
+                part(Page4; 762)
                 {
                     Visible = false;
                 }
-                part(; 770)
+                part(Page5; 770)
                 {
                     Visible = false;
                 }
-                part(; 770)
+                part(Page6; 770)
                 {
                     Visible = false;
                 }
-                part(; 760)
+                part(Page7; 760)
                 {
                     Visible = false;
                 }
-                part(; 681)
+                part(Page8; 681)
                 {
                     Visible = false;
                 }
-                part(; 9150)
+                part(Page9; 9150)
                 {
                     Visible = false;
                 }
-                part(; 9151)
+                part(Page10; 9151)
                 {
                     Visible = false;
                 }
-                part(; 675)
+                part(Page11; 675)
                 {
                     Visible = false;
                 }
-                part(; 9152)
+                part(Page12; 9152)
                 {
                     Visible = false;
-                }
+
+
                 systempart(; MyNotes)
                 {
                 }

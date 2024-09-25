@@ -1,7 +1,7 @@
 page 50157 "Import Charges Master"
 {
     PageType = List;
-    SourceTable = Table50007;
+    SourceTable = 50007;
 
     layout
     {
@@ -9,25 +9,25 @@ page 50157 "Import Charges Master"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("G/L Account"; "G/L Account")
+                field("G/L Account"; Rec."G/L Account")
                 {
                 }
-                field("VAT Bus. Posting Group"; "VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                 }
-                field("Import Charge"; "Import Charge")
+                field("Import Charge"; Rec."Import Charge")
                 {
                 }
-                field(Currency; Currency)
+                field(Currency; Rec.Currency)
                 {
                 }
             }
@@ -51,7 +51,7 @@ page 50157 "Import Charges Master"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50151;
-                    RunPageLink = Freight Charge Code=FIELD(Code);
+                    RunPageLink = "Freight Charge Code" = FIELD(Code);
                     Visible = false;
 
                     trigger OnAction()

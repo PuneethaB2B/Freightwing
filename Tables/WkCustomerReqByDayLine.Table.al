@@ -38,7 +38,7 @@ table 50078 "Wk. Customer Req. By Day Line"
 
     keys
     {
-        key(Key1;"Weekly No.","Customer No.","Planned Date")
+        key(Key1; "Weekly No.", "Customer No.", "Planned Date")
         {
             Clustered = true;
         }

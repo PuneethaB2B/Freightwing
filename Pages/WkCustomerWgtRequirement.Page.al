@@ -2,7 +2,7 @@ page 50061 "Wk. Customer Wgt. Requirement"
 {
     Caption = 'Weekly Customer Weight  Requirement';
     PageType = Card;
-    SourceTable = Table50047;
+    SourceTable = 50047;
 
     layout
     {
@@ -10,50 +10,50 @@ page 50061 "Wk. Customer Wgt. Requirement"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Destination Name"; "Destination Name")
+                field("Destination Name"; Rec."Destination Name")
                 {
                 }
-                field("Start Date"; "Start Date")
+                field("Start Date"; Rec."Start Date")
                 {
                 }
-                field("End Date"; "End Date")
-                {
-                    Style = Strong;
-                    StyleExpr = TRUE;
-                }
-                field("Start Day"; "Start Day")
+                field("End Date"; Rec."End Date")
                 {
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("End Day"; "End Day")
+                field("Start Day"; Rec."Start Day")
                 {
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("Week No."; "Week No.")
+                field("End Day"; Rec."End Day")
                 {
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field(Year; Year)
+                field("Week No."; Rec."Week No.")
                 {
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field(Description; Description)
+                field(Year; Rec.Year)
+                {
+                    Style = Strong;
+                    StyleExpr = TRUE;
+                }
+                field(Description; Rec.Description)
                 {
                 }
             }
-            part(; 50062)
+            part(Page; 50062)
             {
-                SubPageLink = Weekly No.=FIELD(No.);
+                SubPageLink = "Weekly No." = FIELD("No.");
             }
         }
     }

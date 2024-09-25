@@ -2,7 +2,7 @@ page 50134 "Goods Receipt Notify Parties"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = Table50049;
+    SourceTable = 50049;
 
     layout
     {
@@ -10,13 +10,13 @@ page 50134 "Goods Receipt Notify Parties"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                 }
             }
@@ -41,7 +41,7 @@ page 50134 "Goods Receipt Notify Parties"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record "112";
+                        SalesInvHeader: Record 112;
                     begin
                         GoodReceiptNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(GoodReceiptNotifyParty);
@@ -53,6 +53,6 @@ page 50134 "Goods Receipt Notify Parties"
     }
 
     var
-        GoodReceiptNotifyParty: Record "50049";
+        GoodReceiptNotifyParty: Record 50049;
 }
 

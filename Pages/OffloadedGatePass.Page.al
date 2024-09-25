@@ -3,7 +3,7 @@ page 50111 "Offloaded Gate Pass"
     CardPageID = "Offloaded Gate Pass Form";
     Editable = false;
     PageType = List;
-    SourceTable = Table50071;
+    SourceTable = 50071;
 
     layout
     {
@@ -11,19 +11,19 @@ page 50111 "Offloaded Gate Pass"
         {
             repeater(Group)
             {
-                field(No; No)
+                field(No; Rec.No)
                 {
                 }
-                field("Gate Pass No"; "Gate Pass No")
+                field("Gate Pass No"; Rec."Gate Pass No")
                 {
                 }
-                field("Created By"; "Created By")
+                field("Created By"; Rec."Created By")
                 {
                 }
-                field("Created On"; "Created On")
+                field("Created On"; Rec."Created On")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
             }
@@ -39,7 +39,7 @@ page 50111 "Offloaded Gate Pass"
 
                 trigger OnAction()
                 begin
-                    Process;
+                    Rec.Process;
                     MESSAGE('Processed');
                     CurrPage.CLOSE;
                 end;

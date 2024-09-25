@@ -2,7 +2,7 @@ page 50004 "Get Vendor Invoice Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table25;
+    SourceTable = 25;
 
     layout
     {
@@ -10,31 +10,31 @@ page 50004 "Get Vendor Invoice Lines"
         {
             repeater(Group)
             {
-                field("Document Type"; "Document Type")
+                field("Document Type"; Rec."Document Type")
                 {
                 }
-                field("Document No."; "Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                 }
-                field("External Document No."; "External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Vendor No."; "Vendor No.")
+                field("Vendor No."; Rec."Vendor No.")
                 {
                 }
-                field("Amount (LCY)"; "Amount (LCY)")
+                field("Amount (LCY)"; Rec."Amount (LCY)")
                 {
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                 }
-                field("Remaining Amount"; "Remaining Amount")
+                field("Remaining Amount"; Rec."Remaining Amount")
                 {
                 }
-                field(Open; Open)
+                field(Open; Rec.Open)
                 {
                 }
             }
@@ -58,21 +58,21 @@ page 50004 "Get Vendor Invoice Lines"
     end;
 
     var
-        PurchInvHeader: Record "122";
-        TempVendorLedgerEntry: Record "25" temporary;
-        [InDataSet]
+        PurchInvHeader: Record 122;
+        TempVendorLedgerEntry: Record 25 temporary;
+
         "Document No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        VendorLedgerEntry: Record "25";
+        VendorLedgerEntry: Record 25;
     begin
         TempVendorLedgerEntry.RESET;
         TempVendorLedgerEntry.COPYFILTERS(Rec);
-        TempVendorLedgerEntry.SETRANGE("Document No.", "Document No.");
+        TempVendorLedgerEntry.SETRANGE("Document No.", Rec."Document No.");
         IF NOT TempVendorLedgerEntry.FINDFIRST THEN BEGIN
             VendorLedgerEntry.COPYFILTERS(Rec);
-            VendorLedgerEntry.SETRANGE("Document No.", "Document No.");
+            VendorLedgerEntry.SETRANGE("Document No.", Rec."Document No.");
             VendorLedgerEntry.SETFILTER("Remaining Amount", '<>0');
             // VendorLedgerEntry.SETFILTER("Qty. Rcd. Not Invoiced",'<>0');
             IF VendorLedgerEntry.FINDFIRST THEN BEGIN
@@ -80,7 +80,7 @@ page 50004 "Get Vendor Invoice Lines"
                 TempVendorLedgerEntry.INSERT;
             END;
         END;
-        IF "Entry No." = TempVendorLedgerEntry."Entry No." THEN
+        IF Rec."Entry No." = TempVendorLedgerEntry."Entry No." THEN
             EXIT(TRUE);
     end;
 

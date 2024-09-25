@@ -58,26 +58,24 @@ table 50072 "MAWB Invoice Notify Party"
         MAWBInvoiceNotifyParty: Record 50072;
         BookingSheetHeader: Record 50053;
     begin
-        WITH MAWBInvoiceNotifyParty DO BEGIN
-          COPY(Rec);
-          ReportSelections.SETRANGE(Usage,ReportSelections.Usage::"MAWB Invoice");
-          ReportSelections.SETFILTER("Report ID",'<>0');
-          ReportSelections.FIND('-');
-          REPEAT
-           IF NOT CONFIRM(Text001,FALSE,"Notify-Party Name") THEN
-             EXIT;
+        MAWBInvoiceNotifyParty.COPY(Rec);
+        ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"MAWB Invoice");
+        ReportSelections.SETFILTER("Report ID", '<>0');
+        ReportSelections.FIND('-');
+        REPEAT
+            IF NOT CONFIRM(Text001, FALSE, MAWBInvoiceNotifyParty."Notify-Party Name") THEN
+                EXIT;
             IF NOT SendAsEmail THEN BEGIN
-              REPORT.RUNMODAL(ReportSelections."Report ID",ShowRequestForm,FALSE,MAWBInvoiceNotifyParty)
-            END ELSE  BEGIN
-            REPEAT
-              SendReport(ReportSelections."Report ID",MAWBInvoiceNotifyParty);
-            UNTIL MAWBInvoiceNotifyParty.NEXT=0;
+                REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, MAWBInvoiceNotifyParty)
+            END ELSE BEGIN
+                REPEAT
+                    SendReport(ReportSelections."Report ID", MAWBInvoiceNotifyParty);
+                UNTIL MAWBInvoiceNotifyParty.NEXT = 0;
             END;
-          UNTIL ReportSelections.NEXT = 0;
-        END;
+        UNTIL ReportSelections.NEXT = 0;
     end;
 
-    local procedure SendReport(ReportId: Integer;var MAWBInvoiceNotifyParty: Record 50072)
+    local procedure SendReport(ReportId: Integer; var MAWBInvoiceNotifyParty: Record 50072)
     var
         DocumentMailing: Codeunit 50013;
         FileManagement: Codeunit 419;

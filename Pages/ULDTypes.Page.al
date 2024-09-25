@@ -2,7 +2,7 @@ page 50060 "ULD Types"
 {
     CardPageID = "ULD Type";
     PageType = List;
-    SourceTable = Table50031;
+    SourceTable = 50031;
 
     layout
     {
@@ -10,10 +10,10 @@ page 50060 "ULD Types"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

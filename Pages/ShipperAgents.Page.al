@@ -1,7 +1,7 @@
 page 50019 "Shipper Agents"
 {
     PageType = List;
-    SourceTable = Table50011;
+    SourceTable = 50011;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50019 "Shipper Agents"
         {
             repeater(Group)
             {
-                field("Agent Code"; "Agent Code")
+                field("Agent Code"; Rec."Agent Code")
                 {
                 }
-                field("Agent Name"; "Agent Name")
+                field("Agent Name"; Rec."Agent Name")
                 {
                 }
             }

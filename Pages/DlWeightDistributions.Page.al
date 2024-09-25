@@ -4,7 +4,7 @@ page 50055 "Dl. Weight Distributions"
     CardPageID = "Dl. Weight Distribution";
     PageType = List;
     ShowFilter = false;
-    SourceTable = Table50040;
+    SourceTable = 50040;
 
     layout
     {
@@ -12,16 +12,16 @@ page 50055 "Dl. Weight Distributions"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Distribution Date"; "Distribution Date")
+                field("Distribution Date"; Rec."Distribution Date")
                 {
                 }
-                field("Day of Week"; "Day of Week")
+                field("Day of Week"; Rec."Day of Week")
                 {
                 }
-                field("Created By"; "Created By")
+                field("Created By"; Rec."Created By")
                 {
                     Editable = false;
                 }
@@ -42,10 +42,10 @@ page 50055 "Dl. Weight Distributions"
             ERROR('You do not have access');
 
 
-        SETFILTER("Week No", '=%1', DATE2DWY(TODAY, 2));
+        Rec.SETFILTER("Week No", '=%1', DATE2DWY(TODAY, 2));
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

@@ -1,7 +1,7 @@
 page 50125 "Shipper Consignees"
 {
     PageType = List;
-    SourceTable = Table50066;
+    SourceTable = 50066;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50125 "Shipper Consignees"
         {
             repeater(Group)
             {
-                field("Consignee No."; "Consignee No.")
+                field("Consignee No."; Rec."Consignee No.")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
             }

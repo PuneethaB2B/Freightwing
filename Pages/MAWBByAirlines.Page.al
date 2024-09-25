@@ -2,7 +2,7 @@ page 50049 "MAWB By Airlines"
 {
     CardPageID = "MAWB By Airline";
     PageType = List;
-    SourceTable = Table50038;
+    SourceTable = 50038;
 
     layout
     {
@@ -10,10 +10,10 @@ page 50049 "MAWB By Airlines"
         {
             repeater(General)
             {
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Airline Name"; "Airline Name")
+                field("Airline Name"; Rec."Airline Name")
                 {
                 }
             }
@@ -34,6 +34,6 @@ page 50049 "MAWB By Airlines"
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

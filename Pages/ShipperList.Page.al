@@ -3,7 +3,7 @@ page 50018 "Shipper List"
     CardPageID = "Shipper Card";
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
-    SourceTable = Table18;
+    SourceTable = 18;
 
     layout
     {
@@ -11,43 +11,43 @@ page 50018 "Shipper List"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field("Customer Type"; "Customer Type")
+                field("Customer Type"; Rec."Customer Type")
                 {
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                 }
-                field("Phone No."; "Phone No.")
+                field("Phone No."; Rec."Phone No.")
                 {
                 }
-                field("Country/Region Code"; "Country/Region Code")
+                field("Country/Region Code"; Rec."Country/Region Code")
                 {
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                 }
-                field(County; County)
+                field(County; Rec.County)
                 {
                 }
-                field("E-Mail"; "E-Mail")
+                field("E-Mail"; Rec."E-Mail")
                 {
                 }
-                field("Home Page"; "Home Page")
+                field("Home Page"; Rec."Home Page")
                 {
                 }
-                field("Contact Person"; "Contact Person")
+                field("Contact Person"; Rec."Contact Person")
                 {
                 }
             }
@@ -71,7 +71,7 @@ page 50018 "Shipper List"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50019;
-                    RunPageLink = Shipper Code=FIELD(No.);
+                    RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin
@@ -91,7 +91,7 @@ page 50018 "Shipper List"
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
                     RunObject = Page 50021;
-                                    RunPageLink = Shipper Code=FIELD(No.);
+                    RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin
@@ -111,7 +111,7 @@ page 50018 "Shipper List"
                     PromotedCategory = Category6;
                     PromotedIsBig = true;
                     RunObject = Page 50123;
-                                    RunPageLink = Shipper Code=FIELD(No.);
+                    RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin
@@ -131,7 +131,7 @@ page 50018 "Shipper List"
                     PromotedCategory = Category7;
                     PromotedIsBig = true;
                     RunObject = Page 50124;
-                                    RunPageLink = Shipper Code=FIELD(No.);
+                    RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin
@@ -151,7 +151,7 @@ page 50018 "Shipper List"
                     PromotedCategory = Category8;
                     PromotedIsBig = true;
                     RunObject = Page 50125;
-                                    RunPageLink = Shipper Code=FIELD(No.);
+                    RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
                     begin

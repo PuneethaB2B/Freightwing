@@ -4,7 +4,7 @@ page 50067 "Released Gate Pass Subform"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = ListPart;
-    SourceTable = Table50069;
+    SourceTable = 50069;
 
     layout
     {
@@ -12,29 +12,29 @@ page 50067 "Released Gate Pass Subform"
         {
             repeater(Group)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     Editable = true;
                 }
-                field("ULD No."; "ULD No.")
+                field("ULD No."; Rec."ULD No.")
                 {
                 }
-                field("HAWB No"; "HAWB No")
+                field("HAWB No"; Rec."HAWB No")
                 {
                 }
-                field("Certificate Of Origin"; "Certificate Of Origin")
-                {
-                    Editable = false;
-                }
-                field("Custom Entry No"; "Custom Entry No")
+                field("Certificate Of Origin"; Rec."Certificate Of Origin")
                 {
                     Editable = false;
                 }
-                field("Phyto Certificate"; "Phyto Certificate")
+                field("Custom Entry No"; Rec."Custom Entry No")
                 {
                     Editable = false;
                 }
-                field(Remarks; Remarks)
+                field("Phyto Certificate"; Rec."Phyto Certificate")
+                {
+                    Editable = false;
+                }
+                field(Remarks; Rec.Remarks)
                 {
                 }
             }
@@ -72,8 +72,8 @@ page 50067 "Released Gate Pass Subform"
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
                     RunObject = Page 50093;
-                    RunPageLink = Booking Sheet No=FIELD(Gate-Pass No.),
-                                  Weight Allocated=FIELD(Item No.);
+                    RunPageLink = "Booking Sheet No" = FIELD("Gate-Pass No."),
+                                  "Weight Allocated" = FIELD("Item No.");
 
                     trigger OnAction()
                     begin
@@ -84,10 +84,10 @@ page 50067 "Released Gate Pass Subform"
         }
     }
 
-    
+
     procedure GetLoadingSheet()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Export.-Get Loading Sheet",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Export.-Get Loading Sheet", Rec);
     end;
 }
 

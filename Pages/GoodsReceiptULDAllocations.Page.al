@@ -1,7 +1,7 @@
 page 50135 "Goods Receipt ULD Allocations"
 {
     PageType = List;
-    SourceTable = Table50046;
+    SourceTable = 50046;
 
     layout
     {
@@ -9,21 +9,21 @@ page 50135 "Goods Receipt ULD Allocations"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Visible = false;
                 }
-                field("ULD Type Code"; "ULD Type Code")
+                field("ULD Type Code"; Rec."ULD Type Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     Editable = false;
                 }
-                field("FWL Docket Weight"; "FWL Docket Weight")
+                field("FWL Docket Weight"; Rec."FWL Docket Weight")
                 {
                 }
-                field(Remarks; Remarks)
+                field(Remarks; Rec.Remarks)
                 {
                 }
             }

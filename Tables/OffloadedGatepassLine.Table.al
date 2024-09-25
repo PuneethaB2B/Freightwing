@@ -109,55 +109,55 @@ table 50065 "Offloaded Gatepass Line"
         }
         field(20; "Loading Sheet No."; Code[20])
         {
-            TableRelation = "Loading Sheet Header"."No." WHERE (Status=FILTER(Closed));
+            TableRelation = "Loading Sheet Header"."No." WHERE(Status = FILTER(Closed));
         }
         field(21; "HAWB No"; Code[50])
         {
-            TableRelation = "HAWB Line"."HAWB No." WHERE ("MAWB No."=FIELD("MAWB No."));
+            TableRelation = "HAWB Line"."HAWB No." WHERE("MAWB No." = FIELD("MAWB No."));
         }
-        field(23;"Certificate Of Origin";Code[20])
+        field(23; "Certificate Of Origin"; Code[20])
         {
             Description = 'Certificate of Origin';
         }
-        field(29;"Custom Entry No";Code[50])
+        field(29; "Custom Entry No"; Code[50])
         {
         }
-        field(30;"Phyto Certificate";Code[50])
+        field(30; "Phyto Certificate"; Code[50])
         {
         }
-        field(31;Remarks;Text[250])
+        field(31; Remarks; Text[250])
         {
         }
-        field(32;Offloaded;Boolean)
+        field(32; Offloaded; Boolean)
         {
         }
-        field(33;"Shipper Name";Text[30])
+        field(33; "Shipper Name"; Text[30])
         {
         }
-        field(34;"Offloaded Boxes";Decimal)
+        field(34; "Offloaded Boxes"; Decimal)
         {
         }
-        field(35;"Offloaded Weight";Decimal)
+        field(35; "Offloaded Weight"; Decimal)
         {
 
             trigger OnValidate()
             begin
-                Diffrence:="Loaded Weight"-"Offloaded Weight"
+                Diffrence := "Loaded Weight" - "Offloaded Weight"
             end;
         }
-        field(36;Diffrence;Decimal)
+        field(36; Diffrence; Decimal)
         {
         }
-        field(37;"Loaded Weight";Decimal)
+        field(37; "Loaded Weight"; Decimal)
         {
         }
-        field(39;"Boxes Diff";Decimal)
+        field(39; "Boxes Diff"; Decimal)
         {
         }
-        field(40;"Ship With Same AWB";Boolean)
+        field(40; "Ship With Same AWB"; Boolean)
         {
         }
-        field(41;No;Code[30])
+        field(41; No; Code[30])
         {
             TableRelation = "Offloaded Gatepass Header".No;
         }
@@ -165,7 +165,7 @@ table 50065 "Offloaded Gatepass Line"
 
     keys
     {
-        key(Key1;"Gate-Pass No.",No,"Line No.")
+        key(Key1; "Gate-Pass No.", No, "Line No.")
         {
             Clustered = true;
         }
@@ -182,7 +182,7 @@ table 50065 "Offloaded Gatepass Line"
 
     trigger OnInsert()
     begin
-        "Line No."+=1000;
+        "Line No." += 1000;
     end;
 
     var

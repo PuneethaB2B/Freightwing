@@ -2,7 +2,7 @@ page 50142 "Received Booking Sheet Consign"
 {
     Caption = 'Booking Sheet Consignee Allocations';
     PageType = List;
-    SourceTable = Table50056;
+    SourceTable = 50056;
 
     layout
     {
@@ -10,24 +10,24 @@ page 50142 "Received Booking Sheet Consign"
         {
             repeater(Group)
             {
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("HAWB No."; "HAWB No.")
-                {
-                    Visible = false;
-                }
-                field("Gross Weight"; "Gross Weight")
-                {
-                }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                     Visible = false;
                 }
-                field(Quantity; Quantity)
+                field("Gross Weight"; Rec."Gross Weight")
+                {
+                }
+                field("Chargeable Weight"; Rec."Chargeable Weight")
+                {
+                    Visible = false;
+                }
+                field(Quantity; Rec.Quantity)
                 {
                     Visible = false;
                 }
@@ -46,20 +46,20 @@ page 50142 "Received Booking Sheet Consign"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 RunObject = Page 50075;
-                RunPageLink = Booking Sheet No=FIELD(Booking Sheet No.),
-                              Shipper Code=FIELD(Shipper Code),
-                              Airline Code=FIELD(Airline Code),
-                              Source Airport=FIELD(Source Airport),
-                              Destination Airport=FIELD(Destination Airport),
-                              MAWB No=FIELD(MAWB No.),
-                              Consignee Code=FIELD(Consignee Code);
+                RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
+                              "Shipper Code" = FIELD("Shipper Code"),
+                              "Airline Code" = FIELD("Airline Code"),
+                              "Source Airport" = FIELD("Source Airport"),
+                              "Destination Airport" = FIELD("Destination Airport"),
+                              "MAWB No" = FIELD("MAWB No."),
+                              "Consignee Code" = FIELD("Consignee Code");
             }
             action("Print Pre Alert")
             {
 
                 trigger OnAction()
                 begin
-                    REPORT.RUN(50060,TRUE,TRUE,Rec);
+                    REPORT.RUN(50060, TRUE, TRUE, Rec);
                 end;
             }
         }

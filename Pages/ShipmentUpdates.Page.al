@@ -2,7 +2,7 @@ page 50015 "Shipment Updates"
 {
     CardPageID = "Shipment Update Header";
     PageType = List;
-    SourceTable = Table50030;
+    SourceTable = 50030;
 
     layout
     {
@@ -10,26 +10,26 @@ page 50015 "Shipment Updates"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Caption = 'Pre-Alert  No.';
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("Scheduled Date"; "Scheduled Date")
+                field("Scheduled Date"; Rec."Scheduled Date")
                 {
                 }
-                field("Scheduled Time"; "Scheduled Time")
+                field("Scheduled Time"; Rec."Scheduled Time")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                 }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                 }
             }

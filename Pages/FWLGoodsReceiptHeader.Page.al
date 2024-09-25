@@ -1,7 +1,7 @@
 page 50009 "FWL Goods Receipt Header"
 {
     InsertAllowed = false;
-    SourceTable = Table50030;
+    SourceTable = 50030;
 
     layout
     {
@@ -9,101 +9,101 @@ page 50009 "FWL Goods Receipt Header"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     Caption = 'Weight';
                     Editable = true;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field(VIA; VIA)
+                field(VIA; Rec.VIA)
                 {
                 }
-                field("Country of Origin"; "Country of Origin")
+                field("Country of Origin"; Rec."Country of Origin")
                 {
                 }
-                field("Country of Discharge"; "Country of Discharge")
+                field("Country of Discharge"; Rec."Country of Discharge")
                 {
                 }
-                field("Scheduled Date"; "Scheduled Date")
+                field("Scheduled Date"; Rec."Scheduled Date")
                 {
                 }
-                field("Scheduled Time"; "Scheduled Time")
+                field("Scheduled Time"; Rec."Scheduled Time")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
-                field("Mode of Payment"; "Mode of Payment")
+                field("Mode of Payment"; Rec."Mode of Payment")
                 {
                 }
-                field("IDF No"; "IDF No")
+                field("IDF No"; Rec."IDF No")
                 {
                 }
-                field("CIF Value"; "CIF Value")
+                field("CIF Value"; Rec."CIF Value")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
-                {
-                    Editable = false;
-                }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                     Editable = false;
                 }
-                field("Arrival Date FWL"; "Arrival Date FWL")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                     Editable = false;
                 }
-                field("Arrival Time FWL"; "Arrival Time FWL")
+                field("Arrival Date FWL"; Rec."Arrival Date FWL")
                 {
                     Editable = false;
                 }
-                field("Delivery Date"; "Delivery Date")
+                field("Arrival Time FWL"; Rec."Arrival Time FWL")
+                {
+                    Editable = false;
+                }
+                field("Delivery Date"; Rec."Delivery Date")
                 {
                 }
-                field("Delivery Time"; "Delivery Time")
+                field("Delivery Time"; Rec."Delivery Time")
                 {
                 }
             }
-            part(; 50154)
+            part(Page; 50154)
             {
-                SubPageLink = Pre Alert No=FIELD(No.);
+                SubPageLink = "Pre Alert No" = FIELD("No.");
             }
         }
     }
@@ -125,8 +125,8 @@ page 50009 "FWL Goods Receipt Header"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50032;
-                    RunPageLink = Manifest No=FIELD(Flight Code),
-                                  Delivery Agent=FIELD(Country of Discharge);
+                    RunPageLink = "Manifest No" = FIELD("Flight Code"),
+                                  "Delivery Agent" = FIELD("Country of Discharge");
 
                     trigger OnAction()
                     begin
@@ -146,17 +146,14 @@ page 50009 "FWL Goods Receipt Header"
                     begin
                         //TESTFIELD("Actual Arrival Date");
                         //TESTFIELD("Actual Arrival Time");
-                        IF FORMAT("Delivery Date") = '' THEN
-                        BEGIN
-                          "Delivery Date":= TODAY;
+                        IF FORMAT(Rec."Delivery Date") = '' THEN BEGIN
+                            Rec."Delivery Date" := TODAY;
                         END;
-                        IF FORMAT("Delivery Time") = '' THEN
-                        BEGIN
-                          "Delivery Time":=TIME;
+                        IF FORMAT(Rec."Delivery Time") = '' THEN BEGIN
+                            Rec."Delivery Time" := TIME;
                         END;
-                        IF CONFIRM(Text001) THEN
-                        BEGIN
-                         Status:=Status::Delivered;
+                        IF CONFIRM(Text001) THEN BEGIN
+                            Rec.Status := Rec.Status::Delivered;
                         END;
                     end;
                 }

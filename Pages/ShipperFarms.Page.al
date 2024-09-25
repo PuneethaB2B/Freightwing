@@ -1,7 +1,7 @@
 page 50021 "Shipper Farms"
 {
     PageType = List;
-    SourceTable = Table50014;
+    SourceTable = 50014;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50021 "Shipper Farms"
         {
             repeater(Group)
             {
-                field("Farm Code"; "Farm Code")
+                field("Farm Code"; Rec."Farm Code")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

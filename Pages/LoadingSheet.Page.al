@@ -2,8 +2,8 @@ page 50080 "Loading Sheet"
 {
     PageType = Card;
     RefreshOnActivate = true;
-    SourceTable = Table50060;
-    SourceTableView = WHERE(Shipped = FILTER(No));
+    SourceTable = 50060;
+    SourceTableView = WHERE(Shipped = FILTER(false));
 
     layout
     {
@@ -11,56 +11,56 @@ page 50080 "Loading Sheet"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Importance = Promoted;
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Loading Date"; "Loading Date")
+                field("Loading Date"; Rec."Loading Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                     Importance = Promoted;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     Caption = 'GRN MAWB No.';
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                     Editable = true;
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                     Editable = true;
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                     Editable = true;
                 }
-                field("Loading Sheet MAWB No"; "Loading Sheet MAWB No")
+                field("Loading Sheet MAWB No"; Rec."Loading Sheet MAWB No")
                 {
                     Editable = false;
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
             }
-            part(; 50081)
+            part(Page; 50081)
             {
-                SubPageLink = Loading Sheet No.=FIELD(No.);
+                SubPageLink = "Loading Sheet No." = FIELD("No.");
             }
         }
     }
@@ -69,7 +69,7 @@ page 50080 "Loading Sheet"
     {
         area(processing)
         {
-            group()
+            group(FW)
             {
                 action(Post)
                 {
@@ -84,7 +84,7 @@ page 50080 "Loading Sheet"
                     trigger OnAction()
                     begin
                         LoadingSheetLine.RESET;
-                        LoadingSheetLine.SETRANGE("Loading Sheet No.", "No.");
+                        LoadingSheetLine.SETRANGE("Loading Sheet No.", Rec."No.");
                         IF LoadingSheetLine.FINDSET THEN
                             REPEAT
                                 LoadingSheetLine.CALCFIELDS("FWL Docket Weight");
@@ -92,9 +92,9 @@ page 50080 "Loading Sheet"
                                 LoadingSheetLine.TESTFIELD("FWL Docket Weight");
                             UNTIL LoadingSheetLine.NEXT = 0;
 
-                        TESTFIELD(Status, Status::Submitted);
+                        Rec.TESTFIELD(Status, Rec.Status::Submitted);
                         LoadingSheetLine.RESET;
-                        LoadingSheetLine.SETRANGE(LoadingSheetLine."Loading Sheet No.", "No.");
+                        LoadingSheetLine.SETRANGE(LoadingSheetLine."Loading Sheet No.", Rec."No.");
                         IF LoadingSheetLine.FINDSET THEN BEGIN
                             REPEAT
                                 LoadingSheetUlDAlloc.RESET;
@@ -108,9 +108,9 @@ page 50080 "Loading Sheet"
                                 END;
                             UNTIL LoadingSheetLine.NEXT = 0;
                         END;
-                        PostLoadingSheet;
-                        "Posted Time" := TIME;
-                        MODIFY;
+                        Rec.PostLoadingSheet;
+                        Rec."Posted Time" := TIME;
+                        Rec.MODIFY;
                         CurrPage.CLOSE;
                     end;
                 }
@@ -127,7 +127,7 @@ page 50080 "Loading Sheet"
                     trigger OnAction()
                     begin
                         LoadingSheetHeader.RESET;
-                        LoadingSheetHeader.SETRANGE("No.", "No.");
+                        LoadingSheetHeader.SETRANGE("No.", Rec."No.");
                         IF LoadingSheetHeader.FINDFIRST THEN
                             REPORT.RUNMODAL(50021, TRUE, FALSE, LoadingSheetHeader);
                     end;
@@ -140,7 +140,7 @@ page 50080 "Loading Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -155,9 +155,9 @@ page 50080 "Loading Sheet"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status, Status::Open);
+                        Rec.TESTFIELD(Status, Rec.Status::Open);
                         LoadingSheetLine.RESET;
-                        LoadingSheetLine.SETRANGE("Loading Sheet No.", "No.");
+                        LoadingSheetLine.SETRANGE("Loading Sheet No.", Rec."No.");
                         IF LoadingSheetLine.FINDSET THEN
                             REPEAT
                                 LoadingSheetLine.CALCFIELDS("FWL Docket Weight");
@@ -170,13 +170,13 @@ page 50080 "Loading Sheet"
 
                         IF CONFIRM('Do you want to Submit Loading Sheet For Posting?') THEN BEGIN
                             LoadingSheetUlDAlloc.RESET;
-                            LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."Loading Sheet No.", "No.");
+                            LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."Loading Sheet No.", Rec."No.");
                             LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."FWL Docket No.", '');
                             IF LoadingSheetUlDAlloc.FINDFIRST THEN BEGIN
                                 ERROR('The ULD %1 %2 Does not have a Docket No.', LoadingSheetUlDAlloc."ULD Type Code", LoadingSheetUlDAlloc."ULD No.");
                             END ELSE BEGIN
                                 LoadingSheetLine.RESET;
-                                LoadingSheetLine.SETRANGE(LoadingSheetLine."Loading Sheet No.", "No.");
+                                LoadingSheetLine.SETRANGE(LoadingSheetLine."Loading Sheet No.", Rec."No.");
                                 IF LoadingSheetLine.FINDSET THEN BEGIN
                                     REPEAT
                                         SubmitLS(LoadingSheetLine);
@@ -185,8 +185,8 @@ page 50080 "Loading Sheet"
                                     GRNHeader.Loaded := TRUE;
                                     GRNHeader.MODIFY;
                                 END;
-                                Status := Status::Submitted;
-                                MODIFY;
+                                Rec.Status := Rec.Status::Submitted;
+                                Rec.MODIFY;
                                 MESSAGE('Loading Sheet Submitted');
                                 CurrPage.CLOSE;
                             END;
@@ -209,16 +209,16 @@ page 50080 "Loading Sheet"
     }
 
     var
-        LoadingSheetHeader: Record "50060";
-        LoadingSheetLine: Record "50061";
-        LoadingSheetUlDAlloc: Record "50063";
-        GRn: Record "50051";
-        GRNHeader: Record "50052";
+        LoadingSheetHeader: Record 50060;
+        LoadingSheetLine: Record 50061;
+        LoadingSheetUlDAlloc: Record 50063;
+        GRn: Record 50051;
+        GRNHeader: Record 50052;
 
-    local procedure SubmitLS(LoadingSheetLine1: Record "50061")
+    local procedure SubmitLS(LoadingSheetLine1: Record 50061)
     var
-        GRNLine: Record "50051";
-        LoadingSheetLine2: Record "50061";
+        GRNLine: Record 50051;
+        LoadingSheetLine2: Record 50061;
         Shippedqty: Decimal;
     begin
         GRNLine.RESET;

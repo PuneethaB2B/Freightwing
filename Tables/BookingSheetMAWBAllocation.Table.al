@@ -15,8 +15,8 @@ table 50070 "Booking Sheet MAWB Allocation"
         }
         field(4; "MAWB No"; Code[50])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE ("Airline Code"=FIELD("Airline Code"),
-                                                             Prepared=FILTER(false));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE("Airline Code" = FIELD("Airline Code"),
+                                                             Prepared = FILTER(false));
         }
         field(5; "Weight Allocated"; Decimal)
         {

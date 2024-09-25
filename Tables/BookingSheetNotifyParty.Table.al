@@ -13,59 +13,59 @@ table 50057 "Booking Sheet Notify Party"
         }
         field(3; "Notify-Party No."; Code[20])
         {
-            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE ("Shipper Code"=FIELD("Shipper Code"));
+            TableRelation = "Shipper Notify Party"."Notify-Party No." WHERE("Shipper Code" = FIELD("Shipper Code"));
 
             trigger OnValidate()
             begin
                 ShipperNotifyParty.RESET;
-                ShipperNotifyParty.SETRANGE(ShipperNotifyParty."Shipper Code","Shipper Code");
-                ShipperNotifyParty.SETRANGE(ShipperNotifyParty."Notify-Party No.","Notify-Party No.");
+                ShipperNotifyParty.SETRANGE(ShipperNotifyParty."Shipper Code", "Shipper Code");
+                ShipperNotifyParty.SETRANGE(ShipperNotifyParty."Notify-Party No.", "Notify-Party No.");
                 IF ShipperNotifyParty.FINDFIRST THEN BEGIN
-                  "Notify-Party Name":=ShipperNotifyParty."Notify-Party Name";
+                    "Notify-Party Name" := ShipperNotifyParty."Notify-Party Name";
                 END;
             end;
         }
-        field(4;"Notify-Party Name";Text[50])
+        field(4; "Notify-Party Name"; Text[50])
         {
         }
-        field(5;"Item No.";Code[20])
+        field(5; "Item No."; Code[20])
         {
             TableRelation = "Shipper Item"."Item No.";
         }
-        field(7;"Shipper Code";Code[20])
+        field(7; "Shipper Code"; Code[20])
         {
             TableRelation = Customer;
         }
-        field(8;"Flight Code";Code[20])
+        field(8; "Flight Code"; Code[20])
         {
             TableRelation = Flight."Flight No.";
         }
-        field(9;"Source Code";Code[20])
+        field(9; "Source Code"; Code[20])
         {
         }
-        field(10;"Source Type";Option)
+        field(10; "Source Type"; Option)
         {
             OptionMembers = " ",Shipper,Consignee,Operations;
         }
-        field(11;"Line No";Integer)
+        field(11; "Line No"; Integer)
         {
             AutoIncrement = true;
             Editable = false;
         }
-        field(12;"Source Airport";Code[50])
+        field(12; "Source Airport"; Code[50])
         {
         }
-        field(13;"Destination Airport";Code[50])
+        field(13; "Destination Airport"; Code[50])
         {
         }
-        field(14;FAM;Code[50])
+        field(14; FAM; Code[50])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Booking Sheet No.","Airline Code","Flight Code","Shipper Code","Item No.","Notify-Party No.","Line No","Source Airport","Destination Airport",FAM)
+        key(Key1; "Booking Sheet No.", "Airline Code", "Flight Code", "Shipper Code", "Item No.", "Notify-Party No.", "Line No", "Source Airport", "Destination Airport", FAM)
         {
             Clustered = true;
         }
@@ -79,13 +79,13 @@ table 50057 "Booking Sheet Notify Party"
         ShipperNotifyParty: Record 50067;
         Text001: Label 'Do you want to notify: %1';
 
-    
-    procedure EmailRecords(ShowRequestForm: Boolean;var BookingSheetNotifyParty: Record 50057)
+
+    procedure EmailRecords(ShowRequestForm: Boolean; var BookingSheetNotifyParty: Record 50057)
     begin
-        SendRecords(ShowRequestForm,TRUE,BookingSheetNotifyParty);
+        SendRecords(ShowRequestForm, TRUE, BookingSheetNotifyParty);
     end;
 
-    local procedure SendRecords(ShowRequestForm: Boolean;SendAsEmail: Boolean;var BookingSheetNotifyParty: Record 50057)
+    local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean; var BookingSheetNotifyParty: Record 50057)
     var
         ReportSelections: Record 77;
         BookingSheetHeader: Record 50053;
@@ -108,51 +108,51 @@ table 50057 "Booking Sheet Notify Party"
             END;
           UNTIL ReportSelections.NEXT = 0;
         END;*/
-        
-        IF BookingSheetNotifyParty."Source Type"<>BookingSheetNotifyParty."Source Type"::Operations THEN BEGIN
-          ReportSelections.SETRANGE(Usage,ReportSelections.Usage::"Booking Sheet");
-          ReportSelections.SETFILTER("Report ID",'<>0');
-          ReportSelections.FIND('-');
-          REPEAT
-           IF NOT SendAsEmail THEN BEGIN
-             REPORT.RUNMODAL(ReportSelections."Report ID",ShowRequestForm,FALSE,BookingSheetNotifyParty)
-           END ELSE  BEGIN
-             SendReport(ReportSelections."Report ID",BookingSheetNotifyParty);
-           END;
-          UNTIL ReportSelections.NEXT = 0;
-         END ELSE BEGIN
-          BookingSheetNotifyParty.RESET;
-          BookingSheetNotifyParty.SETRANGE(BookingSheetNotifyParty."Booking Sheet No.","Booking Sheet No.");
-          IF BookingSheetNotifyParty.FINDSET THEN BEGIN
-            ReportSelections.SETRANGE(Usage,ReportSelections.Usage::"Booking Sheet ULD Allocation");
-            ReportSelections.SETFILTER("Report ID",'<>0');
+
+        IF BookingSheetNotifyParty."Source Type" <> BookingSheetNotifyParty."Source Type"::Operations THEN BEGIN
+            ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"Booking Sheet");
+            ReportSelections.SETFILTER("Report ID", '<>0');
             ReportSelections.FIND('-');
             REPEAT
-             BookingSheetULDAllocation.RESET;
-             BookingSheetULDAllocation.SETRANGE(BookingSheetULDAllocation."Booking Sheet No.",BookingSheetNotifyParty."Booking Sheet No.");
-             IF BookingSheetULDAllocation.FIND('+') THEN BEGIN
-                //IF NOT SendAsEmail THEN BEGIN
-                  REPORT.RUNMODAL(ReportSelections."Report ID",ShowRequestForm,FALSE,BookingSheetULDAllocation)
-               // END ELSE  BEGIN
-                 // SendReport(ReportSelections."Report ID",BookingSheetNotifyParty);
-               // END;
-              END;
+                IF NOT SendAsEmail THEN BEGIN
+                    REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, BookingSheetNotifyParty)
+                END ELSE BEGIN
+                    SendReport(ReportSelections."Report ID", BookingSheetNotifyParty);
+                END;
             UNTIL ReportSelections.NEXT = 0;
-          END;
-         END;
+        END ELSE BEGIN
+            BookingSheetNotifyParty.RESET;
+            BookingSheetNotifyParty.SETRANGE(BookingSheetNotifyParty."Booking Sheet No.", "Booking Sheet No.");
+            IF BookingSheetNotifyParty.FINDSET THEN BEGIN
+                ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"Booking Sheet ULD Allocation");
+                ReportSelections.SETFILTER("Report ID", '<>0');
+                ReportSelections.FIND('-');
+                REPEAT
+                    BookingSheetULDAllocation.RESET;
+                    BookingSheetULDAllocation.SETRANGE(BookingSheetULDAllocation."Booking Sheet No.", BookingSheetNotifyParty."Booking Sheet No.");
+                    IF BookingSheetULDAllocation.FIND('+') THEN BEGIN
+                        //IF NOT SendAsEmail THEN BEGIN
+                        REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, BookingSheetULDAllocation)
+                        // END ELSE  BEGIN
+                        // SendReport(ReportSelections."Report ID",BookingSheetNotifyParty);
+                        // END;
+                    END;
+                UNTIL ReportSelections.NEXT = 0;
+            END;
+        END;
 
     end;
 
-    local procedure SendReport(ReportId: Integer;var BookingSheetNotifyParty: Record 50057)
+    local procedure SendReport(ReportId: Integer; var BookingSheetNotifyParty: Record 50057)
     var
         DocumentMailing: Codeunit 50013;
         FileManagement: Codeunit 419;
         ServerAttachmentFilePath: Text[250];
     begin
-        ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'),1,250);
-        REPORT.SAVEASPDF(ReportId,ServerAttachmentFilePath,BookingSheetNotifyParty);
+        ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, BookingSheetNotifyParty);
         COMMIT;
-        DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty,ServerAttachmentFilePath);
+        DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, ServerAttachmentFilePath);
     end;
 }
 

@@ -1,7 +1,7 @@
 page 50154 "Pre Alert Subform"
 {
     PageType = List;
-    SourceTable = Table50023;
+    SourceTable = 50023;
 
     layout
     {
@@ -9,29 +9,29 @@ page 50154 "Pre Alert Subform"
         {
             repeater(Group)
             {
-                field("Pre Alert No"; "Pre Alert No")
+                field("Pre Alert No"; Rec."Pre Alert No")
                 {
                     Editable = false;
                 }
-                field("HAWB No"; "HAWB No")
+                field("HAWB No"; Rec."HAWB No")
                 {
                 }
-                field("HAWB Date"; "HAWB Date")
+                field("HAWB Date"; Rec."HAWB Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("C&F Agent"; "C&F Agent")
+                field("C&F Agent"; Rec."C&F Agent")
                 {
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                 }
-                field("Barcode No"; "Barcode No")
+                field("Barcode No"; Rec."Barcode No")
                 {
                 }
             }

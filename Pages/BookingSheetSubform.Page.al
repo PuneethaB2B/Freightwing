@@ -18,7 +18,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Editable = false;
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                     Visible = false;
                 }
@@ -36,71 +36,71 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = 'Received Weight';
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     ShowMandatory = true;
                     Visible = false;
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                     Editable = false;
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                     Editable = false;
                 }
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                     Editable = false;
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field("ETD Time"; "Departure Time")
+                field("ETD Time"; Rec."Departure Time")
                 {
                 }
-                field("Estimated Arrival Time"; "Estimated Arrival Time")
+                field("Estimated Arrival Time"; Rec."Estimated Arrival Time")
                 {
                     Caption = 'ETA Time';
                 }
-                field("Shipment Delivery Time"; "Shipment Delivery Time")
+                field("Shipment Delivery Time"; Rec."Shipment Delivery Time")
                 {
                 }
-                field("Cut-off Time"; "Cut-off Time")
+                field("Cut-off Time"; Rec."Cut-off Time")
                 {
                     Editable = false;
                 }
-                field("Clearing Agent Code"; "Clearing Agent Code")
+                field("Clearing Agent Code"; Rec."Clearing Agent Code")
                 {
                 }
-                field("Type of Delivery"; "Type of Delivery")
+                field("Type of Delivery"; Rec."Type of Delivery")
                 {
                 }
-                field("Connecting Airline"; "Connecting Airline")
+                field("Connecting Airline"; Rec."Connecting Airline")
                 {
                 }
-                field("Connecting Flight No."; "Connecting Flight No.")
+                field("Connecting Flight No."; Rec."Connecting Flight No.")
                 {
                 }
-                field("Connecting Flight Date"; "Connecting Flight Date")
+                field("Connecting Flight Date"; Rec."Connecting Flight Date")
                 {
                 }
-                field("Connected Flight ETD"; "Connected Flight ETD")
+                field("Connected Flight ETD"; Rec."Connected Flight ETD")
                 {
                 }
-                field("Connected Flight ETA"; "Connected Flight ETA")
+                field("Connected Flight ETA"; Rec."Connected Flight ETA")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
-                field("Send Email"; "Send Email")
+                field("Send Email"; Rec."Send Email")
                 {
                 }
             }
@@ -115,7 +115,7 @@ page 50069 "Booking Sheet Subform"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-                action(GetDistributionLines)
+                action(GetDistributionLines1)
                 {
                     AccessByPermission = TableData 120 = R;
                     Caption = '&Get Distribution Lines';
@@ -226,7 +226,7 @@ page 50069 "Booking Sheet Subform"
 
                     trigger OnAction()
                     begin
-                        IF "Shipper Code" <> 'C000041' THEN
+                        IF Rec."Shipper Code" <> 'C000041' THEN
                             ERROR('');
                     end;
                 }
@@ -234,7 +234,7 @@ page 50069 "Booking Sheet Subform"
         }
     }
 
-    [Scope('Internal')]
+    //[Scope('Internal')]
     procedure GetDistributionLines()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get Distribution", Rec);

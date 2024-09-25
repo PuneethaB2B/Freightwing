@@ -1,7 +1,7 @@
 page 50056 "Dl. Weight Dist. Notify Party"
 {
     PageType = List;
-    SourceTable = Table50045;
+    SourceTable = 50045;
 
     layout
     {
@@ -9,16 +9,16 @@ page 50056 "Dl. Weight Dist. Notify Party"
         {
             repeater(Group)
             {
-                field("Freight Charge Code"; "Freight Charge Code")
+                field("Freight Charge Code"; Rec."Freight Charge Code")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field("From Weight"; "From Weight")
+                field("From Weight"; Rec."From Weight")
                 {
                 }
-                field("To Weight"; "To Weight")
+                field("To Weight"; Rec."To Weight")
                 {
                 }
             }

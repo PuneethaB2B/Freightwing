@@ -4,7 +4,7 @@ page 50120 "MAWB Invoice Charges"
     Editable = true;
     InsertAllowed = false;
     PageType = List;
-    SourceTable = Table50073;
+    SourceTable = 50073;
 
     layout
     {
@@ -12,35 +12,35 @@ page 50120 "MAWB Invoice Charges"
         {
             repeater(Group)
             {
-                field("Freight Charge Code"; "Freight Charge Code")
+                field("Freight Charge Code"; Rec."Freight Charge Code")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit Of Measure"; "Unit Of Measure")
-                {
-                    Visible = false;
-                }
-                field("Chargeable Weight"; "Chargeable Weight")
-                {
-                    Editable = false;
-                }
-                field("Contract Rate"; "Contract Rate")
-                {
-                    Editable = false;
-                }
-                field("Agreed Rate"; "Agreed Rate")
-                {
-                }
-                field("Cost Amount"; "Cost Amount")
+                field("Unit Of Measure"; Rec."Unit Of Measure")
                 {
                     Visible = false;
                 }
-                field("Currency Code"; "Currency Code")
+                field("Chargeable Weight"; Rec."Chargeable Weight")
+                {
+                    Editable = false;
+                }
+                field("Contract Rate"; Rec."Contract Rate")
+                {
+                    Editable = false;
+                }
+                field("Agreed Rate"; Rec."Agreed Rate")
                 {
                 }
-                field("Base Unit Price"; "Base Unit Price")
+                field("Cost Amount"; Rec."Cost Amount")
+                {
+                    Visible = false;
+                }
+                field("Currency Code"; Rec."Currency Code")
+                {
+                }
+                field("Base Unit Price"; Rec."Base Unit Price")
                 {
                 }
             }

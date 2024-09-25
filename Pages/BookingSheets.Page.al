@@ -18,7 +18,7 @@ page 50071 "Booking Sheets"
                 field("Booking Date"; Rec."Booking Date")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
                 field("Shipper Code"; Rec."Shipper Code")
@@ -27,17 +27,17 @@ page 50071 "Booking Sheets"
                 field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
-                field("Submitted on"; "Submitted on")
+                field("Submitted on"; Rec."Submitted on")
                 {
                 }
-                field("Submitted at"; "Submitted at")
+                field("Submitted at"; Rec."Submitted at")
                 {
                 }
             }

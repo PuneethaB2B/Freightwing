@@ -3,7 +3,7 @@ page 50100 MAWBs
     Caption = 'Master Airway Bills';
     CardPageID = MAWB;
     PageType = List;
-    SourceTable = Table50077;
+    SourceTable = 50077;
     SourceTableView = WHERE(Status = FILTER(<> Archived));
 
     layout
@@ -12,29 +12,29 @@ page 50100 MAWBs
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
-                field("Agent Code"; "Agent Code")
+                field("Agent Code"; Rec."Agent Code")
                 {
                 }
-                field("Preparation Date"; "Preparation Date")
+                field("Preparation Date"; Rec."Preparation Date")
                 {
                 }
-                field("Has Houses"; "Has Houses")
+                field("Has Houses"; Rec."Has Houses")
                 {
                     Editable = false;
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field("Processed By"; "Processed By")
+                field("Processed By"; Rec."Processed By")
                 {
                 }
             }

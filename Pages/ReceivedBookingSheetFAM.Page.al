@@ -1,7 +1,7 @@
 page 50144 "Received Booking Sheet FAM"
 {
     PageType = List;
-    SourceTable = Table50058;
+    SourceTable = 50058;
 
     layout
     {
@@ -9,14 +9,14 @@ page 50144 "Received Booking Sheet FAM"
         {
             repeater(Group)
             {
-                field("Farm Code"; "Farm Code")
+                field("Farm Code"; Rec."Farm Code")
                 {
                 }
-                field("FAM Name"; "FAM Name")
+                field("FAM Name"; Rec."FAM Name")
                 {
                     Editable = false;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                 }
             }

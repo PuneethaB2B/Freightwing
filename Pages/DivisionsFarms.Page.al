@@ -1,7 +1,7 @@
 page 50020 "Divisions/Farms"
 {
     PageType = List;
-    SourceTable = Table50013;
+    SourceTable = 50013;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50020 "Divisions/Farms"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

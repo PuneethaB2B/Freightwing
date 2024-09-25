@@ -2,7 +2,7 @@ page 50109 "Get HAWB Item Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50056;
+    SourceTable = 50056;
 
     layout
     {
@@ -10,25 +10,25 @@ page 50109 "Get HAWB Item Lines"
         {
             repeater(Group)
             {
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                     HideValue = "HAWB No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
             }
@@ -52,28 +52,28 @@ page 50109 "Get HAWB Item Lines"
     end;
 
     var
-        HAWBHeader: Record "50075";
-        TempBSHAWBAllocationLine: Record "50056" temporary;
-        ExportGetHAWBItem: Codeunit "50007";
-        [InDataSet]
+        HAWBHeader: Record 50075;
+        TempBSHAWBAllocationLine: Record 50056 temporary;
+        ExportGetHAWBItem: Codeunit 50007;
+
         "HAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        BookingSheetHAWBAllocation: Record "50056";
+        BookingSheetHAWBAllocation: Record 50056;
     begin
         TempBSHAWBAllocationLine.RESET;
         TempBSHAWBAllocationLine.COPYFILTERS(Rec);
-        TempBSHAWBAllocationLine.SETRANGE("MAWB No.", "MAWB No.");
+        TempBSHAWBAllocationLine.SETRANGE("MAWB No.", Rec."MAWB No.");
         IF NOT TempBSHAWBAllocationLine.FINDFIRST THEN BEGIN
             BookingSheetHAWBAllocation.COPYFILTERS(Rec);
-            BookingSheetHAWBAllocation.SETRANGE("MAWB No.", "MAWB No.");
+            BookingSheetHAWBAllocation.SETRANGE("MAWB No.", Rec."MAWB No.");
             IF BookingSheetHAWBAllocation.FINDFIRST THEN BEGIN
                 TempBSHAWBAllocationLine := BookingSheetHAWBAllocation;
                 TempBSHAWBAllocationLine.INSERT;
             END;
         END;
-        IF "HAWB No." = TempBSHAWBAllocationLine."HAWB No." THEN
+        IF Rec."HAWB No." = TempBSHAWBAllocationLine."HAWB No." THEN
             EXIT(TRUE);
     end;
 
@@ -84,7 +84,7 @@ page 50109 "Get HAWB Item Lines"
     end;
 
 
-    procedure SetHAWBHeader(var HAWBHeader2: Record "50075")
+    procedure SetHAWBHeader(var HAWBHeader2: Record 50075)
     begin
         HAWBHeader.GET(HAWBHeader2."No.");
     end;

@@ -3,8 +3,8 @@ page 50082 "FWL Cargo Receipts"
     CardPageID = "FWL Goods Receipt Header";
     InsertAllowed = false;
     PageType = List;
-    SourceTable = Table50030;
-    SourceTableView = WHERE(Status = CONST(FWL Receipt));
+    SourceTable = 50030;
+    SourceTableView = WHERE(Status = CONST("FWL Receipt"));
 
     layout
     {
@@ -12,55 +12,55 @@ page 50082 "FWL Cargo Receipts"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = true;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     Caption = 'Weight';
                     Editable = true;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                 }
-                field("CIF Value"; "CIF Value")
+                field("CIF Value"; Rec."CIF Value")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                 }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                 }
             }

@@ -2,7 +2,7 @@ page 50122 "MAWB Invoice Notify Parties"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = Table50072;
+    SourceTable = 50072;
 
     layout
     {
@@ -10,25 +10,25 @@ page 50122 "MAWB Invoice Notify Parties"
         {
             repeater(Group)
             {
-                field("Invoice No."; "Invoice No.")
+                field("Invoice No."; Rec."Invoice No.")
                 {
                 }
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                 }
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                 }
-                field("Source Type"; "Source Type")
+                field("Source Type"; Rec."Source Type")
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
             }
@@ -53,7 +53,7 @@ page 50122 "MAWB Invoice Notify Parties"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record "112";
+                        SalesInvHeader: Record 112;
                     begin
                         MAWBInvoiceNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(MAWBInvoiceNotifyParty);
@@ -65,6 +65,6 @@ page 50122 "MAWB Invoice Notify Parties"
     }
 
     var
-        MAWBInvoiceNotifyParty: Record "50072";
+        MAWBInvoiceNotifyParty: Record 50072;
 }
 

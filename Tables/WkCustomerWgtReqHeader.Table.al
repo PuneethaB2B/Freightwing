@@ -19,57 +19,57 @@ table 50047 "Wk. Customer Wgt. Req. Header"
             trigger OnValidate()
             begin
                 Country.GET("Destination Code");
-                "Destination Name":=Country.Name;
+                "Destination Name" := Country.Name;
             end;
         }
-        field(3;"Start Date";Date)
+        field(3; "Start Date"; Date)
         {
 
             trigger OnValidate()
             begin
-                "Start Day":= FORMAT("Start Date",0,'<Weekday Text>');
-                "End Date":= CALCDATE('+6D',"Start Date");
-                "End Day":=FORMAT("End Date",0,'<Weekday Text>');
+                "Start Day" := FORMAT("Start Date", 0, '<Weekday Text>');
+                "End Date" := CALCDATE('+6D', "Start Date");
+                "End Day" := FORMAT("End Date", 0, '<Weekday Text>');
                 "Week No." := DATE2DWY("Start Date", 2);
-                Year:=FORMAT("Start Date",0,'<Year4>');
-                Description:=Text001+' '+FORMAT("Week No.") +'/'+ FORMAT(Year);
+                Year := FORMAT("Start Date", 0, '<Year4>');
+                Description := Text001 + ' ' + FORMAT("Week No.") + '/' + FORMAT(Year);
             end;
         }
-        field(4;"End Date";Date)
+        field(4; "End Date"; Date)
         {
             Editable = false;
         }
-        field(14;"No. Series";Code[20])
+        field(14; "No. Series"; Code[20])
         {
         }
-        field(15;"Week No.";Integer)
-        {
-            Editable = false;
-        }
-        field(16;"Start Day";Text[30])
+        field(15; "Week No."; Integer)
         {
             Editable = false;
         }
-        field(17;"End Day";Text[30])
+        field(16; "Start Day"; Text[30])
         {
             Editable = false;
         }
-        field(18;Year;Code[10])
+        field(17; "End Day"; Text[30])
         {
             Editable = false;
         }
-        field(19;"Destination Name";Text[30])
+        field(18; Year; Code[10])
         {
             Editable = false;
         }
-        field(20;Description;Text[50])
+        field(19; "Destination Name"; Text[30])
+        {
+            Editable = false;
+        }
+        field(20; Description; Text[50])
         {
         }
     }
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
@@ -82,17 +82,17 @@ table 50047 "Wk. Customer Wgt. Req. Header"
     trigger OnDelete()
     begin
         WeeklyCustWgtReqLine.RESET;
-        WeeklyCustWgtReqLine.SETRANGE("Weekly No.","No.");
+        WeeklyCustWgtReqLine.SETRANGE("Weekly No.", "No.");
         IF WeeklyCustWgtReqLine.FINDSET THEN
-          ERROR(Text002,"No.");
+            ERROR(Text002, "No.");
     end;
 
     trigger OnInsert()
     begin
         ImportExportSetup.GET;
-        IF "No."='' THEN
-          NoSeriesMgt.InitSeries(ImportExportSetup."Weekly Analysis Nos.",xRec."No. Series",0D,"No.","No. Series");
-        
+        IF "No." = '' THEN
+            NoSeriesMgt.InitSeries(ImportExportSetup."Weekly Analysis Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+
         /*
         Cust.RESET;
         Cust.SETFILTER("Customer Type",'%1|%2',Cust."Customer Type"::"Third Party",Cust."Customer Type"::Group);

@@ -20,7 +20,7 @@ page 50065 "Booking Sheet MAWB Allocation"
                 field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("Weight Allocated"; "Weight Allocated")
+                field("Weight Allocated"; Rec."Weight Allocated")
                 {
                     Editable = false;
                 }
@@ -28,21 +28,21 @@ page 50065 "Booking Sheet MAWB Allocation"
                 {
                     Visible = false;
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                     Visible = false;
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                     Visible = false;
                 }
-                field(BSA; BSA)
+                field(BSA; Rec.BSA)
                 {
                 }
-                field(Houses; Houses)
+                field(Houses; Rec.Houses)
                 {
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                 }
             }

@@ -202,171 +202,170 @@ table 50077 "MAWB Header 2"
         }
         field(11; "Destination Airport"; Code[20])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Destination Code"));
 
             trigger OnValidate()
             begin
                 Airport.RESET;
-                Airport.SETRANGE(Airport.Code,"Destination Airport");
+                Airport.SETRANGE(Airport.Code, "Destination Airport");
                 IF Airport.FINDFIRST THEN BEGIN
-                  "Destination Code":=Airport."Country Code";
+                    "Destination Code" := Airport."Country Code";
                 END;
             end;
         }
-        field(13;"Flight Code";Code[20])
+        field(13; "Flight Code"; Code[20])
         {
-            TableRelation = Flight."Flight No." WHERE ("Airline Code"=FIELD("Airline Code"));
+            TableRelation = Flight."Flight No." WHERE("Airline Code" = FIELD("Airline Code"));
         }
-        field(14;"Destination Code";Code[20])
+        field(14; "Destination Code"; Code[20])
         {
             TableRelation = "Country/Region";
 
             trigger OnValidate()
             begin
-                IF "Destination Code"<> xRec."Destination Code" THEN
-                  "Destination Airport":='';
+                IF "Destination Code" <> xRec."Destination Code" THEN
+                    "Destination Airport" := '';
             end;
         }
-        field(15;"Preparation Date";Date)
+        field(15; "Preparation Date"; Date)
         {
         }
-        field(16;Consolidated;Boolean)
+        field(16; Consolidated; Boolean)
         {
         }
-        field(17;"Agent Code";Code[20])
+        field(17; "Agent Code"; Code[20])
         {
             TableRelation = "Shipping Agent".Code;
         }
-        field(22;Comments;Text[250])
+        field(22; Comments; Text[250])
         {
         }
-        field(23;Status;Option)
+        field(23; Status; Option)
         {
             OptionCaption = 'New,Pending,Submitted,Archived';
             OptionMembers = New,Pending,Submitted,Archived;
         }
-        field(24;"Phyto Certificate";Code[50])
+        field(24; "Phyto Certificate"; Code[50])
         {
 
             trigger OnValidate()
             begin
-                TESTFIELD("Has Houses",FALSE);
+                TESTFIELD("Has Houses", FALSE);
             end;
         }
-        field(26;"Chargeable Weight";Decimal)
+        field(26; "Chargeable Weight"; Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."Chargeable Weight" WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("MAWB Line"."Chargeable Weight" WHERE("MAWB No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(27;"Booked Weight";Decimal)
+        field(27; "Booked Weight"; Decimal)
         {
-            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("Good Receipt Line"."Booked Weight" WHERE("MAWB No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(28;"Euro Form No";Code[50])
+        field(28; "Euro Form No"; Code[50])
         {
 
             trigger OnValidate()
             begin
-                TESTFIELD("Has Houses",FALSE);
-                IF ((STRPOS('GSP',"Euro Form No")=0) AND (STRPOS('EURO',"Euro Form No")=0)) AND (STRPOS('COO',"Euro Form No")=0) AND (STRPOS('COMESA',"Euro Form No")=0) AND (STRPOS('EAC',"Euro Form No")=0) AND (STRPOS('N/A',"Euro Form No")=0) THEN
-                BEGIN
-                  MESSAGE('Please fill a Certificate Type');
+                TESTFIELD("Has Houses", FALSE);
+                IF ((STRPOS('GSP', "Euro Form No") = 0) AND (STRPOS('EURO', "Euro Form No") = 0)) AND (STRPOS('COO', "Euro Form No") = 0) AND (STRPOS('COMESA', "Euro Form No") = 0) AND (STRPOS('EAC', "Euro Form No") = 0) AND (STRPOS('N/A', "Euro Form No") = 0) THEN BEGIN
+                    MESSAGE('Please fill a Certificate Type');
                 END;
             end;
         }
-        field(29;"Custom Entry No";Code[50])
+        field(29; "Custom Entry No"; Code[50])
         {
 
             trigger OnValidate()
             begin
-                TESTFIELD("Has Houses",FALSE);
+                TESTFIELD("Has Houses", FALSE);
             end;
         }
-        field(30;"Has Houses";Boolean)
+        field(30; "Has Houses"; Boolean)
         {
         }
-        field(31;"Prepared By";Code[50])
+        field(31; "Prepared By"; Code[50])
         {
         }
-        field(32;"Processed By";Code[50])
+        field(32; "Processed By"; Code[50])
         {
         }
-        field(33;"Last Edited By";Code[50])
+        field(33; "Last Edited By"; Code[50])
         {
         }
-        field(34;"Last Edited On";Date)
+        field(34; "Last Edited On"; Date)
         {
         }
-        field(35;"Gate Pass Prepared";Boolean)
+        field(35; "Gate Pass Prepared"; Boolean)
         {
             Editable = true;
         }
-        field(36;"Commercial Invoice No";Code[50])
+        field(36; "Commercial Invoice No"; Code[50])
         {
         }
-        field(37;Currency;Code[10])
+        field(37; Currency; Code[10])
         {
         }
-        field(38;Amount;Decimal)
+        field(38; Amount; Decimal)
         {
         }
-        field(39;"Invoice Status";Option)
+        field(39; "Invoice Status"; Option)
         {
             OptionCaption = 'New,Submitted,Posted';
             OptionMembers = New,Submitted,Posted;
         }
-        field(40;"Processed At";Time)
+        field(40; "Processed At"; Time)
         {
         }
-        field(41;Closed;Boolean)
+        field(41; Closed; Boolean)
         {
         }
-        field(42;"Total Weight";Decimal)
+        field(42; "Total Weight"; Decimal)
         {
             FieldClass = Normal;
         }
-        field(43;"House Nos";Integer)
+        field(43; "House Nos"; Integer)
         {
         }
-        field(44;"Item Description";Text[250])
+        field(44; "Item Description"; Text[250])
         {
         }
-        field(45;"Total Quantity";Decimal)
+        field(45; "Total Quantity"; Decimal)
         {
-            CalcFormula = Sum("MAWB Line".Quantity WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("MAWB Line".Quantity WHERE("MAWB No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(50000;"Purchase Posting Date";Date)
+        field(50000; "Purchase Posting Date"; Date)
         {
         }
-        field(50001;"Total Docket Weight";Decimal)
+        field(50001; "Total Docket Weight"; Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."FWL Docket Weight" WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("MAWB Line"."FWL Docket Weight" WHERE("MAWB No." = FIELD("No.")));
             FieldClass = FlowField;
         }
-        field(50002;"Total Gross Weight";Decimal)
+        field(50002; "Total Gross Weight"; Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."FWL Gross Weight" WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("MAWB Line"."FWL Gross Weight" WHERE("MAWB No." = FIELD("No.")));
             FieldClass = FlowField;
         }
-        field(50003;"Total Volume Metric Weight";Decimal)
+        field(50003; "Total Volume Metric Weight"; Decimal)
         {
-            CalcFormula = Sum("MAWB Line"."Volume Metric Weight" WHERE ("MAWB No."=FIELD("No.")));
+            CalcFormula = Sum("MAWB Line"."Volume Metric Weight" WHERE("MAWB No." = FIELD("No.")));
             FieldClass = FlowField;
         }
     }
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
-        key(Key2;"Shipper Code")
+        key(Key2; "Shipper Code")
         {
         }
     }
@@ -377,28 +376,28 @@ table 50077 "MAWB Header 2"
 
     trigger OnDelete()
     begin
-        MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.","No.");
+        MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.", "No.");
         IF MAWBReceipt.FINDFIRST THEN BEGIN
-          MAWBReceipt.Prepared:=FALSE;
-          MAWBReceipt.MODIFY;
+            MAWBReceipt.Prepared := FALSE;
+            MAWBReceipt.MODIFY;
         END;
         MAWBLine.RESET;
-        MAWBLine.SETRANGE(MAWBLine."MAWB No.","No.");
+        MAWBLine.SETRANGE(MAWBLine."MAWB No.", "No.");
         IF MAWBLine.FIND('-') THEN
-        MAWBLine.DELETEALL;
+            MAWBLine.DELETEALL;
 
         ClearCalculatedCharges("No.");
     end;
 
     trigger OnInsert()
     begin
-        "Preparation Date":=TODAY;
+        "Preparation Date" := TODAY;
     end;
 
     trigger OnModify()
     begin
-        "Last Edited By":=USERID;
-        "Last Edited On":= TODAY;
+        "Last Edited By" := USERID;
+        "Last Edited On" := TODAY;
     end;
 
     var
@@ -473,42 +472,42 @@ table 50077 "MAWB Header 2"
         LoadingSheetLine: Record 50061;
         gRecCustomer: Record 18;
 
-    
+
     procedure DistinctRec()
     begin
-        TotalQuantity:=0;
-        ShipperCount:=0;
+        TotalQuantity := 0;
+        ShipperCount := 0;
         HAWBLine.SETCURRENTKEY("Shipper Code");
         IF HAWBLine.FINDSET THEN BEGIN
             REPEAT
 
 
-              //MESSAGE('%1',HAWBLine.Quantity);
+                //MESSAGE('%1',HAWBLine.Quantity);
 
-              IF (HAWBLine2."Shipper Code" <> HAWBLine."Shipper Code") THEN BEGIN
-                //ShipperCount := ShipperCount + 1;
-                //TotalQuantity:=TotalQuantity+HAWBLine.Quantity;
-                 //MESSAGE('%1',HAWBLine."Shipper Code");
+                IF (HAWBLine2."Shipper Code" <> HAWBLine."Shipper Code") THEN BEGIN
+                    //ShipperCount := ShipperCount + 1;
+                    //TotalQuantity:=TotalQuantity+HAWBLine.Quantity;
+                    //MESSAGE('%1',HAWBLine."Shipper Code");
 
-                HAWBLine2.SETRANGE("Shipper Code",HAWBLine."Shipper Code");
-                HAWBLine2.CALCSUMS(Quantity);
-                MESSAGE('%1',HAWBLine2.Quantity);
+                    HAWBLine2.SETRANGE("Shipper Code", HAWBLine."Shipper Code");
+                    HAWBLine2.CALCSUMS(Quantity);
+                    MESSAGE('%1', HAWBLine2.Quantity);
 
-              END;
-              //MESSAGE('%1',TotalQuantity);
+                END;
+                //MESSAGE('%1',TotalQuantity);
 
-              HAWBLine2 := HAWBLine;
-              //MESSAGE('%1',HAWBLine2.Quantity);
-             // SplitFactor:=HAWBLine.Quantity/HAWBLine2.Quantity;
-              //MESSAGE('%1',HAWBLine.Quantity);
-             // MESSAGE('%1',SplitFactor);
-            UNTIL HAWBLine.NEXT=0;
+                HAWBLine2 := HAWBLine;
+            //MESSAGE('%1',HAWBLine2.Quantity);
+            // SplitFactor:=HAWBLine.Quantity/HAWBLine2.Quantity;
+            //MESSAGE('%1',HAWBLine.Quantity);
+            // MESSAGE('%1',SplitFactor);
+            UNTIL HAWBLine.NEXT = 0;
             //MESSAGE('%1',HAWBLine.Quantity);
 
         END;
     end;
 
-    
+
     procedure CalculateMAWBCharges()
     var
         BookingSheetLine: Record 50054;
@@ -522,261 +521,252 @@ table 50077 "MAWB Header 2"
         MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Freight charge  has already been calculated';
     begin
-         //=====================Philip==========
-         MAWBLine2.RESET;
-         MAWBLine2.SETRANGE(MAWBLine2."MAWB No.","No.");
-         IF MAWBLine2.FINDSET THEN
-         BEGIN
-           TotalWeight:=0;
-           REPEAT
-             TotalWeight+=MAWBLine2."Chargeable Weight";
-           UNTIL MAWBLine2.NEXT=0;
-         END;
+        //=====================Philip==========
+        MAWBLine2.RESET;
+        MAWBLine2.SETRANGE(MAWBLine2."MAWB No.", "No.");
+        IF MAWBLine2.FINDSET THEN BEGIN
+            TotalWeight := 0;
+            REPEAT
+                TotalWeight += MAWBLine2."Chargeable Weight";
+            UNTIL MAWBLine2.NEXT = 0;
+        END;
         //
-          Tot:=TotalWeight;
-          MAWBs:=Rec;
-          BookingSheetMAWBAlloc.RESET;
-          BookingSheetMAWBAlloc.SETRANGE(BookingSheetMAWBAlloc."MAWB No","No.");
-          IF BookingSheetMAWBAlloc.FINDFIRST THEN
-          BEGIN
-          //MESSAGE('Booking Sheet %1',BookingSheetMAWBAlloc."Booking Sheet No");
+        Tot := TotalWeight;
+        MAWBs := Rec;
+        BookingSheetMAWBAlloc.RESET;
+        BookingSheetMAWBAlloc.SETRANGE(BookingSheetMAWBAlloc."MAWB No", "No.");
+        IF BookingSheetMAWBAlloc.FINDFIRST THEN BEGIN
+            //MESSAGE('Booking Sheet %1',BookingSheetMAWBAlloc."Booking Sheet No");
             BookingSheetLine.RESET;
-            BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.",BookingSheetMAWBAlloc."Booking Sheet No");
-            BookingSheetLine.SETRANGE(BookingSheetLine."Airline Code",BookingSheetMAWBAlloc."Airline Code");
-            BookingSheetLine.SETRANGE(BookingSheetLine."Flight Code",BookingSheetMAWBAlloc."Flight No");
-            BookingSheetLine.SETRANGE(BookingSheetLine."Source Airport",BookingSheetMAWBAlloc."Source Airport");
-            BookingSheetLine.SETRANGE(BookingSheetLine."Destination Airport",BookingSheetMAWBAlloc."Destination Airport");
+            BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", BookingSheetMAWBAlloc."Booking Sheet No");
+            BookingSheetLine.SETRANGE(BookingSheetLine."Airline Code", BookingSheetMAWBAlloc."Airline Code");
+            BookingSheetLine.SETRANGE(BookingSheetLine."Flight Code", BookingSheetMAWBAlloc."Flight No");
+            BookingSheetLine.SETRANGE(BookingSheetLine."Source Airport", BookingSheetMAWBAlloc."Source Airport");
+            BookingSheetLine.SETRANGE(BookingSheetLine."Destination Airport", BookingSheetMAWBAlloc."Destination Airport");
             //MESSAGE('Getting Here %1',BookingSheetMAWBAlloc."Booking Sheet No");
-            IF BookingSheetLine.FINDFIRST THEN
-            BEGIN
-            //MESSAGE('Getting Here');
-                  FreightChargeByAirline.RESET;
-                  FreightChargeByAirline.SETRANGE("Airline Code",BookingSheetLine."Airline Code");
-                  IF FreightChargeByAirline.FINDFIRST THEN BEGIN
-                    IF (BookingSheetLine."Booking Date"<FreightChargeByAirline."Effective Start Date") OR
-                       (BookingSheetLine."Booking Date">FreightChargeByAirline."Effective End Date") THEN
-                        ERROR(Text50004,BookingSheetLine.FIELDCAPTION("Booking Date"))
+            IF BookingSheetLine.FINDFIRST THEN BEGIN
+                //MESSAGE('Getting Here');
+                FreightChargeByAirline.RESET;
+                FreightChargeByAirline.SETRANGE("Airline Code", BookingSheetLine."Airline Code");
+                IF FreightChargeByAirline.FINDFIRST THEN BEGIN
+                    IF (BookingSheetLine."Booking Date" < FreightChargeByAirline."Effective Start Date") OR
+                       (BookingSheetLine."Booking Date" > FreightChargeByAirline."Effective End Date") THEN
+                        ERROR(Text50004, BookingSheetLine.FIELDCAPTION("Booking Date"))
                     ELSE BEGIN
-                      FreightChargeByFlight.RESET;
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Airline Code",BookingSheetLine."Airline Code");
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Flight Code",BookingSheetLine."Flight Code");
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Source Airport",BookingSheetLine."Source Airport");
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Destination Airport", BookingSheetLine."Destination Airport");
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Destination Code",BookingSheetLine."Destination Code");
-                      FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Source Country",BookingSheetLine."Source Code");
-                      IF FreightChargeByFlight.FINDFIRST THEN BEGIN
-                      //MESSAGE('p %1',BookingSheetLine."Booking Sheet No.");
-                        FreightChargeByItem.RESET;
-                        FreightChargeByItem.SETRANGE(FreightChargeByItem."Airline Code",BookingSheetLine."Airline Code");
-                        FreightChargeByItem.SETRANGE(FreightChargeByItem."Flight Code",BookingSheetLine."Flight Code");
-                        FreightChargeByItem.SETRANGE(FreightChargeByItem."No.",BookingSheetLine."Item No.");
-                        FreightChargeByItem.SETRANGE(FreightChargeByItem."Source Airport",BookingSheetLine."Source Airport");
-                        FreightChargeByItem.SETRANGE(FreightChargeByItem."Destination Airport",BookingSheetLine."Destination Airport");
-                        IF FreightChargeByItem.FINDFIRST THEN
-                        BEGIN
-                          FreightItemCharge.RESET;
-                          FreightItemCharge.SETRANGE(FreightItemCharge."Airline Code",BookingSheetLine."Airline Code");
-                          FreightItemCharge.SETRANGE(FreightItemCharge."Flight Code",BookingSheetLine."Flight Code");
-                          FreightItemCharge.SETRANGE(FreightItemCharge."Item No.",BookingSheetLine."Item No.");
-                          FreightItemCharge.SETRANGE(FreightItemCharge."Source Airport",BookingSheetLine."Source Airport");
-                          FreightItemCharge.SETRANGE(FreightItemCharge."Destination Airport",BookingSheetLine."Destination Airport");
-                          IF FreightItemCharge.FINDSET THEN BEGIN
-                            REPEAT
-                              CASE FreightItemCharge.Source OF
-                                FreightItemCharge.Source::System:
-                                BEGIN
-
-                                  MAWBInvoiceCharge.INIT;
-                                  MAWBInvoiceCharge."Transaction Date":=TODAY;
-                                  MAWBInvoiceCharge."MAWB No.":="No.";
-                                  MAWBInvoiceCharge."Item No.":=BookingSheetLine."Item No.";
-                                  MAWBInvoiceCharge."Freight Charge Code":=FreightItemCharge.Code;
-                                  MAWBInvoiceCharge."Line No.":=MAWBInvoiceCharge."Line No."+10000;
-                                  MAWBInvoiceCharge.Description:=FreightItemCharge.Description;
-                                  MAWBInvoiceCharge."Item No.":=BookingSheetLine."Item No.";
-                                  CostAmount:=0;
-                                  SalesAmount:=0;
-                                  VATAmount:=0;
-                                  MarginAmount:=0;
-
-                                  //================Philip
-                                  FreightItemChargeMatrix.RESET;
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Airline Code",BookingSheetLine."Airline Code");
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Flight Code",BookingSheetLine."Flight Code");
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Item No.",BookingSheetLine."Item No.");
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Freight Charge Code",FreightItemCharge.Code);
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport",FreightItemCharge."Source Airport");
-                                  FreightItemChargeMatrix.SETRANGE( FreightItemChargeMatrix."Destination Airport",FreightItemCharge."Destination Airport");
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix.Calculation,FreightItemChargeMatrix.Calculation::"Flat Rate");
-                                  IF FreightItemChargeMatrix.FINDSET THEN
-                                  BEGIN
-
+                        FreightChargeByFlight.RESET;
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Airline Code", BookingSheetLine."Airline Code");
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Flight Code", BookingSheetLine."Flight Code");
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Source Airport", BookingSheetLine."Source Airport");
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Destination Airport", BookingSheetLine."Destination Airport");
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Destination Code", BookingSheetLine."Destination Code");
+                        FreightChargeByFlight.SETRANGE(FreightChargeByFlight."Source Country", BookingSheetLine."Source Code");
+                        IF FreightChargeByFlight.FINDFIRST THEN BEGIN
+                            //MESSAGE('p %1',BookingSheetLine."Booking Sheet No.");
+                            FreightChargeByItem.RESET;
+                            FreightChargeByItem.SETRANGE(FreightChargeByItem."Airline Code", BookingSheetLine."Airline Code");
+                            FreightChargeByItem.SETRANGE(FreightChargeByItem."Flight Code", BookingSheetLine."Flight Code");
+                            FreightChargeByItem.SETRANGE(FreightChargeByItem."No.", BookingSheetLine."Item No.");
+                            FreightChargeByItem.SETRANGE(FreightChargeByItem."Source Airport", BookingSheetLine."Source Airport");
+                            FreightChargeByItem.SETRANGE(FreightChargeByItem."Destination Airport", BookingSheetLine."Destination Airport");
+                            IF FreightChargeByItem.FINDFIRST THEN BEGIN
+                                FreightItemCharge.RESET;
+                                FreightItemCharge.SETRANGE(FreightItemCharge."Airline Code", BookingSheetLine."Airline Code");
+                                FreightItemCharge.SETRANGE(FreightItemCharge."Flight Code", BookingSheetLine."Flight Code");
+                                FreightItemCharge.SETRANGE(FreightItemCharge."Item No.", BookingSheetLine."Item No.");
+                                FreightItemCharge.SETRANGE(FreightItemCharge."Source Airport", BookingSheetLine."Source Airport");
+                                FreightItemCharge.SETRANGE(FreightItemCharge."Destination Airport", BookingSheetLine."Destination Airport");
+                                IF FreightItemCharge.FINDSET THEN BEGIN
                                     REPEAT
-                                      CostAmount+=FreightItemChargeMatrix."Rate Amount";
-                                      TotalWeight:=TotalWeight-FreightItemChargeMatrix.Difference;
-                                    UNTIL FreightItemChargeMatrix.NEXT = 0;
-                                  END;
-                                  //Message('%1 Flat Rate Total Weight %2',CostAmount,TotalWeight);
+                                        CASE FreightItemCharge.Source OF
+                                            FreightItemCharge.Source::System:
+                                                BEGIN
 
-                                  FreightItemChargeMatrix.RESET;
-                                  FreightItemChargeMatrix.SETRANGE("Airline Code",BookingSheetLine."Airline Code");
-                                  FreightItemChargeMatrix.SETRANGE("Flight Code",BookingSheetLine."Flight Code");
-                                  FreightItemChargeMatrix.SETRANGE("Item No.",BookingSheetLine."Item No.");
-                                  FreightItemChargeMatrix.SETRANGE("Freight Charge Code",FreightItemCharge.Code);
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport",FreightItemCharge."Source Airport");
-                                  FreightItemChargeMatrix.SETRANGE( FreightItemChargeMatrix."Destination Airport",FreightItemCharge."Destination Airport");
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix.Calculation,FreightItemChargeMatrix.Calculation::"Kilo Rate");
-                                  IF FreightItemChargeMatrix.FINDSET THEN
-                                  BEGIN
-                                  //MESSAGE('56 Freight Item Charge %1',FreightItemChargeMatrix."Freight Charge Code");
-                                    REPEAT
-                                      IF TotalWeight>FreightItemChargeMatrix."To Weight" THEN
-                                      BEGIN
-                                      CostAmount += (FreightItemChargeMatrix."Rate Amount"*FreightItemChargeMatrix.Difference);
-                                      TotalWeight:= TotalWeight-FreightItemChargeMatrix.Difference;
-                                      //Message('%1 Kilo Rate %2 Total Weight %3 Cost Amount',FreightItemChargeMatrix."Rate Amount",TotalWeight,CostAmount);
-                                      END ELSE
-                                      BEGIN
-                                        CostAmount+=(TotalWeight*FreightItemChargeMatrix."Rate Amount");
-                                        //Message('%1 Kilo Rate %2 Total Weight %3 Cost Ammount',FreightItemChargeMatrix."Rate Amount",TotalWeight,CostAmount);
-                                      END;
-                                    UNTIL FreightItemChargeMatrix.NEXT = 0;
-                                  END;
-                                   //<=======================
-                                  FreightItemChargeMatrix.RESET;
-                                  FreightItemChargeMatrix.SETRANGE("Airline Code",BookingSheetLine."Airline Code");
-                                  FreightItemChargeMatrix.SETRANGE("Flight Code",BookingSheetLine."Flight Code");
-                                  FreightItemChargeMatrix.SETRANGE("Item No.",BookingSheetLine."Item No.");
-                                  FreightItemChargeMatrix.SETRANGE("Freight Charge Code",FreightItemCharge.Code);
-                                  FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport",FreightItemCharge."Source Airport");
-                                  FreightItemChargeMatrix.SETRANGE( FreightItemChargeMatrix."Destination Airport",FreightItemCharge."Destination Airport");
-                                  IF FreightItemChargeMatrix.FINDSET THEN
-                                  BEGIN
+                                                    MAWBInvoiceCharge.INIT;
+                                                    MAWBInvoiceCharge."Transaction Date" := TODAY;
+                                                    MAWBInvoiceCharge."MAWB No." := "No.";
+                                                    MAWBInvoiceCharge."Item No." := BookingSheetLine."Item No.";
+                                                    MAWBInvoiceCharge."Freight Charge Code" := FreightItemCharge.Code;
+                                                    MAWBInvoiceCharge."Line No." := MAWBInvoiceCharge."Line No." + 10000;
+                                                    MAWBInvoiceCharge.Description := FreightItemCharge.Description;
+                                                    MAWBInvoiceCharge."Item No." := BookingSheetLine."Item No.";
+                                                    CostAmount := 0;
+                                                    SalesAmount := 0;
+                                                    VATAmount := 0;
+                                                    MarginAmount := 0;
+
+                                                    //================Philip
+                                                    FreightItemChargeMatrix.RESET;
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Airline Code", BookingSheetLine."Airline Code");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Flight Code", BookingSheetLine."Flight Code");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Item No.", BookingSheetLine."Item No.");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Freight Charge Code", FreightItemCharge.Code);
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport", FreightItemCharge."Source Airport");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Destination Airport", FreightItemCharge."Destination Airport");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix.Calculation, FreightItemChargeMatrix.Calculation::"Flat Rate");
+                                                    IF FreightItemChargeMatrix.FINDSET THEN BEGIN
+
+                                                        REPEAT
+                                                            CostAmount += FreightItemChargeMatrix."Rate Amount";
+                                                            TotalWeight := TotalWeight - FreightItemChargeMatrix.Difference;
+                                                        UNTIL FreightItemChargeMatrix.NEXT = 0;
+                                                    END;
+                                                    //Message('%1 Flat Rate Total Weight %2',CostAmount,TotalWeight);
+
+                                                    FreightItemChargeMatrix.RESET;
+                                                    FreightItemChargeMatrix.SETRANGE("Airline Code", BookingSheetLine."Airline Code");
+                                                    FreightItemChargeMatrix.SETRANGE("Flight Code", BookingSheetLine."Flight Code");
+                                                    FreightItemChargeMatrix.SETRANGE("Item No.", BookingSheetLine."Item No.");
+                                                    FreightItemChargeMatrix.SETRANGE("Freight Charge Code", FreightItemCharge.Code);
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport", FreightItemCharge."Source Airport");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Destination Airport", FreightItemCharge."Destination Airport");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix.Calculation, FreightItemChargeMatrix.Calculation::"Kilo Rate");
+                                                    IF FreightItemChargeMatrix.FINDSET THEN BEGIN
+                                                        //MESSAGE('56 Freight Item Charge %1',FreightItemChargeMatrix."Freight Charge Code");
+                                                        REPEAT
+                                                            IF TotalWeight > FreightItemChargeMatrix."To Weight" THEN BEGIN
+                                                                CostAmount += (FreightItemChargeMatrix."Rate Amount" * FreightItemChargeMatrix.Difference);
+                                                                TotalWeight := TotalWeight - FreightItemChargeMatrix.Difference;
+                                                                //Message('%1 Kilo Rate %2 Total Weight %3 Cost Amount',FreightItemChargeMatrix."Rate Amount",TotalWeight,CostAmount);
+                                                            END ELSE BEGIN
+                                                                CostAmount += (TotalWeight * FreightItemChargeMatrix."Rate Amount");
+                                                                //Message('%1 Kilo Rate %2 Total Weight %3 Cost Ammount',FreightItemChargeMatrix."Rate Amount",TotalWeight,CostAmount);
+                                                            END;
+                                                        UNTIL FreightItemChargeMatrix.NEXT = 0;
+                                                    END;
+                                                    //<=======================
+                                                    FreightItemChargeMatrix.RESET;
+                                                    FreightItemChargeMatrix.SETRANGE("Airline Code", BookingSheetLine."Airline Code");
+                                                    FreightItemChargeMatrix.SETRANGE("Flight Code", BookingSheetLine."Flight Code");
+                                                    FreightItemChargeMatrix.SETRANGE("Item No.", BookingSheetLine."Item No.");
+                                                    FreightItemChargeMatrix.SETRANGE("Freight Charge Code", FreightItemCharge.Code);
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Source airport", FreightItemCharge."Source Airport");
+                                                    FreightItemChargeMatrix.SETRANGE(FreightItemChargeMatrix."Destination Airport", FreightItemCharge."Destination Airport");
+                                                    IF FreightItemChargeMatrix.FINDSET THEN BEGIN
 
 
-                                    MAWBInvoiceCharge."Currency Code":=FreightItemChargeMatrix."Currency Code";
+                                                        MAWBInvoiceCharge."Currency Code" := FreightItemChargeMatrix."Currency Code";
 
-                                    GeneralLedgerSetup.GET();
-                                    IF MAWBInvoiceCharge."Currency Code"='' THEN
-                                     MAWBInvoiceCharge."Currency Code":=GeneralLedgerSetup."LCY Code" ;
-                                    //ELSE
-                                   // InvoiceCurrency:= MAWBInvoiceCharge."Currency Code";
-                                    ImportExportSetup.GET();
+                                                        GeneralLedgerSetup.GET();
+                                                        IF MAWBInvoiceCharge."Currency Code" = '' THEN
+                                                            MAWBInvoiceCharge."Currency Code" := GeneralLedgerSetup."LCY Code";
+                                                        //ELSE
+                                                        // InvoiceCurrency:= MAWBInvoiceCharge."Currency Code";
+                                                        ImportExportSetup.GET();
 
-                                    MAWBInvoiceCharge."Base Unit Price":=CostAmount;
-                                    MAWBInvoiceCharge."Cost Amount":=CostAmount;
-                                    //MarginAmount:=(FreightCharge."Margin %"*CostAmount)/100;
-                                    MAWBInvoiceCharge."Sales Amount Ex. VAT":=MAWBInvoiceCharge."Invoice Unit Price"+MarginAmount;
-                                    VATAmount:=(VATPostingSetup."VAT %"*(MAWBInvoiceCharge."Invoice Unit Price"+MarginAmount))/100;
-                                    MAWBInvoiceCharge."VAT Amount":=VATAmount;
-                                    MAWBInvoiceCharge."Sales Amount Inc. VAT":=(MAWBInvoiceCharge."Invoice Unit Price"+MarginAmount+VATAmount);
-                                    FreightCharge.GET(FreightItemCharge.Code);
-                                    MAWBInvoiceCharge."Margin %":=FreightCharge."Margin %";
-                                    MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
-                                    VATPostingSetup2.RESET;
-                                    VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Bus. Posting Group",FreightCharge."VAT Bus. Posting Group");
-                                    VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Prod. Posting Group",FreightCharge."VAT Prod. Posting Group");
-                                    IF VATPostingSetup2.FIND('-') THEN BEGIN
-                                     MAWBInvoiceCharge."VAT %":=VATPostingSetup2."VAT %";
-                                     MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."VAT %");
-                                    END;
-                                    MAWBInvoiceCharge."Chargeable Weight":=Tot;
-                                    IF Tot<> 0 THEN BEGIN
-                                    MAWBInvoiceCharge."Contract Rate":=CostAmount/Tot;
-                                    MAWBInvoiceCharge."Agreed Rate":=CostAmount/Tot;
-                                    END;
-                                    MAWBInvoiceCharge."Prepared By":=USERID;
-                                    MAWBInvoiceCharge."Prepared On":=TODAY;
-                                    //MESSAGE('%1/%2',TotalWeight,CostAmount);
-                                    MAWBInvoiceCharge.INSERT;
-                                  END;//END OF FreightItemChargeMatrix
-                                END;//END OF NEXT BEGIN OF CASE
-                             END;//END OF CASE
-                             //MESSAGE(FreightItemChargeMatrix."Freight Charge Code");
-                            UNTIL FreightItemCharge.NEXT=0;
-                          END;//END OF FreightItemCharge
-                        END;//END OF FreightChargeByItem
-                      END;// END OF FreightChargeByFlight
+                                                        MAWBInvoiceCharge."Base Unit Price" := CostAmount;
+                                                        MAWBInvoiceCharge."Cost Amount" := CostAmount;
+                                                        //MarginAmount:=(FreightCharge."Margin %"*CostAmount)/100;
+                                                        MAWBInvoiceCharge."Sales Amount Ex. VAT" := MAWBInvoiceCharge."Invoice Unit Price" + MarginAmount;
+                                                        VATAmount := (VATPostingSetup."VAT %" * (MAWBInvoiceCharge."Invoice Unit Price" + MarginAmount)) / 100;
+                                                        MAWBInvoiceCharge."VAT Amount" := VATAmount;
+                                                        MAWBInvoiceCharge."Sales Amount Inc. VAT" := (MAWBInvoiceCharge."Invoice Unit Price" + MarginAmount + VATAmount);
+                                                        FreightCharge.GET(FreightItemCharge.Code);
+                                                        MAWBInvoiceCharge."Margin %" := FreightCharge."Margin %";
+                                                        MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
+                                                        VATPostingSetup2.RESET;
+                                                        VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Bus. Posting Group", FreightCharge."VAT Bus. Posting Group");
+                                                        VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Prod. Posting Group", FreightCharge."VAT Prod. Posting Group");
+                                                        IF VATPostingSetup2.FIND('-') THEN BEGIN
+                                                            MAWBInvoiceCharge."VAT %" := VATPostingSetup2."VAT %";
+                                                            MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."VAT %");
+                                                        END;
+                                                        MAWBInvoiceCharge."Chargeable Weight" := Tot;
+                                                        IF Tot <> 0 THEN BEGIN
+                                                            MAWBInvoiceCharge."Contract Rate" := CostAmount / Tot;
+                                                            MAWBInvoiceCharge."Agreed Rate" := CostAmount / Tot;
+                                                        END;
+                                                        MAWBInvoiceCharge."Prepared By" := USERID;
+                                                        MAWBInvoiceCharge."Prepared On" := TODAY;
+                                                        //MESSAGE('%1/%2',TotalWeight,CostAmount);
+                                                        MAWBInvoiceCharge.INSERT;
+                                                    END;//END OF FreightItemChargeMatrix
+                                                END;//END OF NEXT BEGIN OF CASE
+                                        END;//END OF CASE
+                                            //MESSAGE(FreightItemChargeMatrix."Freight Charge Code");
+                                    UNTIL FreightItemCharge.NEXT = 0;
+                                END;//END OF FreightItemCharge
+                            END;//END OF FreightChargeByItem
+                        END;// END OF FreightChargeByFlight
 
 
 
                     END;//END OF BookingSheetLine
-                  END;//Booking Sheet MAWB Allocation
-                 END;//END OF FreightChargeByAirline
-          END;
+                END;//Booking Sheet MAWB Allocation
+            END;//END OF FreightChargeByAirline
+        END;
 
 
-            //=========GET DEFAULT MAWB CHARGES/KAA Fees AMOUNT==============
-         MAWBLineCharge.RESET;
-         //MAWBLineCharge.SETRANGE("MAWB No.","No.");
-         IF MAWBLineCharge.FINDSET THEN BEGIN
-          REPEAT
-          MAWBInvoiceCharge.INIT;
-          IF MAWBInvoiceCharge.FINDLAST THEN BEGIN
-            MAWBInvoiceCharge."Line No.":=MAWBInvoiceCharge."Line No."+10000;
-          END;
-          MAWBInvoiceCharge."Transaction Date":=TODAY;
-          MAWBInvoiceCharge."MAWB No.":="No.";
-          MAWBInvoiceCharge."Freight Charge Code":=MAWBLineCharge.Code;
-          MAWBInvoiceCharge.Description:=MAWBLineCharge.Description;
-          //MAWBInvoiceCharge."Item No.":=BookingSheetLine."Item No.";
-          MAWBInvoiceCharge."Currency Code":=MAWBLineCharge."Currency Code";
-          MAWBReceipt2.RESET;
-          MAWBReceipt2.SETRANGE(MAWBReceipt2."MAWB No.","No.");
-          IF MAWBReceipt2.FIND('-') THEN BEGIN
-           MAWBReceiptdate:=MAWBReceipt2."Receipt Date";
+        //=========GET DEFAULT MAWB CHARGES/KAA Fees AMOUNT==============
+        MAWBLineCharge.RESET;
+        //MAWBLineCharge.SETRANGE("MAWB No.","No.");
+        IF MAWBLineCharge.FINDSET THEN BEGIN
+            REPEAT
+                MAWBInvoiceCharge.INIT;
+                IF MAWBInvoiceCharge.FINDLAST THEN BEGIN
+                    MAWBInvoiceCharge."Line No." := MAWBInvoiceCharge."Line No." + 10000;
+                END;
+                MAWBInvoiceCharge."Transaction Date" := TODAY;
+                MAWBInvoiceCharge."MAWB No." := "No.";
+                MAWBInvoiceCharge."Freight Charge Code" := MAWBLineCharge.Code;
+                MAWBInvoiceCharge.Description := MAWBLineCharge.Description;
+                //MAWBInvoiceCharge."Item No.":=BookingSheetLine."Item No.";
+                MAWBInvoiceCharge."Currency Code" := MAWBLineCharge."Currency Code";
+                MAWBReceipt2.RESET;
+                MAWBReceipt2.SETRANGE(MAWBReceipt2."MAWB No.", "No.");
+                IF MAWBReceipt2.FIND('-') THEN BEGIN
+                    MAWBReceiptdate := MAWBReceipt2."Receipt Date";
 
-          END;
-          BookingSheetMawbAllocation.RESET;
-          BookingSheetMawbAllocation.SETRANGE(BookingSheetMawbAllocation."MAWB No","No.");
-          IF BookingSheetMawbAllocation.FINDFIRST THEN BEGIN
-          MAWBInvoiceCharge."Item No.":=BookingSheetMAWBAlloc."Item No";
-          END;
+                END;
+                BookingSheetMawbAllocation.RESET;
+                BookingSheetMawbAllocation.SETRANGE(BookingSheetMawbAllocation."MAWB No", "No.");
+                IF BookingSheetMawbAllocation.FINDFIRST THEN BEGIN
+                    MAWBInvoiceCharge."Item No." := BookingSheetMAWBAlloc."Item No";
+                END;
 
-          ImportExportSetup.GET();
-           IF MAWBLineCharge."Currency Code"<> ImportExportSetup."Invoicing Currency Code" THEN BEGIN
-              ExchangeRates.RESET;
-              ExchangeRates.SETRANGE(ExchangeRates."Currency Code",ImportExportSetup."Invoicing Currency Code");
-              ExchangeRates.SETRANGE(ExchangeRates."Relational Currency Code",MAWBLineCharge."Currency Code" );
-              ExchangeRates.SETFILTER(ExchangeRates."Starting Date",'<=%1',TODAY);
-              IF ExchangeRates.FINDFIRST THEN BEGIN
-                MAWBInvoiceCharge."Base Unit Price":=((MAWBLineCharge.Amount*ExchangeRates."Exchange Rate Amount")/(ExchangeRates."Relational Exch. Rate Amount"));
-                MAWBInvoiceCharge."Cost Amount":=((MAWBLineCharge.Amount*ExchangeRates."Exchange Rate Amount")/(ExchangeRates."Relational Exch. Rate Amount"));
-                MAWBInvoiceCharge."Currency Code":=ImportExportSetup."Invoicing Currency Code";
-              END ELSE BEGIN
-                ExchangeRates.RESET;
-                ExchangeRates.SETRANGE(ExchangeRates."Currency Code",MAWBLineCharge."Currency Code" );
-                ExchangeRates.SETRANGE(ExchangeRates."Relational Currency Code",'');
-                IF ExchangeRates.FINDFIRST THEN BEGIN
-                  ExchangeRates1.RESET;
-                  ExchangeRates1.SETRANGE(ExchangeRates1."Currency Code",ImportExportSetup."Invoicing Currency Code");
-                  ExchangeRates1.SETRANGE(ExchangeRates1."Relational Currency Code",'');
-                  IF ExchangeRates1.FINDFIRST THEN BEGIN
-                    MAWBInvoiceCharge."Base Unit Price":=(((MAWBLineCharge.Amount*ExchangeRates."Exchange Rate Amount")/(ExchangeRates."Relational Exch. Rate Amount"))*(ExchangeRates1."Relational Exch. Rate Amount"))/ExchangeRates1."Exchange Rate Amount";
-                    MAWBInvoiceCharge."Cost Amount":=(((MAWBLineCharge.Amount*ExchangeRates."Exchange Rate Amount")/(ExchangeRates."Relational Exch. Rate Amount"))*(ExchangeRates1."Relational Exch. Rate Amount"))/ExchangeRates1."Exchange Rate Amount";
-                    MAWBInvoiceCharge."Currency Code":=ImportExportSetup."Invoicing Currency Code";
-                  END;
-                  //MESSAGE('No Exchange Rate for this period for currency %1',ExchangeRates."Relational Exch. Rate Amount");
-                  END;
-              END;
-           END;
+                ImportExportSetup.GET();
+                IF MAWBLineCharge."Currency Code" <> ImportExportSetup."Invoicing Currency Code" THEN BEGIN
+                    ExchangeRates.RESET;
+                    ExchangeRates.SETRANGE(ExchangeRates."Currency Code", ImportExportSetup."Invoicing Currency Code");
+                    ExchangeRates.SETRANGE(ExchangeRates."Relational Currency Code", MAWBLineCharge."Currency Code");
+                    ExchangeRates.SETFILTER(ExchangeRates."Starting Date", '<=%1', TODAY);
+                    IF ExchangeRates.FINDFIRST THEN BEGIN
+                        MAWBInvoiceCharge."Base Unit Price" := ((MAWBLineCharge.Amount * ExchangeRates."Exchange Rate Amount") / (ExchangeRates."Relational Exch. Rate Amount"));
+                        MAWBInvoiceCharge."Cost Amount" := ((MAWBLineCharge.Amount * ExchangeRates."Exchange Rate Amount") / (ExchangeRates."Relational Exch. Rate Amount"));
+                        MAWBInvoiceCharge."Currency Code" := ImportExportSetup."Invoicing Currency Code";
+                    END ELSE BEGIN
+                        ExchangeRates.RESET;
+                        ExchangeRates.SETRANGE(ExchangeRates."Currency Code", MAWBLineCharge."Currency Code");
+                        ExchangeRates.SETRANGE(ExchangeRates."Relational Currency Code", '');
+                        IF ExchangeRates.FINDFIRST THEN BEGIN
+                            ExchangeRates1.RESET;
+                            ExchangeRates1.SETRANGE(ExchangeRates1."Currency Code", ImportExportSetup."Invoicing Currency Code");
+                            ExchangeRates1.SETRANGE(ExchangeRates1."Relational Currency Code", '');
+                            IF ExchangeRates1.FINDFIRST THEN BEGIN
+                                MAWBInvoiceCharge."Base Unit Price" := (((MAWBLineCharge.Amount * ExchangeRates."Exchange Rate Amount") / (ExchangeRates."Relational Exch. Rate Amount")) * (ExchangeRates1."Relational Exch. Rate Amount")) / ExchangeRates1."Exchange Rate Amount";
+                                MAWBInvoiceCharge."Cost Amount" := (((MAWBLineCharge.Amount * ExchangeRates."Exchange Rate Amount") / (ExchangeRates."Relational Exch. Rate Amount")) * (ExchangeRates1."Relational Exch. Rate Amount")) / ExchangeRates1."Exchange Rate Amount";
+                                MAWBInvoiceCharge."Currency Code" := ImportExportSetup."Invoicing Currency Code";
+                            END;
+                            //MESSAGE('No Exchange Rate for this period for currency %1',ExchangeRates."Relational Exch. Rate Amount");
+                        END;
+                    END;
+                END;
 
-          FreightCharge.GET(MAWBInvoiceCharge."Freight Charge Code");
+                FreightCharge.GET(MAWBInvoiceCharge."Freight Charge Code");
 
-          MAWBInvoiceCharge."Margin %":=FreightCharge."Margin %";
-          MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
+                MAWBInvoiceCharge."Margin %" := FreightCharge."Margin %";
+                MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
 
-          MAWBInvoiceCharge."Sales Amount Ex. VAT":=MAWBInvoiceCharge."Invoice Unit Price";
-          MAWBInvoiceCharge."Sales Amount Inc. VAT":=MAWBInvoiceCharge."Invoice Unit Price";
-          MAWBInvoiceCharge."Prepared By":=USERID;
-          MAWBInvoiceCharge."Prepared On":=TODAY;
+                MAWBInvoiceCharge."Sales Amount Ex. VAT" := MAWBInvoiceCharge."Invoice Unit Price";
+                MAWBInvoiceCharge."Sales Amount Inc. VAT" := MAWBInvoiceCharge."Invoice Unit Price";
+                MAWBInvoiceCharge."Prepared By" := USERID;
+                MAWBInvoiceCharge."Prepared On" := TODAY;
 
-          MAWBInvoiceCharge.INSERT;
-          UNTIL MAWBLineCharge.NEXT=0;
-         END;
+                MAWBInvoiceCharge.INSERT;
+            UNTIL MAWBLineCharge.NEXT = 0;
+        END;
     end;
 
-    
+
     procedure CalculateHandlingFees()
     var
         BookingSheetLine: Record 50054;
@@ -795,109 +785,103 @@ table 50077 "MAWB Header 2"
         MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Handling Fee has already been calculated';
     begin
-          FreightCharge3.RESET;
-          FreightCharge3.SETRANGE(FreightCharge3."Handling Charge",TRUE);
-          IF FreightCharge3.FIND('-') THEN
-          BEGIN
-          //MESSAGE('HERE');
-           MAWBInvoiceCharge3.RESET;
-           MAWBInvoiceCharge3.SETRANGE(MAWBInvoiceCharge3."Freight Charge Code",FreightCharge3.Code);
-           MAWBInvoiceCharge3.SETRANGE( MAWBInvoiceCharge3."MAWB No.","No.");
-           IF MAWBInvoiceCharge3.FIND('-') THEN
-             MAWBInvoiceCharge3.DELETEALL;
-          END;//END MAWBInvoiceCharge3.
-          MAWBInvoiceCharge.RESET;
-          MAWBInvoiceCharge.SETRANGE(MAWBInvoiceCharge."MAWB No.","No.");
-          IF MAWBInvoiceCharge.FIND('-') THEN
-          BEGIN
-           REPEAT
-            TotalSales:=TotalSales+MAWBInvoiceCharge."Base Unit Price";
-           UNTIL MAWBInvoiceCharge.NEXT=0;
+        FreightCharge3.RESET;
+        FreightCharge3.SETRANGE(FreightCharge3."Handling Charge", TRUE);
+        IF FreightCharge3.FIND('-') THEN BEGIN
+            //MESSAGE('HERE');
+            MAWBInvoiceCharge3.RESET;
+            MAWBInvoiceCharge3.SETRANGE(MAWBInvoiceCharge3."Freight Charge Code", FreightCharge3.Code);
+            MAWBInvoiceCharge3.SETRANGE(MAWBInvoiceCharge3."MAWB No.", "No.");
+            IF MAWBInvoiceCharge3.FIND('-') THEN
+                MAWBInvoiceCharge3.DELETEALL;
+        END;//END MAWBInvoiceCharge3.
+        MAWBInvoiceCharge.RESET;
+        MAWBInvoiceCharge.SETRANGE(MAWBInvoiceCharge."MAWB No.", "No.");
+        IF MAWBInvoiceCharge.FIND('-') THEN BEGIN
+            REPEAT
+                TotalSales := TotalSales + MAWBInvoiceCharge."Base Unit Price";
+            UNTIL MAWBInvoiceCharge.NEXT = 0;
 
-           HandlingSlabMatrix.RESET;
-           HandlingSlabMatrix.SETFILTER(HandlingSlabMatrix."From Weight",'<=%1',TotalSales);
-           HandlingSlabMatrix.SETFILTER(HandlingSlabMatrix."To Weight",'>=%1',TotalSales);
+            HandlingSlabMatrix.RESET;
+            HandlingSlabMatrix.SETFILTER(HandlingSlabMatrix."From Weight", '<=%1', TotalSales);
+            HandlingSlabMatrix.SETFILTER(HandlingSlabMatrix."To Weight", '>=%1', TotalSales);
 
-         IF HandlingSlabMatrix.FIND('-')  THEN
-         BEGIN
-        BookingSheetMawbAllocation.RESET;
-        BookingSheetMawbAllocation.SETRANGE(BookingSheetMawbAllocation."MAWB No","No.");
+            IF HandlingSlabMatrix.FIND('-') THEN BEGIN
+                BookingSheetMawbAllocation.RESET;
+                BookingSheetMawbAllocation.SETRANGE(BookingSheetMawbAllocation."MAWB No", "No.");
 
-           MAWBInvoiceCharge.INIT;
-           MAWBInvoiceCharge."Transaction Date":=TODAY;
-           MAWBInvoiceCharge."MAWB No.":="No.";
-           IF BookingSheetMawbAllocation.FINDFIRST THEN BEGIN
-           MAWBInvoiceCharge."Item No.":=BookingSheetMawbAllocation."Item No";
-           END;
-            FreightCharge2.RESET;
-            FreightCharge2.SETRANGE(FreightCharge2."Handling Charge",TRUE);
-            IF FreightCharge2.FIND('-') THEN
-            BEGIN
-             MAWBInvoiceCharge."Freight Charge Code":=FreightCharge2.Code;
-             MAWBInvoiceCharge.Description:=FreightCharge2.Description;
-             MAWBInvoiceCharge."Margin %":=FreightCharge2."Margin %";
-             MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
-             MAWBInvoiceCharge."Purchase A/C Code":=FreightCharge2."Purchase A/C Code";
-            END;  //END Freight Charge 2
-           MAWBInvoiceCharge."Line No.":=MAWBInvoiceCharge."Line No."+10000;
-           MAWBInvoiceCharge."Base Unit Price":=HandlingSlabMatrix."Rate Amount";
-           MAWBInvoiceCharge."Cost Amount":=HandlingSlabMatrix."Rate Amount";
-           MAWBInvoiceCharge."Currency Code":=HandlingSlabMatrix."Currency Code";
-           GeneralLedgerSetup.GET();
-           IF MAWBInvoiceCharge."Currency Code"='' THEN
-           InvoiceCurrency:=GeneralLedgerSetup."LCY Code"
-           ELSE
-           InvoiceCurrency:=MAWBInvoiceCharge."Currency Code";
-           ImportExportSetup.GET();
-           FreightCharge.GET(MAWBInvoiceCharge."Freight Charge Code");
-           MAWBInvoiceCharge."Margin %":=FreightCharge."Margin %";
-           MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
+                MAWBInvoiceCharge.INIT;
+                MAWBInvoiceCharge."Transaction Date" := TODAY;
+                MAWBInvoiceCharge."MAWB No." := "No.";
+                IF BookingSheetMawbAllocation.FINDFIRST THEN BEGIN
+                    MAWBInvoiceCharge."Item No." := BookingSheetMawbAllocation."Item No";
+                END;
+                FreightCharge2.RESET;
+                FreightCharge2.SETRANGE(FreightCharge2."Handling Charge", TRUE);
+                IF FreightCharge2.FIND('-') THEN BEGIN
+                    MAWBInvoiceCharge."Freight Charge Code" := FreightCharge2.Code;
+                    MAWBInvoiceCharge.Description := FreightCharge2.Description;
+                    MAWBInvoiceCharge."Margin %" := FreightCharge2."Margin %";
+                    MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
+                    MAWBInvoiceCharge."Purchase A/C Code" := FreightCharge2."Purchase A/C Code";
+                END;  //END Freight Charge 2
+                MAWBInvoiceCharge."Line No." := MAWBInvoiceCharge."Line No." + 10000;
+                MAWBInvoiceCharge."Base Unit Price" := HandlingSlabMatrix."Rate Amount";
+                MAWBInvoiceCharge."Cost Amount" := HandlingSlabMatrix."Rate Amount";
+                MAWBInvoiceCharge."Currency Code" := HandlingSlabMatrix."Currency Code";
+                GeneralLedgerSetup.GET();
+                IF MAWBInvoiceCharge."Currency Code" = '' THEN
+                    InvoiceCurrency := GeneralLedgerSetup."LCY Code"
+                ELSE
+                    InvoiceCurrency := MAWBInvoiceCharge."Currency Code";
+                ImportExportSetup.GET();
+                FreightCharge.GET(MAWBInvoiceCharge."Freight Charge Code");
+                MAWBInvoiceCharge."Margin %" := FreightCharge."Margin %";
+                MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."Margin %");
 
-           MAWBInvoiceCharge."Sales Amount Ex. VAT":=MAWBInvoiceCharge."Invoice Unit Price";
-           VATPostingSetup2.RESET;
-           VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Bus. Posting Group",FreightCharge2."VAT Bus. Posting Group");
-           VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Prod. Posting Group",FreightCharge2."VAT Prod. Posting Group");
-           IF VATPostingSetup2.FIND('-') THEN
-           BEGIN
-            MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."VAT %",VATPostingSetup2."VAT %");
-           END;//END VATPosting setup2
-           MAWBInvoiceCharge."Prepared By":=USERID;
-           MAWBInvoiceCharge."Prepared On":=TODAY;
-           MAWBInvoiceCharge.INSERT;
-         END //END HandlingSlabMatrix
-         ELSE BEGIN MESSAGE('Not Found');
-         END;
-          END;  //END MAWBInvoiceCharge
+                MAWBInvoiceCharge."Sales Amount Ex. VAT" := MAWBInvoiceCharge."Invoice Unit Price";
+                VATPostingSetup2.RESET;
+                VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Bus. Posting Group", FreightCharge2."VAT Bus. Posting Group");
+                VATPostingSetup2.SETRANGE(VATPostingSetup2."VAT Prod. Posting Group", FreightCharge2."VAT Prod. Posting Group");
+                IF VATPostingSetup2.FIND('-') THEN BEGIN
+                    MAWBInvoiceCharge.VALIDATE(MAWBInvoiceCharge."VAT %", VATPostingSetup2."VAT %");
+                END;//END VATPosting setup2
+                MAWBInvoiceCharge."Prepared By" := USERID;
+                MAWBInvoiceCharge."Prepared On" := TODAY;
+                MAWBInvoiceCharge.INSERT;
+            END //END HandlingSlabMatrix
+            ELSE BEGIN
+                MESSAGE('Not Found');
+            END;
+        END;  //END MAWBInvoiceCharge
     end;
 
-    
+
     procedure ClearCalculatedCharges("MAWB No": Code[50])
     var
         CalculatedCharges: Record 50073;
     begin
         CalculatedCharges.RESET;
-        CalculatedCharges.SETRANGE(CalculatedCharges."MAWB No.","MAWB No");
-        IF CalculatedCharges.FIND('-') THEN
-        BEGIN
-        CalculatedCharges.DELETEALL;
+        CalculatedCharges.SETRANGE(CalculatedCharges."MAWB No.", "MAWB No");
+        IF CalculatedCharges.FIND('-') THEN BEGIN
+            CalculatedCharges.DELETEALL;
         END;
     end;
 
-    
+
     procedure ArchiveHouses("MAWB No": Code[50])
     var
         HAWBHeaders: Record 50075;
         HAWBLines: Record 50074;
     begin
         HAWBHeaders.RESET;
-        HAWBHeaders.SETRANGE(HAWBHeaders."MAWB No.","MAWB No");
-        IF HAWBHeaders.FINDSET THEN
-        BEGIN
-          //MESSAGE('Found');
-          REPEAT
-            HAWBHeaders.Status:=HAWBHeaders.Status::Archived;
-            HAWBHeaders.MODIFY;
-          UNTIL HAWBHeaders.NEXT =0;
+        HAWBHeaders.SETRANGE(HAWBHeaders."MAWB No.", "MAWB No");
+        IF HAWBHeaders.FINDSET THEN BEGIN
+            //MESSAGE('Found');
+            REPEAT
+                HAWBHeaders.Status := HAWBHeaders.Status::Archived;
+                HAWBHeaders.MODIFY;
+            UNTIL HAWBHeaders.NEXT = 0;
         END;
     end;
 
@@ -908,27 +892,27 @@ table 50077 "MAWB Header 2"
         i: Integer;
         j: Integer;
     begin
-         HAWB.RESET;
-         HAWB.SETRANGE(HAWB."MAWB No.",MAWB);//FAMs
-         IF HAWB.FINDSET THEN BEGIN
-         i:=0;
-         REPEAT
-          i+=1;
-         UNTIL HAWB.NEXT = 0;
-         END;
+        HAWB.RESET;
+        HAWB.SETRANGE(HAWB."MAWB No.", MAWB);//FAMs
+        IF HAWB.FINDSET THEN BEGIN
+            i := 0;
+            REPEAT
+                i += 1;
+            UNTIL HAWB.NEXT = 0;
+        END;
 
         Fams.RESET;
-        Fams.SETRANGE(Fams."MAWB No",MAWB);
+        Fams.SETRANGE(Fams."MAWB No", MAWB);
         IF Fams.FINDSET THEN BEGIN
-          j:=0;
-          REPEAT
-            j+=1;
-          UNTIL Fams.NEXT = 0;
+            j := 0;
+            REPEAT
+                j += 1;
+            UNTIL Fams.NEXT = 0;
         END;
-        IF j=i THEN BEGIN
-          Equal := TRUE;
+        IF j = i THEN BEGIN
+            Equal := TRUE;
         END ELSE BEGIN
-          Equal :=FALSE;
+            Equal := FALSE;
         END;
     end;
 }

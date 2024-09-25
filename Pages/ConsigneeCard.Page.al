@@ -15,7 +15,7 @@ page 50022 "Consignee Card"
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
@@ -32,25 +32,25 @@ page 50022 "Consignee Card"
                 field("Address 2"; Rec."Address 2")
                 {
                 }
-                field("Country/Region Code"; "Country/Region Code")
+                field("Country/Region Code"; Rec."Country/Region Code")
                 {
                 }
                 field(City; Rec.City)
                 {
                 }
-                field("Phone No."; "Phone No.")
+                field("Phone No."; Rec."Phone No.")
                 {
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                 }
-                field("E-Mail"; "E-Mail")
+                field("E-Mail"; Rec."E-Mail")
                 {
                 }
-                field("CC/Email"; "CC/Email")
+                field("CC/Email"; Rec."CC/Email")
                 {
                 }
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                 }
             }

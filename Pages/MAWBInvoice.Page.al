@@ -4,9 +4,9 @@ page 50114 "MAWB Invoice"
     PageType = Document;
     PromotedActionCategories = ' New,Process,Reports,Documents & Charges,C5,C6,C7,C8,C9,C10';
     RefreshOnActivate = true;
-    SourceTable = Table36;
-    SourceTableView = WHERE(Document Type=FILTER(Invoice),
-                            Posted=FILTER(No));
+    SourceTable = "Sales Header";
+    SourceTableView = WHERE("Document Type" = FILTER(Invoice),
+                            Posted = FILTER(false));
 
     layout
     {
@@ -15,29 +15,29 @@ page 50114 "MAWB Invoice"
             group(General)
             {
                 Caption = 'General';
-                field("No.";"No.")
+                field("No."; Rec."No.")
                 {
                     Importance = Promoted;
                     Visible = DocNoVisible;
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
-                          CurrPage.UPDATE;
+                        IF Rec.AssistEdit(xRec) THEN
+                            CurrPage.UPDATE;
                     end;
                 }
-                field("MAWB No.";"MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("External Document No.";"External Document No.")
-                {
-                    Visible = false;
-                }
-                field("HAWB No.";"HAWB No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                     Visible = false;
                 }
-                field("Sell-to Customer No.";"Sell-to Customer No.")
+                field("HAWB No."; Rec."HAWB No.")
+                {
+                    Visible = false;
+                }
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Caption = 'Shipper Code';
                     Importance = Promoted;
@@ -45,112 +45,112 @@ page 50114 "MAWB Invoice"
 
                     trigger OnValidate()
                     begin
-                        SelltoCustomerNoOnAfterValidat;
+                        Rec.SelltoCustomerNoOnAfterValidate;
                     end;
                 }
-                field("Customer Type";"Customer Type")
+                field("Customer Type"; Rec."Customer Type")
                 {
                     Editable = false;
                 }
-                field("Sell-to Customer Name";"Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     Caption = 'Shipper Name';
                 }
-                field("Sell-to Address";"Sell-to Address")
+                field("Sell-to Address"; Rec."Sell-to Address")
                 {
                     Caption = 'Shipper Address';
                     Importance = Additional;
                 }
-                field("Sell-to Address 2";"Sell-to Address 2")
+                field("Sell-to Address 2"; Rec."Sell-to Address 2")
                 {
                     Caption = 'Shipper Address 2';
                     Importance = Additional;
                 }
-                field("Posting Date";"Posting Date")
+                field("Posting Date"; Rec."Posting Date")
                 {
                 }
-                field("Bill-to Customer No.";"Bill-to Customer No.")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     Importance = Promoted;
 
                     trigger OnValidate()
                     begin
-                        BilltoCustomerNoOnAfterValidat;
+                        BilltoCustomerNoOnAfterValidate;
                     end;
                 }
-                field("Bill-to Name";"Bill-to Name")
+                field("Bill-to Name"; Rec."Bill-to Name")
                 {
                 }
-                field("Total Weight";"Total Weight")
+                field("Total Weight"; Rec."Total Weight")
                 {
                 }
-                field("Agreed Rate";"Agreed Rate")
+                field("Agreed Rate"; Rec."Agreed Rate")
                 {
                 }
-                field(Commodity;Commodity)
+                field(Commodity; Rec.Commodity)
                 {
                 }
-                field("Sell-to Post Code";"Sell-to Post Code")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     Caption = 'Shipper Post Code';
                     Importance = Additional;
                     Visible = false;
                 }
-                field("Sell-to City";"Sell-to City")
+                field("Sell-to City"; Rec."Sell-to City")
                 {
                     Caption = 'Shipper City';
                     Visible = false;
                 }
-                field("CC/PP";"CC/PP")
+                field("CC/PP"; Rec."CC/PP")
                 {
                     Visible = false;
                 }
-                field("Currency Code";"Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
-                field("Prices Including VAT";"Prices Including VAT")
+                field("Prices Including VAT"; Rec."Prices Including VAT")
                 {
                 }
-                field("Amount Including VAT";"Amount Including VAT")
+                field("Amount Including VAT"; Rec."Amount Including VAT")
                 {
                 }
-                field("Product Code";"Product Code")
+                field("Product Code"; Rec."Product Code")
                 {
                 }
-                field("Posting Description";"Posting Description")
+                field("Posting Description"; Rec."Posting Description")
                 {
                 }
             }
-            part(SalesLines;50115)
+            part(SalesLines; 50115)
             {
-                SubPageLink = Document No.=FIELD(No.);
+                SubPageLink = "Document No." = FIELD("No.");
             }
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-                field("Bill-to Contact No.";"Bill-to Contact No.")
+                field("Bill-to Contact No."; Rec."Bill-to Contact No.")
                 {
                 }
-                field("Bill-to Address";"Bill-to Address")
-                {
-                    Importance = Additional;
-                }
-                field("Bill-to Address 2";"Bill-to Address 2")
+                field("Bill-to Address"; Rec."Bill-to Address")
                 {
                     Importance = Additional;
                 }
-                field("Bill-to Post Code";"Bill-to Post Code")
+                field("Bill-to Address 2"; Rec."Bill-to Address 2")
                 {
                     Importance = Additional;
                 }
-                field("Bill-to City";"Bill-to City")
-                {
-                }
-                field("Bill-to Contact";"Bill-to Contact")
+                field("Bill-to Post Code"; Rec."Bill-to Post Code")
                 {
                     Importance = Additional;
                 }
-                field("Shortcut Dimension 1 Code";"Shortcut Dimension 1 Code")
+                field("Bill-to City"; Rec."Bill-to City")
+                {
+                }
+                field("Bill-to Contact"; Rec."Bill-to Contact")
+                {
+                    Importance = Additional;
+                }
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
 
                     trigger OnValidate()
@@ -158,7 +158,7 @@ page 50114 "MAWB Invoice"
                         ShortcutDimension1CodeOnAfterV;
                     end;
                 }
-                field("Shortcut Dimension 2 Code";"Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
 
                     trigger OnValidate()
@@ -166,34 +166,34 @@ page 50114 "MAWB Invoice"
                         ShortcutDimension2CodeOnAfterV;
                     end;
                 }
-                field("Payment Terms Code";"Payment Terms Code")
+                field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     Importance = Promoted;
                 }
-                field("Due Date";"Due Date")
+                field("Due Date"; Rec."Due Date")
                 {
                     Importance = Promoted;
                 }
-                field("Payment Discount %";"Payment Discount %")
+                field("Payment Discount %"; Rec."Payment Discount %")
                 {
                 }
-                field("Pmt. Discount Date";"Pmt. Discount Date")
+                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
                     Importance = Additional;
                 }
-                field("Payment Method Code";"Payment Method Code")
+                field("Payment Method Code"; Rec."Payment Method Code")
                 {
                 }
-                field("Direct Debit Mandate ID";"Direct Debit Mandate ID")
+                field("Direct Debit Mandate ID"; Rec."Direct Debit Mandate ID")
                 {
                 }
-                field("VAT Bus. Posting Group";"VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("Credit Card No.";"Credit Card No.")
+                field("Credit Card No."; "Credit Card No.")
                 {
                 }
-                field(GetCreditcardNumber;GetCreditcardNumber)
+                field(GetCreditcardNumber; GetCreditcardNumber)
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
                 }
@@ -201,46 +201,46 @@ page 50114 "MAWB Invoice"
             group(Shipping)
             {
                 Caption = 'Shipping';
-                field("Ship-to Code";"Ship-to Code")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     Importance = Promoted;
                 }
-                field("Ship-to Name";"Ship-to Name")
+                field("Ship-to Name"; Rec."Ship-to Name")
                 {
                 }
-                field("Ship-to Address";"Ship-to Address")
-                {
-                    Importance = Additional;
-                }
-                field("Ship-to Address 2";"Ship-to Address 2")
+                field("Ship-to Address"; Rec."Ship-to Address")
                 {
                     Importance = Additional;
                 }
-                field("Ship-to Post Code";"Ship-to Post Code")
+                field("Ship-to Address 2"; Rec."Ship-to Address 2")
+                {
+                    Importance = Additional;
+                }
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
                     Importance = Promoted;
                 }
-                field("Ship-to City";"Ship-to City")
+                field("Ship-to City"; Rec."Ship-to City")
                 {
                 }
-                field("Ship-to Contact";"Ship-to Contact")
-                {
-                    Importance = Additional;
-                }
-                field("Location Code";"Location Code")
-                {
-                }
-                field("Shipment Method Code";"Shipment Method Code")
-                {
-                }
-                field("Shipping Agent Code";"Shipping Agent Code")
-                {
-                }
-                field("Package Tracking No.";"Package Tracking No.")
+                field("Ship-to Contact"; Rec."Ship-to Contact")
                 {
                     Importance = Additional;
                 }
-                field("Shipment Date";"Shipment Date")
+                field("Location Code"; Rec."Location Code")
+                {
+                }
+                field("Shipment Method Code"; Rec."Shipment Method Code")
+                {
+                }
+                field("Shipping Agent Code"; Rec."Shipping Agent Code")
+                {
+                }
+                field("Package Tracking No."; Rec."Package Tracking No.")
+                {
+                    Importance = Additional;
+                }
+                field("Shipment Date"; Rec."Shipment Date")
                 {
                     Importance = Promoted;
                 }
@@ -248,73 +248,73 @@ page 50114 "MAWB Invoice"
             group("Foreign Trade")
             {
                 Caption = 'Foreign Trade';
-                field("EU 3-Party Trade";"EU 3-Party Trade")
+                field("EU 3-Party Trade"; Rec."EU 3-Party Trade")
                 {
                 }
-                field("Transaction Type";"Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                 }
-                field("Transaction Specification";"Transaction Specification")
+                field("Transaction Specification"; Rec."Transaction Specification")
                 {
                 }
-                field("Transport Method";"Transport Method")
+                field("Transport Method"; Rec."Transport Method")
                 {
                 }
-                field("Exit Point";"Exit Point")
+                field("Exit Point"; Rec."Exit Point")
                 {
                 }
                 field(Area;Area)
-                {
-                }
-            }
+        {
         }
+    }
+}
         area(factboxes)
         {
-            part(;9080)
+            part(Page;9080)
             {
-                SubPageLink = No.=FIELD(Sell-to Customer No.);
+                SubPageLink = "No."=FIELD("Sell-to Customer No.");
                 Visible = false;
             }
-            part(;9081)
+            part(Page1;9081)
             {
-                SubPageLink = No.=FIELD(Bill-to Customer No.);
+                SubPageLink = "No."=FIELD("Bill-to Customer No.");
                 Visible = false;
             }
-            part(;9082)
+            part(Page2;9082)
             {
-                SubPageLink = No.=FIELD(Bill-to Customer No.);
+                SubPageLink = "No."=FIELD("Bill-to Customer No.");
                 Visible = true;
             }
-            part(;9084)
+            part(Page3;9084)
             {
-                SubPageLink = No.=FIELD(Sell-to Customer No.);
+                SubPageLink = "No."=FIELD("Sell-to Customer No.");
                 Visible = true;
             }
-            part(;9087)
+            part(Page4;9087)
             {
                 Provider = SalesLines;
-                SubPageLink = Document Type=FIELD(Document Type),
-                              Document No.=FIELD(Document No.),
-                              Line No.=FIELD(Line No.);
+                SubPageLink = "Document Type"=FIELD("Document Type"),
+                              "Document No."=FIELD("Document No."),
+                              "Line No."=FIELD("Line No.");
                 Visible = false;
             }
-            part(;9089)
+            part(Page5;9089)
             {
                 Provider = SalesLines;
-                SubPageLink = No.=FIELD(No.);
+                SubPageLink = "No."=FIELD("No.");
                 Visible = true;
             }
-            part(;9092)
+            part(Page6;9092)
             {
-                SubPageLink = Table ID=CONST(36),
-                              Document Type=FIELD(Document Type),
-                              Document No.=FIELD(No.);
+                SubPageLink = "Table ID"=CONST(36),
+                              "Document Type"=FIELD("Document Type"),
+                              "Document No."=FIELD("No.");
                 Visible = false;
             }
-            part(;9108)
+            part(Page7;9108)
             {
                 Provider = SalesLines;
-                SubPageLink = No.=FIELD(No.);
+                SubPageLink = "No."=FIELD("No.");
                 Visible = false;
             }
             systempart(;Notes)
@@ -370,7 +370,7 @@ page 50114 "MAWB Invoice"
                     Caption = 'Customer';
                     Image = Customer;
                     RunObject = Page 21;
-                                    RunPageLink = No.=FIELD(Sell-to Customer No.);
+                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -380,7 +380,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page "658";
+                        ApprovalEntries: Page 658;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -391,9 +391,9 @@ page 50114 "MAWB Invoice"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = Document Type=FIELD(Document Type),
-                                  No.=FIELD(No.),
-                                  Document Line No.=CONST(0);
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                  "No."=FIELD("No."),
+                                  "Document Line No."=CONST(0);
                 }
                 separator()
                 {
@@ -406,7 +406,7 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50119;
-                                    RunPageLink = MAWB No=FIELD(No.);
+                                    RunPageLink = "MAWB No"=FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("MAWB Charges")
@@ -417,7 +417,7 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50120;
-                                    RunPageLink = MAWB No.=FIELD(MAWB No.);
+                                    RunPageLink = "MAWB No."=FIELD("MAWB No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("Notify Parties")
@@ -428,7 +428,7 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50122;
-                                    RunPageLink = Invoice No.=FIELD(No.);
+                                    RunPageLink = "Invoice No."=FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
@@ -441,9 +441,9 @@ page 50114 "MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = Document Type=FIELD(Document Type),
-                                  Document No.=FIELD(No.),
-                                  Customer No.=FIELD(Bill-to Customer No.);
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                  "Document No."=FIELD("No."),
+                                  "Customer No."=FIELD("Bill-to Customer No.");
                 }
             }
         }
@@ -474,7 +474,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -486,7 +486,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
@@ -721,7 +721,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        StdCustSalesCode: Record "172";
+                        StdCustSalesCode: Record 172;
                     begin
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
@@ -768,7 +768,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -780,7 +780,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
@@ -964,7 +964,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -1036,54 +1036,54 @@ page 50114 "MAWB Invoice"
     end;
 
     var
-        ChangeExchangeRate: Page "511";
-                                CopySalesDoc: Report "292";
-                                MoveNegSalesLines: Report "6699";
-                                ReportPrint: Codeunit "228";
-                                UserMgt: Codeunit "5700";
-                                SalesCalcDiscountByType: Codeunit "56";
-    [InDataSet]
+        ChangeExchangeRate: Page 511;
+                                CopySalesDoc: Report 292;
+                                MoveNegSalesLines: Report 6699;
+                                ReportPrint: Codeunit 228;
+                                UserMgt: Codeunit 5700;
+                                SalesCalcDiscountByType: Codeunit 56;
 
-    JobQueueVisible: Boolean;
-    DocNoVisible: Boolean;
-    ExternalDocNoMandatory: Boolean;
-    MAWBLine: Record "50076";
-    SalesHeader: Record "36";
-    ImportChargeMaster: Record "50007";
-    ImportExportSetup: Record "50010";
-    BookingSheetHAWBAllocation: Record "50056";
-    BookingSheetLine: Record "50054";
-    FreightCharge: Record "50018";
-    SalesLine: Record "37";
-    Text000: Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
-    MAWBAlloc: Record "50070";
-    FCharges: Record "50018";
-    MAWBHeader: Record "50077";
-    Check: Codeunit "50031";
-    CustomMail: Codeunit "50030";
+
+                                JobQueueVisible: Boolean;
+                                DocNoVisible: Boolean;
+                                ExternalDocNoMandatory: Boolean;
+                                MAWBLine: Record 50076;
+                                SalesHeader: Record 36;
+                                ImportChargeMaster: Record 50007;
+                                ImportExportSetup: Record 50010;
+                                BookingSheetHAWBAllocation: Record 50056;
+                                BookingSheetLine: Record 50054;
+                                FreightCharge: Record 50018;
+                                SalesLine: Record 37;
+                                Text000: Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
+    MAWBAlloc: Record 50070;
+    FCharges: Record 50018;
+    MAWBHeader: Record 50077;
+    Check: Codeunit 50031;
+    CustomMail: Codeunit 50030;
     Mailed: Boolean;
     Custcode: Code[30];
-    CustRec: Record "18";
-    TBLSalesLine: Record "37";
+    CustRec: Record 18;
+    TBLSalesLine: Record 37;
     TBLPostValidate: Boolean;
-    TBLSalesHeader: Record "36";
-    TBLCustomer: Record "18";
+    TBLSalesHeader: Record 36;
+    TBLCustomer: Record 18;
     TBLHNo: Integer;
-    TBLMAWBLine: Record "50076";
-    TBLFreightItemCharge: Record "50029";
+    TBLMAWBLine: Record 50076;
+    TBLFreightItemCharge: Record 50029;
     TBLFlightCode: Code[20];
     TBLAgreedRate: Decimal;
-    TBLMAWBInvoiceCharge: Record "50073";
-    TBLPurchInvLine: Record "123";
+    TBLMAWBInvoiceCharge: Record 50073;
+    TBLPurchInvLine: Record 123;
     TBLCurrecnyCode: Code[10];
-    TBLPurchInvHeader: Record "122";
-    TBLExchangeRate: Record "330";
+    TBLPurchInvHeader: Record 122;
+    TBLExchangeRate: Record 330;
     TBLAmountLCY: Decimal;
     TBLAmountUSD: Decimal;
     TBLPurchLineAmount: Decimal;
-    TBLPurchInvLineTemp: Record "123" temporary;
-    gRecHandlingSlab: Record "50045";
-    gRecFreightCharges: Record "50018";
+    TBLPurchInvLineTemp: Record 123 temporary;
+    gRecHandlingSlab: Record 50045;
+    gRecFreightCharges: Record 50018;
 
 local procedure Post(PostingCodeunitID: Integer)
     begin
@@ -1133,7 +1133,7 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure SetDocNoVisible()
     var
-        DocumentNoVisibility: Codeunit "1400";
+        DocumentNoVisibility: Codeunit 1400;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
         DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice,"No.");
@@ -1149,10 +1149,10 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure CloseMawb(MAWB: Code[50])
     var
-        BookingSheetMAWBAllocation: Record "50070";
+        BookingSheetMAWBAllocation: Record 50070;
         MAWBReceipt: Record "50039";
-        BookingSheetMAWBAllocation1: Record "50070";
-        BookingSheetMAWBAllocation2: Record "50070";
+        BookingSheetMAWBAllocation1: Record 50070;
+        BookingSheetMAWBAllocation2: Record 50070;
         i: Integer;
     begin
         BookingSheetMAWBAllocation.RESET;

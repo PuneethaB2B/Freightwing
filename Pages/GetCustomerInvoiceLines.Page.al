@@ -2,7 +2,7 @@ page 50011 "Get Customer Invoice Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table21;
+    SourceTable = 21;
 
     layout
     {
@@ -10,37 +10,37 @@ page 50011 "Get Customer Invoice Lines"
         {
             repeater(Group)
             {
-                field("Customer No."; "Customer No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                     HideValue = "Customer No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("Document No."; "Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                 }
-                field("Remaining Amount"; "Remaining Amount")
+                field("Remaining Amount"; Rec."Remaining Amount")
                 {
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                 }
-                field(Open; Open)
+                field(Open; Rec.Open)
                 {
                 }
-                field("User ID"; "User ID")
+                field("User ID"; Rec."User ID")
                 {
                 }
             }
@@ -64,27 +64,27 @@ page 50011 "Get Customer Invoice Lines"
     end;
 
     var
-        SalesInvHeader: Record "112";
-        TempCustLedgerEntry: Record "21" temporary;
-        [InDataSet]
+        SalesInvHeader: Record 112;
+        TempCustLedgerEntry: Record 21 temporary;
+
         "Customer No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        CustLedgerEntry: Record "21";
+        CustLedgerEntry: Record 21;
     begin
         TempCustLedgerEntry.RESET;
         TempCustLedgerEntry.COPYFILTERS(Rec);
-        TempCustLedgerEntry.SETRANGE("Customer No.", "Customer No.");
+        TempCustLedgerEntry.SETRANGE("Customer No.", Rec."Customer No.");
         IF NOT TempCustLedgerEntry.FINDFIRST THEN BEGIN
             CustLedgerEntry.COPYFILTERS(Rec);
-            CustLedgerEntry.SETRANGE("Customer No.", "Customer No.");
+            CustLedgerEntry.SETRANGE("Customer No.", Rec."Customer No.");
             IF CustLedgerEntry.FINDFIRST THEN BEGIN
                 TempCustLedgerEntry := CustLedgerEntry;
                 TempCustLedgerEntry.INSERT;
             END;
         END;
-        IF "Document No." = TempCustLedgerEntry."Document No." THEN
+        IF Rec."Document No." = TempCustLedgerEntry."Document No." THEN
             EXIT(TRUE);
     end;
 

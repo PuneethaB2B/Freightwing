@@ -1,7 +1,7 @@
 page 50039 "Import Activities"
 {
     PageType = List;
-    SourceTable = Table50009;
+    SourceTable = 50009;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50039 "Import Activities"
         {
             repeater(Group)
             {
-                field("Activity Code"; "Activity Code")
+                field("Activity Code"; Rec."Activity Code")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

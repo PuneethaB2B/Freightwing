@@ -18,7 +18,7 @@ page 50029 Airports
                 field("Country Code"; Rec."Country Code")
                 {
                 }
-                field(Location; Location)
+                field(Location; Rec.Location)
                 {
                 }
             }

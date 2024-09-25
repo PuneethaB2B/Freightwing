@@ -2,7 +2,7 @@ page 50042 "Wt. Agreement By Dest. Subform"
 {
     Caption = 'Weight Agreement By Destination Subform';
     PageType = ListPart;
-    SourceTable = Table50034;
+    SourceTable = 50034;
 
     layout
     {
@@ -10,19 +10,19 @@ page 50042 "Wt. Agreement By Dest. Subform"
         {
             repeater(Group)
             {
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
             }
@@ -42,11 +42,11 @@ page 50042 "Wt. Agreement By Dest. Subform"
                     Caption = '& Weight By Day of Week';
                     Image = EntriesList;
                     RunObject = Page 50043;
-                    RunPageLink = Airline Code=FIELD(Airline Code),
-                                  Source Code=FIELD(Source Code),
-                                  Destination Code=FIELD(Destination Code),
-                                  Destination Airport=FIELD(Destination Airport),
-                                  Source Airport=FIELD(Source Airport);
+                    RunPageLink = "Airline Code" = FIELD("Airline Code"),
+                                  "Source Code" = FIELD("Source Code"),
+                                  "Destination Code" = FIELD("Destination Code"),
+                                  "Destination Airport" = FIELD("Destination Airport"),
+                                  "Source Airport" = FIELD("Source Airport");
 
                     trigger OnAction()
                     begin

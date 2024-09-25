@@ -33,37 +33,37 @@ table 50036 "Weight Agreement By Item"
         }
         field(6; Description; Text[50])
         {
-            CalcFormula = Lookup(Item.Description WHERE ("No."=FIELD("Item No.")));
+            CalcFormula = Lookup(Item.Description WHERE("No." = FIELD("Item No.")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(7;"Unit of Measure";Code[20])
+        field(7; "Unit of Measure"; Code[20])
         {
             TableRelation = "Unit of Measure".Code;
         }
-        field(8;"Min. Chargeable Weight";Decimal)
+        field(8; "Min. Chargeable Weight"; Decimal)
         {
         }
-        field(9;"Rate Amount";Decimal)
+        field(9; "Rate Amount"; Decimal)
         {
         }
-        field(10;"Currency Code";Code[20])
+        field(10; "Currency Code"; Code[20])
         {
             TableRelation = Currency;
         }
-        field(11;"Destination Airport";Code[50])
+        field(11; "Destination Airport"; Code[50])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Destination Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Destination Code"));
         }
-        field(12;"Source Airport";Code[50])
+        field(12; "Source Airport"; Code[50])
         {
-            TableRelation = Airport.Code WHERE ("Country Code"=FIELD("Source Code"));
+            TableRelation = Airport.Code WHERE("Country Code" = FIELD("Source Code"));
         }
     }
 
     keys
     {
-        key(Key1;"Airline Code","Source Code","Destination Code","Day of Week","Item No.","Destination Airport","Source Airport")
+        key(Key1; "Airline Code", "Source Code", "Destination Code", "Day of Week", "Item No.", "Destination Airport", "Source Airport")
         {
             Clustered = true;
         }

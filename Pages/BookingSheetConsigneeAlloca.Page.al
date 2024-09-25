@@ -13,21 +13,21 @@ page 50073 "Booking Sheet Consignee Alloca"
                 field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("HAWB No."; "HAWB No.")
-                {
-                    Visible = false;
-                }
-                field("Gross Weight"; "Gross Weight")
-                {
-                }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                     Visible = false;
                 }
-                field(Quantity; Quantity)
+                field("Gross Weight"; Rec."Gross Weight")
+                {
+                }
+                field("Chargeable Weight"; Rec."Chargeable Weight")
+                {
+                    Visible = false;
+                }
+                field(Quantity; Rec.Quantity)
                 {
                     Visible = false;
                 }
@@ -46,7 +46,7 @@ page 50073 "Booking Sheet Consignee Alloca"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 RunObject = Page 50075;
-                RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
+                RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
                               "Shipper Code" = FIELD("Shipper Code"),
                               "Airline Code" = FIELD("Airline Code"),
                               "Source Airport" = FIELD("Source Airport"),

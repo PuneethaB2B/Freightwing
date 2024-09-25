@@ -2,7 +2,7 @@ page 50047 "MAWB By Airline"
 {
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Charges,C5,C6,C7,C8,C9,C10';
-    SourceTable = Table50038;
+    SourceTable = 50038;
 
     layout
     {
@@ -10,16 +10,16 @@ page 50047 "MAWB By Airline"
         {
             group(General)
             {
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Airline Name"; "Airline Name")
+                field("Airline Name"; Rec."Airline Name")
                 {
                 }
             }
-            part(; 50048)
+            part(Page; 50048)
             {
-                SubPageLink = Airline Code=FIELD(Airline Code);
+                SubPageLink = "Airline Code" = FIELD("Airline Code");
             }
         }
     }
@@ -41,7 +41,7 @@ page 50047 "MAWB By Airline"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50228;
-                    RunPageLink = Field5 = FIELD(Airline Code);
+                    RunPageLink = Field5 = FIELD("Airline Code");
 
                     trigger OnAction()
                     begin

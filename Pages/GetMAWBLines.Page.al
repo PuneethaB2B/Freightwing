@@ -2,7 +2,7 @@ page 50121 "Get MAWB Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50076;
+    SourceTable = 50076;
 
     layout
     {
@@ -10,54 +10,54 @@ page 50121 "Get MAWB Lines"
         {
             repeater(Group)
             {
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     HideValue = "MAWB No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure"; "Unit of Measure")
-                {
-                    Visible = false;
-                }
-                field("Rate/Charge"; "Rate/Charge")
+                field("Unit of Measure"; Rec."Unit of Measure")
                 {
                     Visible = false;
                 }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("Rate/Charge"; Rec."Rate/Charge")
+                {
+                    Visible = false;
+                }
+                field("Chargeable Weight"; Rec."Chargeable Weight")
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Flight Date"; "Flight Date")
+                field("Flight Date"; Rec."Flight Date")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
             }
@@ -81,28 +81,28 @@ page 50121 "Get MAWB Lines"
     end;
 
     var
-        SalesHeader: Record "36";
-        TempMAWBLine: Record "50076" temporary;
-        ExportGetMAWBAllocation: Codeunit "50008";
-        [InDataSet]
+        SalesHeader: Record 36;
+        TempMAWBLine: Record 50076 temporary;
+        ExportGetMAWBAllocation: Codeunit 50008;
+
         "MAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        MAWBLine: Record "50076";
+        MAWBLine: Record 50076;
     begin
         TempMAWBLine.RESET;
         TempMAWBLine.COPYFILTERS(Rec);
-        TempMAWBLine.SETRANGE("MAWB No.", "MAWB No.");
+        TempMAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
         IF NOT TempMAWBLine.FINDFIRST THEN BEGIN
             MAWBLine.COPYFILTERS(Rec);
-            MAWBLine.SETRANGE("MAWB No.", "MAWB No.");
+            MAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
             IF MAWBLine.FINDFIRST THEN BEGIN
                 TempMAWBLine := MAWBLine;
                 TempMAWBLine.INSERT;
             END;
         END;
-        IF "HAWB No." = TempMAWBLine."HAWB No." THEN
+        IF Rec."HAWB No." = TempMAWBLine."HAWB No." THEN
             EXIT(TRUE);
     end;
 
@@ -113,7 +113,7 @@ page 50121 "Get MAWB Lines"
     end;
 
 
-    procedure SetSalesHeader(var SalesHeader2: Record "36")
+    procedure SetSalesHeader(var SalesHeader2: Record 36)
     begin
         SalesHeader.GET(SalesHeader2."Document Type", SalesHeader2."No.");
     end;

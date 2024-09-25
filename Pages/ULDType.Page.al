@@ -1,7 +1,7 @@
 page 50058 "ULD Type"
 {
     PageType = Card;
-    SourceTable = Table50031;
+    SourceTable = 50031;
 
     layout
     {
@@ -9,16 +9,16 @@ page 50058 "ULD Type"
         {
             group(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }
-            part(; 50059)
+            part(Page; 50059)
             {
-                SubPageLink = ULD Type Code=FIELD(Code);
+                SubPageLink = "ULD Type Code" = FIELD(Code);
             }
         }
     }

@@ -1,7 +1,7 @@
 page 50024 "Shipment Update Subform"
 {
     PageType = List;
-    SourceTable = Table50008;
+    SourceTable = 50008;
 
     layout
     {
@@ -9,26 +9,26 @@ page 50024 "Shipment Update Subform"
         {
             repeater(Group)
             {
-                field("Activity Code"; "Activity Code")
+                field("Activity Code"; Rec."Activity Code")
                 {
                 }
-                field("Pre Alert No"; "Pre Alert No")
+                field("Pre Alert No"; Rec."Pre Alert No")
                 {
                     Visible = false;
                 }
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
-                field(Remarks; Remarks)
+                field(Remarks; Rec.Remarks)
                 {
                 }
-                field("Collected By"; "Collected By")
+                field("Collected By"; Rec."Collected By")
                 {
                 }
-                field("Send Notification"; "Send Notification")
+                field("Send Notification"; Rec."Send Notification")
                 {
                 }
             }

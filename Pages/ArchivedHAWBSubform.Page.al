@@ -28,7 +28,7 @@ page 50105 "Archived HAWB Subform"
                 field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
                 field(Quantity; Rec.Quantity)

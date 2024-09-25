@@ -10,14 +10,14 @@ page 50074 "Booking Sheet Notify Parties"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                 }
                 field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                     Editable = false;
                 }
@@ -57,7 +57,7 @@ page 50074 "Booking Sheet Notify Parties"
                                     BookingSheetNotifyParty2.RESET;
                                     BookingSheetNotifyParty2.COPY(BookingSheetNotifyParty);
                                     BookingSheetNotifyParty2.SETRANGE(BookingSheetNotifyParty2."Notify-Party No.", BookingSheetNotifyParty."Notify-Party No.");
-                                    BookingSheetNotifyParty2.SETRANGE(BookingSheetNotifyParty2."Item No.", "Item No.");
+                                    BookingSheetNotifyParty2.SETRANGE(BookingSheetNotifyParty2."Item No.", Rec."Item No.");
                                     IF BookingSheetNotifyParty2.FINDFIRST THEN BEGIN
                                         BookingSheetNotifyParty2.EmailRecords(FALSE, BookingSheetNotifyParty2);
                                     END;

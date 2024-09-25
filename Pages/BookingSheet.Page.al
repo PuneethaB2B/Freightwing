@@ -14,14 +14,14 @@ page 50068 "Booking Sheet"
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
                 field("Booking Date"; Rec."Booking Date")
                 {
                 }
-                field("Booking Day"; "Booking Day")
+                field("Booking Day"; Rec."Booking Day")
                 {
                     Editable = false;
                 }
@@ -31,26 +31,26 @@ page 50068 "Booking Sheet"
                 field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                 }
-                field("Weight Difference"; "Weight Difference")
+                field("Weight Difference"; Rec."Weight Difference")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
             }
-            part(; 50069)
+            part(BookingSheetSubform; 50069)
             {
                 SubPageLink = "Booking Sheet No." = FIELD("No."),
                               "Booking Date" = FIELD("Booking Date");
@@ -132,9 +132,9 @@ page 50068 "Booking Sheet"
                                               CurrPage.CLOSE;
                                             END; */
                                             //<========================
-                                            Status := Status::Submitted;
-                                            "Submitted on" := TODAY;
-                                            "Submitted at" := TIME;
+                                            Rec.Status := Rec.Status::Submitted;
+                                            Rec."Submitted on" := TODAY;
+                                            Rec."Submitted at" := TIME;
                                             Rec.MODIFY;
                                             CurrPage.CLOSE;
                                         END ELSE BEGIN
@@ -177,7 +177,7 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     begin
-                        Rec.TESTFIELD(Status, Status::Submitted);
+                        Rec.TESTFIELD(Status, Rec.Status::Submitted);
                         IF CONFIRM('Do you want to Email Pre - Alerts?') THEN BEGIN
                             IF CustomMail.SendBookingSheetPreAlert2(Rec."No.") THEN
                                 MESSAGE('Pre Alert Sent');

@@ -2,7 +2,7 @@ page 50106 HAWB
 {
     Caption = 'House Airway Bill';
     PageType = Card;
-    SourceTable = Table50075;
+    SourceTable = 50075;
 
     layout
     {
@@ -10,77 +10,77 @@ page 50106 HAWB
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ShowMandatory = true;
                     Visible = false;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Shipper Address"; "Shipper Address")
+                field("Shipper Address"; Rec."Shipper Address")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Airline Code"; "Airline Code")
-                {
-                    Editable = false;
-                }
-                field("Flight Code"; "Flight Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                     Editable = false;
                 }
-                field("Destination Code"; "Destination Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                     Editable = false;
                 }
-                field("Flight Date"; "Flight Date")
+                field("Destination Code"; Rec."Destination Code")
                 {
                     Editable = false;
                 }
-                field("Agent's IATA Code"; "Agent's IATA Code")
+                field("Flight Date"; Rec."Flight Date")
                 {
                     Editable = false;
                 }
-                field("Carrier Agent Code"; "Carrier Agent Code")
+                field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                     Editable = false;
                 }
-                field("Source Airport"; "Source Airport")
+                field("Carrier Agent Code"; Rec."Carrier Agent Code")
                 {
                     Editable = false;
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                     Editable = false;
                 }
-                field(Comments; Comments)
+                field("Destination Airport"; Rec."Destination Airport")
+                {
+                    Editable = false;
+                }
+                field(Comments; Rec.Comments)
                 {
                 }
-                field("Total Weight"; "Total Weight")
+                field("Total Weight"; Rec."Total Weight")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
             }
-            part(; 50107)
+            part(Page; 50107)
             {
-                SubPageLink = MAWB No.=FIELD(MAWB No.),
-                              Shipper Code=FIELD(Shipper Code),
-                              Consignee Code=FIELD(Consignee Code);
+                SubPageLink = "MAWB No." = FIELD("MAWB No."),
+                              "Shipper Code" = FIELD("Shipper Code"),
+                              "Consignee Code" = FIELD("Consignee Code");
             }
         }
     }
@@ -97,11 +97,10 @@ page 50106 HAWB
 
                 trigger OnAction()
                 begin
-                    IF CONFIRM('Do you want to Archive the Hawb No. '+FORMAT("No.")+'?') THEN
-                    BEGIN
-                     Status:=Status::Submitted;
-                     MODIFY();
-                     CurrPage.CLOSE();
+                    IF CONFIRM('Do you want to Archive the Hawb No. ' + FORMAT(Rec."No.") + '?') THEN BEGIN
+                        Rec.Status := Rec.Status::Submitted;
+                        Rec.MODIFY();
+                        CurrPage.CLOSE();
                     END;
                 end;
             }
@@ -117,8 +116,8 @@ page 50106 HAWB
                     //TESTFIELD("Phyto Certificate No.");
                     //TESTFIELD("Booking Sheet No.");
                     //TESTFIELD("Customer Entry No.");
-                    Status:=Status::Submitted;
-                    MODIFY();
+                    Rec.Status := Rec.Status::Submitted;
+                    Rec.MODIFY();
                 end;
             }
         }

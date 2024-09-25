@@ -31,51 +31,51 @@ table 50015 Consignee
         field(6; City; Text[30])
         {
             Caption = 'City';
-            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code".City
-                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code".City WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
+            TableRelation = IF ("Country/Region Code" = CONST()) "Post Code".City
+            ELSE IF ("Country/Region Code" = FILTER(<> '')) "Post Code".City WHERE("Country/Region Code" = FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
         }
-        field(7;"Phone No.";Text[30])
+        field(7; "Phone No."; Text[30])
         {
             Caption = 'Phone No.';
             ExtendedDatatype = PhoneNo;
         }
-        field(8;"Country/Region Code";Code[10])
+        field(8; "Country/Region Code"; Code[10])
         {
             Caption = 'Country/Region Code';
             TableRelation = "Country/Region";
         }
-        field(9;Blocked;Boolean)
+        field(9; Blocked; Boolean)
         {
             Caption = 'Blocked';
         }
-        field(10;"Post Code";Code[20])
+        field(10; "Post Code"; Code[20])
         {
             Caption = 'Post Code';
-            TableRelation = IF ("Country/Region Code"=CONST()) "Post Code"
-                            ELSE IF ("Country/Region Code"=FILTER(<>'')) "Post Code" WHERE ("Country/Region Code"=FIELD("Country/Region Code"));
+            TableRelation = IF ("Country/Region Code" = CONST()) "Post Code"
+            ELSE IF ("Country/Region Code" = FILTER(<> '')) "Post Code" WHERE("Country/Region Code" = FIELD("Country/Region Code"));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
         }
-        field(11;"E-Mail";Text[250])
+        field(11; "E-Mail"; Text[250])
         {
             Caption = 'E-Mail';
             ExtendedDatatype = EMail;
         }
-        field(12;"No. Series";Code[10])
+        field(12; "No. Series"; Code[10])
         {
         }
-        field(13;"CC/Email";Text[250])
+        field(13; "CC/Email"; Text[250])
         {
         }
     }
 
     keys
     {
-        key(Key1;"No.")
+        key(Key1; "No.")
         {
             Clustered = true;
         }
@@ -88,8 +88,8 @@ table 50015 Consignee
     trigger OnInsert()
     begin
         ImportExportSetup.GET;
-        IF "No."='' THEN
-          NoSeriesMgt.InitSeries(ImportExportSetup."Consignee Nos.",xRec."No. Series",0D,"No.","No. Series");
+        IF "No." = '' THEN
+            NoSeriesMgt.InitSeries(ImportExportSetup."Consignee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
     end;
 
     var
@@ -98,20 +98,18 @@ table 50015 Consignee
         Text001: Label 'You cannot delete Consignee %1 because there is at least one %2  associated with it.';
         Consignee: Record 50015;
 
-    
+
     procedure AssistEdit(OldConsignee: Record 50015): Boolean
     begin
-        WITH Consignee DO BEGIN
-          Consignee := Rec;
-          ImportExportSetup.GET;
-          ImportExportSetup.TESTFIELD("Consignee Nos.");
-          IF NoSeriesMgt.SelectSeries(ImportExportSetup."Consignee Nos.",OldConsignee."No. Series","No. Series") THEN BEGIN
+        Consignee := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Consignee Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Consignee Nos.", OldConsignee."No. Series", Consignee."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Consignee Nos.");
-            NoSeriesMgt.SetSeries("No.");
-            Rec :=OldConsignee;
+            NoSeriesMgt.SetSeries(Consignee."No.");
+            Rec := OldConsignee;
             EXIT(TRUE);
-          END;
         END;
     end;
 }

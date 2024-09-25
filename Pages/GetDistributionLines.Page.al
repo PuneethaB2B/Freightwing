@@ -2,7 +2,7 @@ page 50070 "Get Distribution Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50043;
+    SourceTable = 50043;
 
     layout
     {
@@ -10,26 +10,26 @@ page 50070 "Get Distribution Lines"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                     HideValue = "Item No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Distribution Date"; "Distribution Date")
+                field("Distribution Date"; Rec."Distribution Date")
                 {
                 }
             }
@@ -53,22 +53,22 @@ page 50070 "Get Distribution Lines"
     end;
 
     var
-        OrderBookingHeader: Record "50053";
-        TempDailyWeightDistByItem: Record "50043" temporary;
-        GetOrderBookings: Codeunit "50004";
-        [InDataSet]
+        OrderBookingHeader: Record 5053;
+        TempDailyWeightDistByItem: Record 50043 temporary;
+        GetOrderBookings: Codeunit 50004;
+
         "Item No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        DailyWeightDistByItem: Record "50043";
+        DailyWeightDistByItem: Record 50043;
     begin
         TempDailyWeightDistByItem.RESET;
         TempDailyWeightDistByItem.COPYFILTERS(Rec);
-        TempDailyWeightDistByItem.SETRANGE("Daily No.", "Daily No.");
+        TempDailyWeightDistByItem.SETRANGE("Daily No.", Rec."Daily No.");
         IF NOT TempDailyWeightDistByItem.FINDFIRST THEN BEGIN
             DailyWeightDistByItem.COPYFILTERS(Rec);
-            DailyWeightDistByItem.SETRANGE("Daily No.", "Daily No.");
+            DailyWeightDistByItem.SETRANGE("Daily No.", Rec."Daily No.");
             // SalesInvLine.SETFILTER(Quantity,'<>0');
             // PurchInvLine.SETFILTER("Qty. Rcd. Not Invoiced",'<>0');
             IF DailyWeightDistByItem.FINDFIRST THEN BEGIN
@@ -87,7 +87,7 @@ page 50070 "Get Distribution Lines"
     end;
 
 
-    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record "50053")
+    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record 50053)
     begin
         OrderBookingHeader.GET(OrderBookingHeader2."No.");
         //ReceiptHeader.TESTFIELD("Document Type",ReceiptHeader."Document Type"::"Receipt Voucher");

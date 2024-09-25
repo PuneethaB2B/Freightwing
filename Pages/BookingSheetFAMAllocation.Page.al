@@ -12,11 +12,11 @@ page 50075 "Booking Sheet FAM Allocation"
                 field("Farm Code"; Rec."Farm Code")
                 {
                 }
-                field("FAM Name"; "FAM Name")
+                field("FAM Name"; Rec."FAM Name")
                 {
                     Editable = false;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                 }
             }

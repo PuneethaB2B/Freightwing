@@ -6,8 +6,8 @@ page 50013 "Sales Invoice Subform - Import"
     LinksAllowed = false;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = Table37;
-    SourceTableView = WHERE(Document Type=FILTER(Invoice));
+    SourceTable = 37;
+    SourceTableView = WHERE("Document Type" = FILTER(Invoice));
 
     layout
     {
@@ -15,36 +15,36 @@ page 50013 "Sales Invoice Subform - Import"
         {
             repeater()
             {
-                field(Type;Type)
+                field(Type; rec.Type)
                 {
 
                     trigger OnValidate()
                     begin
                         TypeOnAfterValidate;
                         NoOnAfterValidate;
-                        TypeChosen := Type <> Type::" ";
+                        TypeChosen := Rec.Type <> Rec.Type::" ";
 
                         IF xRec."No." <> '' THEN
-                          RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("No.";"No.")
+                field("No."; rec."No.")
                 {
                     ShowMandatory = TypeChosen;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                         NoOnAfterValidate;
 
                         IF xRec."No." <> '' THEN
-                          RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Freight Charge Code";"Freight Charge Code")
+                field("Freight Charge Code"; rec."Freight Charge Code")
                 {
                 }
-                field("Cross-Reference No.";"Cross-Reference No.")
+                field("Cross-Reference No."; Rec."Cross-Reference No.")
                 {
                     Visible = false;
 
@@ -61,27 +61,27 @@ page 50013 "Sales Invoice Subform - Import"
                         NoOnAfterValidate;
                     end;
                 }
-                field("IC Partner Code";"IC Partner Code")
+                field("IC Partner Code"; rec."IC Partner Code")
                 {
                     Visible = false;
                 }
-                field("IC Partner Ref. Type";"IC Partner Ref. Type")
+                field("IC Partner Ref. Type"; rec."IC Partner Ref. Type")
                 {
                     Visible = false;
                 }
-                field("IC Partner Reference";"IC Partner Reference")
+                field("IC Partner Reference"; rec."IC Partner Reference")
                 {
                     Visible = false;
                 }
-                field("Variant Code";"Variant Code")
+                field("Variant Code"; rec."Variant Code")
                 {
                     Visible = false;
                 }
-                field(Nonstock;Nonstock)
+                field(Nonstock; rec.Nonstock)
                 {
                     Visible = false;
                 }
-                field("VAT Prod. Posting Group";"VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; rec."VAT Prod. Posting Group")
                 {
                     Visible = false;
 
@@ -90,22 +90,22 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field(Description;Description)
+                field(Description; rec.Description)
                 {
                 }
-                field("Return Reason Code";"Return Reason Code")
-                {
-                    Visible = false;
-                }
-                field("Location Code";"Location Code")
+                field("Return Reason Code"; rec."Return Reason Code")
                 {
                     Visible = false;
                 }
-                field("Bin Code";"Bin Code")
+                field("Location Code"; rec."Location Code")
                 {
                     Visible = false;
                 }
-                field(Quantity;Quantity)
+                field("Bin Code"; rec."Bin Code")
+                {
+                    Visible = false;
+                }
+                field(Quantity; rec.Quantity)
                 {
                     BlankZero = true;
                     ShowMandatory = TypeChosen;
@@ -117,7 +117,7 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Unit of Measure Code";"Unit of Measure Code")
+                field("Unit of Measure Code"; rec."Unit of Measure Code")
                 {
                     Visible = false;
 
@@ -127,21 +127,21 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Unit of Measure";"Unit of Measure")
+                field("Unit of Measure"; rec."Unit of Measure")
                 {
                     Visible = false;
                 }
-                field("Unit Cost (LCY)";"Unit Cost (LCY)")
+                field("Unit Cost (LCY)"; rec."Unit Cost (LCY)")
                 {
                     Visible = false;
                 }
-                field(PriceExists;PriceExists)
+                field(PriceExists; rec.PriceExists)
                 {
                     Caption = 'Sales Price Exists';
                     Editable = false;
                     Visible = false;
                 }
-                field("Unit Price";"Unit Price")
+                field("Unit Price"; rec."Unit Price")
                 {
                     BlankZero = true;
                     ShowMandatory = TypeChosen;
@@ -151,7 +151,7 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Line Amount";"Line Amount")
+                field("Line Amount"; rec."Line Amount")
                 {
                     BlankZero = true;
 
@@ -160,13 +160,13 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field(LineDiscExists;LineDiscExists)
+                field(LineDiscExists; Rec.LineDiscExists)
                 {
                     Caption = 'Sales Line Disc. Exists';
                     Editable = false;
                     Visible = false;
                 }
-                field("Line Discount %";"Line Discount %")
+                field("Line Discount %"; rec."Line Discount %")
                 {
                     BlankZero = true;
 
@@ -175,7 +175,7 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Line Discount Amount";"Line Discount Amount")
+                field("Line Discount Amount"; rec."Line Discount Amount")
                 {
                     Visible = false;
 
@@ -184,102 +184,102 @@ page 50013 "Sales Invoice Subform - Import"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Allow Invoice Disc.";"Allow Invoice Disc.")
+                field("Allow Invoice Disc."; rec."Allow Invoice Disc.")
                 {
                     Visible = false;
                 }
-                field("Inv. Discount Amount";"Inv. Discount Amount")
+                field("Inv. Discount Amount"; rec."Inv. Discount Amount")
                 {
                     Visible = false;
                 }
-                field("Allow Item Charge Assignment";"Allow Item Charge Assignment")
+                field("Allow Item Charge Assignment"; rec."Allow Item Charge Assignment")
                 {
                     Visible = false;
                 }
-                field("Qty. to Assign";"Qty. to Assign")
+                field("Qty. to Assign"; rec."Qty. to Assign")
                 {
                     BlankZero = true;
 
                     trigger OnDrillDown()
                     begin
                         CurrPage.SAVERECORD;
-                        ShowItemChargeAssgnt;
+                        rec.ShowItemChargeAssgnt;
                         UpdateForm(FALSE);
                     end;
                 }
-                field("Qty. Assigned";"Qty. Assigned")
+                field("Qty. Assigned"; rec."Qty. Assigned")
                 {
                     BlankZero = true;
 
                     trigger OnDrillDown()
                     begin
                         CurrPage.SAVERECORD;
-                        ShowItemChargeAssgnt;
+                        Rec.ShowItemChargeAssgnt;
                         UpdateForm(FALSE);
                     end;
                 }
-                field("Job No.";"Job No.")
+                field("Job No."; Rec."Job No.")
                 {
                     Visible = false;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                     end;
                 }
-                field("Job Task No.";"Job Task No.")
+                field("Job Task No."; Rec."Job Task No.")
                 {
                     Visible = false;
                 }
-                field("Job Contract Entry No.";"Job Contract Entry No.")
+                field("Job Contract Entry No."; Rec."Job Contract Entry No.")
                 {
                     Visible = false;
                 }
-                field("Work Type Code";"Work Type Code")
+                field("Work Type Code"; Rec."Work Type Code")
                 {
                     Visible = false;
                 }
-                field("Blanket Order No.";"Blanket Order No.")
+                field("Blanket Order No."; Rec."Blanket Order No.")
                 {
                     Visible = false;
                 }
-                field("Blanket Order Line No.";"Blanket Order Line No.")
+                field("Blanket Order Line No."; Rec."Blanket Order Line No.")
                 {
                     Visible = false;
                 }
-                field("FA Posting Date";"FA Posting Date")
+                field("FA Posting Date"; Rec."FA Posting Date")
                 {
                     Visible = false;
                 }
-                field("Depr. until FA Posting Date";"Depr. until FA Posting Date")
+                field("Depr. until FA Posting Date"; Rec."Depr. until FA Posting Date")
                 {
                     Visible = false;
                 }
-                field("Depreciation Book Code";"Depreciation Book Code")
+                field("Depreciation Book Code"; Rec."Depreciation Book Code")
                 {
                     Visible = false;
                 }
-                field("Use Duplication List";"Use Duplication List")
+                field("Use Duplication List"; Rec."Use Duplication List")
                 {
                     Visible = false;
                 }
-                field("Duplicate in Depreciation Book";"Duplicate in Depreciation Book")
+                field("Duplicate in Depreciation Book"; Rec."Duplicate in Depreciation Book")
                 {
                     Visible = false;
                 }
-                field("Appl.-from Item Entry";"Appl.-from Item Entry")
+                field("Appl.-from Item Entry"; Rec."Appl.-from Item Entry")
                 {
                     Visible = false;
                 }
-                field("Appl.-to Item Entry";"Appl.-to Item Entry")
+                field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
                 {
                     Visible = false;
                 }
-                field("Shortcut Dimension 1 Code";"Shortcut Dimension 1 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                 }
-                field("Shortcut Dimension 2 Code";"Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     Visible = false;
                 }
@@ -684,19 +684,18 @@ page 50013 "Sales Invoice Subform - Import"
     end;
 
     var
-        TotalSalesHeader: Record "36";
-        TotalSalesLine: Record "37";
-        SalesHeader: Record "36";
-        TransferExtendedText: Codeunit "378";
-        SalesPriceCalcMgt: Codeunit "7000";
-        ItemAvailFormsMgt: Codeunit "353";
-        SalesCalcDiscByType: Codeunit "56";
-        DocumentTotals: Codeunit "57";
+        TotalSalesHeader: Record 36;
+        TotalSalesLine: Record 37;
+        SalesHeader: Record 36;
+        TransferExtendedText: Codeunit 378;
+        SalesPriceCalcMgt: Codeunit 7000;
+        ItemAvailFormsMgt: Codeunit 353;
+        SalesCalcDiscByType: Codeunit 56;
+        DocumentTotals: Codeunit 57;
         VATAmount: Decimal;
         ShortcutDimCode: array [8] of Code[20];
         UpdateAllowedVar: Boolean;
         Text000: Label 'Unable to run this function while in View mode.';
-        [InDataSet]
         ItemPanelVisible: Boolean;
         InvDiscAmountEditable: Boolean;
         TotalAmountStyle: Text;

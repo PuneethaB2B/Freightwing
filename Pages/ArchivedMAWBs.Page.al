@@ -23,49 +23,49 @@ page 50077 "Archived MAWBs"
                 field("Agent's IATA Code"; Rec."Agent's IATA Code")
                 {
                 }
-                field("Phyto Certificate"; "Phyto Certificate")
+                field("Phyto Certificate"; Rec."Phyto Certificate")
                 {
                 }
-                field("Custom Entry No"; "Custom Entry No")
+                field("Custom Entry No"; Rec."Custom Entry No")
                 {
                 }
-                field("Euro Form No"; "Euro Form No")
+                field("Euro Form No"; Rec."Euro Form No")
                 {
                 }
-                field("Commercial Invoice No"; "Commercial Invoice No")
+                field("Commercial Invoice No"; Rec."Commercial Invoice No")
                 {
                 }
-                field("Has Houses"; "Has Houses")
+                field("Has Houses"; Rec."Has Houses")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field("Processed By"; "Processed By")
+                field("Processed By"; Rec."Processed By")
                 {
                 }
-                field("Total Weight"; "Total Weight")
+                field("Total Weight"; Rec."Total Weight")
                 {
                 }
-                field("Total Quantity"; "Total Quantity")
+                field("Total Quantity"; Rec."Total Quantity")
                 {
                 }
-                field("House Nos"; "House Nos")
+                field("House Nos"; Rec."House Nos")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
-                field("Gate Pass Prepared"; "Gate Pass Prepared")
+                field("Gate Pass Prepared"; Rec."Gate Pass Prepared")
                 {
                 }
-                field("Preparation Date"; "Preparation Date")
+                field("Preparation Date"; Rec."Preparation Date")
                 {
                 }
-                field("Processed At"; "Processed At")
+                field("Processed At"; Rec."Processed At")
                 {
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     Caption = 'Description';
                 }
@@ -82,7 +82,7 @@ page 50077 "Archived MAWBs"
 
                 trigger OnAction()
                 begin
-                    "Gate Pass Prepared" := TRUE;
+                    Rec."Gate Pass Prepared" := TRUE;
                     Rec.MODIFY;
                 end;
             }

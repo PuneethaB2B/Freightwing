@@ -1,7 +1,7 @@
 page 50088 "Email Config"
 {
     PageType = List;
-    SourceTable = Table50020;
+    SourceTable = 50020;
 
     layout
     {
@@ -9,16 +9,16 @@ page 50088 "Email Config"
         {
             repeater(Group)
             {
-                field(Email; Email)
+                field(Email; Rec.Email)
                 {
                 }
-                field("Exclude From Invoice"; "Exclude From Invoice")
+                field("Exclude From Invoice"; Rec."Exclude From Invoice")
                 {
                 }
-                field("Exclude From Pre Alert"; "Exclude From Pre Alert")
+                field("Exclude From Pre Alert"; Rec."Exclude From Pre Alert")
                 {
                 }
-                field("Exclude From Post Alert"; "Exclude From Post Alert")
+                field("Exclude From Post Alert"; Rec."Exclude From Post Alert")
                 {
                 }
             }

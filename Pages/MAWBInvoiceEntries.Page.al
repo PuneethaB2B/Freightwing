@@ -2,9 +2,9 @@ page 50155 "MAWB Invoice Entries"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table17;
-    SourceTableView = WHERE(Document Type=FILTER(Invoice),
-                            System-Created Entry=FILTER(No));
+    SourceTable = 17;
+    SourceTableView = WHERE("Document Type" = FILTER(Invoice),
+                            "System-Created Entry" = FILTER(false));
 
     layout
     {
@@ -12,26 +12,26 @@ page 50155 "MAWB Invoice Entries"
         {
             repeater(Group)
             {
-                field("Document No.";"Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                 }
-                field("Document Date";"Document Date")
+                field("Document Date"; Rec."Document Date")
                 {
                 }
-                field("External Document No.";"External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                 }
-                field(Description;Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field(FormattedAmount;FormattedAmount)
+                field(FormattedAmount; FormattedAmount)
                 {
                     Caption = 'Amount';
                 }
-                field("Global Dimension 1 Code";"Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                 }
-                field("Global Dimension 2 Code";"Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                 }
             }
@@ -44,7 +44,7 @@ page 50155 "MAWB Invoice Entries"
 
     trigger OnAfterGetRecord()
     begin
-        FormattedAmount:=ABS(Amount);
+        FormattedAmount := ABS(Rec.Amount);
     end;
 
     var

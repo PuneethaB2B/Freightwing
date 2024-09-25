@@ -3,7 +3,7 @@ page 50107 "HAWB Subform"
     AutoSplitKey = true;
     Caption = 'House Airway Bill Subform';
     PageType = ListPart;
-    SourceTable = Table50074;
+    SourceTable = 50074;
 
     layout
     {
@@ -11,72 +11,72 @@ page 50107 "HAWB Subform"
         {
             repeater(Group)
             {
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
-                {
-                    Editable = false;
-                }
-                field(Description; Description)
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                 }
-                field("Division/Farm Code"; "Division/Farm Code")
+                field(Description; Rec.Description)
+                {
+                    Editable = false;
+                }
+                field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                     Caption = 'Booked Weight';
                     Editable = false;
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
 
                     trigger OnValidate()
                     begin
                         BookingSheetLine.RESET;
-                        BookingSheetLine.SETRANGE(BookingSheetLine."MAWB No.", "MAWB No.");
+                        BookingSheetLine.SETRANGE(BookingSheetLine."MAWB No.", Rec."MAWB No.");
                         IF BookingSheetLine.FINDFIRST THEN BEGIN
                             BookedWeight := BookingSheetLine."Booked Weight";
                         END;
 
-                        HAWB.GET("HAWB No.");
+                        HAWB.GET(Rec."HAWB No.");
                         HAWB.CALCFIELDS(HAWB."Total Weight");
                         GrossWeight := HAWB."Total Weight";
                         MESSAGE('%1', GrossWeight);
                     end;
                 }
-                field("Rate/Charge"; "Rate/Charge")
+                field("Rate/Charge"; Rec."Rate/Charge")
                 {
                     Visible = false;
                 }
-                field("Chargeable Weight"; "Chargeable Weight")
+                field("Chargeable Weight"; Rec."Chargeable Weight")
                 {
                 }
-                field("Custom Enrty No"; "Custom Enrty No")
+                field("Custom Enrty No"; Rec."Custom Enrty No")
                 {
                 }
-                field(Phyto; Phyto)
+                field(Phyto; Rec.Phyto)
                 {
                     Caption = 'KEPHIS Phyto Certificate';
                 }
-                field("Commercial Invoice No"; "Commercial Invoice No")
+                field("Commercial Invoice No"; Rec."Commercial Invoice No")
                 {
                 }
-                field(Currency; Currency)
+                field(Currency; Rec.Currency)
                 {
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                 }
-                field("Certifiate of Origin"; "Certifiate of Origin")
+                field("Certifiate of Origin"; Rec."Certifiate of Origin")
                 {
                 }
             }
@@ -108,16 +108,16 @@ page 50107 "HAWB Subform"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        TESTFIELD(Quantity);
-        TESTFIELD("Gross Weight");
+        Rec.TESTFIELD(Quantity);
+        Rec.TESTFIELD("Gross Weight");
     end;
 
     var
-        BookingSheetLine: Record "50054";
+        BookingSheetLine: Record 50054;
         BookedWeight: Decimal;
-        HAWBLine: Record "50074";
+        HAWBLine: Record 50074;
         GrossWeight: Decimal;
-        HAWB: Record "50075";
+        HAWB: Record 50075;
 
 
     procedure GetHAWBItem()

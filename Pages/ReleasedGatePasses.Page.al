@@ -5,7 +5,7 @@ page 50087 "Released Gate Passes"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    SourceTable = Table50068;
+    SourceTable = 50068;
     SourceTableView = WHERE(Status = FILTER(Released));
 
     layout
@@ -14,28 +14,28 @@ page 50087 "Released Gate Passes"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Gate-Pass Date"; "Gate-Pass Date")
+                field("Gate-Pass Date"; Rec."Gate-Pass Date")
                 {
                 }
-                field("Vehicle No."; "Vehicle No.")
+                field("Vehicle No."; Rec."Vehicle No.")
                 {
                 }
-                field("Driver Name"; "Driver Name")
+                field("Driver Name"; Rec."Driver Name")
                 {
                 }
-                field("Escort Vehicle No."; "Escort Vehicle No.")
+                field("Escort Vehicle No."; Rec."Escort Vehicle No.")
                 {
                 }
-                field("Supervisor Name"; "Supervisor Name")
+                field("Supervisor Name"; Rec."Supervisor Name")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                 }
             }

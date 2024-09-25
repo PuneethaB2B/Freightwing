@@ -9,7 +9,7 @@ page 50027 Countries
     {
         area(content)
         {
-            repeater()
+            repeater(fw)
             {
                 field(Code; Rec.Code)
                 {
@@ -21,11 +21,11 @@ page 50027 Countries
         }
         area(factboxes)
         {
-            systempart(; Links)
+            systempart(Link; Links)
             {
                 Visible = false;
             }
-            systempart(; Notes)
+            systempart(Note; Notes)
             {
                 Visible = false;
             }

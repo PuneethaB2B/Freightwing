@@ -1,7 +1,7 @@
 page 50081 "Loading Sheet Subform"
 {
     PageType = ListPart;
-    SourceTable = Table50061;
+    SourceTable = 50061;
 
     layout
     {
@@ -9,109 +9,109 @@ page 50081 "Loading Sheet Subform"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                 }
-                field("Division/Farm Code"; "Division/Farm Code")
+                field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                     Editable = false;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                     Editable = false;
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     Editable = false;
                 }
-                field("Skid Per"; "Skid Per")
+                field("Skid Per"; Rec."Skid Per")
                 {
                     Caption = 'Boxes per Skid';
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     Caption = 'No. Of Boxes';
                 }
-                field("In Stock"; "In Stock")
+                field("In Stock"; Rec."In Stock")
                 {
                     Editable = false;
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                     Editable = false;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     Editable = false;
                 }
-                field("FWL Docket Weight"; "FWL Docket Weight")
+                field("FWL Docket Weight"; Rec."FWL Docket Weight")
                 {
                     Editable = false;
                 }
-                field("FWL Gross Weight"; "FWL Gross Weight")
+                field("FWL Gross Weight"; Rec."FWL Gross Weight")
                 {
                     Caption = 'FWL Received Weight';
                     Editable = false;
                 }
-                field("Airline Docket Weight"; "Airline Docket Weight")
+                field("Airline Docket Weight"; Rec."Airline Docket Weight")
                 {
                 }
-                field("Volume Metric Weight"; "Volume Metric Weight")
-                {
-                    Editable = false;
-                }
-                field(Position; Position)
-                {
-                }
-                field("Arrival Temperature"; "Arrival Temperature")
+                field("Volume Metric Weight"; Rec."Volume Metric Weight")
                 {
                     Editable = false;
                 }
-                field("Departure Temperature"; "Departure Temperature")
+                field(Position; Rec.Position)
+                {
+                }
+                field("Arrival Temperature"; Rec."Arrival Temperature")
+                {
+                    Editable = false;
+                }
+                field("Departure Temperature"; Rec."Departure Temperature")
                 {
                     ShowMandatory = true;
                 }
-                field("Vaccum Temperature"; "Vaccum Temperature")
+                field("Vaccum Temperature"; Rec."Vaccum Temperature")
                 {
                 }
-                field("X-Ray"; "X-Ray")
-                {
-                    Editable = false;
-                }
-                field("Flight Code"; "Flight Code")
+                field("X-Ray"; Rec."X-Ray")
                 {
                     Editable = false;
                 }
-                field("Destination Code"; "Destination Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                     Editable = false;
                 }
-                field("Airline Code"; "Airline Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                     Editable = false;
                 }
-                field(Dimension; Dimension)
+                field("Airline Code"; Rec."Airline Code")
                 {
                     Editable = false;
                 }
-                field("Consignee Name"; "Consignee Name")
+                field(Dimension; Rec.Dimension)
+                {
+                    Editable = false;
+                }
+                field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field(Length; Length)
+                field(Length; Rec.Length)
                 {
                 }
-                field(Width; Width)
+                field(Width; Rec.Width)
                 {
                 }
-                field(Height; Height)
+                field(Height; Rec.Height)
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
             }
@@ -147,12 +147,12 @@ page 50081 "Loading Sheet Subform"
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
                     RunObject = Page 50085;
-                    RunPageLink = Loading Sheet No.=FIELD(Loading Sheet No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Item No.=FIELD(Item No.),
-                                  MWAB No.=FIELD(MAWB No.),
-                                  FAM=FIELD(Division/Farm Code),
-                                  Consignee=FIELD(Consignee Code);
+                    RunPageLink = "Loading Sheet No." = FIELD("Loading Sheet No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Item No." = FIELD("Item No."),
+                                  "MWAB No." = FIELD("MAWB No."),
+                                  FAM = FIELD("Division/Farm Code"),
+                                  Consignee = FIELD("Consignee Code");
 
                     trigger OnAction()
                     begin
@@ -164,11 +164,11 @@ page 50081 "Loading Sheet Subform"
                     Caption = '& Notify Parties';
                     Image = EntriesList;
                     RunObject = Page 50086;
-                                    RunPageLink = Loading Sheet No.=FIELD(Loading Sheet No.),
-                                  Shipper Code=FIELD(Shipper Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Airline Code=FIELD(Airline Code),
-                                  Item No.=FIELD(Item No.);
+                    RunPageLink = "Loading Sheet No." = FIELD("Loading Sheet No."),
+                                  "Shipper Code" = FIELD("Shipper Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Item No." = FIELD("Item No.");
 
                     trigger OnAction()
                     begin
@@ -179,10 +179,10 @@ page 50081 "Loading Sheet Subform"
         }
     }
 
-    
+
     procedure GetBookingSheetLines()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Export.-Get Goods Receipt",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Export.-Get Goods Receipt", Rec);
     end;
 }
 

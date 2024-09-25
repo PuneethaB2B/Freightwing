@@ -2,7 +2,7 @@ page 50063 "Wk. Customer Req. By Day List"
 {
     Caption = 'Customer Weight Requirement By Day';
     PageType = List;
-    SourceTable = Table50049;
+    SourceTable = 50049;
 
     layout
     {
@@ -10,13 +10,13 @@ page 50063 "Wk. Customer Req. By Day List"
         {
             repeater(Group)
             {
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
             }

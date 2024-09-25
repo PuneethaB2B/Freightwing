@@ -24,7 +24,7 @@ page 50078 "Archived MAWB"
                 field("Carrier Agent Code"; Rec."Carrier Agent Code")
                 {
                 }
-                field("Agent Code"; "Agent Code")
+                field("Agent Code"; Rec."Agent Code")
                 {
                 }
                 field("Source Airport"; Rec."Source Airport")
@@ -33,54 +33,54 @@ page 50078 "Archived MAWB"
                 field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field(Consolidated; Consolidated)
+                field(Consolidated; Rec.Consolidated)
                 {
                 }
                 field("Consignee Name"; Rec."Consignee Name")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Custom Entry No"; "Custom Entry No")
+                field("Custom Entry No"; Rec."Custom Entry No")
                 {
                 }
-                field("Phyto Certificate"; "Phyto Certificate")
+                field("Phyto Certificate"; Rec."Phyto Certificate")
                 {
                 }
-                field("Euro Form No"; "Euro Form No")
+                field("Euro Form No"; Rec."Euro Form No")
                 {
                 }
-                field("Commercial Invoice No"; "Commercial Invoice No")
+                field("Commercial Invoice No"; Rec."Commercial Invoice No")
                 {
                 }
-                field("Total Weight"; "Total Weight")
-                {
-                    Editable = false;
-                }
-                field("Total Quantity"; "Total Quantity")
-                {
-                }
-                field("House Nos"; "House Nos")
+                field("Total Weight"; Rec."Total Weight")
                 {
                     Editable = false;
                 }
-                field(Status; Status)
+                field("Total Quantity"; Rec."Total Quantity")
+                {
+                }
+                field("House Nos"; Rec."House Nos")
+                {
+                    Editable = false;
+                }
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
                 field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     Caption = 'Description';
                 }
             }
-            part(; 50126)
+            part(ArchivedMAWBSubform; "Archived MAWB Subform")
             {
                 SubPageLink = "MAWB No." = FIELD("No.");
             }
@@ -115,7 +115,7 @@ page 50078 "Archived MAWB"
                                 TBLTW += MAWBLine."Chargeable Weight";
                             UNTIL MAWBLine.NEXT = 0;
                         END;
-                        "Total Weight" := TBLTW;
+                        Rec."Total Weight" := TBLTW;
                         MESSAGE('Total Weight Calculated');
                         // ************************** end ********
                         // *************************************TBL calc houses *****
@@ -128,7 +128,7 @@ page 50078 "Archived MAWB"
                                     TBLHN := TBLHN + 1;
                             UNTIL MAWBLine.NEXT = 0;
                         END;
-                        "House Nos" := TBLHN;
+                        Rec."House Nos" := TBLHN;
                         MESSAGE('Houses number Calculated');
 
                         // ************************** end ********
@@ -151,7 +151,7 @@ page 50078 "Archived MAWB"
                     trigger OnAction()
                     begin
                         //CalculateMAWBCharges;
-                        CalculateHandlingFees;
+                        Rec.CalculateHandlingFees;
                     end;
                 }
                 action("View Charges")
@@ -193,7 +193,7 @@ page 50078 "Archived MAWB"
                     trigger OnAction()
                     begin
                         IF CONFIRM(Text0001 + '' + FORMAT(Rec."No.")) THEN BEGIN
-                            Rec.Status := Status::Pending;
+                            Rec.Status := Rec.Status::Pending;
                         END;
                     end;
                 }
@@ -216,7 +216,7 @@ page 50078 "Archived MAWB"
                                 IF MAWBInvoiceCharge.FIND('-') THEN BEGIN
                                     MAWBInvoiceCharge.DELETEALL;
                                 END;
-                                Status := Status::Submitted;
+                                Rec.Status := Rec.Status::Submitted;
                                 Rec.MODIFY();
                                 CurrPage.CLOSE();
                                 MESSAGE('MAWB Reset Status is Submitted');

@@ -5,7 +5,7 @@ page 50101 "Posted Loading Sheet"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = Table50060;
+    SourceTable = 50060;
 
     layout
     {
@@ -13,52 +13,52 @@ page 50101 "Posted Loading Sheet"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Importance = Promoted;
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Loading Date"; "Loading Date")
+                field("Loading Date"; Rec."Loading Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                     Importance = Promoted;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                     Caption = 'GRN MAWB No.';
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Loading Sheet MAWB No"; "Loading Sheet MAWB No")
+                field("Loading Sheet MAWB No"; Rec."Loading Sheet MAWB No")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
             }
-            part(; 50110)
+            part(Page; 50110)
             {
-                SubPageLink = Loading Sheet No.=FIELD(No.);
+                SubPageLink = "Loading Sheet No." = FIELD("No.");
             }
         }
     }
@@ -67,7 +67,7 @@ page 50101 "Posted Loading Sheet"
     {
         area(processing)
         {
-            group()
+            group(fw)
             {
                 action(Post)
                 {
@@ -82,8 +82,8 @@ page 50101 "Posted Loading Sheet"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status, Status::Submitted);
-                        PostLoadingSheet;
+                        Rec.TESTFIELD(Status, Rec.Status::Submitted);
+                        Rec.PostLoadingSheet;
                     end;
                 }
                 action("&Print")
@@ -99,7 +99,7 @@ page 50101 "Posted Loading Sheet"
                     trigger OnAction()
                     begin
                         LoadingSheetHeader.RESET;
-                        LoadingSheetHeader.SETRANGE("No.", "No.");
+                        LoadingSheetHeader.SETRANGE("No.", Rec."No.");
                         IF LoadingSheetHeader.FINDFIRST THEN
                             REPORT.RUNMODAL(50021, TRUE, FALSE, LoadingSheetHeader);
                     end;
@@ -112,7 +112,7 @@ page 50101 "Posted Loading Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit "Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -130,13 +130,13 @@ page 50101 "Posted Loading Sheet"
                     begin
                         IF CONFIRM('Do you want to Submit Loading Sheet For Posting?') THEN BEGIN
                             LoadingSheetUlDAlloc.RESET;
-                            LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."Loading Sheet No.", "No.");
+                            LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."Loading Sheet No.", Rec."No.");
                             LoadingSheetUlDAlloc.SETRANGE(LoadingSheetUlDAlloc."FWL Docket No.", '');
                             IF LoadingSheetUlDAlloc.FINDFIRST THEN BEGIN
                                 ERROR('The ULD %1 %2 Does not have a Docket No.', LoadingSheetUlDAlloc."ULD Type Code", LoadingSheetUlDAlloc."ULD No.");
                             END ELSE BEGIN
-                                Status := Status::Submitted;
-                                MODIFY;
+                                Rec.Status := Rec.Status::Submitted;
+                                Rec.MODIFY;
                             END;
                         END;
                     end;
@@ -152,16 +152,16 @@ page 50101 "Posted Loading Sheet"
                     trigger OnAction()
                     begin
                         IF CONFIRM('Do you want to Re-Open Loadiing Sheet?') THEN BEGIN
-                            Shipped := FALSE;
-                            Status := Status::Submitted;
-                            MODIFY;
+                            Rec.Shipped := FALSE;
+                            Rec.Status := Rec.Status::Submitted;
+                            Rec.MODIFY;
                             MAWBLine.RESET;
-                            MAWBLine.SETRANGE(MAWBLine."MAWB No.", "MAWB No.");
+                            MAWBLine.SETRANGE(MAWBLine."MAWB No.", Rec."MAWB No.");
                             IF MAWBLine.FIND('-') THEN BEGIN
                                 MAWBLine.DELETEALL;
                             END;
                             HAWBLine.RESET;
-                            HAWBLine.SETRANGE(HAWBLine."MAWB No.", "MAWB No.");
+                            HAWBLine.SETRANGE(HAWBLine."MAWB No.", Rec."MAWB No.");
                             IF HAWBLine.FIND('-') THEN BEGIN
                                 HAWBLine.DELETEALL;
                             END;
@@ -170,7 +170,7 @@ page 50101 "Posted Loading Sheet"
                             IF MAWBInv.FIND('-') THEN BEGIN
                               MAWBInv.DELETEALL;
                             END;*/
-                            PostLoadingSheetReversal;
+                            Rec.PostLoadingSheetReversal;
                             MESSAGE('Loading Sheet Reset!');
                             CurrPage.CLOSE;
                         END;
@@ -196,15 +196,15 @@ page 50101 "Posted Loading Sheet"
     }
 
     var
-        LoadingSheetHeader: Record "50060";
-        LoadingSheetLine: Record "50061";
-        LoadingSheetUlDAlloc: Record "50063";
-        ImportExportSetup: Record "50010";
-        MAWBInv: Record "50073";
+        LoadingSheetHeader: Record 50060;
+        LoadingSheetLine: Record 50061;
+        LoadingSheetUlDAlloc: Record 50063;
+        ImportExportSetup: Record 50010;
+        MAWBInv: Record 50073;
         JournalTemplate: Text[100];
         JournalBatch: Text[100];
-        ItemJnLine: Record "83";
-        MAWBLine: Record "50076";
-        HAWBLine: Record "50074";
+        ItemJnLine: Record 83;
+        MAWBLine: Record 50076;
+        HAWBLine: Record 50074;
 }
 

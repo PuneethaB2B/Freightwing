@@ -3,7 +3,7 @@ page 50131 "Goods Receipt Subform"
     AutoSplitKey = true;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = Table50051;
+    SourceTable = 50051;
 
     layout
     {
@@ -11,84 +11,84 @@ page 50131 "Goods Receipt Subform"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
-                {
-                    Editable = false;
-                }
-                field("Division/Farm Code"; "Division/Farm Code")
-                {
-                }
-                field("Consignee Code"; "Consignee Code")
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                 }
-                field("Consignee Name"; "Consignee Name")
+                field("Division/Farm Code"; Rec."Division/Farm Code")
+                {
+                }
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                     Editable = false;
                 }
-                field("Location Code"; "Location Code")
+                field("Consignee Name"; Rec."Consignee Name")
+                {
+                    Editable = false;
+                }
+                field("Location Code"; Rec."Location Code")
                 {
                     ShowMandatory = true;
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     Caption = 'No. Of Boxes';
                     ShowMandatory = true;
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                     Caption = 'Actual Received Weight';
                     ShowMandatory = true;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Cut-off Time"; "Cut-off Time")
+                field("Cut-off Time"; Rec."Cut-off Time")
                 {
                 }
-                field("Clearing Agent Code"; "Clearing Agent Code")
-                {
-                    ShowMandatory = true;
-                }
-                field("Type of Delivery"; "Type of Delivery")
-                {
-                }
-                field("Arrival Temperature"; "Arrival Temperature")
+                field("Clearing Agent Code"; Rec."Clearing Agent Code")
                 {
                     ShowMandatory = true;
                 }
-                field("X-Ray"; "X-Ray")
+                field("Type of Delivery"; Rec."Type of Delivery")
                 {
                 }
-                group(Dimensions)
+                field("Arrival Temperature"; Rec."Arrival Temperature")
                 {
-                    Caption = 'Dimensions';
+                    ShowMandatory = true;
                 }
-                field(Length; Length)
-                {
-                }
-                field(Width; Width)
+                field("X-Ray"; Rec."X-Ray")
                 {
                 }
-                field(Height; Height)
+                /*   group(Dimensions)
+                  {
+                      Caption = 'Dimensions';
+                  } */
+                field(Length; Rec.Length)
+                {
+                }
+                field(Width; Rec.Width)
+                {
+                }
+                field(Height; Rec.Height)
                 {
                 }
             }
@@ -103,7 +103,7 @@ page 50131 "Goods Receipt Subform"
             {
                 Caption = 'F&unctions';
                 Image = "Action";
-                action(GetBookingSheetLines)
+                action(GetBookingSheetLines1)
                 {
                     AccessByPermission = TableData 120 = R;
                     Caption = '&Get Booking Sheet Lines';
@@ -124,11 +124,11 @@ page 50131 "Goods Receipt Subform"
                     Caption = '& Notify Parties';
                     Image = EntriesList;
                     RunObject = Page 50134;
-                    RunPageLink = Good Receipt No.=FIELD(Good Receipt No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Item No.=FIELD(Item No.),
-                                  Shipper Code=FIELD(Shipper Code);
+                    RunPageLink = "Good Receipt No." = FIELD("Good Receipt No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Item No." = FIELD("Item No."),
+                                  "Shipper Code" = FIELD("Shipper Code");
                     Visible = false;
 
                     trigger OnAction()
@@ -142,9 +142,9 @@ page 50131 "Goods Receipt Subform"
                     Description = 's';
                     Image = EntriesList;
                     RunObject = Page 50135;
-                                    RunPageLink = Good Receipt No.=FIELD(Good Receipt No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  MAWB No=FIELD(MAWB No.);
+                    RunPageLink = "Good Receipt No." = FIELD("Good Receipt No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "MAWB No" = FIELD("MAWB No.");
                     Visible = false;
 
                     trigger OnAction()
@@ -156,10 +156,10 @@ page 50131 "Goods Receipt Subform"
         }
     }
 
-    
+
     procedure GetBookingSheetLines()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Export.-Get Booking Sheet",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Export.-Get Booking Sheet", Rec);
     end;
 }
 

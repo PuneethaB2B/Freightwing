@@ -1,7 +1,7 @@
 page 50124 "Shipper Notify Parties"
 {
     PageType = List;
-    SourceTable = Table50067;
+    SourceTable = 50067;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50124 "Shipper Notify Parties"
         {
             repeater(Group)
             {
-                field("Notify-Party No."; "Notify-Party No.")
+                field("Notify-Party No."; Rec."Notify-Party No.")
                 {
                 }
-                field("Notify-Party Name"; "Notify-Party Name")
+                field("Notify-Party Name"; Rec."Notify-Party Name")
                 {
                 }
             }

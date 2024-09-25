@@ -7,16 +7,16 @@ page 50094 "Operations Role Center"
     {
         area(rolecenter)
         {
-            group()
+            group(fw)
             {
-                part(; 9073)
+                part(Page; 9073)
                 {
                 }
-                part(; 9175)
+                part(Page1; 9175)
                 {
                 }
             }
-            group()
+            group(fw1)
             {
                 part(; 762)
                 {

@@ -2,7 +2,7 @@ page 50031 Flights
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Schedule,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50022;
+    SourceTable = 50022;
 
     layout
     {
@@ -10,40 +10,40 @@ page 50031 Flights
         {
             repeater(Group)
             {
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Flight No."; "Flight No.")
+                field("Flight No."; Rec."Flight No.")
                 {
                 }
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field("Departure Time"; "Departure Time")
+                field("Departure Time"; Rec."Departure Time")
                 {
                 }
-                field("Arrival Time"; "Arrival Time")
+                field("Arrival Time"; Rec."Arrival Time")
                 {
                 }
-                field(Frequency; Frequency)
+                field(Frequency; Rec.Frequency)
                 {
                 }
-                field("Shipment Delivery Time"; "Shipment Delivery Time")
+                field("Shipment Delivery Time"; Rec."Shipment Delivery Time")
                 {
                 }
-                field("Cut Off Time"; "Cut Off Time")
+                field("Cut Off Time"; Rec."Cut Off Time")
                 {
                 }
-                field("Has Connection"; "Has Connection")
+                field("Has Connection"; Rec."Has Connection")
                 {
                 }
             }
@@ -67,8 +67,8 @@ page 50031 Flights
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50032;
-                    RunPageLink = No.=FIELD(Airline Code),
-                                  Manifest No=FIELD(Flight Code);
+                    RunPageLink = "No." = FIELD("Airline Code"),
+                                  "Manifest No" = FIELD("Flight Code");
                     Visible = false;
 
                     trigger OnAction()
@@ -85,10 +85,10 @@ page 50031 Flights
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50033;
-                                    RunPageLink = Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight No.),
-                                  Source Airport=FIELD(Source Airport),
-                                  Destination Airport=FIELD(Destination Airport);
+                    RunPageLink = "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight No."),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Destination Airport" = FIELD("Destination Airport");
 
                     trigger OnAction()
                     begin

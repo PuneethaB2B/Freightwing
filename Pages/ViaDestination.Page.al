@@ -1,7 +1,7 @@
 page 50033 "Via Destination"
 {
     PageType = List;
-    SourceTable = Table50024;
+    SourceTable = 50024;
 
     layout
     {
@@ -9,25 +9,25 @@ page 50033 "Via Destination"
         {
             repeater(Group)
             {
-                field("Via Destination Code"; "Via Destination Code")
+                field("Via Destination Code"; Rec."Via Destination Code")
                 {
                 }
-                field("Via Destination Airport"; "Via Destination Airport")
+                field("Via Destination Airport"; Rec."Via Destination Airport")
                 {
                 }
-                field("Arrival Time"; "Arrival Time")
+                field("Arrival Time"; Rec."Arrival Time")
                 {
                 }
-                field("Departure Time"; "Departure Time")
+                field("Departure Time"; Rec."Departure Time")
                 {
                 }
-                field("Connecting Airline"; "Connecting Airline")
+                field("Connecting Airline"; Rec."Connecting Airline")
                 {
                 }
-                field("Connecting Flight"; "Connecting Flight")
+                field("Connecting Flight"; Rec."Connecting Flight")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

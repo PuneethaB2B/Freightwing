@@ -1,7 +1,7 @@
 page 50084 "Get Goods Receipt Lines"
 {
     PageType = List;
-    SourceTable = Table50051;
+    SourceTable = 50051;
 
     layout
     {
@@ -9,40 +9,40 @@ page 50084 "Get Goods Receipt Lines"
         {
             repeater(Group)
             {
-                field("Good Receipt No."; "Good Receipt No.")
+                field("Good Receipt No."; Rec."Good Receipt No.")
                 {
                     HideValue = "GoodReceiptNo.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field("Booked Weight"; "Booked Weight")
+                field("Booked Weight"; Rec."Booked Weight")
                 {
                 }
-                field("Actual Weight"; "Actual Weight")
+                field("Actual Weight"; Rec."Actual Weight")
                 {
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                 }
-                field("Weight Difference"; "Weight Difference")
+                field("Weight Difference"; Rec."Weight Difference")
                 {
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
             }
@@ -66,28 +66,28 @@ page 50084 "Get Goods Receipt Lines"
     end;
 
     var
-        LoadingSheetHeader: Record "50060";
-        TempGoodReceiptLine: Record "50051" temporary;
-        ExportGetGoodsReceipt: Codeunit "50009";
-        [InDataSet]
+        LoadingSheetHeader: Record 50060;
+        TempGoodReceiptLine: Record 50051 temporary;
+        ExportGetGoodsReceipt: Codeunit 50009;
+
         "GoodReceiptNo.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        GoodReceiptLine: Record "50051";
+        GoodReceiptLine: Record 50051;
     begin
         TempGoodReceiptLine.RESET;
         TempGoodReceiptLine.COPYFILTERS(Rec);
-        TempGoodReceiptLine.SETRANGE("Good Receipt No.", "Good Receipt No.");
+        TempGoodReceiptLine.SETRANGE("Good Receipt No.", Rec."Good Receipt No.");
         IF NOT TempGoodReceiptLine.FINDFIRST THEN BEGIN
             GoodReceiptLine.COPYFILTERS(Rec);
-            GoodReceiptLine.SETRANGE("Good Receipt No.", "Good Receipt No.");
+            GoodReceiptLine.SETRANGE("Good Receipt No.", Rec."Good Receipt No.");
             IF GoodReceiptLine.FINDFIRST THEN BEGIN
                 TempGoodReceiptLine := GoodReceiptLine;
                 TempGoodReceiptLine.INSERT;
             END;
         END;
-        IF "Line No." = TempGoodReceiptLine."Line No." THEN
+        IF Rec."Line No." = TempGoodReceiptLine."Line No." THEN
             EXIT(TRUE);
     end;
 
@@ -98,7 +98,7 @@ page 50084 "Get Goods Receipt Lines"
     end;
 
 
-    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record "50060")
+    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record 50060)
     begin
         LoadingSheetHeader.RESET;
         LoadingSheetHeader.SETRANGE(LoadingSheetHeader."No.", LoadingSheetHeader2."No.");

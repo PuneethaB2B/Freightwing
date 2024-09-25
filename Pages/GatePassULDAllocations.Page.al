@@ -2,7 +2,7 @@ page 50093 "Gate Pass ULD Allocations"
 {
     Editable = false;
     PageType = List;
-    SourceTable = Table50070;
+    SourceTable = 50070;
 
     layout
     {
@@ -10,16 +10,16 @@ page 50093 "Gate Pass ULD Allocations"
         {
             repeater(Group)
             {
-                field("Item No"; "Item No")
+                field("Item No"; Rec."Item No")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
             }

@@ -1,7 +1,7 @@
 page 50163 "HS Codes"
 {
     PageType = List;
-    SourceTable = Table50082;
+    SourceTable = 50082;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50163 "HS Codes"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

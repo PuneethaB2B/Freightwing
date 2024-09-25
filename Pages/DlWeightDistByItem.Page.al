@@ -2,7 +2,7 @@ page 50053 "Dl. Weight Dist. By Item"
 {
     Caption = 'Daily Weight Distribution By Item';
     PageType = List;
-    SourceTable = Table50043;
+    SourceTable = 50043;
 
     layout
     {
@@ -10,19 +10,19 @@ page 50053 "Dl. Weight Dist. By Item"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure"; "Unit of Measure")
+                field("Unit of Measure"; Rec."Unit of Measure")
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
-                field("Shipped Weight"; "Shipped Weight")
+                field("Shipped Weight"; Rec."Shipped Weight")
                 {
                 }
             }

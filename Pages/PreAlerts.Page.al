@@ -2,8 +2,8 @@ page 50153 "Pre Alerts"
 {
     CardPageID = "Pre Alert";
     PageType = List;
-    SourceTable = Table50030;
-    SourceTableView = WHERE(Status = CONST(Pre-Alert));
+    SourceTable = 50030;
+    SourceTableView = WHERE(Status = CONST("Pre-Alert"));
 
     layout
     {
@@ -11,34 +11,34 @@ page 50153 "Pre Alerts"
         {
             repeater(Group)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Manifest No"; "Manifest No")
+                field("Manifest No"; Rec."Manifest No")
                 {
                 }
-                field("MAWB No"; "MAWB No")
+                field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
-                field("Delivery Agent"; "Delivery Agent")
+                field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
-                field("Flight No"; "Flight No")
+                field("Flight No"; Rec."Flight No")
                 {
                 }
-                field("Port of Origin"; "Port of Origin")
+                field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                 }
             }

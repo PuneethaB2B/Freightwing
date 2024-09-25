@@ -52,7 +52,7 @@ page 50030 Airlines
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50031;
-                    RunPageLink = Airline Code=FIELD(Code);
+                    RunPageLink = "Airline Code" = FIELD(Code);
 
                     trigger OnAction()
                     begin

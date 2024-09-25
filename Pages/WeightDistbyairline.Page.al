@@ -1,7 +1,7 @@
 page 50079 "Weight Dist by airline"
 {
     PageType = ListPart;
-    SourceTable = Table50041;
+    SourceTable = 50041;
 
     layout
     {
@@ -9,61 +9,61 @@ page 50079 "Weight Dist by airline"
         {
             repeater(Group)
             {
-                field("Daily No."; "Daily No.")
+                field("Daily No."; Rec."Daily No.")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Airline Name"; "Airline Name")
+                field("Airline Name"; Rec."Airline Name")
                 {
                 }
-                field("Total Capacity Planned"; "Total Capacity Planned")
+                field("Total Capacity Planned"; Rec."Total Capacity Planned")
                 {
                 }
-                field("Actual Weight Booked"; "Actual Weight Booked")
+                field("Actual Weight Booked"; Rec."Actual Weight Booked")
                 {
                 }
-                field("Cut-off Time"; "Cut-off Time")
+                field("Cut-off Time"; Rec."Cut-off Time")
                 {
                 }
-                field("Capacity Available"; "Capacity Available")
+                field("Capacity Available"; Rec."Capacity Available")
                 {
                 }
-                field(Difference; Difference)
+                field(Difference; Rec.Difference)
                 {
                 }
-                field("Total Weight Allocated"; "Total Weight Allocated")
+                field("Total Weight Allocated"; Rec."Total Weight Allocated")
                 {
                 }
-                field("Day of Week"; "Day of Week")
+                field("Day of Week"; Rec."Day of Week")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Actual Departure Time"; "Actual Departure Time")
+                field("Actual Departure Time"; Rec."Actual Departure Time")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Distribution Date"; "Distribution Date")
+                field("Distribution Date"; Rec."Distribution Date")
                 {
                 }
-                field("Scheduled Departure Time"; "Scheduled Departure Time")
+                field("Scheduled Departure Time"; Rec."Scheduled Departure Time")
                 {
                 }
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                 }
-                field("Shipment Delivery Time"; "Shipment Delivery Time")
+                field("Shipment Delivery Time"; Rec."Shipment Delivery Time")
                 {
                 }
             }
@@ -83,10 +83,10 @@ page 50079 "Weight Dist by airline"
                     Caption = '& Weight By Customer';
                     Image = EntriesList;
                     RunObject = Page 50052;
-                    RunPageLink = Daily No.=FIELD(Daily No.),
-                                  Airline Code=FIELD(Airline Code),
-                                  Flight Code=FIELD(Flight Code),
-                                  Destination Code=FIELD(Destination Code);
+                    RunPageLink = "Daily No." = FIELD("Daily No."),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Flight Code" = FIELD("Flight Code"),
+                                  "Destination Code" = FIELD("Destination Code");
 
                     trigger OnAction()
                     begin
@@ -98,8 +98,8 @@ page 50079 "Weight Dist by airline"
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
                     RunObject = Page 50054;
-                                    RunPageLink = Daily No.=FIELD(Daily No.),
-                                  Airline Code=FIELD(Airline Code);
+                    RunPageLink = "Daily No." = FIELD("Daily No."),
+                                  "Airline Code" = FIELD("Airline Code");
 
                     trigger OnAction()
                     begin
@@ -116,21 +116,21 @@ page 50079 "Weight Dist by airline"
     end;
 
     var
-        [InDataSet]
+
         CapBal: Boolean;
 
     local procedure CalCapacityBalance()
     begin
-        CALCFIELDS("Total Capacity Planned");
-        CALCFIELDS("Total Weight Allocated");
-        SETRANGE("Daily No.","Daily No.");
-        SETRANGE("Airline Code","Airline Code");
-        IF FINDFIRST THEN BEGIN
-        "Capacity Available":="Total Capacity Planned"-("Total Weight Allocated");
-        IF "Capacity Available"<0 THEN
-          CapBal:=TRUE
-        ELSE
-          CapBal:=FALSE;
+        Rec.CALCFIELDS("Total Capacity Planned");
+        Rec.CALCFIELDS("Total Weight Allocated");
+        Rec.SETRANGE("Daily No.", Rec."Daily No.");
+        Rec.SETRANGE("Airline Code", Rec."Airline Code");
+        IF Rec.FINDFIRST THEN BEGIN
+            Rec."Capacity Available" := Rec."Total Capacity Planned" - (Rec."Total Weight Allocated");
+            IF Rec."Capacity Available" < 0 THEN
+                CapBal := TRUE
+            ELSE
+                CapBal := FALSE;
         END;
     end;
 }

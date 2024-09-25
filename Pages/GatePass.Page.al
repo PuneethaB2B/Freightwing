@@ -1,7 +1,7 @@
 page 50089 "Gate Pass"
 {
     PageType = Card;
-    SourceTable = Table50068;
+    SourceTable = 50068;
 
     layout
     {
@@ -9,67 +9,67 @@ page 50089 "Gate Pass"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Actual Departure Time"; "Actual Departure Time")
+                field("Actual Departure Time"; Rec."Actual Departure Time")
                 {
                     Editable = false;
                 }
-                field("Gate-Pass Date"; "Gate-Pass Date")
+                field("Gate-Pass Date"; Rec."Gate-Pass Date")
                 {
                     Editable = true;
                 }
-                field("Loading Sheet No."; "Loading Sheet No.")
+                field("Loading Sheet No."; Rec."Loading Sheet No.")
                 {
                     Visible = false;
                 }
-                field("Loading Sheet Date"; "Loading Sheet Date")
+                field("Loading Sheet Date"; Rec."Loading Sheet Date")
                 {
                     Visible = false;
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                     Visible = false;
                 }
-                field("Vehicle No."; "Vehicle No.")
+                field("Vehicle No."; Rec."Vehicle No.")
                 {
                     Caption = 'Tractor No';
                     ShowMandatory = true;
                 }
-                field("Driver Name"; "Driver Name")
+                field("Driver Name"; Rec."Driver Name")
                 {
                     ShowMandatory = true;
                 }
-                field("Escort Vehicle No."; "Escort Vehicle No.")
+                field("Escort Vehicle No."; Rec."Escort Vehicle No.")
                 {
                     ShowMandatory = true;
                 }
-                field("Supervisor Name"; "Supervisor Name")
+                field("Supervisor Name"; Rec."Supervisor Name")
                 {
                     Caption = 'Security Supervisor on Duty';
                     ShowMandatory = true;
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field("Prepared Date"; "Prepared Date")
+                field("Prepared Date"; Rec."Prepared Date")
                 {
                     Editable = false;
                 }
-                field("Created Time"; "Created Time")
+                field("Created Time"; Rec."Created Time")
                 {
                 }
             }
-            part(; 50090)
+            part(Page; 50090)
             {
-                SubPageLink = Gate-Pass No.=FIELD(No.);
+                SubPageLink = "Gate-Pass No." = FIELD("No.");
             }
         }
     }
@@ -78,7 +78,7 @@ page 50089 "Gate Pass"
     {
         area(processing)
         {
-            group()
+            group(fw)
             {
                 action("&Print")
                 {
@@ -92,15 +92,15 @@ page 50089 "Gate Pass"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD("Vehicle No.");
-                        TESTFIELD("Driver Name");
-                        TESTFIELD("Escort Vehicle No.");
+                        Rec.TESTFIELD("Vehicle No.");
+                        Rec.TESTFIELD("Driver Name");
+                        Rec.TESTFIELD("Escort Vehicle No.");
                         GatePassHeader.RESET;
-                        GatePassHeader.SETRANGE("No.", "No.");
+                        GatePassHeader.SETRANGE("No.", Rec."No.");
                         IF GatePassHeader.FINDFIRST THEN
                             IF CONFIRM('Do you want to release the shippment?') THEN BEGIN
                                 REPORT.RUNMODAL(50016, TRUE, FALSE, GatePassHeader);
-                                ReleaseShipment("No.");
+                                ReleaseShipment(Rec."No.");
                             END ELSE BEGIN
                                 REPORT.RUNMODAL(50016, TRUE, FALSE, GatePassHeader);
                             END;
@@ -114,7 +114,7 @@ page 50089 "Gate Pass"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -130,8 +130,8 @@ page 50089 "Gate Pass"
                     trigger OnAction()
                     begin
                         IF CONFIRM('Do you want to release the shippment?') THEN BEGIN
-                            ReleaseShipment("No.");
-                            CloseMAWB("No.");
+                            ReleaseShipment(Rec."No.");
+                            CloseMAWB(Rec."No.");
                             CurrPage.CLOSE;
                         END;
                     end;
@@ -141,15 +141,15 @@ page 50089 "Gate Pass"
     }
 
     var
-        GatePassHeader: Record "50068";
-        GPLine: Record "50069";
+        GatePassHeader: Record 50068;
+        GPLine: Record 50069;
 
 
     procedure ReleaseShipment(GPno: Code[50])
     var
-        GPline: Record "50069";
-        LoadingSheetULD: Record "50063";
-        GPHeader: Record "50068";
+        GPline: Record 50069;
+        LoadingSheetULD: Record 50063;
+        GPHeader: Record 50068;
     begin
         GPline.RESET;
         GPline.SETRANGE(GPline."Gate-Pass No.", GPno);
@@ -169,15 +169,15 @@ page 50089 "Gate Pass"
             UNTIL GPline.NEXT = 0;
         END;
         //CloseMAWB("No.");
-        Status := Status::Released;
-        MODIFY;
+        Rec.Status := Rec.Status::Released;
+        Rec.MODIFY;
     end;
 
 
     procedure CloseMAWB(GPNO: Code[50])
     var
-        LoadingSheetULD: Record "50063";
-        MAWBHeader: Record "50077";
+        LoadingSheetULD: Record 50063;
+        MAWBHeader: Record 50077;
     begin
         GPLine.RESET;
         GPLine.SETRANGE(GPLine."Gate-Pass No.", GPNO);

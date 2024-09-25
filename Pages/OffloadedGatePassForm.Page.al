@@ -1,7 +1,7 @@
 page 50112 "Offloaded Gate Pass Form"
 {
     PageType = Card;
-    SourceTable = Table50071;
+    SourceTable = 50071;
 
     layout
     {
@@ -9,50 +9,50 @@ page 50112 "Offloaded Gate Pass Form"
         {
             group(General)
             {
-                field(No; No)
+                field(No1; Rec.No)
                 {
                 }
-                field("Gate Pass No"; "Gate Pass No")
+                field("Gate Pass No"; Rec."Gate Pass No")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Total Loaded Boxes"; "Total Loaded Boxes")
+                field("Total Loaded Boxes"; Rec."Total Loaded Boxes")
                 {
                 }
-                field("Total Loaded Docket Weight"; "Total Loaded Docket Weight")
+                field("Total Loaded Docket Weight"; Rec."Total Loaded Docket Weight")
                 {
                 }
-                field("Total Offloaded Boxes"; "Total Offloaded Boxes")
+                field("Total Offloaded Boxes"; Rec."Total Offloaded Boxes")
                 {
                 }
-                field("Total Offloaded Weight"; "Total Offloaded Weight")
+                field("Total Offloaded Weight"; Rec."Total Offloaded Weight")
                 {
                 }
-                field("Diffrence- Boxes"; "Total Loaded Boxes" - "Total Offloaded Boxes")
+                field("Diffrence- Boxes"; Rec."Total Loaded Boxes" - Rec."Total Offloaded Boxes")
                 {
                 }
-                field("Difference-Weights"; "Total Loaded Docket Weight" - "Total Offloaded Weight")
+                field("Difference-Weights"; Rec."Total Loaded Docket Weight" - Rec."Total Offloaded Weight")
                 {
                 }
-                field("Created By"; "Created By")
-                {
-                    Editable = false;
-                }
-                field("Created On"; "Created On")
+                field("Created By"; Rec."Created By")
                 {
                     Editable = false;
                 }
-                field(Status; Status)
+                field("Created On"; Rec."Created On")
+                {
+                    Editable = false;
+                }
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }
             }
-            part(; 50113)
+            part(page; 50113)
             {
-                SubPageLink = Gate-Pass No.=FIELD(Gate Pass No),
-                              No=FIELD(No);
+                SubPageLink = "Gate-Pass No." = FIELD("Gate Pass No"),
+                              No = FIELD(No);
             }
         }
     }
@@ -71,8 +71,8 @@ page 50112 "Offloaded Gate Pass Form"
                 trigger OnAction()
                 begin
                     IF CONFIRM('Do you want to Submit this for Processing?') THEN BEGIN
-                        Status := Status::Submitted;
-                        MODIFY;
+                        Rec.Status := Rec.Status::Submitted;
+                        Rec.MODIFY;
                         CurrPage.CLOSE;
                     END;
                 end;
@@ -87,11 +87,11 @@ page 50112 "Offloaded Gate Pass Form"
 
                 trigger OnAction()
                 begin
-                    CALCFIELDS("Total Offloaded Boxes");
-                    TESTFIELD("Total Offloaded Boxes");
-                    TESTFIELD(Status, Status::Submitted);
+                    Rec.CALCFIELDS("Total Offloaded Boxes");
+                    Rec.TESTFIELD("Total Offloaded Boxes");
+                    Rec.TESTFIELD(Status, Rec.Status::Submitted);
                     IF CONFIRM('Do you want to Post The Offload?') THEN BEGIN
-                        Process;
+                        Rec.Process;
                         //MESSAGE('Posted');
                         CurrPage.CLOSE;
                     END;

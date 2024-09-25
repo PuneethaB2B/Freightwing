@@ -1,6 +1,6 @@
 page 50032 "Shipment Update Header"
 {
-    SourceTable = Table50030;
+    SourceTable = 50030;
 
     layout
     {
@@ -8,29 +8,29 @@ page 50032 "Shipment Update Header"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Caption = 'Pre-Alert  No.';
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Scheduled Date"; "Scheduled Date")
+                field("Scheduled Date"; Rec."Scheduled Date")
                 {
                 }
-                field("Scheduled Time"; "Scheduled Time")
+                field("Scheduled Time"; Rec."Scheduled Time")
                 {
                 }
-                field("Actual Arrival Date"; "Actual Arrival Date")
+                field("Actual Arrival Date"; Rec."Actual Arrival Date")
                 {
                 }
-                field("Actual Arrival Time"; "Actual Arrival Time")
+                field("Actual Arrival Time"; Rec."Actual Arrival Time")
                 {
                 }
             }
-            part(; 50024)
+            part(Page; 50024)
             {
-                SubPageLink = Pre Alert No=FIELD(No.);
+                SubPageLink = "Pre Alert No" = FIELD("No.");
             }
         }
     }

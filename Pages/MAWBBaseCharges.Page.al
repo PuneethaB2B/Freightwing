@@ -1,7 +1,7 @@
 page 50005 "MAWB Base Charges"
 {
     PageType = List;
-    SourceTable = Table50005;
+    SourceTable = 50005;
 
     layout
     {
@@ -9,19 +9,19 @@ page 50005 "MAWB Base Charges"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
-                field("G/L Account"; "G/L Account")
+                field("G/L Account"; Rec."G/L Account")
                 {
                 }
             }

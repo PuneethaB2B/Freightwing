@@ -1,7 +1,7 @@
 page 50025 "Notify Party Card"
 {
     PageType = Card;
-    SourceTable = Table50017;
+    SourceTable = 50017;
 
     layout
     {
@@ -9,50 +9,50 @@ page 50025 "Notify Party Card"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                 }
-                field("Type Code"; "Type Code")
+                field("Type Code"; Rec."Type Code")
                 {
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                 }
-                field("Home Page"; "Home Page")
+                field("Home Page"; Rec."Home Page")
                 {
                     Caption = 'Home Page';
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                 }
-                field("Country/Region Code"; "Country/Region Code")
+                field("Country/Region Code"; Rec."Country/Region Code")
                 {
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                 }
-                field("Phone No."; "Phone No.")
+                field("Phone No."; Rec."Phone No.")
                 {
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                 }
-                field("E-Mail"; "E-Mail")
+                field("E-Mail"; Rec."E-Mail")
                 {
                 }
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                 }
             }

@@ -3,8 +3,8 @@ page 50014 "Sales Invoice - Import"
     Caption = 'Sales Invoice';
     PageType = Document;
     RefreshOnActivate = true;
-    SourceTable = Table36;
-    SourceTableView = WHERE(Document Type=FILTER(Invoice));
+    SourceTable = 36;
+    SourceTableView = WHERE("Document Type" = FILTER(Invoice));
 
     layout
     {
@@ -13,22 +13,22 @@ page 50014 "Sales Invoice - Import"
             group(General)
             {
                 Caption = 'General';
-                field("No.";"No.")
+                field("No."; Rec."No.")
                 {
                     Importance = Promoted;
                     Visible = true;
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
-                          CurrPage.UPDATE;
+                        IF Rec.AssistEdit(xRec) THEN
+                            CurrPage.UPDATE;
                     end;
                 }
-                field("Import MAWB No.";"Import MAWB No.")
+                field("Import MAWB No."; Rec."Import MAWB No.")
                 {
                     Caption = 'MAWB No.';
                 }
-                field("Sell-to Customer No.";"Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Importance = Promoted;
                     ShowMandatory = true;
@@ -38,54 +38,54 @@ page 50014 "Sales Invoice - Import"
                         SelltoCustomerNoOnAfterValidat;
                     end;
                 }
-                field("Sell-to Contact No.";"Sell-to Contact No.")
+                field("Sell-to Contact No."; Rec."Sell-to Contact No.")
                 {
 
                     trigger OnValidate()
                     begin
-                        IF GETFILTER("Sell-to Contact No.") = xRec."Sell-to Contact No." THEN
-                          IF "Sell-to Contact No." <> xRec."Sell-to Contact No." THEN
-                            SETRANGE("Sell-to Contact No.");
+                        IF Rec.GETFILTER("Sell-to Contact No.") = xRec."Sell-to Contact No." THEN
+                            IF Rec."Sell-to Contact No." <> xRec."Sell-to Contact No." THEN
+                                Rec.SETRANGE("Sell-to Contact No.");
                     end;
                 }
-                field("Sell-to Customer Name";"Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                 }
-                field("Sell-to Address";"Sell-to Address")
-                {
-                    Importance = Additional;
-                }
-                field("Sell-to Address 2";"Sell-to Address 2")
+                field("Sell-to Address"; Rec."Sell-to Address")
                 {
                     Importance = Additional;
                 }
-                field("Sell-to Post Code";"Sell-to Post Code")
+                field("Sell-to Address 2"; Rec."Sell-to Address 2")
                 {
                     Importance = Additional;
                 }
-                field("Sell-to City";"Sell-to City")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
+                {
+                    Importance = Additional;
+                }
+                field("Sell-to City"; Rec."Sell-to City")
                 {
                 }
-                field("Sell-to Contact";"Sell-to Contact")
+                field("Sell-to Contact"; Rec."Sell-to Contact")
                 {
                 }
-                field("Posting Date";"Posting Date")
+                field("Posting Date"; Rec."Posting Date")
                 {
                     Importance = Promoted;
                 }
-                field("Document Date";"Document Date")
+                field("Document Date"; Rec."Document Date")
                 {
                 }
-                field("Incoming Document Entry No.";"Incoming Document Entry No.")
+                field("Incoming Document Entry No."; Rec."Incoming Document Entry No.")
                 {
                     Visible = false;
                 }
-                field("External Document No.";"External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                     Importance = Promoted;
                     ShowMandatory = ExternalDocNoMandatory;
                 }
-                field("Salesperson Code";"Salesperson Code")
+                field("Salesperson Code"; Rec."Salesperson Code")
                 {
 
                     trigger OnValidate()
@@ -93,38 +93,38 @@ page 50014 "Sales Invoice - Import"
                         SalespersonCodeOnAfterValidate;
                     end;
                 }
-                field("Campaign No.";"Campaign No.")
+                field("Campaign No."; Rec."Campaign No.")
                 {
                     Importance = Additional;
                 }
-                field("Responsibility Center";"Responsibility Center")
+                field("Responsibility Center"; Rec."Responsibility Center")
                 {
                     Importance = Additional;
                 }
-                field("Assigned User ID";"Assigned User ID")
+                field("Assigned User ID"; Rec."Assigned User ID")
                 {
                     Importance = Additional;
                 }
-                field("Job Queue Status";"Job Queue Status")
+                field("Job Queue Status"; Rec."Job Queue Status")
                 {
                     Importance = Additional;
                 }
-                field(Status;Status)
+                field(Status; Rec.Status)
                 {
                     Importance = Promoted;
                 }
-                field("HAWB No.";"HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
             }
-            part(SalesLines;50013)
+            part(SalesLines; 50013)
             {
-                SubPageLink = Document No.=FIELD(No.);
+                SubPageLink = "Document No." = FIELD("No.");
             }
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-                field("Bill-to Customer No.";"Bill-to Customer No.")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     Importance = Promoted;
 
@@ -133,32 +133,32 @@ page 50014 "Sales Invoice - Import"
                         BilltoCustomerNoOnAfterValidat;
                     end;
                 }
-                field("Bill-to Contact No.";"Bill-to Contact No.")
+                field("Bill-to Contact No."; Rec."Bill-to Contact No.")
                 {
                 }
-                field("Bill-to Name";"Bill-to Name")
+                field("Bill-to Name"; Rec."Bill-to Name")
                 {
                 }
-                field("Bill-to Address";"Bill-to Address")
-                {
-                    Importance = Additional;
-                }
-                field("Bill-to Address 2";"Bill-to Address 2")
+                field("Bill-to Address"; Rec."Bill-to Address")
                 {
                     Importance = Additional;
                 }
-                field("Bill-to Post Code";"Bill-to Post Code")
+                field("Bill-to Address 2"; Rec."Bill-to Address 2")
                 {
                     Importance = Additional;
                 }
-                field("Bill-to City";"Bill-to City")
-                {
-                }
-                field("Bill-to Contact";"Bill-to Contact")
+                field("Bill-to Post Code"; Rec."Bill-to Post Code")
                 {
                     Importance = Additional;
                 }
-                field("Shortcut Dimension 1 Code";"Shortcut Dimension 1 Code")
+                field("Bill-to City"; Rec."Bill-to City")
+                {
+                }
+                field("Bill-to Contact"; Rec."Bill-to Contact")
+                {
+                    Importance = Additional;
+                }
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
 
                     trigger OnValidate()
@@ -166,7 +166,7 @@ page 50014 "Sales Invoice - Import"
                         ShortcutDimension1CodeOnAfterV;
                     end;
                 }
-                field("Shortcut Dimension 2 Code";"Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
 
                     trigger OnValidate()
@@ -174,28 +174,28 @@ page 50014 "Sales Invoice - Import"
                         ShortcutDimension2CodeOnAfterV;
                     end;
                 }
-                field("Payment Terms Code";"Payment Terms Code")
+                field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     Importance = Promoted;
                 }
-                field("Due Date";"Due Date")
+                field("Due Date"; Rec."Due Date")
                 {
                     Importance = Promoted;
                 }
-                field("Payment Discount %";"Payment Discount %")
+                field("Payment Discount %"; Rec."Payment Discount %")
                 {
                 }
-                field("Pmt. Discount Date";"Pmt. Discount Date")
+                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
                     Importance = Additional;
                 }
-                field("Payment Method Code";"Payment Method Code")
+                field("Payment Method Code"; Rec."Payment Method Code")
                 {
                 }
-                field("Direct Debit Mandate ID";"Direct Debit Mandate ID")
+                field("Direct Debit Mandate ID"; Rec."Direct Debit Mandate ID")
                 {
                 }
-                field("Prices Including VAT";"Prices Including VAT")
+                field("Prices Including VAT"; Rec."Prices Including VAT")
                 {
 
                     trigger OnValidate()
@@ -203,13 +203,13 @@ page 50014 "Sales Invoice - Import"
                         PricesIncludingVATOnAfterValid;
                     end;
                 }
-                field("VAT Bus. Posting Group";"VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("Credit Card No.";"Credit Card No.")
+                field("Credit Card No."; "Credit Card No.")
                 {
                 }
-                field(GetCreditcardNumber;GetCreditcardNumber)
+                field(GetCreditcardNumber; GetCreditcardNumber)
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
                 }
@@ -217,46 +217,46 @@ page 50014 "Sales Invoice - Import"
             group(Shipping)
             {
                 Caption = 'Shipping';
-                field("Ship-to Code";"Ship-to Code")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     Importance = Promoted;
                 }
-                field("Ship-to Name";"Ship-to Name")
+                field("Ship-to Name"; Rec."Ship-to Name")
                 {
                 }
-                field("Ship-to Address";"Ship-to Address")
-                {
-                    Importance = Additional;
-                }
-                field("Ship-to Address 2";"Ship-to Address 2")
+                field("Ship-to Address"; Rec."Ship-to Address")
                 {
                     Importance = Additional;
                 }
-                field("Ship-to Post Code";"Ship-to Post Code")
+                field("Ship-to Address 2"; Rec."Ship-to Address 2")
+                {
+                    Importance = Additional;
+                }
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
                     Importance = Promoted;
                 }
-                field("Ship-to City";"Ship-to City")
+                field("Ship-to City"; Rec."Ship-to City")
                 {
                 }
-                field("Ship-to Contact";"Ship-to Contact")
-                {
-                    Importance = Additional;
-                }
-                field("Location Code";"Location Code")
-                {
-                }
-                field("Shipment Method Code";"Shipment Method Code")
-                {
-                }
-                field("Shipping Agent Code";"Shipping Agent Code")
-                {
-                }
-                field("Package Tracking No.";"Package Tracking No.")
+                field("Ship-to Contact"; Rec."Ship-to Contact")
                 {
                     Importance = Additional;
                 }
-                field("Shipment Date";"Shipment Date")
+                field("Location Code"; Rec."Location Code")
+                {
+                }
+                field("Shipment Method Code"; Rec."Shipment Method Code")
+                {
+                }
+                field("Shipping Agent Code"; Rec."Shipping Agent Code")
+                {
+                }
+                field("Package Tracking No."; Rec."Package Tracking No.")
+                {
+                    Importance = Additional;
+                }
+                field("Shipment Date"; Rec."Shipment Date")
                 {
                     Importance = Promoted;
                 }
@@ -264,20 +264,20 @@ page 50014 "Sales Invoice - Import"
             group("Foreign Trade")
             {
                 Caption = 'Foreign Trade';
-                field("Currency Code";"Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     Importance = Promoted;
 
                     trigger OnAssistEdit()
                     begin
                         CLEAR(ChangeExchangeRate);
-                        IF "Posting Date" <> 0D THEN
-                          ChangeExchangeRate.SetParameter("Currency Code","Currency Factor","Posting Date")
+                        IF Rec."Posting Date" <> 0D THEN
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
                         ELSE
-                          ChangeExchangeRate.SetParameter("Currency Code","Currency Factor",WORKDATE);
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE);
                         IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN BEGIN
-                          VALIDATE("Currency Factor",ChangeExchangeRate.GetParameter);
-                          CurrPage.UPDATE;
+                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
+                            CurrPage.UPDATE;
                         END;
                         CLEAR(ChangeExchangeRate);
                     end;
@@ -285,29 +285,29 @@ page 50014 "Sales Invoice - Import"
                     trigger OnValidate()
                     begin
                         CurrPage.UPDATE;
-                        SalesCalcDiscountByType.ApplyDefaultInvoiceDiscount(0,Rec);
+                        SalesCalcDiscountByType.ApplyDefaultInvoiceDiscount(0, Rec);
                     end;
                 }
-                field("EU 3-Party Trade";"EU 3-Party Trade")
+                field("EU 3-Party Trade"; Rec."EU 3-Party Trade")
                 {
                 }
-                field("Transaction Type";"Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                 }
-                field("Transaction Specification";"Transaction Specification")
+                field("Transaction Specification"; Rec."Transaction Specification")
                 {
                 }
-                field("Transport Method";"Transport Method")
+                field("Transport Method"; Rec."Transport Method")
                 {
                 }
-                field("Exit Point";"Exit Point")
+                field("Exit Point"; Rec."Exit Point")
                 {
                 }
                 field(Area;Area)
-                {
-                }
-            }
+        {
         }
+    }
+}
         area(factboxes)
         {
             part(;9080)
@@ -346,7 +346,7 @@ page 50014 "Sales Invoice - Import"
             }
             part(;9092)
             {
-                SubPageLink = Table ID=CONST(36),
+                SubPageLink = "Table ID"=CONST(36),
                               Document Type=FIELD(Document Type),
                               Document No.=FIELD(No.);
                 Visible = false;
@@ -410,7 +410,7 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Customer';
                     Image = Customer;
                     RunObject = Page 21;
-                                    RunPageLink = No.=FIELD(Sell-to Customer No.);
+                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -420,7 +420,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page "658";
+                        ApprovalEntries: Page 658;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -431,9 +431,9 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = Document Type=FIELD(Document Type),
-                                  No.=FIELD(No.),
-                                  Document Line No.=CONST(0);
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                  "No."=FIELD("No."),
+                                  "Document Line No."=CONST(0);
                 }
                 separator()
                 {
@@ -448,9 +448,9 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = Document Type=FIELD(Document Type),
-                                  Document No.=FIELD(No.),
-                                  Customer No.=FIELD(Bill-to Customer No.);
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                  "Document No."=FIELD("No."),
+                                  "Customer No."=FIELD("Bill-to Customer No.");
                 }
             }
         }
@@ -470,7 +470,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -498,7 +498,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit "414";
+                        ReleaseSalesDoc: Codeunit 414;
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
@@ -581,7 +581,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -693,7 +693,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -759,24 +759,24 @@ page 50014 "Sales Invoice - Import"
     end;
 
     var
-        ChangeExchangeRate: Page "511";
-                                CopySalesDoc: Report "292";
-                                MoveNegSalesLines: Report "6699";
-                                ReportPrint: Codeunit "228";
-                                UserMgt: Codeunit "5700";
-                                SalesCalcDiscountByType: Codeunit "56";
-    [InDataSet]
+        ChangeExchangeRate: Page 511;
+                                CopySalesDoc: Report 292;
+                                MoveNegSalesLines: Report 6699;
+                                ReportPrint: Codeunit 228;
+                                UserMgt: Codeunit 5700;
+                                SalesCalcDiscountByType: Codeunit 56;
 
-    JobQueueVisible: Boolean;
-    DocNoVisible: Boolean;
-    ExternalDocNoMandatory: Boolean;
-    SalesHeader: Record "36";
 
-local procedure Post(PostingCodeunitID: Integer)
+                                JobQueueVisible: Boolean;
+                                DocNoVisible: Boolean;
+                                ExternalDocNoMandatory: Boolean;
+                                SalesHeader: Record 36;
+
+    local procedure Post(PostingCodeunitID: Integer)
     begin
         SendToPosting(PostingCodeunitID);
         IF "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting" THEN
-          CurrPage.CLOSE;
+            CurrPage.CLOSE;
         CurrPage.UPDATE(FALSE);
     end;
 
@@ -788,8 +788,8 @@ local procedure Post(PostingCodeunitID: Integer)
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
         IF GETFILTER("Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
-          IF "Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
-            SETRANGE("Sell-to Customer No.");
+            IF "Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
+                SETRANGE("Sell-to Customer No.");
         CurrPage.UPDATE;
     end;
 
@@ -820,15 +820,15 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure SetDocNoVisible()
     var
-        DocumentNoVisibility: Codeunit "1400";
+        DocumentNoVisibility: Codeunit 1400;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
-        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice,"No.");
+        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice, "No.");
     end;
 
     local procedure SetExtDocNoMandatoryCondition()
     var
-        SalesReceivablesSetup: Record "311";
+        SalesReceivablesSetup: Record 311;
     begin
         SalesReceivablesSetup.GET;
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"

@@ -3,8 +3,8 @@ page 50132 "Goods Receipts"
     CardPageID = "Goods Receipt";
     Editable = false;
     PageType = List;
-    SourceTable = Table50052;
-    SourceTableView = WHERE(Received = FILTER(No),
+    SourceTable = 50052;
+    SourceTableView = WHERE(Received = FILTER(false),
                             Status = FILTER(Open | Submitted));
 
     layout
@@ -13,25 +13,25 @@ page 50132 "Goods Receipts"
         {
             repeater(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                 }
-                field("Receipt Date"; "Receipt Date")
+                field("Receipt Date"; Rec."Receipt Date")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Shipper Name"; Rec."Shipper Name")
                 {
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     Editable = false;
                 }

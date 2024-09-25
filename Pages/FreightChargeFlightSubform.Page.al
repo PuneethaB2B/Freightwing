@@ -1,7 +1,7 @@
 page 50035 "Freight Charge Flight Subform"
 {
     PageType = ListPart;
-    SourceTable = Table50026;
+    SourceTable = 50026;
 
     layout
     {
@@ -9,32 +9,32 @@ page 50035 "Freight Charge Flight Subform"
         {
             repeater(Group)
             {
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                     Editable = false;
                 }
-                field("Source Country"; "Source Country")
+                field("Source Country"; Rec."Source Country")
                 {
                     Editable = false;
                 }
-                field("Source Airport"; "Source Airport")
+                field("Source Airport"; Rec."Source Airport")
                 {
                     Editable = false;
                 }
-                field("Destination Country"; "Destination Country")
+                field("Destination Country"; Rec."Destination Country")
                 {
                     Editable = false;
                 }
-                field("Destination Airport"; "Destination Airport")
+                field("Destination Airport"; Rec."Destination Airport")
                 {
                     Editable = false;
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                     Editable = false;
                     Visible = false;
                 }
-                field("Destination Name"; "Destination Name")
+                field("Destination Name"; Rec."Destination Name")
                 {
                     Editable = false;
                     Visible = false;
@@ -58,12 +58,12 @@ page 50035 "Freight Charge Flight Subform"
                     //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedCategory = Process;
                     RunObject = Page 50036;
-                    RunPageLink = Flight Code=FIELD(Flight Code),
-                                  Destination Airport=FIELD(Destination Airport),
-                                  Source Airport=FIELD(Source Airport),
-                                  Airline Code=FIELD(Airline Code),
-                                  Effective Start Date=FIELD(Effective Start Date),
-                                  Effective End Date=FIELD(Effective End Date);
+                    RunPageLink = "Flight Code" = FIELD("Flight Code"),
+                                  "Destination Airport" = FIELD("Destination Airport"),
+                                  "Source Airport" = FIELD("Source Airport"),
+                                  "Airline Code" = FIELD("Airline Code"),
+                                  "Effective Start Date" = FIELD("Effective Start Date"),
+                                  "Effective End Date" = FIELD("Effective End Date");
 
                     trigger OnAction()
                     begin

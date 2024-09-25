@@ -2,7 +2,7 @@ page 50028 "Freight Charges"
 {
     Caption = 'Charges';
     PageType = List;
-    SourceTable = Table50018;
+    SourceTable = 50018;
 
     layout
     {
@@ -10,47 +10,47 @@ page 50028 "Freight Charges"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("G/L Account"; "G/L Account")
+                field("G/L Account"; Rec."G/L Account")
                 {
                     Caption = 'Sales Account';
                 }
-                field("VAT Bus. Posting Group"; "VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                     Visible = false;
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                 }
-                field("Purchase A/C Code"; "Purchase A/C Code")
+                field("Purchase A/C Code"; Rec."Purchase A/C Code")
                 {
                     Caption = 'Purchase Account';
                 }
-                field("Freight Cost"; "Freight Cost")
+                field("Freight Cost"; Rec."Freight Cost")
                 {
                 }
-                field("Handling Charge"; "Handling Charge")
+                field("Handling Charge"; Rec."Handling Charge")
                 {
                 }
-                field("Margin Applicable"; "Margin Applicable")
+                field("Margin Applicable"; Rec."Margin Applicable")
                 {
                 }
-                field("Delivery Type"; "Delivery Type")
+                field("Delivery Type"; Rec."Delivery Type")
                 {
                     ShowMandatory = true;
                 }
-                field("Split Charge Based On"; "Split On")
+                field("Split Charge Based On"; Rec."Split On")
                 {
                 }
-                field("Export Mandatory"; "Export Mandatory")
+                field("Export Mandatory"; Rec."Export Mandatory")
                 {
                 }
-                field("Group Charge"; Group)
+                field("Group Charge"; Rec.Group)
                 {
                 }
             }
@@ -74,7 +74,7 @@ page 50028 "Freight Charges"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50151;
-                    RunPageLink = Freight Charge Code=FIELD(Code);
+                    RunPageLink = "Freight Charge Code" = FIELD(Code);
 
                     trigger OnAction()
                     begin
@@ -90,6 +90,6 @@ page 50028 "Freight Charges"
 
     var
         Text000: Label 'Handling Slab applicable only for Handling Charges';
-        HandlingSlabMatrix: Record "50045";
+        HandlingSlabMatrix: Record 50045;
 }
 

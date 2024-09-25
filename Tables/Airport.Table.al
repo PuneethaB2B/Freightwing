@@ -13,14 +13,14 @@ table 50019 Airport
         {
             TableRelation = "Country/Region";
         }
-        field(4;Location;Text[50])
+        field(4; Location; Text[50])
         {
         }
     }
 
     keys
     {
-        key(Key1;"Country Code","Code")
+        key(Key1; "Country Code", "Code")
         {
             Clustered = true;
         }

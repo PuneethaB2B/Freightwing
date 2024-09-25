@@ -2,7 +2,7 @@ page 50040 "Freight Charge By Airlines"
 {
     CardPageID = "Freight Charge By Airline";
     PageType = List;
-    SourceTable = Table50025;
+    SourceTable = 50025;
 
     layout
     {
@@ -10,16 +10,16 @@ page 50040 "Freight Charge By Airlines"
         {
             repeater(General)
             {
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Airline Name"; "Airline Name")
+                field("Airline Name"; Rec."Airline Name")
                 {
                 }
-                field("Effective Start Date"; "Effective Start Date")
+                field("Effective Start Date"; Rec."Effective Start Date")
                 {
                 }
-                field("Effective End Date"; "Effective End Date")
+                field("Effective End Date"; Rec."Effective End Date")
                 {
                 }
             }
@@ -35,11 +35,11 @@ page 50040 "Freight Charge By Airlines"
 
     trigger OnOpenPage()
     begin
-        SETFILTER("Effective End Date", '>=%1', TODAY);
+        Rec.SETFILTER("Effective End Date", '>=%1', TODAY);
     end;
 
     var
-        G: Record "50025";
-        CopyChargesJob: Report "50104";
+        G: Record 50025;
+        CopyChargesJob: Report 50104;
 }
 

@@ -1,8 +1,8 @@
 page 50130 "Goods Receipt"
 {
     PageType = Card;
-    SourceTable = Table50052;
-    SourceTableView = WHERE(Received = FILTER(No));
+    SourceTable = 50052;
+    SourceTableView = WHERE(Received = FILTER(false));
 
     layout
     {
@@ -10,89 +10,89 @@ page 50130 "Goods Receipt"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
 
                     trigger OnAssistEdit()
                     begin
-                        IF AssistEdit(xRec) THEN
+                        IF Rec.AssistEdit(xRec) THEN
                             CurrPage.UPDATE;
                     end;
                 }
-                field("Receipt Date"; "Receipt Date")
+                field("Receipt Date"; Rec."Receipt Date")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
-                {
-                    ShowMandatory = true;
-                }
-                field("Shipper Name"; "Shipper Name")
-                {
-                }
-                field(Description; Description)
-                {
-                }
-                field("Booked Weight"; "Booked Weight")
-                {
-                }
-                field("Actual Weight"; "Actual Weight")
-                {
-                }
-                field("Weight Difference"; "Weight Difference")
-                {
-                }
-                field("Offloading Start Time"; "Offloading Start Time")
-                {
-                }
-                field("Offloading End Time"; "Offloading End Time")
-                {
-                }
-                field("Delivery No."; "Delivery No.")
-                {
-                }
-                field("Delivery Date"; "Delivery Date")
-                {
-                }
-                field("Seal No."; "Seal No.")
-                {
-                }
-                field("Vehicle No."; "Vehicle No.")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                     ShowMandatory = true;
                 }
-                field("Vehicle Arrival Time"; "Vehicle Arrival Time")
+                field("Shipper Name"; Rec."Shipper Name")
+                {
+                }
+                field(Description; Rec.Description)
+                {
+                }
+                field("Booked Weight"; Rec."Booked Weight")
+                {
+                }
+                field("Actual Weight"; Rec."Actual Weight")
+                {
+                }
+                field("Weight Difference"; Rec."Weight Difference")
+                {
+                }
+                field("Offloading Start Time"; Rec."Offloading Start Time")
+                {
+                }
+                field("Offloading End Time"; Rec."Offloading End Time")
+                {
+                }
+                field("Delivery No."; Rec."Delivery No.")
+                {
+                }
+                field("Delivery Date"; Rec."Delivery Date")
+                {
+                }
+                field("Seal No."; Rec."Seal No.")
+                {
+                }
+                field("Vehicle No."; Rec."Vehicle No.")
                 {
                     ShowMandatory = true;
                 }
-                field("Screener Name"; "Screener Name")
+                field("Vehicle Arrival Time"; Rec."Vehicle Arrival Time")
                 {
                     ShowMandatory = true;
                 }
-                field("Offloading Place"; "Offloading Place")
+                field("Screener Name"; Rec."Screener Name")
+                {
+                    ShowMandatory = true;
+                }
+                field("Offloading Place"; Rec."Offloading Place")
                 {
                     Visible = false;
                 }
-                field("Driver Name"; "Driver Name")
+                field("Driver Name"; Rec."Driver Name")
                 {
                     ShowMandatory = true;
                 }
-                field("Escort Vehicle No."; "Escort Vehicle No.")
+                field("Escort Vehicle No."; Rec."Escort Vehicle No.")
                 {
                     Visible = false;
                 }
-                field("Acceptance Checklist Serial Number"; "External Doc No.")
+                field("Acceptance Checklist Serial Number"; Rec."External Doc No.")
                 {
                     Caption = 'Acceptance Checklist Serial Number';
                     ShowMandatory = true;
                 }
-                field("Prepared By"; "Prepared By")
+                field("Prepared By"; Rec."Prepared By")
                 {
                     Editable = false;
                 }
             }
-            part(; 50131)
+            part(Page; 50131)
             {
-                SubPageLink = Good Receipt No.=FIELD(No.);
+                SubPageLink = "Good Receipt No." = FIELD("No.");
             }
         }
     }
@@ -101,7 +101,7 @@ page 50130 "Goods Receipt"
     {
         area(processing)
         {
-            group()
+            group(FW)
             {
                 action(Post)
                 {
@@ -115,26 +115,26 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status, Status::Submitted);
-                        IF "Shipper Code" <> 'C000083' THEN BEGIN
-                            IF "Shipper Code" = 'C000068' THEN BEGIN
+                        Rec.TESTFIELD(Status, Rec.Status::Submitted);
+                        IF Rec."Shipper Code" <> 'C000083' THEN BEGIN
+                            IF Rec."Shipper Code" = 'C000068' THEN BEGIN
                                 //MESSAGE('');
                             END ELSE BEGIN
 
-                                TESTFIELD("Shipper Code");
-                                TESTFIELD("Vehicle No.");
-                                TESTFIELD("Vehicle Arrival Time");
+                                Rec.TESTFIELD("Shipper Code");
+                                Rec.TESTFIELD("Vehicle No.");
+                                Rec.TESTFIELD("Vehicle Arrival Time");
                             END;
                         END;
-                        PostGoodReceipt;
+                        Rec.PostGoodReceipt;
                         BookingSheet.RESET;
-                        BookingSheet.SETRANGE(BookingSheet."No.", "Booking Sheet No.");
+                        BookingSheet.SETRANGE(BookingSheet."No.", Rec."Booking Sheet No.");
                         IF BookingSheet.FINDFIRST THEN BEGIN
                             BookingSheet.Status := BookingSheet.Status::Received;
                             BookingSheet.MODIFY;
-                            Status := Status::Submitted;
-                            "Posted By" := USERID;
-                            MODIFY;
+                            Rec.Status := Rec.Status::Submitted;
+                            Rec."Posted By" := USERID;
+                            Rec.MODIFY;
                             MESSAGE('GRN Posted Successfully');
                             CurrPage.CLOSE;
                         END;
@@ -152,10 +152,10 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD("Vehicle No.");
-                        TESTFIELD("Vehicle Arrival Time");
+                        Rec.TESTFIELD("Vehicle No.");
+                        Rec.TESTFIELD("Vehicle Arrival Time");
                         GoodReceiptHeader.RESET;
-                        GoodReceiptHeader.SETRANGE("No.", "No.");
+                        GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
                             REPORT.RUNMODAL(50018, TRUE, FALSE, GoodReceiptHeader);
                     end;
@@ -172,10 +172,10 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD("Vehicle No.");
-                        TESTFIELD("Vehicle Arrival Time");
+                        Rec.TESTFIELD("Vehicle No.");
+                        Rec.TESTFIELD("Vehicle Arrival Time");
                         GoodReceiptHeader.RESET;
-                        GoodReceiptHeader.SETRANGE("No.", "No.");
+                        GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
                             REPORT.RUNMODAL(50003, TRUE, FALSE, GoodReceiptHeader);
                     end;
@@ -188,7 +188,7 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "82";
+                        SalesPostPrint: Codeunit 82;
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -202,38 +202,38 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     begin
-                        TESTFIELD(Status, Status::Open);
+                        Rec.TESTFIELD(Status, Rec.Status::Open);
 
                         GoodsReceiptLine.RESET;
-                        GoodsReceiptLine.SETRANGE("Good Receipt No.", "No.");
+                        GoodsReceiptLine.SETRANGE("Good Receipt No.", Rec."No.");
                         IF GoodsReceiptLine.FINDSET THEN
                             REPEAT
                                 GoodsReceiptLine.TESTFIELD(GoodsReceiptLine."Arrival Temperature");
                             UNTIL GoodsReceiptLine.NEXT = 0;
 
-                        IF ("Shipper Code" <> 'C000083') THEN BEGIN
-                            IF "Shipper Code" = 'C000068' THEN BEGIN
+                        IF (Rec."Shipper Code" <> 'C000083') THEN BEGIN
+                            IF Rec."Shipper Code" = 'C000068' THEN BEGIN
                                 //MESSAGE('');
                             END ELSE BEGIN
-                                TESTFIELD("Vehicle No.");
-                                TESTFIELD("Driver Name");
-                                TESTFIELD("Screener Name");
-                                TESTFIELD("External Doc No.");
-                                TESTFIELD("Vehicle Arrival Time");
+                                Rec.TESTFIELD("Vehicle No.");
+                                Rec.TESTFIELD("Driver Name");
+                                Rec.TESTFIELD("Screener Name");
+                                Rec.TESTFIELD("External Doc No.");
+                                Rec.TESTFIELD("Vehicle Arrival Time");
                             END;
                         END ELSE BEGIN
                         END;
 
                         GoodsReceiptLine.RESET;
-                        GoodsReceiptLine.SETRANGE(GoodsReceiptLine."Good Receipt No.", "No.");
+                        GoodsReceiptLine.SETRANGE(GoodsReceiptLine."Good Receipt No.", Rec."No.");
                         IF GoodsReceiptLine.FINDSET THEN BEGIN
                             REPEAT
                                 GoodsReceiptLine.TESTFIELD(GoodsReceiptLine."Location Code");
                                 GoodsReceiptLine.TESTFIELD(GoodsReceiptLine."Actual Weight");
                                 GoodsReceiptLine.TESTFIELD(GoodsReceiptLine.Quantity);
                             UNTIL GoodsReceiptLine.NEXT = 0;
-                            Status := Status::Submitted;
-                            MODIFY;
+                            Rec.Status := Rec.Status::Submitted;
+                            Rec.MODIFY;
                             BSline.RESET;
                             BSline.SETFILTER(BSline."Good Receipt No.", '<>%1', '');
                             IF BSline.FINDSET THEN BEGIN
@@ -262,9 +262,9 @@ page 50130 "Goods Receipt"
     }
 
     var
-        GoodReceiptHeader: Record "50052";
-        BookingSheet: Record "50053";
-        GoodsReceiptLine: Record "50051";
-        BSline: Record "50054";
+        GoodReceiptHeader: Record 50052;
+        BookingSheet: Record 50053;
+        GoodsReceiptLine: Record 50051;
+        BSline: Record 50054;
 }
 

@@ -2,7 +2,7 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
 {
     Caption = 'Daily Weight Distribution By Customer Per Item';
     PageType = List;
-    SourceTable = Table50043;
+    SourceTable = 50043;
 
     layout
     {
@@ -10,23 +10,23 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
         {
             repeater(Group)
             {
-                field("Customer No."; "Customer No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                     Editable = false;
                     HideValue = "Customer No.HideValue";
                     Style = Strong;
                     StyleExpr = TRUE;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure"; "Unit of Measure")
+                field("Unit of Measure"; Rec."Unit of Measure")
                 {
                 }
-                field("Gross Weight"; "Gross Weight")
+                field("Gross Weight"; Rec."Gross Weight")
                 {
                 }
             }
@@ -44,28 +44,28 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
     end;
 
     var
-        TempDailyWeightDistByItem: Record "50043";
-        [InDataSet]
+        TempDailyWeightDistByItem: Record 50043;
+
         "Customer No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        DailyWeightDistByItem: Record "50043";
+        DailyWeightDistByItem: Record 50043;
     begin
         TempDailyWeightDistByItem.RESET;
         TempDailyWeightDistByItem.COPYFILTERS(Rec);
-        TempDailyWeightDistByItem.SETRANGE("Daily No.", "Daily No.");
-        TempDailyWeightDistByItem.SETRANGE("Customer No.", "Customer No.");
+        TempDailyWeightDistByItem.SETRANGE("Daily No.", Rec."Daily No.");
+        TempDailyWeightDistByItem.SETRANGE("Customer No.", Rec."Customer No.");
         IF NOT TempDailyWeightDistByItem.FINDFIRST THEN BEGIN
             DailyWeightDistByItem.COPYFILTERS(Rec);
-            DailyWeightDistByItem.SETRANGE("Daily No.", "Daily No.");
-            DailyWeightDistByItem.SETRANGE("Customer No.", "Customer No.");
+            DailyWeightDistByItem.SETRANGE("Daily No.", Rec."Daily No.");
+            DailyWeightDistByItem.SETRANGE("Customer No.", Rec."Customer No.");
             IF DailyWeightDistByItem.FINDFIRST THEN BEGIN
                 TempDailyWeightDistByItem := DailyWeightDistByItem;
                 TempDailyWeightDistByItem.INSERT;
             END;
         END;
-        IF "Item No." = TempDailyWeightDistByItem."Item No." THEN
+        IF Rec."Item No." = TempDailyWeightDistByItem."Item No." THEN
             EXIT(TRUE);
     end;
 

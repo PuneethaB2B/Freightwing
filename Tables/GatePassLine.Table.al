@@ -45,8 +45,8 @@ table 50069 "Gate Pass Line"
         }
         field(11; "ULD No."; Code[50])
         {
-            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE ("MWAB No."=FIELD("MAWB No."),
-                                                                            Released=FILTER(false));
+            TableRelation = "Loading Sheet ULD Allocation"."ULD No." WHERE("MWAB No." = FIELD("MAWB No."),
+                                                                            Released = FILTER(false));
         }
         field(12; "Line No."; Integer)
         {
@@ -106,46 +106,46 @@ table 50069 "Gate Pass Line"
         }
         field(21; "HAWB No"; Code[50])
         {
-            TableRelation = "HAWB Line"."HAWB No." WHERE("MAWB No."=FIELD("MAWB No."));
+            TableRelation = "HAWB Line"."HAWB No." WHERE("MAWB No." = FIELD("MAWB No."));
 
             trigger OnValidate()
             begin
-                  HAWBLine.RESET;
-                  HAWBLine.SETRANGE(HAWBLine."MAWB No.","MAWB No.");
-                  HAWBLine.SETRANGE(HAWBLine."HAWB No.","HAWB No");
-                  IF HAWBLine.FINDFIRST THEN BEGIN
-                    "Custom Entry No":=HAWBLine."Custom Enrty No";
-                    "Phyto Certificate":=HAWBLine.Phyto;
+                HAWBLine.RESET;
+                HAWBLine.SETRANGE(HAWBLine."MAWB No.", "MAWB No.");
+                HAWBLine.SETRANGE(HAWBLine."HAWB No.", "HAWB No");
+                IF HAWBLine.FINDFIRST THEN BEGIN
+                    "Custom Entry No" := HAWBLine."Custom Enrty No";
+                    "Phyto Certificate" := HAWBLine.Phyto;
                     LoadingSheetULDAlloc.RESET;
-                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc."ULD No.","ULD No.");
-                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc."MWAB No.","MAWB No.");
-                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc.Released,FALSE);
+                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc."ULD No.", "ULD No.");
+                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc."MWAB No.", "MAWB No.");
+                    LoadingSheetULDAlloc.SETRANGE(LoadingSheetULDAlloc.Released, FALSE);
                     IF LoadingSheetULDAlloc.FINDFIRST THEN
-                    "Loading Sheet No.":=LoadingSheetULDAlloc."Loading Sheet No.";
-                 END;
+                        "Loading Sheet No." := LoadingSheetULDAlloc."Loading Sheet No.";
+                END;
             end;
         }
-        field(23;"Certificate Of Origin";Code[20])
+        field(23; "Certificate Of Origin"; Code[20])
         {
             Description = 'Certificate of Origin';
         }
-        field(29;"Custom Entry No";Code[50])
+        field(29; "Custom Entry No"; Code[50])
         {
         }
-        field(30;"Phyto Certificate";Code[50])
+        field(30; "Phyto Certificate"; Code[50])
         {
         }
-        field(31;Remarks;Text[250])
+        field(31; Remarks; Text[250])
         {
         }
-        field(32;Offloaded;Boolean)
+        field(32; Offloaded; Boolean)
         {
         }
     }
 
     keys
     {
-        key(Key1;"Gate-Pass No.","MAWB No.","Line No.","HAWB No","ULD No.")
+        key(Key1; "Gate-Pass No.", "MAWB No.", "Line No.", "HAWB No", "ULD No.")
         {
             Clustered = true;
         }
@@ -162,7 +162,7 @@ table 50069 "Gate Pass Line"
 
     trigger OnInsert()
     begin
-        "Line No."+=1000;
+        "Line No." += 1000;
     end;
 
     var

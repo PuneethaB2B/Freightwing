@@ -20,7 +20,7 @@ page 50126 "Archived MAWB Subform"
                 field(Description; Rec.Description)
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
                 field(Quantity; Rec.Quantity)
@@ -29,50 +29,50 @@ page 50126 "Archived MAWB Subform"
                 field("Chargeable Weight"; Rec."Chargeable Weight")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                 }
-                field("Airline Code"; "Airline Code")
+                field("Airline Code"; Rec."Airline Code")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Flight Code"; "Flight Code")
+                field("Flight Code"; Rec."Flight Code")
                 {
                 }
-                field("Destination Code"; "Destination Code")
+                field("Destination Code"; Rec."Destination Code")
                 {
                 }
-                field("Flight Date"; "Flight Date")
+                field("Flight Date"; Rec."Flight Date")
                 {
                 }
-                field("Division/Farm Code"; "Division/Farm Code")
+                field("Division/Farm Code"; Rec."Division/Farm Code")
                 {
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                 }
-                field("Custom Enrty No"; "Custom Enrty No")
+                field("Custom Enrty No"; Rec."Custom Enrty No")
                 {
                 }
-                field(Phyto; Phyto)
+                field(Phyto; Rec.Phyto)
                 {
                     Caption = 'KEPHIS Phyto Certificate';
                 }
-                field(Lendth; Lendth)
+                field(Lendth; Rec.Lendth)
                 {
                     Editable = false;
                 }
-                field(Width; Width)
+                field(Width; Rec.Width)
                 {
                     Editable = false;
                 }
-                field(Height; Height)
+                field(Height; Rec.Height)
                 {
                     Editable = false;
                 }
-                field("Certificate of Origin"; "Certificate of Origin")
+                field("Certificate of Origin"; Rec."Certificate of Origin")
                 {
                     Editable = false;
                 }
@@ -98,7 +98,7 @@ page 50126 "Archived MAWB Subform"
         MAWBAllocation: Record 50070;
 
 
-    [Scope('Internal')]
+    // [Scope('Internal')]
     procedure GetHAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get HAWB Line", Rec);

@@ -1,7 +1,7 @@
 page 50076 "Delivery Types"
 {
     PageType = List;
-    SourceTable = Table50059;
+    SourceTable = 50059;
 
     layout
     {
@@ -9,10 +9,10 @@ page 50076 "Delivery Types"
         {
             repeater(Group)
             {
-                field(Code; Code)
+                field(Code; Rec.Code)
                 {
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                 }
             }

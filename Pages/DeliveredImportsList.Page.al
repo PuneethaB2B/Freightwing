@@ -20,7 +20,7 @@ page 50006 "Delivered Imports List"
                 field("MAWB No"; Rec."MAWB No")
                 {
                 }
-                field("MAWB Date"; "MAWB Date")
+                field("MAWB Date"; Rec."MAWB Date")
                 {
                 }
                 field("Delivery Agent"; Rec."Delivery Agent")
@@ -32,13 +32,13 @@ page 50006 "Delivered Imports List"
                 field("Port of Origin"; Rec."Port of Origin")
                 {
                 }
-                field("Port of Discharge"; "Port of Discharge")
+                field("Port of Discharge"; Rec."Port of Discharge")
                 {
                 }
-                field("Pre-Alert Date"; "Pre-Alert Date")
+                field("Pre-Alert Date"; Rec."Pre-Alert Date")
                 {
                 }
-                field("Menifest Date"; "Menifest Date")
+                field("Menifest Date"; Rec."Menifest Date")
                 {
                 }
             }

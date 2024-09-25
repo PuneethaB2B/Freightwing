@@ -30,19 +30,19 @@ page 50023 "Consignee List"
                 field(City; Rec.City)
                 {
                 }
-                field("Phone No."; "Phone No.")
+                field("Phone No."; Rec."Phone No.")
                 {
                 }
-                field("Country/Region Code"; "Country/Region Code")
+                field("Country/Region Code"; Rec."Country/Region Code")
                 {
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                 }
-                field("E-Mail"; "E-Mail")
+                field("E-Mail"; Rec."E-Mail")
                 {
                 }
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                 }
             }

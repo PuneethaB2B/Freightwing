@@ -28,7 +28,7 @@ table 50010 "Import/Export Setup"
         }
         field(7; "Item Journal Batch"; Code[10])
         {
-            TableRelation = "Item Journal Batch".Name WHERE ("Journal Template Name"=FIELD("Item Journal Template"));
+            TableRelation = "Item Journal Batch".Name WHERE("Journal Template Name" = FIELD("Item Journal Template"));
         }
         field(8; "Item Journal Template"; Code[10])
         {
@@ -56,7 +56,7 @@ table 50010 "Import/Export Setup"
         }
         field(14; "Sales Journal Batch"; Code[10])
         {
-            TableRelation = "Gen. Journal Batch".Name WHERE ("Journal Template Name"=FIELD("Sales Journal Template"));
+            TableRelation = "Gen. Journal Batch".Name WHERE("Journal Template Name" = FIELD("Sales Journal Template"));
         }
         field(15; "Sales Journal Template"; Code[10])
         {

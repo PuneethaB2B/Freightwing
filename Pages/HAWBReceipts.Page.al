@@ -2,7 +2,7 @@ page 50046 "HAWB Receipts"
 {
     Caption = 'HAWB Receipts';
     PageType = List;
-    SourceTable = Table50037;
+    SourceTable = 50037;
 
     layout
     {
@@ -10,13 +10,13 @@ page 50046 "HAWB Receipts"
         {
             repeater(Group)
             {
-                field("HAWB No."; "HAWB No.")
+                field("HAWB No."; Rec."HAWB No.")
                 {
                 }
-                field("Receipt Date"; "Receipt Date")
+                field("Receipt Date"; Rec."Receipt Date")
                 {
                 }
-                field(Assigned; Assigned)
+                field(Assigned; Rec.Assigned)
                 {
                 }
             }
@@ -59,6 +59,6 @@ page 50046 "HAWB Receipts"
     end;
 
     var
-        gRecUserAccess: Record "50050";
+        gRecUserAccess: Record 50050;
 }
 

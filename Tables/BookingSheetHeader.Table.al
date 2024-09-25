@@ -295,17 +295,15 @@ table 50053 "Booking Sheet Header"
 
     procedure AssistEdit(OldBookingSheetHeader: Record 50053): Boolean
     begin
-        WITH BookingSheetHeader DO BEGIN
-            BookingSheetHeader := Rec;
+        BookingSheetHeader := Rec;
+        ImportExportSetup.GET;
+        ImportExportSetup.TESTFIELD("Booking Sheet Nos.");
+        IF NoSeriesMgt.SelectSeries(ImportExportSetup."Booking Sheet Nos.", OldBookingSheetHeader."No. Series", BookingSheetHeader."No. Series") THEN BEGIN
             ImportExportSetup.GET;
             ImportExportSetup.TESTFIELD("Booking Sheet Nos.");
-            IF NoSeriesMgt.SelectSeries(ImportExportSetup."Booking Sheet Nos.", OldBookingSheetHeader."No. Series", "No. Series") THEN BEGIN
-                ImportExportSetup.GET;
-                ImportExportSetup.TESTFIELD("Booking Sheet Nos.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := BookingSheetHeader;
-                EXIT(TRUE);
-            END;
+            NoSeriesMgt.SetSeries(BookingSheetHeader."No.");
+            Rec := BookingSheetHeader;
+            EXIT(TRUE);
         END;
     end;
 }

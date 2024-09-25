@@ -2,7 +2,7 @@ page 50038 "Freight Item Charge Matrix"
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Matrix Daywise,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = Table50029;
+    SourceTable = 50029;
 
     layout
     {
@@ -10,25 +10,25 @@ page 50038 "Freight Item Charge Matrix"
         {
             repeater(Group)
             {
-                field("From Weight"; "From Weight")
+                field("From Weight"; Rec."From Weight")
                 {
                 }
-                field("To Weight"; "To Weight")
+                field("To Weight"; Rec."To Weight")
                 {
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                 }
-                field("Rate Amount"; "Rate Amount")
+                field("Rate Amount"; Rec."Rate Amount")
                 {
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                 }
-                field(Calculation; Calculation)
+                field(Calculation; Rec.Calculation)
                 {
                 }
-                field(Difference; Difference)
+                field(Difference; Rec.Difference)
                 {
                     Caption = 'Difference';
                     Editable = false;

@@ -1,7 +1,7 @@
 page 50113 "Offloaded Gatepass Subform"
 {
     PageType = ListPart;
-    SourceTable = Table50065;
+    SourceTable = 50065;
 
     layout
     {
@@ -9,57 +9,57 @@ page 50113 "Offloaded Gatepass Subform"
         {
             repeater(Group)
             {
-                field("ULD Type"; "ULD Type")
+                field("ULD Type"; Rec."ULD Type")
                 {
                     Editable = false;
                 }
-                field("ULD No."; "ULD No.")
+                field("ULD No."; Rec."ULD No.")
                 {
                     Editable = false;
                 }
-                field("MAWB No."; "MAWB No.")
+                field("MAWB No."; Rec."MAWB No.")
                 {
                 }
-                field("Consignee Code"; "Consignee Code")
+                field("Consignee Code"; Rec."Consignee Code")
                 {
                 }
-                field("Shipper Code"; "Shipper Code")
-                {
-                    Editable = false;
-                }
-                field("HAWB No"; "HAWB No")
+                field("Shipper Code"; Rec."Shipper Code")
                 {
                     Editable = false;
                 }
-                field("Certificate Of Origin"; "Certificate Of Origin")
+                field("HAWB No"; Rec."HAWB No")
                 {
                     Editable = false;
                 }
-                field("Custom Entry No"; "Custom Entry No")
+                field("Certificate Of Origin"; Rec."Certificate Of Origin")
                 {
                     Editable = false;
                 }
-                field("Boxes Loaded"; Quantity)
+                field("Custom Entry No"; Rec."Custom Entry No")
                 {
                     Editable = false;
                 }
-                field("Shipper Name"; "Shipper Name")
+                field("Boxes Loaded"; Rec.Quantity)
                 {
                     Editable = false;
                 }
-                field("Offloaded Boxes"; "Offloaded Boxes")
+                field("Shipper Name"; Rec."Shipper Name")
+                {
+                    Editable = false;
+                }
+                field("Offloaded Boxes"; Rec."Offloaded Boxes")
                 {
                 }
-                field("Offloaded Weight"; "Offloaded Weight")
+                field("Offloaded Weight"; Rec."Offloaded Weight")
                 {
                 }
-                field(Diffrence; Diffrence)
+                field(Diffrence; Rec.Diffrence)
                 {
                     Editable = false;
                     Style = Unfavorable;
                     StyleExpr = False;
                 }
-                field("Ship With Same AWB"; "Ship With Same AWB")
+                field("Ship With Same AWB"; Rec."Ship With Same AWB")
                 {
                 }
             }

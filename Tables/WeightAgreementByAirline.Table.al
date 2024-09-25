@@ -21,24 +21,24 @@ table 50033 "Weight Agreement By Airline"
         }
         field(3; "Total Capacity"; Decimal)
         {
-            CalcFormula = Sum ("Weight Agreement By Item"."Min. Chargeable Weight" WHERE ("Airline Code"=FIELD("Airline Code")));
+            CalcFormula = Sum("Weight Agreement By Item"."Min. Chargeable Weight" WHERE("Airline Code" = FIELD("Airline Code")));
             Editable = false;
             FieldClass = FlowField;
         }
-        field(4;Description;Text[30])
+        field(4; Description; Text[30])
         {
         }
-        field(5;From;Date)
+        field(5; From; Date)
         {
         }
-        field(6;"To";Date)
+        field(6; "To"; Date)
         {
         }
     }
 
     keys
     {
-        key(Key1;"Airline Code",From,"To")
+        key(Key1; "Airline Code", From, "To")
         {
             Clustered = true;
         }
@@ -51,9 +51,9 @@ table 50033 "Weight Agreement By Airline"
     trigger OnDelete()
     begin
         WeightAgreementDestination.RESET;
-        WeightAgreementDestination.SETRANGE("Airline Code","Airline Code");
+        WeightAgreementDestination.SETRANGE("Airline Code", "Airline Code");
         IF WeightAgreementDestination.FINDFIRST THEN
-          ERROR(Text001,"Airline Code");
+            ERROR(Text001, "Airline Code");
     end;
 
     var
