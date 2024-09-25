@@ -1,4 +1,4 @@
-pageextension 70000045 pageextension70000045 extends "Approval Request Entries"
+pageextension 50002 ApprovalRequestEntriesExt extends "Approval Request Entries"
 {
 
     //Unsupported feature: Code Modification on "OnOpenPage".
