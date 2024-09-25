@@ -41,54 +41,33 @@ tableextension 50005 CustomerExt extends Customer
         }
     }
 
+    trigger OnAfterDelete()
+    begin
+        ShipperItem.RESET;
+        ShipperItem.SETRANGE("Shipper Code", "No.");
+        IF ShipperItem.FINDFIRST THEN
+            ERROR(Text50000, "No.", ShipperItem.TABLENAME);
 
-    //Unsupported feature: Code Modification on "OnDelete".
+        ShipperAgent.RESET;
+        ShipperAgent.SETRANGE("Shipper Code", "No.");
+        IF ShipperAgent.FINDFIRST THEN
+            ERROR(Text50000, "No.", ShipperAgent.TABLENAME);
 
-    //trigger OnDelete()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    IF DOPaymentCreditCard.FINDFIRST THEN
-      DOPaymentCreditCard.DeleteByCustomer(Rec);
+        ShipperFarm.RESET;
+        ShipperFarm.SETRANGE("Shipper Code", "No.");
+        IF ShipperFarm.FINDFIRST THEN
+            ERROR(Text50000, "No.", ShipperFarm.TABLENAME);
 
-    #4..117
-    VATRegistrationLogMgt.DeleteCustomerLog(Rec);
+        ShipperNotifyParty.RESET;
+        ShipperNotifyParty.SETRANGE("Shipper Code", "No.");
+        IF ShipperNotifyParty.FINDFIRST THEN
+            ERROR(Text50000, "No.", ShipperNotifyParty.TABLENAME);
 
-    DimMgt.DeleteDefaultDim(DATABASE::Customer,"No.");
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..120
-
-    //========FW Export Management======
-    ShipperItem.RESET;
-    ShipperItem.SETRANGE("Shipper Code","No.");
-    IF ShipperItem.FINDFIRST THEN
-      ERROR(Text50000,"No.",ShipperItem.TABLENAME);
-
-    ShipperAgent.RESET;
-    ShipperAgent.SETRANGE("Shipper Code","No.");
-    IF ShipperAgent.FINDFIRST THEN
-      ERROR(Text50000,"No.",ShipperAgent.TABLENAME);
-
-    ShipperFarm.RESET;
-    ShipperFarm.SETRANGE("Shipper Code","No.");
-    IF ShipperFarm.FINDFIRST THEN
-      ERROR(Text50000,"No.",ShipperFarm.TABLENAME);
-
-    ShipperNotifyParty.RESET;
-    ShipperNotifyParty.SETRANGE("Shipper Code","No.");
-    IF ShipperNotifyParty.FINDFIRST THEN
-      ERROR(Text50000,"No.",ShipperNotifyParty.TABLENAME);
-
-    ShipperConsignee.RESET;
-    ShipperConsignee.SETRANGE("Shipper Code","No.");
-    IF ShipperConsignee.FINDFIRST THEN
-      ERROR(Text50000,"No.",ShipperConsignee.TABLENAME);
-    */
-    //end;
+        ShipperConsignee.RESET;
+        ShipperConsignee.SETRANGE("Shipper Code", "No.");
+        IF ShipperConsignee.FINDFIRST THEN
+            ERROR(Text50000, "No.", ShipperConsignee.TABLENAME);
+    end;
 
     //Unsupported feature: Property Modification (Fields) on "DropDown(FieldGroup 1)".
 

@@ -2,6 +2,9 @@ tableextension 50024 GenJournalLineExt extends "Gen. Journal Line"
 {
     fields
     {
+        modify("Check Printed"){
+            
+        }
 
         //Unsupported feature: Property Modification (Editable) on ""Check Printed"(Field 75)".
 

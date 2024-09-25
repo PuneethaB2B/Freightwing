@@ -1,6 +1,5 @@
 table 50058 "Booking Sheet FAM Allocations"
 {
-
     fields
     {
         field(1; "Booking Sheet No"; Code[50])

@@ -2,7 +2,7 @@ tableextension 50019 PurchaseLineExt extends "Purchase Line"
 {
     fields
     {
-
+       
         //Unsupported feature: Property Insertion (Editable) on ""Line Discount %"(Field 27)".
 
 
