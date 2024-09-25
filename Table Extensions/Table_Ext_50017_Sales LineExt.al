@@ -2,7 +2,14 @@ tableextension 50017 SalesLineExt extends "Sales Line"
 {
     fields
     {
-
+        modify("VAT %")
+        {
+            trigger OnAfterValidate()
+            begin
+                "VAT Amount" := ("VAT %" / 100) * "Cost Amount";
+                "Line Amount" := "Line Amount" + "VAT Amount";
+            end;
+        }
         //Unsupported feature: Property Insertion (Editable) on "Description(Field 11)".
 
 
@@ -18,19 +25,7 @@ tableextension 50017 SalesLineExt extends "Sales Line"
         //Unsupported feature: Property Modification (Data type) on ""Product Group Code"(Field 5712)".
 
 
-        //Unsupported feature: Code Insertion on ""VAT %"(Field 25)".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //begin
-        /*
-        "VAT Amount":=("VAT %"/100)*"Cost Amount";
-        "Line Amount":="Line Amount"+"VAT Amount";
-        */
-        //end;
-
         //Unsupported feature: Property Deletion (Editable) on ""VAT %"(Field 25)".
-
 
 
         //Unsupported feature: Code Modification on ""Line Amount"(Field 103).OnValidate".
@@ -184,41 +179,19 @@ tableextension 50017 SalesLineExt extends "Sales Line"
         {
         }
     }
-
-
-    //Unsupported feature: Code Modification on "OnDelete".
-
-    //trigger OnDelete()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    TestStatusOpen;
-    IF NOT StatusCheckSuspended AND (SalesHeader.Status = SalesHeader.Status::Released) AND
-       (Type IN [Type::"G/L Account",Type::"Charge (Item)",Type::Resource])
-    #4..67
-        SalesLine2.MODIFY;
-      END;
-    END;
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..70
-
-    //********EXPORT PROCESS*******
-    IF "Document Type"="Document Type"::Invoice THEN  BEGIN
-      MAWBLine.RESET;
-      MAWBLine.SETRANGE("MAWB No.","MAWB No.");
-      MAWBLine.SETRANGE("HAWB No.","HAWB No.");
-      MAWBLine.SETRANGE("Item No.","No.");
-      IF MAWBLine.FINDFIRST THEN BEGIN
-        MAWBLine."Invoice No.":='';
-        MAWBLine.MODIFY;
-      END;
-    END;
-    */
-    //end;
+    trigger OnAfterDelete()
+    begin
+        IF "Document Type" = "Document Type"::Invoice THEN BEGIN
+            MAWBLine.RESET;
+            MAWBLine.SETRANGE("MAWB No.", "MAWB No.");
+            MAWBLine.SETRANGE("HAWB No.", "HAWB No.");
+            MAWBLine.SETRANGE("Item No.", "No.");
+            IF MAWBLine.FINDFIRST THEN BEGIN
+                MAWBLine."Invoice No." := '';
+                MAWBLine.MODIFY;
+            END;
+        END;
+    end;
 
     var
         Header: Record 36;

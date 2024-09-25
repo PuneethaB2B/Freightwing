@@ -2,96 +2,77 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 {
     fields
     {
+        modify("Sell-to Customer No.")
+        {
+            trigger OnBeforeValidate()
+            begin
+                //
+                LoadingSheetHeader.RESET;
+                LoadingSheetHeader.SETRANGE(LoadingSheetHeader."Loading Sheet MAWB No", "MAWB No.");
+                LoadingSheetHeader.SETRANGE(LoadingSheetHeader."Shipper Code", "Sell-to Customer No.");
+                IF LoadingSheetHeader.FINDFIRST THEN
+                    //MESSAGE(LoadingSheetHeader."Shipper Code");
+                    //VALIDATE("Sell-to Customer No.");
+                    "External Document No." := "MAWB No.";
+                MAWBAlloc.RESET;
+                MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No", "MAWB No.");
+                IF MAWBAlloc.FINDFIRST THEN BEGIN
+                    //=======GET NOTIFY PARTIES FROM BOOKING SHEET========
+                    BookingSheetLine.RESET;
+                    BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", MAWBAlloc."Booking Sheet No");
+                    BookingSheetLine.SETRANGE(BookingSheetLine."Airline Code", MAWBAlloc."Airline Code");
+                    BookingSheetLine.SETRANGE(BookingSheetLine."Flight Code", MAWBAlloc."Flight No");
+                    BookingSheetLine.SETRANGE(BookingSheetLine."Source Airport", MAWBAlloc."Source Airport");
+                    BookingSheetLine.SETRANGE(BookingSheetLine."Destination Airport", MAWBAlloc."Destination Airport");
+                    BookingSheetLine.SETRANGE("Shipper Code", "Sell-to Customer No.");
+                    IF BookingSheetLine.FINDFIRST THEN BEGIN
+                        NotifyParty.RESET;
+                        NotifyParty.SETRANGE(Type, NotifyParty.Type::Shipper);
+                        NotifyParty.SETRANGE("Type Code", "Sell-to Customer No.");
+                        IF NotifyParty.FINDFIRST THEN BEGIN
+                            MAWBInvoiceNotifyParty.INIT;
+                            MAWBInvoiceNotifyParty."Invoice No." := "No.";
+                            MAWBInvoiceNotifyParty."MAWB No." := "MAWB No.";
+                            MAWBInvoiceNotifyParty."HAWB No." := "HAWB No.";
+                            MAWBInvoiceNotifyParty."Line No." := MAWBInvoiceNotifyParty."Line No." + 10000;
+                            MAWBInvoiceNotifyParty."Notify-Party No." := NotifyParty."No.";
+                            MAWBInvoiceNotifyParty."Notify-Party Name" := NotifyParty.Name;
+                            ;
+                            MAWBInvoiceNotifyParty."Source Code" := NotifyParty."Type Code";
+                            ;
+                            MAWBInvoiceNotifyParty."Source Type" := NotifyParty.Type::Shipper;
+                            MAWBInvoiceNotifyParty.INSERT;
+                        END;
 
-        //Unsupported feature: Code Modification on ""Sell-to Customer No."(Field 2).OnValidate".
-
-        //trigger "(Field 2)()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        CheckCreditLimitIfLineNotInsertedYet;
-        TESTFIELD(Status,Status::Open);
-        IF ("Sell-to Customer No." <> xRec."Sell-to Customer No.") AND
-        #4..158
-
-        IF NOT SkipSellToContact THEN
-          UpdateSellToCont("Sell-to Customer No.");
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        //
-        LoadingSheetHeader.RESET;
-        LoadingSheetHeader.SETRANGE(LoadingSheetHeader."Loading Sheet MAWB No","MAWB No.");
-        LoadingSheetHeader.SETRANGE(LoadingSheetHeader."Shipper Code","Sell-to Customer No.");
-        IF LoadingSheetHeader.FINDFIRST THEN
-        //MESSAGE(LoadingSheetHeader."Shipper Code");
-        //VALIDATE("Sell-to Customer No.");
-        "External Document No.":="MAWB No.";
-        MAWBAlloc.RESET;
-        MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No","MAWB No.");
-        IF MAWBAlloc.FINDFIRST THEN BEGIN
-        //=======GET NOTIFY PARTIES FROM BOOKING SHEET========
-        BookingSheetLine.RESET;
-        BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.",MAWBAlloc."Booking Sheet No");
-        BookingSheetLine.SETRANGE(BookingSheetLine."Airline Code",MAWBAlloc."Airline Code");
-        BookingSheetLine.SETRANGE(BookingSheetLine."Flight Code",MAWBAlloc."Flight No");
-        BookingSheetLine.SETRANGE(BookingSheetLine."Source Airport",MAWBAlloc."Source Airport");
-        BookingSheetLine.SETRANGE(BookingSheetLine."Destination Airport",MAWBAlloc."Destination Airport");
-        BookingSheetLine.SETRANGE("Shipper Code","Sell-to Customer No.");
-        IF BookingSheetLine.FINDFIRST THEN BEGIN
-          NotifyParty.RESET;
-          NotifyParty.SETRANGE(Type,NotifyParty.Type::Shipper);
-          NotifyParty.SETRANGE("Type Code","Sell-to Customer No.");
-          IF NotifyParty.FINDFIRST THEN BEGIN
-            MAWBInvoiceNotifyParty.INIT;
-            MAWBInvoiceNotifyParty."Invoice No.":="No.";
-            MAWBInvoiceNotifyParty."MAWB No.":="MAWB No.";
-            MAWBInvoiceNotifyParty."HAWB No.":="HAWB No.";
-            MAWBInvoiceNotifyParty."Line No.":=MAWBInvoiceNotifyParty."Line No."+10000;
-            MAWBInvoiceNotifyParty."Notify-Party No.":=NotifyParty."No.";
-            MAWBInvoiceNotifyParty."Notify-Party Name":=NotifyParty.Name;;
-            MAWBInvoiceNotifyParty."Source Code":=NotifyParty."Type Code";;
-            MAWBInvoiceNotifyParty."Source Type":=NotifyParty.Type::Shipper;
-            MAWBInvoiceNotifyParty.INSERT;
-          END;
-
-           BookingSheetHAWBAllocation.RESET;
-           BookingSheetHAWBAllocation.SETRANGE("MAWB No.","MAWB No.");
-           BookingSheetHAWBAllocation.SETRANGE("Shipper Code","Sell-to Customer No.");
-           IF BookingSheetHAWBAllocation.FINDFIRST THEN BEGIN
-             NotifyParty.RESET;
-             NotifyParty.SETRANGE(Type,NotifyParty.Type::Consignee);
-             NotifyParty.SETRANGE("Type Code",BookingSheetHAWBAllocation."Consignee Code");
-             IF NotifyParty.FINDFIRST THEN BEGIN
-              MAWBInvoiceNotifyParty.INIT;
-              MAWBInvoiceNotifyParty."Invoice No.":="No.";
-              MAWBInvoiceNotifyParty."MAWB No.":="MAWB No.";
-              MAWBInvoiceNotifyParty."HAWB No.":="HAWB No.";
-              MAWBInvoiceNotifyParty."Line No.":=MAWBInvoiceNotifyParty."Line No."+10000;
-              MAWBInvoiceNotifyParty."Notify-Party No.":=NotifyParty."No.";
-              MAWBInvoiceNotifyParty."Notify-Party Name":=NotifyParty.Name;
-              MAWBInvoiceNotifyParty."Source Type":=NotifyParty.Type::Consignee;
-              MAWBInvoiceNotifyParty."Source Code":=NotifyParty."Type Code";
-              MAWBInvoiceNotifyParty.INSERT;
-             END;
-           END;
-        END;
-        END;
-        IF NOT HasHouses THEN
-        BEGIN
-          SalesLine2.RESET;
-          SalesLine2.SETRANGE(SalesLine2."Document No.","No.");
-          MAWBLine7.InsertSalesInvoiceFromMAWBLine(SalesLine2);
-        END;
-
-
-        //
-        #1..161
-        */
-        //end;
+                        BookingSheetHAWBAllocation.RESET;
+                        BookingSheetHAWBAllocation.SETRANGE("MAWB No.", "MAWB No.");
+                        BookingSheetHAWBAllocation.SETRANGE("Shipper Code", "Sell-to Customer No.");
+                        IF BookingSheetHAWBAllocation.FINDFIRST THEN BEGIN
+                            NotifyParty.RESET;
+                            NotifyParty.SETRANGE(Type, NotifyParty.Type::Consignee);
+                            NotifyParty.SETRANGE("Type Code", BookingSheetHAWBAllocation."Consignee Code");
+                            IF NotifyParty.FINDFIRST THEN BEGIN
+                                MAWBInvoiceNotifyParty.INIT;
+                                MAWBInvoiceNotifyParty."Invoice No." := "No.";
+                                MAWBInvoiceNotifyParty."MAWB No." := "MAWB No.";
+                                MAWBInvoiceNotifyParty."HAWB No." := "HAWB No.";
+                                MAWBInvoiceNotifyParty."Line No." := MAWBInvoiceNotifyParty."Line No." + 10000;
+                                MAWBInvoiceNotifyParty."Notify-Party No." := NotifyParty."No.";
+                                MAWBInvoiceNotifyParty."Notify-Party Name" := NotifyParty.Name;
+                                MAWBInvoiceNotifyParty."Source Type" := NotifyParty.Type::Consignee;
+                                MAWBInvoiceNotifyParty."Source Code" := NotifyParty."Type Code";
+                                MAWBInvoiceNotifyParty.INSERT;
+                            END;
+                        END;
+                    END;
+                END;
+                IF NOT HasHouses THEN BEGIN
+                    SalesLine2.RESET;
+                    SalesLine2.SETRANGE(SalesLine2."Document No.", "No.");
+                    MAWBLine7.InsertSalesInvoiceFromMAWBLine(SalesLine2);
+                END;
+            end;
+        }
         field(50000; "MAWB No."; Code[20])
         {
             TableRelation = "MAWB Receipt"."MAWB No." WHERE(Prepared = FILTER(true),
@@ -277,32 +258,6 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
             OptionMembers = " ",Group,"Third Party";
         }
     }
-
-
-    //Unsupported feature: Code Modification on "OnDelete".
-
-    //trigger OnDelete()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    IF DOPaymentTransLogEntry.FINDFIRST THEN
-      DOPaymentTransLogMgt.ValidateCanDeleteDocument("Payment Method Code","Document Type",FORMAT("Document Type"),"No.");
-
-    #4..121
-          SalesCrMemoHeaderPrepmt.PrintRecords(TRUE);
-        END;
-    END;
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..124
-    //MAWBHeader.GET("MAWB No.");
-    //MAWBHeader."Invoice Status":=MAWBHeader."Invoice Status"::New;
-    //MAWBHeader.MODIFY;
-    */
-    //end;
 
 
     //Unsupported feature: Code Modification on "SalesLinesExist(PROCEDURE 3)".
@@ -1055,8 +1010,6 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
         MAWBLine4: Record 50076;
         Hawbs: Integer;
         "Freight Charg": Record 50018;
-
-    var
         BookingSheetHAWBAllocation: Record 50056;
         Item: Record 27;
         BookingSheetLine: Record 50054;
