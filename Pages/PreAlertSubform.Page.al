@@ -2,6 +2,7 @@ page 50154 "Pre Alert Subform"
 {
     PageType = List;
     SourceTable = 50023;
+    ApplicationArea = All;
 
     layout
     {

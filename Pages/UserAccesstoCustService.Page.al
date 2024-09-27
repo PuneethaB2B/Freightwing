@@ -3,6 +3,7 @@ page 50152 "User Access to Cust Service"
     Caption = 'User Access to Customer Service';
     PageType = List;
     SourceTable = 50050;
+    ApplicationArea = All;
 
     layout
     {

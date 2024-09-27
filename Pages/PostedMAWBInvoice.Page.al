@@ -8,6 +8,7 @@ page 50145 "Posted MAWB Invoice"
     SourceTable = 36;
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             Posted = FILTER(true));
+    ApplicationArea = All;
 
     layout
     {
@@ -337,7 +338,9 @@ page 50145 "Posted MAWB Invoice"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
+                        PAGE                            ApplicationArea = All;
+.RUNMODAL(PAGE    ApplicationArea = All;
+::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -359,7 +362,8 @@ page 50145 "Posted MAWB Invoice"
                     Caption = 'Customer';
                     Image = Customer;
                     RunObject = Page 21;
-                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");
+                                    RunPageLink = "No."=    ApplicationArea = All;
+FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -370,6 +374,7 @@ page 50145 "Posted MAWB Invoice"
                     trigger OnAction()
                     var
                         ApprovalEntries: Page 658;
+                                             ApplicationArea = All;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -380,7 +385,8 @@ page 50145 "Posted MAWB Invoice"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                    RunPageLink = "Document Type"=    ApplicationArea = All;
+FIELD("Document Type"),
                                   "No."=FIELD("No."),
                                   "Document Line No."=CONST(0);
                 }
@@ -395,7 +401,8 @@ page 50145 "Posted MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50119;
-                                    RunPageLink = "MAWB No"=FIELD("No.");
+                                    RunPageLink = "MAWB No"=    ApplicationArea = All;
+FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("MAWB Charges")
@@ -406,7 +413,8 @@ page 50145 "Posted MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50120;
-                                    RunPageLink = "MAWB No."=FIELD("MAWB No.");
+                                    RunPageLink = "MAWB No."=    ApplicationArea = All;
+FIELD("MAWB No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
@@ -420,7 +428,8 @@ page 50145 "Posted MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                    RunPageLink = "Document Type"=    ApplicationArea = All;
+FIELD("Document Type"),
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
                 }
@@ -673,7 +682,8 @@ page 50145 "Posted MAWB Invoice"
                         SalesHeader.RESET;
                         SalesHeader.SETRANGE("No.","No.");
                         IF SalesHeader.FINDFIRST THEN
-                          REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
+                          REPORT                              ApplicationArea = All;
+.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
                     end;
                 }
                 action("Post and &Print")
@@ -710,7 +720,9 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT                            ApplicationArea = All;
+.RUNMODAL(REPORT    ApplicationArea = All;
+::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }
@@ -779,6 +791,7 @@ page 50145 "Posted MAWB Invoice"
                                 ExternalDocNoMandatory: Boolean;
                                 MAWBLine: Record 50076;
                                 SalesHeader: Record 36;
+                                ApplicationArea = All;
 
     local procedure Post(PostingCodeunitID: Integer)
     begin

@@ -3,6 +3,7 @@ page 50099 "MAWB Subform"
     Caption = 'Master Airway Bill Subform';
     PageType = ListPart;
     SourceTable = 50076;
+    ApplicationArea = All;
 
     layout
     {

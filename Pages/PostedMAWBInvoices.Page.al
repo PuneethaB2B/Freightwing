@@ -8,6 +8,7 @@ page 50147 "Posted MAWB Invoices"
     SourceTable = 36;
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             Posted = FILTER(true));
+    ApplicationArea = All;
 
     layout
     {

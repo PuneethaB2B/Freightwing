@@ -1,6 +1,7 @@
 report 50090 "Validate Dl. Dist"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50003 "MAWB Line Charges"
     Editable = true;
     PageType = List;
     SourceTable = 50004;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ page 50121 "Get MAWB Lines"
     Editable = false;
     PageType = List;
     SourceTable = 50076;
+    ApplicationArea = All;
 
     layout
     {

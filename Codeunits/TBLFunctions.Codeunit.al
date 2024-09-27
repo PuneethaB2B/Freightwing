@@ -6,19 +6,19 @@ codeunit 50018 "TBL Functions"
     end;
 
 
-    procedure UpdateBookingDetails(ArchiveMAWB: Record "50077")
+    procedure UpdateBookingDetails(ArchiveMAWB: Record 50077)
     var
-        lRecBookingSheetMAWBAlloc: Record "50070";
-        lRecBookingSheetHr: Record "50053";
-        lRecBookingSheetLine: Record "50054";
-        lRecBookingSheetMAWBAlloc2: Record "50070";
-        lRecBookingSheetLine2: Record "50054";
-        lRecArchiveMAWBLine: Record "50076";
-        lRecBookingSheetHAWBAlloc: Record "50056";
-        lRecBookingSheetHAWBAlloc2: Record "50056";
-        lRecBookingSheetULDAlloc: Record "50055";
-        lRecBookingSheetULDAlloc2: Record "50055";
-        lRecLoadingSheetLine: Record "50061";
+        lRecBookingSheetMAWBAlloc: Record 50070;
+        lRecBookingSheetHr: Record 50053;
+        lRecBookingSheetLine: Record 50054;
+        lRecBookingSheetMAWBAlloc2: Record 50070;
+        lRecBookingSheetLine2: Record 50054;
+        lRecArchiveMAWBLine: Record 50076;
+        lRecBookingSheetHAWBAlloc: Record 50056;
+        lRecBookingSheetHAWBAlloc2: Record 50056;
+        lRecBookingSheetULDAlloc: Record 50055;
+        lRecBookingSheetULDAlloc2: Record 50055;
+        lRecLoadingSheetLine: Record 50061;
     begin
         //Update Booking sheets TBLBT
         lRecBookingSheetMAWBAlloc.RESET;

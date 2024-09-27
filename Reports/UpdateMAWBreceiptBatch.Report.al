@@ -1,6 +1,7 @@
 report 50073 "Update MAWB receipt Batch"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

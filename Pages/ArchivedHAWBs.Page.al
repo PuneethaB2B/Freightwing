@@ -8,6 +8,7 @@ page 50103 "Archived HAWBs"
     PageType = List;
     SourceTable = 50075;
     SourceTableView = WHERE(Status = FILTER(Archived));
+    ApplicationArea = All;
 
     layout
     {

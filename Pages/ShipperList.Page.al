@@ -4,6 +4,7 @@ page 50018 "Shipper List"
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
     SourceTable = 18;
+    ApplicationArea = All;
 
     layout
     {

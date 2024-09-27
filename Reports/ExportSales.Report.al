@@ -3,6 +3,7 @@ report 50055 "Export Sales"
     DefaultLayout = RDLC;
     RDLCLayout = './ExportSales.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -29,7 +29,7 @@ codeunit 50017 "Currency Text"
         txtFinalInteger: Text[250];
         txtFinalDecimal: Text[250];
         arrPlace: array[9] of Text[20];
-        recCurrency: Record "4";
+        recCurrency: Record 4;
         txtCurrencyNumericPos: Text[30];
         txtCurrencyDecimalPos: Text[30];
         txtTemp2: Text[2];

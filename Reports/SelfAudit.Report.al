@@ -1,6 +1,7 @@
 report 50097 "Self Audit"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

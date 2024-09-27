@@ -5,6 +5,7 @@ page 50138 "Posted Goods Receipt Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = 50051;
+    ApplicationArea = All;
 
     layout
     {

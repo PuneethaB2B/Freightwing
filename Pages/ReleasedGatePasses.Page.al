@@ -7,6 +7,7 @@ page 50087 "Released Gate Passes"
     PageType = List;
     SourceTable = 50068;
     SourceTableView = WHERE(Status = FILTER(Released));
+    ApplicationArea = All;
 
     layout
     {

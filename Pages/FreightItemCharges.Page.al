@@ -3,6 +3,7 @@ page 50037 "Freight Item Charges"
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Matrix,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = 50028;
+    ApplicationArea = All;
 
     layout
     {

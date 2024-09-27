@@ -1,6 +1,7 @@
 report 50008 "Update archived mawbs"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

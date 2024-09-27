@@ -2,6 +2,7 @@ page 50089 "Gate Pass"
 {
     PageType = Card;
     SourceTable = 50068;
+    ApplicationArea = All;
 
     layout
     {

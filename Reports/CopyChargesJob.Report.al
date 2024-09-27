@@ -1,6 +1,7 @@
 report 50104 "Copy Charges -Job"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -150,10 +151,12 @@ report 50104 "Copy Charges -Job"
                     field("Start Date"; StartDate)
                     {
                         ShowMandatory = true;
+                        ApplicationArea = All;
                     }
                     field("End Date"; EndDate)
                     {
                         ShowMandatory = true;
+                        ApplicationArea = All;
                     }
                 }
             }

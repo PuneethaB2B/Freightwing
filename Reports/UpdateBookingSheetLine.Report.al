@@ -1,6 +1,7 @@
 report 50037 "Update Booking Sheet Line"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ report 50058 "General Rated Sales"
     DefaultLayout = RDLC;
     RDLCLayout = './GeneralRatedSales.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

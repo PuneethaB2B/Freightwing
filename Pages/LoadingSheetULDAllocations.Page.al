@@ -2,6 +2,7 @@ page 50085 "Loading Sheet ULD Allocations"
 {
     PageType = List;
     SourceTable = 50063;
+    ApplicationArea = All;
 
     layout
     {

@@ -2,6 +2,7 @@ page 50112 "Offloaded Gate Pass Form"
 {
     PageType = Card;
     SourceTable = 50071;
+    ApplicationArea = All;
 
     layout
     {

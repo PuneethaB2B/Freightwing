@@ -2,6 +2,7 @@ report 50022 "Booking Sheet ULD Allocation"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './BookingSheetULDAllocation.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

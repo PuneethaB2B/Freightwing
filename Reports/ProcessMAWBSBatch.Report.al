@@ -1,6 +1,7 @@
 report 50094 "Process MAWBS Batch"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

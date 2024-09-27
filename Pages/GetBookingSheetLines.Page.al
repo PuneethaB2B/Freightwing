@@ -3,6 +3,7 @@ page 50133 "Get Booking Sheet Lines"
     Editable = false;
     PageType = List;
     SourceTable = 50054;
+    ApplicationArea = All;
 
     layout
     {

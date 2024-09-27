@@ -1,6 +1,7 @@
 report 50108 "Validate Dim Correction"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

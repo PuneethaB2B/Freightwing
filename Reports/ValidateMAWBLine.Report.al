@@ -1,6 +1,7 @@
 report 50103 "Validate MAWB Line"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

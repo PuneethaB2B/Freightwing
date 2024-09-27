@@ -3,6 +3,7 @@ page 50017 "Shipper Card"
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
     SourceTable = 18;
+    ApplicationArea = All;
 
     layout
     {

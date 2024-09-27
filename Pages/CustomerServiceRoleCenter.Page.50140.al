@@ -2,6 +2,7 @@ page 50140 "Customer Service Role Center_"
 {
     Caption = 'Role Center';
     PageType = RoleCenter;
+    ApplicationArea = All;
 
     layout
     {

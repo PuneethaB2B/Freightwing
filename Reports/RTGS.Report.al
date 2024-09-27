@@ -3,6 +3,7 @@ report 50035 RTGS
     DefaultLayout = RDLC;
     RDLCLayout = './RTGS.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

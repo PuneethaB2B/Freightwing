@@ -2,6 +2,7 @@ report 50001 "Create MAWB"
 {
     Caption = 'Create Master Airway Bill No.';
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -22,32 +23,39 @@ report 50001 "Create MAWB"
                     {
                         Caption = 'Airline Code';
                         Editable = false;
+                        ApplicationArea = All;
                     }
                     field(PrefixCode; PrefixCode)
                     {
                         Caption = 'Prefix Code';
                         Visible = false;
+                        ApplicationArea = All;
                     }
                     field(BillNo; BillNo)
                     {
                         Caption = 'Bill No.';
+                        ApplicationArea = All;
                     }
                     field(StartNo; StartNo)
                     {
                         Caption = 'Start No.';
+                        ApplicationArea = All;
                     }
                     field("Numbers to Generate"; "Numbers To Generate")
                     {
+                        ApplicationArea = All;
                     }
                     field("Incremental Value"; "Incremental Value")
                     {
                         Visible = false;
+                        ApplicationArea = All;
                     }
                     field("End No."; EndNo)
                     {
                         Caption = 'End No.';
                         Editable = false;
                         Visible = false;
+                        ApplicationArea = All;
                     }
                 }
             }

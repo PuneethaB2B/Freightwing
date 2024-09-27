@@ -4,6 +4,7 @@ page 50080 "Loading Sheet"
     RefreshOnActivate = true;
     SourceTable = 50060;
     SourceTableView = WHERE(Shipped = FILTER(false));
+    ApplicationArea = All;
 
     layout
     {

@@ -40,8 +40,8 @@ codeunit 50032 "Update Log"
     end;
 
     var
-        BKMawb: Record "50070";
-        BKLine: Record "50054";
-        BKLine1: Record "50054";
+        BKMawb: Record 50070;
+        BKLine: Record 50054;
+        BKLine1: Record 50054;
 }
 

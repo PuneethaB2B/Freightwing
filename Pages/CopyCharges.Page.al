@@ -1,6 +1,7 @@
 page 50002 "Copy Charges"
 {
     PageType = StandardDialog;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ page 50073 "Booking Sheet Consignee Alloca"
     Caption = 'Booking Sheet Consignee Allocations';
     PageType = List;
     SourceTable = 50056;
+    ApplicationArea = All;
 
     layout
     {

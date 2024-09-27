@@ -4,6 +4,7 @@ page 50064 "Wk. Customer Wgt. Requirements"
     CardPageID = "Wk. Customer Wgt. Requirement";
     PageType = List;
     SourceTable = 50047;
+    ApplicationArea = All;
 
     layout
     {

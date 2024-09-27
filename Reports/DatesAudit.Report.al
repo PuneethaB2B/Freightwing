@@ -1,6 +1,7 @@
 report 50117 "Dates Audit"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -5,6 +5,7 @@ page 50120 "MAWB Invoice Charges"
     InsertAllowed = false;
     PageType = List;
     SourceTable = 50073;
+    ApplicationArea = All;
 
     layout
     {

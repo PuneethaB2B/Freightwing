@@ -5,6 +5,7 @@ page 50043 "Wt. Agreement By Day List"
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Weight,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = 50035;
+    ApplicationArea = All;
 
     layout
     {

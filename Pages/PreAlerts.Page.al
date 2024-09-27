@@ -4,6 +4,7 @@ page 50153 "Pre Alerts"
     PageType = List;
     SourceTable = 50030;
     SourceTableView = WHERE(Status = CONST("Pre-Alert"));
+    ApplicationArea = All;
 
     layout
     {

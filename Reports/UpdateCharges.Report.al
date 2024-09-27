@@ -1,6 +1,7 @@
 report 50110 "Update Charges"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -6,6 +6,7 @@ page 50012 "Sales Invoice List - Import"
     PageType = List;
     SourceTable = 36;
     SourceTableView = WHERE("Document Type" = CONST(Invoice));
+    ApplicationArea = All;
 
     layout
     {
@@ -150,21 +151,21 @@ page 50012 "Sales Invoice List - Import"
         {
             part(Page1; 9082)
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No."),
-                              "Date Filter"=FIELD("Date Filter");
+                SubPageLink = "No." = FIELD("Bill-to Customer No."),
+                              "Date Filter" = FIELD("Date Filter");
                 Visible = true;
             }
-            part(Page;9084)
+            part(Page; 9084)
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No."),
-                              "Date Filter"=FIELD("Date Filter");
+                SubPageLink = "No." = FIELD("Bill-to Customer No."),
+                              "Date Filter" = FIELD("Date Filter");
                 Visible = true;
             }
-            systempart(fw;Links)
+            systempart(fw; Links)
             {
                 Visible = false;
             }
-            systempart(fw1;Notes)
+            systempart(fw1; Notes)
             {
                 Visible = true;
             }
@@ -191,7 +192,7 @@ page 50012 "Sales Invoice List - Import"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
+                        PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                     end;
                 }
                 action("Co&mments")
@@ -199,13 +200,13 @@ page 50012 "Sales Invoice List - Import"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
-                                  "No."=FIELD("No."),
-                                  "Document Line No."=CONST(0);
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No."),
+                                  "Document Line No." = CONST(0);
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348=R;
+                    AccessByPermission = TableData 348 = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
@@ -224,7 +225,7 @@ page 50012 "Sales Invoice List - Import"
                     var
                         ApprovalEntries: Page 658;
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
+                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", "Document Type", "No.");
                         ApprovalEntries.RUN;
                     end;
                 }
@@ -287,7 +288,7 @@ page 50012 "Sales Invoice List - Import"
                     var
                         ApprovalMgt: Codeunit 439;
                     begin
-                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
+                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
                 separator()
@@ -361,7 +362,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices", TRUE, TRUE, Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }

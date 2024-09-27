@@ -3,6 +3,7 @@ report 50009 "Customer - Summary AgingCopy"
     DefaultLayout = RDLC;
     RDLCLayout = './CustomerSummaryAgingCopy.rdlc';
     Caption = 'Customer - Summary Aging';
+    ApplicationArea = All;
 
     dataset
     {
@@ -287,14 +288,17 @@ report 50009 "Customer - Summary AgingCopy"
                     {
                         Caption = 'Starting Date';
                         NotBlank = true;
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
                         Caption = 'Period Length';
+                        ApplicationArea = All;
                     }
                     field(ShowAmountsInLCY; PrintAmountsInLCY)
                     {
                         Caption = 'Show Amounts in LCY';
+                        ApplicationArea = All;
                     }
                 }
             }

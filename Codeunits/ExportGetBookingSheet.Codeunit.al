@@ -24,14 +24,14 @@ codeunit 50010 "Export.-Get Booking Sheet"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        GoodReceiptHeader: Record "50052";
-        GoodReceiptLine: Record "50051";
-        BookingSheetHeader: Record "50053";
-        BookingSheetLine: Record "50054";
-        GetBookingSheetLines: Page "50133";
+        GoodReceiptHeader: Record 50052;
+        GoodReceiptLine: Record 50051;
+        BookingSheetHeader: Record 50053;
+        BookingSheetLine: Record 50054;
+        GetBookingSheetLines: Page 50133;
 
 
-    procedure CreateGoodsReceiptLines(var BookingSheetLine2: Record "50054")
+    procedure CreateGoodsReceiptLines(var BookingSheetLine2: Record 50054)
     var
         TransferLine: Boolean;
     begin
@@ -50,7 +50,7 @@ codeunit 50010 "Export.-Get Booking Sheet"
     end;
 
 
-    procedure SetGoodsReceiptHeader(var GoodReceiptHeader2: Record "50052")
+    procedure SetGoodsReceiptHeader(var GoodReceiptHeader2: Record 50052)
     begin
         GoodReceiptHeader.GET(GoodReceiptHeader2."No.");
     end;

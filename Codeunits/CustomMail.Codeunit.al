@@ -6,16 +6,16 @@ codeunit 50030 "Custom Mail"
     end;
 
     var
-        SMTPCU: Codeunit "400";
+        SMTPCU: Codeunit 400;
         From: Text[50];
         To_: Text[50];
         MessageBody: Text[250];
         Subject: Text[250];
-        ReportBookingSheetAllocation: Report "50060";
+        ReportBookingSheetAllocation: Report 50060;
         ClientTempPath: Text;
-        gCduFileMgmt: Codeunit "419";
-        gRecCustomer: Record "18";
-        gRecConsignee: Record "50015";
+        gCduFileMgmt: Codeunit 419;
+        gRecCustomer: Record 18;
+        gRecConsignee: Record 50015;
         Error001: Label 'There is no email for Shipper %1';
 
     local procedure SendWithAttachment()
@@ -33,14 +33,14 @@ codeunit 50030 "Custom Mail"
     var
         Header: Label 'Dear %1';
         Body: Label 'Please Note we have %1 %2 planned on %3 // %4. Please Find attached Flight Details. <br> All Export Documents i.e MAWB//Packing List//Commercial Invoice//Phyto Sanitary Certificate etc will be scanned prior to flight Depature';
-        BookingSheetLine: Record "50054";
-        BookingSheetHeader: Record "50053";
-        BookingSheetHAWBAllocation: Record "50056";
-        BookingSheetMAWBAllocation: Record "50070";
+        BookingSheetLine: Record 50054;
+        BookingSheetHeader: Record 50053;
+        BookingSheetHAWBAllocation: Record 50056;
+        BookingSheetMAWBAllocation: Record 50070;
         Window: Dialog;
-        MailingConfiguration: Record "50020";
-        BookingSheetHAWBAllocation1: Record "50056";
-        UserSetup: Record "91";
+        MailingConfiguration: Record 50020;
+        BookingSheetHAWBAllocation1: Record 50056;
+        UserSetup: Record 91;
         Subject: Text[250];
         Body1: Text[250];
         FlightNo: Code[50];
@@ -126,14 +126,14 @@ codeunit 50030 "Custom Mail"
 
     procedure SendInvoice(InvoiceNo: Code[50]; BillTo: Code[50]) Mailed: Boolean
     var
-        MailingConfiguration: Record "50020";
+        MailingConfiguration: Record 50020;
         Window: Dialog;
-        Customer: Record "18";
-        SalesHeader: Record "36";
-        SalesHeader1: Record "36";
+        Customer: Record 18;
+        SalesHeader: Record 36;
+        SalesHeader1: Record 36;
         Subject: Text[100];
         Body: Text[250];
-        UserSetup: Record "91";
+        UserSetup: Record 91;
     begin
         IF SalesHeader.GET(SalesHeader."Document Type"::Invoice, InvoiceNo) THEN BEGIN
             Customer.GET(SalesHeader."Bill-to Customer No.");
@@ -172,20 +172,20 @@ codeunit 50030 "Custom Mail"
     var
         Header: Label 'Dear %1';
         Body: Label 'Please Note we have %1 %2 planned on %3 // %4. Please Find attached Flight Details. <br> All Export Documents i.e MAWB//Packing List//Commercial Invoice//Phyto Sanitary Certificate etc will be scanned prior to flight Depature';
-        lRecBookingSheetLine: Record "50054";
-        lRecBookingSheetHeader: Record "50053";
-        lRecBookingSheetHAWBAllocation: Record "50056";
-        lRecBookingSheetMAWBAllocation: Record "50070";
+        lRecBookingSheetLine: Record 50054;
+        lRecBookingSheetHeader: Record 50053;
+        lRecBookingSheetHAWBAllocation: Record 50056;
+        lRecBookingSheetMAWBAllocation: Record 50070;
         lDlgWindow: Dialog;
-        lRecUserSetup: Record "91";
+        lRecUserSetup: Record 91;
         lTxtEmailSubject: Text;
         lTxtEmailBody: Text;
         TxtBody1: Label 'Dear %1,';
         lTxtAppendBody1: Text;
         lTxtAppendBody2: Text;
         lTxtAppendBody3: Text;
-        lRecBookingSheetHAWBAllocConsignee: Record "50056";
-        lRecSMTPSetup: Record "409";
+        lRecBookingSheetHAWBAllocConsignee: Record 50056;
+        lRecSMTPSetup: Record 409;
     begin
         IF lRecBookingSheetHeader.GET("BSNo.") THEN BEGIN
             lDlgWindow.OPEN('Sending Pre Alerts....');

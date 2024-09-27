@@ -4,6 +4,7 @@ page 50107 "HAWB Subform"
     Caption = 'House Airway Bill Subform';
     PageType = ListPart;
     SourceTable = 50074;
+    ApplicationArea = All;
 
     layout
     {

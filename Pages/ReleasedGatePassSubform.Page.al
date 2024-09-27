@@ -5,6 +5,7 @@ page 50067 "Released Gate Pass Subform"
     ModifyAllowed = false;
     PageType = ListPart;
     SourceTable = 50069;
+    ApplicationArea = All;
 
     layout
     {

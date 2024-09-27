@@ -2,6 +2,7 @@ report 50005 "Goods Receipt Note NP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './GoodsReceiptNoteNP.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

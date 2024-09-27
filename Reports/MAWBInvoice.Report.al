@@ -3,6 +3,7 @@ report 50015 "MAWB Invoice"
     DefaultLayout = RDLC;
     RDLCLayout = './MAWBInvoice.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -376,6 +377,7 @@ report 50015 "MAWB Invoice"
                 {
                     field("Hide Beneficiary Details"; HideBenf)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -1,6 +1,7 @@
 report 50113 Correction
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

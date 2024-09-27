@@ -7,6 +7,7 @@ page 50149 "IATA Purchase Invoices"
     PageType = List;
     SourceTable = 50016;
     SourceTableView = WHERE(Converted = FILTER(false));
+    ApplicationArea = All;
 
     layout
     {

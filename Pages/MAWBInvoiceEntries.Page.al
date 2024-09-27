@@ -5,6 +5,7 @@ page 50155 "MAWB Invoice Entries"
     SourceTable = 17;
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             "System-Created Entry" = FILTER(false));
+    ApplicationArea = All;
 
     layout
     {

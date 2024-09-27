@@ -3,6 +3,7 @@ page 50134 "Goods Receipt Notify Parties"
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = 50049;
+    ApplicationArea = All;
 
     layout
     {

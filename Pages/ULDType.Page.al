@@ -2,6 +2,7 @@ page 50058 "ULD Type"
 {
     PageType = Card;
     SourceTable = 50031;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ page 50041 "Wt. Agreement By Airline"
     Caption = 'Weight Agreement By Airline';
     PageType = Card;
     SourceTable = 50033;
+    ApplicationArea = All;
 
     layout
     {

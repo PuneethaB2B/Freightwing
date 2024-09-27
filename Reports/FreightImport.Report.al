@@ -2,6 +2,7 @@ report 50098 "Freight Import"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './FreightImport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

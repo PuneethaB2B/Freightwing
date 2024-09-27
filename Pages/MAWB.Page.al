@@ -4,6 +4,7 @@ page 50098 MAWB
     PageType = Card;
     PromotedActionCategories = ' New,Process,Reports,Export Invoicing,Third Party  Invoicing,c6,c7,c8,C9,C10';
     SourceTable = 50077;
+    ApplicationArea = All;
 
     layout
     {

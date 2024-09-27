@@ -2,6 +2,7 @@ page 50118 "Airport Goods Receipt Header"
 {
     InsertAllowed = false;
     SourceTable = "Pre Alert Header";
+    ApplicationArea = All;
 
     layout
     {

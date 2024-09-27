@@ -2,6 +2,7 @@ page 50035 "Freight Charge Flight Subform"
 {
     PageType = ListPart;
     SourceTable = 50026;
+    ApplicationArea = All;
 
     layout
     {

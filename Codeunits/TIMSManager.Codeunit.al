@@ -7,26 +7,26 @@ codeunit 50035 "TIMS Manager."
 
     var
         QRCodeURL: Label 'http://209.97.184.149:8080/api/v1/QRcode/convert';
-        SalesHeader: Record "36";
-        SalesInvHeader: Record "112";
-        SalesLines: Record "37";
-        Base64Mgt: Codeunit "50036";
+        SalesHeader: Record 36;
+        SalesInvHeader: Record 112;
+        SalesLines: Record 37;
+        Base64Mgt: Codeunit 50036;
         Url: Text;
-        Setup: Record "50080";
-        CompanySet: Record "79";
+        Setup: Record 50080;
+        CompanySet: Record 79;
         RecRef: RecordRef;
-        SalesCrHeader: Record "114";
-        HttpWebRequestMgt: Codeunit "1297";
-        TempBlob: Record "99008535";
+        SalesCrHeader: Record 114;
+        HttpWebRequestMgt: Codeunit 1297;
+        TempBlob: Record 99008535;
         StringBuilder: DotNet StringBuilder;
         StringWriter: DotNet StringWriter;
         GlobalNULL: Variant;
         JsonTextWriter: DotNet JsonTextWriter;
         JsonFormatting: DotNet Formatting;
         JSonString: DotNet String;
-        Customer: Record "18";
-        SalesInvoiceLine: Record "113";
-        SalesCrMemoLine: Record "115";
+        Customer: Record 18;
+        SalesInvoiceLine: Record 113;
+        SalesCrMemoLine: Record 115;
         HttpStatusCode: DotNet HttpStatusCode;
         ResponseHeaders: DotNet NameValueCollection;
         StringReader: DotNet StringReader;
@@ -48,8 +48,8 @@ codeunit 50035 "TIMS Manager."
         FileNameTxt: Text;
         BmpFormat: Label '.bmp';
         QRCodeFileName: Text;
-        TempBlob2: Record "99008535" temporary;
-        FileManager: Codeunit "419";
+        TempBlob2: Record 99008535 temporary;
+        FileManager: Codeunit 419;
         QRFileName: Text;
         JsonText: Text;
 
@@ -61,12 +61,12 @@ codeunit 50035 "TIMS Manager."
         txt: Text;
         ResponseJsonText: Text;
         String: DotNet String;
-        TempPostingExchField: Record "50081" temporary;
+        TempPostingExchField: Record 50081 temporary;
         i: Integer;
         Colmn: Integer;
-        Item: Record "27";
-        GLAccount: Record "15";
-        SalesPost: Codeunit "80";
+        Item: Record 27;
+        GLAccount: Record 15;
+        SalesPost: Codeunit 80;
         UnitPrice: Decimal;
         TaxRate: Integer;
         TestFile: File;
@@ -530,7 +530,7 @@ codeunit 50035 "TIMS Manager."
         Initialize;
     end;
 
-    local procedure ReadJson(var String: DotNet String; var TempPostingExchField: Record "50081" temporary)
+    local procedure ReadJson(var String: DotNet String; var TempPostingExchField: Record 50081 temporary)
     var
         JsonToken: DotNet JsonToken;
         PropertyName: Text;

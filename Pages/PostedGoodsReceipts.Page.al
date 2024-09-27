@@ -5,6 +5,7 @@ page 50139 "Posted Goods Receipts"
     PageType = List;
     SourceTable = 50052;
     SourceTableView = WHERE(Received = FILTER(true));
+    ApplicationArea = All;
 
     layout
     {

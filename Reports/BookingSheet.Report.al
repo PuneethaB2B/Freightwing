@@ -3,6 +3,7 @@ report 50019 "Booking Sheet"
     DefaultLayout = RDLC;
     RDLCLayout = './BookingSheet.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

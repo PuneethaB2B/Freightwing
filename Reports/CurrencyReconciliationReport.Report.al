@@ -2,6 +2,7 @@ report 50050 "Currency Reconciliation Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './CurrencyReconciliationReport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

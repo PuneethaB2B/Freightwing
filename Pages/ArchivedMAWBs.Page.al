@@ -10,6 +10,7 @@ page 50077 "Archived MAWBs"
     ShowFilter = true;
     SourceTable = 50077;
     SourceTableView = WHERE(Status = FILTER(Archived));
+    ApplicationArea = All;
 
     layout
     {

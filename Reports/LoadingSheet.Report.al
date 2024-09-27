@@ -3,6 +3,7 @@ report 50021 "Loading Sheet"
     DefaultLayout = RDLC;
     RDLCLayout = './LoadingSheet.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ report 50121 "Operational Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './OperationalReport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {
@@ -337,21 +338,27 @@ report 50121 "Operational Report"
             {
                 field("Show Booking Sheet"; gBoolBookingSheet)
                 {
+                    ApplicationArea = All;
                 }
                 field("Show Goods Receipt"; gBoolGoodsReceipt)
                 {
+                    ApplicationArea = All;
                 }
                 field("Show Loading Sheet"; gBoolLoadingSheet)
                 {
+                    ApplicationArea = All;
                 }
                 field("Start Date"; gDateStartDate)
                 {
+                    ApplicationArea = All;
                 }
                 field("End Date"; gDateEndDate)
                 {
+                    ApplicationArea = All;
                 }
                 field("MAWB No"; gCodeMAWBNo)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

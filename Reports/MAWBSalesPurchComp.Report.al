@@ -3,6 +3,7 @@ report 50051 "MAWB Sales Purch. Comp"
     DefaultLayout = RDLC;
     RDLCLayout = './MAWBSalesPurchComp.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ page 50094 "Operations Role Center"
 {
     Caption = 'Role Center';
     PageType = RoleCenter;
+    ApplicationArea = All;
 
     layout
     {

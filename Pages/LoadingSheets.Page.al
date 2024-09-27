@@ -8,6 +8,7 @@ page 50083 "Loading Sheets"
                       ORDER(Descending)
                       WHERE(Shipped = FILTER(false),
                             Status = FILTER(<> Closed));
+    ApplicationArea = All;
 
     layout
     {

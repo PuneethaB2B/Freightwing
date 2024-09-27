@@ -4,6 +4,7 @@ report 50062 "Excemot VAT"
     RDLCLayout = './ExcemotVAT.rdlc';
     Caption = 'Exempt VAT';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

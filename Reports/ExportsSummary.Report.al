@@ -3,6 +3,7 @@ report 50046 "Exports Summary"
     DefaultLayout = RDLC;
     RDLCLayout = './ExportsSummary.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -124,6 +125,7 @@ report 50046 "Exports Summary"
                 {
                     field("Include Detailed MAWB Breakdown"; Detailed)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

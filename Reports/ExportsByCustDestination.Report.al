@@ -2,6 +2,7 @@ report 50054 "Exports By Cust. Destination"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ExportsByCustDestination.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

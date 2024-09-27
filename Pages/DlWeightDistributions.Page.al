@@ -5,6 +5,7 @@ page 50055 "Dl. Weight Distributions"
     PageType = List;
     ShowFilter = false;
     SourceTable = 50040;
+    ApplicationArea = All;
 
     layout
     {

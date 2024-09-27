@@ -2,6 +2,7 @@ page 50135 "Goods Receipt ULD Allocations"
 {
     PageType = List;
     SourceTable = 50046;
+    ApplicationArea = All;
 
     layout
     {

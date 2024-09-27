@@ -3,6 +3,7 @@ page 50074 "Booking Sheet Notify Parties"
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = 50057;
+    ApplicationArea = All;
 
     layout
     {

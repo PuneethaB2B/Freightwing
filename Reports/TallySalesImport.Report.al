@@ -2,6 +2,7 @@ report 50114 "Tally Sales Import"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './TallySalesImport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ page 50008 "Delivered Imports Header"
 {
     Editable = false;
     SourceTable = 50030;
+    ApplicationArea = All;
 
     layout
     {

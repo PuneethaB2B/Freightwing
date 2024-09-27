@@ -4,6 +4,7 @@ report 50002 "FWL Check"
     RDLCLayout = './FWLCheck.rdlc';
     Caption = 'Check';
     Permissions = TableData 270 = m;
+    ApplicationArea = All;
 
     dataset
     {
@@ -780,6 +781,7 @@ report 50002 "FWL Check"
                     {
                         Caption = 'Bank Account';
                         TableRelation = "Bank Account";
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -789,23 +791,28 @@ report 50002 "FWL Check"
                     field(LastCheckNo; UseCheckNo)
                     {
                         Caption = 'Last Check No.';
+                        ApplicationArea = All;
                     }
                     field(OneCheckPerVendorPerDocumentNo; OneCheckPrVendor)
                     {
                         Caption = 'One Check per Vendor per Document No.';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                     field(ReprintChecks; ReprintChecks)
                     {
                         Caption = 'Reprint Checks';
+                        ApplicationArea = All;
                     }
                     field(TestPrinting; TestPrint)
                     {
                         Caption = 'Test Print';
+                        ApplicationArea = All;
                     }
                     field(PreprintedStub; PreprintedStub)
                     {
                         Caption = 'Preprinted Stub';
+                        ApplicationArea = All;
                     }
                 }
             }

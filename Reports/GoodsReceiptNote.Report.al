@@ -3,6 +3,7 @@ report 50018 "Goods Receipt Note"
     DefaultLayout = RDLC;
     RDLCLayout = './GoodsReceiptNote.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

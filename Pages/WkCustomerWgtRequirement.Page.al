@@ -3,6 +3,7 @@ page 50061 "Wk. Customer Wgt. Requirement"
     Caption = 'Weekly Customer Weight  Requirement';
     PageType = Card;
     SourceTable = 50047;
+    ApplicationArea = All;
 
     layout
     {

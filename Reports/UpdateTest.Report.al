@@ -1,6 +1,7 @@
 report 50101 "Update Test"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

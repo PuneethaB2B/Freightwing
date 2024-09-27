@@ -8,6 +8,7 @@ page 50013 "Sales Invoice Subform - Import"
     PageType = ListPart;
     SourceTable = 37;
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
+    ApplicationArea = All;
 
     layout
     {

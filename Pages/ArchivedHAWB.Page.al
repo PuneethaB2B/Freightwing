@@ -6,6 +6,7 @@ page 50104 "Archived HAWB"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = 50075;
+    ApplicationArea = All;
 
     layout
     {

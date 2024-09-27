@@ -2,6 +2,7 @@ report 50004 "Booking Sheet NP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './BookingSheetNP.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

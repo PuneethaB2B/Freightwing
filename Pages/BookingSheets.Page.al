@@ -5,6 +5,7 @@ page 50071 "Booking Sheets"
     PageType = List;
     SourceTable = 50053;
     SourceTableView = WHERE(Status = FILTER(Open | Submitted));
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ report 50053 "Annual Airline Weight"
     DefaultLayout = RDLC;
     RDLCLayout = './AnnualAirlineWeight.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -202,15 +203,18 @@ report 50053 "Annual Airline Weight"
                 {
                     field(Year; Year)
                     {
+                        ApplicationArea = All;
                     }
                     field(Month; Month)
                     {
+                        ApplicationArea = All;
                     }
                 }
                 group("Detailed/Summary")
                 {
                     field("Hide Monthly Breakdown"; MonthlyBreakDown)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

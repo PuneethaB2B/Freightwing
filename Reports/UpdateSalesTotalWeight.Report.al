@@ -1,6 +1,7 @@
 report 50030 "Update Sales Total Weight"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

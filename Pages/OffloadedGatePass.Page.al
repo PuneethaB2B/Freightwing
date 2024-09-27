@@ -4,6 +4,7 @@ page 50111 "Offloaded Gate Pass"
     Editable = false;
     PageType = List;
     SourceTable = 50071;
+    ApplicationArea = All;
 
     layout
     {

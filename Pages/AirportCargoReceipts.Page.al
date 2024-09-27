@@ -5,6 +5,7 @@ page 50119 "Airport Cargo Receipts"
     PageType = List;
     SourceTable = 50030;
     SourceTableView = WHERE(Status = CONST("Airport Receipt"));
+    ApplicationArea = All;
 
     layout
     {

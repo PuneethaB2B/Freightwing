@@ -2,6 +2,7 @@ page 50025 "Notify Party Card"
 {
     PageType = Card;
     SourceTable = 50017;
+    ApplicationArea = All;
 
     layout
     {

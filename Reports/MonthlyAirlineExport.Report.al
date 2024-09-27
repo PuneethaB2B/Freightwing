@@ -3,6 +3,7 @@ report 50080 "Monthly Airline Export"
     DefaultLayout = RDLC;
     RDLCLayout = './MonthlyAirlineExport.rdlc';
     Caption = 'Airline Freight';
+    ApplicationArea = All;
 
     dataset
     {

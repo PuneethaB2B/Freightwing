@@ -1,6 +1,7 @@
 report 50099 "Update HAWB Line"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

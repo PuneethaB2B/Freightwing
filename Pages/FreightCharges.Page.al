@@ -3,6 +3,7 @@ page 50028 "Freight Charges"
     Caption = 'Charges';
     PageType = List;
     SourceTable = 50018;
+    ApplicationArea = All;
 
     layout
     {

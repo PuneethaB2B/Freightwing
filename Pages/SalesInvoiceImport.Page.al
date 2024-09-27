@@ -5,6 +5,7 @@ page 50014 "Sales Invoice - Import"
     RefreshOnActivate = true;
     SourceTable = 36;
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
+    ApplicationArea = All;
 
     layout
     {
@@ -388,7 +389,9 @@ page 50014 "Sales Invoice - Import"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
+                        PAGE                            ApplicationArea = All;
+.RUNMODAL(PAGE    ApplicationArea = All;
+::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -410,7 +413,8 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Customer';
                     Image = Customer;
                     RunObject = Page 21;
-                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");
+                                    RunPageLink = "No."=    ApplicationArea = All;
+FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -421,6 +425,7 @@ page 50014 "Sales Invoice - Import"
                     trigger OnAction()
                     var
                         ApprovalEntries: Page 658;
+                                             ApplicationArea = All;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -431,7 +436,8 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                    RunPageLink = "Document Type"=    ApplicationArea = All;
+FIELD("Document Type"),
                                   "No."=FIELD("No."),
                                   "Document Line No."=CONST(0);
                 }
@@ -448,7 +454,8 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
+                                    RunPageLink = "Document Type"=    ApplicationArea = All;
+FIELD("Document Type"),
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
                 }
@@ -487,7 +494,8 @@ page 50014 "Sales Invoice - Import"
                         SalesHeader.RESET;
                         SalesHeader.SETRANGE(SalesHeader."No.","No.");
                         IF SalesHeader.FINDFIRST THEN BEGIN
-                         REPORT.RUN(50095,TRUE,TRUE,SalesHeader);
+                         REPORT                             ApplicationArea = All;
+.RUN(50095,TRUE,TRUE,SalesHeader);
                         END;
                     end;
                 }
@@ -706,7 +714,9 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     begin
-                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT                            ApplicationArea = All;
+.RUNMODAL(REPORT    ApplicationArea = All;
+::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }
@@ -771,6 +781,7 @@ page 50014 "Sales Invoice - Import"
                                 DocNoVisible: Boolean;
                                 ExternalDocNoMandatory: Boolean;
                                 SalesHeader: Record 36;
+                                ApplicationArea = All;
 
     local procedure Post(PostingCodeunitID: Integer)
     begin

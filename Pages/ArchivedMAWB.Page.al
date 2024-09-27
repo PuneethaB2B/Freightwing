@@ -8,6 +8,7 @@ page 50078 "Archived MAWB"
     RefreshOnActivate = true;
     ShowFilter = false;
     SourceTable = 50077;
+    ApplicationArea = All;
 
     layout
     {

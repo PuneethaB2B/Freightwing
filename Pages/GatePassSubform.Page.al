@@ -2,6 +2,7 @@ page 50090 "Gate Pass Subform"
 {
     PageType = ListPart;
     SourceTable = 50069;
+    ApplicationArea = All;
 
     layout
     {

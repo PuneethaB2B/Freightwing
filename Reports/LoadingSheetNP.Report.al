@@ -2,6 +2,7 @@ report 50011 "Loading Sheet NP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './LoadingSheetNP.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

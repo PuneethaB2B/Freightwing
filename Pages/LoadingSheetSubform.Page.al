@@ -2,6 +2,7 @@ page 50081 "Loading Sheet Subform"
 {
     PageType = ListPart;
     SourceTable = 50061;
+    ApplicationArea = All;
 
     layout
     {

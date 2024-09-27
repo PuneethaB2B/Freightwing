@@ -3,6 +3,7 @@ report 50006 "Accounts Receivable Ageing"
     DefaultLayout = RDLC;
     RDLCLayout = './AccountsReceivableAgeing.rdlc';
     Caption = 'Aged Accounts Receivable';
+    ApplicationArea = All;
 
     dataset
     {
@@ -628,36 +629,44 @@ report 50006 "Accounts Receivable Ageing"
                     field(AgedAsOf; EndingDate)
                     {
                         Caption = 'Aged As Of';
+                        ApplicationArea = All;
                     }
                     field(Agingby; AgingBy)
                     {
                         Caption = 'Aging by';
                         OptionCaption = 'Due Date,Posting Date,Document Date';
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
                         Caption = 'Period Length';
+                        ApplicationArea = All;
                     }
                     field(AmountsinLCY; PrintAmountInLCY)
                     {
                         Caption = 'Print Amounts in LCY';
+                        ApplicationArea = All;
                     }
                     field(PrintDetails; PrintDetails)
                     {
                         Caption = 'Print Details';
+                        ApplicationArea = All;
                     }
                     field(HeadingType; HeadingType)
                     {
                         Caption = 'Heading Type';
                         OptionCaption = 'Date Interval,Number of Days';
+                        ApplicationArea = All;
                     }
                     field(perCustomer; NewPagePercustomer)
                     {
                         Caption = 'New Page per Customer';
+                        ApplicationArea = All;
                     }
                     field(PrintToExcel; PrintToExcel)
                     {
                         Caption = 'Print to Excel';
+                        ApplicationArea = All;
                     }
                 }
             }

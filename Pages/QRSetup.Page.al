@@ -2,6 +2,7 @@ page 50160 "QR Setup."
 {
     PageType = Card;
     SourceTable = 50080;
+    ApplicationArea = All;
 
     layout
     {

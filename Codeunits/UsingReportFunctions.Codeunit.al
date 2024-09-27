@@ -66,7 +66,7 @@ codeunit 50034 "Using Report Functions"
     end;
 
     var
-        ReportParameters: Record "50001";
+        ReportParameters: Record 50001;
         XmlParameters: Text;
         OStream: OutStream;
         IStream: InStream;
@@ -74,8 +74,8 @@ codeunit 50034 "Using Report Functions"
         Content: File;
         TempFileName: Text;
         ClientTempPath: Text;
-        SMTP: Codeunit "400";
-        SmtpSetup: Record "409";
+        SMTP: Codeunit 400;
+        SmtpSetup: Record 409;
         lTxtBody1: Label 'Dear All,';
         lTxtBody2: Label 'Please find attached Statement of account as at';
         lTxtBody3: Label 'In case of any query noted, please report them to invoice.query@freightwings.co.ke for necessary response';

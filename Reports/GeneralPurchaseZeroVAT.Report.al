@@ -3,6 +3,7 @@ report 50028 "General Purchase Zero VAT"
     DefaultLayout = RDLC;
     RDLCLayout = './GeneralPurchaseZeroVAT.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50040 "Freight Charge By Airlines"
     CardPageID = "Freight Charge By Airline";
     PageType = List;
     SourceTable = 50025;
+    ApplicationArea = All;
 
     layout
     {

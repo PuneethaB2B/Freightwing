@@ -3,6 +3,7 @@ page 50022 "Consignee Card"
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Banks,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = 50015;
+    ApplicationArea = All;
 
     layout
     {

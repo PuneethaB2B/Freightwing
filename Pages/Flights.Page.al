@@ -3,6 +3,7 @@ page 50031 Flights
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Schedule,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = 50022;
+    ApplicationArea = All;
 
     layout
     {

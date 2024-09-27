@@ -3,6 +3,7 @@ report 50061 "Computer Check"
     DefaultLayout = RDLC;
     RDLCLayout = './ComputerCheck.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

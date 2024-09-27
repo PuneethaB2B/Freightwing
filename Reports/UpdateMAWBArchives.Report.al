@@ -3,6 +3,7 @@ report 50086 "Update MAWB Archives"
     Caption = 'Update MAWB Archives';
     ProcessingOnly = true;
     UseRequestPage = false;
+    ApplicationArea = All;
 
     dataset
     {

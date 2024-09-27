@@ -1,6 +1,7 @@
 report 50063 "Update MAWB Dates"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

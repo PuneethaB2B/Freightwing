@@ -2,6 +2,7 @@ report 50032 "IATA Reconciliation"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './IATAReconciliation.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ report 50026 "Curr Reconciliation Vendor"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './CurrReconciliationVendor.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

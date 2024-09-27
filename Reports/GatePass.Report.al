@@ -3,6 +3,7 @@ report 50016 "Gate Pass"
     DefaultLayout = RDLC;
     RDLCLayout = './GatePass.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

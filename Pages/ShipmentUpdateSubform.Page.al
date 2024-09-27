@@ -2,6 +2,7 @@ page 50024 "Shipment Update Subform"
 {
     PageType = List;
     SourceTable = 50008;
+    ApplicationArea = All;
 
     layout
     {

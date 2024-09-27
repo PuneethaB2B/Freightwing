@@ -6,6 +6,7 @@ page 50001 "Received Booking Sheet Subform"
     ModifyAllowed = false;
     PageType = ListPart;
     SourceTable = 50054;
+    ApplicationArea = All;
 
     layout
     {

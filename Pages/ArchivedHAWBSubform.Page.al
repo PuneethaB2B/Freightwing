@@ -8,6 +8,7 @@ page 50105 "Archived HAWB Subform"
     PageType = ListPart;
     ShowFilter = false;
     SourceTable = 50074;
+    ApplicationArea = All;
 
     layout
     {

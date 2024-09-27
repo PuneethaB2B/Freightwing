@@ -3,6 +3,7 @@ report 50100 "Sales By Dimension"
     DefaultLayout = RDLC;
     RDLCLayout = './SalesByDimension.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

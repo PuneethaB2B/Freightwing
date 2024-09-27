@@ -3,6 +3,7 @@ page 50109 "Get HAWB Item Lines"
     Editable = false;
     PageType = List;
     SourceTable = 50056;
+    ApplicationArea = All;
 
     layout
     {

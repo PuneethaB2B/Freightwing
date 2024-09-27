@@ -3,6 +3,7 @@ report 50003 "Acceptance Checklist"
     DefaultLayout = RDLC;
     RDLCLayout = './AcceptanceChecklist.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50110 "Posted Loading Sheet Subform"
     Editable = false;
     PageType = ListPart;
     SourceTable = 50061;
+    ApplicationArea = All;
 
     layout
     {

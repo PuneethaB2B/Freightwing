@@ -3,6 +3,7 @@ page 50051 "Dl. Weight Dist. By Airline"
     Caption = 'Daily Weight Distribution By Airline';
     PageType = ListPart;
     SourceTable = 50041;
+    ApplicationArea = All;
 
     layout
     {

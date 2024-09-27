@@ -2,6 +2,7 @@ page 50144 "Received Booking Sheet FAM"
 {
     PageType = List;
     SourceTable = 50058;
+    ApplicationArea = All;
 
     layout
     {

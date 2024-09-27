@@ -3,6 +3,7 @@ page 50093 "Gate Pass ULD Allocations"
     Editable = false;
     PageType = List;
     SourceTable = 50070;
+    ApplicationArea = All;
 
     layout
     {

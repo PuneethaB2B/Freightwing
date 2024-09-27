@@ -3,6 +3,7 @@ page 50054 "Dl. ULD Allocation By Airline"
     Caption = 'Daily ULD Allocation By Airline';
     PageType = List;
     SourceTable = 50044;
+    ApplicationArea = All;
 
     layout
     {

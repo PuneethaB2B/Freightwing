@@ -2,6 +2,7 @@ page 50157 "Import Charges Master"
 {
     PageType = List;
     SourceTable = 50007;
+    ApplicationArea = All;
 
     layout
     {

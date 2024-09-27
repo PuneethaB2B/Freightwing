@@ -2,6 +2,7 @@ report 50116 "Purchase Analysis"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './PurchaseAnalysis.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

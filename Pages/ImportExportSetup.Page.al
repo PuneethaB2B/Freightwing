@@ -2,6 +2,7 @@ page 50016 "Import/Export Setup"
 {
     PageType = Card;
     SourceTable = 50010;
+    ApplicationArea = All;
 
     layout
     {

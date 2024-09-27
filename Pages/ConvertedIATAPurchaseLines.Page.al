@@ -7,6 +7,7 @@ page 50148 "Converted IATA Purchase Lines"
     PageType = List;
     SourceTable = 50016;
     SourceTableView = WHERE(Converted = CONST(true));
+    ApplicationArea = All;
 
     layout
     {

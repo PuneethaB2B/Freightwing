@@ -8,6 +8,7 @@ page 50129 "Received Booking Sheets"
     PageType = List;
     SourceTable = 50053;
     SourceTableView = WHERE(Status = FILTER(Received));
+    ApplicationArea = All;
 
     layout
     {

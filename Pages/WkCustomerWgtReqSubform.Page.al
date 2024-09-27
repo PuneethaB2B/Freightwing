@@ -3,6 +3,7 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
     Caption = 'Weekly Customer Requirement Subform';
     PageType = ListPart;
     SourceTable = 50048;
+    ApplicationArea = All;
 
     layout
     {

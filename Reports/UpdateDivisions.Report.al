@@ -1,6 +1,7 @@
 report 50102 "Update Divisions"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

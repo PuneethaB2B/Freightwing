@@ -3,6 +3,7 @@ page 50048 "MAWB Receipts Subform"
     Editable = true;
     PageType = ListPart;
     SourceTable = 50039;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ report 50065 "General Sales Invoice"
     DefaultLayout = RDLC;
     RDLCLayout = './GeneralSalesInvoice.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

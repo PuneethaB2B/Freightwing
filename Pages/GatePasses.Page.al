@@ -4,6 +4,7 @@ page 50091 "Gate Passes"
     PageType = List;
     SourceTable = 50068;
     SourceTableView = WHERE(Status = FILTER(<> Released));
+    ApplicationArea = All;
 
     layout
     {

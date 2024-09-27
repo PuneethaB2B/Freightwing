@@ -7,39 +7,39 @@ codeunit 50031 "Ammend Charges"
 
     var
         TotalWt1: Decimal;
-        ExchangeRates: Record "330";
-        ExchangeRates1: Record "330";
+        ExchangeRates: Record 330;
+        ExchangeRates1: Record 330;
         Tot: Decimal;
         ChargeBle: Decimal;
-        ExportSetup: Record "50010";
-        LoadingSheetHeader: Record "50060";
+        ExportSetup: Record 50010;
+        LoadingSheetHeader: Record 50060;
         HasHouses: Boolean;
         LineNo: Integer;
-        MAWBs: Record "50077";
-        BookingSheetMAWBAlloc: Record "50070";
-        MAWBLine4: Record "50076";
-        MAWBInCharges1: Record "50073";
-        MAWBLine2: Record "50076";
-        BookingSheetLine: Record "50054";
-        MAWBLine: Record "50076";
-        BookingSheetLine2: Record "50054";
+        MAWBs: Record 50077;
+        BookingSheetMAWBAlloc: Record 50070;
+        MAWBLine4: Record 50076;
+        MAWBInCharges1: Record 50073;
+        MAWBLine2: Record 50076;
+        BookingSheetLine: Record 50054;
+        MAWBLine: Record 50076;
+        BookingSheetLine2: Record 50054;
         ShipperCount: Integer;
-        Shipper: Record "18";
-        BookingSheetHAWBAllocation: Record "50056";
-        Consignee: Record "50015";
-        HAWBLine: Record "50074";
-        HAWBLine2: Record "50074";
+        Shipper: Record 18;
+        BookingSheetHAWBAllocation: Record 50056;
+        Consignee: Record 50015;
+        HAWBLine: Record 50074;
+        HAWBLine2: Record 50074;
         TotalQuantity: Decimal;
         SplitFactor: Decimal;
-        MAWBReceipt: Record "50039";
-        MAWBHeader: Record "50077";
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
-        FreightItemChargeMatrix1: Record "50029";
-        MAWBInvoiceCharge: Record "50073";
+        MAWBReceipt: Record 50039;
+        MAWBHeader: Record 50077;
+        FreightChargeByAirline: Record 50025;
+        FreightChargeByFlight: Record 50026;
+        FreightChargeByItem: Record 50027;
+        FreightItemCharge: Record 50028;
+        FreightItemChargeMatrix: Record 50029;
+        FreightItemChargeMatrix1: Record 50029;
+        MAWBInvoiceCharge: Record 50073;
         CostAmount: Decimal;
         SalesAmount: Decimal;
         VATAmount: Decimal;
@@ -49,43 +49,43 @@ codeunit 50031 "Ammend Charges"
         SplitVATAmount: Decimal;
         SplitMarginAmount: Decimal;
         SplitSalesAmountIncVAT: Decimal;
-        MAWBInvoiceNotifyParty: Record "50072";
-        NotifyParty: Record "50017";
-        GenJnlLine: Record "81";
-        VATPostingSetup: Record "325";
-        Currency: Record "4";
+        MAWBInvoiceNotifyParty: Record 50072;
+        NotifyParty: Record 50017;
+        GenJnlLine: Record 81;
+        VATPostingSetup: Record 325;
+        Currency: Record 4;
         TotalWeight: Decimal;
-        MAWBLineCharge: Record "50004";
-        UnrecoveredCharge: Record "50006";
+        MAWBLineCharge: Record 50004;
+        UnrecoveredCharge: Record 50006;
         TotalAmount: Decimal;
         PreviousT0weight: Decimal;
         PreviousT0weight2: Decimal;
-        FreightCharge: Record "50018";
-        VATPostingSetup2: Record "325";
-        ImportExportSetup: Record "50010";
-        GeneralLedgerSetup: Record "98";
-        MAWBReceipt2: Record "50039";
+        FreightCharge: Record 50018;
+        VATPostingSetup2: Record 325;
+        ImportExportSetup: Record 50010;
+        GeneralLedgerSetup: Record 98;
+        MAWBReceipt2: Record 50039;
         MAWBReceiptdate: Date;
         InvoiceCurrency: Code[10];
-        ImpExpSetup: Record "50010";
-        BookingSheetMawbAllocation: Record "50070";
-        LoadingSheetLine: Record "50061";
-        MAWB: Record "50077";
+        ImpExpSetup: Record 50010;
+        BookingSheetMawbAllocation: Record 50070;
+        LoadingSheetLine: Record 50061;
+        MAWB: Record 50077;
         Text50000: Label '-VAT';
         Text50001: Label '%1 %2 does not have any lines';
         Text50002: Label 'Do you want to calculate total charges for %1 %2?';
         Text50003: Label 'Do you want to split %1 %2?';
         Text50004: Label 'The booking date is not within the allowed flight charge effective dates';
-        OffloadLine: Record "50065";
+        OffloadLine: Record 50065;
         Text001: Label 'The Booking Sheet Line %1 From %2 To %3 Does Not Exist';
         Text002: Label 'The Charges for Airline %1 Have not been Setup';
         Text003: Label 'The Charges for Flight %1 for %2 on  Route %3 - %4 Have not been setup';
         Text004: Label 'The Charges for %1 on Flight %2 route %3 - %4 Have not been set up';
-        Item: Record "27";
+        Item: Record 27;
         Text005: Label 'The Freight Charges for Airline %1 have not been set up';
         WorkingWeight: Decimal;
         Ok: Boolean;
-        BookingSheetHeader: Record "50053";
+        BookingSheetHeader: Record 50053;
 
 
     procedure AmmendCharges("mawb no": Code[50]; Weight: Decimal)
@@ -95,15 +95,15 @@ codeunit 50031 "Ammend Charges"
 
     procedure CalculateMAWBCharges("No.": Code[50])
     var
-        BookingSheetLine: Record "50054";
-        Customer: Record "18";
-        FreightCharge: Record "50018";
-        HandlingSlab: Record "50045";
+        BookingSheetLine: Record 50054;
+        Customer: Record 18;
+        FreightCharge: Record 50018;
+        HandlingSlab: Record 50045;
         TotalSales: Decimal;
-        Items: Record "27";
+        Items: Record 27;
         FreightCost: Decimal;
-        FreightCharge3: Record "50018";
-        MAWBInvoiceCharge3: Record "50073";
+        FreightCharge3: Record 50018;
+        MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Freight charge  has already been calculated';
     begin
         ClearCalculatedCharges("No.");
@@ -399,20 +399,20 @@ codeunit 50031 "Ammend Charges"
 
     procedure CalculateHandlingFees("No.": Code[50])
     var
-        BookingSheetLine: Record "50054";
-        Customer: Record "18";
-        FreightCharge: Record "50018";
-        HandlingSlab: Record "50045";
+        BookingSheetLine: Record 50054;
+        Customer: Record 18;
+        FreightCharge: Record 50018;
+        HandlingSlab: Record 50045;
         TotalSales: Decimal;
-        Items: Record "27";
+        Items: Record 27;
         FreightCost: Decimal;
-        MAWBInvoiceCharge: Record "50073";
-        HandlingSlabMatrix: Record "50045";
-        FreightItemCharge: Record "50028";
-        FreightCharge2: Record "50018";
+        MAWBInvoiceCharge: Record 50073;
+        HandlingSlabMatrix: Record 50045;
+        FreightItemCharge: Record 50028;
+        FreightCharge2: Record 50018;
         Text001: Label 'Are you sure that you want to calculate the Handling fees?';
-        FreightCharge3: Record "50018";
-        MAWBInvoiceCharge3: Record "50073";
+        FreightCharge3: Record 50018;
+        MAWBInvoiceCharge3: Record 50073;
         Text002: Label 'Handling Fee has already been calculated';
     begin
         FreightCharge3.RESET;
@@ -515,7 +515,7 @@ codeunit 50031 "Ammend Charges"
 
     procedure ClearCalculatedCharges("MAWB No": Code[50])
     var
-        CalculatedCharges: Record "50073";
+        CalculatedCharges: Record 50073;
     begin
         CalculatedCharges.RESET;
         CalculatedCharges.SETRANGE(CalculatedCharges."MAWB No.", "MAWB No");
@@ -527,11 +527,11 @@ codeunit 50031 "Ammend Charges"
 
     procedure CheckAllCharges("MAWB No": Code[50]; "Invoice No.": Code[50])
     var
-        BookingMAWB: Record "50070";
-        BookingLine: Record "50054";
-        Charges: Record "50018";
-        SalesLine: Record "37";
-        SalesHeader: Record "36";
+        BookingMAWB: Record 50070;
+        BookingLine: Record 50054;
+        Charges: Record 50018;
+        SalesLine: Record 37;
+        SalesHeader: Record 36;
     begin
         BookingMAWB.RESET;
         BookingMAWB.SETRANGE(BookingMAWB."MAWB No", "MAWB No");
@@ -560,11 +560,11 @@ codeunit 50031 "Ammend Charges"
 
     procedure ChackAWBStatus(MAWB: Code[50])
     var
-        BSmawb: Record "50070";
-        BSlin: Record "50054";
-        GRLine: Record "50051";
-        GrHeader: Record "50052";
-        LSHeader: Record "50060";
+        BSmawb: Record 50070;
+        BSlin: Record 50054;
+        GRLine: Record 50051;
+        GrHeader: Record 50052;
+        LSHeader: Record 50060;
     begin
         IF MAWBs.GET(MAWB) THEN BEGIN
             MAWBReceipt.RESET;
@@ -600,12 +600,12 @@ codeunit 50031 "Ammend Charges"
 
     procedure BSA(MAWb: Code[50]) BSAWeight: Decimal
     var
-        MAWBLine: Record "50076";
-        Flight: Record "50022";
-        LoadingSheetHeader: Record "50060";
-        LoadingSheetHeader1: Record "50060";
-        LoadingSheetLine: Record "50061";
-        LoadingSheetLine1: Record "50061";
+        MAWBLine: Record 50076;
+        Flight: Record 50022;
+        LoadingSheetHeader: Record 50060;
+        LoadingSheetHeader1: Record 50060;
+        LoadingSheetLine: Record 50061;
+        LoadingSheetLine1: Record 50061;
     begin
         MAWBLine.RESET;
         MAWBLine.SETRANGE(MAWBLine."MAWB No.", MAWb);
@@ -630,7 +630,7 @@ codeunit 50031 "Ammend Charges"
 
     local procedure CheckBSA(Flight: Code[50]) ok: Boolean
     var
-        MAWBAlloc: Record "50070";
+        MAWBAlloc: Record 50070;
     begin
         ok := FALSE;
         MAWBAlloc.RESET;
@@ -665,7 +665,7 @@ codeunit 50031 "Ammend Charges"
 
     local procedure ConvertCurrency(FromCurr: Code[10]; ToCurr: Code[10]; Date: Date)
     var
-        CurrencyExchangeRate: Record "330";
+        CurrencyExchangeRate: Record 330;
     begin
     end;
 }

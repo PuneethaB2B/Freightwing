@@ -3,6 +3,7 @@ report 50041 "MAWB Stock"
     DefaultLayout = RDLC;
     RDLCLayout = './MAWBStock.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

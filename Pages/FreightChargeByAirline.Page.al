@@ -2,6 +2,7 @@ page 50034 "Freight Charge By Airline"
 {
     PageType = Card;
     SourceTable = 50025;
+    ApplicationArea = All;
 
     layout
     {

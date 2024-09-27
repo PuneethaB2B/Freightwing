@@ -4,6 +4,7 @@ page 50086 "Loading Sheet Notify Parties"
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable =
     50064;
+    ApplicationArea = All;
 
     layout
     {

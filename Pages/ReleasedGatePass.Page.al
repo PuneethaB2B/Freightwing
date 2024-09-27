@@ -5,6 +5,7 @@ page 50066 "Released Gate Pass"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = 50068;
+    ApplicationArea = All;
 
     layout
     {

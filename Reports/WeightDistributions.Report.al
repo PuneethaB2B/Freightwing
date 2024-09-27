@@ -3,6 +3,7 @@ report 50056 "Weight Distributions"
     DefaultLayout = RDLC;
     RDLCLayout = './WeightDistributions.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

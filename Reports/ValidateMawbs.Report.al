@@ -1,6 +1,7 @@
 report 50067 "Validate Mawbs"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

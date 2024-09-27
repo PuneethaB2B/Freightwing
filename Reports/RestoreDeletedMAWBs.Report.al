@@ -1,6 +1,7 @@
 report 50092 "Restore Deleted MAWBs"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

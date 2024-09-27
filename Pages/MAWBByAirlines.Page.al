@@ -3,6 +3,7 @@ page 50049 "MAWB By Airlines"
     CardPageID = "MAWB By Airline";
     PageType = List;
     SourceTable = 50038;
+    ApplicationArea = All;
 
     layout
     {

@@ -2,6 +2,7 @@ report 50034 "Master Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './MasterReport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

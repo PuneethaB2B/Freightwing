@@ -4,6 +4,7 @@ page 50052 "Dl. Weight Dist. By Customer"
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Weight,Notification,C6,C7,C8,C9,C10';
     SourceTable = 50042;
+    ApplicationArea = All;
 
     layout
     {

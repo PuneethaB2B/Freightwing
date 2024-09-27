@@ -1,6 +1,7 @@
 report 50072 "Close MAWB"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

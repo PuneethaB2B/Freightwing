@@ -17,14 +17,14 @@ codeunit 50005 "Export.-Get Loading Sheet"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        GatePassHeader: Record "50068";
-        GatePassLine: Record "50069";
-        LoadingSheetHeader: Record "50060";
-        LoadingSheetLine: Record "50061";
-        GetLoadingSheet: Page "50092";
+        GatePassHeader: Record 50068;
+        GatePassLine: Record 50069;
+        LoadingSheetHeader: Record 50060;
+        LoadingSheetLine: Record 50061;
+        GetLoadingSheet: Page 50092;
 
 
-    procedure CreateGatePassLines(var LoadingSheetLine2: Record "50061")
+    procedure CreateGatePassLines(var LoadingSheetLine2: Record 50061)
     var
         TransferLine: Boolean;
     begin
@@ -44,7 +44,7 @@ codeunit 50005 "Export.-Get Loading Sheet"
     end;
 
 
-    procedure SetGatePassHeader(var GatePassHeader2: Record "50068")
+    procedure SetGatePassHeader(var GatePassHeader2: Record 50068)
     begin
         GatePassHeader.GET(GatePassHeader2."No.");
     end;

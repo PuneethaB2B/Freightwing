@@ -1,6 +1,7 @@
 report 50087 "Generate import MAWBs"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

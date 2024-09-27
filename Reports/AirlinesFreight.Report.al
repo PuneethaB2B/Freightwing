@@ -3,6 +3,7 @@ report 50047 "Airlines Freight"
     DefaultLayout = RDLC;
     RDLCLayout = './AirlinesFreight.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50004 "Get Vendor Invoice Lines"
     Editable = false;
     PageType = List;
     SourceTable = 25;
+    ApplicationArea = All;
 
     layout
     {

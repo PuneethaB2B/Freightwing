@@ -2,6 +2,7 @@ report 50013 HAWB
 {
     DefaultLayout = RDLC;
     RDLCLayout = './HAWB.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

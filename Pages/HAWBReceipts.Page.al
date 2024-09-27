@@ -3,6 +3,7 @@ page 50046 "HAWB Receipts"
     Caption = 'HAWB Receipts';
     PageType = List;
     SourceTable = 50037;
+    ApplicationArea = All;
 
     layout
     {

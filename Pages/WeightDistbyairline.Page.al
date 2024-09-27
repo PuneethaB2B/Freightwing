@@ -2,6 +2,7 @@ page 50079 "Weight Dist by airline"
 {
     PageType = ListPart;
     SourceTable = 50041;
+    ApplicationArea = All;
 
     layout
     {

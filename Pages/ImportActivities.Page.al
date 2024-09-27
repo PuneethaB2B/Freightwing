@@ -2,6 +2,7 @@ page 50039 "Import Activities"
 {
     PageType = List;
     SourceTable = 50009;
+    ApplicationArea = All;
 
     layout
     {

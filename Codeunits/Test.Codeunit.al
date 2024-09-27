@@ -48,7 +48,7 @@ codeunit 50033 Test
         t3: Integer;
         Hours: Integer;
         "Min": Integer;
-        gCduCalcTime: Codeunit "7600";
+        gCduCalcTime: Codeunit 7600;
         t4: Integer;
         Name: Text;
         i: Integer;

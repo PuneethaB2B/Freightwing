@@ -2,6 +2,7 @@ page 50065 "Booking Sheet MAWB Allocation"
 {
     PageType = List;
     SourceTable = 50070;
+    ApplicationArea = All;
 
     layout
     {

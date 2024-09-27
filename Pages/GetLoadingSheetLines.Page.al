@@ -3,6 +3,7 @@ page 50092 "Get Loading Sheet Lines"
     Editable = false;
     PageType = List;
     SourceTable = 50061;
+    ApplicationArea = All;
 
     layout
     {

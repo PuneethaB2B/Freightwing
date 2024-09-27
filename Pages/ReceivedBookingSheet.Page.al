@@ -5,6 +5,7 @@ page 50150 "Received Booking Sheet"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = 50053;
+    ApplicationArea = All;
 
     layout
     {

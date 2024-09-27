@@ -2,6 +2,7 @@ report 50029 "Applied Entries Voucher"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './AppliedEntriesVoucher.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

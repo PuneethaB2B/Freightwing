@@ -5,6 +5,7 @@ page 50102 "Posted Loading Sheets"
     PageType = List;
     SourceTable = 50060;
     SourceTableView = WHERE(Shipped = FILTER(true));
+    ApplicationArea = All;
 
     layout
     {

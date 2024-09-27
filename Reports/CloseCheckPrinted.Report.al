@@ -1,6 +1,7 @@
 report 50109 "Close Check Printed"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ report 50017 "Calculate IATA Entries"
 {
     Caption = 'Calculate MAWB Entries';
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -21,10 +22,12 @@ report 50017 "Calculate IATA Entries"
                     field(StartDate; StartDate)
                     {
                         Caption = 'Start Date';
+                        ApplicationArea = All;
                     }
                     field(EndDate; EndDate)
                     {
                         Caption = 'End Date';
+                        ApplicationArea = All;
                     }
                 }
             }

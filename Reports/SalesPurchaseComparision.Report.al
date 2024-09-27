@@ -2,6 +2,7 @@ report 50088 "Sales & Purchase Comparision"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './SalesPurchaseComparision.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

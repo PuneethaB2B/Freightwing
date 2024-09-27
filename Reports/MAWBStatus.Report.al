@@ -3,6 +3,7 @@ report 50069 "MAWB Status"
     DefaultLayout = RDLC;
     RDLCLayout = './MAWBStatus.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

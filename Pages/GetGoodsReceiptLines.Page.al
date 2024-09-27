@@ -2,6 +2,7 @@ page 50084 "Get Goods Receipt Lines"
 {
     PageType = List;
     SourceTable = 50051;
+    ApplicationArea = All;
 
     layout
     {

@@ -4,6 +4,7 @@ page 50045 "Wt. Agreement By Airlines"
     CardPageID = "Wt. Agreement By Airline";
     PageType = List;
     SourceTable = 50033;
+    ApplicationArea = All;
 
     layout
     {

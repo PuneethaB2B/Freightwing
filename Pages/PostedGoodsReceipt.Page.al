@@ -4,6 +4,7 @@ page 50137 "Posted Goods Receipt"
     PageType = Card;
     SourceTable = 50052;
     SourceTableView = WHERE(Received = FILTER(true));
+    ApplicationArea = All;
 
     layout
     {

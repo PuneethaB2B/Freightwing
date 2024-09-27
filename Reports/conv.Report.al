@@ -1,6 +1,7 @@
 report 50111 conv
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ page 50163 "HS Codes"
 {
     PageType = List;
     SourceTable = 50082;
+    ApplicationArea = All;
 
     layout
     {

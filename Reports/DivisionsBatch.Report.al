@@ -1,6 +1,7 @@
 report 50068 "Divisions Batch"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

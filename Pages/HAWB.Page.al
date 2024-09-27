@@ -3,6 +3,7 @@ page 50106 HAWB
     Caption = 'House Airway Bill';
     PageType = Card;
     SourceTable = 50075;
+    ApplicationArea = All;
 
     layout
     {

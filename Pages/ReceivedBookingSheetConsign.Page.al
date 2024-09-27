@@ -3,6 +3,7 @@ page 50142 "Received Booking Sheet Consign"
     Caption = 'Booking Sheet Consignee Allocations';
     PageType = List;
     SourceTable = 50056;
+    ApplicationArea = All;
 
     layout
     {

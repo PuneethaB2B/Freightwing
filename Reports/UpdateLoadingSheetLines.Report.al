@@ -1,6 +1,7 @@
 report 50066 "Update Loading Sheet Lines"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

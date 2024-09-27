@@ -2,6 +2,7 @@ page 50009 "FWL Goods Receipt Header"
 {
     InsertAllowed = false;
     SourceTable = 50030;
+    ApplicationArea = All;
 
     layout
     {

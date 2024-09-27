@@ -2,6 +2,7 @@ report 50049 "Exports By Dest. AirLines"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ExportsByDestAirLines.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

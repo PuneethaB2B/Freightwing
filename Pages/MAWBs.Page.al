@@ -5,6 +5,7 @@ page 50100 MAWBs
     PageType = List;
     SourceTable = 50077;
     SourceTableView = WHERE(Status = FILTER(<> Archived));
+    ApplicationArea = All;
 
     layout
     {

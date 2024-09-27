@@ -1,6 +1,7 @@
 page 50032 "Shipment Update Header"
 {
     SourceTable = 50030;
+    ApplicationArea = All;
 
     layout
     {

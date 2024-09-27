@@ -3,6 +3,7 @@ report 50079 "Detail Trial Balance FWL"
     DefaultLayout = RDLC;
     RDLCLayout = './DetailTrialBalanceFWL.rdlc';
     Caption = 'Detail Trial Balance';
+    ApplicationArea = All;
 
     dataset
     {

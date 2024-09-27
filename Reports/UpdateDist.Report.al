@@ -1,6 +1,7 @@
 report 50040 "Update Dist"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

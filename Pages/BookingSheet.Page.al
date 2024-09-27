@@ -2,6 +2,7 @@ page 50068 "Booking Sheet"
 {
     PageType = Card;
     SourceTable = 50053;
+    ApplicationArea = All;
 
     layout
     {

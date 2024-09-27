@@ -1,6 +1,7 @@
 page 50127 "MAWB Test"
 {
     PageType = StandardDialog;
+    ApplicationArea = All;
 
     layout
     {

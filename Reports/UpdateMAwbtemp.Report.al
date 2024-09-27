@@ -1,6 +1,7 @@
 report 50084 "Update MAwb temp"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

@@ -3,6 +3,7 @@ report 50020 "Daily Weight Distribution"
     DefaultLayout = RDLC;
     RDLCLayout = './DailyWeightDistribution.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

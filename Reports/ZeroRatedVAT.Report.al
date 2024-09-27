@@ -3,6 +3,7 @@ report 50059 "Zero Rated VAT"
     DefaultLayout = RDLC;
     RDLCLayout = './ZeroRatedVAT.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

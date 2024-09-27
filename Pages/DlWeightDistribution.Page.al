@@ -4,6 +4,7 @@ page 50050 "Dl. Weight Distribution"
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = 50040;
+    ApplicationArea = All;
 
     layout
     {

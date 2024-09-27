@@ -1,6 +1,7 @@
 report 50038 Update
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

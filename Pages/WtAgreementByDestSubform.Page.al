@@ -3,6 +3,7 @@ page 50042 "Wt. Agreement By Dest. Subform"
     Caption = 'Weight Agreement By Destination Subform';
     PageType = ListPart;
     SourceTable = 50034;
+    ApplicationArea = All;
 
     layout
     {

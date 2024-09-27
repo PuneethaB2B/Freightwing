@@ -2,6 +2,7 @@ page 50123 "Shipper Items"
 {
     PageType = List;
     SourceTable = 50012;
+    ApplicationArea = All;
 
     layout
     {

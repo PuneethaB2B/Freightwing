@@ -1,6 +1,7 @@
 page 50156 "Pre Alert"
 {
     SourceTable = 50030;
+    ApplicationArea = All;
 
     layout
     {

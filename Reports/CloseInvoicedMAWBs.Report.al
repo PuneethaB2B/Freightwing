@@ -1,6 +1,7 @@
 report 50071 "Close Invoiced MAWBs"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

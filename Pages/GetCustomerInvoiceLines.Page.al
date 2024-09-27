@@ -3,6 +3,7 @@ page 50011 "Get Customer Invoice Lines"
     Editable = false;
     PageType = List;
     SourceTable = 21;
+    ApplicationArea = All;
 
     layout
     {

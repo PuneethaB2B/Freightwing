@@ -3,6 +3,7 @@ page 50026 "Notify Party List"
     CardPageID = "Notify Party Card";
     PageType = List;
     SourceTable = 50017;
+    ApplicationArea = All;
 
     layout
     {

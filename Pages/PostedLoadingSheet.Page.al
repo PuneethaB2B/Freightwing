@@ -6,6 +6,7 @@ page 50101 "Posted Loading Sheet"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = 50060;
+    ApplicationArea = All;
 
     layout
     {

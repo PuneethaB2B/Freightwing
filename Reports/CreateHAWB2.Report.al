@@ -2,6 +2,7 @@ report 50007 "Create HAWB 2"
 {
     Caption = 'Create House Airway Bill No.';
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -21,18 +22,22 @@ report 50007 "Create HAWB 2"
                     field(PrefixCode; PrefixCode)
                     {
                         Caption = 'Prefix Code';
+                        ApplicationArea = All;
                     }
                     field("BillNo."; BillNo)
                     {
                         Caption = 'Bill No.';
+                        ApplicationArea = All;
                     }
                     field(StartNo; StartNo)
                     {
                         Caption = 'Start No.';
+                        ApplicationArea = All;
                     }
                     field("End No."; EndNo)
                     {
                         Caption = 'End No.';
+                        ApplicationArea = All;
                     }
                 }
             }

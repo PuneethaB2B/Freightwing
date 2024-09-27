@@ -4,6 +4,7 @@ page 50027 Countries
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Airports,C5,C6,C7,C8,C9,C10';
     SourceTable = 9;
+    ApplicationArea = All;
 
     layout
     {

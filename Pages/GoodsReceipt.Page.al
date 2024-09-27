@@ -3,6 +3,7 @@ page 50130 "Goods Receipt"
     PageType = Card;
     SourceTable = 50052;
     SourceTableView = WHERE(Received = FILTER(false));
+    ApplicationArea = All;
 
     layout
     {

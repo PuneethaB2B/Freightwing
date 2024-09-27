@@ -3,6 +3,7 @@ page 50015 "Shipment Updates"
     CardPageID = "Shipment Update Header";
     PageType = List;
     SourceTable = 50030;
+    ApplicationArea = All;
 
     layout
     {

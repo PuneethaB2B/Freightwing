@@ -3,6 +3,7 @@ report 50106 "Posted Import Invoice"
     DefaultLayout = RDLC;
     RDLCLayout = './PostedImportInvoice.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

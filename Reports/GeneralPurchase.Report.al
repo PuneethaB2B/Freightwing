@@ -3,6 +3,7 @@ report 50057 "General Purchase"
     DefaultLayout = RDLC;
     RDLCLayout = './GeneralPurchase.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

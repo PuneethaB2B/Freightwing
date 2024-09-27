@@ -2,6 +2,7 @@ report 50033 "Flight Performance"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './FlightPerformance.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

@@ -1,6 +1,7 @@
 report 50112 "VAT Correction"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

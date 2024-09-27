@@ -3,6 +3,7 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
     Caption = 'Daily Weight Distribution By Customer Per Item';
     PageType = List;
     SourceTable = 50043;
+    ApplicationArea = All;
 
     layout
     {

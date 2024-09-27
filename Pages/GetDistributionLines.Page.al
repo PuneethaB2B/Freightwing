@@ -3,6 +3,7 @@ page 50070 "Get Distribution Lines"
     Editable = false;
     PageType = List;
     SourceTable = 50043;
+    ApplicationArea = All;
 
     layout
     {

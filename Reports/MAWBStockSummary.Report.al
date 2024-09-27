@@ -3,6 +3,7 @@ report 50044 "MAWB Stock Summary"
     DefaultLayout = RDLC;
     RDLCLayout = './MAWBStockSummary.rdlc';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {

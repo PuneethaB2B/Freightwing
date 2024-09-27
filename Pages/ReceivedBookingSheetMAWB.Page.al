@@ -2,6 +2,7 @@ page 50128 "Received Booking Sheet MAWB"
 {
     PageType = List;
     SourceTable = 50070;
+    ApplicationArea = All;
 
     layout
     {

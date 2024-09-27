@@ -2,6 +2,7 @@ report 50014 "Itax Upload"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ItaxUpload.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

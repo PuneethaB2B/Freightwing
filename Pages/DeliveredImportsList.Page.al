@@ -4,6 +4,7 @@ page 50006 "Delivered Imports List"
     PageType = List;
     SourceTable = 50030;
     SourceTableView = WHERE(Status = CONST(Delivered));
+    ApplicationArea = All;
 
     layout
     {

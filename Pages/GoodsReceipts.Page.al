@@ -6,6 +6,7 @@ page 50132 "Goods Receipts"
     SourceTable = 50052;
     SourceTableView = WHERE(Received = FILTER(false),
                             Status = FILTER(Open | Submitted));
+    ApplicationArea = All;
 
     layout
     {

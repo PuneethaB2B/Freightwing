@@ -2,6 +2,7 @@ report 50074 "Airlines Comodity Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './AirlinesComodityReport.rdlc';
+    ApplicationArea = All;
 
     dataset
     {

@@ -2,6 +2,7 @@ page 50033 "Via Destination"
 {
     PageType = List;
     SourceTable = 50024;
+    ApplicationArea = All;
 
     layout
     {

@@ -3,6 +3,7 @@ page 50007 "Delivered imports Subform"
     Editable = false;
     PageType = List;
     SourceTable = 50023;
+    ApplicationArea = All;
 
     layout
     {

@@ -1,6 +1,7 @@
 report 50010 "Update Data"
 {
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {

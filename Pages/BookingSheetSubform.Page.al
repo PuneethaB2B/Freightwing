@@ -4,6 +4,7 @@ page 50069 "Booking Sheet Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = 50054;
+    ApplicationArea = All;
 
     layout
     {
