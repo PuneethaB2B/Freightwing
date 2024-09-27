@@ -4,7 +4,7 @@ pageextension 50001 CurrencyExchangeRatesExt extends "Currency Exchange Rates"
     {
         addfirst(navigation)
         {
-            group("Invoice Exchange Rates")
+            group("Invoice Exchange Rates1")
             {
                 Caption = 'Invoice Exchange Rates';
                 Image = Print;
@@ -19,6 +19,10 @@ pageextension 50001 CurrencyExchangeRatesExt extends "Currency Exchange Rates"
                     RunObject = Page 50230;
                     RunPageLink = Field1 = FIELD("Currency Code");
                     ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        //DocPrint.PrintPurchHeader(Rec);
+                    end;
                 }
             }
         }
