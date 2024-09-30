@@ -1,7 +1,7 @@
 report 50056 "Weight Distributions"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './WeightDistributions.rdlc';
+    RDLCLayout = 'Reports/Layout/WeightDistributions.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50116 "Purchase Analysis"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PurchaseAnalysis.rdlc';
+    RDLCLayout = 'Reports/Layout/PurchaseAnalysis.rdl';
     ApplicationArea = All;
 
     dataset

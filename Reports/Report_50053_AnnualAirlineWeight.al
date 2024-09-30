@@ -1,7 +1,7 @@
 report 50053 "Annual Airline Weight"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './AnnualAirlineWeight.rdlc';
+    RDLCLayout = 'Reports/Layout/AnnualAirlineWeight.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

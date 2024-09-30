@@ -1,7 +1,7 @@
 report 50106 "Posted Import Invoice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PostedImportInvoice.rdlc';
+    RDLCLayout = 'Reports/Layout/PostedImportInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

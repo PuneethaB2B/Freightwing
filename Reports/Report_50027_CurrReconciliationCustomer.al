@@ -1,7 +1,7 @@
 report 50027 "Curr Reconciliation Customer"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './CurrReconciliationCustomer.rdlc';
+    RDLCLayout = 'Reports/Layout/CurrReconciliationCustomer.rdl';
     ApplicationArea = All;
 
     dataset

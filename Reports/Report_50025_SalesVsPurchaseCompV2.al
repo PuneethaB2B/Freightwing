@@ -1,7 +1,7 @@
 report 50025 "Sales Vs Purchase Comp V2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './SalesVsPurchaseCompV2.rdlc';
+    RDLCLayout = 'Reports/Layout/SalesVsPurchaseCompV2.rdl';
     ApplicationArea = All;
 
     dataset

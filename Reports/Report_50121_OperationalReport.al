@@ -1,7 +1,7 @@
 report 50121 "Operational Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './OperationalReport.rdlc';
+    RDLCLayout = 'Reports/Layout/OperationalReport.rdl';
     ApplicationArea = All;
 
     dataset

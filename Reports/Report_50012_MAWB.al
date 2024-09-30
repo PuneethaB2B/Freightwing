@@ -1,7 +1,7 @@
 report 50012 MAWB
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWB.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWB.rdl';
     ApplicationArea = All;
 
     dataset

@@ -1,7 +1,7 @@
 report 50081 "Shipment Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ShipmentReport.rdlc';
+    RDLCLayout = 'Reports/Layout/ShipmentReport.rdl';
     ApplicationArea = All;
 
     dataset

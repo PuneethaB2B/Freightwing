@@ -1,7 +1,7 @@
 report 50115 "Tally Purchase Import"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './TallyPurchaseImport.rdlc';
+    RDLCLayout = 'Reports/Layout/TallyPurchaseImport.rdl';
     ApplicationArea = All;
 
     dataset

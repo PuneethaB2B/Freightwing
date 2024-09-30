@@ -1,7 +1,7 @@
 report 50119 "Purch. Sale Comparison 2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PurchSaleComparison2.rdlc';
+    RDLCLayout = 'Reports/Layout/PurchSaleComparison2.rdl';
     ApplicationArea = All;
 
     dataset

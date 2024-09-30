@@ -1,7 +1,7 @@
 report 50091 "Purch. Sale Comparison ii"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PurchSaleComparisonii.rdlc';
+    RDLCLayout = 'Reports/Layout/PurchSaleComparisonii.rdl';
     Caption = 'Purch. Sale Comparison';
     ApplicationArea = All;
 

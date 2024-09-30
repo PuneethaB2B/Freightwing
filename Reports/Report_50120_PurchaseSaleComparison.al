@@ -1,7 +1,7 @@
 report 50120 "Purchase Sale Comparison"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PurchaseSaleComparison.rdlc';
+    RDLCLayout = 'Reports/Layout/PurchaseSaleComparison.rdl';
     ApplicationArea = All;
 
     dataset

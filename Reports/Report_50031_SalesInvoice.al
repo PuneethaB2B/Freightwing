@@ -1,7 +1,7 @@
 report 50031 "Sales Invoice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './SalesInvoice.rdlc';
+    RDLCLayout = 'Reports/Layout/SalesInvoice.rdl';
     Caption = 'Sales - Invoice';
     Permissions = TableData 7190 = rimd;
     PreviewMode = PrintLayout;

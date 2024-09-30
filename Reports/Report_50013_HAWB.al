@@ -1,7 +1,7 @@
 report 50013 HAWB
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './HAWB.rdlc';
+    RDLCLayout = 'Reports/Layout/HAWB.rdl';
     ApplicationArea = All;
 
     dataset

@@ -1,7 +1,7 @@
 report 50061 "Computer Check"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ComputerCheck.rdlc';
+    RDLCLayout = 'Reports/Layout/ComputerCheck.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

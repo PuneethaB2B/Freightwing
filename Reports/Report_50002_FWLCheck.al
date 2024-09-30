@@ -1,7 +1,7 @@
 report 50002 "FWL Check"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './FWLCheck.rdlc';
+    RDLCLayout = 'Reports/Layout/FWLCheck.rdl';
     Caption = 'Check';
     Permissions = TableData 270 = m;
     ApplicationArea = All;

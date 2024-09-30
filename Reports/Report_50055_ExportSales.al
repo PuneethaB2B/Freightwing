@@ -1,7 +1,7 @@
 report 50055 "Export Sales"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ExportSales.rdlc';
+    RDLCLayout = 'Reports/Layout/ExportSales.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

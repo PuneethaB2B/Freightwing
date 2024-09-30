@@ -1,7 +1,7 @@
 report 50042 "Airlines Payments"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './AirlinesPayments.rdlc';
+    RDLCLayout = 'Reports/Layout/AirlinesPayments.rdl';
     ApplicationArea = All;
 
     dataset

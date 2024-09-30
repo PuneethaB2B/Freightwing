@@ -1,7 +1,7 @@
 report 50069 "MAWB Status"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWBStatus.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWBStatus.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

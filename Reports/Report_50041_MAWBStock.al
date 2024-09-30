@@ -1,7 +1,7 @@
 report 50041 "MAWB Stock"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWBStock.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWBStock.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

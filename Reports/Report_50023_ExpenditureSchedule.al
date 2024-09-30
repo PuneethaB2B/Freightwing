@@ -1,7 +1,7 @@
 report 50023 "Expenditure Schedule"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ExpenditureSchedule.rdlc';
+    RDLCLayout = 'Reports/Layout/ExpenditureSchedule.rdl';
     ApplicationArea = All;
 
     dataset
