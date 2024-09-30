@@ -12,7 +12,7 @@ page 50012 "Sales Invoice List - Import"
     {
         area(content)
         {
-            repeater()
+            repeater(General)
             {
                 field("No."; Rec."No.")
                 {
@@ -190,7 +190,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        CalcInvDiscForHeader;
+                        Rec.CalcInvDiscForHeader;
                         COMMIT;
                         PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                     end;
@@ -199,7 +199,7 @@ page 50012 "Sales Invoice List - Import"
                 {
                     Caption = 'Co&mments';
                     Image = ViewComments;
-                    RunObject = Page 67;
+                    RunObject = Page "Sales Comment Sheet";
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
@@ -213,7 +213,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        ShowDocDim;
+                        Rec.ShowDocDim;
                     end;
                 }
                 action(Approvals)
@@ -223,9 +223,9 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page 658;
+                        ApprovalEntries: Page "Approval Entries";
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", "Document Type", "No.");
+                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", Rec."Document Type", Rec."No.");
                         ApprovalEntries.RUN;
                     end;
                 }
@@ -245,7 +245,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -257,7 +257,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
@@ -274,7 +274,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -286,12 +286,12 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
-                separator()
+                separator(fws)
                 {
                 }
             }
@@ -321,7 +321,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        SendToPosting(CODEUNIT::"Sales-Post (Yes/No)");
+                        Rec.SendToPosting(CODEUNIT::"Sales-Post (Yes/No)");
                     end;
                 }
                 action("Post and &Print")
@@ -335,7 +335,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        SendToPosting(CODEUNIT::"Sales-Post + Print");
+                        Rec.SendToPosting(CODEUNIT::"Sales-Post + Print");
                     end;
                 }
                 action("Post and Email")
@@ -374,7 +374,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting;
                     end;
                 }
             }
@@ -385,7 +385,7 @@ page 50012 "Sales Invoice List - Import"
     var
         SalesSetup: Record 311;
     begin
-        SetSecurityFilterOnRespCenter;
+        Rec.SetSecurityFilterOnRespCenter;
         JobQueueActive := SalesSetup.JobQueueActive;
     end;
 

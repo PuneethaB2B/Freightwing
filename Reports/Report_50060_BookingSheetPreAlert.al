@@ -266,10 +266,8 @@ report 50060 "Booking Sheet Pre Alert"
                     trigger OnAfterGetRecord()
                     begin
 
-                        WITH "Booking Sheet Line" DO BEGIN
-                            IF "Booking Sheet Line"."Clearing Agent Code" <> '' THEN
-                                ShippingAgent.GET("Booking Sheet Line"."Clearing Agent Code");
-                        END;
+                        IF "Booking Sheet Line"."Clearing Agent Code" <> '' THEN
+                            ShippingAgent.GET("Booking Sheet Line"."Clearing Agent Code");
 
                         //Fetch ULD Type and Quantity
                         gRecBookingSheetULDAlloc.RESET;

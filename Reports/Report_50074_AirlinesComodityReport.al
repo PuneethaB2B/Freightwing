@@ -118,6 +118,7 @@ report 50074 "Airlines Comodity Report"
                 {
                     field("Include Detailed Drill Down"; Detailed)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

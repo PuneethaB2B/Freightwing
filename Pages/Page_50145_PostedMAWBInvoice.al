@@ -338,8 +338,10 @@ page 50145 "Posted MAWB Invoice"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE                            ApplicationArea = All;
-.RUNMODAL(PAGE    ApplicationArea = All;
+                        PAGE                            ApplicationArea                             ApplicationArea = All;
+= All;
+.RUNMODAL(PAGE    ApplicationArea     ApplicationArea = All;
+= All;
 ::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
@@ -363,6 +365,7 @@ page 50145 "Posted MAWB Invoice"
                     Image = Customer;
                     RunObject = Page 21;
                                     RunPageLink = "No."=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
@@ -386,6 +389,7 @@ FIELD("Sell-to Customer No.");
                     Image = ViewComments;
                     RunObject = Page 67;
                                     RunPageLink = "Document Type"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Document Type"),
                                   "No."=FIELD("No."),
                                   "Document Line No."=CONST(0);
@@ -402,6 +406,7 @@ FIELD("Document Type"),
                     PromotedIsBig = true;
                     RunObject = Page 50119;
                                     RunPageLink = "MAWB No"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
@@ -414,6 +419,7 @@ FIELD("No.");
                     PromotedIsBig = true;
                     RunObject = Page 50120;
                                     RunPageLink = "MAWB No."=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("MAWB No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
@@ -429,6 +435,7 @@ FIELD("MAWB No.");
                     Image = CreditCardLog;
                     RunObject = Page 829;
                                     RunPageLink = "Document Type"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Document Type"),
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
@@ -682,7 +689,8 @@ FIELD("Document Type"),
                         SalesHeader.RESET;
                         SalesHeader.SETRANGE("No.","No.");
                         IF SalesHeader.FINDFIRST THEN
-                          REPORT                              ApplicationArea = All;
+                          REPORT                              ApplicationArea                               ApplicationArea = All;
+= All;
 .RUNMODAL(50015,TRUE,FALSE, SalesHeader);
                     end;
                 }
@@ -720,8 +728,10 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        REPORT                            ApplicationArea = All;
-.RUNMODAL(REPORT    ApplicationArea = All;
+                        REPORT                            ApplicationArea                             ApplicationArea = All;
+= All;
+.RUNMODAL(REPORT    ApplicationArea     ApplicationArea = All;
+= All;
 ::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;

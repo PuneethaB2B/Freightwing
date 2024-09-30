@@ -510,6 +510,7 @@ report 50052 "Airline Payments"
                 {
                     field("Show Summarized"; Summary)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

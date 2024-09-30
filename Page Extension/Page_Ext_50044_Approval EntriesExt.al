@@ -10,6 +10,7 @@ pageextension 50044 ApprovalEntriesExt extends "Approval Entries"
                 PromotedIsBig = true;
                 Image = PreviewChecks;
                 PromotedCategory = Report;
+                ApplicationArea = All;
                 trigger OnAction()
                 BEGIN
                     SalesHeader.RESET;

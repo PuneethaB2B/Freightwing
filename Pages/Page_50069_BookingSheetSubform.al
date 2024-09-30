@@ -195,7 +195,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = '& MAWB Allocations';
                     Image = EntriesList;
-                    RunObject = Page 50065;
+                    RunObject = Page "Booking Sheet MAWB Allocation";
                     RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
                                   "Item No" = FIELD("Item No."),
                                   "Line No." = FIELD("Line No."),

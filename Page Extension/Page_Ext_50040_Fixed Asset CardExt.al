@@ -11,7 +11,8 @@ pageextension 50040 FixedAssetCardExt extends "Fixed Asset Card"
                 Promoted = true;
                 PromotedIsBig = true;
                 Image = Journal;
-                PromotedCategory = Process
+                PromotedCategory = Process;
+                ApplicationArea = All;
             }
             action("Fixed Asset G/L Journal")
             {
@@ -20,7 +21,8 @@ pageextension 50040 FixedAssetCardExt extends "Fixed Asset Card"
                 Promoted = true;
                 PromotedIsBig = true;
                 Image = Journal;
-                PromotedCategory = Process
+                PromotedCategory = Process;
+                ApplicationArea = All;
             }
         }
     }

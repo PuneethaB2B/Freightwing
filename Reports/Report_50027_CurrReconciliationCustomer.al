@@ -8,35 +8,35 @@ report 50027 "Curr Reconciliation Customer"
     {
         dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
         {
-            DataItemTableView = WHERE("Entry Type"=FILTER("Unrealized Loss"|"Unrealized Gain"));
-            column(PostingDate;"Detailed Cust. Ledg. Entry"."Posting Date")
+            DataItemTableView = WHERE("Entry Type" = FILTER("Unrealized Loss" | "Unrealized Gain"));
+            column(PostingDate; "Detailed Cust. Ledg. Entry"."Posting Date")
             {
             }
-            column(EntryType;"Detailed Cust. Ledg. Entry"."Entry Type")
+            column(EntryType; "Detailed Cust. Ledg. Entry"."Entry Type")
             {
             }
-            column(Cust_PostingDate;gRecCustLedgerEntry."Posting Date")
+            column(Cust_PostingDate; gRecCustLedgerEntry."Posting Date")
             {
             }
-            column(CustomerName;gRecCustomer."Search Name")
+            column(CustomerName; gRecCustomer."Search Name")
             {
             }
-            column(DocumentNo;gRecCustLedgerEntry."Document No.")
+            column(DocumentNo; gRecCustLedgerEntry."Document No.")
             {
             }
-            column(CurrencyCode;"Detailed Cust. Ledg. Entry"."Currency Code")
+            column(CurrencyCode; "Detailed Cust. Ledg. Entry"."Currency Code")
             {
             }
-            column(DetailedAmount;"Detailed Cust. Ledg. Entry"."Amount (LCY)")
+            column(DetailedAmount; "Detailed Cust. Ledg. Entry"."Amount (LCY)")
             {
             }
-            column(OriginalAmount;gRecCustLedgerEntry.Amount)
+            column(OriginalAmount; gRecCustLedgerEntry.Amount)
             {
             }
-            column(BookingRate;gDecBookingRate)
+            column(BookingRate; gDecBookingRate)
             {
             }
-            column(AuditRate;gDecAuditRate)
+            column(AuditRate; gDecAuditRate)
             {
             }
 
@@ -44,10 +44,10 @@ report 50027 "Curr Reconciliation Customer"
             begin
                 //Customer Ledger Entries
                 gRecCustLedgerEntry.RESET;
-                gRecCustLedgerEntry.SETRANGE("Entry No.","Detailed Cust. Ledg. Entry"."Cust. Ledger Entry No.");
+                gRecCustLedgerEntry.SETRANGE("Entry No.", "Detailed Cust. Ledg. Entry"."Cust. Ledger Entry No.");
                 IF gRecCustLedgerEntry.FINDFIRST THEN BEGIN
-                  gRecCustLedgerEntry.CALCFIELDS(gRecCustLedgerEntry.Amount);
-                  gDateEndDate := CALCDATE('CY',gRecCustLedgerEntry."Posting Date");
+                    gRecCustLedgerEntry.CALCFIELDS(gRecCustLedgerEntry.Amount);
+                    gDateEndDate := CALCDATE('CY', gRecCustLedgerEntry."Posting Date");
                 END;
                 //Customer Name
                 IF gRecCustomer.GET("Detailed Cust. Ledg. Entry"."Customer No.") THEN;
@@ -56,18 +56,18 @@ report 50027 "Curr Reconciliation Customer"
                 //Booking Rate
                 gDecBookingRate := 0;
                 gRecCurrExch.RESET;
-                gRecCurrExch.SETRANGE("Currency Code",gRecCustLedgerEntry."Currency Code");
-                gRecCurrExch.SETFILTER("Starting Date",'<=%1',gRecCustLedgerEntry."Posting Date");
+                gRecCurrExch.SETRANGE("Currency Code", gRecCustLedgerEntry."Currency Code");
+                gRecCurrExch.SETFILTER("Starting Date", '<=%1', gRecCustLedgerEntry."Posting Date");
                 IF gRecCurrExch.FINDLAST THEN
-                  gDecBookingRate := gRecCurrExch."Relational Exch. Rate Amount";
+                    gDecBookingRate := gRecCurrExch."Relational Exch. Rate Amount";
 
                 //Audit Rate
                 gDecAuditRate := 0;
                 gRecCurrExch.RESET;
-                gRecCurrExch.SETRANGE("Currency Code","Detailed Cust. Ledg. Entry"."Currency Code");
-                gRecCurrExch.SETFILTER("Starting Date",'<=%1',gDateEndDate);
+                gRecCurrExch.SETRANGE("Currency Code", "Detailed Cust. Ledg. Entry"."Currency Code");
+                gRecCurrExch.SETFILTER("Starting Date", '<=%1', gDateEndDate);
                 IF gRecCurrExch.FINDLAST THEN
-                  gDecAuditRate := gRecCurrExch."Relational Exch. Rate Amount";
+                    gDecAuditRate := gRecCurrExch."Relational Exch. Rate Amount";
             end;
         }
     }

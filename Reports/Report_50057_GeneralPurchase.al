@@ -194,41 +194,38 @@ report 50057 "General Purchase"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "VAT Entry" DO BEGIN
-                    "Inv date" := 0D;
-                    InvNo := '';
-                    Desc := '';
-                    IF "VAT Entry"."Bill-to/Pay-to No." <> '' THEN
-                        Vendors.GET("Bill-to/Pay-to No.");
-                    GLEnt.RESET;
-                    GLEnt.SETRANGE(GLEnt."Document No.", "VAT Entry"."Document No.");
-                    GLEnt.SETRANGE(GLEnt."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                    GLEnt.FINDFIRST;
-                    IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
-                        PurchCrMemoHdr.RESET;
-                        PurchCrMemoHdr.SETRANGE(PurchCrMemoHdr."No.", "VAT Entry"."Document No.");
-                        IF PurchCrMemoHdr.FINDFIRST THEN BEGIN
-                            InvNo := PurchCrMemoHdr."Applies-to Doc. No.";
-                            IF PurchInvHeader.GET(InvNo) THEN
-                                "Inv date" := PurchInvHeader."Document Date";
-                        END;
+                "Inv date" := 0D;
+                InvNo := '';
+                Desc := '';
+                IF "VAT Entry"."Bill-to/Pay-to No." <> '' THEN
+                    Vendors.GET("VAT Entry"."Bill-to/Pay-to No.");
+                GLEnt.RESET;
+                GLEnt.SETRANGE(GLEnt."Document No.", "VAT Entry"."Document No.");
+                GLEnt.SETRANGE(GLEnt."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                GLEnt.FINDFIRST;
+                IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
+                    PurchCrMemoHdr.RESET;
+                    PurchCrMemoHdr.SETRANGE(PurchCrMemoHdr."No.", "VAT Entry"."Document No.");
+                    IF PurchCrMemoHdr.FINDFIRST THEN BEGIN
+                        InvNo := PurchCrMemoHdr."Applies-to Doc. No.";
+                        IF PurchInvHeader.GET(InvNo) THEN
+                            "Inv date" := PurchInvHeader."Document Date";
                     END;
+                END;
 
-                    IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::Invoice THEN BEGIN
-                        PurchInvLine.RESET;
-                        PurchInvLine.SETRANGE(PurchInvLine."Document No.", "VAT Entry"."Document No.");
-                        PurchInvLine.SETRANGE(PurchInvLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF PurchInvLine.FINDFIRST THEN BEGIN
-                            Desc := PurchInvLine.Description;
-                        END;
-                    END ELSE BEGIN
-                        PurchCrMemoLine.RESET;
-                        PurchCrMemoLine.SETRANGE(PurchCrMemoLine."Document No.", "VAT Entry"."Document No.");
-                        PurchCrMemoLine.SETRANGE(PurchCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF PurchCrMemoLine.FINDFIRST THEN BEGIN
-                            Desc := PurchCrMemoLine.Description;
-                        END;
-
+                IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::Invoice THEN BEGIN
+                    PurchInvLine.RESET;
+                    PurchInvLine.SETRANGE(PurchInvLine."Document No.", "VAT Entry"."Document No.");
+                    PurchInvLine.SETRANGE(PurchInvLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF PurchInvLine.FINDFIRST THEN BEGIN
+                        Desc := PurchInvLine.Description;
+                    END;
+                END ELSE BEGIN
+                    PurchCrMemoLine.RESET;
+                    PurchCrMemoLine.SETRANGE(PurchCrMemoLine."Document No.", "VAT Entry"."Document No.");
+                    PurchCrMemoLine.SETRANGE(PurchCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF PurchCrMemoLine.FINDFIRST THEN BEGIN
+                        Desc := PurchCrMemoLine.Description;
                     END;
 
                 END;

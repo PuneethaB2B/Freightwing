@@ -5,7 +5,7 @@ table 50049 "Good Receipt Notify Party"
     {
         field(1; "Good Receipt No."; Code[20])
         {
-            TableRelation = Table50096.Field1;
+            TableRelation = 50096.Field1;
         }
         field(2; "Airline Code"; Code[10])
         {

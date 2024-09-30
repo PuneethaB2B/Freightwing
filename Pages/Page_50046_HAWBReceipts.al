@@ -39,7 +39,7 @@ page 50046 "HAWB Receipts"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Report 50000;
+                    RunObject = Report "Create HAWB";
 
                     trigger OnAction()
                     begin

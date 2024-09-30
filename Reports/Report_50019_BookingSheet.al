@@ -111,7 +111,7 @@ report 50019 "Booking Sheet"
             }
             dataitem("Booking Sheet Line"; "Booking Sheet Line")
             {
-                DataItemLink = "Booking Sheet No."=FIELD("No.");
+                DataItemLink = "Booking Sheet No." = FIELD("No.");
                 column(DestinationString; Destination)
                 {
                 }
@@ -252,148 +252,148 @@ report 50019 "Booking Sheet"
                 }
                 dataitem("Booking Sheet MAWB Allocation"; "Booking Sheet MAWB Allocation")
                 {
-                    DataItemLink = "Booking Sheet No"=FIELD("Booking Sheet No."),
-                                  "Item No"=FIELD("Item No."),
-                                   "Flight No"=FIELD("Flight Code"),
-                                   "Destination Airport"=FIELD("Destination Airport"),
-                                   "Shipper Code"=FIELD("Shipper Code"),
-                                   "Source Airport"=FIELD("Source Airport"),
-                                  "Airline Code"=FIELD("Airline Code");
-                    column(BookingSheetNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Booking Sheet No")
+                    DataItemLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
+                                  "Item No" = FIELD("Item No."),
+                                   "Flight No" = FIELD("Flight Code"),
+                                   "Destination Airport" = FIELD("Destination Airport"),
+                                   "Shipper Code" = FIELD("Shipper Code"),
+                                   "Source Airport" = FIELD("Source Airport"),
+                                  "Airline Code" = FIELD("Airline Code");
+                    column(BookingSheetNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Booking Sheet No")
                     {
                     }
-                    column(LineNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Line No.")
+                    column(LineNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Line No.")
                     {
                     }
-                    column(ItemNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Item No")
+                    column(ItemNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Item No")
                     {
                     }
-                    column(MAWBNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."MAWB No")
+                    column(MAWBNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."MAWB No")
                     {
                     }
-                    column(WeightAllocated_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Weight Allocated")
+                    column(WeightAllocated_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Weight Allocated")
                     {
                     }
-                    column(FlightNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Flight No")
+                    column(FlightNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Flight No")
                     {
                     }
-                    column(AirlineCode_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Airline Code")
+                    column(AirlineCode_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Airline Code")
                     {
                     }
-                    column(SourceAirport_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Source Airport")
+                    column(SourceAirport_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Source Airport")
                     {
                     }
-                    column(DestinationAirport_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Destination Airport")
+                    column(DestinationAirport_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Destination Airport")
                     {
                     }
-                    column(ConsigneeCode_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Consignee Code")
+                    column(ConsigneeCode_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Consignee Code")
                     {
                     }
-                    column(ConsigneeName_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Consignee Name")
+                    column(ConsigneeName_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Consignee Name")
                     {
                     }
-                    column(ShipperCode_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Shipper Code")
+                    column(ShipperCode_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Shipper Code")
                     {
                     }
-                    column(BSA_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation".BSA)
+                    column(BSA_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation".BSA)
                     {
                     }
-                    column(Houses_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation".Houses)
+                    column(Houses_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation".Houses)
                     {
                     }
-                    column(Invoiced_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation".Invoiced)
+                    column(Invoiced_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation".Invoiced)
                     {
                     }
-                    column(Comment_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation".Comment)
+                    column(Comment_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation".Comment)
                     {
                     }
-                    column(MAWBReceived_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."MAWB Received")
+                    column(MAWBReceived_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."MAWB Received")
                     {
                     }
-                    column(ULD;ULD)
+                    column(ULD; ULD)
                     {
                     }
-                    column(Remarks;Remarks)
+                    column(Remarks; Remarks)
                     {
                     }
-                    dataitem("Booking Sheet HAWB Allocation";"Booking Sheet HAWB Allocation")
+                    dataitem("Booking Sheet HAWB Allocation"; "Booking Sheet HAWB Allocation")
                     {
-                        DataItemLink = "Booking Sheet No."=FIELD("Booking Sheet No"),
-                                      "MAWB No."=FIELD("MAWB No"),
-                                       "Shipper Code"=FIELD("Shipper Code"),
-                                       "Destination Airport"=FIELD("Destination Airport"),
-                                      "Airline Code"=FIELD("Airline Code"),
-                                      "Source Airport"=FIELD("Source Airport");
-                        column(BookingSheetNo_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Booking Sheet No.")
+                        DataItemLink = "Booking Sheet No." = FIELD("Booking Sheet No"),
+                                      "MAWB No." = FIELD("MAWB No"),
+                                       "Shipper Code" = FIELD("Shipper Code"),
+                                       "Destination Airport" = FIELD("Destination Airport"),
+                                      "Airline Code" = FIELD("Airline Code"),
+                                      "Source Airport" = FIELD("Source Airport");
+                        column(BookingSheetNo_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Booking Sheet No.")
                         {
                         }
-                        column(AirlineCode_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Airline Code")
+                        column(AirlineCode_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Airline Code")
                         {
                         }
-                        column(ConsigneeCode_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Consignee Code")
+                        column(ConsigneeCode_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Consignee Code")
                         {
                         }
-                        column(HAWBNo_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."HAWB No.")
+                        column(HAWBNo_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."HAWB No.")
                         {
                         }
-                        column(ItemNo_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Item No.")
+                        column(ItemNo_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Item No.")
                         {
                         }
-                        column(ConsigneeName_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Consignee Name")
+                        column(ConsigneeName_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Consignee Name")
                         {
                         }
-                        column(MAWBNo_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."MAWB No.")
+                        column(MAWBNo_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."MAWB No.")
                         {
                         }
-                        column(ShipperCode_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Shipper Code")
+                        column(ShipperCode_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Shipper Code")
                         {
                         }
-                        column(HAWBPrepared_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."HAWB Prepared")
+                        column(HAWBPrepared_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."HAWB Prepared")
                         {
                         }
-                        column(FlightCode_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Flight Code")
+                        column(FlightCode_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Flight Code")
                         {
                         }
-                        column(GrossWeight_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Gross Weight")
+                        column(GrossWeight_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Gross Weight")
                         {
                         }
-                        column(ChargeableWeight_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Chargeable Weight")
+                        column(ChargeableWeight_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Chargeable Weight")
                         {
                         }
-                        column(Quantity_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation".Quantity)
+                        column(Quantity_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation".Quantity)
                         {
                         }
-                        column(SourceAirport_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Source Airport")
+                        column(SourceAirport_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Source Airport")
                         {
                         }
-                        column(DestinationAirport_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Destination Airport")
+                        column(DestinationAirport_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Destination Airport")
                         {
                         }
-                        column(Invoiced_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation".Invoiced)
+                        column(Invoiced_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation".Invoiced)
                         {
                         }
-                        column(Main;Main)
+                        column(Main; Main)
                         {
                         }
 
                         trigger OnAfterGetRecord()
                         begin
-                            ULD:='';
-                            Remarks:='';
+                            ULD := '';
+                            Remarks := '';
                             BookingSheetUlDALLOC.RESET;
-                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."MAVB No.","Booking Sheet HAWB Allocation"."MAWB No.");
-                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC.Consignee,"Booking Sheet HAWB Allocation"."Consignee Code");
-                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Source Airport","Booking Sheet HAWB Allocation"."Source Airport");
-                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Destination Airport","Booking Sheet HAWB Allocation"."Destination Airport");
-                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Shipper Code","Booking Sheet HAWB Allocation"."Shipper Code");
+                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."MAVB No.", "Booking Sheet HAWB Allocation"."MAWB No.");
+                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC.Consignee, "Booking Sheet HAWB Allocation"."Consignee Code");
+                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Source Airport", "Booking Sheet HAWB Allocation"."Source Airport");
+                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Destination Airport", "Booking Sheet HAWB Allocation"."Destination Airport");
+                            BookingSheetUlDALLOC.SETRANGE(BookingSheetUlDALLOC."Shipper Code", "Booking Sheet HAWB Allocation"."Shipper Code");
                             IF BookingSheetUlDALLOC.FINDSET THEN BEGIN
-                              REPEAT
-                                ULD:=ULD + FORMAT(BookingSheetUlDALLOC.Quantity)+','+BookingSheetUlDALLOC."ULD Type Code"+'<BR>';
-                                IF Remarks+BookingSheetUlDALLOC.Remarks<>' '  THEN
-                                Remarks:=Remarks+BookingSheetUlDALLOC.Remarks;
-                              UNTIL BookingSheetUlDALLOC.NEXT=0;
+                                REPEAT
+                                    ULD := ULD + FORMAT(BookingSheetUlDALLOC.Quantity) + ',' + BookingSheetUlDALLOC."ULD Type Code" + '<BR>';
+                                    IF Remarks + BookingSheetUlDALLOC.Remarks <> ' ' THEN
+                                        Remarks := Remarks + BookingSheetUlDALLOC.Remarks;
+                                UNTIL BookingSheetUlDALLOC.NEXT = 0;
                             END ELSE BEGIN
-                            ULD:='';
+                                ULD := '';
                             END;
                         end;
                     }
@@ -401,11 +401,11 @@ report 50019 "Booking Sheet"
 
                 trigger OnAfterGetRecord()
                 begin
-                    Destination:='';
+                    Destination := '';
                     Airports.RESET;
-                    Airports.SETRANGE(Airports.Code,"Booking Sheet Line"."Destination Airport");
+                    Airports.SETRANGE(Airports.Code, "Booking Sheet Line"."Destination Airport");
                     IF Airports.FINDFIRST THEN BEGIN
-                      Destination:=Airports.Location+ '['+Airports.Code+']';
+                        Destination := Airports.Location + '[' + Airports.Code + ']';
                     END;
                 end;
             }
@@ -414,12 +414,12 @@ report 50019 "Booking Sheet"
             begin
                 CompanyInfo.CALCFIELDS(Picture);
                 BookingSheetHeader.RESET;
-                BookingSheetHeader.SETRANGE(BookingSheetHeader."No.","Booking Sheet Header"."No.");
+                BookingSheetHeader.SETRANGE(BookingSheetHeader."No.", "Booking Sheet Header"."No.");
                 IF BookingSheetHeader.FINDSET THEN BEGIN
-                  REPEAT
-                  //MESSAGE('%1 Wt.',"Booking Sheet Header"."Booked Weight");
-                  Total+="Booking Sheet Header"."Booked Weight";
-                  UNTIL BookingSheetHeader.NEXT = 0;
+                    REPEAT
+                        //MESSAGE('%1 Wt.',"Booking Sheet Header"."Booked Weight");
+                        Total += "Booking Sheet Header"."Booked Weight";
+                    UNTIL BookingSheetHeader.NEXT = 0;
                 END;
             end;
 
@@ -473,15 +473,15 @@ report 50019 "Booking Sheet"
         Main: Boolean;
         Remarks: Text[259];
 
-    
-    procedure BSLineFilters(BSNo: Code[50];FlightNo: Code[50])
+
+    procedure BSLineFilters(BSNo: Code[50]; FlightNo: Code[50])
     begin
-        IF FlightNo<>'' THEN BEGIN
-          "Booking Sheet Line".SETRANGE("Booking Sheet Line"."Flight Code",FlightNo);
+        IF FlightNo <> '' THEN BEGIN
+            "Booking Sheet Line".SETRANGE("Booking Sheet Line"."Flight Code", FlightNo);
         END;
-        IF BSNo<>'' THEN BEGIN
-        "Booking Sheet Header".SETRANGE("Booking Sheet Header"."No.",BSNo);
-        //MESSAGE(BSNo);
+        IF BSNo <> '' THEN BEGIN
+            "Booking Sheet Header".SETRANGE("Booking Sheet Header"."No.", BSNo);
+            //MESSAGE(BSNo);
         END;
     end;
 }

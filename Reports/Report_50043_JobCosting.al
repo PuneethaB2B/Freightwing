@@ -434,6 +434,7 @@ report 50043 "Job Costing"
                 {
                     field("Include Detailed Analysis"; Detailed)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

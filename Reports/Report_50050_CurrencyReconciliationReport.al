@@ -164,15 +164,19 @@ report 50050 "Currency Reconciliation Report"
             {
                 field("Show Customer"; gBoolShowCustomer)
                 {
+                    ApplicationArea = All;
                 }
                 field("Show Vendor"; gBoolShowVendor)
                 {
+                    ApplicationArea = All;
                 }
                 field("Start Date"; gDateStartDate)
                 {
+                    ApplicationArea = All;
                 }
                 field("End Date"; gDateEndDate)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

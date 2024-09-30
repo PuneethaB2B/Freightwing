@@ -8,6 +8,7 @@ pageextension 50046 OrderProcessorRoleCenterExt extends "Order Processor Role Ce
             {
                 CaptionML = ENU = 'Page Posted Purchase Credit Memo';
                 RunObject = Page 147;
+                ApplicationArea = All;
             }
         }
         moveafter("Page Posted Purchase Credit Memo"; "Posted Sales Shipments")

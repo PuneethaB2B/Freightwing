@@ -27,6 +27,7 @@ pageextension 50025 BankAccountCardExt extends "Bank Account Card"
                 RunObject = Page 50141;
                 RunPageLink = "Intermediary Bank" = FIELD("No.");
                 Image = AddAction;
+                ApplicationArea = All;
             }
         }
     }

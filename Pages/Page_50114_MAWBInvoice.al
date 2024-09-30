@@ -350,8 +350,10 @@ page 50114 "MAWB Invoice"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE                            ApplicationArea = All;
-.RUNMODAL(PAGE    ApplicationArea = All;
+                        PAGE                            ApplicationArea                             ApplicationArea = All;
+= All;
+.RUNMODAL(PAGE    ApplicationArea     ApplicationArea = All;
+= All;
 ::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
@@ -375,6 +377,7 @@ page 50114 "MAWB Invoice"
                     Image = Customer;
                     RunObject = Page 21;
                                     RunPageLink = "No."=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
@@ -398,6 +401,7 @@ FIELD("Sell-to Customer No.");
                     Image = ViewComments;
                     RunObject = Page 67;
                                     RunPageLink = "Document Type"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Document Type"),
                                   "No."=FIELD("No."),
                                   "Document Line No."=CONST(0);
@@ -414,6 +418,7 @@ FIELD("Document Type"),
                     PromotedIsBig = true;
                     RunObject = Page 50119;
                                     RunPageLink = "MAWB No"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
@@ -426,6 +431,7 @@ FIELD("No.");
                     PromotedIsBig = true;
                     RunObject = Page 50120;
                                     RunPageLink = "MAWB No."=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("MAWB No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
@@ -438,6 +444,7 @@ FIELD("MAWB No.");
                     PromotedIsBig = true;
                     RunObject = Page 50122;
                                     RunPageLink = "Invoice No."=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
@@ -452,6 +459,7 @@ FIELD("No.");
                     Image = CreditCardLog;
                     RunObject = Page 829;
                                     RunPageLink = "Document Type"=    ApplicationArea = All;
+                                    ApplicationArea = All;
 FIELD("Document Type"),
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
@@ -472,7 +480,8 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        PAGE                            ApplicationArea = All;
+                        PAGE                            ApplicationArea                             ApplicationArea = All;
+= All;
 .RUNMODAL(50127);
                     end;
                 }
@@ -932,12 +941,14 @@ FIELD("Document Type"),
                           BEGIN
                             IF MAWBHeader."Has Houses" THEN
                              BEGIN
-                                REPORT                                    ApplicationArea = All;
+                                REPORT                                    ApplicationArea                                     ApplicationArea = All;
+= All;
 .RUNMODAL(50015,TRUE,FALSE, SalesHeader);
                              END ELSE
                              BEGIN
                               // REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
-                              REPORT                                                                                                                    ApplicationArea = All;
+                              REPORT                                                                                                                    ApplicationArea                                                                                                                     ApplicationArea = All;
+= All;
 .RUNMODAL(50039,TRUE,FALSE, SalesHeader)
                              END;
                           END ELSE BEGIN MESSAGE('MAWB Not found in Documentation');END;
@@ -991,8 +1002,10 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        REPORT                            ApplicationArea = All;
-.RUNMODAL(REPORT    ApplicationArea = All;
+                        REPORT                            ApplicationArea                             ApplicationArea = All;
+= All;
+.RUNMODAL(REPORT    ApplicationArea     ApplicationArea = All;
+= All;
 ::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
@@ -1072,6 +1085,7 @@ FIELD("Document Type"),
                                 FreightCharge: Record 50018;
                                 SalesLine: Record 37;
                                 Text000:     ApplicationArea = All;
+                                ApplicationArea = All;
 Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
     MAWBAlloc: Record 50070;
     FCharges: Record 50018;
@@ -1112,7 +1126,8 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure ApproveCalcInvDisc()
     begin
-        CurrPage.SalesLines.PAGE    ApplicationArea = All;
+        CurrPage.SalesLines.PAGE    ApplicationArea     ApplicationArea = All;
+= All;
 .ApproveCalcInvDisc;
     end;
 
@@ -1126,7 +1141,8 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure SalespersonCodeOnAfterValidate()
     begin
-        CurrPage.SalesLines.PAGE    ApplicationArea = All;
+        CurrPage.SalesLines.PAGE    ApplicationArea     ApplicationArea = All;
+= All;
 .UpdateForm(TRUE);
     end;
 

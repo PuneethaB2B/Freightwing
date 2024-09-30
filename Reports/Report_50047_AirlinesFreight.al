@@ -66,7 +66,7 @@ report 50047 "Airlines Freight"
                 }
                 dataitem("MAWB Invoice Charge"; "MAWB Invoice Charge")
                 {
-                    DataItemLink = "MAWB No."=FIELD("MAWB No.");
+                    DataItemLink = "MAWB No." = FIELD("MAWB No.");
                     DataItemTableView = SORTING("MAWB No.", "Item No.", "Freight Charge Code", "Line No.")
                                         ORDER(Ascending);
                     column(InvoiceNo_MAWBInvoiceCharge; "MAWB Invoice Charge"."Invoice No.")

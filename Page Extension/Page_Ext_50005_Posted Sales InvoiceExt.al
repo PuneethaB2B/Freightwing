@@ -61,6 +61,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 Promoted = true;
                 Image = Print;
                 PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
                 BEGIN
                     SalesInvoiceHeader.RESET;
@@ -75,6 +76,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 PromotedIsBig = true;
                 Image = Print;
                 PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
                 BEGIN
                     SalesInvoiceHeader.RESET;
@@ -91,6 +93,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 PromotedIsBig = true;
                 Image = Print;
                 PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
                 VAR
                     SalesInvHeader: Record 112;

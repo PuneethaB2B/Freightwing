@@ -827,9 +827,11 @@ report 50120 "Purchase Sale Comparison"
                 {
                     field("Show Summarized"; Summary)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Losses"; ShowLoss)
                     {
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin

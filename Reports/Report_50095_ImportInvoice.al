@@ -542,7 +542,7 @@ report 50095 "Import Invoice"
             }
             dataitem("Sales Line"; "Sales Line")
             {
-                DataItemLink = "Document No."=FIELD("No.");
+                DataItemLink = "Document No." = FIELD("No.");
                 column(DocumentType_SalesLine; "Sales Line"."Document Type")
                 {
                 }

@@ -85,7 +85,7 @@ report 50081 "Shipment Report"
                 }
                 dataitem("MAWB Line"; "MAWB Line")
                 {
-                    DataItemLink = "MAWB No."=FIELD("No.");
+                    DataItemLink = "MAWB No." = FIELD("No.");
                     DataItemTableView = SORTING("MAWB No.", "Line No.")
                                         ORDER(Ascending);
                     column(InvoiceRate; InvRate)

@@ -14,7 +14,7 @@ report 50100 "Sales By Dimension"
             }
             dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = "Document No."=FIELD("No.");
+                DataItemLink = "Document No." = FIELD("No.");
                 column(CustName; Customer.Name)
                 {
                 }
@@ -341,55 +341,55 @@ report 50100 "Sales By Dimension"
                 }
                 dataitem("Dimension Set Entry"; "Dimension Set Entry")
                 {
-                    DataItemLink = "Dimension Set ID"=FIELD("Dimension Set ID");
-                    DataItemTableView = WHERE("Dimension Code"=FILTER(PRODUCTGROUP));
-                    column(DimensionSetID_DimensionSetEntry;"Dimension Set Entry"."Dimension Set ID")
+                    DataItemLink = "Dimension Set ID" = FIELD("Dimension Set ID");
+                    DataItemTableView = WHERE("Dimension Code" = FILTER(PRODUCTGROUP));
+                    column(DimensionSetID_DimensionSetEntry; "Dimension Set Entry"."Dimension Set ID")
                     {
                     }
-                    column(DimensionCode_DimensionSetEntry;"Dimension Set Entry"."Dimension Code")
+                    column(DimensionCode_DimensionSetEntry; "Dimension Set Entry"."Dimension Code")
                     {
                     }
-                    column(DimensionValueCode_DimensionSetEntry;"Dimension Set Entry"."Dimension Value Code")
+                    column(DimensionValueCode_DimensionSetEntry; "Dimension Set Entry"."Dimension Value Code")
                     {
                     }
-                    column(DimensionValueID_DimensionSetEntry;"Dimension Set Entry"."Dimension Value ID")
+                    column(DimensionValueID_DimensionSetEntry; "Dimension Set Entry"."Dimension Value ID")
                     {
                     }
-                    column(DimensionName_DimensionSetEntry;"Dimension Set Entry"."Dimension Name")
+                    column(DimensionName_DimensionSetEntry; "Dimension Set Entry"."Dimension Name")
                     {
                     }
-                    column(DimensionValueName_DimensionSetEntry;"Dimension Set Entry"."Dimension Value Name")
+                    column(DimensionValueName_DimensionSetEntry; "Dimension Set Entry"."Dimension Value Name")
                     {
                     }
                 }
 
                 trigger OnAfterGetRecord()
                 begin
-                    Chargeable:=0;
-                    AirlineName:='';
-                    IF "Sales Invoice Line"."Sell-to Customer No."<>'' THEN
-                      Customer.GET("Sales Invoice Line"."Sell-to Customer No.");
+                    Chargeable := 0;
+                    AirlineName := '';
+                    IF "Sales Invoice Line"."Sell-to Customer No." <> '' THEN
+                        Customer.GET("Sales Invoice Line"."Sell-to Customer No.");
 
-                    IF "Sales Invoice Line"."Shortcut Dimension 1 Code"<> '' THEN BEGIN
-                      IF Airline.GET("Sales Invoice Line"."Shortcut Dimension 1 Code") THEN BEGIN
-                        AirlineName:=Airline.Name;
-                      END
+                    IF "Sales Invoice Line"."Shortcut Dimension 1 Code" <> '' THEN BEGIN
+                        IF Airline.GET("Sales Invoice Line"."Shortcut Dimension 1 Code") THEN BEGIN
+                            AirlineName := Airline.Name;
+                        END
                     END;
                     MAWBInvoiceCharge.RESET;
-                    MAWBInvoiceCharge.SETRANGE(MAWBInvoiceCharge."MAWB No.","Sales Invoice Line"."MAWB No.");
+                    MAWBInvoiceCharge.SETRANGE(MAWBInvoiceCharge."MAWB No.", "Sales Invoice Line"."MAWB No.");
                     IF MAWBInvoiceCharge.FINDSET THEN BEGIN
-                      REPEAT
-                        Chargeable+=MAWBInvoiceCharge."Chargeable Weight";
-                      UNTIL MAWBInvoiceCharge.NEXT = 0;
+                        REPEAT
+                            Chargeable += MAWBInvoiceCharge."Chargeable Weight";
+                        UNTIL MAWBInvoiceCharge.NEXT = 0;
                     END;
-                    TotalWeight:=0;
+                    TotalWeight := 0;
                     SalesInvoiceLine.RESET;
-                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."MAWB No.","Sales Invoice Line"."MAWB No.");
-                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."HAWB No.","Sales Invoice Line"."HAWB No.");
+                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."MAWB No.", "Sales Invoice Line"."MAWB No.");
+                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."HAWB No.", "Sales Invoice Line"."HAWB No.");
                     IF SalesInvoiceLine.FINDSET THEN BEGIN
-                      REPEAT
-                        TotalWeight+=SalesInvoiceLine."Split Weight";
-                      UNTIL SalesInvoiceLine.NEXT = 0;
+                        REPEAT
+                            TotalWeight += SalesInvoiceLine."Split Weight";
+                        UNTIL SalesInvoiceLine.NEXT = 0;
                     END;
                     //Message('%1',TotalWeight);
                     //Chargeable:=TotalWeight/CountHouses("Sales Invoice Line"."MAWB No.","Sales Invoice Line"."Sell-to Customer No.","Sales Invoice Line"."HAWB No.");
@@ -435,19 +435,19 @@ report 50100 "Sales By Dimension"
         SalesInvoiceLine: Record "Sales Invoice Line";
         TotalWeight: Decimal;
 
-    local procedure CountHouses(MAWB: Code[50];Shipper: Code[50];hawb: Code[50]) Houses: Integer
+    local procedure CountHouses(MAWB: Code[50]; Shipper: Code[50]; hawb: Code[50]) Houses: Integer
     var
         InvLine: Record 113;
     begin
-        Houses:=0;
+        Houses := 0;
         InvLine.RESET;
-        InvLine.SETRANGE(InvLine."MAWB No.",MAWB);
-        InvLine.SETRANGE(InvLine."Sell-to Customer No.",Shipper);
-        InvLine.SETRANGE(InvLine."HAWB No.",hawb);
+        InvLine.SETRANGE(InvLine."MAWB No.", MAWB);
+        InvLine.SETRANGE(InvLine."Sell-to Customer No.", Shipper);
+        InvLine.SETRANGE(InvLine."HAWB No.", hawb);
         IF InvLine.FINDSET THEN BEGIN
-          REPEAT
-            Houses+=1;
-          UNTIL InvLine.NEXT = 0;
+            REPEAT
+                Houses += 1;
+            UNTIL InvLine.NEXT = 0;
         END;
         //MESSAGE('%1',Houses);
         EXIT(Houses);

@@ -130,6 +130,7 @@ report 50089 "Sales Purch Comp"
                 {
                     field("Show Summarized"; Summary)
                     {
+                        ApplicationArea = All;
 
                         trigger OnLookup(var Text: Text): Boolean
                         begin
@@ -139,6 +140,7 @@ report 50089 "Sales Purch Comp"
                     }
                     field("Show Losses Only"; Losses)
                     {
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin

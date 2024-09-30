@@ -36,8 +36,8 @@ report 50053 "Annual Airline Weight"
             }
             dataitem("Loading Sheet Line"; "Loading Sheet Line")
             {
-                DataItemLink = "Loading Sheet No."=FIELD("No.");
-                DataItemTableView = SORTING("Loading Sheet No.","MAWB No.","Division/Farm Code", "Destination Code", "Line No.", "Consignee Code")
+                DataItemLink = "Loading Sheet No." = FIELD("No.");
+                DataItemTableView = SORTING("Loading Sheet No.", "MAWB No.", "Division/Farm Code", "Destination Code", "Line No.", "Consignee Code")
                                     ORDER(Ascending);
                 column(AirlineName; Airlines.Name)
                 {

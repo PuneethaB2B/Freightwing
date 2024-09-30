@@ -53,6 +53,7 @@ pageextension 50037 MyExtension extends "Purchase Invoice"
             action("Get Dimensions")
             {
                 Image = Find;
+                ApplicationArea = All;
                 trigger OnAction()
                 BEGIN
                     InvLines.RESET;

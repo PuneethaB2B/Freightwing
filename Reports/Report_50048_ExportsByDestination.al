@@ -60,6 +60,7 @@ report 50048 "Exports By Destination"
             {
                 field("Include Detailed"; gBoolInludeDetailed)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

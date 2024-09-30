@@ -11,7 +11,7 @@ report 50086 "Update MAWB Archives"
         {
             dataitem("MAWB Line"; "MAWB Line")
             {
-                DataItemLink = "MAWB No."=FIELD("No.");
+                DataItemLink = "MAWB No." = FIELD("No.");
 
                 trigger OnAfterGetRecord()
                 begin

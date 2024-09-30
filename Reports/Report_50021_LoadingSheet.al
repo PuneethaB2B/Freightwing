@@ -275,25 +275,23 @@ report 50021 "Loading Sheet"
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Loading Sheet Line" DO BEGIN
-                        ULDString := '';
-                        Uldnos := 0;
-                        "Loading Sheet Line".CALCFIELDS("Loading Sheet Line"."FWL Docket Weight");
-                        LoadingSheetULDs.RESET;
-                        LoadingSheetULDs.SETRANGE(LoadingSheetULDs."Loading Sheet No.", "Loading Sheet Line"."Loading Sheet No.");
-                        LoadingSheetULDs.SETRANGE(LoadingSheetULDs."MWAB No.", "Loading Sheet Line"."MAWB No.");
-                        IF LoadingSheetULDs.FINDSET THEN BEGIN
-                            REPEAT
-                                Uldnos += 1;
-                                ULDString := ULDString + LoadingSheetULDs."ULD Type Code" + ' / ' + LoadingSheetULDs."ULD No." + '(' + FORMAT(LoadingSheetULDs."FWL Docket Weight") + ')Kgs';
-                            UNTIL LoadingSheetULDs.NEXT = 0;
-                        END;
-                        Dim := "Loading Sheet Line".Length * "Loading Sheet Line".Width * "Loading Sheet Line".Height;
-                        Flights.RESET;
-                        Flights.SETRANGE(Flights."Flight No.", "Loading Sheet Line"."Flight Code");
-                        IF Flights.FINDFIRST THEN BEGIN
-                            Origin := Flights."Source Airport";
-                        END;
+                    ULDString := '';
+                    Uldnos := 0;
+                    "Loading Sheet Line".CALCFIELDS("Loading Sheet Line"."FWL Docket Weight");
+                    LoadingSheetULDs.RESET;
+                    LoadingSheetULDs.SETRANGE(LoadingSheetULDs."Loading Sheet No.", "Loading Sheet Line"."Loading Sheet No.");
+                    LoadingSheetULDs.SETRANGE(LoadingSheetULDs."MWAB No.", "Loading Sheet Line"."MAWB No.");
+                    IF LoadingSheetULDs.FINDSET THEN BEGIN
+                        REPEAT
+                            Uldnos += 1;
+                            ULDString := ULDString + LoadingSheetULDs."ULD Type Code" + ' / ' + LoadingSheetULDs."ULD No." + '(' + FORMAT(LoadingSheetULDs."FWL Docket Weight") + ')Kgs';
+                        UNTIL LoadingSheetULDs.NEXT = 0;
+                    END;
+                    Dim := "Loading Sheet Line".Length * "Loading Sheet Line".Width * "Loading Sheet Line".Height;
+                    Flights.RESET;
+                    Flights.SETRANGE(Flights."Flight No.", "Loading Sheet Line"."Flight Code");
+                    IF Flights.FINDFIRST THEN BEGIN
+                        Origin := Flights."Source Airport";
                     END;
                 end;
             }

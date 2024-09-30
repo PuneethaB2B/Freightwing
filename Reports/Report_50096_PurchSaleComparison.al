@@ -255,9 +255,11 @@ report 50096 "Purch. Sale Comparison"
                 {
                     field("Show Summary Only"; Summary)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Loss Only"; Losses)
                     {
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin

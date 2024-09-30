@@ -196,39 +196,37 @@ report 50062 "Excemot VAT"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "VAT Entry" DO BEGIN
-                    Name := '';
-                    PIN := '';
-                    Dest := '';
-                    Origin := '';
-                    Desc := '';
-                    IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
-                        SalesCrMemoLine.RESET;
-                        SalesCrMemoLine.SETRANGE(SalesCrMemoLine."Document No.", "VAT Entry"."Document No.");
-                        SalesCrMemoLine.SETRANGE(SalesCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF SalesCrMemoLine.FINDFIRST THEN BEGIN
-                            Desc := SalesCrMemoLine.Description;
-                            SalesCrMemoHeader.GET(SalesCrMemoLine."Document No.");
-                            IF Cust.GET(SalesCrMemoHeader."Bill-to Customer No.") THEN BEGIN
-                                Name := Cust.Name;
-                                PIN := Cust."VAT Registration No.";
+                Name := '';
+                PIN := '';
+                Dest := '';
+                Origin := '';
+                Desc := '';
+                IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
+                    SalesCrMemoLine.RESET;
+                    SalesCrMemoLine.SETRANGE(SalesCrMemoLine."Document No.", "VAT Entry"."Document No.");
+                    SalesCrMemoLine.SETRANGE(SalesCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF SalesCrMemoLine.FINDFIRST THEN BEGIN
+                        Desc := SalesCrMemoLine.Description;
+                        SalesCrMemoHeader.GET(SalesCrMemoLine."Document No.");
+                        IF Cust.GET(SalesCrMemoHeader."Bill-to Customer No.") THEN BEGIN
+                            Name := Cust.Name;
+                            PIN := Cust."VAT Registration No.";
 
-                            END;
                         END;
-                    END ELSE BEGIN
-                        InvLine.RESET;
-                        InvLine.SETRANGE(InvLine."Document No.", "VAT Entry"."Document No.");
-                        InvLine.SETRANGE(InvLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF InvLine.FINDFIRST THEN BEGIN
-                            Desc := InvLine.Description;
-                            SalesInvoiceHeader.GET(InvLine."Document No.");
-                            IF Cust.GET(SalesInvoiceHeader."Bill-to Customer No.") THEN BEGIN
-                                Name := Cust.Name;
-                                PIN := Cust."VAT Registration No.";
-                            END;
-                        END;
-
                     END;
+                END ELSE BEGIN
+                    InvLine.RESET;
+                    InvLine.SETRANGE(InvLine."Document No.", "VAT Entry"."Document No.");
+                    InvLine.SETRANGE(InvLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF InvLine.FINDFIRST THEN BEGIN
+                        Desc := InvLine.Description;
+                        SalesInvoiceHeader.GET(InvLine."Document No.");
+                        IF Cust.GET(SalesInvoiceHeader."Bill-to Customer No.") THEN BEGIN
+                            Name := Cust.Name;
+                            PIN := Cust."VAT Registration No.";
+                        END;
+                    END;
+
                 END;
             end;
 

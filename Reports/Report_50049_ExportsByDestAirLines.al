@@ -72,6 +72,7 @@ report 50049 "Exports By Dest. AirLines"
             {
                 field("Include Detailed"; gBoolInludeDetailed)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

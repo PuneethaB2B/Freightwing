@@ -41,7 +41,7 @@ report 50002 "FWL Check"
         }
         dataitem(GenJnlLine; "Gen. Journal Line")
         {
-            DataItemTableView = SORTING("Journal Template Name","Journal Batch Name", "Posting Date", "Document No.");
+            DataItemTableView = SORTING("Journal Template Name", "Journal Batch Name", "Posting Date", "Document No.");
             column(JournalTempName_GenJnlLine; "Journal Template Name")
             {
             }

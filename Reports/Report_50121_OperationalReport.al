@@ -171,7 +171,7 @@ report 50121 "Operational Report"
         {
             dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = "Good Receipt No."=FIELD("No.");
+                DataItemLink = "Good Receipt No." = FIELD("No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }
@@ -257,7 +257,7 @@ report 50121 "Operational Report"
             }
             dataitem("Loading Sheet Line"; "Loading Sheet Line")
             {
-                DataItemLink = "Loading Sheet No."=FIELD("No.");
+                DataItemLink = "Loading Sheet No." = FIELD("No.");
                 column(ULDWeight_LoadingSheetLine; gRecLoadingSheetULDAlloc."FWL Docket Weight")
                 {
                 }

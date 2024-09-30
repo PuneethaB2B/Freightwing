@@ -1212,7 +1212,7 @@ report 50031 "Sales Invoice"
         TotalAmountInclVAT: Decimal;
         TotalAmountVAT: Decimal;
         TotalInvDiscAmount: Decimal;
-        TotalPaymentDiscOnVAT: Decimal;   
+        TotalPaymentDiscOnVAT: Decimal;
         LogInteractionEnable: Boolean;
         DisplayAssemblyInformation: Boolean;
         CompanyInfoPhoneNoCaptionLbl: Label 'Phone No.';

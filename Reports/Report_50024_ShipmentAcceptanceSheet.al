@@ -127,7 +127,7 @@ report 50024 "Shipment Acceptance Sheet"
             }
             dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = "Good Receipt No."=FIELD("No.");
+                DataItemLink = "Good Receipt No." = FIELD("No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }

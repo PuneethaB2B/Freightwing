@@ -198,44 +198,42 @@ report 50058 "General Rated Sales"
 
             trigger OnAfterGetRecord()
             begin
-                WITH "VAT Entry" DO BEGIN
-                    CrMemoNo := '';
-                    CrMemoDate := 0D;
-                    Desc := '';
-                    IF "VAT Entry"."Bill-to/Pay-to No." <> '' THEN
-                        Vendors.GET("Bill-to/Pay-to No.");
-                    GLEnt.RESET;
-                    GLEnt.SETRANGE(GLEnt."Document No.", "VAT Entry"."Document No.");
-                    GLEnt.SETRANGE(GLEnt."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                    GLEnt.FINDFIRST;
+                CrMemoNo := '';
+                CrMemoDate := 0D;
+                Desc := '';
+                IF "VAT Entry"."Bill-to/Pay-to No." <> '' THEN
+                    Vendors.GET("VAT Entry"."Bill-to/Pay-to No.");
+                GLEnt.RESET;
+                GLEnt.SETRANGE(GLEnt."Document No.", "VAT Entry"."Document No.");
+                GLEnt.SETRANGE(GLEnt."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                GLEnt.FINDFIRST;
 
-                    //******CHeck Credit Memo
-                    IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
-                        SalesCrMemoHeader.RESET;
-                        SalesCrMemoHeader.SETRANGE(SalesCrMemoHeader."No.", "VAT Entry"."Document No.");
-                        IF SalesCrMemoHeader.FIND('-') THEN BEGIN
-                            CrMemoNo := SalesCrMemoHeader."Applies-to Doc. No.";
-                            IF SalesInvoiceHeader.GET(CrMemoNo) THEN
-                                CrMemoDate := SalesInvoiceHeader."Document Date";
-                        END;
+                //******CHeck Credit Memo
+                IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::"Credit Memo" THEN BEGIN
+                    SalesCrMemoHeader.RESET;
+                    SalesCrMemoHeader.SETRANGE(SalesCrMemoHeader."No.", "VAT Entry"."Document No.");
+                    IF SalesCrMemoHeader.FIND('-') THEN BEGIN
+                        CrMemoNo := SalesCrMemoHeader."Applies-to Doc. No.";
+                        IF SalesInvoiceHeader.GET(CrMemoNo) THEN
+                            CrMemoDate := SalesInvoiceHeader."Document Date";
                     END;
-                    //***
-                    IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::Invoice THEN BEGIN
-                        SalesInvoiceLine.RESET;
-                        SalesInvoiceLine.SETRANGE(SalesInvoiceLine."Document No.", "VAT Entry"."Document No.");
-                        SalesInvoiceLine.SETRANGE(SalesInvoiceLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF SalesInvoiceLine.FINDFIRST THEN BEGIN
-                            Desc := SalesInvoiceLine.Description;
-                        END;
-                    END ELSE BEGIN
-                        SalesCrMemoLine.RESET;
-                        SalesCrMemoLine.SETRANGE(SalesCrMemoLine."Document No.", "VAT Entry"."Document No.");
-                        SalesCrMemoLine.SETRANGE(SalesCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
-                        IF SalesCrMemoLine.FINDFIRST THEN BEGIN
-                            Desc := SalesCrMemoLine.Description;
-                        END;
+                END;
+                //***
+                IF "VAT Entry"."Document Type" = "VAT Entry"."Document Type"::Invoice THEN BEGIN
+                    SalesInvoiceLine.RESET;
+                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."Document No.", "VAT Entry"."Document No.");
+                    SalesInvoiceLine.SETRANGE(SalesInvoiceLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF SalesInvoiceLine.FINDFIRST THEN BEGIN
+                        Desc := SalesInvoiceLine.Description;
+                    END;
+                END ELSE BEGIN
+                    SalesCrMemoLine.RESET;
+                    SalesCrMemoLine.SETRANGE(SalesCrMemoLine."Document No.", "VAT Entry"."Document No.");
+                    SalesCrMemoLine.SETRANGE(SalesCrMemoLine."VAT Prod. Posting Group", "VAT Entry"."VAT Prod. Posting Group");
+                    IF SalesCrMemoLine.FINDFIRST THEN BEGIN
+                        Desc := SalesCrMemoLine.Description;
+                    END;
 
-                    END;
                 END;
             end;
 

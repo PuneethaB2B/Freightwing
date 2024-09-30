@@ -36,6 +36,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
                 {
                     Image = Report;
                     RunObject = codeunit 50034;
+                    ApplicationArea = All;
                     trigger OnAction()
                     begin
                         //gCduReportOperation.RUN;
@@ -46,6 +47,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
                     captionML = ENU = 'Customer Statement';
                     Image = Report;
                     RunObject = report 116;
+                    ApplicationArea = All;
                 }
 
             }
