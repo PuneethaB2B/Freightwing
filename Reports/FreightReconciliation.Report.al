@@ -6,13 +6,13 @@ report 50082 "Freight Reconciliation"
 
     dataset
     {
-        dataitem(DataItem1000000009; Table50077)
+        dataitem("MAWB Header 2"; "MAWB Header 2")
         {
-            DataItemTableView = SORTING(No.);
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.";
-            dataitem(DataItem1000000000; Table123)
+            dataitem("Purch. Inv. Line"; "Purch. Inv. Line")
             {
-                DataItemLink = Payment Voucher No.=FIELD(No.);
+                DataItemLink = "Payment Voucher No." = FIELD("No.");
                 column(AirLineCode; "Purch. Inv. Line"."Shortcut Dimension 1 Code")
                 {
                 }
@@ -173,23 +173,23 @@ report 50082 "Freight Reconciliation"
     }
 
     var
-        gRecMAWBLine: Record "50076";
-        gRecCountry: Record "9";
+        gRecMAWBLine: Record "MAWB Line";
+        gRecCountry: Record "Country/Region";
         gRecDestination: Text[50];
-        gRecPurchInvHr: Record "122";
-        gRecPurchCrLine: Record "125";
+        gRecPurchInvHr: Record "Purch. Inv. Header";
+        gRecPurchCrLine: Record "Purch. Cr. Memo Line";
         gBoolIsCreditMemo: Boolean;
-        gRecFreightItemChargeMatrix: Record "50029";
+        gRecFreightItemChargeMatrix: Record "Freight Item Charge Matrix";
         gDecMasterRate: Decimal;
         gDecFWLAmount: Decimal;
         gDecDifferenceWeight: Decimal;
         gDecDiffAmount: Decimal;
-        gRecVendor: Record "23";
+        gRecVendor: Record Vendor;
         gCodeTempMawbNo: Code[30];
-        gRecSalesInvHr: Record "112";
+        gRecSalesInvHr: Record "Sales Invoice Header";
         gDecAirLineRate: Decimal;
-        gRecCustomer: Record "18";
+        gRecCustomer: Record Customer;
         gTextBilltoName: Text[50];
-        gRecAirport: Record "50019";
+        gRecAirport: Record Airport;
 }
 

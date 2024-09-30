@@ -7,7 +7,7 @@ report 50021 "Loading Sheet"
 
     dataset
     {
-        dataitem(DataItem1; Table50060)
+        dataitem("Loading Sheet Header"; "Loading Sheet Header")
         {
             column(Logo; CompanyInfo.Picture)
             {
@@ -87,9 +87,9 @@ report 50021 "Loading Sheet"
             column(PostedBy_LoadingSheetHeader; "Loading Sheet Header"."Posted By")
             {
             }
-            dataitem(DataItem25; Table50061)
+            dataitem("Loading Sheet Line"; "Loading Sheet Line")
             {
-                DataItemLink = Loading Sheet No.=FIELD(No.);
+                DataItemLink = "Loading Sheet No." = FIELD("No.");
                 column(Dimension; Dim)
                 {
                 }
@@ -222,93 +222,90 @@ report 50021 "Loading Sheet"
                 column(ConsigneeName_LoadingSheetLine; "Loading Sheet Line"."Consignee Name")
                 {
                 }
-                dataitem(DataItem1000000002; Table50063)
+                dataitem("Loading Sheet ULD Allocation"; "Loading Sheet ULD Allocation")
                 {
-                    DataItemLink = Loading Sheet No.=FIELD(Loading Sheet No.),
-                                   Airline Code=FIELD(Airline Code),
-                                   Item No.=FIELD(Item No.),
-                                   MWAB No.=FIELD(MAWB No.),
-                                   FAM=FIELD(Division/Farm Code);
-                    column(LoadingSheetNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."Loading Sheet No.")
+                    DataItemLink = "Loading Sheet No." = FIELD("Loading Sheet No."),
+                                   "Airline Code" = FIELD("Airline Code"),
+                                   "Item No." = FIELD("Item No."),
+                                   "MWAB No." = FIELD("MAWB No."),
+                                   FAM = FIELD("Division/Farm Code");
+                    column(LoadingSheetNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."Loading Sheet No.")
                     {
                     }
-                    column(AirlineCode_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."Airline Code")
+                    column(AirlineCode_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."Airline Code")
                     {
                     }
-                    column(ULDTypeCode_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."ULD Type Code")
+                    column(ULDTypeCode_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."ULD Type Code")
                     {
                     }
-                    column(Quantity_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation".Quantity)
+                    column(Quantity_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation".Quantity)
                     {
                     }
-                    column(ItemNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."Item No.")
+                    column(ItemNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."Item No.")
                     {
                     }
-                    column(ULDNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."ULD No.")
+                    column(ULDNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."ULD No.")
                     {
                     }
-                    column(Remarks_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation".Remarks)
+                    column(Remarks_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation".Remarks)
                     {
                     }
-                    column(LineNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."Line No")
+                    column(LineNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."Line No")
                     {
                     }
-                    column(FWLDocketWeight_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."FWL Docket Weight")
+                    column(FWLDocketWeight_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."FWL Docket Weight")
                     {
                     }
-                    column(MWABNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."MWAB No.")
+                    column(MWABNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."MWAB No.")
                     {
                     }
-                    column(FWLDocketNo_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."FWL Docket No.")
+                    column(FWLDocketNo_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."FWL Docket No.")
                     {
                     }
-                    column(FAM_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation".FAM)
+                    column(FAM_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation".FAM)
                     {
                     }
-                    column(NoOfBoxes_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation"."No. Of Boxes")
+                    column(NoOfBoxes_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation"."No. Of Boxes")
                     {
                     }
-                    column(Dimension_LoadingSheetULDAllocation;"Loading Sheet ULD Allocation".Dimension)
+                    column(Dimension_LoadingSheetULDAllocation; "Loading Sheet ULD Allocation".Dimension)
                     {
                     }
                 }
 
                 trigger OnAfterGetRecord()
                 begin
-                    WITH "Loading Sheet Line" DO
-                    BEGIN
-                        ULDString :='';
-                        Uldnos:=0;
-                       "Loading Sheet Line".CALCFIELDS("Loading Sheet Line"."FWL Docket Weight");
-                      LoadingSheetULDs.RESET;
-                      LoadingSheetULDs.SETRANGE(LoadingSheetULDs."Loading Sheet No.","Loading Sheet Line"."Loading Sheet No.");
-                      LoadingSheetULDs.SETRANGE(LoadingSheetULDs."MWAB No.","Loading Sheet Line"."MAWB No.");
-                      IF LoadingSheetULDs.FINDSET THEN
-                      BEGIN
-                        REPEAT
-                          Uldnos+=1;
-                          ULDString :=ULDString+LoadingSheetULDs."ULD Type Code"+' / '+LoadingSheetULDs."ULD No."+'('+FORMAT(LoadingSheetULDs."FWL Docket Weight")+')Kgs';
-                        UNTIL LoadingSheetULDs.NEXT = 0;
-                      END;
-                      Dim:="Loading Sheet Line".Length*"Loading Sheet Line".Width*"Loading Sheet Line".Height;
-                      Flights.RESET;
-                      Flights.SETRANGE(Flights."Flight No.","Loading Sheet Line"."Flight Code");
-                      IF Flights.FINDFIRST THEN
-                      BEGIN
-                        Origin:=Flights."Source Airport";
-                      END;
+                    WITH "Loading Sheet Line" DO BEGIN
+                        ULDString := '';
+                        Uldnos := 0;
+                        "Loading Sheet Line".CALCFIELDS("Loading Sheet Line"."FWL Docket Weight");
+                        LoadingSheetULDs.RESET;
+                        LoadingSheetULDs.SETRANGE(LoadingSheetULDs."Loading Sheet No.", "Loading Sheet Line"."Loading Sheet No.");
+                        LoadingSheetULDs.SETRANGE(LoadingSheetULDs."MWAB No.", "Loading Sheet Line"."MAWB No.");
+                        IF LoadingSheetULDs.FINDSET THEN BEGIN
+                            REPEAT
+                                Uldnos += 1;
+                                ULDString := ULDString + LoadingSheetULDs."ULD Type Code" + ' / ' + LoadingSheetULDs."ULD No." + '(' + FORMAT(LoadingSheetULDs."FWL Docket Weight") + ')Kgs';
+                            UNTIL LoadingSheetULDs.NEXT = 0;
+                        END;
+                        Dim := "Loading Sheet Line".Length * "Loading Sheet Line".Width * "Loading Sheet Line".Height;
+                        Flights.RESET;
+                        Flights.SETRANGE(Flights."Flight No.", "Loading Sheet Line"."Flight Code");
+                        IF Flights.FINDFIRST THEN BEGIN
+                            Origin := Flights."Source Airport";
+                        END;
                     END;
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                         CompanyInfo.CALCFIELDS(Picture);
+                CompanyInfo.CALCFIELDS(Picture);
             end;
 
             trigger OnPreDataItem()
             begin
-                          CompanyInfo.GET;
+                CompanyInfo.GET;
             end;
         }
     }
@@ -330,12 +327,12 @@ report 50021 "Loading Sheet"
     }
 
     var
-        CompanyInfo: Record "79";
-        LoadingSheetULDs: Record "50063";
+        CompanyInfo: Record "Company Information";
+        LoadingSheetULDs: Record "Loading Sheet ULD Allocation";
         Uldnos: Integer;
         ULDString: Text[250];
         Dim: Decimal;
         Origin: Code[10];
-        Flights: Record "50022";
+        Flights: Record Flight;
 }
 

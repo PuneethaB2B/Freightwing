@@ -7,7 +7,7 @@ report 50075 "Airline Freight Rates"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50029)
+        dataitem("Freight Item Charge Matrix"; "Freight Item Charge Matrix")
         {
             RequestFilterFields = "Airline Code", "Destination Airport", "Effective Start Date", "Effective End Date";
             column(AirlineCode_FreightItemChargeMatrix; "Freight Item Charge Matrix"."Airline Code")
@@ -103,10 +103,10 @@ report 50075 "Airline Freight Rates"
     }
 
     var
-        Item: Record "27";
+        Item: Record 27;
         Ok: Boolean;
-        CompanyInformation: Record "79";
+        CompanyInformation: Record 79;
         Filters: Text[250];
-        FreightCharge: Record "50018";
+        FreightCharge: Record 50018;
 }
 

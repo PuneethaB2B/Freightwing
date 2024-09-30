@@ -6,7 +6,7 @@ report 50032 "IATA Reconciliation"
 
     dataset
     {
-        dataitem(DataItem1; Table50016)
+        dataitem("IATA Purchase Invoice"; "IATA Purchase Invoice")
         {
             RequestFilterFields = "Airline Invoice No", "MAWB No.";
             column(IATAInvoiceDate_IATAPurchaseInvoice; "IATA Purchase Invoice"."Airline Invoice Date")
@@ -141,11 +141,11 @@ report 50032 "IATA Reconciliation"
     end;
 
     var
-        CompInfo: Record "79";
+        CompInfo: Record "Company Information";
         PageCaptionCap: Label 'Page %1 of %2';
-        LoadingSheetHeader: Record "50060";
-        BookingSheetMAWBAllocation: Record "50070";
-        Customer: Record "18";
-        Item: Record "27";
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        Customer: Record Customer;
+        Item: Record Item;
 }
 

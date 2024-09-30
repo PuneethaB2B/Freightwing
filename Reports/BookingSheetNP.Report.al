@@ -6,7 +6,7 @@ report 50004 "Booking Sheet NP"
 
     dataset
     {
-        dataitem(DataItem1; Table50057)
+        dataitem("Booking Sheet Notify Party"; "Booking Sheet Notify Party")
         {
             column(BookingSheetNo_BookingSheetNotifyParty; "Booking Sheet Notify Party"."Booking Sheet No.")
             {
@@ -41,9 +41,9 @@ report 50004 "Booking Sheet NP"
             column(CompName; CompanyInfo.Name)
             {
             }
-            dataitem(DataItem48; Table50053)
+            dataitem("Booking Sheet Header"; "Booking Sheet Header")
             {
-                DataItemLink = No.=FIELD(Booking Sheet No.);
+                DataItemLink = "No." = FIELD("Booking Sheet No.");
                 RequestFilterFields = "No.";
                 column(No_BookingSheetHeader; "Booking Sheet Header"."No.")
                 {
@@ -123,9 +123,9 @@ report 50004 "Booking Sheet NP"
                 column(TypeofDelivery_BookingSheetHeader; "Booking Sheet Header"."Type of Delivery")
                 {
                 }
-                dataitem(DataItem11; Table50054)
+                dataitem("Booking Sheet Line"; "Booking Sheet Line")
                 {
-                    DataItemLink = Booking Sheet No.=FIELD(No.);
+                    DataItemLink = "Booking Sheet No." = FIELD("No.");
                     column(Description_BookingSheetLine; "Booking Sheet Line".Description)
                     {
                     }
@@ -256,6 +256,6 @@ report 50004 "Booking Sheet NP"
     end;
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

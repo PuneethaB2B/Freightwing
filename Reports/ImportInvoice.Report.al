@@ -7,7 +7,7 @@ report 50095 "Import Invoice"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table36)
+        dataitem("Sales Header"; "Sales Header")
         {
             column(Logo; CompanyInfo.Picture)
             {
@@ -429,7 +429,7 @@ report 50095 "Import Invoice"
             column(CampaignNo_SalesHeader; "Sales Header"."Campaign No.")
             {
             }
-            column(SelltoCustomerTemplateCode_SalesHeader; "Sales Header"."Sell-to Customer Template Code")
+            column(SelltoCustomerTemplateCode_SalesHeader; "Sales Header"."Sell-to Customer Templ. Code")
             {
             }
             column(SelltoContactNo_SalesHeader; "Sales Header"."Sell-to Contact No.")
@@ -438,7 +438,7 @@ report 50095 "Import Invoice"
             column(BilltoContactNo_SalesHeader; "Sales Header"."Bill-to Contact No.")
             {
             }
-            column(BilltoCustomerTemplateCode_SalesHeader; "Sales Header"."Bill-to Customer Template Code")
+            column(BilltoCustomerTemplateCode_SalesHeader; "Sales Header"."Bill-to Customer Templ. Code")
             {
             }
             column(OpportunityNo_SalesHeader; "Sales Header"."Opportunity No.")
@@ -540,9 +540,9 @@ report 50095 "Import Invoice"
             column(CCPP_SalesHeader; "Sales Header"."CC/PP")
             {
             }
-            dataitem(DataItem1000000169; Table37)
+            dataitem("Sales Line"; "Sales Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No."=FIELD("No.");
                 column(DocumentType_SalesLine; "Sales Line"."Document Type")
                 {
                 }
@@ -939,16 +939,16 @@ report 50095 "Import Invoice"
                 column(OriginallyOrderedVarCode_SalesLine; "Sales Line"."Originally Ordered Var. Code")
                 {
                 }
-                column(CrossReferenceNo_SalesLine; "Sales Line"."Cross-Reference No.")
+                column(CrossReferenceNo_SalesLine; "Sales Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_SalesLine; "Sales Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_SalesLine; "Sales Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_SalesLine; "Sales Line"."Cross-Reference Type")
+                column(CrossReferenceType_SalesLine; "Sales Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_SalesLine; "Sales Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_SalesLine; "Sales Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_SalesLine; "Sales Line"."Item Category Code")
@@ -960,9 +960,9 @@ report 50095 "Import Invoice"
                 column(PurchasingCode_SalesLine; "Sales Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_SalesLine; "Sales Line"."Product Group Code")
+                column(ProductGroupCode_SalesLine; "Sales Line"."Item Category Code")
                 {
-                }
+                }//B22BUPG
                 column(SpecialOrder_SalesLine; "Sales Line"."Special Order")
                 {
                 }
@@ -1151,14 +1151,14 @@ report 50095 "Import Invoice"
     }
 
     var
-        CompanyInfo: Record "79";
-        PreAlertHeader: Record "50030";
+        CompanyInfo: Record "Company Information";
+        PreAlertHeader: Record "Pre Alert Header";
         ArrivalDate: Date;
-        Item: Record "27";
+        Item: Record Item;
         Qty: Decimal;
         FileNo: Code[200];
         Carrier: Code[200];
         Weight: Decimal;
-        ImportExportSetup: Record "50010";
+        ImportExportSetup: Record "Import/Export Setup";
 }
 

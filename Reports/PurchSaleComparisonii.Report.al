@@ -7,9 +7,9 @@ report 50091 "Purch. Sale Comparison ii"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
-            DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE("MAWB No."=FILTER(<>''));
             RequestFilterFields = "Airline Code","MAWB No.";
             column(AirlineCode_MAWBReceipt;"MAWB Receipt"."Airline Code")
             {
@@ -44,9 +44,9 @@ report 50091 "Purch. Sale Comparison ii"
             column(Loss;Losses)
             {
             }
-            dataitem(DataItem1000000001;Table112)
+            dataitem("Sales Invoice Header";"Sales Invoice Header")
             {
-                DataItemLink = External Document No.=FIELD(MAWB No.);
+                DataItemLink = "External Document No."=FIELD("MAWB No.");
                 RequestFilterFields = "Bill-to Customer No.","Posting Date";
                 column(PurchCreditMemoAmount;PurchCreditMemoAmount)
                 {
@@ -129,10 +129,10 @@ report 50091 "Purch. Sale Comparison ii"
                 column(SalesCreditMemoAmount;SalesCreditMemoAmount)
                 {
                 }
-                dataitem(DataItem1000000002;Table113)
+                dataitem("Sales Invoice Line";"Sales Invoice Line")
                 {
-                    DataItemLink = Document No.=FIELD(No.);
-                    DataItemTableView = SORTING(Document No.,Line No.)
+                    DataItemLink = "Document No."=FIELD("No.");
+                    DataItemTableView = SORTING("Document No.","Line No.")
                                         ORDER(Ascending);
                     column(SelltoCustomerNo_SalesInvoiceLine;"Sales Invoice Line"."Sell-to Customer No.")
                     {
@@ -311,21 +311,21 @@ report 50091 "Purch. Sale Comparison ii"
         Vendor: Text[250];
         CrMemoNo: Code[50];
         PPdate: Date;
-        FreightCharge: Record "50018";
+        FreightCharge: Record "Freight Charge";
         Summary: Boolean;
         Losses: Boolean;
-        Airline: Record "50021";
+        Airline: Record Airline;
         LineMant: Decimal;
-        Header: Record "112";
+        Header: Record "Sales Invoice Header";
         SaleLineAmntLCY: Decimal;
         PurchLineAmntLCY: Decimal;
 
     local procedure GetPurchaseAmount(Mawb: Code[50];ChargeCode: Code[50]) PurchAmount: Decimal
     var
-        PurchInvHeader: Record "122";
-        PurchInvLine: Record "123";
-        PurchCrMemoHdr2: Record "124";
-        PurchCrMemoLine2: Record "125";
+        PurchInvHeader: Record "Purch. Inv. Header";
+        PurchInvLine: Record "Purch. Inv. Line";
+        PurchCrMemoHdr2: Record "Purch. Cr. Memo Hdr.";
+        PurchCrMemoLine2: Record "Purch. Cr. Memo Line";
     begin
         InvNo12:='';
         Vendor:='';
@@ -381,8 +381,8 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetSalesCreditMemoTotal(InvoiceNo: Code[50]) CreditMemoAmount: Decimal
     var
-        SalesCrMemoHeader: Record "114";
-        SalesCrMemoLine: Record "115";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
     begin
         CreditMemoAmount:=0;
         CrMemoNo:='';
@@ -402,9 +402,9 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetPurchaseCreditMemoTotal(MAWBNo: Code[50];Charge: Code[10]) PurchCrMemoAmnt: Decimal
     var
-        PurchCrMemoHdr: Record "124";
-        PurchInvLine1: Record "123";
-        PurchCrMemoLine12: Record "125";
+        PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
+        PurchInvLine1: Record "Purch. Inv. Line";
+        PurchCrMemoLine12: Record "Purch. Cr. Memo Line";
     begin
         PurchCrMemoLine12.RESET;
         PurchCrMemoLine12.SETRANGE(PurchCrMemoLine12."Payment Voucher No.",MAWBNo);
@@ -438,7 +438,7 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetMawbCreditNote(MAWB23: Code[50]) TotalCredit: Decimal
     var
-        InvHeader: Record "112";
+        InvHeader: Record "Sales Invoice Header";
     begin
         InvHeader.RESET;
         InvHeader.SETRANGE(InvHeader."MAWB No.",MAWB23);
@@ -452,7 +452,7 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetNumberofHouses(mawb24: Code[50]) Houses: Integer
     var
-        HAWBLine: Record "50074";
+        HAWBLine: Record "HAWB Line";
     begin
         HAWBLine.RESET;
         HAWBLine.SETRANGE(HAWBLine."MAWB No.",mawb24);
@@ -471,7 +471,7 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetInvoiceLinesCount(MAWB2: Code[50];Inno: Code[50]) LinesCount: Integer
     var
-        SalesInvoiceLine2: Record "113";
+        SalesInvoiceLine2: Record "Sales Invoice Line";
     begin
         SalesInvoiceLine2.RESET;
         SalesInvoiceLine2.SETRANGE(SalesInvoiceLine2."MAWB No.",MAWB2);
@@ -486,8 +486,8 @@ report 50091 "Purch. Sale Comparison ii"
 
     local procedure GetPurchCrMemoLine(PurchInvNo: Code[50];Amount: Decimal) LineCredit: Decimal
     var
-        PurchCrMemoHdr1: Record "124";
-        PurchCrMemoLine1: Record "125";
+        PurchCrMemoHdr1: Record "Purch. Cr. Memo Hdr.";
+        PurchCrMemoLine1: Record "Purch. Cr. Memo Line";
     begin
         LineCredit:=0;
         PurchCrMemoHdr1.RESET;

@@ -7,9 +7,9 @@ report 50009 "Customer - Summary AgingCopy"
 
     dataset
     {
-        dataitem(DataItem6836; Table18)
+        dataitem(Customer; Customer)
         {
-            DataItemTableView = SORTING(No.);
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Search Name", "Customer Posting Group", "Currency Filter", "Salesperson Code";
             column(COMPANYNAME; COMPANYNAME)
             {
@@ -142,7 +142,7 @@ report 50009 "Customer - Summary AgingCopy"
             column(Total_LCY_Caption; Total_LCY_CaptionLbl)
             {
             }
-            dataitem(DataItem5444; Table2000000026)
+            dataitem(Integer; Integer)
             {
                 DataItemTableView = SORTING(Number)
                                     WHERE(Number = FILTER(1 ..));
@@ -188,7 +188,7 @@ report 50009 "Customer - Summary AgingCopy"
 
                 trigger OnAfterGetRecord()
                 var
-                    DtldCustLedgEntry: Record "379";
+                    DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
                 begin
                     IF Number = 1 THEN
                         Currency2.FIND('-')
@@ -233,7 +233,7 @@ report 50009 "Customer - Summary AgingCopy"
 
             trigger OnAfterGetRecord()
             var
-                DtldCustLedgEntry: Record "379";
+                DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
             begin
                 PrintLine := FALSE;
                 LineTotalCustBalance := 0;
@@ -330,8 +330,8 @@ report 50009 "Customer - Summary AgingCopy"
     end;
 
     var
-        Currency: Record "4";
-        Currency2: Record "4" temporary;
+        Currency: Record Currency;
+        Currency2: Record Currency temporary;
         CustFilter: Text;
         PrintAmountsInLCY: Boolean;
         PeriodLength: DateFormula;

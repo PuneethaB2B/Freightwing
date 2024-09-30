@@ -6,10 +6,10 @@ report 50054 "Exports By Cust. Destination"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
-            DataItemTableView = WHERE(Bill-to Name=FILTER(<>''),
-                                      MAWB No.=FILTER(<>''));
+            DataItemTableView = WHERE("Bill-to Name"=FILTER(<>''),
+                                      "MAWB No."=FILTER(<>''));
             RequestFilterFields = "Bill-to Customer No.";
             column(Company_Address;gRecCompanyInfo.Address)
             {
@@ -29,10 +29,10 @@ report 50054 "Exports By Cust. Destination"
             column(IncludeDetailed;gBoolInludeDetailed)
             {
             }
-            dataitem(DataItem1000000001;Table50077)
+            dataitem("MAWB Header 2";"MAWB Header 2")
             {
-                CalcFields = Total Quantity;
-                DataItemLink = No.=FIELD(MAWB No.);
+                CalcFields = "Total Quantity";
+                DataItemLink = "No."=FIELD("MAWB No.");
                 column(Destination_Ariport;"MAWB Header 2"."Destination Airport")
                 {
                 }
@@ -81,7 +81,7 @@ report 50054 "Exports By Cust. Destination"
     end;
 
     var
-        gRecCompanyInfo: Record "79";
+        gRecCompanyInfo: Record "Company Information";
         gBoolInludeDetailed: Boolean;
 }
 

@@ -7,7 +7,7 @@ report 50018 "Goods Receipt Note"
 
     dataset
     {
-        dataitem(DataItem1; Table50052)
+        dataitem("Good Receipt Header"; "Good Receipt Header")
         {
             RequestFilterFields = "No.";
             column(Name; CompanyInfo.Name)
@@ -121,9 +121,9 @@ report 50018 "Goods Receipt Note"
             column(DeliveryDate_GoodReceiptHeader; "Good Receipt Header"."Delivery Date")
             {
             }
-            dataitem(DataItem29; Table50051)
+            dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = Good Receipt No.=FIELD(No.);
+                DataItemLink = "Good Receipt No." = FIELD("No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }
@@ -278,6 +278,6 @@ report 50018 "Goods Receipt Note"
     }
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

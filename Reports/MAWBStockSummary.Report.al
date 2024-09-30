@@ -7,7 +7,7 @@ report 50044 "MAWB Stock Summary"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50038)
+        dataitem("MAWB By Airline"; "MAWB By Airline")
         {
             column(CompanyAddress; CompanyInfo.Address)
             {
@@ -36,10 +36,10 @@ report 50044 "MAWB Stock Summary"
             column(KAAFees_MAWBByAirline; "MAWB By Airline"."KAA Fees")
             {
             }
-            dataitem(DataItem1000000006; Table50039)
+            dataitem("MAWB Receipt"; "MAWB Receipt")
             {
-                DataItemLink = Airline Code=FIELD(Airline Code);
-                DataItemTableView = SORTING(Airline Code, MAWB No.)
+                DataItemLink = "Airline Code" = FIELD("Airline Code");
+                DataItemTableView = SORTING("Airline Code", "MAWB No.")
                                     ORDER(Ascending);
                 column(AirlineCode_MAWBReceipt; "MAWB Receipt"."Airline Code")
                 {
@@ -113,6 +113,6 @@ report 50044 "MAWB Stock Summary"
     }
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

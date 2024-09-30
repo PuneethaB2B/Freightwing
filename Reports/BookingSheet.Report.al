@@ -7,7 +7,7 @@ report 50019 "Booking Sheet"
 
     dataset
     {
-        dataitem(DataItem1; Table50053)
+        dataitem("Booking Sheet Header"; "Booking Sheet Header")
         {
             RequestFilterFields = "Booking Date", "Shipper Code";
             column(Total; Total)
@@ -109,9 +109,9 @@ report 50019 "Booking Sheet"
             column(PrepBy; "Prepared By")
             {
             }
-            dataitem(DataItem1000000001; Table50054)
+            dataitem("Booking Sheet Line"; "Booking Sheet Line")
             {
-                DataItemLink = Booking Sheet No.=FIELD(No.);
+                DataItemLink = "Booking Sheet No."=FIELD("No.");
                 column(DestinationString; Destination)
                 {
                 }
@@ -250,15 +250,15 @@ report 50019 "Booking Sheet"
                 column(ShipmentDeliveryTime_BookingSheetLine; "Booking Sheet Line"."Shipment Delivery Time")
                 {
                 }
-                dataitem(DataItem1000000051; Table50070)
+                dataitem("Booking Sheet MAWB Allocation"; "Booking Sheet MAWB Allocation")
                 {
-                    DataItemLink = Booking Sheet No=FIELD(Booking Sheet No.),
-                                   Item No=FIELD(Item No.),
-                                   Flight No=FIELD(Flight Code),
-                                   Destination Airport=FIELD(Destination Airport),
-                                   Shipper Code=FIELD(Shipper Code),
-                                   Source Airport=FIELD(Source Airport),
-                                   Airline Code=FIELD(Airline Code);
+                    DataItemLink = "Booking Sheet No"=FIELD("Booking Sheet No."),
+                                  "Item No"=FIELD("Item No."),
+                                   "Flight No"=FIELD("Flight Code"),
+                                   "Destination Airport"=FIELD("Destination Airport"),
+                                   "Shipper Code"=FIELD("Shipper Code"),
+                                   "Source Airport"=FIELD("Source Airport"),
+                                  "Airline Code"=FIELD("Airline Code");
                     column(BookingSheetNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Booking Sheet No")
                     {
                     }
@@ -316,14 +316,14 @@ report 50019 "Booking Sheet"
                     column(Remarks;Remarks)
                     {
                     }
-                    dataitem(DataItem1000000069;Table50056)
+                    dataitem("Booking Sheet HAWB Allocation";"Booking Sheet HAWB Allocation")
                     {
-                        DataItemLink = Booking Sheet No.=FIELD(Booking Sheet No),
-                                       MAWB No.=FIELD(MAWB No),
-                                       Shipper Code=FIELD(Shipper Code),
-                                       Destination Airport=FIELD(Destination Airport),
-                                       Airline Code=FIELD(Airline Code),
-                                       Source Airport=FIELD(Source Airport);
+                        DataItemLink = "Booking Sheet No."=FIELD("Booking Sheet No"),
+                                      "MAWB No."=FIELD("MAWB No"),
+                                       "Shipper Code"=FIELD("Shipper Code"),
+                                       "Destination Airport"=FIELD("Destination Airport"),
+                                      "Airline Code"=FIELD("Airline Code"),
+                                      "Source Airport"=FIELD("Source Airport");
                         column(BookingSheetNo_BookingSheetHAWBAllocation;"Booking Sheet HAWB Allocation"."Booking Sheet No.")
                         {
                         }
@@ -447,29 +447,29 @@ report 50019 "Booking Sheet"
     }
 
     var
-        HAWB: Record "50056";
+        HAWB: Record "Booking Sheet HAWB Allocation";
         HAWBNo: Code[50];
-        Airports: Record "50019";
+        Airports: Record Airport;
         Destination: Text[250];
-        Country: Record "9";
-        "ULD Type": Record "50055";
+        Country: Record "Country/Region";
+        "ULD Type": Record "Booking Sheet ULD Allocation";
         ULD: Text[250];
-        BKSheetConsignee: Record "50056";
+        BKSheetConsignee: Record "Booking Sheet HAWB Allocation";
         Remks: Text[250];
         "Prepared By": Text;
-        CompanyInfo: Record "79";
-        ULDAllocation: Record "50055";
-        MAWBAlloc: Record "50070";
+        CompanyInfo: Record "Company Information";
+        ULDAllocation: Record 50055;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
         MAWBString: Text[250];
-        Flights: Record "50022";
+        Flights: Record Flight;
         DestinationString: Text[250];
-        ViaDest: Record "50024";
+        ViaDest: Record "Via Destination";
         ViaDestinations: Text[250];
-        BookingSheetUlDALLOC: Record "50055";
+        BookingSheetUlDALLOC: Record "Booking Sheet ULD Allocation";
         ConsigneeName: Text;
-        BookingSheetHAWBAllocation: Record "50056";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
         Total: Decimal;
-        BookingSheetHeader: Record "50053";
+        BookingSheetHeader: Record "Booking Sheet Header";
         Main: Boolean;
         Remarks: Text[259];
 

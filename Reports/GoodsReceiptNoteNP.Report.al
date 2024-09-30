@@ -6,7 +6,7 @@ report 50005 "Goods Receipt Note NP"
 
     dataset
     {
-        dataitem(DataItem1; Table50049)
+        dataitem("Good Receipt Notify Party"; "Good Receipt Notify Party")
         {
             column(GoodReceiptNo_GoodReceiptNotifyParty; "Good Receipt Notify Party"."Good Receipt No.")
             {
@@ -38,9 +38,9 @@ report 50005 "Goods Receipt Note NP"
             column(CompanyPicture; CompInfo.Picture)
             {
             }
-            dataitem(DataItem11; Table50051)
+            dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = Good Receipt No.=FIELD(Good Receipt No.);
+                DataItemLink = "Good Receipt No."=FIELD("Good Receipt No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }
@@ -179,6 +179,6 @@ report 50005 "Goods Receipt Note NP"
     end;
 
     var
-        CompInfo: Record "79";
+        CompInfo: Record "Company Information";
 }
 

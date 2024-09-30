@@ -5,7 +5,7 @@ report 50113 Correction
 
     dataset
     {
-        dataitem(DataItem1000000000; Table81)
+        dataitem("Gen. Journal Line"; "Gen. Journal Line")
         {
 
             trigger OnAfterGetRecord()
@@ -94,26 +94,26 @@ report 50113 Correction
     }
 
     var
-        SalesInvoiceHeader: Record "112";
-        PurchInvHeader: Record "122";
-        IncomingDocumentApprover: Record "132";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        PurchInvHeader: Record "Purch. Inv. Header";
+        IncomingDocumentApprover: Record "Incoming Document Approver";
         Window: Dialog;
-        SalesCrMemoHeader: Record "114";
-        SalesCrMemoLine: Record "115";
-        PurchCrMemoHdr: Record "124";
-        PurchCrMemoLine: Record "125";
-        SalesInvoiceLine: Record "113";
-        PurchInvLine: Record "123";
-        Cust: Record "18";
-        Items: Record "27";
-        DimMng: Codeunit "408";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
+        PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr.";
+        PurchCrMemoLine: Record "Purch. Cr. Memo Line";
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        PurchInvLine: Record "Purch. Inv. Line";
+        Cust: Record Customer;
+        Items: Record Item;
+        DimMng: Codeunit 408;
 
     local procedure SteDim(MAWBNo: Code[50]) i: Integer
     var
-        TemDimSetEntry: Record "480" temporary;
-        mawballoc: Record "50070";
-        DimVal: Record "349";
-        TempDimensionSetEntry: Record "480" temporary;
+        TemDimSetEntry: Record "Dimension Set Entry" temporary;
+        mawballoc: Record "Booking Sheet MAWB Allocation";
+        DimVal: Record "Dimension Value";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
     begin
         mawballoc.RESET;
         mawballoc.SETRANGE(mawballoc."MAWB No", MAWBNo);

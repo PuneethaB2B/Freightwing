@@ -6,7 +6,7 @@ report 50023 "Expenditure Schedule"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table17)
+        dataitem("G/L Entry"; "G/L Entry")
         {
             column(EntryNo_GLEntry; "G/L Entry"."Entry No.")
             {

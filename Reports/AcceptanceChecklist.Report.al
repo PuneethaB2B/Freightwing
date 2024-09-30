@@ -7,7 +7,7 @@ report 50003 "Acceptance Checklist"
 
     dataset
     {
-        dataitem(DataItem1; "Good Receipt Header")
+        dataitem("Good Receipt Header"; "Good Receipt Header")
         {
             column(Logo; CompanyInfo.Picture)
             {
@@ -126,9 +126,9 @@ report 50003 "Acceptance Checklist"
             column(OffloadingPlace_GoodReceiptHeader; "Good Receipt Header"."Offloading Place")
             {
             }
-            dataitem(DataItem25; Table50051)
+            dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = Good Receipt No.=FIELD(No.);
+                DataItemLink = "Good Receipt No."=FIELD("No.");
                 column(ULDS; ULDAllocations)
                 {
                 }

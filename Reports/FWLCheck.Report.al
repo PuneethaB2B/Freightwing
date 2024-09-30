@@ -8,9 +8,9 @@ report 50002 "FWL Check"
 
     dataset
     {
-        dataitem(VoidGenJnlLine; Table81)
+        dataitem(VoidGenJnlLine; "Gen. Journal Line")
         {
-            DataItemTableView = SORTING(Journal Template Name, Journal Batch Name, Posting Date, Document No.);
+            DataItemTableView = SORTING("Journal Template Name", "Journal Batch Name", "Posting Date", "Document No.");
             RequestFilterFields = "Journal Template Name", "Journal Batch Name", "Posting Date";
 
             trigger OnAfterGetRecord()
@@ -39,9 +39,9 @@ report 50002 "FWL Check"
                 SETRANGE("Check Printed", TRUE);
             end;
         }
-        dataitem(GenJnlLine; Table81)
+        dataitem(GenJnlLine; "Gen. Journal Line")
         {
-            DataItemTableView = SORTING(Journal Template Name, Journal Batch Name, Posting Date, Document No.);
+            DataItemTableView = SORTING("Journal Template Name","Journal Batch Name", "Posting Date", "Document No.");
             column(JournalTempName_GenJnlLine; "Journal Template Name")
             {
             }
@@ -51,7 +51,7 @@ report 50002 "FWL Check"
             column(LineNo_GenJnlLine; "Line No.")
             {
             }
-            dataitem(CheckPages; Table2000000026)
+            dataitem(CheckPages; Integer)
             {
                 DataItemTableView = SORTING(Number);
                 column(CheckToAddr1; CheckToAddr[1])
@@ -72,7 +72,7 @@ report 50002 "FWL Check"
                 column(CheckNoTextCaption; CheckNoTextCaptionLbl)
                 {
                 }
-                dataitem(PrintSettledLoop; Table2000000026)
+                dataitem(PrintSettledLoop; Integer)
                 {
                     DataItemTableView = SORTING(Number);
                     MaxIteration = 30;
@@ -375,7 +375,7 @@ report 50002 "FWL Check"
                         END;
                     end;
                 }
-                dataitem(PrintCheck; Table2000000026)
+                dataitem(PrintCheck; Integer)
                 {
                     DataItemTableView = SORTING(Number);
                     MaxIteration = 1;
@@ -905,20 +905,20 @@ report 50002 "FWL Check"
         Text059: Label 'THOUSAND';
         Text060: Label 'MILLION';
         Text061: Label 'BILLION';
-        CompanyInfo: Record "79";
-        SalesPurchPerson: Record "13";
-        GenJnlLine2: Record "81";
-        GenJnlLine3: Record "81";
-        Cust: Record "18";
-        CustLedgEntry: Record "21";
-        Vend: Record "23";
-        VendLedgEntry: Record "25";
-        BankAcc: Record "270";
-        BankAcc2: Record "270";
-        CheckLedgEntry: Record "272";
-        Currency: Record "4";
-        FormatAddr: Codeunit "365";
-        CheckManagement: Codeunit "367";
+        CompanyInfo: Record "Company Information";
+        SalesPurchPerson: Record "Salesperson/Purchaser";
+        GenJnlLine2: Record "Gen. Journal Line";
+        GenJnlLine3: Record "Gen. Journal Line";
+        Cust: Record Customer;
+        CustLedgEntry: Record "Cust. Ledger Entry";
+        Vend: Record Vendor;
+        VendLedgEntry: Record "Vendor Ledger Entry";
+        BankAcc: Record "Bank Account";
+        BankAcc2: Record "Bank Account";
+        CheckLedgEntry: Record "Check Ledger Entry";
+        Currency: Record Currency;
+        FormatAddr: Codeunit "Format Address";
+        CheckManagement: Codeunit CheckManagement;
         CompanyAddr: array[8] of Text[50];
         CheckToAddr: array[8] of Text[50];
         OnesText: array[20] of Text[30];
@@ -958,10 +958,10 @@ report 50002 "FWL Check"
         Text062: Label 'G/L Account,Customer,Vendor,Bank Account';
         CurrencyCode2: Code[10];
         NetAmount: Text[30];
-        CurrencyExchangeRate: Record "330";
+        CurrencyExchangeRate: Record "Currency Exchange Rate";
         LineAmount2: Decimal;
         Text063: Label 'Net Amount %1';
-        GLSetup: Record "98";
+        GLSetup: Record "General Ledger Setup";
         Text064: Label '%1 must not be %2 for %3 %4.';
         Text065: Label 'Subtotal';
         CheckNoTextCaptionLbl: Label 'Check No.';
@@ -1037,7 +1037,7 @@ report 50002 "FWL Check"
         NoText[NoTextIndex] := DELCHR(NoText[NoTextIndex] + ' ' + AddText, '<');
     end;
 
-    local procedure CustUpdateAmounts(var CustLedgEntry2: Record "21"; RemainingAmount2: Decimal)
+    local procedure CustUpdateAmounts(var CustLedgEntry2: Record "Cust. Ledger Entry"; RemainingAmount2: Decimal)
     begin
         IF (ApplyMethod = ApplyMethod::OneLineOneEntry) OR
            (ApplyMethod = ApplyMethod::MoreLinesOneEntry)
@@ -1112,7 +1112,7 @@ report 50002 "FWL Check"
         END;
     end;
 
-    local procedure VendUpdateAmounts(var VendLedgEntry2: Record "25"; RemainingAmount2: Decimal)
+    local procedure VendUpdateAmounts(var VendLedgEntry2: Record "Vendor Ledger Entry"; RemainingAmount2: Decimal)
     begin
         IF (ApplyMethod = ApplyMethod::OneLineOneEntry) OR
            (ApplyMethod = ApplyMethod::MoreLinesOneEntry)
@@ -1282,7 +1282,7 @@ report 50002 "FWL Check"
 
     local procedure GetAmtDecimalPosition(): Decimal
     var
-        Currency: Record "4";
+        Currency: Record Currency;
     begin
         IF GenJnlLine."Currency Code" = '' THEN
             Currency.InitRoundingPrecision

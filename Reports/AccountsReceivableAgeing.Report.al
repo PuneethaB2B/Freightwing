@@ -7,7 +7,7 @@ report 50006 "Accounts Receivable Ageing"
 
     dataset
     {
-        dataitem(Customer; Table18)
+        dataitem(Customer; 18)
         {
             RequestFilterFields = "No.";
             column(TodayFormatted; FORMAT(TODAY, 0, 4))
@@ -139,14 +139,14 @@ report 50006 "Accounts Receivable Ageing"
             column(CustomerType_Customer; Customer."Customer Type")
             {
             }
-            dataitem(DataItem8503; Table21)
+            dataitem(DataItem8503; 21)
             {
-                DataItemLink = Customer No.=FIELD(No.);
-                DataItemTableView = SORTING(Customer No., Posting Date, Currency Code);
+                DataItemLink = "Customer No." = FIELD("No.");
+                DataItemTableView = SORTING("Customer No.", "Posting Date", "Currency Code");
 
                 trigger OnAfterGetRecord()
                 var
-                    CustLedgEntry: Record "21";
+                    CustLedgEntry: Record 21;
                 begin
                     CustLedgEntry.SETCURRENTKEY("Closed by Entry No.");
                     CustLedgEntry.SETRANGE("Closed by Entry No.", "Entry No.");
@@ -177,13 +177,13 @@ report 50006 "Accounts Receivable Ageing"
 
                 trigger OnPreDataItem()
                 begin
-                    SETRANGE("Posting Date", EndingDate + 1, 31129999D);
+                    SETRANGE("Posting Date", EndingDate + 1, 99991231D);
                 end;
             }
-            dataitem(OpenCustLedgEntry; Table21)
+            dataitem(OpenCustLedgEntry; 21)
             {
-                DataItemLink = Customer No.=FIELD(No.);
-                DataItemTableView = SORTING(Customer No., Open, Positive, Due Date, Currency Code);
+                DataItemLink = "Customer No." = FIELD("No.");
+                DataItemTableView = SORTING("Customer No.", Open, Positive, "Due Date", "Currency Code");
 
                 trigger OnAfterGetRecord()
                 begin
@@ -205,12 +205,12 @@ report 50006 "Accounts Receivable Ageing"
                     END;
                 end;
             }
-            dataitem(CurrencyLoop; Table2000000026)
+            dataitem(CurrencyLoop; 2000000026)
             {
                 DataItemTableView = SORTING(Number)
                                     WHERE(Number = FILTER(1 ..));
                 PrintOnlyIfDetail = true;
-                dataitem(TempCustLedgEntryLoop; Table2000000026)
+                dataitem(TempCustLedgEntryLoop; 2000000026)
                 {
                     DataItemTableView = SORTING(Number)
                                         WHERE(Number = FILTER(1 ..));
@@ -546,7 +546,7 @@ report 50006 "Accounts Receivable Ageing"
                 TempCustLedgEntry.DELETEALL;
             end;
         }
-        dataitem(CurrencyTotals; Table2000000026)
+        dataitem(CurrencyTotals; 2000000026)
         {
             DataItemTableView = SORTING(Number)
                                 WHERE(Number = FILTER(1 ..));
@@ -605,7 +605,7 @@ report 50006 "Accounts Receivable Ageing"
                 TempCurrencyAmount.SETRANGE("Currency Code", TempCurrency2.Code);
                 IF TempCurrencyAmount.FINDSET(FALSE, FALSE) THEN
                     REPEAT
-                        IF TempCurrencyAmount.Date <> 31129999D THEN
+                        IF TempCurrencyAmount.Date <> 99991231D THEN
                             AgedCustLedgEntry[GetPeriodIndex(TempCurrencyAmount.Date)]."Remaining Amount" :=
                               TempCurrencyAmount.Amount
                         ELSE
@@ -713,17 +713,17 @@ report 50006 "Accounts Receivable Ageing"
     end;
 
     var
-        GLSetup: Record "98";
-        TempCustLedgEntry: Record "21" temporary;
-        CustLedgEntryEndingDate: Record "21";
-        TotalCustLedgEntry: array[5] of Record "21";
-        GrandTotalCustLedgEntry: array[5] of Record "21";
-        AgedCustLedgEntry: array[6] of Record "21";
-        TempCurrency: Record "4" temporary;
-        TempCurrency2: Record "4" temporary;
-        TempCurrencyAmount: Record "264" temporary;
-        ExcelBuf: Record "370" temporary;
-        DetailedCustomerLedgerEntry: Record "379";
+        GLSetup: Record 98;
+        TempCustLedgEntry: Record 21 temporary;
+        CustLedgEntryEndingDate: Record 21;
+        TotalCustLedgEntry: array[5] of Record 21;
+        GrandTotalCustLedgEntry: array[5] of Record 21;
+        AgedCustLedgEntry: array[6] of Record 21;
+        TempCurrency: Record 4 temporary;
+        TempCurrency2: Record 4 temporary;
+        TempCurrencyAmount: Record 264 temporary;
+        ExcelBuf: Record 370 temporary;
+        DetailedCustomerLedgerEntry: Record 379;
         CustFilter: Text;
         PrintAmountInLCY: Boolean;
         EndingDate: Date;
@@ -782,7 +782,7 @@ report 50006 "Accounts Receivable Ageing"
     begin
         EVALUATE(PeriodLength2, STRSUBSTNO(Text032, PeriodLength));
         IF AgingBy = AgingBy::"Due Date" THEN BEGIN
-            PeriodEndDate[1] := 31129999D;
+            PeriodEndDate[1] := 99991231D;
             PeriodStartDate[1] := EndingDate + 1;
         END ELSE BEGIN
             PeriodEndDate[1] := EndingDate;
@@ -822,9 +822,9 @@ report 50006 "Accounts Receivable Ageing"
             HeaderText[i] := STRSUBSTNO('%1 \%2 %3', Text003, EndingDate - PeriodStartDate[i - 1] + 1, Text002);
     end;
 
-    local procedure InsertTemp(var CustLedgEntry: Record "21")
+    local procedure InsertTemp(var CustLedgEntry: Record 21)
     var
-        Currency: Record "4";
+        Currency: Record 4;
     begin
         IF TempCustLedgEntry.GET(CustLedgEntry."Entry No.") THEN
             EXIT;
@@ -887,13 +887,13 @@ report 50006 "Accounts Receivable Ageing"
             END;
         END;
         TempCurrencyAmount."Currency Code" := CurrencyCode;
-        TempCurrencyAmount.Date := 31129999D;
+        TempCurrencyAmount.Date := 99991231D;
         IF TempCurrencyAmount.FIND THEN BEGIN
             TempCurrencyAmount.Amount := TempCurrencyAmount.Amount + TotalCustLedgEntry[1].Amount;
             TempCurrencyAmount.MODIFY;
         END ELSE BEGIN
             TempCurrencyAmount."Currency Code" := CurrencyCode;
-            TempCurrencyAmount.Date := 31129999D;
+            TempCurrencyAmount.Date := 99991231D;
             TempCurrencyAmount.Amount := TotalCustLedgEntry[1].Amount;
             TempCurrencyAmount.INSERT;
         END;

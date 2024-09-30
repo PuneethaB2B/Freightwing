@@ -6,7 +6,7 @@ report 50116 "Purchase Analysis"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table122)
+        dataitem("Purch. Inv. Header"; "Purch. Inv. Header")
         {
             column(CurrencyFactor_PurchInvHeader; "Purch. Inv. Header"."Currency Factor")
             {
@@ -17,9 +17,9 @@ report 50116 "Purchase Analysis"
             column(PurchPostingDate; "Purch. Inv. Header"."Posting Date")
             {
             }
-            dataitem(DataItem1000000001; Table123)
+            dataitem("Purch. Inv. Line"; "Purch. Inv. Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No." = FIELD("No.");
                 column(BuyfromVendorNo_PurchInvLine; "Purch. Inv. Line"."Buy-from Vendor No.")
                 {
                 }
@@ -305,16 +305,16 @@ report 50116 "Purchase Analysis"
                 column(ResponsibilityCenter_PurchInvLine; "Purch. Inv. Line"."Responsibility Center")
                 {
                 }
-                column(CrossReferenceNo_PurchInvLine; "Purch. Inv. Line"."Cross-Reference No.")
+                column(CrossReferenceNo_PurchInvLine; "Purch. Inv. Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_PurchInvLine; "Purch. Inv. Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_PurchInvLine; "Purch. Inv. Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_PurchInvLine; "Purch. Inv. Line"."Cross-Reference Type")
+                column(CrossReferenceType_PurchInvLine; "Purch. Inv. Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_PurchInvLine; "Purch. Inv. Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_PurchInvLine; "Purch. Inv. Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_PurchInvLine; "Purch. Inv. Line"."Item Category Code")
@@ -326,9 +326,9 @@ report 50116 "Purchase Analysis"
                 column(PurchasingCode_PurchInvLine; "Purch. Inv. Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_PurchInvLine; "Purch. Inv. Line"."Product Group Code")
+                column(ProductGroupCode_PurchInvLine; "Purch. Inv. Line"."Item Category Code")
                 {
-                }
+                } //B2BUPG
                 column(ReturnReasonCode_PurchInvLine; "Purch. Inv. Line"."Return Reason Code")
                 {
                 }
@@ -425,14 +425,14 @@ report 50116 "Purchase Analysis"
 
     var
         InvoicedAmount: Decimal;
-        SalesInvoiceLine: Record "113";
-        SalesInvoiceHeader: Record "112";
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         BookingDate2: Date;
 
     local procedure GetBookingDate(mawb: Code[50]) BookedDate: Date
     var
-        BookingSheetMAWBAllocation: Record "50070";
-        BookingSheetHeader: Record "50053";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        BookingSheetHeader: Record "Booking Sheet Header";
     begin
         BookingSheetMAWBAllocation.RESET;
         BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."MAWB No", mawb);

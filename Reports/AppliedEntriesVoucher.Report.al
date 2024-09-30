@@ -6,7 +6,7 @@ report 50029 "Applied Entries Voucher"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table81)
+        dataitem("Gen. Journal Line"; "Gen. Journal Line")
         {
             column(Payment_PostingDate; "Gen. Journal Line"."Posting Date")
             {
@@ -32,9 +32,9 @@ report 50029 "Applied Entries Voucher"
             column(Payment_Amountinwords; gTxtAmtinWords)
             {
             }
-            dataitem(DataItem1000000012; Table25)
+            dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
             {
-                DataItemLink = Applies-to ID=FIELD(Document No.);
+                DataItemLink = "Applies-to ID" = FIELD("Document No.");
                 column(VLE_PostingDate; "Vendor Ledger Entry"."Posting Date")
                 {
                 }
@@ -81,8 +81,8 @@ report 50029 "Applied Entries Voucher"
     }
 
     var
-        gRecBankAccount: Record "270";
-        gRecPstdPurchInvHr: Record "122";
+        gRecBankAccount: Record "Bank Account";
+        gRecPstdPurchInvHr: Record "Purch. Inv. Header";
         gTxtAmtinWords: Text;
 
 
@@ -97,7 +97,7 @@ report 50029 "Applied Entries Voucher"
         txtFinalInteger: Text[250];
         txtFinalDecimal: Text[250];
         arrPlace: array[9] of Text[20];
-        recCurrency: Record "4";
+        recCurrency: Record Currency;
         txtCurrencyNumericPos: Text[30];
         txtCurrencyDecimalPos: Text[30];
         txtTemp2: Text[2];

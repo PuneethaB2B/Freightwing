@@ -6,7 +6,7 @@ report 50012 MAWB
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50075)
+        dataitem("HAWB Header"; "HAWB Header")
         {
             RequestFilterFields = "No.", "Airline Code";
             column(No_MAWBHeader; "HAWB Header"."No.")
@@ -66,9 +66,9 @@ report 50012 MAWB
             column(CompanyInfo_Address2; CompanyInfo."Address 2")
             {
             }
-            dataitem(DataItem1000000017; Table50076)
+            dataitem("MAWB Line"; "MAWB Line")
             {
-                DataItemLink = MAWB No.=FIELD(No.);
+                DataItemLink = "MAWB No."=FIELD("No.");
                 column(MAWBNo_MAWBLine; "MAWB Line"."MAWB No.")
                 {
                 }
@@ -145,9 +145,9 @@ report 50012 MAWB
                 {
                 }
             }
-            dataitem("HAWB Header2"; Table50075)
+            dataitem("HAWB Header2"; "HAWB Header")
             {
-                DataItemLink = MAWB No.=FIELD(No.);
+                DataItemLink = "MAWB No."=FIELD("No.");
                 column(No_HAWBHeader; "HAWB Header2"."No.")
                 {
                 }
@@ -172,6 +172,6 @@ report 50012 MAWB
     }
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

@@ -6,9 +6,9 @@ report 50027 "Curr Reconciliation Customer"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table379)
+        dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
         {
-            DataItemTableView = WHERE(Entry Type=FILTER(Unrealized Loss|Unrealized Gain));
+            DataItemTableView = WHERE("Entry Type"=FILTER("Unrealized Loss"|"Unrealized Gain"));
             column(PostingDate;"Detailed Cust. Ledg. Entry"."Posting Date")
             {
             }
@@ -91,9 +91,9 @@ report 50027 "Curr Reconciliation Customer"
     var
         gDecAuditRate: Decimal;
         gDecBookingRate: Decimal;
-        gRecCurrExch: Record "330";
-        gRecCustLedgerEntry: Record "21";
+        gRecCurrExch: Record "Currency Exchange Rate";
+        gRecCustLedgerEntry: Record "Cust. Ledger Entry";
         gDateEndDate: Date;
-        gRecCustomer: Record "18";
+        gRecCustomer: Record Customer;
 }
 

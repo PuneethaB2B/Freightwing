@@ -7,14 +7,14 @@ report 50100 "Sales By Dimension"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
             column(Logo; CompanyInformation.Picture)
             {
             }
-            dataitem(DataItem1000000001; Table113)
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No."=FIELD("No.");
                 column(CustName; Customer.Name)
                 {
                 }
@@ -255,16 +255,16 @@ report 50100 "Sales By Dimension"
                 column(ResponsibilityCenter_SalesInvoiceLine; "Sales Invoice Line"."Responsibility Center")
                 {
                 }
-                column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference No.")
+                column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type")
+                column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
@@ -276,9 +276,9 @@ report 50100 "Sales By Dimension"
                 column(PurchasingCode_SalesInvoiceLine; "Sales Invoice Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Product Group Code")
+                column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
                 {
-                }
+                }//B2BUPG
                 column(ApplfromItemEntry_SalesInvoiceLine; "Sales Invoice Line"."Appl.-from Item Entry")
                 {
                 }
@@ -339,10 +339,10 @@ report 50100 "Sales By Dimension"
                 column(MarginAmount_SalesInvoiceLine; "Sales Invoice Line"."Margin Amount")
                 {
                 }
-                dataitem(DataItem1000000111; Table480)
+                dataitem("Dimension Set Entry"; "Dimension Set Entry")
                 {
-                    DataItemLink = Dimension Set ID=FIELD(Dimension Set ID);
-                    DataItemTableView = WHERE(Dimension Code=FILTER(PRODUCTGROUP));
+                    DataItemLink = "Dimension Set ID"=FIELD("Dimension Set ID");
+                    DataItemTableView = WHERE("Dimension Code"=FILTER(PRODUCTGROUP));
                     column(DimensionSetID_DimensionSetEntry;"Dimension Set Entry"."Dimension Set ID")
                     {
                     }
@@ -425,19 +425,19 @@ report 50100 "Sales By Dimension"
     }
 
     var
-        Customer: Record "18";
-        Airline: Record "50021";
-        MAWBLine: Record "50076";
+        Customer: Record Customer;
+        Airline: Record Airline;
+        MAWBLine: Record "MAWB Line";
         Chargeable: Decimal;
-        CompanyInformation: Record "79";
+        CompanyInformation: Record "Company Information";
         AirlineName: Text[250];
-        MAWBInvoiceCharge: Record "50073";
-        SalesInvoiceLine: Record "113";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        SalesInvoiceLine: Record "Sales Invoice Line";
         TotalWeight: Decimal;
 
     local procedure CountHouses(MAWB: Code[50];Shipper: Code[50];hawb: Code[50]) Houses: Integer
     var
-        InvLine: Record "113";
+        InvLine: Record 113;
     begin
         Houses:=0;
         InvLine.RESET;

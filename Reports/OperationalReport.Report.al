@@ -6,7 +6,7 @@ report 50121 "Operational Report"
 
     dataset
     {
-        dataitem(DataItem1000000017; Table2000000026)
+        dataitem(DataItem1000000017; Integer)
         {
             MaxIteration = 1;
             column(ShowBookingSheet; gBoolBookingSheet)
@@ -122,7 +122,7 @@ report 50121 "Operational Report"
                 END;
             end;
         }
-        dataitem(DataItem1000000018; Table50079)
+        dataitem("Booking Sheet Opr Report Temp"; "Booking Sheet Opr Report Temp")
         {
             column(BookingDate_BookingSheetOprReportTemp; "Booking Sheet Opr Report Temp"."Booking Date")
             {
@@ -167,11 +167,11 @@ report 50121 "Operational Report"
                 IF gRecShipper.GET("Booking Sheet Opr Report Temp"."Shipper Code") THEN;
             end;
         }
-        dataitem(DataItem1000000012; Table50052)
+        dataitem("Good Receipt Header"; "Good Receipt Header")
         {
-            dataitem(DataItem1000000013; Table50051)
+            dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = Good Receipt No.=FIELD(No.);
+                DataItemLink = "Good Receipt No."=FIELD("No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }
@@ -247,7 +247,7 @@ report 50121 "Operational Report"
                     "Good Receipt Header".SETRANGE("Receipt Date", 0D);
             end;
         }
-        dataitem(DataItem1000000034; Table50060)
+        dataitem("Loading Sheet Header"; "Loading Sheet Header")
         {
             column(No_LoadingSheetHeader; "Loading Sheet Header"."No.")
             {
@@ -255,9 +255,9 @@ report 50121 "Operational Report"
             column(LoadingDate_LoadingSheetHeader; "Loading Sheet Header"."Loading Date")
             {
             }
-            dataitem(DataItem1000000035; Table50061)
+            dataitem("Loading Sheet Line"; "Loading Sheet Line")
             {
-                DataItemLink = Loading Sheet No.=FIELD(No.);
+                DataItemLink = "Loading Sheet No."=FIELD("No.");
                 column(ULDWeight_LoadingSheetLine; gRecLoadingSheetULDAlloc."FWL Docket Weight")
                 {
                 }
@@ -385,16 +385,16 @@ report 50121 "Operational Report"
         gBoolBookingSheet: Boolean;
         gBoolGoodsReceipt: Boolean;
         gBoolLoadingSheet: Boolean;
-        gRecBookingSheetHr: Record "50053";
-        gRecBookingSheetLine: Record "50054";
-        gRecBookingSheetMAWBAlloc: Record "50070";
-        gRecBookingSheetHAWBAlloc: Record "50056";
-        gRecBookingSheetULDAlloc: Record "50055";
-        gRecBookingOperationalReport: Record "50079";
+        gRecBookingSheetHr: Record "Booking Sheet Header";
+        gRecBookingSheetLine: Record "Booking Sheet Line";
+        gRecBookingSheetMAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        gRecBookingSheetHAWBAlloc: Record "Booking Sheet HAWB Allocation";
+        gRecBookingSheetULDAlloc: Record "Booking Sheet ULD Allocation";
+        gRecBookingOperationalReport: Record "Booking Sheet Opr Report Temp";
         gIntSno: Integer;
-        gRecShipper: Record "18";
-        gRecConsignee: Record "50015";
-        "gRecGoodReceiptHr.": Record "50052";
+        gRecShipper: Record Customer;
+        gRecConsignee: Record Consignee;
+        "gRecGoodReceiptHr.": Record "Good Receipt Header";
         gDateReceiptDate: Date;
         gCodeDeliveryNo: Code[50];
         gDateDeliveryDate: Date;
@@ -403,8 +403,8 @@ report 50121 "Operational Report"
         gTimeVehicleArrivalTime: Time;
         gCodeSerialNo: Code[50];
         gDecVolume: Decimal;
-        gRecConsignee2: Record "50015";
-        gRecLoadingSheetULDAlloc: Record "50063";
+        gRecConsignee2: Record Consignee;
+        gRecLoadingSheetULDAlloc: Record "Loading Sheet ULD Allocation";
         gDecLoadingSheetVolume: Decimal;
 }
 

@@ -6,7 +6,7 @@ report 50033 "Flight Performance"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50041)
+        dataitem("Dl. Weight Dist. By Airline"; "Dl. Weight Dist. By Airline")
         {
             RequestFilterFields = "Airline Code", "Flight Code";
             column(Company_Name; gRecCompanyInfo.Name)
@@ -124,7 +124,7 @@ report 50033 "Flight Performance"
     end;
 
     var
-        gRecCompanyInfo: Record "79";
+        gRecCompanyInfo: Record "Company Information";
         "gTimeDepart.Delayed": Time;
         gTxtDelayed: Text;
         "gIntDepart.Delayed": Integer;

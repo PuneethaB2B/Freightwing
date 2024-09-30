@@ -7,7 +7,7 @@ report 50065 "General Sales Invoice"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table36)
+        dataitem("Sales Header"; "Sales Header")
         {
             column(CurrencyCode_SalesHeader; "Sales Header"."Currency Code")
             {
@@ -54,9 +54,9 @@ report 50065 "General Sales Invoice"
             column(CustPostCode; Customer."Post Code")
             {
             }
-            dataitem(DataItem1000000001; Table37)
+            dataitem("Sales Line"; "Sales Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No." = FIELD("No.");
                 column(DocumentType_SalesLine; "Sales Line"."Document Type")
                 {
                 }
@@ -453,16 +453,16 @@ report 50065 "General Sales Invoice"
                 column(OriginallyOrderedVarCode_SalesLine; "Sales Line"."Originally Ordered Var. Code")
                 {
                 }
-                column(CrossReferenceNo_SalesLine; "Sales Line"."Cross-Reference No.")
+                column(CrossReferenceNo_SalesLine; "Sales Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_SalesLine; "Sales Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_SalesLine; "Sales Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_SalesLine; "Sales Line"."Cross-Reference Type")
+                column(CrossReferenceType_SalesLine; "Sales Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_SalesLine; "Sales Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_SalesLine; "Sales Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_SalesLine; "Sales Line"."Item Category Code")
@@ -474,9 +474,9 @@ report 50065 "General Sales Invoice"
                 column(PurchasingCode_SalesLine; "Sales Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_SalesLine; "Sales Line"."Product Group Code")
+                column(ProductGroupCode_SalesLine; "Sales Line"."Item Category Code")
                 {
-                }
+                }//B2BUPG
                 column(SpecialOrder_SalesLine; "Sales Line"."Special Order")
                 {
                 }
@@ -657,8 +657,8 @@ report 50065 "General Sales Invoice"
     }
 
     var
-        CompanyInformation: Record "79";
-        ImportExportSetup: Record "50010";
-        Customer: Record "18";
+        CompanyInformation: Record "Company Information";
+        ImportExportSetup: Record "Import/Export Setup";
+        Customer: Record Customer;
 }
 

@@ -6,7 +6,7 @@ report 50022 "Booking Sheet ULD Allocation"
 
     dataset
     {
-        dataitem(DataItem1; Table50054)
+        dataitem("Booking Sheet Line"; "Booking Sheet Line")
         {
             column(BookingSheetNo_BookingSheetLine; "Booking Sheet Line"."Booking Sheet No.")
             {
@@ -125,9 +125,9 @@ report 50022 "Booking Sheet ULD Allocation"
             column(CompPicture; CompInfo.Picture)
             {
             }
-            dataitem(DataItem39; Table50055)
+            dataitem("Booking Sheet ULD Allocation"; "Booking Sheet ULD Allocation")
             {
-                DataItemLink = Booking Sheet No.=FIELD(Booking Sheet No.);
+                DataItemLink = "Booking Sheet No." = FIELD("Booking Sheet No.");
                 column(BookingSheetNo_BookingSheetULDAllocation; "Booking Sheet ULD Allocation"."Booking Sheet No.")
                 {
                 }
@@ -179,6 +179,6 @@ report 50022 "Booking Sheet ULD Allocation"
     end;
 
     var
-        CompInfo: Record "79";
+        CompInfo: Record "Company Information";
 }
 

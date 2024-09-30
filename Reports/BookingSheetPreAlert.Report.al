@@ -7,7 +7,7 @@ report 50060 "Booking Sheet Pre Alert"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50056)
+        dataitem("Booking Sheet HAWB Allocation"; "Booking Sheet HAWB Allocation")
         {
             column(PostCode; CompanyInfo."Post Code")
             {
@@ -66,222 +66,221 @@ report 50060 "Booking Sheet Pre Alert"
             column(DestinationAirport_BookingSheetHAWBAllocation; "Booking Sheet HAWB Allocation"."Destination Airport")
             {
             }
-            dataitem(DataItem1000000016; Table50070)
+            dataitem("Booking Sheet MAWB Allocation"; "Booking Sheet MAWB Allocation")
             {
-                DataItemLink = Booking Sheet No=FIELD(Booking Sheet No.),
-                               MAWB No=FIELD(MAWB No.),
-                               Destination Airport=FIELD(Destination Airport),
-                               Source Airport=FIELD(Source Airport),
-                               Airline Code=FIELD(Airline Code),
-                               Shipper Code=FIELD(Shipper Code);
-                column(BookingSheetNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Booking Sheet No")
+                DataItemLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
+                               "MAWB No" = FIELD("MAWB No."),
+                               "Destination Airport" = FIELD("Destination Airport"),
+                               "Source Airport" = FIELD("Source Airport"),
+                               "Airline Code" = FIELD("Airline Code"),
+                               "Shipper Code" = FIELD("Shipper Code");
+                column(BookingSheetNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Booking Sheet No")
                 {
                 }
-                column(LineNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Line No.")
+                column(LineNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Line No.")
                 {
                 }
-                column(ItemNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Item No")
+                column(ItemNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Item No")
                 {
                 }
-                column(MAWBNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."MAWB No")
+                column(MAWBNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."MAWB No")
                 {
                 }
-                column(WeightAllocated_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Weight Allocated")
+                column(WeightAllocated_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Weight Allocated")
                 {
                 }
-                column(FlightNo_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Flight No")
+                column(FlightNo_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Flight No")
                 {
                 }
-                column(AirlineCode_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Airline Code")
+                column(AirlineCode_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Airline Code")
                 {
                 }
-                column(SourceAirport_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Source Airport")
+                column(SourceAirport_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Source Airport")
                 {
                 }
-                column(DestinationAirport_BookingSheetMAWBAllocation;"Booking Sheet MAWB Allocation"."Destination Airport")
+                column(DestinationAirport_BookingSheetMAWBAllocation; "Booking Sheet MAWB Allocation"."Destination Airport")
                 {
                 }
-                column(ED;Flight."Departure Time")
+                column(ED; Flight."Departure Time")
                 {
                 }
-                column(EA;Flight."Arrival Time")
+                column(EA; Flight."Arrival Time")
                 {
                 }
-                dataitem(DataItem1000000026;Table50054)
+                dataitem("Booking Sheet Line"; "Booking Sheet Line")
                 {
-                    DataItemLink = Booking Sheet No.=FIELD(Booking Sheet No),
-                                   Item No.=FIELD(Item No),
-                                   Source Airport=FIELD(Source Airport),
-                                   Shipper Code=FIELD(Shipper Code),
-                                   Destination Airport=FIELD(Destination Airport),
-                                   Flight Code=FIELD(Flight No);
-                    column(ShippingAgentName;ShippingAgent.Name)
+                    DataItemLink = "Booking Sheet No." = FIELD("Booking Sheet No"),
+                                   "Item No." = FIELD("Item No"),
+                                   "Source Airport" = FIELD("Source Airport"),
+                                   "Shipper Code" = FIELD("Shipper Code"),
+                                   "Destination Airport" = FIELD("Destination Airport"),
+                                   "Flight Code" = FIELD("Flight No");
+                    column(ShippingAgentName; ShippingAgent.Name)
                     {
                     }
-                    column(BookingSheetNo_BookingSheetLine;"Booking Sheet Line"."Booking Sheet No.")
+                    column(BookingSheetNo_BookingSheetLine; "Booking Sheet Line"."Booking Sheet No.")
                     {
                     }
-                    column(LineNo_BookingSheetLine;"Booking Sheet Line"."Line No.")
+                    column(LineNo_BookingSheetLine; "Booking Sheet Line"."Line No.")
                     {
                     }
-                    column(Description_BookingSheetLine;"Booking Sheet Line".Description)
+                    column(Description_BookingSheetLine; "Booking Sheet Line".Description)
                     {
                     }
-                    column(UnitofMeasureCode_BookingSheetLine;"Booking Sheet Line"."Unit of Measure Code")
+                    column(UnitofMeasureCode_BookingSheetLine; "Booking Sheet Line"."Unit of Measure Code")
                     {
                     }
-                    column(Type_BookingSheetLine;"Booking Sheet Line".Type)
+                    column(Type_BookingSheetLine; "Booking Sheet Line".Type)
                     {
                     }
-                    column(ItemNo_BookingSheetLine;"Booking Sheet Line"."Item No.")
+                    column(ItemNo_BookingSheetLine; "Booking Sheet Line"."Item No.")
                     {
                     }
-                    column(BookedWeight_BookingSheetLine;"Booking Sheet Line"."Booked Weight")
+                    column(BookedWeight_BookingSheetLine; "Booking Sheet Line"."Booked Weight")
                     {
                     }
-                    column(ActualWeight_BookingSheetLine;"Booking Sheet Line"."Actual Weight")
+                    column(ActualWeight_BookingSheetLine; "Booking Sheet Line"."Actual Weight")
                     {
                     }
-                    column(ULDTypeCode_BookingSheetLine;"Booking Sheet Line"."ULD Type Code")
+                    column(ULDTypeCode_BookingSheetLine; "Booking Sheet Line"."ULD Type Code")
                     {
                     }
-                    column(ULDNo_BookingSheetLine;"Booking Sheet Line"."ULD No.")
+                    column(ULDNo_BookingSheetLine; "Booking Sheet Line"."ULD No.")
                     {
                     }
-                    column(Quantity_BookingSheetLine;"Booking Sheet Line".Quantity)
+                    column(Quantity_BookingSheetLine; "Booking Sheet Line".Quantity)
                     {
                     }
-                    column(WeightDifference_BookingSheetLine;"Booking Sheet Line"."Weight Difference")
+                    column(WeightDifference_BookingSheetLine; "Booking Sheet Line"."Weight Difference")
                     {
                     }
-                    column(BookedLineAmount_BookingSheetLine;"Booking Sheet Line"."Booked Line Amount")
+                    column(BookedLineAmount_BookingSheetLine; "Booking Sheet Line"."Booked Line Amount")
                     {
                     }
-                    column(ActualLineAmount_BookingSheetLine;"Booking Sheet Line"."Actual Line Amount")
+                    column(ActualLineAmount_BookingSheetLine; "Booking Sheet Line"."Actual Line Amount")
                     {
                     }
-                    column(RateAmount_BookingSheetLine;"Booking Sheet Line"."Rate Amount")
+                    column(RateAmount_BookingSheetLine; "Booking Sheet Line"."Rate Amount")
                     {
                     }
-                    column(LocationCode_BookingSheetLine;"Booking Sheet Line"."Location Code")
+                    column(LocationCode_BookingSheetLine; "Booking Sheet Line"."Location Code")
                     {
                     }
-                    column(ProductGroupCode_BookingSheetLine;"Booking Sheet Line"."Product Group Code")
+                    column(ProductGroupCode_BookingSheetLine; "Booking Sheet Line"."Product Group Code")
                     {
                     }
-                    column(Status_BookingSheetLine;"Booking Sheet Line".Status)
+                    column(Status_BookingSheetLine; "Booking Sheet Line".Status)
                     {
                     }
-                    column(ApprovedBy_BookingSheetLine;"Booking Sheet Line"."Approved By")
+                    column(ApprovedBy_BookingSheetLine; "Booking Sheet Line"."Approved By")
                     {
                     }
-                    column(ApprovalDate_BookingSheetLine;"Booking Sheet Line"."Approval Date")
+                    column(ApprovalDate_BookingSheetLine; "Booking Sheet Line"."Approval Date")
                     {
                     }
-                    column(ConsigneeCode_BookingSheetLine;"Booking Sheet Line"."Consignee Code")
+                    column(ConsigneeCode_BookingSheetLine; "Booking Sheet Line"."Consignee Code")
                     {
                     }
-                    column(ClearingAgentCode_BookingSheetLine;"Booking Sheet Line"."Clearing Agent Code")
+                    column(ClearingAgentCode_BookingSheetLine; "Booking Sheet Line"."Clearing Agent Code")
                     {
                     }
-                    column(AirlineCode_BookingSheetLine;"Booking Sheet Line"."Airline Code")
+                    column(AirlineCode_BookingSheetLine; "Booking Sheet Line"."Airline Code")
                     {
                     }
-                    column(FlightCode_BookingSheetLine;"Booking Sheet Line"."Flight Code")
+                    column(FlightCode_BookingSheetLine; "Booking Sheet Line"."Flight Code")
                     {
                     }
-                    column(MAWBNo_BookingSheetLine;"Booking Sheet Line"."MAWB No.")
+                    column(MAWBNo_BookingSheetLine; "Booking Sheet Line"."MAWB No.")
                     {
                     }
-                    column(PortofLoading_BookingSheetLine;"Booking Sheet Line"."Port of Loading")
+                    column(PortofLoading_BookingSheetLine; "Booking Sheet Line"."Port of Loading")
                     {
                     }
-                    column(CutoffTime_BookingSheetLine;"Booking Sheet Line"."Cut-off Time")
+                    column(CutoffTime_BookingSheetLine; "Booking Sheet Line"."Cut-off Time")
                     {
                     }
-                    column(DestinationCode_BookingSheetLine;"Booking Sheet Line"."Destination Code")
+                    column(DestinationCode_BookingSheetLine; "Booking Sheet Line"."Destination Code")
                     {
                     }
-                    column(PortofDischarge_BookingSheetLine;"Booking Sheet Line"."Port of Discharge")
+                    column(PortofDischarge_BookingSheetLine; "Booking Sheet Line"."Port of Discharge")
                     {
                     }
-                    column(PlaceofDelivery_BookingSheetLine;"Booking Sheet Line"."Place of Delivery")
+                    column(PlaceofDelivery_BookingSheetLine; "Booking Sheet Line"."Place of Delivery")
                     {
                     }
-                    column(ViaRouteTransist_BookingSheetLine;"Booking Sheet Line"."Via Route/Transist")
+                    column(ViaRouteTransist_BookingSheetLine; "Booking Sheet Line"."Via Route/Transist")
                     {
                     }
-                    column(MAWBDate_BookingSheetLine;"Booking Sheet Line"."MAWB Date")
+                    column(MAWBDate_BookingSheetLine; "Booking Sheet Line"."MAWB Date")
                     {
                     }
-                    column(TypeofDelivery_BookingSheetLine;"Booking Sheet Line"."Type of Delivery")
+                    column(TypeofDelivery_BookingSheetLine; "Booking Sheet Line"."Type of Delivery")
                     {
                     }
-                    column(BookingDate_BookingSheetLine;"Booking Sheet Line"."Booking Date")
+                    column(BookingDate_BookingSheetLine; "Booking Sheet Line"."Booking Date")
                     {
                     }
-                    column(ShipperCode_BookingSheetLine;"Booking Sheet Line"."Shipper Code")
+                    column(ShipperCode_BookingSheetLine; "Booking Sheet Line"."Shipper Code")
                     {
                     }
-                    column(DivisionFarmCode_BookingSheetLine;"Booking Sheet Line"."Division/Farm Code")
+                    column(DivisionFarmCode_BookingSheetLine; "Booking Sheet Line"."Division/Farm Code")
                     {
                     }
-                    column(GoodReceiptNo_BookingSheetLine;"Booking Sheet Line"."Good Receipt No.")
+                    column(GoodReceiptNo_BookingSheetLine; "Booking Sheet Line"."Good Receipt No.")
                     {
                     }
-                    column(SourceAirport_BookingSheetLine;"Booking Sheet Line"."Source Airport")
+                    column(SourceAirport_BookingSheetLine; "Booking Sheet Line"."Source Airport")
                     {
                     }
-                    column(DestinationAirport_BookingSheetLine;"Booking Sheet Line"."Destination Airport")
+                    column(DestinationAirport_BookingSheetLine; "Booking Sheet Line"."Destination Airport")
                     {
                     }
-                    column(SourceCode_BookingSheetLine;"Booking Sheet Line"."Source Code")
+                    column(SourceCode_BookingSheetLine; "Booking Sheet Line"."Source Code")
                     {
                     }
-                    column(ULDTypeCode;gRecBookingSheetULDAlloc."ULD Type Code")
+                    column(ULDTypeCode; gRecBookingSheetULDAlloc."ULD Type Code")
                     {
                     }
-                    column(ULDQuantity;gRecBookingSheetULDAlloc.Quantity)
+                    column(ULDQuantity; gRecBookingSheetULDAlloc.Quantity)
                     {
                     }
-                    column(DepartureTime;"Booking Sheet Line"."Departure Time")
+                    column(DepartureTime; "Booking Sheet Line"."Departure Time")
                     {
                     }
-                    column(ConnectingFlightNo_BookingSheetLine;"Booking Sheet Line"."Connecting Flight No.")
+                    column(ConnectingFlightNo_BookingSheetLine; "Booking Sheet Line"."Connecting Flight No.")
                     {
                     }
-                    column(ConnectingFlightDate_BookingSheetLine;"Booking Sheet Line"."Connecting Flight Date")
+                    column(ConnectingFlightDate_BookingSheetLine; "Booking Sheet Line"."Connecting Flight Date")
                     {
                     }
-                    column(EstimatedArrivalTime_BookingSheetLine;"Booking Sheet Line"."Estimated Arrival Time")
+                    column(EstimatedArrivalTime_BookingSheetLine; "Booking Sheet Line"."Estimated Arrival Time")
                     {
                     }
-                    column(ConnectedFlightETD_BookingSheetLine;"Booking Sheet Line"."Connected Flight ETD")
+                    column(ConnectedFlightETD_BookingSheetLine; "Booking Sheet Line"."Connected Flight ETD")
                     {
                     }
-                    column(ConnectedFlightETA_BookingSheetLine;"Booking Sheet Line"."Connected Flight ETA")
+                    column(ConnectedFlightETA_BookingSheetLine; "Booking Sheet Line"."Connected Flight ETA")
                     {
                     }
 
                     trigger OnAfterGetRecord()
                     begin
 
-                        WITH "Booking Sheet Line" DO
-                        BEGIN
-                          IF "Booking Sheet Line"."Clearing Agent Code"<> '' THEN
-                            ShippingAgent.GET("Booking Sheet Line"."Clearing Agent Code");
+                        WITH "Booking Sheet Line" DO BEGIN
+                            IF "Booking Sheet Line"."Clearing Agent Code" <> '' THEN
+                                ShippingAgent.GET("Booking Sheet Line"."Clearing Agent Code");
                         END;
 
                         //Fetch ULD Type and Quantity
                         gRecBookingSheetULDAlloc.RESET;
-                        gRecBookingSheetULDAlloc.SETRANGE("Booking Sheet No.","Booking Sheet Line"."Booking Sheet No.");
-                        gRecBookingSheetULDAlloc.SETRANGE("Airline Code","Booking Sheet HAWB Allocation"."Airline Code");
-                        gRecBookingSheetULDAlloc.SETRANGE("Shipper Code","Booking Sheet HAWB Allocation"."Shipper Code");
-                        gRecBookingSheetULDAlloc.SETRANGE("Flight Code","Booking Sheet HAWB Allocation"."Flight Code");
-                        gRecBookingSheetULDAlloc.SETRANGE("MAVB No.","Booking Sheet HAWB Allocation"."MAWB No.");
-                        gRecBookingSheetULDAlloc.SETRANGE("Source Airport","Booking Sheet HAWB Allocation"."Source Airport");
-                        gRecBookingSheetULDAlloc.SETRANGE("Destination Airport","Booking Sheet HAWB Allocation"."Destination Airport");
-                        gRecBookingSheetULDAlloc.SETRANGE(Consignee,"Booking Sheet HAWB Allocation"."Consignee Code");
+                        gRecBookingSheetULDAlloc.SETRANGE("Booking Sheet No.", "Booking Sheet Line"."Booking Sheet No.");
+                        gRecBookingSheetULDAlloc.SETRANGE("Airline Code", "Booking Sheet HAWB Allocation"."Airline Code");
+                        gRecBookingSheetULDAlloc.SETRANGE("Shipper Code", "Booking Sheet HAWB Allocation"."Shipper Code");
+                        gRecBookingSheetULDAlloc.SETRANGE("Flight Code", "Booking Sheet HAWB Allocation"."Flight Code");
+                        gRecBookingSheetULDAlloc.SETRANGE("MAVB No.", "Booking Sheet HAWB Allocation"."MAWB No.");
+                        gRecBookingSheetULDAlloc.SETRANGE("Source Airport", "Booking Sheet HAWB Allocation"."Source Airport");
+                        gRecBookingSheetULDAlloc.SETRANGE("Destination Airport", "Booking Sheet HAWB Allocation"."Destination Airport");
+                        gRecBookingSheetULDAlloc.SETRANGE(Consignee, "Booking Sheet HAWB Allocation"."Consignee Code");
                         IF gRecBookingSheetULDAlloc.FINDFIRST THEN;
                     end;
                 }
@@ -289,7 +288,7 @@ report 50060 "Booking Sheet Pre Alert"
                 trigger OnAfterGetRecord()
                 begin
                     //MESSAGE('HERE');
-                    Flight.SETRANGE(Flight."Flight No.","Booking Sheet MAWB Allocation"."Flight No");
+                    Flight.SETRANGE(Flight."Flight No.", "Booking Sheet MAWB Allocation"."Flight No");
                     Flight.FINDFIRST;
                 end;
             }
@@ -323,10 +322,10 @@ report 50060 "Booking Sheet Pre Alert"
     }
 
     var
-        CompanyInfo: Record "79";
-        BookingSheetHeader: Record "50053";
-        ShippingAgent: Record "291";
-        Flight: Record "50022";
-        gRecBookingSheetULDAlloc: Record "50055";
+        CompanyInfo: Record "Company Information";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        ShippingAgent: Record "Shipper Agent";
+        Flight: Record Flight;
+        gRecBookingSheetULDAlloc: Record "Booking Sheet ULD Allocation";
 }
 

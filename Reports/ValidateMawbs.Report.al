@@ -5,7 +5,7 @@ report 50067 "Validate Mawbs"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50060)
+        dataitem("Loading Sheet Header"; "Loading Sheet Header")
         {
 
             trigger OnAfterGetRecord()
@@ -89,7 +89,7 @@ END;*/
         GatePassLine: Record "50069";
         MAWBHeader: Record "50077";
         LoadingSheetULDAllocation: Record "50063";
-        SalesInvoiceHeader: Record "112";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         Window: Dialog;
         SalesHeader: Record "36";
         MAWBLine: Record "50076";

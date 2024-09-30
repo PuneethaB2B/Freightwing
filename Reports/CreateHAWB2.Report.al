@@ -120,7 +120,7 @@ report 50007 "Create HAWB 2"
         PrefixCode: Code[10];
         StartNoInt: Integer;
         EndNoInt: Integer;
-        HAWBReceipt: Record "50037";
+        HAWBReceipt: Record "HAWB Receipt";
         NextNo: Integer;
         ProgressWindow: Dialog;
         NewStartNo: Code[10];

@@ -5,7 +5,7 @@ report 50092 "Restore Deleted MAWBs"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
 
             trigger OnAfterGetRecord()
@@ -69,11 +69,11 @@ report 50092 "Restore Deleted MAWBs"
     }
 
     var
-        MAWBHeader: Record "50077";
-        MAWBLine: Record "50076";
-        HAWBHeader: Record "50075";
-        HAWBLine: Record "50074";
+        MAWBHeader: Record "MAWB Header 2";
+        MAWBLine: Record "MAWB Line";
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine: Record "HAWB Line";
         Window: Dialog;
-        MAWBRec: Record "50039";
+        MAWBRec: Record "MAWB Receipt";
 }
 

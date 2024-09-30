@@ -6,7 +6,7 @@ report 50118 "MAWB Vali"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50076)
+        dataitem("MAWB Line"; "MAWB Line")
         {
 
             trigger OnAfterGetRecord()
@@ -43,6 +43,6 @@ report 50118 "MAWB Vali"
     }
 
     var
-        SalesInvoiceLine: Record "113";
+        SalesInvoiceLine: Record "Sales Invoice Line";
 }
 

@@ -6,7 +6,7 @@ report 50011 "Loading Sheet NP"
 
     dataset
     {
-        dataitem(DataItem1; Table50064)
+        dataitem("Loading Sheet Notify Party"; "Loading Sheet Notify Party")
         {
             column(LoadingSheetNo_LoadingSheetNotifyParty; "Loading Sheet Notify Party"."Loading Sheet No.")
             {
@@ -35,9 +35,9 @@ report 50011 "Loading Sheet NP"
             column(SourceType_LoadingSheetNotifyParty; "Loading Sheet Notify Party"."Source Type")
             {
             }
-            dataitem(DataItem11; Table50060)
+            dataitem("Loading Sheet Header"; "Loading Sheet Header")
             {
-                DataItemLink = No.=FIELD(Loading Sheet No.);
+                DataItemLink = "No." = FIELD("Loading Sheet No.");
                 RequestFilterFields = "No.";
                 column(No_LoadingSheetHeader; "Loading Sheet Header"."No.")
                 {
@@ -114,9 +114,9 @@ report 50011 "Loading Sheet NP"
                 column(CompPicture; CompInfo.Picture)
                 {
                 }
-                dataitem(DataItem35; Table50061)
+                dataitem("Loading Sheet Line"; "Loading Sheet Line")
                 {
-                    DataItemLink = Loading Sheet No.=FIELD(No.);
+                    DataItemLink = "Loading Sheet No." = FIELD("No.");
                     column(LoadingSheetNo_LoadingSheetLine; "Loading Sheet Line"."Loading Sheet No.")
                     {
                     }
@@ -250,6 +250,6 @@ report 50011 "Loading Sheet NP"
     end;
 
     var
-        CompInfo: Record "79";
+        CompInfo: Record "Company Information";
 }
 

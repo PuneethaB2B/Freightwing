@@ -7,9 +7,9 @@ report 50079 "Detail Trial Balance FWL"
 
     dataset
     {
-        dataitem(DataItem6710; Table15)
+        dataitem("G/L Account"; "G/L Account")
         {
-            DataItemTableView = WHERE(Account Type=CONST(Posting));
+            DataItemTableView = WHERE("Account Type"=CONST(Posting));
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Search Name", "Income/Balance", "Debit/Credit", "Date Filter";
             column(PeriodGLDtFilter; STRSUBSTNO(Text000, GLDateFilter))
@@ -72,7 +72,7 @@ report 50079 "Detail Trial Balance FWL"
             column(GLBalCaption; GLBalCaptionLbl)
             {
             }
-            dataitem(PageCounter; Table2000000026)
+            dataitem(PageCounter; Integer)
             {
                 DataItemTableView = SORTING(Number)
                                     WHERE(Number = CONST(1));
@@ -83,15 +83,15 @@ report 50079 "Detail Trial Balance FWL"
                 {
                     AutoFormatType = 1;
                 }
-                dataitem(DataItem7069; Table17)
+                dataitem("G/L Entry"; "G/L Entry")
                 {
-                    DataItemLink = G/L Account No.=FIELD(No.),
-                                   Posting Date=FIELD(Date Filter),
-                                   Global Dimension 1 Code=FIELD(Global Dimension 1 Filter),
-                                   Global Dimension 2 Code=FIELD(Global Dimension 2 Filter),
-                                   Business Unit Code=FIELD(Business Unit Filter);
+                    DataItemLink = "G/L Account No."=FIELD("No."),
+                                   "Posting Date"=FIELD("Date Filter"),
+                                   "Global Dimension 1 Code"=FIELD("Global Dimension 1 Filter"),
+                                   "Global Dimension 2 Code"=FIELD("Global Dimension 2 Filter"),
+                                   "Business Unit Code"=FIELD("Business Unit Filter");
                     DataItemLinkReference = "G/L Account";
-                    DataItemTableView = SORTING(G/L Account No.,Posting Date);
+                    DataItemTableView = SORTING("G/L Account No.","Posting Date");
                     RequestFilterFields = "Document Type","G/L Account No.";
                     column(VATAmount_GLEntry;"VAT Amount")
                     {
@@ -300,7 +300,7 @@ report 50079 "Detail Trial Balance FWL"
         PrintOnlyCorrections: Boolean;
         PrintReversedEntries: Boolean;
         PageGroupNo: Integer;
-        GLEntryPage: Record "17";
+        GLEntryPage: Record "G/L Entry";
         ClosingEntry: Boolean;
         DetailTrialBalCaptionLbl: Label 'Detail Trial Balance';
         PageCaptionLbl: Label 'Page';
@@ -312,8 +312,8 @@ report 50079 "Detail Trial Balance FWL"
         GLEntryCreditAmtCaptionLbl: Label 'Credit';
         GLBalCaptionLbl: Label 'Balance';
         "----tbl---": Integer;
-        Vendor: Record "23";
-        Customer: Record "18";
+        Vendor: Record Vendor;
+        Customer: Record Customer;
         Name: Text[100];
         PIN: Code[50];
         VendName: Text[250];

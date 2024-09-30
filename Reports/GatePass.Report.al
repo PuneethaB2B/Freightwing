@@ -7,7 +7,7 @@ report 50016 "Gate Pass"
 
     dataset
     {
-        dataitem(DataItem1; Table50068)
+        dataitem("Gate Pass Header"; "Gate Pass Header")
         {
             RequestFilterFields = "No.";
             column(No_GatePassHeader; "Gate Pass Header"."No.")
@@ -79,9 +79,9 @@ report 50016 "Gate Pass"
             column(PreparedBy; PreparedBy)
             {
             }
-            dataitem(DataItem19; Table50069)
+            dataitem("Gate Pass Line"; "Gate Pass Line")
             {
-                DataItemLink = Gate-Pass No.=FIELD(No.);
+                DataItemLink = "Gate-Pass No."=FIELD("No.");
                 column(GatePassNo_GatePassLine; "Gate Pass Line"."Gate-Pass No.")
                 {
                 }
@@ -166,9 +166,9 @@ report 50016 "Gate Pass"
                 column(Shade; Shade)
                 {
                 }
-                dataitem(DataItem1000000007; Table50071)
+                dataitem("Offloaded Gatepass Header"; "Offloaded Gatepass Header")
                 {
-                    DataItemLink = Gate Pass No=FIELD(Gate-Pass No.);
+                    DataItemLink = "Gate Pass No"=FIELD("Gate-Pass No.");
                     column(ULDType_OffloadedULDs; "Offloaded Gatepass Header"."ULD Type")
                     {
                     }
@@ -282,19 +282,19 @@ report 50016 "Gate Pass"
     end;
 
     var
-        CompInfo: Record "79";
+        CompInfo: Record "Company Information";
         Phyto: Text[50];
         EURO: Text[50];
         COMESA: Text[50];
         EACC: Text[50];
-        HAWBHeader: Record "50075";
-        LoadingUld: Record "50063";
+        HAWBHeader: Record "HAWB Header";
+        LoadingUld: Record "Loading Sheet ULD Allocation";
         NumberOfBoxes: Decimal;
         ULDWeight: Decimal;
         PreparedBy: Code[50];
-        Items: Record "27";
+        Items: Record Item;
         Product: Text[50];
         Shade: Text[50];
-        Airlines: Record "50021";
+        Airlines: Record Airline;
 }
 

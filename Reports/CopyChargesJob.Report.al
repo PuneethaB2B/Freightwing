@@ -5,9 +5,9 @@ report 50104 "Copy Charges -Job"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50025)
+        dataitem("Freight Charge By Airline"; "Freight Charge By Airline")
         {
-            DataItemTableView = SORTING(Airline Code, Effective Start Date, Effective End Date)
+            DataItemTableView = SORTING("Airline Code", "Effective Start Date", "Effective End Date")
                                 ORDER(Ascending);
 
             trigger OnAfterGetRecord()
@@ -172,18 +172,18 @@ report 50104 "Copy Charges -Job"
     }
 
     var
-        FreightChargeByAirline: Record "50025";
-        FreightChargeByFlight: Record "50026";
-        FreightChargeByItem: Record "50027";
-        FreightItemCharge: Record "50028";
-        FreightItemChargeMatrix: Record "50029";
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        FreightChargeByFlight: Record "Freight Charge By Flight";
+        FreightChargeByItem: Record "Freight Charge By Item";
+        FreightItemCharge: Record "Freight Item Charge";
+        FreightItemChargeMatrix: Record "Freight Item Charge Matrix";
         StartDate: Date;
         EndDate: Date;
         Window: Dialog;
-        FreightChargeByAirline1: Record "50025";
-        FreightChargeByFlight1: Record "50026";
-        FreightChargeByItem1: Record "50027";
-        FreightItemCharge1: Record "50028";
-        FreightItemChargeMatrix1: Record "50029";
+        FreightChargeByAirline1: Record "Freight Charge By Airline";
+        FreightChargeByFlight1: Record "Freight Charge By Flight";
+        FreightChargeByItem1: Record "Freight Charge By Item";
+        FreightItemCharge1: Record "Freight Item Charge";
+        FreightItemChargeMatrix1: Record "Freight Item Charge Matrix";
 }
 

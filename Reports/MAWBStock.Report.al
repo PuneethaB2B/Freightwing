@@ -7,7 +7,7 @@ report 50041 "MAWB Stock"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50038)
+        dataitem("MAWB By Airline"; "MAWB By Airline")
         {
             column(CompanyAddress; CompanyInfo.Address)
             {
@@ -36,52 +36,52 @@ report 50041 "MAWB Stock"
             column(KAAFees_MAWBByAirline; "MAWB By Airline"."KAA Fees")
             {
             }
-            dataitem(DataItem1000000006; Table50039)
+            dataitem("MAWB Receipt"; "MAWB Receipt")
             {
-                DataItemLink = Airline Code=FIELD(Airline Code);
-                DataItemTableView = SORTING(Airline Code, MAWB No.)
+                DataItemLink = "Airline Code" = FIELD("Airline Code");
+                DataItemTableView = SORTING("Airline Code", "MAWB No.")
                                     ORDER(Ascending)
-                                    WHERE(MAWB No.=FILTER(<>''));
-                column(AirlineCode_MAWBReceipt;"MAWB Receipt"."Airline Code")
+                                    WHERE("MAWB No." = FILTER(<> ''));
+                column(AirlineCode_MAWBReceipt; "MAWB Receipt"."Airline Code")
                 {
                 }
-                column(MAWBNo_MAWBReceipt;"MAWB Receipt"."MAWB No.")
+                column(MAWBNo_MAWBReceipt; "MAWB Receipt"."MAWB No.")
                 {
                 }
-                column(ReceiptDate_MAWBReceipt;"MAWB Receipt"."Receipt Date")
+                column(ReceiptDate_MAWBReceipt; "MAWB Receipt"."Receipt Date")
                 {
                 }
-                column(MAWBFees_MAWBReceipt;"MAWB Receipt"."MAWB Fees")
+                column(MAWBFees_MAWBReceipt; "MAWB Receipt"."MAWB Fees")
                 {
                 }
-                column(Assigned_MAWBReceipt;"MAWB Receipt".Assigned)
+                column(Assigned_MAWBReceipt; "MAWB Receipt".Assigned)
                 {
                 }
-                column(FreightChargeCode_MAWBReceipt;"MAWB Receipt"."Freight Charge Code")
+                column(FreightChargeCode_MAWBReceipt; "MAWB Receipt"."Freight Charge Code")
                 {
                 }
-                column(Prepared_MAWBReceipt;"MAWB Receipt".Prepared)
+                column(Prepared_MAWBReceipt; "MAWB Receipt".Prepared)
                 {
                 }
-                column(PrefixCode_MAWBReceipt;"MAWB Receipt"."Prefix Code")
+                column(PrefixCode_MAWBReceipt; "MAWB Receipt"."Prefix Code")
                 {
                 }
-                column(BillNo_MAWBReceipt;"MAWB Receipt"."Bill No.")
+                column(BillNo_MAWBReceipt; "MAWB Receipt"."Bill No.")
                 {
                 }
-                column(StartNo_MAWBReceipt;"MAWB Receipt"."Start No.")
+                column(StartNo_MAWBReceipt; "MAWB Receipt"."Start No.")
                 {
                 }
-                column(EndNo_MAWBReceipt;"MAWB Receipt"."End No.")
+                column(EndNo_MAWBReceipt; "MAWB Receipt"."End No.")
                 {
                 }
-                column(KAAFees_MAWBReceipt;"MAWB Receipt"."KAA Fees")
+                column(KAAFees_MAWBReceipt; "MAWB Receipt"."KAA Fees")
                 {
                 }
 
                 trigger OnPreDataItem()
                 begin
-                    SETFILTER("MAWB Receipt".Assigned,'=%1',FALSE);
+                    SETFILTER("MAWB Receipt".Assigned, '=%1', FALSE);
                 end;
             }
 
@@ -114,6 +114,6 @@ report 50041 "MAWB Stock"
     }
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

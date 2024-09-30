@@ -6,9 +6,9 @@ report 50045 "Airline Freight Monthly"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50077)
+        dataitem("MAWB Header 2"; "MAWB Header 2")
         {
-            DataItemTableView = WHERE(Purchase Posting Date=FILTER(<>''));
+            DataItemTableView = WHERE("Purchase Posting Date"=FILTER(<>''));
             RequestFilterFields = "No.","Airline Code","Purchase Posting Date";
             column(MAWB_AirlineCode;"MAWB Header 2"."Airline Code")
             {
@@ -112,13 +112,13 @@ report 50045 "Airline Freight Monthly"
     var
         gDecItemTotalWeight: Decimal;
         gDecItemTotalAmount: Decimal;
-        gRecAirline: Record "50021";
+        gRecAirline: Record 50021;
         gCodeTempMawbNo: Code[20];
-        gDecPurchInvLine: Record "123";
-        gRecMAWBLine: Record "50076";
+        gDecPurchInvLine: Record 123;
+        gRecMAWBLine: Record 50076;
         gCodeItemNo: Code[20];
         gCodeItemDesc: Text[50];
-        gRecCompanyInfo: Record "79";
+        gRecCompanyInfo: Record 79;
         gBoolIncludeBreakDown: Boolean;
 }
 

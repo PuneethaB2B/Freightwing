@@ -9,9 +9,9 @@ report 50031 "Sales Invoice"
 
     dataset
     {
-        dataitem(DataItem5581; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
-            DataItemTableView = SORTING(No.);
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Posted Sales Invoice';
             column(No_SalesInvHdr; "No.")
@@ -119,10 +119,10 @@ report 50031 "Sales Invoice"
             column(RatePerKg; RatePerKg)
             {
             }
-            dataitem(CopyLoop; Table2000000026)
+            dataitem(CopyLoop; Integer)
             {
                 DataItemTableView = SORTING(Number);
-                dataitem(PageLoop; Table2000000026)
+                dataitem(PageLoop; Integer)
                 {
                     DataItemTableView = SORTING(Number)
                                         WHERE(Number = CONST(1));
@@ -291,7 +291,7 @@ report 50031 "Sales Invoice"
                     column(PricesInclVAT_SalesInvHdrCaption; "Sales Invoice Header".FIELDCAPTION("Prices Including VAT"))
                     {
                     }
-                    dataitem(DimensionLoop1; Table2000000026)
+                    dataitem(DimensionLoop1; Integer)
                     {
                         DataItemLinkReference = "Sales Invoice Header";
                         DataItemTableView = SORTING(Number)
@@ -340,11 +340,11 @@ report 50031 "Sales Invoice"
                                 CurrReport.BREAK;
                         end;
                     }
-                    dataitem(DataItem1570; Table113)
+                    dataitem("Sales Invoice Line"; "Sales Invoice Line")
                     {
-                        DataItemLink = Document No.=FIELD(No.);
+                        DataItemLink = "Document No." = FIELD("No.");
                         DataItemLinkReference = "Sales Invoice Header";
-                        DataItemTableView = SORTING(Document No., Line No.);
+                        DataItemTableView = SORTING("Document No.", "Line No.");
                         column(LineAmt_SalesInvLine; "Line Amount")
                         {
                             AutoFormatExpression = GetCurrencyCode;
@@ -503,7 +503,7 @@ report 50031 "Sales Invoice"
                         column(Testing; NumberToText)
                         {
                         }
-                        dataitem("Sales Shipment Buffer"; Table2000000026)
+                        dataitem("Sales Shipment Buffer"; Integer)
                         {
                             DataItemTableView = SORTING(Number);
                             column(SalesShptBufferPostDate; FORMAT(SalesShipmentBuffer."Posting Date"))
@@ -533,7 +533,7 @@ report 50031 "Sales Invoice"
                                 SETRANGE(Number, 1, SalesShipmentBuffer.COUNT);
                             end;
                         }
-                        dataitem(DimensionLoop2; Table2000000026)
+                        dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number)
                                                 WHERE(Number = FILTER(1 ..));
@@ -580,7 +580,7 @@ report 50031 "Sales Invoice"
                                 DimSetEntry2.SETRANGE("Dimension Set ID", "Sales Invoice Line"."Dimension Set ID");
                             end;
                         }
-                        dataitem(AsmLoop; Table2000000026)
+                        dataitem(AsmLoop; Integer)
                         {
                             DataItemTableView = SORTING(Number);
                             column(TempPostedAsmLineNo; BlanksForIndent + TempPostedAsmLine."No.")
@@ -706,7 +706,7 @@ report 50031 "Sales Invoice"
                             CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount", TotalAmountLCY);
                         end;
                     }
-                    dataitem(VATCounter; Table2000000026)
+                    dataitem(VATCounter; Integer)
                     {
                         DataItemTableView = SORTING(Number);
                         column(VATAmtLineVATBase; VATAmountLine."VAT Base")
@@ -764,7 +764,7 @@ report 50031 "Sales Invoice"
                               VATAmountLine."Invoice Discount Amount", VATAmountLine."VAT Base", VATAmountLine."VAT Amount");
                         end;
                     }
-                    dataitem(VATClauseEntryCounter; Table2000000026)
+                    dataitem(VATClauseEntryCounter; Integer)
                     {
                         DataItemTableView = SORTING(Number);
                         column(VATClauseVATIdentifier; VATAmountLine."VAT Identifier")
@@ -809,7 +809,7 @@ report 50031 "Sales Invoice"
                             CurrReport.CREATETOTALS(VATAmountLine."VAT Amount");
                         end;
                     }
-                    dataitem(VatCounterLCY; Table2000000026)
+                    dataitem(VatCounterLCY; Integer)
                     {
                         DataItemTableView = SORTING(Number);
                         column(VALSpecLCYHeader; VALSpecLCYHeader)
@@ -867,7 +867,7 @@ report 50031 "Sales Invoice"
                             VALExchRate := STRSUBSTNO(Text009, CalculatedExchRate, CurrExchRate."Exchange Rate Amount");
                         end;
                     }
-                    dataitem(Total; Table2000000026)
+                    dataitem(Total; Integer)
                     {
                         DataItemTableView = SORTING(Number)
                                             WHERE(Number = CONST(1));
@@ -1150,29 +1150,29 @@ report 50031 "Sales Invoice"
         PageCaptionCap: Label 'Page %1 of %2';
         Text006: Label 'Total %1 Excl. VAT';
         RatePerKg: Text[250];
-        FlightItemCharge: Record "50029";
-        GLSetup: Record "98";
-        ShipmentMethod: Record "10";
-        PaymentTerms: Record "3";
-        SalesPurchPerson: Record "13";
-        CompanyInfo: Record "79";
-        CompanyInfo1: Record "79";
-        CompanyInfo2: Record "79";
-        CompanyInfo3: Record "79";
-        SalesSetup: Record "311";
-        Cust: Record "18";
-        VATAmountLine: Record "290" temporary;
-        DimSetEntry1: Record "480";
-        DimSetEntry2: Record "480";
-        RespCenter: Record "5714";
-        Language: Record "8";
-        CurrExchRate: Record "330";
-        TempPostedAsmLine: Record "911" temporary;
-        VATClause: Record "560";
-        SalesInvCountPrinted: Codeunit "315";
-        FormatAddr: Codeunit "365";
-        SegManagement: Codeunit "5051";
-        SalesShipmentBuffer: Record "7190" temporary;
+        FlightItemCharge: Record "Freight Item Charge Matrix";
+        GLSetup: Record "General Ledger Setup";
+        ShipmentMethod: Record "Shipment Method";
+        PaymentTerms: Record "Payment Terms";
+        SalesPurchPerson: Record "Salesperson/Purchaser";
+        CompanyInfo: Record "Company Information";
+        CompanyInfo1: Record "Company Information";
+        CompanyInfo2: Record "Company Information";
+        CompanyInfo3: Record "Company Information";
+        SalesSetup: Record "Sales & Receivables Setup";
+        Cust: Record Customer;
+        VATAmountLine: Record "VAT Amount Line" temporary;
+        DimSetEntry1: Record "Dimension Set Entry";
+        DimSetEntry2: Record "Dimension Set Entry";
+        RespCenter: Record "Responsibility Center";
+        Language: Record Language;
+        CurrExchRate: Record "Currency Exchange Rate";
+        TempPostedAsmLine: Record "Posted Assembly Line" temporary;
+        VATClause: Record "VAT Clause";
+        SalesInvCountPrinted: Codeunit "Sales Inv.-Printed";
+        FormatAddr: Codeunit "Format Address";
+        SegManagement: Codeunit SegManagement;
+        SalesShipmentBuffer: Record "Sales Shipment Buffer" temporary;
         PostedShipmentDate: Date;
         CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
@@ -1212,8 +1212,7 @@ report 50031 "Sales Invoice"
         TotalAmountInclVAT: Decimal;
         TotalAmountVAT: Decimal;
         TotalInvDiscAmount: Decimal;
-        TotalPaymentDiscOnVAT: Decimal;
-        [InDataSet]
+        TotalPaymentDiscOnVAT: Decimal;   
         LogInteractionEnable: Boolean;
         DisplayAssemblyInformation: Boolean;
         CompanyInfoPhoneNoCaptionLbl: Label 'Phone No.';
@@ -1249,8 +1248,8 @@ report 50031 "Sales Invoice"
         VATIdentifierCaptionLbl: Label 'VAT Identifier';
         HomePageCaptionCap: Label 'Home Page';
         EMailCaptionLbl: Label 'E-Mail';
-        MAWBLine: Record "50076";
-        BookingSheetLine: Record "50054";
+        MAWBLine: Record "MAWB Line";
+        BookingSheetLine: Record "Booking Sheet Line";
         TotalQty: Decimal;
         TotalWeight: Decimal;
         FlightCode: Code[20];
@@ -1260,21 +1259,21 @@ report 50031 "Sales Invoice"
         CCPP: Code[20];
         ConsigneeCode: Code[20];
         ConsigneeName: Text[50];
-        Consignee: Record "50015";
-        CurrencyExchangeRate: Record "330";
-        Currency: Record "4";
+        Consignee: Record Consignee;
+        CurrencyExchangeRate: Record "Currency Exchange Rate";
+        Currency: Record Currency;
         TotalAmountLCY: Decimal;
         ItemNo: Code[20];
         ItemDesc: Text[50];
-        Item: Record "27";
+        Item: Record Item;
         TotalAmtLCY: Decimal;
         LCYCode: Code[20];
-        CheckReport: Report "1401";
+        CheckReport: Report Check;
         AmountText: array[2] of Text;
         AmountinWords: Text;
-        Converter: Report "1401";
+        Converter: Report Check;
         Notext: array[2] of Text[250];
-        CurrencyText: Codeunit "50017";
+        CurrencyText: Codeunit "Currency Text";
         NumberToText: Text[160];
 
 
@@ -1286,8 +1285,8 @@ report 50031 "Sales Invoice"
 
     procedure FindPostedShipmentDate(): Date
     var
-        SalesShipmentHeader: Record "110";
-        SalesShipmentBuffer2: Record "7190" temporary;
+        SalesShipmentHeader: Record "Sales Shipment Header";
+        SalesShipmentBuffer2: Record "Sales Shipment Buffer" temporary;
     begin
         NextEntryNo := 1;
         IF "Sales Invoice Line"."Shipment No." <> '' THEN
@@ -1328,10 +1327,10 @@ report 50031 "Sales Invoice"
     end;
 
 
-    procedure GenerateBufferFromValueEntry(SalesInvoiceLine2: Record "113")
+    procedure GenerateBufferFromValueEntry(SalesInvoiceLine2: Record "Sales Invoice Line")
     var
-        ValueEntry: Record "5802";
-        ItemLedgerEntry: Record "32";
+        ValueEntry: Record "Value Entry";
+        ItemLedgerEntry: Record "Item Ledger Entry";
         TotalQuantity: Decimal;
         Quantity: Decimal;
     begin
@@ -1359,12 +1358,12 @@ report 50031 "Sales Invoice"
     end;
 
 
-    procedure GenerateBufferFromShipment(SalesInvoiceLine: Record "113")
+    procedure GenerateBufferFromShipment(SalesInvoiceLine: Record "Sales Invoice Line")
     var
-        SalesInvoiceHeader: Record "112";
-        SalesInvoiceLine2: Record "113";
-        SalesShipmentHeader: Record "110";
-        SalesShipmentLine: Record "111";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesInvoiceLine2: Record "Sales Invoice Line";
+        SalesShipmentHeader: Record "Sales Shipment Header";
+        SalesShipmentLine: Record "Sales Shipment Line";
         TotalQuantity: Decimal;
         Quantity: Decimal;
     begin
@@ -1419,9 +1418,9 @@ report 50031 "Sales Invoice"
     end;
 
 
-    procedure CorrectShipment(var SalesShipmentLine: Record "111")
+    procedure CorrectShipment(var SalesShipmentLine: Record "Sales Shipment Line")
     var
-        SalesInvoiceLine: Record "113";
+        SalesInvoiceLine: Record "Sales Invoice Line";
     begin
         SalesInvoiceLine.SETCURRENTKEY("Shipment No.", "Shipment Line No.");
         SalesInvoiceLine.SETRANGE("Shipment No.", SalesShipmentLine."Document No.");
@@ -1433,7 +1432,7 @@ report 50031 "Sales Invoice"
     end;
 
 
-    procedure AddBufferEntry(SalesInvoiceLine: Record "113"; QtyOnShipment: Decimal; PostingDate: Date)
+    procedure AddBufferEntry(SalesInvoiceLine: Record "Sales Invoice Line"; QtyOnShipment: Decimal; PostingDate: Date)
     begin
         SalesShipmentBuffer.SETRANGE("Document No.", SalesInvoiceLine."Document No.");
         SalesShipmentBuffer.SETRANGE("Line No.", SalesInvoiceLine."Line No.");
@@ -1474,11 +1473,11 @@ report 50031 "Sales Invoice"
 
     procedure CollectAsmInformation()
     var
-        ValueEntry: Record "5802";
-        ItemLedgerEntry: Record "32";
-        PostedAsmHeader: Record "910";
-        PostedAsmLine: Record "911";
-        SalesShipmentLine: Record "111";
+        ValueEntry: Record "Value Entry";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        PostedAsmHeader: Record "Posted Assembly Header";
+        PostedAsmLine: Record "Posted Assembly Line";
+        SalesShipmentLine: Record "Posted Assembly Line";
     begin
         TempPostedAsmLine.DELETEALL;
         IF "Sales Invoice Line".Type <> "Sales Invoice Line".Type::Item THEN
@@ -1506,7 +1505,7 @@ report 50031 "Sales Invoice"
     end;
 
 
-    procedure TreatAsmLineBuffer(PostedAsmLine: Record "911")
+    procedure TreatAsmLineBuffer(PostedAsmLine: Record "Posted Assembly Line")
     begin
         CLEAR(TempPostedAsmLine);
         TempPostedAsmLine.SETRANGE(Type, PostedAsmLine.Type);
@@ -1527,7 +1526,7 @@ report 50031 "Sales Invoice"
 
     procedure GetUOMText(UOMCode: Code[10]): Text[10]
     var
-        UnitOfMeasure: Record "204";
+        UnitOfMeasure: Record "Unit of Measure";
     begin
         IF NOT UnitOfMeasure.GET(UOMCode) THEN
             EXIT(UOMCode);

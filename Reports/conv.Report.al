@@ -5,7 +5,7 @@ report 50111 conv
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50016)
+        dataitem("IATA Purchase Invoice"; "IATA Purchase Invoice")
         {
 
             trigger OnAfterGetRecord()

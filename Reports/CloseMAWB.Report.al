@@ -5,7 +5,7 @@ report 50072 "Close MAWB"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
 
             trigger OnAfterGetRecord()
@@ -58,7 +58,7 @@ report 50072 "Close MAWB"
     }
 
     var
-        BookingSheetMAWBAllocation: Record "50070";
-        SalesInvoiceHeader: Record "112";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
 }
 

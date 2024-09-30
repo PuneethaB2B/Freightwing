@@ -7,9 +7,9 @@ report 50051 "MAWB Sales Purch. Comp"
 
     dataset
     {
-        dataitem(DataItem1000000001; Table50077)
+        dataitem("MAWB Header 2"; "MAWB Header 2")
         {
-            DataItemTableView = SORTING(No.)
+            DataItemTableView = SORTING("No.")
                                 ORDER(Ascending);
             column(No_MAWBHeader; "MAWB Header 2"."No.")
             {
@@ -26,10 +26,10 @@ report 50051 "MAWB Sales Purch. Comp"
             column(City; CompanyInfo.City)
             {
             }
-            dataitem(DataItem1000000000; Table113)
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = MAWB No.=FIELD(No.);
-                DataItemTableView = WHERE(MAWB No.=FILTER(<>''));
+                DataItemLink = "MAWB No."=FIELD("No.");
+                DataItemTableView = WHERE("MAWB No."=FILTER(<>''));
                 RequestFilterHeading = 'Posting Date';
                 column(SelltoCustomerNo_SalesInvoiceLine;"Sales Invoice Line"."Sell-to Customer No.")
                 {
@@ -262,16 +262,16 @@ report 50051 "MAWB Sales Purch. Comp"
                 column(ResponsibilityCenter_SalesInvoiceLine;"Sales Invoice Line"."Responsibility Center")
                 {
                 }
-                column(CrossReferenceNo_SalesInvoiceLine;"Sales Invoice Line"."Cross-Reference No.")
+                column(CrossReferenceNo_SalesInvoiceLine;"Sales Invoice Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_SalesInvoiceLine;"Sales Invoice Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_SalesInvoiceLine;"Sales Invoice Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_SalesInvoiceLine;"Sales Invoice Line"."Cross-Reference Type")
+                column(CrossReferenceType_SalesInvoiceLine;"Sales Invoice Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_SalesInvoiceLine;"Sales Invoice Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_SalesInvoiceLine;"Sales Invoice Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_SalesInvoiceLine;"Sales Invoice Line"."Item Category Code")
@@ -283,9 +283,9 @@ report 50051 "MAWB Sales Purch. Comp"
                 column(PurchasingCode_SalesInvoiceLine;"Sales Invoice Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_SalesInvoiceLine;"Sales Invoice Line"."Product Group Code")
+                column(ProductGroupCode_SalesInvoiceLine;"Sales Invoice Line"."Item Category Code")
                 {
-                }
+                }//b2BUPG
                 column(ApplfromItemEntry_SalesInvoiceLine;"Sales Invoice Line"."Appl.-from Item Entry")
                 {
                 }
@@ -359,12 +359,12 @@ report 50051 "MAWB Sales Purch. Comp"
                     END;
                 end;
             }
-            dataitem(DataItem1000000002;Table123)
+            dataitem("Purch. Inv. Line";"Purch. Inv. Line")
             {
-                DataItemLink = Payment Voucher No.=FIELD(No.);
-                DataItemTableView = SORTING(Document No.,Line No.)
+                DataItemLink = "Payment Voucher No."=FIELD("No.");
+                DataItemTableView = SORTING("Document No.","Line No.")
                                     ORDER(Ascending)
-                                    WHERE(Payment Voucher No.=FILTER(<>''));
+                                    WHERE("Payment Voucher No."=FILTER(<>''));
                 column(AirlineName;Airlines.Name)
                 {
                 }
@@ -653,16 +653,16 @@ report 50051 "MAWB Sales Purch. Comp"
                 column(ResponsibilityCenter_PurchInvLine;"Purch. Inv. Line"."Responsibility Center")
                 {
                 }
-                column(CrossReferenceNo_PurchInvLine;"Purch. Inv. Line"."Cross-Reference No.")
+                column(CrossReferenceNo_PurchInvLine;"Purch. Inv. Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_PurchInvLine;"Purch. Inv. Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_PurchInvLine;"Purch. Inv. Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_PurchInvLine;"Purch. Inv. Line"."Cross-Reference Type")
+                column(CrossReferenceType_PurchInvLine;"Purch. Inv. Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_PurchInvLine;"Purch. Inv. Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_PurchInvLine;"Purch. Inv. Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_PurchInvLine;"Purch. Inv. Line"."Item Category Code")
@@ -674,9 +674,9 @@ report 50051 "MAWB Sales Purch. Comp"
                 column(PurchasingCode_PurchInvLine;"Purch. Inv. Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_PurchInvLine;"Purch. Inv. Line"."Product Group Code")
+                column(ProductGroupCode_PurchInvLine;"Purch. Inv. Line"."Item Category Code")
                 {
-                }
+                }//b2BUPG
                 column(ReturnReasonCode_PurchInvLine;"Purch. Inv. Line"."Return Reason Code")
                 {
                 }
@@ -746,8 +746,8 @@ report 50051 "MAWB Sales Purch. Comp"
     }
 
     var
-        CompanyInfo: Record "79";
-        Airlines: Record "50021";
-        Cust: Record "18";
+        CompanyInfo: Record "Company Information";
+        Airlines: Record Airline;
+        Cust: Record Customer;
 }
 

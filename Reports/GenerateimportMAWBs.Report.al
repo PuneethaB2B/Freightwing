@@ -5,7 +5,7 @@ report 50087 "Generate import MAWBs"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table113)
+        dataitem("Sales Invoice Line"; "Sales Invoice Line")
         {
 
             trigger OnAfterGetRecord()
@@ -56,6 +56,6 @@ report 50087 "Generate import MAWBs"
 
     var
         Window: Dialog;
-        MAWBReceipt: Record "50039";
+        MAWBReceipt: Record "MAWB Receipt";
 }
 

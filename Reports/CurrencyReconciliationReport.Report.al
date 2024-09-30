@@ -6,44 +6,44 @@ report 50050 "Currency Reconciliation Report"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table21)
+        dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
         {
-            DataItemTableView = WHERE(Open = CONST(Yes),
-                                      Currency Code=FILTER(<>''));
-            column(ShowCustomer;gBoolShowCustomer)
+            DataItemTableView = WHERE(Open = CONST(true),
+                                      "Currency Code" = FILTER(<> ''));
+            column(ShowCustomer; gBoolShowCustomer)
             {
             }
-            column(ShowVendor;gBoolShowVendor)
+            column(ShowVendor; gBoolShowVendor)
             {
             }
-            column(PostingDate_CustLedgerEntry;"Cust. Ledger Entry"."Posting Date")
+            column(PostingDate_CustLedgerEntry; "Cust. Ledger Entry"."Posting Date")
             {
             }
-            column(DocumentNo_CustLedgerEntry;"Cust. Ledger Entry"."Document No.")
+            column(DocumentNo_CustLedgerEntry; "Cust. Ledger Entry"."Document No.")
             {
             }
-            column(CustomerNo_CustLedgerEntry;gRecCustomer."Search Name")
+            column(CustomerNo_CustLedgerEntry; gRecCustomer."Search Name")
             {
             }
-            column(CurrencyCode_CustLedgerEntry;"Cust. Ledger Entry"."Currency Code")
+            column(CurrencyCode_CustLedgerEntry; "Cust. Ledger Entry"."Currency Code")
             {
             }
-            column(Amount_CustLedgerEntry;"Cust. Ledger Entry"."Remaining Amount")
+            column(Amount_CustLedgerEntry; "Cust. Ledger Entry"."Remaining Amount")
             {
             }
-            column(BookingRate_Customer;gDecBookingRate)
+            column(BookingRate_Customer; gDecBookingRate)
             {
             }
-            column(AuditRate_Customer;gDecAuditRate)
+            column(AuditRate_Customer; gDecAuditRate)
             {
             }
-            column(AmountLCY_Customer;gDecCustomerAmtLCY)
+            column(AmountLCY_Customer; gDecCustomerAmtLCY)
             {
             }
-            column(RateDiff_Customer;gDecCustRateDiff)
+            column(RateDiff_Customer; gDecCustRateDiff)
             {
             }
-            column(UnRealAmt_Customer;gDecCustUnRealAmt)
+            column(UnRealAmt_Customer; gDecCustUnRealAmt)
             {
             }
 
@@ -54,18 +54,18 @@ report 50050 "Currency Reconciliation Report"
                 //Booking Rate
                 CLEAR(gDecBookingRate);
                 gRecCurrencyExch.RESET;
-                gRecCurrencyExch.SETRANGE("Currency Code","Cust. Ledger Entry"."Currency Code");
-                gRecCurrencyExch.SETFILTER("Starting Date",'<=%1',"Cust. Ledger Entry"."Posting Date");
+                gRecCurrencyExch.SETRANGE("Currency Code", "Cust. Ledger Entry"."Currency Code");
+                gRecCurrencyExch.SETFILTER("Starting Date", '<=%1', "Cust. Ledger Entry"."Posting Date");
                 IF gRecCurrencyExch.FINDLAST THEN
-                  gDecBookingRate := gRecCurrencyExch."Relational Exch. Rate Amount";
+                    gDecBookingRate := gRecCurrencyExch."Relational Exch. Rate Amount";
 
                 //Audit Rate
                 CLEAR(gDecAuditRate);
                 gRecCurrencyExch.RESET;
-                gRecCurrencyExch.SETRANGE("Currency Code","Cust. Ledger Entry"."Currency Code");
-                gRecCurrencyExch.SETFILTER("Starting Date",'<=%1',gDateEndDate);
+                gRecCurrencyExch.SETRANGE("Currency Code", "Cust. Ledger Entry"."Currency Code");
+                gRecCurrencyExch.SETFILTER("Starting Date", '<=%1', gDateEndDate);
                 IF gRecCurrencyExch.FINDLAST THEN
-                  gDecAuditRate := gRecCurrencyExch."Relational Exch. Rate Amount";
+                    gDecAuditRate := gRecCurrencyExch."Relational Exch. Rate Amount";
 
                 //Amount in LCY
                 gDecCustomerAmtLCY := gDecBookingRate * "Cust. Ledger Entry"."Remaining Amount";
@@ -79,41 +79,41 @@ report 50050 "Currency Reconciliation Report"
 
             trigger OnPreDataItem()
             begin
-                "Cust. Ledger Entry".SETRANGE("Posting Date",gDateStartDate,gDateEndDate);
+                "Cust. Ledger Entry".SETRANGE("Posting Date", gDateStartDate, gDateEndDate);
             end;
         }
-        dataitem(DataItem1000000001;Table25)
+        dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
         {
-            DataItemTableView = WHERE(Open=CONST(Yes),
-                                      Currency Code=FILTER(<>''));
-            column(PostingDate_VendorLedgerEntry;"Vendor Ledger Entry"."Posting Date")
+            DataItemTableView = WHERE(Open = CONST(true),
+                                      "Currency Code" = FILTER(<> ''));
+            column(PostingDate_VendorLedgerEntry; "Vendor Ledger Entry"."Posting Date")
             {
             }
-            column(DocumentNo_VendorLedgerEntry;"Vendor Ledger Entry"."Document No.")
+            column(DocumentNo_VendorLedgerEntry; "Vendor Ledger Entry"."Document No.")
             {
             }
-            column(VendorNo_VendorLedgerEntry;gRecVendor."Search Name")
+            column(VendorNo_VendorLedgerEntry; gRecVendor."Search Name")
             {
             }
-            column(CurrencyCode_VendorLedgerEntry;"Vendor Ledger Entry"."Currency Code")
+            column(CurrencyCode_VendorLedgerEntry; "Vendor Ledger Entry"."Currency Code")
             {
             }
-            column(RemainingAmount_VendorLedgerEntry;"Vendor Ledger Entry"."Remaining Amount")
+            column(RemainingAmount_VendorLedgerEntry; "Vendor Ledger Entry"."Remaining Amount")
             {
             }
-            column(BookingRate_Vendor;gDecBookingRate2)
+            column(BookingRate_Vendor; gDecBookingRate2)
             {
             }
-            column(AuditRate_Vendor;gDecAuditRate2)
+            column(AuditRate_Vendor; gDecAuditRate2)
             {
             }
-            column(AmountLCY_Vendor;gDecVendorAmtLCY)
+            column(AmountLCY_Vendor; gDecVendorAmtLCY)
             {
             }
-            column(RateDiff_Vendor;gDecVendRateDiff)
+            column(RateDiff_Vendor; gDecVendRateDiff)
             {
             }
-            column(UnRealAmt_Vendor;gDecVendUnRealAmt)
+            column(UnRealAmt_Vendor; gDecVendUnRealAmt)
             {
             }
 
@@ -125,18 +125,18 @@ report 50050 "Currency Reconciliation Report"
                 //Booking Rate
                 CLEAR(gDecBookingRate2);
                 gRecCurrencyExch.RESET;
-                gRecCurrencyExch.SETRANGE("Currency Code","Vendor Ledger Entry"."Currency Code");
-                gRecCurrencyExch.SETFILTER("Starting Date",'<=%1',"Vendor Ledger Entry"."Posting Date");
+                gRecCurrencyExch.SETRANGE("Currency Code", "Vendor Ledger Entry"."Currency Code");
+                gRecCurrencyExch.SETFILTER("Starting Date", '<=%1', "Vendor Ledger Entry"."Posting Date");
                 IF gRecCurrencyExch.FINDLAST THEN
-                  gDecBookingRate2 := gRecCurrencyExch."Relational Exch. Rate Amount";
+                    gDecBookingRate2 := gRecCurrencyExch."Relational Exch. Rate Amount";
 
                 //Audit Rate
                 CLEAR(gDecAuditRate2);
                 gRecCurrencyExch.RESET;
-                gRecCurrencyExch.SETRANGE("Currency Code","Vendor Ledger Entry"."Currency Code");
-                gRecCurrencyExch.SETFILTER("Starting Date",'<=%1',gDateEndDate);
+                gRecCurrencyExch.SETRANGE("Currency Code", "Vendor Ledger Entry"."Currency Code");
+                gRecCurrencyExch.SETFILTER("Starting Date", '<=%1', gDateEndDate);
                 IF gRecCurrencyExch.FINDLAST THEN
-                  gDecAuditRate2 := gRecCurrencyExch."Relational Exch. Rate Amount";
+                    gDecAuditRate2 := gRecCurrencyExch."Relational Exch. Rate Amount";
 
                 //Amount in LCY
                 gDecVendorAmtLCY := gDecBookingRate2 * "Vendor Ledger Entry"."Remaining Amount";
@@ -150,7 +150,7 @@ report 50050 "Currency Reconciliation Report"
 
             trigger OnPreDataItem()
             begin
-                "Vendor Ledger Entry".SETRANGE("Posting Date",gDateStartDate,gDateEndDate);
+                "Vendor Ledger Entry".SETRANGE("Posting Date", gDateStartDate, gDateEndDate);
             end;
         }
     }
@@ -162,16 +162,16 @@ report 50050 "Currency Reconciliation Report"
         {
             area(content)
             {
-                field("Show Customer";gBoolShowCustomer)
+                field("Show Customer"; gBoolShowCustomer)
                 {
                 }
-                field("Show Vendor";gBoolShowVendor)
+                field("Show Vendor"; gBoolShowVendor)
                 {
                 }
-                field("Start Date";gDateStartDate)
+                field("Start Date"; gDateStartDate)
                 {
                 }
-                field("End Date";gDateEndDate)
+                field("End Date"; gDateEndDate)
                 {
                 }
             }
@@ -189,19 +189,19 @@ report 50050 "Currency Reconciliation Report"
     trigger OnPreReport()
     begin
         IF (gDateStartDate = 0D) OR (gDateEndDate = 0D) THEN
-          ERROR('Please enter Start and End Dates');
+            ERROR('Please enter Start and End Dates');
     end;
 
     var
         gDateStartDate: Date;
         gDateEndDate: Date;
-        gRecCurrencyExch: Record "330";
-        gRecCustomer: Record "18";
+        gRecCurrencyExch: Record "Currency Exchange Rate";
+        gRecCustomer: Record Customer;
         gBoolShowCustomer: Boolean;
         gBoolShowVendor: Boolean;
         gDecBookingRate: Decimal;
         gDecAuditRate: Decimal;
-        gRecVendor: Record "23";
+        gRecVendor: Record Vendor;
         gDecBookingRate2: Decimal;
         gDecAuditRate2: Decimal;
         gDecCustomerAmtLCY: Decimal;

@@ -6,45 +6,45 @@ report 50048 "Exports By Destination"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
-            DataItemTableView = WHERE(Bill-to Name=FILTER(<>''),
-                                      MAWB No.=FILTER(<>''));
-            column(Company_Address;gRecCompanyInfo.Address)
+            DataItemTableView = WHERE("Bill-to Name" = FILTER(<> ''),
+                                      "MAWB No." = FILTER(<> ''));
+            column(Company_Address; gRecCompanyInfo.Address)
             {
             }
-            column(Company_City;gRecCompanyInfo.City)
+            column(Company_City; gRecCompanyInfo.City)
             {
             }
-            column(Company_Postcode;gRecCompanyInfo."Post Code")
+            column(Company_Postcode; gRecCompanyInfo."Post Code")
             {
             }
-            column(Company_Picture;gRecCompanyInfo.Picture)
+            column(Company_Picture; gRecCompanyInfo.Picture)
             {
             }
-            column(BillToName;"Sales Invoice Header"."Bill-to Name")
+            column(BillToName; "Sales Invoice Header"."Bill-to Name")
             {
             }
-            column(IncludeDetailed;gBoolInludeDetailed)
+            column(IncludeDetailed; gBoolInludeDetailed)
             {
             }
-            dataitem(DataItem1000000001;Table50077)
+            dataitem("MAWB Header 2"; "MAWB Header 2")
             {
-                CalcFields = Total Quantity;
-                DataItemLink = No.=FIELD(MAWB No.);
-                column(Destination_Ariport;"MAWB Header 2"."Destination Airport")
+                CalcFields = "Total Quantity";
+                DataItemLink = "No." = FIELD("MAWB No.");
+                column(Destination_Ariport; "MAWB Header 2"."Destination Airport")
                 {
                 }
-                column(Item_Name;"MAWB Header 2"."Item Description")
+                column(Item_Name; "MAWB Header 2"."Item Description")
                 {
                 }
-                column(Total_Weight;"MAWB Header 2"."Total Weight")
+                column(Total_Weight; "MAWB Header 2"."Total Weight")
                 {
                 }
-                column(Total_Quantity;"MAWB Header 2"."Total Quantity")
+                column(Total_Quantity; "MAWB Header 2"."Total Quantity")
                 {
                 }
-                column(MAWBNo;"MAWB Header 2"."No.")
+                column(MAWBNo; "MAWB Header 2"."No.")
                 {
                 }
             }
@@ -58,7 +58,7 @@ report 50048 "Exports By Destination"
         {
             area(content)
             {
-                field("Include Detailed";gBoolInludeDetailed)
+                field("Include Detailed"; gBoolInludeDetailed)
                 {
                 }
             }
@@ -80,7 +80,7 @@ report 50048 "Exports By Destination"
     end;
 
     var
-        gRecCompanyInfo: Record "79";
+        gRecCompanyInfo: Record "Company Information";
         gBoolInludeDetailed: Boolean;
 }
 

@@ -5,7 +5,7 @@ report 50068 "Divisions Batch"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50076)
+        dataitem("MAWB Line"; "MAWB Line")
         {
 
             trigger OnAfterGetRecord()
@@ -60,9 +60,9 @@ report 50068 "Divisions Batch"
     }
 
     var
-        MAWBLine: Record "50076";
+        MAWBLine: Record "MAWB Line";
         Window: Dialog;
-        SalesInvoiceLine: Record "113";
+        SalesInvoiceLine: Record "Sales Invoice Line";
         Div1: Text[250];
 }
 

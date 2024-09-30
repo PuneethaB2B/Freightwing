@@ -7,7 +7,7 @@ report 50053 "Annual Airline Weight"
 
     dataset
     {
-        dataitem(DataItem1000000044; Table50060)
+        dataitem("Loading Sheet Header"; "Loading Sheet Header")
         {
             RequestFilterHeading = 'Airline Filter';
             column(No_LoadingSheetHeader; "Loading Sheet Header"."No.")
@@ -34,10 +34,10 @@ report 50053 "Annual Airline Weight"
             column(Monthly_; MonthlyBreakDown)
             {
             }
-            dataitem(DataItem1000000000; Table50061)
+            dataitem("Loading Sheet Line"; "Loading Sheet Line")
             {
-                DataItemLink = Loading Sheet No.=FIELD(No.);
-                DataItemTableView = SORTING(Loading Sheet No., MAWB No., Division/Farm Code, Destination Code, Line No., Consignee Code)
+                DataItemLink = "Loading Sheet No."=FIELD("No.");
+                DataItemTableView = SORTING("Loading Sheet No.","MAWB No.","Division/Farm Code", "Destination Code", "Line No.", "Consignee Code")
                                     ORDER(Ascending);
                 column(AirlineName; Airlines.Name)
                 {
@@ -309,8 +309,8 @@ report 50053 "Annual Airline Weight"
     }
 
     var
-        CompanyInfo: Record "79";
-        Airlines: Record "50021";
+        CompanyInfo: Record "Company Information";
+        Airlines: Record Airline;
         Year: Integer;
         From: Date;
         "To": Date;

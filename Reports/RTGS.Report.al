@@ -7,7 +7,7 @@ report 50035 RTGS
 
     dataset
     {
-        dataitem(DataItem1000000000; Table81)
+        dataitem("Gen. Journal Line"; "Gen. Journal Line")
         {
             column(PayTo; PayTo)
             {
@@ -605,21 +605,21 @@ report 50035 RTGS
     }
 
     var
-        BankAccount: Record "270";
+        BankAccount: Record 270;
         NameOfBank: Text[250];
-        Vend: Record "23";
-        VendorBankAccount: Record "288";
+        Vend: Record 23;
+        VendorBankAccount: Record 288;
         PayTo: Text[250];
         AmntInWOrds: Text[250];
-        CompanyInfo: Record "79";
+        CompanyInfo: Record 79;
         BillToAddress: Text[250];
         BenfAccountName: Text;
         HideBenf: Boolean;
-        Banks1: Record "270";
+        Banks1: Record 270;
         BenfAccount: Code[50];
         BenfBranch: Text[50];
         BenfBankname: Text[50];
-        BenF: Record "50003";
+        BenF: Record 50003;
         BenfName: Text[250];
         PrepBy: Code[50];
         TotBoxes: Decimal;
@@ -630,27 +630,27 @@ report 50035 RTGS
         DivWeight: Decimal;
         DivEuro: Text[50];
         Division: Text[50];
-        CompInfo: Record "79";
-        Consignees: Record "50015";
-        Shippers: Record "50011";
+        CompInfo: Record 79;
+        Consignees: Record 50015;
+        Shippers: Record 50011;
         ShipperName: Text[50];
         ConsigneeName: Text[50];
         Phyto: Text[50];
         Euro: Text[50];
         Custom: Text[50];
-        Banks: Record "270";
+        Banks: Record 270;
         Account: Code[50];
         Branch: Text[50];
         name: Text[50];
-        Cust: Record "18";
-        Currex: Record "330";
+        Cust: Record 18;
+        Currex: Record 330;
         Exchange: Decimal;
         BillTo: Text[250];
-        BookingSheetMAWB: Record "50070";
+        BookingSheetMAWB: Record 50070;
         FlightNo: Code[50];
         NoOfBoxes: Decimal;
-        LoadingSheetLine: Record "50061";
-        Airports: Record "50019";
+        LoadingSheetLine: Record 50061;
+        Airports: Record 50019;
         Dest: Text[50];
         txt: Text[250];
         CommaPosition: Integer;
@@ -658,10 +658,10 @@ report 50035 RTGS
         boolPrintDecimal: Boolean;
         AmountInWords: Text[250];
         TotalAmount: Decimal;
-        SalesLine: Record "37";
-        SalesLine1: Record "37";
-        MAWBLine: Record "50076";
-        Setup: Record "50010";
+        SalesLine: Record 37;
+        SalesLine1: Record 37;
+        MAWBLine: Record 50076;
+        Setup: Record 50010;
         Beneficiary: Text[200];
         BeneficiaryAddress: Text[200];
         BeneficiaryBank: Text[200];
@@ -684,7 +684,7 @@ report 50035 RTGS
         txtFinalInteger: Text[250];
         txtFinalDecimal: Text[250];
         arrPlace: array[9] of Text[20];
-        recCurrency: Record "4";
+        recCurrency: Record Currency;
         txtCurrencyNumericPos: Text[30];
         txtCurrencyDecimalPos: Text[30];
         txtTemp2: Text[2];

@@ -5,7 +5,7 @@ report 50094 "Process MAWBS Batch"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50077)
+        dataitem("MAWB Header 2"; "MAWB Header 2")
         {
 
             trigger OnAfterGetRecord()
@@ -84,8 +84,8 @@ report 50094 "Process MAWBS Batch"
 
     var
         Window: Dialog;
-        MAWBInvoiceCharge: Record "50073";
-        DumpCustEnt: Record "50062";
-        HAWBLine: Record "50074";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        DumpCustEnt: Record "Dump Cust Ent";
+        HAWBLine: Record "HAWB Line";
 }
 

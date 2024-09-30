@@ -7,7 +7,7 @@ report 50069 "MAWB Status"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
             column(AirlineCode_MAWBReceipt; "MAWB Receipt"."Airline Code")
             {
@@ -163,17 +163,17 @@ report 50069 "MAWB Status"
     }
 
     var
-        Airlines: Record "50021";
-        CompanyInfo: Record "79";
+        Airlines: Record Airline;
+        CompanyInfo: Record "Company Information";
         AssignedDate: Date;
-        BookingSheetHeader: Record "50053";
-        BookingSheetMAWBAllocation: Record "50070";
-        SalesInvoiceHeader: Record "112";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         InvoicedShipper: Text[250];
-        BookingSheetMAWBAllocation1: Record "50070";
-        Customer: Record "18";
-        SalesInvoiceLine: Record "113";
-        SalesHeader: Record "36";
+        BookingSheetMAWBAllocation1: Record "Booking Sheet MAWB Allocation";
+        Customer: Record Customer;
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        SalesHeader: Record "Sales Header";
         Status: Text[250];
         Filters: Text[250];
         InvoicedFilter: Text[50];

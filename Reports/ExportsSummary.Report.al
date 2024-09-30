@@ -7,7 +7,7 @@ report 50046 "Exports Summary"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
             RequestFilterFields = "Airline Code", "Assigned Date";
             column(City; ComapanyInfo.City)
@@ -141,21 +141,21 @@ report 50046 "Exports Summary"
     }
 
     var
-        ComapanyInfo: Record "79";
-        Setup: Record "50010";
+        ComapanyInfo: Record "Company Information";
+        Setup: Record "Import/Export Setup";
         Fcost: Decimal;
         FWeight: Decimal;
         ItemDesc: Text[250];
-        Airline: Record "50021";
+        Airline: Record Airline;
         ok: Boolean;
         PFreight: Decimal;
         Detailed: Boolean;
 
     local procedure GetItem(mawb: Code[50]) Descrip: Text[250]
     var
-        Item: Record "27";
-        BookingSheetMAWBAllocation: Record "50070";
-        lRecMAWBHr: Record "50077";
+        Item: Record Item;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        lRecMAWBHr: Record "MAWB Header 2";
     begin
         Descrip := '';
         /*BookingSheetMAWBAllocation.RESET;
@@ -174,9 +174,9 @@ report 50046 "Exports Summary"
 
     local procedure GetCharge(mawb1: Code[50]) FreightCost: Decimal
     var
-        MAWBInvoiceCharge: Record "50073";
-        SalesInvoiceHeader: Record "112";
-        SalesInvoiceLine: Record "113";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesInvoiceLine: Record "Sales Invoice Line";
     begin
         FreightCost := 0;
         SalesInvoiceLine.RESET;
@@ -200,8 +200,8 @@ report 50046 "Exports Summary"
 
     local procedure GetWeight(mawb2: Code[50]) WeightShipped: Decimal
     var
-        MAWBInvoiceCharge2: Record "50073";
-        lRecMAWBHr: Record "50077";
+        MAWBInvoiceCharge2: Record "MAWB Invoice Charge";
+        lRecMAWBHr: Record "MAWB Header 2";
     begin
         /*WeightShipped:=0;
         MAWBInvoiceCharge2.RESET;
@@ -226,8 +226,8 @@ report 50046 "Exports Summary"
 
     local procedure GetPurchFreight(MAWBNo: Code[30]) PurchFreight: Decimal
     var
-        PurchInvLine: Record "123";
-        PurchInvHeader: Record "122";
+        PurchInvLine: Record "Purch. Inv. Line";
+        PurchInvHeader: Record "Purch. Inv. Header";
     begin
         PurchInvLine.RESET;
         PurchInvLine.SETFILTER(PurchInvLine."Charge Code", '=%1|%2', '14', '82');

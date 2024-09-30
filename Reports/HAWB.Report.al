@@ -6,7 +6,7 @@ report 50013 HAWB
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50075)
+        dataitem("HAWB Header"; "HAWB Header")
         {
             RequestFilterFields = "No.";
             column(No_HAWBHeader; "HAWB Header"."No.")
@@ -78,9 +78,9 @@ report 50013 HAWB
             column(CompanyInfo_Address2; CompanyInfo."Address 2")
             {
             }
-            dataitem(DataItem1000000021; Table50074)
+            dataitem("HAWB Line"; "HAWB Line")
             {
-                DataItemLink = HAWB No.=FIELD(No.);
+                DataItemLink = "HAWB No."=FIELD("No.");
                 column(HAWBNo_HAWBLine; "HAWB Line"."HAWB No.")
                 {
                 }
@@ -177,6 +177,6 @@ report 50013 HAWB
     }
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

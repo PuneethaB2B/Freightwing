@@ -6,7 +6,7 @@ report 50014 "Itax Upload"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table254)
+        dataitem("VAT Entry"; "VAT Entry")
         {
             RequestFilterFields = "VAT Prod. Posting Group";
             column(EntryNo_VATEntry; "VAT Entry"."Entry No.")
@@ -83,9 +83,9 @@ report 50014 "Itax Upload"
     }
 
     var
-        Companyinfo: Record "79";
-        Customer: Record "18";
-        Vendor: Record "23";
+        Companyinfo: Record "Company Information";
+        Customer: Record Customer;
+        Vendor: Record Vendor;
         "Source Name": Text;
 }
 

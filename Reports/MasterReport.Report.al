@@ -6,7 +6,7 @@ report 50034 "Master Report"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50075)
+        dataitem("HAWB Header"; "HAWB Header")
         {
             column(No_MAWBHeader; "HAWB Header"."No.")
             {
@@ -71,7 +71,7 @@ report 50034 "Master Report"
             column(AgentCode_MAWBHeader; "HAWB Header"."Euro Form No.")
             {
             }
-            dataitem(DataItem1000000017; Table50076)
+            dataitem("MAWB Line"; "MAWB Line")
             {
                 column(MAWBNo_MAWBLine; "MAWB Line"."MAWB No.")
                 {
@@ -148,9 +148,9 @@ report 50034 "Master Report"
                 column(LocationCode_MAWBLine; "MAWB Line"."Location Code")
                 {
                 }
-                dataitem(DataItem1000000048; Table18)
+                dataitem(Customer; Customer)
                 {
-                    DataItemLink = No.=FIELD(Shipper Code);
+                    DataItemLink = "No." = FIELD("Shipper Code");
                     column(PostCode_Customer; Customer."Post Code")
                     {
                     }
@@ -194,6 +194,6 @@ report 50034 "Master Report"
     end;
 
     var
-        CompanyInfo: Record "79";
+        CompanyInfo: Record "Company Information";
 }
 

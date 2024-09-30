@@ -7,9 +7,9 @@ report 50106 "Posted Import Invoice"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
-            CalcFields = QR Code;
+            CalcFields = "QR Code";
             column(Logo; CompanyInfo.Picture)
             {
             }
@@ -181,9 +181,9 @@ report 50106 "Posted Import Invoice"
             column(DeiviceCode_SalesInvoiceHeader; "Sales Invoice Header"."Deivice Code")
             {
             }
-            dataitem(DataItem1000000169; Table113)
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No." = FIELD("No.");
                 column(SelltoCustomerNo_SalesLine; "Sales Invoice Line"."Sell-to Customer No.")
                 {
                 }
@@ -320,15 +320,15 @@ report 50106 "Posted Import Invoice"
     }
 
     var
-        CompanyInfo: Record "79";
-        PreAlertHeader: Record "50030";
+        CompanyInfo: Record "Company Information";
+        PreAlertHeader: Record "Pre Alert Header";
         ArrivalDate: Date;
-        Item: Record "27";
+        Item: Record Item;
         Qty: Decimal;
         FileNo: Code[200];
         Carrier: Code[200];
         Weight: Decimal;
-        ImportExportSetup: Record "50010";
+        ImportExportSetup: Record "Import/Export Setup";
         BillTo: Text[250];
 }
 

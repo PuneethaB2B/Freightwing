@@ -5,7 +5,7 @@ report 50109 "Close Check Printed"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table81)
+        dataitem("Gen. Journal Line"; "Gen. Journal Line")
         {
 
             trigger OnAfterGetRecord()

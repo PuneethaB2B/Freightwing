@@ -5,7 +5,7 @@ report 50071 "Close Invoiced MAWBs"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
 
             trigger OnAfterGetRecord()
@@ -92,18 +92,18 @@ report 50071 "Close Invoiced MAWBs"
     }
 
     var
-        SalesInvoiceHeader: Record "112";
-        BookingSheetMAWBAllocation: Record "50070";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
         Window: Dialog;
-        MAWBReceipt: Record "50039";
-        BookingSheetMAWBAllocation1: Record "50070";
-        BookingSheetHeader: Record "50053";
-        mawball: Record "50070";
-        MAWBHeader2: Record "50077";
+        MAWBReceipt: Record "MAWB Receipt";
+        BookingSheetMAWBAllocation1: Record "Booking Sheet MAWB Allocation";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        mawball: Record "Booking Sheet MAWB Allocation";
+        MAWBHeader2: Record "MAWB Header 2";
 
     local procedure CountMawb(MAWBno: Code[50]) "No.": Integer
     var
-        BsMawb: Record "50070";
+        BsMawb: Record "Booking Sheet MAWB Allocation";
         int: Integer;
     begin
         "No." := 0;

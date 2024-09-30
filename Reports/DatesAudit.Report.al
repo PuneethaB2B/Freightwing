@@ -5,7 +5,7 @@ report 50117 "Dates Audit"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50039)
+        dataitem("MAWB Receipt"; "MAWB Receipt")
         {
 
             trigger OnAfterGetRecord()
@@ -60,11 +60,11 @@ report 50117 "Dates Audit"
     }
 
     var
-        SalesInvoiceHeader: Record "112";
-        SalesInvoiceLine: Record "113";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesInvoiceLine: Record "Sales Invoice Line";
         Window: Dialog;
-        BookingSheetMAWBAllocation: Record "50070";
-        BookingSheetHeader: Record "50053";
-        LoadingSheetHeader: Record "50060";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        LoadingSheetHeader: Record "Loading Sheet Header";
 }
 

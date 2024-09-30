@@ -6,7 +6,7 @@ report 50077 "P&L Schedule Report"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table17)
+        dataitem("G/L Entry"; "G/L Entry")
         {
             column(PostingDate_GLEntry; "G/L Entry"."Posting Date")
             {
@@ -94,9 +94,9 @@ report 50077 "P&L Schedule Report"
 
     var
         gDecVatAmount: Decimal;
-        gRecVatEntry: Record "254";
-        gRecPstdPurchaseInvLine: Record "123";
+        gRecVatEntry: Record "VAT Entry";
+        gRecPstdPurchaseInvLine: Record "Purch. Inv. Line";
         gTxtDescription: Text;
-        gRecCompanyInfo: Record "79";
+        gRecCompanyInfo: Record "Company Information";
 }
 

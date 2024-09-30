@@ -6,7 +6,7 @@ report 50098 "Freight Import"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
             RequestFilterFields = "Posting Date", "Bill-to Customer No.";
             column(DocumentDate_SalesInvoiceHeader; "Sales Invoice Header"."Document Date")
@@ -42,9 +42,9 @@ report 50098 "Freight Import"
             column(ExternalDocumentNo_SalesInvoiceHeader; "Sales Invoice Header"."External Document No.")
             {
             }
-            dataitem(DataItem1000000001; Table113)
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No." = FIELD("No.");
                 column(CustomeEntryNo; Cust)
                 {
                 }
@@ -291,16 +291,16 @@ report 50098 "Freight Import"
                 column(ResponsibilityCenter_SalesInvoiceLine; "Sales Invoice Line"."Responsibility Center")
                 {
                 }
-                column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference No.")
+                column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference No.")
                 {
                 }
-                column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Unit of Measure (Cross Ref.)")
+                column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Unit of Measure")
                 {
                 }
-                column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type")
+                column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type")
                 {
                 }
-                column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type No.")
+                column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type No.")
                 {
                 }
                 column(ItemCategoryCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
@@ -312,9 +312,9 @@ report 50098 "Freight Import"
                 column(PurchasingCode_SalesInvoiceLine; "Sales Invoice Line"."Purchasing Code")
                 {
                 }
-                column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Product Group Code")
+                column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
                 {
-                }
+                }//B2bUPG
                 column(ApplfromItemEntry_SalesInvoiceLine; "Sales Invoice Line"."Appl.-from Item Entry")
                 {
                 }
@@ -454,19 +454,19 @@ report 50098 "Freight Import"
     }
 
     var
-        Item: Record "27";
-        BookingSheetMAWBAllocation: Record "50070";
-        MAWBInvoiceCharge: Record "50073";
-        Customer: Record "18";
-        CurrencyExchangeRate: Record "330";
+        Item: Record Item;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        Customer: Record Customer;
+        CurrencyExchangeRate: Record "Currency Exchange Rate";
         ExchangeRate: Decimal;
         Weight: Decimal;
-        MAWBLine: Record "50076";
+        MAWBLine: Record "MAWB Line";
         Division: Text[250];
         Vatable: Decimal;
         NonVatabble: Decimal;
-        SalesInvoiceLine: Record "113";
+        SalesInvoiceLine: Record "Sales Invoice Line";
         Cust: Code[250];
-        MAWBHeader2: Record "50077";
+        MAWBHeader2: Record "MAWB Header 2";
 }
 

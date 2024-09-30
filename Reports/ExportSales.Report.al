@@ -7,7 +7,7 @@ report 50055 "Export Sales"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table113)
+        dataitem("Sales Invoice Line"; "Sales Invoice Line")
         {
             column(Qty_; Qty)
             {
@@ -261,16 +261,16 @@ report 50055 "Export Sales"
             column(ResponsibilityCenter_SalesInvoiceLine; "Sales Invoice Line"."Responsibility Center")
             {
             }
-            column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference No.")
+            column(CrossReferenceNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference No.")
             {
             }
-            column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Unit of Measure (Cross Ref.)")
+            column(UnitofMeasureCrossRef_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Unit of Measure")
             {
             }
-            column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type")
+            column(CrossReferenceType_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type")
             {
             }
-            column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Cross-Reference Type No.")
+            column(CrossReferenceTypeNo_SalesInvoiceLine; "Sales Invoice Line"."Item Reference Type No.")
             {
             }
             column(ItemCategoryCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
@@ -282,9 +282,9 @@ report 50055 "Export Sales"
             column(PurchasingCode_SalesInvoiceLine; "Sales Invoice Line"."Purchasing Code")
             {
             }
-            column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Product Group Code")
+            column(ProductGroupCode_SalesInvoiceLine; "Sales Invoice Line"."Item Category Code")
             {
-            }
+            }// B2BUPG
             column(ApplfromItemEntry_SalesInvoiceLine; "Sales Invoice Line"."Appl.-from Item Entry")
             {
             }
@@ -392,12 +392,12 @@ report 50055 "Export Sales"
     }
 
     var
-        CompanyInfo: Record "79";
-        Cust: Record "18";
-        LSLine: Record "50061";
-        Offl: Record "50065";
+        CompanyInfo: Record "Company Information";
+        Cust: Record Customer;
+        LSLine: Record "Loading Sheet Line";
+        Offl: Record "Offloaded Gatepass Line";
         Weight: Decimal;
         Qty: Integer;
-        Salesheader: Record "112";
+        Salesheader: Record "Sales Invoice Header";
 }
 

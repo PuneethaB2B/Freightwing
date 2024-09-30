@@ -7,9 +7,9 @@ report 50093 "Posted General Sales Invoice"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table112)
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
-            CalcFields = QR Code;
+            CalcFields = "QR Code";
             column(CurrencyCode_SalesHeader; "Sales Invoice Header"."Currency Code")
             {
             }
@@ -64,9 +64,9 @@ report 50093 "Posted General Sales Invoice"
             column(DeiviceCode_SalesInvoiceHeader; "Sales Invoice Header"."Deivice Code")
             {
             }
-            dataitem(DataItem1000000001; Table113)
+            dataitem("Sales Invoice Line"; "Sales Invoice Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No." = FIELD("No.");
                 column(DocumentType_SalesLine; "Sales Invoice Line".Type)
                 {
                 }
@@ -199,8 +199,8 @@ report 50093 "Posted General Sales Invoice"
     }
 
     var
-        CompanyInformation: Record "79";
-        ImportExportSetup: Record "50010";
-        Customer: Record "18";
+        CompanyInformation: Record "Company Information";
+        ImportExportSetup: Record "Import/Export Setup";
+        Customer: Record Customer;
 }
 

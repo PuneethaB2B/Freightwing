@@ -157,7 +157,7 @@ report 50001 "Create MAWB"
         PrefixCode: Code[10];
         StartNo: Integer;
         EndNo: Integer;
-        MAWBReceipt: Record "50039";
+        MAWBReceipt: Record "MAWB Receipt";
         NextNo: Integer;
         ProgressWindow: Dialog;
         NewStartNo: Code[20];
@@ -167,18 +167,18 @@ report 50001 "Create MAWB"
         BillNo: Code[10];
         KAAFees: Decimal;
         MAWBCount: Integer;
-        MAWBChargesByAirline: Record "50005";
-        MAWBLineCharge: Record "50004";
+        MAWBChargesByAirline: Record "MAWB Base Charge";
+        MAWBLineCharge: Record "MAWB Line Charge";
         "Incremental Value": Integer;
         "Numbers To Generate": Integer;
         "Count": Integer;
         "Cost Per One Airway Bill": Decimal;
-        rec: Record "50021";
+        rec: Record Airline;
 
 
     procedure SetPar(pAirlineCode: Code[20]; pMAWBFees: Decimal; pKAAFees: Decimal; pFreightChargeCode: Code[20]; Prefix: Code[10])
     var
-        Airlines: Record "50021";
+        Airlines: Record Airline;
     begin
         PrefixCode := Prefix;
         AirlineCode := pAirlineCode;

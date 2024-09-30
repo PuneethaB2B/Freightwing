@@ -6,7 +6,7 @@ report 50107 "Validate Loading Sheets"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50060)
+        dataitem("Loading Sheet Header"; "Loading Sheet Header")
         {
 
             trigger OnAfterGetRecord()
@@ -43,6 +43,6 @@ report 50107 "Validate Loading Sheets"
     }
 
     var
-        BookingSheetMAWBAllocation: Record "50070";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
 }
 

@@ -7,7 +7,7 @@ report 50015 "MAWB Invoice"
 
     dataset
     {
-        dataitem(DataItem1; Table36)
+        dataitem("Sales Header"; "Sales Header")
         {
             RequestFilterFields = "No.";
             column(DocumentDate_SalesHeader; "Sales Header"."Document Date")
@@ -145,9 +145,9 @@ report 50015 "MAWB Invoice"
             column(Commodity_SalesHeader; "Sales Header".Commodity)
             {
             }
-            dataitem(DataItem9; Table37)
+            dataitem("Sales Line"; "Sales Line")
             {
-                DataItemLink = Document No.=FIELD(No.);
+                DataItemLink = "Document No."=FIELD("No.");
                 column(VAT_SalesLine; "Sales Line"."VAT %")
                 {
                 }
@@ -402,11 +402,11 @@ report 50015 "MAWB Invoice"
         BillToAddress: Text[250];
         BenfAccountName: Text[250];
         HideBenf: Boolean;
-        Banks1: Record "270";
+        Banks1: Record "Bank Account";
         BenfAccount: Code[50];
         BenfBranch: Text[50];
         BenfBankname: Text[50];
-        BenF: Record "50003";
+        BenF: Record "Beneficiary Details";
         BenfName: Text[250];
         PrepBy: Code[50];
         TotBoxes: Decimal;
@@ -417,28 +417,28 @@ report 50015 "MAWB Invoice"
         DivWeight: Decimal;
         DivEuro: Text[50];
         Division: Text[50];
-        CompInfo: Record "79";
-        Consignees: Record "50015";
-        Shippers: Record "50011";
+        CompInfo: Record "Company Information";
+        Consignees: Record Consignee;
+        Shippers: Record "Shipper Agent";
         ShipperName: Text[50];
         ConsigneeName: Text[50];
-        MawbHeader: Record "50077";
+        MawbHeader: Record "MAWB Header 2";
         Phyto: Text[50];
         Euro: Text[50];
         Custom: Text[50];
-        Banks: Record "270";
+        Banks: Record "Bank Account";
         Account: Code[50];
         Branch: Text[50];
         name: Text[50];
-        Cust: Record "18";
-        Currex: Record "330";
+        Cust: Record Customer;
+        Currex: Record "Currency Exchange Rate";
         Exchange: Decimal;
         BillTo: Text[250];
-        BookingSheetMAWB: Record "50070";
+        BookingSheetMAWB: Record "Booking Sheet MAWB Allocation";
         FlightNo: Code[50];
         NoOfBoxes: Decimal;
-        LoadingSheetLine: Record "50061";
-        Airports: Record "50019";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        Airports: Record Airport;
         Dest: Text[50];
         txt: Text[30];
         CommaPosition: Integer;
@@ -446,9 +446,9 @@ report 50015 "MAWB Invoice"
         boolPrintDecimal: Boolean;
         AmountInWords: Text[250];
         TotalAmount: Decimal;
-        SalesLine: Record "37";
-        SalesLine1: Record "37";
-        MAWBLine: Record "50076";
+        SalesLine: Record "Sales Line";
+        SalesLine1: Record "Sales Line";
+        MAWBLine: Record "MAWB Line";
         TBLRatePerKG: Decimal;
         TBLTotalLCY: Decimal;
 
@@ -464,7 +464,7 @@ report 50015 "MAWB Invoice"
         txtFinalInteger: Text[250];
         txtFinalDecimal: Text[250];
         arrPlace: array[9] of Text[20];
-        recCurrency: Record "4";
+        recCurrency: Record Currency;
         txtCurrencyNumericPos: Text[30];
         txtCurrencyDecimalPos: Text[30];
         txtTemp2: Text[2];

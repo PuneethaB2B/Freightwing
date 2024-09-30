@@ -5,7 +5,7 @@ report 50103 "Validate MAWB Line"
 
     dataset
     {
-        dataitem(DataItem1000000000; Table50076)
+        dataitem("MAWB Line"; "MAWB Line")
         {
 
             trigger OnAfterGetRecord()
@@ -46,7 +46,7 @@ report 50103 "Validate MAWB Line"
     }
 
     var
-        BookingSheetMAWBAllocation: Record "50070";
-        BookingSheetLine: Record "50054";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        BookingSheetLine: Record "Booking Sheet Line";
 }
 
