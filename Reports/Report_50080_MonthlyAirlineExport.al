@@ -1,7 +1,7 @@
 report 50080 "Monthly Airline Export"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MonthlyAirlineExport.rdlc';
+    RDLCLayout = 'Reports/Layout/MonthlyAirlineExport.rdl';
     Caption = 'Airline Freight';
     ApplicationArea = All;
 

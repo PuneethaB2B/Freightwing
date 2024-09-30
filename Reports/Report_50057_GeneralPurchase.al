@@ -1,7 +1,7 @@
 report 50057 "General Purchase"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './GeneralPurchase.rdlc';
+    RDLCLayout = 'Reports/Layout/GeneralPurchase.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -10,7 +10,7 @@ report 50057 "General Purchase"
         dataitem("VAT Entry"; "VAT Entry")
         {
             DataItemTableView = WHERE(Type = FILTER(Purchase),
-                                     "Source Code" = FILTER(<> REVERSAL));
+                                     "Source Code" = FILTER(<> 'REVERSAL'));
             column(VendorName; Vendors.Name)
             {
             }

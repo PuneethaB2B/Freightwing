@@ -1,7 +1,7 @@
 report 50058 "General Rated Sales"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './GeneralRatedSales.rdlc';
+    RDLCLayout = 'Reports/Layout/GeneralRatedSales.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -10,8 +10,8 @@ report 50058 "General Rated Sales"
         dataitem("VAT Entry"; "VAT Entry")
         {
             DataItemTableView = WHERE(Type = FILTER(Sale),
-                                      "VAT Prod. Posting Group" = FILTER(VAT16 | VAT14),
-                                      "Source Code" = FILTER(<> REVERSAL));
+                                      "VAT Prod. Posting Group" = FILTER('VAT16' | 'VAT14'),
+                                      "Source Code" = FILTER(<> 'REVERSAL'));
             column(Descrip; Desc)
             {
             }

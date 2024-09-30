@@ -1,7 +1,7 @@
 report 50028 "General Purchase Zero VAT"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './GeneralPurchaseZeroVAT.rdlc';
+    RDLCLayout = 'Reports/Layout/GeneralPurchaseZeroVAT.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -10,8 +10,8 @@ report 50028 "General Purchase Zero VAT"
         dataitem("VAT Entry"; "VAT Entry")
         {
             DataItemTableView = WHERE(Type = FILTER(Purchase),
-                                      "Source Code" = FILTER(<> REVERSAL),
-                                      "VAT Prod. Posting Group" = FILTER(NOVAT | VAT0));
+                                      "Source Code" = FILTER(<> 'REVERSAL'),
+                                      "VAT Prod. Posting Group" = FILTER('NOVAT' | 'VAT0'));
             column(VendorName; Vendors.Name)
             {
             }

@@ -1,7 +1,7 @@
 report 50107 "Validate Loading Sheets"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ValidateLoadingSheets.rdlc';
+    RDLCLayout = 'Reports/Layout/ValidateLoadingSheets.rdl';
     ApplicationArea = All;
 
     dataset

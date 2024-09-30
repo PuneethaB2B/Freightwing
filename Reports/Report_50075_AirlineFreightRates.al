@@ -1,7 +1,7 @@
 report 50075 "Airline Freight Rates"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './AirlineFreightRates.rdlc';
+    RDLCLayout = 'Reports/Layout/AirlineFreightRates.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

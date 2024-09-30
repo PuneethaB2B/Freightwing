@@ -1,7 +1,7 @@
 report 50047 "Airlines Freight"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './AirlinesFreight.rdlc';
+    RDLCLayout = 'Reports/Layout/AirlinesFreight.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

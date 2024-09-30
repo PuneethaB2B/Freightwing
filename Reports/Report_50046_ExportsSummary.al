@@ -1,7 +1,7 @@
 report 50046 "Exports Summary"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ExportsSummary.rdlc';
+    RDLCLayout = 'Reports/Layout/ExportsSummary.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

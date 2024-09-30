@@ -1,7 +1,7 @@
 report 50035 RTGS
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './RTGS.rdlc';
+    RDLCLayout = 'Reports/Layout/RTGS.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

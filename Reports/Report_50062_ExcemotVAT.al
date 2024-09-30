@@ -1,7 +1,7 @@
 report 50062 "Excemot VAT"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ExcemotVAT.rdlc';
+    RDLCLayout = 'Reports/Layout/ExcemotVAT.rdl';
     Caption = 'Exempt VAT';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
@@ -12,7 +12,7 @@ report 50062 "Excemot VAT"
         {
             DataItemTableView = WHERE(Type = FILTER(Sale),
                                       Amount = FILTER(0),
-                                      "VAT Prod. Posting Group" = FILTER(VATE));
+                                      "VAT Prod. Posting Group" = FILTER('VATE'));
             column(Desc; Desc)
             {
             }

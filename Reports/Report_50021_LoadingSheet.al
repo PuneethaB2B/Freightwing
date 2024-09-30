@@ -1,7 +1,7 @@
 report 50021 "Loading Sheet"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './LoadingSheet.rdlc';
+    RDLCLayout = 'Reports/Layout/LoadingSheet.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50024 "Shipment Acceptance Sheet"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ShipmentAcceptanceSheet.rdlc';
+    RDLCLayout = 'Reports/Layout/ShipmentAcceptanceSheet.rdl';
     ApplicationArea = All;
 
     dataset

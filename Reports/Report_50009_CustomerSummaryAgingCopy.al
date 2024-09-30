@@ -1,7 +1,7 @@
 report 50009 "Customer - Summary AgingCopy"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './CustomerSummaryAgingCopy.rdlc';
+    RDLCLayout = 'Reports/Layout/CustomerSummaryAgingCopy.rdl';
     Caption = 'Customer - Summary Aging';
     ApplicationArea = All;
 

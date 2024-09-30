@@ -1,7 +1,7 @@
 report 50118 "MAWB Vali"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWBVali.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWBVali.rdl';
     ApplicationArea = All;
 
     dataset

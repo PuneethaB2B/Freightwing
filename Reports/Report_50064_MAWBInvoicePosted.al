@@ -1,7 +1,7 @@
 report 50064 "MAWB Invoice Posted"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWBInvoicePosted.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWBInvoicePosted.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50020 "Daily Weight Distribution"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './DailyWeightDistribution.rdlc';
+    RDLCLayout = 'Reports/Layout/DailyWeightDistribution.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

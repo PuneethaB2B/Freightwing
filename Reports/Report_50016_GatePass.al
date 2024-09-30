@@ -1,7 +1,7 @@
 report 50016 "Gate Pass"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './GatePass.rdlc';
+    RDLCLayout = 'Reports/Layout/GatePass.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

@@ -1,7 +1,7 @@
 report 50019 "Booking Sheet"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './BookingSheet.rdlc';
+    RDLCLayout = 'Reports/Layout/BookingSheet.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

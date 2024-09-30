@@ -1,7 +1,7 @@
 report 50051 "MAWB Sales Purch. Comp"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './MAWBSalesPurchComp.rdlc';
+    RDLCLayout = 'Reports/Layout/MAWBSalesPurchComp.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

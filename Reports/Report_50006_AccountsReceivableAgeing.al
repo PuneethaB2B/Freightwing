@@ -1,7 +1,7 @@
 report 50006 "Accounts Receivable Ageing"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './AccountsReceivableAgeing.rdlc';
+    RDLCLayout = 'Reports/Layout/AccountsReceivableAgeing.rdl';
     Caption = 'Aged Accounts Receivable';
     ApplicationArea = All;
 

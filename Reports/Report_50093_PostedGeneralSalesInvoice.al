@@ -1,7 +1,7 @@
 report 50093 "Posted General Sales Invoice"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './PostedGeneralSalesInvoice.rdlc';
+    RDLCLayout = 'Reports/Layout/PostedGeneralSalesInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 

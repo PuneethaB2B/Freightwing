@@ -1,7 +1,7 @@
 report 50060 "Booking Sheet Pre Alert"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './BookingSheetPreAlert.rdlc';
+    RDLCLayout = 'Reports/Layout/BookingSheetPreAlert.rdl';
     PreviewMode = Normal;
     ApplicationArea = All;
 
