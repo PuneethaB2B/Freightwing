@@ -8,59 +8,51 @@ page 50097 "Security Role Centre"
     {
         area(rolecenter)
         {
-            group(fw)
+            group(General)
             {
-                part(Page; 9073)
+                part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
                 part(Page1; 9175)
                 {
                 }
             }
-            group(fw1)
+            group(General1)
             {
-                part(Page3; 762)
+                part(FinancePerformance; "Finance Performance")
                 {
                     Visible = false;
                 }
-                part(Page4; 762)
+                part(SalesPerformance; "Sales Performance")
                 {
                     Visible = false;
                 }
-                part(Page5; 770)
-                {
-                    Visible = false;
-                }
-                part(Page6; 770)
-                {
-                    Visible = false;
-                }
-                part(Page7; 760)
-                {
-                    Visible = false;
-                }
-                part(Page8; 681)
-                {
-                    Visible = false;
-                }
-                part(Page9; 9150)
-                {
-                    Visible = false;
-                }
-                part(Page10; 9151)
-                {
-                    Visible = false;
-                }
-                part(Page11; 675)
-                {
-                    Visible = false;
-                }
-                part(Page12; 9152)
-                {
-                    Visible = false;
 
-
-                systempart(; MyNotes)
+                part(TrailingSalesOrdersChart; "Trailing Sales Orders Chart")
+                {
+                    Visible = false;
+                }
+                part(ReportInboxPart; "Report Inbox Part")
+                {
+                    Visible = false;
+                }
+                part(MyCustomers; "My Customers")
+                {
+                    Visible = false;
+                }
+                part(MyVendors; "My Vendors")
+                {
+                    Visible = false;
+                }
+                part(MyJobQueue; "My Job Queue")
+                {
+                    Visible = false;
+                }
+                part(MyItems; "My Items")
+                {
+                    Visible = false;
+                }
+                systempart(My_Notes; MyNotes)
                 {
                 }
             }

@@ -53,15 +53,15 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                 PromotedCategory = Report;
                 trigger OnAction()
                 begin
-                    TESTFIELD("Bank Payment Type", "Bank Payment Type"::"Computer Check");
-                    TESTFIELD("Bal. Account No.");
-                    TESTFIELD("Bal. Account Type");
-                    TESTFIELD("Payer Information");
+                    Rec.TESTFIELD("Bank Payment Type", "Bank Payment Type"::"Computer Check");
+                    Rec.TESTFIELD("Bal. Account No.");
+                    Rec.TESTFIELD("Bal. Account Type");
+                    Rec.TESTFIELD("Payer Information");
                     GenJnlLine.RESET;
-                    GenJnlLine.SETRANGE(GenJnlLine."Journal Template Name", "Journal Template Name");
-                    GenJnlLine.SETRANGE(GenJnlLine."Journal Batch Name", "Journal Batch Name");
-                    GenJnlLine.SETRANGE(GenJnlLine."Document Type", "Document Type");
-                    GenJnlLine.SETRANGE(GenJnlLine."Document No.", "Document No.");
+                    GenJnlLine.SETRANGE(GenJnlLine."Journal Template Name", Rec."Journal Template Name");
+                    GenJnlLine.SETRANGE(GenJnlLine."Journal Batch Name", Rec."Journal Batch Name");
+                    GenJnlLine.SETRANGE(GenJnlLine."Document Type", Rec."Document Type");
+                    GenJnlLine.SETRANGE(GenJnlLine."Document No.", Rec."Document No.");
                     IF GenJnlLine.FINDFIRST THEN BEGIN
                         REPORT.RUN(50061, TRUE, TRUE, GenJnlLine);
                         IF CONFIRM('Do you want to Print corresponding RTGS?') THEN BEGIN
@@ -82,10 +82,10 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                 trigger OnAction()
                 begin
                     GenJnlLine.RESET;
-                    GenJnlLine.SETRANGE(GenJnlLine."Journal Template Name", "Journal Template Name");
-                    GenJnlLine.SETRANGE(GenJnlLine."Journal Batch Name", "Journal Batch Name");
-                    GenJnlLine.SETRANGE(GenJnlLine."Document Type", "Document Type");
-                    GenJnlLine.SETRANGE(GenJnlLine."Document No.", "Document No.");
+                    GenJnlLine.SETRANGE(GenJnlLine."Journal Template Name", Rec."Journal Template Name");
+                    GenJnlLine.SETRANGE(GenJnlLine."Journal Batch Name", Rec."Journal Batch Name");
+                    GenJnlLine.SETRANGE(GenJnlLine."Document Type", Rec."Document Type");
+                    GenJnlLine.SETRANGE(GenJnlLine."Document No.", Rec."Document No.");
                     IF GenJnlLine.FINDFIRST THEN
                         REPORT.RUN(50029, TRUE, FALSE, GenJnlLine);
                 end;
@@ -120,4 +120,5 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
         Vendor: Record 23;
         CustomerPriceGroup: Record 6;
         Customer: Record 18;
+        GenJnlLine : Record 81;
 }

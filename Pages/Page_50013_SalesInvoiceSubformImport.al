@@ -14,7 +14,7 @@ page 50013 "Sales Invoice Subform - Import"
     {
         area(content)
         {
-            repeater()
+            repeater(General)
             {
                 field(Type; rec.Type)
                 {
@@ -823,4 +823,3 @@ page 50013 "Sales Invoice Subform - Import"
         CurrPage.UPDATE;
     end;
 }
-

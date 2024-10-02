@@ -225,7 +225,7 @@ page 50012 "Sales Invoice List - Import"
                     var
                         ApprovalEntries: Page "Approval Entries";
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", Rec."Document Type", Rec."No.");
+                        ApprovalEntries.SetRecordFilters(DATABASE::"Sales Header", Rec."Document Type", Rec."No.");
                         ApprovalEntries.RUN;
                     end;
                 }

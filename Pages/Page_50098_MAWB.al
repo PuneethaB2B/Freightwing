@@ -77,7 +77,7 @@ page 50098 MAWB
                 {
                     Editable = false;
                 }
-                field("Booked Weight"-Rec."Chargeable Weight"; "Booked Weight"-"Chargeable Weight")
+                field("Weight Difference"; Rec."Booked Weight" - rec."Chargeable Weight")
                 {
                     Caption = 'Weight Difference';
                 }
@@ -137,7 +137,7 @@ page 50098 MAWB
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page 50120;
-                    RunPageLink = " MAWB No." = FIELD("No.");
+                    RunPageLink = "MAWB No." = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     Visible = false;
                 }

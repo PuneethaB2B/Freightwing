@@ -8,9 +8,9 @@ page 50095 "Customer Service Role Center"
     {
         area(rolecenter)
         {
-            group()
+            group(General)
             {
-                part(; 9073)
+                part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                     Visible = false;
                 }
@@ -18,51 +18,46 @@ page 50095 "Customer Service Role Center"
                 {
                 }
             }
-            group()
+            group(General1)
             {
-                part(; 762)
+                part(FinancePerformance; "Finance Performance")
                 {
                     Visible = false;
                 }
-                part(; 762)
+                
+                part(SalesPerformance; "Sales Performance")
                 {
                     Visible = false;
                 }
-                part(; 770)
+               
+                part(TrailingSalesOrdersChart; "Trailing Sales Orders Chart")
                 {
                     Visible = false;
                 }
-                part(; 770)
+                part(ReportInboxPart; "Report Inbox Part")
                 {
                     Visible = false;
                 }
-                part(; 760)
+               part(MyCustomers; "My Customers")
                 {
                     Visible = false;
                 }
-                part(; 681)
+                part(MyVendors; "My Vendors")
                 {
                     Visible = false;
                 }
-                part(; 9150)
+                part(MyJobQueue; "My Job Queue")
                 {
                     Visible = false;
                 }
-                part(; 9151)
+                part(MyItems; "My Items")
                 {
                     Visible = false;
                 }
-                part(; 675)
-                {
-                    Visible = false;
-                }
-                part(; 9152)
-                {
-                    Visible = false;
-                }
-                systempart(; MyNotes)
+                systempart(MyNotes; MyNotes)
                 {
                 }
+
             }
         }
     }

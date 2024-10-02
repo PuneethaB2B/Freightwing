@@ -25,7 +25,6 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
                 SubPageLink = "No." = field("No.");
             }
         }
-        moveafter("Ship-to Contact"; "Posting Date")
     }
 
     actions

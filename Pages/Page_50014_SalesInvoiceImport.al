@@ -36,7 +36,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        SelltoCustomerNoOnAfterValidat;
+                        //  SelltoCustomerNoOnAfterValidat; //naveen
                     end;
                 }
                 field("Sell-to Contact No."; Rec."Sell-to Contact No.")
@@ -84,14 +84,14 @@ page 50014 "Sales Invoice - Import"
                 field("External Document No."; Rec."External Document No.")
                 {
                     Importance = Promoted;
-                    ShowMandatory = ExternalDocNoMandatory;
+                    // ShowMandatory = ExternalDocNoMandatory;  //naveen
                 }
                 field("Salesperson Code"; Rec."Salesperson Code")
                 {
 
                     trigger OnValidate()
                     begin
-                        SalespersonCodeOnAfterValidate;
+                        //  SalespersonCodeOnAfterValidate;  //naveen
                     end;
                 }
                 field("Campaign No."; Rec."Campaign No.")
@@ -131,7 +131,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        BilltoCustomerNoOnAfterValidat;
+                        //  BilltoCustomerNoOnAfterValidat;  //naveen
                     end;
                 }
                 field("Bill-to Contact No."; Rec."Bill-to Contact No.")
@@ -164,7 +164,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension1CodeOnAfterV;
+                        //  ShortcutDimension1CodeOnAfterV;  //naveen
                     end;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
@@ -172,7 +172,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension2CodeOnAfterV;
+                        // ShortcutDimension2CodeOnAfterV;  //naveen
                     end;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
@@ -201,7 +201,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        PricesIncludingVATOnAfterValid;
+                        //  PricesIncludingVATOnAfterValid;  //naveen
                     end;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
@@ -271,16 +271,16 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAssistEdit()
                     begin
-                        CLEAR(ChangeExchangeRate);
-                        IF Rec."Posting Date" <> 0D THEN
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
-                        ELSE
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE);
-                        IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN BEGIN
-                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
-                            CurrPage.UPDATE;
-                        END;
-                        CLEAR(ChangeExchangeRate);
+                        /*   CLEAR(ChangeExchangeRate);
+                          IF Rec."Posting Date" <> 0D THEN
+                              ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
+                          ELSE
+                              ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE);
+                          IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN BEGIN
+                              Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
+                              CurrPage.UPDATE;
+                          END;
+                          CLEAR(ChangeExchangeRate); */  //naveen
                     end;
 
                     trigger OnValidate()
@@ -304,11 +304,11 @@ page 50014 "Sales Invoice - Import"
                 field("Exit Point"; Rec."Exit Point")
                 {
                 }
-                field(Area;Area)
-        {
+                field(Area; rec.Area){}
+
+            }
         }
     }
-}
         area(factboxes)
         {
             part(;9080)
@@ -384,14 +384,13 @@ page 50014 "Sales Invoice - Import"
                     Promoted = true;
                     PromotedCategory = Process;
                     ShortCutKey = 'F7';
+                     ApplicationArea = All;
 
                     trigger OnAction()
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE                            ApplicationArea = All;
-.RUNMODAL(PAGE    ApplicationArea = All;
-::"Sales Statistics",Rec);
+                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -412,22 +411,23 @@ page 50014 "Sales Invoice - Import"
                 {
                     Caption = 'Customer';
                     Image = Customer;
+                     ApplicationArea = All;
                     RunObject = Page 21;
-                                    RunPageLink = "No."=    ApplicationArea = All;
-FIELD("Sell-to Customer No.");
+                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");   
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
                 {
                     Caption = 'Approvals';
                     Image = Approvals;
+                     ApplicationArea = All;
 
                     trigger OnAction()
                     var
                         ApprovalEntries: Page 658;
-                                             ApplicationArea = All;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
+                        
                         ApprovalEntries.RUN;
                     end;
                 }
@@ -436,8 +436,7 @@ FIELD("Sell-to Customer No.");
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = "Document Type"=    ApplicationArea = All;
-FIELD("Document Type"),
+                                    RunPageLink = "Document Type"= FIELD("Document Type"),
                                   "No."=FIELD("No."),
                                   "Document Line No."=CONST(0);
                 }
@@ -453,9 +452,9 @@ FIELD("Document Type"),
                 {
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
+                    ApplicationArea = All;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=    ApplicationArea = All;
-FIELD("Document Type"),
+                                    RunPageLink = "Document Type"= FIELD("Document Type"),
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
                 }
@@ -488,14 +487,14 @@ FIELD("Document Type"),
                     Promoted = true;
                     PromotedCategory = "Report";
                     PromotedIsBig = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
                         SalesHeader.RESET;
                         SalesHeader.SETRANGE(SalesHeader."No.","No.");
                         IF SalesHeader.FINDFIRST THEN BEGIN
-                         REPORT                             ApplicationArea = All;
-.RUN(50095,TRUE,TRUE,SalesHeader);
+                         REPORT.RUN(50095,TRUE,TRUE,SalesHeader);                         
                         END;
                     end;
                 }
@@ -601,7 +600,7 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "439";
+                        ApprovalMgt: Codeunit 439;
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
@@ -714,9 +713,8 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        REPORT                            ApplicationArea = All;
-.RUNMODAL(REPORT    ApplicationArea = All;
-::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        ApplicationArea = All;
+                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }

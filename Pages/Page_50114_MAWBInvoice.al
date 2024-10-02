@@ -264,71 +264,74 @@ page 50114 "MAWB Invoice"
                 field("Exit Point"; Rec."Exit Point")
                 {
                 }
-                field(Area;Area)
-        {
-        }
+                field(Area; Area) { }
     }
 }
+    }
+    
+
+
         area(factboxes)
         {
-            part(Page; ApplicationArea = All;
-9080)
+            part(Page; 9080)
             {
-                SubPageLink = "No."=FIELD("Sell-to Customer No.");
+                ApplicationArea = All;
+                SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = false;
             }
-            part(Page1;9081)
+            part(Page1; 9081)
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No.");
+                SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = false;
             }
-            part(Page2;9082)
+            part(Page2; 9082)
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No.");
+                SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = true;
             }
-            part(Page3;9084)
+            part(Page3; 9084)
             {
-                SubPageLink = "No."=FIELD("Sell-to Customer No.");
+                SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = true;
             }
-            part(Page4;9087)
+            part(Page4; 9087)
             {
                 Provider = SalesLines;
-                SubPageLink = "Document Type"=FIELD("Document Type"),
-                              "Document No."=FIELD("Document No."),
-                              "Line No."=FIELD("Line No.");
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("Document No."),
+                              "Line No." = FIELD("Line No.");
                 Visible = false;
             }
-            part(Page5;9089)
+            part(Page5; 9089)
             {
                 Provider = SalesLines;
-                SubPageLink = "No."=FIELD("No.");
+                SubPageLink = "No." = FIELD("No.");
                 Visible = true;
             }
-            part(Page6;9092)
+            part(Page6; 9092)
             {
-                SubPageLink = "Table ID"=CONST(36),
-                              "Document Type"=FIELD("Document Type"),
-                              "Document No."=FIELD("No.");
+                SubPageLink = "Table ID" = CONST(36),
+                              "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 Visible = false;
             }
-            part(Page7;9108)
+            part(Page7; 9108)
             {
                 Provider = SalesLines;
-                SubPageLink = "No."=FIELD("No.");
+                SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
-            systempart(;Notes)
+            systempart(; Notes)
             {
                 Visible = true;
             }
-            systempart(;Links)
+            systempart(; Links)
             {
                 Visible = false;
             }
         }
-    }
+
+    
 
     actions
     {
@@ -350,17 +353,13 @@ page 50114 "MAWB Invoice"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE                            ApplicationArea                             ApplicationArea = All;
-= All;
-.RUNMODAL(PAGE    ApplicationArea     ApplicationArea = All;
-= All;
-::"Sales Statistics",Rec);
+                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348=R;
+                    AccessByPermission = TableData 348 = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
@@ -376,10 +375,8 @@ page 50114 "MAWB Invoice"
                     Caption = 'Customer';
                     Image = Customer;
                     RunObject = Page 21;
-                                    RunPageLink = "No."=    ApplicationArea = All;
-                                    ApplicationArea = All;
-FIELD("Sell-to Customer No.");
-                    ShortCutKey = 'Shift+F7';
+                                    RunPageLink = "No." = FIELD("Sell-to Customer No.");
+                                    ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
                 {
@@ -400,11 +397,9 @@ FIELD("Sell-to Customer No.");
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page 67;
-                                    RunPageLink = "Document Type"=    ApplicationArea = All;
-                                    ApplicationArea = All;
-FIELD("Document Type"),
-                                  "No."=FIELD("No."),
-                                  "Document Line No."=CONST(0);
+                                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No."),
+                                  "Document Line No." = CONST(0);
                 }
                 separator()
                 {
@@ -417,10 +412,10 @@ FIELD("Document Type"),
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50119;
-                                    RunPageLink = "MAWB No"=    ApplicationArea = All;
+                                    RunPageLink = "MAWB No" = FIELD("No.");
                                     ApplicationArea = All;
-FIELD("No.");
-                    ShortCutKey = 'Shift+Ctrl+D';
+
+                                    ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("MAWB Charges")
                 {
@@ -430,10 +425,10 @@ FIELD("No.");
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50120;
-                                    RunPageLink = "MAWB No."=    ApplicationArea = All;
+                                    RunPageLink = "MAWB No." = FIELD("MAWB No.");
                                     ApplicationArea = All;
-FIELD("MAWB No.");
-                    ShortCutKey = 'Shift+Ctrl+D';
+
+                                    ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("Notify Parties")
                 {
@@ -443,10 +438,11 @@ FIELD("MAWB No.");
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50122;
-                                    RunPageLink = "Invoice No."=    ApplicationArea = All;
+                                    RunPageLink = "Invoice No." = FIELD("No.");
                                     ApplicationArea = All;
-FIELD("No.");
-                    ShortCutKey = 'Shift+Ctrl+D';
+                                    ApplicationArea = All;
+
+                                    ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
             group("Credit Card")
@@ -458,9 +454,7 @@ FIELD("No.");
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=    ApplicationArea = All;
-                                    ApplicationArea = All;
-FIELD("Document Type"),
+                                    RunPageLink = "Document Type"=FIELD("Document Type"),  
                                   "Document No."=FIELD("No."),
                                   "Customer No."=FIELD("Bill-to Customer No.");
                 }
@@ -480,9 +474,7 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        PAGE                            ApplicationArea                             ApplicationArea = All;
-= All;
-.RUNMODAL(50127);
+                        PAGE.RUNMODAL(50127);                           
                     end;
                 }
                 action(Release)
@@ -1002,11 +994,7 @@ FIELD("Document Type"),
 
                     trigger OnAction()
                     begin
-                        REPORT                            ApplicationArea                             ApplicationArea = All;
-= All;
-.RUNMODAL(REPORT    ApplicationArea     ApplicationArea = All;
-= All;
-::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }
@@ -1065,7 +1053,7 @@ FIELD("Document Type"),
     end;
 
     var
-        ChangeExchangeRate: Page 511;
+        ChangeExchangeRate: Page Change Exchange Rate;
                                 CopySalesDoc: Report 292;
                                 MoveNegSalesLines: Report 6699;
                                 ReportPrint: Codeunit 228;
@@ -1084,9 +1072,7 @@ FIELD("Document Type"),
                                 BookingSheetLine: Record 50054;
                                 FreightCharge: Record 50018;
                                 SalesLine: Record 37;
-                                Text000:     ApplicationArea = All;
-                                ApplicationArea = All;
-Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
+                                Text000:Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
     MAWBAlloc: Record 50070;
     FCharges: Record 50018;
     MAWBHeader: Record 50077;
@@ -1126,9 +1112,7 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure ApproveCalcInvDisc()
     begin
-        CurrPage.SalesLines.PAGE    ApplicationArea     ApplicationArea = All;
-= All;
-.ApproveCalcInvDisc;
+        CurrPage.SalesLines.PAGE.ApproveCalcInvDisc;
     end;
 
     local procedure SelltoCustomerNoOnAfterValidat()
@@ -1141,9 +1125,7 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure SalespersonCodeOnAfterValidate()
     begin
-        CurrPage.SalesLines.PAGE    ApplicationArea     ApplicationArea = All;
-= All;
-.UpdateForm(TRUE);
+        CurrPage.SalesLines.PAGE.UpdateForm(TRUE);
     end;
 
     local procedure BilltoCustomerNoOnAfterValidat()

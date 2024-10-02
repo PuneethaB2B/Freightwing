@@ -15,7 +15,7 @@ page 50115 "MAWB Invoice Subform"
     {
         area(content)
         {
-            repeater(fw)
+            repeater(General)
             {
                 field("Document Type"; Rec."Document Type")
                 {
@@ -186,9 +186,9 @@ page 50115 "MAWB Invoice Subform"
                     end;
                 }
             }
-            group()
+            group(control)
             {
-                group()
+                group(control1)
                 {
                     field("Agreed Rate"; Rec."Agreed Rate")
                     {
@@ -256,7 +256,7 @@ page 50115 "MAWB Invoice Subform"
                         Visible = true;
                     }
                 }
-                group()
+                group(control2)
                 {
                     field("Total Amount Excl. VAT"; TotalSalesLine.Amount)
                     {

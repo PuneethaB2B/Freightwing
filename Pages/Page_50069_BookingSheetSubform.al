@@ -203,7 +203,7 @@ page 50069 "Booking Sheet Subform"
                                   "Flight No" = FIELD("Flight Code"),
                                   "Source Airport" = FIELD("Source Airport"),
                                   "Destination Airport" = FIELD("Destination Airport"),
-                                 "Shipper Code" = FIELD('Shipper Code');
+                                 "Shipper Code" = FIELD("Shipper Code");
 
                     trigger OnAction()
                     begin

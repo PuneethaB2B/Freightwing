@@ -47,7 +47,7 @@ page 50000 "Email Body"
     }
 
     var
-        FileManagement: Codeunit 419;
+        FileManagement: Codeunit "File Management";
         SaveFileDialogTitleMsg: Label 'Save PDF file';
         SaveFileDialogFilterMsg: Label 'PDF Files (*.pdf)|*.pdf';
 }
