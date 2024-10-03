@@ -394,9 +394,9 @@ page 50013 "Sales Invoice Subform - Import"
                 {
                 }
             }
-            group()
+            group(General)
             {
-                group()
+                group(General1)
                 {
                     field("Invoice Discount Amount";TotalSalesLine."Inv. Discount Amount")
                     {
@@ -650,6 +650,7 @@ page 50013 "Sales Invoice Subform - Import"
             }
         }
     }
+    
 
     trigger OnAfterGetCurrRecord()
     begin

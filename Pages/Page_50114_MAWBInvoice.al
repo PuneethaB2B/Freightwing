@@ -264,37 +264,33 @@ page 50114 "MAWB Invoice"
                 field("Exit Point"; Rec."Exit Point")
                 {
                 }
-                field(Area; Area) { }
-    }
-}
-    
-    
-
+                field("Area"; Rec."Area") { }
+            }
+        }
 
         area(factboxes)
         {
-            part(Page; 9080)
+            part(SalesHistSelltoFactBox; "Sales Hist. Sell-to FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = false;
             }
-            part(Page1; 9081)
+            part(SalesHistBilltoFactBox; "Sales Hist. Bill-to FactBox")
             {
                 SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = false;
             }
-            part(Page2; 9082)
+            part(CustomerStatisticsFactBox; "Customer Statistics FactBox")
             {
                 SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = true;
             }
-            part(Page3; 9084)
+            part(CustomerDetailsFactBox; "Customer Details FactBox")
             {
                 SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = true;
             }
-            part(Page4; 9087)
+            part(SalesLineFactBox; "Sales Line FactBox")
             {
                 Provider = SalesLines;
                 SubPageLink = "Document Type" = FIELD("Document Type"),
@@ -302,36 +298,35 @@ page 50114 "MAWB Invoice"
                               "Line No." = FIELD("Line No.");
                 Visible = false;
             }
-            part(Page5; 9089)
+            part(ItemInvoicingFactBox; "Item Invoicing FactBox")
             {
                 Provider = SalesLines;
                 SubPageLink = "No." = FIELD("No.");
                 Visible = true;
             }
-            part(Page6; 9092)
+            part(ApprovalFactBox; "Approval FactBox")
             {
                 SubPageLink = "Table ID" = CONST(36),
                               "Document Type" = FIELD("Document Type"),
                               "Document No." = FIELD("No.");
                 Visible = false;
             }
-            part(Page7; 9108)
+            part(ResourceDetailsFactBox; "Resource Details FactBox")
             {
                 Provider = SalesLines;
                 SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
-            systempart(; Notes)
-            {
-                Visible = true;
-            }
-            systempart(; Links)
+            systempart(Links1; Links)
             {
                 Visible = false;
             }
+            systempart(Notes1; Notes)
+            {
+                Visible = true;
+            }
         }
-
-    
+    }
 
     actions
     {
@@ -353,7 +348,7 @@ page 50114 "MAWB Invoice"
                     begin
                         CalcInvDiscForHeader;
                         COMMIT;
-                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
+                        PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -362,6 +357,7 @@ page 50114 "MAWB Invoice"
                     AccessByPermission = TableData 348 = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
+                    ApplicationArea = all;
                     ShortCutKey = 'Shift+Ctrl+D';
 
                     trigger OnAction()
@@ -374,9 +370,10 @@ page 50114 "MAWB Invoice"
                 {
                     Caption = 'Customer';
                     Image = Customer;
-                    RunObject = Page 21;
-                                    RunPageLink = "No." = FIELD("Sell-to Customer No.");
-                                    ShortCutKey = 'Shift+F7';
+                    RunObject = Page "Customer Card";
+                    ApplicationArea = all;
+                    RunPageLink = "No." = FIELD("Sell-to Customer No.");
+                    ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
                 {
@@ -385,9 +382,9 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page 658;
+                        ApprovalEntries: Page "Approval Entries";
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
+                        ApprovalEntries.SetRecordFilters(DATABASE::"Sales Header", Rec."Document Type", rec."No.");
                         ApprovalEntries.RUN;
                     end;
                 }
@@ -395,8 +392,8 @@ page 50114 "MAWB Invoice"
                 {
                     Caption = 'Co&mments';
                     Image = ViewComments;
-                    RunObject = Page 67;
-                                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                    RunObject = Page "Sales Comment Sheet";
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
                 }
@@ -411,10 +408,10 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50119;
-                                    RunPageLink = "MAWB No" = FIELD("No.");
-                                    ApplicationArea = All;
+                    RunPageLink = "MAWB No" = FIELD("No.");
+                    ApplicationArea = All;
 
-                                    ShortCutKey = 'Shift+Ctrl+D';
+                    ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("MAWB Charges")
                 {
@@ -424,10 +421,10 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50120;
-                                    RunPageLink = "MAWB No." = FIELD("MAWB No.");
-                                    ApplicationArea = All;
+                    RunPageLink = "MAWB No." = FIELD("MAWB No.");
+                    ApplicationArea = All;
 
-                                    ShortCutKey = 'Shift+Ctrl+D';
+                    ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("Notify Parties")
                 {
@@ -437,9 +434,9 @@ page 50114 "MAWB Invoice"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     RunObject = Page 50122;
-                                    RunPageLink = "Invoice No." = FIELD("No.");
-                                    ApplicationArea = All;
-                                    ShortCutKey = 'Shift+Ctrl+D';
+                    RunPageLink = "Invoice No." = FIELD("No.");
+                    ApplicationArea = All;
+                    ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
             group("Credit Card")
@@ -449,12 +446,12 @@ page 50114 "MAWB Invoice"
                 action("Credit Cards Transaction Lo&g Entries")
                 {
                     Caption = 'Credit Cards Transaction Lo&g Entries';
-                                    ApplicationArea = All;
+                    ApplicationArea = All;
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),  
-                                  "Document No."=FIELD("No."),
-                                  "Customer No."=FIELD("Bill-to Customer No.");
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "Document No." = FIELD("No."),
+                                  "Customer No." = FIELD("Bill-to Customer No.");
                 }
             }
         }
@@ -472,7 +469,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);                           
+                        PAGE.RUNMODAL(50127);
                     end;
                 }
                 action(Release)
@@ -485,7 +482,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -497,12 +494,12 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
                 }
-                separator()
+                separator(General1)
                 {
                 }
             }
@@ -512,7 +509,7 @@ page 50114 "MAWB Invoice"
                 Image = "Action";
                 action(CalculateInvoiceDiscount)
                 {
-                    AccessByPermission = TableData 19=R;
+                    AccessByPermission = TableData 19 = R;
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
 
@@ -522,7 +519,7 @@ page 50114 "MAWB Invoice"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator()
+                separator(General2)
                 {
                 }
                 action("Re Calculate Charges")
@@ -537,14 +534,14 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Check.CalculateMAWBCharges("MAWB No.");
-                        Check.CalculateHandlingFees("MAWB No.");
+                        Check.CalculateMAWBCharges(Rec."MAWB No.");
+                        Check.CalculateHandlingFees(rec."MAWB No.");
                     end;
                 }
-                separator()
+                separator(General3)
                 {
                 }
-                separator()
+                separator(General4)
                 {
                 }
                 action(SplitMAWBInvoice)
@@ -558,170 +555,171 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Check.CheckAllCharges("MAWB No.","No.");
+                        Check.CheckAllCharges(rec."MAWB No.", rec."No.");
                         SplitMAWBInvoice;
                         // _________________ CALC Split factor _________________________________
                         TBLHNo := 0;
                         TBLMAWBLine.RESET;
-                        TBLMAWBLine.SETRANGE("MAWB No.","MAWB No.");
-                        TBLMAWBLine.SETFILTER("HAWB No.",'<>%1','');
+                        TBLMAWBLine.SETRANGE("MAWB No.", rec."MAWB No.");
+                        TBLMAWBLine.SETFILTER("HAWB No.", '<>%1', '');
                         IF TBLMAWBLine.FINDSET THEN
-                          REPEAT
-                            TBLHNo := TBLHNo + 1;
-                          UNTIL TBLMAWBLine.NEXT = 0;
+                            REPEAT
+                                TBLHNo := TBLHNo + 1;
+                            UNTIL TBLMAWBLine.NEXT = 0;
 
                         // ****************************** Calculating agreed rate ********************
                         TBLAgreedRate := 0;
                         TBLMAWBInvoiceCharge.RESET;
-                        TBLMAWBInvoiceCharge.SETRANGE("MAWB No.","MAWB No.");
+                        TBLMAWBInvoiceCharge.SETRANGE("MAWB No.", rec."MAWB No.");
                         IF TBLMAWBInvoiceCharge.FINDSET THEN;
-                          REPEAT
-                           TBLAgreedRate := TBLAgreedRate + TBLMAWBInvoiceCharge."Agreed Rate";
-                          UNTIL TBLMAWBInvoiceCharge.NEXT = 0;
+                        REPEAT
+                            TBLAgreedRate := TBLAgreedRate + TBLMAWBInvoiceCharge."Agreed Rate";
+                        UNTIL TBLMAWBInvoiceCharge.NEXT = 0;
 
                         // ****************************** Modifications for third party customers *****************
-                        TBLCustomer.GET("Bill-to Customer No.");
+                        TBLCustomer.GET(rec."Bill-to Customer No.");
                         TBLSalesLine.RESET;
-                        TBLSalesLine.SETRANGE("Document No.","No.");
-                        IF TBLSalesLine.FINDSET THEN REPEAT
-                          IF TBLHNo = 0 THEN
-                            TBLSalesLine."Split Factor" := 1
-                          ELSE
-                          TBLSalesLine."Split Factor" := TBLHNo;
+                        TBLSalesLine.SETRANGE("Document No.", Rec."No.");
+                        IF TBLSalesLine.FINDSET THEN
+                            REPEAT
+                                IF TBLHNo = 0 THEN
+                                    TBLSalesLine."Split Factor" := 1
+                                ELSE
+                                    TBLSalesLine."Split Factor" := TBLHNo;
 
-                          IF (TBLCustomer."Customer Type" = 2) AND (Status = 0) THEN BEGIN
-                            IF (TBLSalesLine."Freight Charge Code" = '14') THEN BEGIN
-                              TBLSalesLine."Freight Charge Code" := '82';
-                              TBLSalesLine.Description := 'Freight Charges TP';
-                              TBLSalesLine."Margin %" := TBLCustomer."Margin %";
-                              TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
-                              // _________________ Calculating Cost amount ____
-                              TBLMAWBLine.RESET;
-                              TBLMAWBLine.SETRANGE("MAWB No.","MAWB No.");
-                              TBLMAWBLine.SETRANGE("HAWB No.",TBLSalesLine."HAWB No.");
-                              IF TBLMAWBLine.FINDFIRST THEN BEGIN
-                                TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
-                                TBLFlightCode := TBLMAWBLine."Flight Code";
-                              END;
-                              TBLFreightItemCharge.RESET;
-                              TBLFreightItemCharge.SETRANGE("Flight Code",TBLFlightCode);
-                              TBLFreightItemCharge.SETRANGE("Freight Charge Code",'82');
-                              IF TBLFreightItemCharge.FINDFIRST THEN
-                                TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate);// / TBLSalesLine."Split Factor";
-                                // _________________________ Calculating amounts ________
-                              TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
-                              TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
-                              TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
-                              TBLSalesLine.MODIFY;
-                            END // if freight charge code is 14
-                            ELSE IF (TBLSalesLine."Freight Charge Code" = '17') THEN BEGIN
-                              TBLSalesLine."Freight Charge Code" := '118';
-                              TBLSalesLine.Description := 'Handling Fees Sales TP';
-                              TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
-                                 // _________________ Calculating Cost amount ____
-                              TBLMAWBLine.RESET;
-                              TBLMAWBLine.SETRANGE("MAWB No.","MAWB No.");
-                              TBLMAWBLine.SETRANGE("HAWB No.",TBLSalesLine."HAWB No.");
-                              IF TBLMAWBLine.FINDFIRST THEN BEGIN
-                                TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
-                                TBLFlightCode := TBLMAWBLine."Flight Code";
-                              END;
-                        //      TBLFreightItemCharge.RESET;
-                        //      TBLFreightItemCharge.SETRANGE("Flight Code",TBLFlightCode);
-                        //      TBLFreightItemCharge.SETRANGE("Freight Charge Code",'118');
-                        //      IF TBLFreightItemCharge.FINDSET THEN
-                        //        TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate) / TBLSalesLine."Split Factor";
-                                //Calculating Cost Amount based on Slabs
-                                gRecHandlingSlab.RESET;
-                                gRecHandlingSlab.SETRANGE("Freight Charge Code",TBLSalesLine."Freight Charge Code");
-                                gRecHandlingSlab.SETFILTER(gRecHandlingSlab."From Weight",'<=%1',TBLSalesLine."Split Weight");
-                                gRecHandlingSlab.SETFILTER(gRecHandlingSlab."To Weight",'>=%1',TBLSalesLine."Split Weight");
-                                IF gRecHandlingSlab.FINDFIRST  THEN
-                                  TBLSalesLine."Cost Amount" := gRecHandlingSlab."Rate Amount"/TBLSalesLine."Split Factor";
-                                //Calculating VAT
-                                IF gRecFreightCharges.GET(TBLSalesLine."Freight Charge Code") THEN
-                                  TBLSalesLine.VALIDATE("VAT Prod. Posting Group",gRecFreightCharges."VAT Prod. Posting Group");
+                                IF (TBLCustomer."Customer Type" = 2) AND (Status = 0) THEN BEGIN
+                                    IF (TBLSalesLine."Freight Charge Code" = '14') THEN BEGIN
+                                        TBLSalesLine."Freight Charge Code" := '82';
+                                        TBLSalesLine.Description := 'Freight Charges TP';
+                                        TBLSalesLine."Margin %" := TBLCustomer."Margin %";
+                                        TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
+                                        // _________________ Calculating Cost amount ____
+                                        TBLMAWBLine.RESET;
+                                        TBLMAWBLine.SETRANGE("MAWB No.", rec."MAWB No.");
+                                        TBLMAWBLine.SETRANGE("HAWB No.", TBLSalesLine."HAWB No.");
+                                        IF TBLMAWBLine.FINDFIRST THEN BEGIN
+                                            TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
+                                            TBLFlightCode := TBLMAWBLine."Flight Code";
+                                        END;
+                                        TBLFreightItemCharge.RESET;
+                                        TBLFreightItemCharge.SETRANGE("Flight Code", TBLFlightCode);
+                                        TBLFreightItemCharge.SETRANGE("Freight Charge Code", '82');
+                                        IF TBLFreightItemCharge.FINDFIRST THEN
+                                            TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate);// / TBLSalesLine."Split Factor";
+                                                                                                                        // _________________________ Calculating amounts ________
+                                        TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
+                                        TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
+                                        TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
+                                        TBLSalesLine.MODIFY;
+                                    END // if freight charge code is 14
+                                    ELSE IF (TBLSalesLine."Freight Charge Code" = '17') THEN BEGIN
+                                        TBLSalesLine."Freight Charge Code" := '118';
+                                        TBLSalesLine.Description := 'Handling Fees Sales TP';
+                                        TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
+                                        // _________________ Calculating Cost amount ____
+                                        TBLMAWBLine.RESET;
+                                        TBLMAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
+                                        TBLMAWBLine.SETRANGE("HAWB No.", TBLSalesLine."HAWB No.");
+                                        IF TBLMAWBLine.FINDFIRST THEN BEGIN
+                                            TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
+                                            TBLFlightCode := TBLMAWBLine."Flight Code";
+                                        END;
+                                        //      TBLFreightItemCharge.RESET;
+                                        //      TBLFreightItemCharge.SETRANGE("Flight Code",TBLFlightCode);
+                                        //      TBLFreightItemCharge.SETRANGE("Freight Charge Code",'118');
+                                        //      IF TBLFreightItemCharge.FINDSET THEN
+                                        //        TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate) / TBLSalesLine."Split Factor";
+                                        //Calculating Cost Amount based on Slabs
+                                        gRecHandlingSlab.RESET;
+                                        gRecHandlingSlab.SETRANGE("Freight Charge Code", TBLSalesLine."Freight Charge Code");
+                                        gRecHandlingSlab.SETFILTER(gRecHandlingSlab."From Weight", '<=%1', TBLSalesLine."Split Weight");
+                                        gRecHandlingSlab.SETFILTER(gRecHandlingSlab."To Weight", '>=%1', TBLSalesLine."Split Weight");
+                                        IF gRecHandlingSlab.FINDFIRST THEN
+                                            TBLSalesLine."Cost Amount" := gRecHandlingSlab."Rate Amount" / TBLSalesLine."Split Factor";
+                                        //Calculating VAT
+                                        IF gRecFreightCharges.GET(TBLSalesLine."Freight Charge Code") THEN
+                                            TBLSalesLine.VALIDATE("VAT Prod. Posting Group", gRecFreightCharges."VAT Prod. Posting Group");
 
-                              // _________________________ Calculating amounts ________
-                              TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
-                              TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
-                              TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
-                              TBLSalesLine.MODIFY;
-                            END // if freight charge code is 17
-                            ELSE IF (TBLSalesLine."Freight Charge Code" = '34') THEN BEGIN
-                              TBLSalesLine."Freight Charge Code" := '88';
-                              TBLSalesLine.Description := 'K.A.A Fee(Exports) TP';
-                              TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
-                              // _________________ Calculating Cost amount ____
-                              TBLMAWBLine.RESET;
-                              TBLMAWBLine.SETRANGE("MAWB No.","MAWB No.");
-                              TBLMAWBLine.SETRANGE("HAWB No.",TBLSalesLine."HAWB No.");
-                              IF TBLMAWBLine.FINDSET THEN BEGIN
-                                TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
-                                TBLFlightCode := TBLMAWBLine."Flight Code";
-                              END;
-                              TBLFreightItemCharge.RESET;
-                              TBLFreightItemCharge.SETRANGE("Flight Code",TBLFlightCode);
-                              TBLFreightItemCharge.SETRANGE("Freight Charge Code",'88');
-                              IF TBLFreightItemCharge.FINDFIRST THEN
-                                TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate) / TBLSalesLine."Split Factor";
-                              // _________________________ Calculating amounts ________
-                              TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
-                              TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
-                              TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
-                              TBLSalesLine.MODIFY;
-                            END; // if freight charge code is 34
-                          END // if customer is third party // ________________________ CALC Amnt Excl VAT _______
-                          ELSE IF (TBLCustomer."Customer Type" <> 2) AND (Status = 0) THEN BEGIN
-                            IF TBLCustomer."Customer Type" = TBLCustomer."Customer Type"::Group THEN BEGIN//Calculate Handling charges based on customer type
-                              IF (TBLSalesLine."Freight Charge Code" IN ['118','17']) THEN BEGIN
-                                IF TBLSalesLine."Freight Charge Code" = '118' THEN BEGIN
-                                  TBLSalesLine."Freight Charge Code" := '17';
-                                  TBLSalesLine.Description := 'Handling Fees  Sales  GROUP';
-                                  TBLSalesLine."Shortcut Dimension 2 Code" := 'GROUP';
+                                        // _________________________ Calculating amounts ________
+                                        TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
+                                        TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
+                                        TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
+                                        TBLSalesLine.MODIFY;
+                                    END // if freight charge code is 17
+                                    ELSE IF (TBLSalesLine."Freight Charge Code" = '34') THEN BEGIN
+                                        TBLSalesLine."Freight Charge Code" := '88';
+                                        TBLSalesLine.Description := 'K.A.A Fee(Exports) TP';
+                                        TBLSalesLine."Shortcut Dimension 2 Code" := 'THIRD PARTY';
+                                        // _________________ Calculating Cost amount ____
+                                        TBLMAWBLine.RESET;
+                                        TBLMAWBLine.SETRANGE("MAWB No.", Rec."MAWB No.");
+                                        TBLMAWBLine.SETRANGE("HAWB No.", TBLSalesLine."HAWB No.");
+                                        IF TBLMAWBLine.FINDSET THEN BEGIN
+                                            TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
+                                            TBLFlightCode := TBLMAWBLine."Flight Code";
+                                        END;
+                                        TBLFreightItemCharge.RESET;
+                                        TBLFreightItemCharge.SETRANGE("Flight Code", TBLFlightCode);
+                                        TBLFreightItemCharge.SETRANGE("Freight Charge Code", '88');
+                                        IF TBLFreightItemCharge.FINDFIRST THEN
+                                            TBLSalesLine."Cost Amount" := (TBLSalesLine."Split Weight" * TBLAgreedRate) / TBLSalesLine."Split Factor";
+                                        // _________________________ Calculating amounts ________
+                                        TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
+                                        TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
+                                        TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
+                                        TBLSalesLine.MODIFY;
+                                    END; // if freight charge code is 34
+                                END // if customer is third party // ________________________ CALC Amnt Excl VAT _______
+                                ELSE IF (TBLCustomer."Customer Type" <> 2) AND (Status = 0) THEN BEGIN
+                                    IF TBLCustomer."Customer Type" = TBLCustomer."Customer Type"::Group THEN BEGIN//Calculate Handling charges based on customer type
+                                        IF (TBLSalesLine."Freight Charge Code" IN ['118', '17']) THEN BEGIN
+                                            IF TBLSalesLine."Freight Charge Code" = '118' THEN BEGIN
+                                                TBLSalesLine."Freight Charge Code" := '17';
+                                                TBLSalesLine.Description := 'Handling Fees  Sales  GROUP';
+                                                TBLSalesLine."Shortcut Dimension 2 Code" := 'GROUP';
+                                            END;
+                                            // _________________ Calculating Cost amount ____
+                                            TBLMAWBLine.RESET;
+                                            TBLMAWBLine.SETRANGE("MAWB No.", rec."MAWB No.");
+                                            TBLMAWBLine.SETRANGE("HAWB No.", TBLSalesLine."HAWB No.");
+                                            IF TBLMAWBLine.FINDFIRST THEN BEGIN
+                                                TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
+                                                TBLFlightCode := TBLMAWBLine."Flight Code";
+                                            END;
+                                            //Calculating Cost Amount based on Slabs
+                                            gRecHandlingSlab.RESET;
+                                            gRecHandlingSlab.SETRANGE("Freight Charge Code", TBLSalesLine."Freight Charge Code");
+                                            gRecHandlingSlab.SETFILTER(gRecHandlingSlab."From Weight", '<=%1', TBLSalesLine."Split Weight");
+                                            gRecHandlingSlab.SETFILTER(gRecHandlingSlab."To Weight", '>=%1', TBLSalesLine."Split Weight");
+                                            IF gRecHandlingSlab.FINDFIRST THEN
+                                                TBLSalesLine."Cost Amount" := gRecHandlingSlab."Rate Amount" / TBLSalesLine."Split Factor";
+                                            //Calculating VAT
+                                            IF gRecFreightCharges.GET(TBLSalesLine."Freight Charge Code") THEN BEGIN
+                                                TBLSalesLine.VALIDATE("VAT Prod. Posting Group", gRecFreightCharges."VAT Prod. Posting Group");
+                                                TBLSalesLine.VALIDATE("VAT %");
+                                            END;
+                                        END;
+                                    END;
+                                    TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
+                                    TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
+                                    TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
+                                    TBLSalesLine.MODIFY;
                                 END;
-                                // _________________ Calculating Cost amount ____
-                                TBLMAWBLine.RESET;
-                                TBLMAWBLine.SETRANGE("MAWB No.","MAWB No.");
-                                TBLMAWBLine.SETRANGE("HAWB No.",TBLSalesLine."HAWB No.");
-                                IF TBLMAWBLine.FINDFIRST THEN BEGIN
-                                  TBLSalesLine."Split Weight" := TBLMAWBLine."Chargeable Weight";
-                                  TBLFlightCode := TBLMAWBLine."Flight Code";
-                                END;
-                                //Calculating Cost Amount based on Slabs
-                                gRecHandlingSlab.RESET;
-                                gRecHandlingSlab.SETRANGE("Freight Charge Code",TBLSalesLine."Freight Charge Code");
-                                gRecHandlingSlab.SETFILTER(gRecHandlingSlab."From Weight",'<=%1',TBLSalesLine."Split Weight");
-                                gRecHandlingSlab.SETFILTER(gRecHandlingSlab."To Weight",'>=%1',TBLSalesLine."Split Weight");
-                                IF gRecHandlingSlab.FINDFIRST  THEN
-                                  TBLSalesLine."Cost Amount" := gRecHandlingSlab."Rate Amount"/TBLSalesLine."Split Factor";
-                                //Calculating VAT
-                                IF gRecFreightCharges.GET(TBLSalesLine."Freight Charge Code") THEN BEGIN
-                                  TBLSalesLine.VALIDATE("VAT Prod. Posting Group",gRecFreightCharges."VAT Prod. Posting Group");
-                                  TBLSalesLine.VALIDATE("VAT %");
-                                END;
-                              END;
-                            END;
-                            TBLSalesLine."Margin Amount" := (TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount";
-                            TBLSalesLine."Amount Including VAT" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount";
-                            TBLSalesLine."Line Amount" := TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount";
-                            TBLSalesLine.MODIFY;
-                          END;
-                            TBLSalesLine."Margin Amount" := ROUND((TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount",0.01);
-                            TBLSalesLine."Amount Including VAT" := ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount",0.01);
-                            TBLSalesLine.VALIDATE("Unit Price",ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount",0.01));
-                            TBLSalesLine.VALIDATE("Line Amount",ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount",0.01));
-                            TBLSalesLine.VALIDATE(Amount,ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount",0.01));
+                                TBLSalesLine."Margin Amount" := ROUND((TBLSalesLine."Margin %" / 100) * TBLSalesLine."Cost Amount", 0.01);
+                                TBLSalesLine."Amount Including VAT" := ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount" + TBLSalesLine."VAT Amount", 0.01);
+                                TBLSalesLine.VALIDATE("Unit Price", ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount", 0.01));
+                                TBLSalesLine.VALIDATE("Line Amount", ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount", 0.01));
+                                TBLSalesLine.VALIDATE(Amount, ROUND(TBLSalesLine."Cost Amount" + TBLSalesLine."Margin Amount", 0.01));
 
-                            TBLSalesLine."VAT Amount" := TBLSalesLine."Amount Including VAT" - TBLSalesLine.Amount;
-                          //  TBLSalesLine.VALIDATE("VAT Prod. Posting Group",TBLSalesLine."VAT Prod. Posting Group");
-                          //  TBLSalesLine.VALIDATE("VAT %");
-                            TBLSalesLine.MODIFY;
-                        UNTIL TBLSalesLine.NEXT = 0;
+                                TBLSalesLine."VAT Amount" := TBLSalesLine."Amount Including VAT" - TBLSalesLine.Amount;
+                                //  TBLSalesLine.VALIDATE("VAT Prod. Posting Group",TBLSalesLine."VAT Prod. Posting Group");
+                                //  TBLSalesLine.VALIDATE("VAT %");
+                                TBLSalesLine.MODIFY;
+                            UNTIL TBLSalesLine.NEXT = 0;
                         // ****************************** End of modifications ************************************
                     end;
                 }
-                separator()
+                separator(General5)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -737,7 +735,7 @@ page 50114 "MAWB Invoice"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator()
+                separator(General7)
                 {
                 }
                 action("Copy Document")
@@ -769,7 +767,7 @@ page 50114 "MAWB Invoice"
                         MoveNegSalesLines.ShowDocument;
                     end;
                 }
-                separator()
+                separator(General6)
                 {
                 }
                 action("Send A&pproval Request")
@@ -793,7 +791,7 @@ page 50114 "MAWB Invoice"
                     var
                         ApprovalMgt: Codeunit 439;
                     begin
-                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
+                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
                 separator()
@@ -844,52 +842,47 @@ page 50114 "MAWB Invoice"
                         TBLPostValidate := TRUE;
                         TBLSalesLine.FINDSET;
                         REPEAT
-                           IF (TBLSalesLine."Document No." = "No.") THEN
-                               BEGIN
-                                     IF (TBLSalesLine."Cost Amount" = 0) THEN
-                                        TBLPostValidate := FALSE;
-                                END;
+                            IF (TBLSalesLine."Document No." = rec."No.") THEN BEGIN
+                                IF (TBLSalesLine."Cost Amount" = 0) THEN
+                                    TBLPostValidate := FALSE;
+                            END;
                         UNTIL TBLSalesLine.NEXT = 0;
                         // ********************************** END ***************************************
-                        IF (TBLPostValidate) THEN  BEGIN
-                        MAWBAlloc.RESET;
-                        MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No","No.");
-                        IF MAWBAlloc.FINDFIRST THEN
-                        BEGIN
-                         BookingSheetLine.RESET;
-                         BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.",MAWBAlloc."Booking Sheet No");
-                         IF BookingSheetLine.FINDSET THEN
-                         BEGIN
-                          REPEAT
-                           FreightCharge.RESET;
-                           FreightCharge.SETRANGE(FreightCharge."Delivery Type",BookingSheetLine."Type of Delivery");
-                           IF FreightCharge.FINDSET THEN
-                           BEGIN
-                            REPEAT
-                             SalesLine.RESET;
-                             SalesLine.SETRANGE(SalesLine."Document No.","No.");
-                             SalesLine.SETRANGE(SalesLine."Freight Charge Code",FreightCharge.Code);
-                             IF SalesLine.FIND('-') THEN
-                             BEGIN
-                               IF SalesLine."Unit Price" = 0 THEN BEGIN
-                                 ERROR(Text000,FreightCharge."Delivery Type");
-                               END;
-                             END;
-                             UNTIL FreightCharge.NEXT=0;
-                           END;
+                        IF (TBLPostValidate) THEN BEGIN
+                            MAWBAlloc.RESET;
+                            MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No", rec."No.");
+                            IF MAWBAlloc.FINDFIRST THEN BEGIN
+                                BookingSheetLine.RESET;
+                                BookingSheetLine.SETRANGE(BookingSheetLine."Booking Sheet No.", MAWBAlloc."Booking Sheet No");
+                                IF BookingSheetLine.FINDSET THEN BEGIN
+                                    REPEAT
+                                        FreightCharge.RESET;
+                                        FreightCharge.SETRANGE(FreightCharge."Delivery Type", BookingSheetLine."Type of Delivery");
+                                        IF FreightCharge.FINDSET THEN BEGIN
+                                            REPEAT
+                                                SalesLine.RESET;
+                                                SalesLine.SETRANGE(SalesLine."Document No.", rec."No.");
+                                                SalesLine.SETRANGE(SalesLine."Freight Charge Code", FreightCharge.Code);
+                                                IF SalesLine.FIND('-') THEN BEGIN
+                                                    IF SalesLine."Unit Price" = 0 THEN BEGIN
+                                                        ERROR(Text000, FreightCharge."Delivery Type");
+                                                    END;
+                                                END;
+                                            UNTIL FreightCharge.NEXT = 0;
+                                        END;
 
-                          UNTIL BookingSheetLine.NEXT = 0;
-                         END;
-                        END;
-                        CloseMawb("MAWB No.");
-                        Post(CODEUNIT::"Sales-Post (Yes/No)");
-                        ///PostSalesInvoice;
-                        MAWBHeader.GET("MAWB No.");
-                        MAWBHeader."Invoice Status":=MAWBHeader."Invoice Status"::New;
-                        MAWBHeader.MODIFY;
+                                    UNTIL BookingSheetLine.NEXT = 0;
+                                END;
+                            END;
+                            CloseMawb(rec."MAWB No.");
+                            Post(CODEUNIT::"Sales-Post (Yes/No)");
+                            ///PostSalesInvoice;
+                            MAWBHeader.GET(Rec."MAWB No.");
+                            MAWBHeader."Invoice Status" := MAWBHeader."Invoice Status"::New;
+                            MAWBHeader.MODIFY;
                         END
                         ELSE
-                        MESSAGE('You can not post this invoice while you have zero cost amount in the lines');
+                            MESSAGE('You can not post this invoice while you have zero cost amount in the lines');
                     end;
                 }
                 action("Mail Invoice")
@@ -901,12 +894,11 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        IF CONFIRM('Do you want to Send the Invoice ?') THEN
-                        BEGIN
-                        //MESSAGE("No.");
-                          Mailed := CustomMail.SendInvoice("No.","Bill-to Customer No.");
-                          IF Mailed THEN
-                            MESSAGE('Emailed');
+                        IF CONFIRM('Do you want to Send the Invoice ?') THEN BEGIN
+                            //MESSAGE("No.");
+                            Mailed := CustomMail.SendInvoice(Rec."No.", rec."Bill-to Customer No.");
+                            IF Mailed THEN
+                                MESSAGE('Emailed');
                         END;
                     end;
                 }
@@ -923,21 +915,20 @@ page 50114 "MAWB Invoice"
                     begin
                         //ReportPrint.PrintSalesHeader(Rec);
                         SalesHeader.RESET;
-                        SalesHeader.SETRANGE("No.","No.");
+                        SalesHeader.SETRANGE("No.", rec."No.");
                         IF SalesHeader.FINDFIRST THEN BEGIN
-                          MAWBHeader.RESET;
-                          MAWBHeader.SETRANGE(MAWBHeader."No.","MAWB No.");
-                          IF MAWBHeader.FINDFIRST THEN
-                          BEGIN
-                            IF MAWBHeader."Has Houses" THEN
-                             BEGIN
-                                REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);                                    
-                             END ELSE
-                             BEGIN
-                              // REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
-                              REPORT.RUNMODAL(50039,TRUE,FALSE, SalesHeader)                                                                                                                    ApplicationArea                                                                                                                     ApplicationArea = All;
-                             END;
-                          END ELSE BEGIN MESSAGE('MAWB Not found in Documentation');END;
+                            MAWBHeader.RESET;
+                            MAWBHeader.SETRANGE(MAWBHeader."No.", rec."MAWB No.");
+                            IF MAWBHeader.FINDFIRST THEN BEGIN
+                                IF MAWBHeader."Has Houses" THEN BEGIN
+                                    REPORT.RUNMODAL(50015, TRUE, FALSE, SalesHeader);
+                                END ELSE BEGIN
+                                    // REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
+                                    REPORT.RUNMODAL(50039, TRUE, FALSE, SalesHeader)
+                                END;
+                            END ELSE BEGIN
+                                MESSAGE('MAWB Not found in Documentation');
+                            END;
                         END;
                     end;
                 }
@@ -956,15 +947,14 @@ page 50114 "MAWB Invoice"
                         TBLPostValidate := TRUE;
                         TBLSalesLine.FINDSET;
                         REPEAT
-                           IF (TBLSalesLine."Document No." = "No.") THEN
-                               BEGIN
-                                     IF (TBLSalesLine."Cost Amount" = 0) THEN
-                                        TBLPostValidate := FALSE;
-                                END;
+                            IF (TBLSalesLine."Document No." = rec."No.") THEN BEGIN
+                                IF (TBLSalesLine."Cost Amount" = 0) THEN
+                                    TBLPostValidate := FALSE;
+                            END;
                         UNTIL TBLSalesLine.NEXT = 0;
                         // ********************************** END ***************************************
-                        IF (TBLPostValidate) THEN  BEGIN
-                             Post(CODEUNIT::"Sales-Post + Print");
+                        IF (TBLPostValidate) THEN BEGIN
+                            Post(CODEUNIT::Microsoft.Sales.Posting."Sales-Post + Print");
                         END;
                     end;
                 }
@@ -975,7 +965,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit 82;
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;
@@ -988,7 +978,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices", TRUE, TRUE, Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }
@@ -1013,7 +1003,7 @@ page 50114 "MAWB Invoice"
 
     trigger OnAfterGetRecord()
     begin
-        JobQueueVisible := "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting";
+        JobQueueVisible := rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting";
         SetExtDocNoMandatoryCondition;
     end;
 
@@ -1030,7 +1020,7 @@ page 50114 "MAWB Invoice"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        "Responsibility Center" := UserMgt.GetSalesFilter;
+        rec."Responsibility Center" := UserMgt.GetSalesFilter;
         //ImportExportSetup.GET();
         //VALIDATE("Currency Code",ImportExportSetup."Invoicing Currency Code");
     end;
@@ -1038,9 +1028,9 @@ page 50114 "MAWB Invoice"
     trigger OnOpenPage()
     begin
         IF UserMgt.GetSalesFilter <> '' THEN BEGIN
-          FILTERGROUP(2);
-          SETRANGE("Responsibility Center",UserMgt.GetSalesFilter);
-          FILTERGROUP(0);
+            FILTERGROUP(2);
+            SETRANGE(rec."Responsibility Center", UserMgt.GetSalesFilter);
+            FILTERGROUP(0);
         END;
 
         SetDocNoVisible;
@@ -1048,59 +1038,59 @@ page 50114 "MAWB Invoice"
 
     var
         ChangeExchangeRate: Page "Change Exchange Rate";
-                                CopySalesDoc: Report 292;
-                                MoveNegSalesLines: Report 6699;
-                                ReportPrint: Codeunit 228;
-                                UserMgt: Codeunit 5700;
-                                SalesCalcDiscountByType: Codeunit 56;
+        CopySalesDoc: Report 292;
+        MoveNegSalesLines: Report 6699;
+        ReportPrint: Codeunit 228;
+        UserMgt: Codeunit 5700;
+        SalesCalcDiscountByType: Codeunit 56;
 
 
-                                JobQueueVisible: Boolean;
-                                DocNoVisible: Boolean;
-                                ExternalDocNoMandatory: Boolean;
-                                MAWBLine: Record 50076;
-                                SalesHeader: Record 36;
-                                ImportChargeMaster: Record 50007;
-                                ImportExportSetup: Record 50010;
-                                BookingSheetHAWBAllocation: Record 50056;
-                                BookingSheetLine: Record 50054;
-                                FreightCharge: Record 50018;
-                                SalesLine: Record 37;
-                                Text000:Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
-    MAWBAlloc: Record 50070;
-    FCharges: Record 50018;
-    MAWBHeader: Record 50077;
-    Check: Codeunit 50031;
-    CustomMail: Codeunit 50030;
-    Mailed: Boolean;
-    Custcode: Code[30];
-    CustRec: Record 18;
-    TBLSalesLine: Record 37;
-    TBLPostValidate: Boolean;
-    TBLSalesHeader: Record 36;
-    TBLCustomer: Record 18;
-    TBLHNo: Integer;
-    TBLMAWBLine: Record 50076;
-    TBLFreightItemCharge: Record 50029;
-    TBLFlightCode: Code[20];
-    TBLAgreedRate: Decimal;
-    TBLMAWBInvoiceCharge: Record 50073;
-    TBLPurchInvLine: Record 123;
-    TBLCurrecnyCode: Code[10];
-    TBLPurchInvHeader: Record 122;
-    TBLExchangeRate: Record 330;
-    TBLAmountLCY: Decimal;
-    TBLAmountUSD: Decimal;
-    TBLPurchLineAmount: Decimal;
-    TBLPurchInvLineTemp: Record 123 temporary;
-    gRecHandlingSlab: Record 50045;
-    gRecFreightCharges: Record 50018;
+        JobQueueVisible: Boolean;
+        DocNoVisible: Boolean;
+        ExternalDocNoMandatory: Boolean;
+        MAWBLine: Record 50076;
+        SalesHeader: Record 36;
+        ImportChargeMaster: Record 50007;
+        ImportExportSetup: Record 50010;
+        BookingSheetHAWBAllocation: Record 50056;
+        BookingSheetLine: Record 50054;
+        FreightCharge: Record 50018;
+        SalesLine: Record 37;
+        Text000: Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
+        MAWBAlloc: Record 50070;
+        FCharges: Record 50018;
+        MAWBHeader: Record 50077;
+        Check: Codeunit 50031;
+        CustomMail: Codeunit 50030;
+        Mailed: Boolean;
+        Custcode: Code[30];
+        CustRec: Record 18;
+        TBLSalesLine: Record 37;
+        TBLPostValidate: Boolean;
+        TBLSalesHeader: Record 36;
+        TBLCustomer: Record 18;
+        TBLHNo: Integer;
+        TBLMAWBLine: Record 50076;
+        TBLFreightItemCharge: Record 50029;
+        TBLFlightCode: Code[20];
+        TBLAgreedRate: Decimal;
+        TBLMAWBInvoiceCharge: Record 50073;
+        TBLPurchInvLine: Record 123;
+        TBLCurrecnyCode: Code[10];
+        TBLPurchInvHeader: Record 122;
+        TBLExchangeRate: Record 330;
+        TBLAmountLCY: Decimal;
+        TBLAmountUSD: Decimal;
+        TBLPurchLineAmount: Decimal;
+        TBLPurchInvLineTemp: Record 123 temporary;
+        gRecHandlingSlab: Record 50045;
+        gRecFreightCharges: Record 50018;
 
-local procedure Post(PostingCodeunitID: Integer)
+    local procedure Post(PostingCodeunitID: Integer)
     begin
         SendToPosting(PostingCodeunitID);
-        IF "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting" THEN
-          CurrPage.CLOSE;
+        IF rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting" THEN
+            CurrPage.CLOSE;
         CurrPage.UPDATE(FALSE);
     end;
 
@@ -1111,9 +1101,9 @@ local procedure Post(PostingCodeunitID: Integer)
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        IF GETFILTER("Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
-          IF "Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
-            SETRANGE("Sell-to Customer No.");
+        IF GETFILTER(rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
+            IF rec."Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
+                SETRANGE(rec."Sell-to Customer No.");
         CurrPage.UPDATE;
     end;
 
@@ -1147,12 +1137,12 @@ local procedure Post(PostingCodeunitID: Integer)
         DocumentNoVisibility: Codeunit 1400;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
-        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice,"No.");
+        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice, rec."No.");
     end;
 
     local procedure SetExtDocNoMandatoryCondition()
     var
-        SalesReceivablesSetup: Record "311";
+        SalesReceivablesSetup: Record 311;
     begin
         SalesReceivablesSetup.GET;
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"
@@ -1161,29 +1151,29 @@ local procedure Post(PostingCodeunitID: Integer)
     local procedure CloseMawb(MAWB: Code[50])
     var
         BookingSheetMAWBAllocation: Record 50070;
-        MAWBReceipt: Record "50039";
+        MAWBReceipt: Record 50039;
         BookingSheetMAWBAllocation1: Record 50070;
         BookingSheetMAWBAllocation2: Record 50070;
         i: Integer;
     begin
         BookingSheetMAWBAllocation.RESET;
-        BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."MAWB No",MAWB);
-        BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."Shipper Code","Sell-to Customer No.");
+        BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."MAWB No", MAWB);
+        BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."Shipper Code", Rec."Sell-to Customer No.");
         IF BookingSheetMAWBAllocation.FINDFIRST THEN BEGIN
-          BookingSheetMAWBAllocation.Invoiced:=TRUE;
-          BookingSheetMAWBAllocation.MODIFY;
+            BookingSheetMAWBAllocation.Invoiced := TRUE;
+            BookingSheetMAWBAllocation.MODIFY;
         END;
         BookingSheetMAWBAllocation1.RESET;
-        BookingSheetMAWBAllocation1.SETRANGE(BookingSheetMAWBAllocation1."MAWB No",MAWB);
-        BookingSheetMAWBAllocation1.SETRANGE(BookingSheetMAWBAllocation1.Invoiced,FALSE);
+        BookingSheetMAWBAllocation1.SETRANGE(BookingSheetMAWBAllocation1."MAWB No", MAWB);
+        BookingSheetMAWBAllocation1.SETRANGE(BookingSheetMAWBAllocation1.Invoiced, FALSE);
         IF NOT BookingSheetMAWBAllocation1.FINDFIRST THEN BEGIN
-          MAWBReceipt.RESET;
-          MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.",MAWB);
-          IF MAWBReceipt.FINDFIRST THEN BEGIN
-            MAWBReceipt.Invoiced:=TRUE;
-            MAWBReceipt."Invioced Date":="Posting Date";
-            MAWBReceipt.MODIFY;
-          END;
+            MAWBReceipt.RESET;
+            MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.", MAWB);
+            IF MAWBReceipt.FINDFIRST THEN BEGIN
+                MAWBReceipt.Invoiced := TRUE;
+                MAWBReceipt."Invioced Date" := Rec."Posting Date";
+                MAWBReceipt.MODIFY;
+            END;
         END;
     end;
 }
