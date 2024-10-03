@@ -95,7 +95,7 @@ page 50150 "Received Booking Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "Sales-Post + Print";
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                         IF CONFIRM(' Do you want to email ') THEN BEGIN

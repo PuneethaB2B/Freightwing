@@ -92,7 +92,7 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit 82;
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                         IF CONFIRM(' Do you want to email ') THEN BEGIN

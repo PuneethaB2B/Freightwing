@@ -115,7 +115,7 @@ page 50089 "Gate Pass"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit 82;
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;

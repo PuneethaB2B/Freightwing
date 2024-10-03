@@ -88,7 +88,7 @@ page 50137 "Posted Goods Receipt"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "Sales-Post + Print";
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;

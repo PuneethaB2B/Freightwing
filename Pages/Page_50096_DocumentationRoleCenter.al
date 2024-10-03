@@ -13,7 +13,7 @@ page 50096 "Documentation Role Center"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(; 9175)
+                part(CopyProfile; 9175)
                 {
                 }
             }

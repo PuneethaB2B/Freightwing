@@ -26,7 +26,7 @@ page 50013 "Sales Invoice Subform - Import"
                         TypeChosen := Rec.Type <> Rec.Type::" ";
 
                         IF xRec."No." <> '' THEN
-                            RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("No."; rec."No.")
@@ -45,7 +45,7 @@ page 50013 "Sales Invoice Subform - Import"
                 field("Freight Charge Code"; rec."Freight Charge Code")
                 {
                 }
-                field("Cross-Reference No."; Rec."Cross-Reference No.")
+                field("Cross-Reference No."; Rec."Item Reference No.")
                 {
                     Visible = false;
 

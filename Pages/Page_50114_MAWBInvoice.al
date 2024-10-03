@@ -267,7 +267,7 @@ page 50114 "MAWB Invoice"
                 field(Area; Area) { }
     }
 }
-    }
+    
     
 
 
@@ -386,7 +386,6 @@ page 50114 "MAWB Invoice"
                     trigger OnAction()
                     var
                         ApprovalEntries: Page 658;
-                                             ApplicationArea = All;
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
                         ApprovalEntries.RUN;
@@ -440,8 +439,6 @@ page 50114 "MAWB Invoice"
                     RunObject = Page 50122;
                                     RunPageLink = "Invoice No." = FIELD("No.");
                                     ApplicationArea = All;
-                                    ApplicationArea = All;
-
                                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
@@ -452,6 +449,7 @@ page 50114 "MAWB Invoice"
                 action("Credit Cards Transaction Lo&g Entries")
                 {
                     Caption = 'Credit Cards Transaction Lo&g Entries';
+                                    ApplicationArea = All;
                     Image = CreditCardLog;
                     RunObject = Page 829;
                                     RunPageLink = "Document Type"=FIELD("Document Type"),  
@@ -933,15 +931,11 @@ page 50114 "MAWB Invoice"
                           BEGIN
                             IF MAWBHeader."Has Houses" THEN
                              BEGIN
-                                REPORT                                    ApplicationArea                                     ApplicationArea = All;
-= All;
-.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
+                                REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);                                    
                              END ELSE
                              BEGIN
                               // REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
-                              REPORT                                                                                                                    ApplicationArea                                                                                                                     ApplicationArea = All;
-= All;
-.RUNMODAL(50039,TRUE,FALSE, SalesHeader)
+                              REPORT.RUNMODAL(50039,TRUE,FALSE, SalesHeader)                                                                                                                    ApplicationArea                                                                                                                     ApplicationArea = All;
                              END;
                           END ELSE BEGIN MESSAGE('MAWB Not found in Documentation');END;
                         END;
@@ -1053,7 +1047,7 @@ page 50114 "MAWB Invoice"
     end;
 
     var
-        ChangeExchangeRate: Page Change Exchange Rate;
+        ChangeExchangeRate: Page "Change Exchange Rate";
                                 CopySalesDoc: Report 292;
                                 MoveNegSalesLines: Report 6699;
                                 ReportPrint: Codeunit 228;

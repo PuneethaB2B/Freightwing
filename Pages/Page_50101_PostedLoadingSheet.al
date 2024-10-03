@@ -113,7 +113,7 @@ page 50101 "Posted Loading Sheet"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "Sales-Post + Print";
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         //SalesPostPrint.PostAndEmail(Rec);
                     end;

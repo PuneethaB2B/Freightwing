@@ -291,7 +291,7 @@ page 50012 "Sales Invoice List - Import"
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
-                separator(fws)
+                separator(General1)
                 {
                 }
             }
@@ -335,7 +335,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     begin
-                        Rec.SendToPosting(CODEUNIT::"Sales-Post + Print");
+                        Rec.SendToPosting(CODEUNIT::Microsoft.Sales.Posting."Sales-Post + Print");
                     end;
                 }
                 action("Post and Email")
@@ -347,7 +347,7 @@ page 50012 "Sales Invoice List - Import"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit "Sales-Post + Print";
+                        SalesPostPrint: Codeunit Microsoft.Sales.Posting."Sales-Post + Print";
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;

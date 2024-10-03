@@ -700,7 +700,7 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        SalesPostPrint: Codeunit 82;
+                        SalesPostPrint: Codeunit "Sales-Post + Print";
                     begin
                         SalesPostPrint.PostAndEmail(Rec);
                     end;

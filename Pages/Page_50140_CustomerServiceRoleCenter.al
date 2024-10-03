@@ -13,7 +13,7 @@ page 50140 "Customer Service Role Center_"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(; 9175)
+                part(CopyProfile; 9175)
                 {
                 }
             }
@@ -128,7 +128,7 @@ page 50140 "Customer Service Role Center_"
                 PromotedIsBig = true;
                 RunObject = Page 50049;
             }
-            separator()
+            separator(General2)
             {
             }
             group(Reports)

@@ -14,7 +14,7 @@ page 50095 "Customer Service Role Center"
                 {
                     Visible = false;
                 }
-                part(; 9175)
+                part(CopyProfile; 9175)
                 {
                 }
             }
@@ -130,7 +130,7 @@ page 50095 "Customer Service Role Center"
                 PromotedIsBig = true;
                 RunObject = Page 50020;
             }
-            separator()
+            separator(General2)
             {
             }
             group(Reports)

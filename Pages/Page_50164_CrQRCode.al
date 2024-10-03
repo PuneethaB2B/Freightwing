@@ -11,13 +11,13 @@ page 50164 "Cr. QR Code."
     {
         area(content)
         {
-            field("Invoice Number"; "Invoice Number")
+            field("Invoice Number"; Rec."Invoice Number")
             {
             }
-            field("Deivice Code"; "Deivice Code")
+            field("Deivice Code";Rec."Device Code")
             {
             }
-            field("QR Code"; "QR Code")
+            field("QR Code"; Rec."QR Code")
             {
             }
         }
