@@ -10,7 +10,7 @@ xmlport 50001 "Import Excel"
     {
         textelement(Root)
         {
-            tableelement(Table50058; 50058)
+            tableelement("TEST AV"; "Booking Sheet FAM Allocations")
             {
                 XmlName = 'AVLines';
                 fieldelement(AVEntryType; "TEST AV"."Booking Sheet No")

@@ -60,10 +60,10 @@ page 50048 "MAWB Receipts Subform"
                 {
                     Caption = '&Charges';
                     Image = EntriesList;
-                    RunObject = Page 50229;
+                  /*   RunObject = Page 50229;
                     RunPageLink = Field5 = FIELD("Airline Code"),
-                                  Field6 = FIELD("MAWB No.");
-
+                                  Field6 = FIELD("MAWB No."); B2BUPG
+ */
                     trigger OnAction()
                     begin
                         //DocPrint.PrintPurchHeader(Rec);

@@ -10,13 +10,13 @@ page 50160 "QR Setup."
         {
             group(General)
             {
-                field("Invoice Url"; "Invoice Url")
+                field("Invoice Url"; Rec."Invoice Url")
                 {
                 }
-                field("Credit Note Url"; "Credit Note Url")
+                field("Credit Note Url"; Rec."Credit Note Url")
                 {
                 }
-                field("QR Location"; "QR Location")
+                field("QR Location"; Rec."QR Location")
                 {
                 }
             }
