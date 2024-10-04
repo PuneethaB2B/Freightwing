@@ -444,7 +444,7 @@ page 50014 "Sales Invoice - Import"
                 {
                 }
             }
-            group("Credit Card")
+            group("Credit Card1")
             {
                 Caption = 'Credit Card';
                 Image = CreditCardLog;

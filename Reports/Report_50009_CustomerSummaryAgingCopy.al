@@ -326,7 +326,7 @@ report 50009 "Customer - Summary AgingCopy"
         CustFilter := Customer.GETFILTERS;
         FOR i := 3 TO 5 DO
             PeriodStartDate[i] := CALCDATE(PeriodLength, PeriodStartDate[i - 1]);
-        PeriodStartDate[6] := 31129999D;
+        PeriodStartDate[6] := 99991231D;
     end;
 
     var
