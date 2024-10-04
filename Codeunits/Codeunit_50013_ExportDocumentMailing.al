@@ -28,6 +28,7 @@ codeunit 50013 "Export Document-Mailing"
     var
         TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
+        EmailScenario: Enum "Email Scenario";
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToCustNo, EmailDocName);
 
@@ -38,7 +39,7 @@ codeunit 50013 "Export Document-Mailing"
             MAXSTRLEN(TempEmailItem.Subject));
         TempEmailItem."Attachment File Path" := AttachmentFilePath;
         TempEmailItem."Attachment Name" := AttachmentFileName;
-        TempEmailItem.Send(FALSE);
+        TempEmailItem.Send(FALSE, EmailScenario);
     end;
 
     local procedure GetToAddressFromDailyWeightDistByCustomer(BillToCustomerNo: Code[20]): Text[250]
@@ -75,6 +76,7 @@ codeunit 50013 "Export Document-Mailing"
     var
         TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
+        EmailScenario: Enum "Email Scenario";
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
@@ -85,7 +87,7 @@ codeunit 50013 "Export Document-Mailing"
             MAXSTRLEN(TempEmailItem.Subject));
         TempEmailItem."Attachment File Path" := AttachmentFilePath;
         TempEmailItem."Attachment Name" := AttachmentFileName;
-        TempEmailItem.Send(FALSE);
+        TempEmailItem.Send(FALSE, EmailScenario);
     end;
 
     local procedure GetToAddressFromBookingSheetNotifyParty(NotifyPartyNo: Code[20]): Text[250]
@@ -121,6 +123,7 @@ codeunit 50013 "Export Document-Mailing"
     var
         TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
+        EmailScenario: Enum "Email Scenario";
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
@@ -131,7 +134,7 @@ codeunit 50013 "Export Document-Mailing"
             MAXSTRLEN(TempEmailItem.Subject));
         TempEmailItem."Attachment File Path" := AttachmentFilePath;
         TempEmailItem."Attachment Name" := AttachmentFileName;
-        TempEmailItem.Send(FALSE);
+        TempEmailItem.Send(FALSE, EmailScenario);
     end;
 
     local procedure GetToAddressFromGoodReceiptNotifyParty(NotifyPartyNo: Code[20]): Text[250]
@@ -167,6 +170,7 @@ codeunit 50013 "Export Document-Mailing"
     var
         TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
+        EmailScenario: Enum "Email Scenario";
     begin
         AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, SendEmaillToNPNo, EmailDocName);
 
@@ -177,7 +181,7 @@ codeunit 50013 "Export Document-Mailing"
             MAXSTRLEN(TempEmailItem.Subject));
         TempEmailItem."Attachment File Path" := AttachmentFilePath;
         TempEmailItem."Attachment Name" := AttachmentFileName;
-        TempEmailItem.Send(FALSE);
+        TempEmailItem.Send(FALSE, EmailScenario);
     end;
 
     local procedure GetToAddressFromMAWBInvoiceNotifyParty(NotifyPartyNo: Code[20]): Text[250]

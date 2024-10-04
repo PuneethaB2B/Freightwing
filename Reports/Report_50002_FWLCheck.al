@@ -510,7 +510,7 @@ report 50002 "FWL Check"
                             CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::"Test Print";
                             CheckLedgEntry."Check Date" := "Posting Date";
                             CheckLedgEntry."Check No." := UseCheckNo;
-                            CheckManagement.InsertCheck(CheckLedgEntry);
+                            CheckManagement.InsertCheck(CheckLedgEntry,RecordId);
 
                             CheckAmountText := Text024;
                             DescriptionLine[1] := Text025;

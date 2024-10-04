@@ -1006,7 +1006,7 @@ report 50031 "Sales Invoice"
                     ShipmentMethod.GET("Shipment Method Code");
                     ShipmentMethod.TranslateDescription(ShipmentMethod, "Language Code");
                 END;
-                FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, "Sales Invoice Header");
+                FormatAddr.SalesInvShipTo(ShipToAddr, "Sales Invoice Header");
                 ShowShippingAddr := "Sell-to Customer No." <> "Bill-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(ShipToAddr) DO
                     IF ShipToAddr[i] <> CustAddr[i] THEN

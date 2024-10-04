@@ -396,9 +396,9 @@ report 50035 RTGS
             column(DimensionSetID_GenJournalLine; "Gen. Journal Line"."Dimension Set ID")
             {
             }
-            column(CreditCardNo_GenJournalLine; "Gen. Journal Line"."Credit Card No.")
+           /*  column(CreditCardNo_GenJournalLine; "Gen. Journal Line"."Credit Card No.")
             {
-            }
+            } */ //B2BUPG removed in higher version
             column(JobTaskNo_GenJournalLine; "Gen. Journal Line"."Job Task No.")
             {
             }
