@@ -2,7 +2,7 @@ page 50142 "Received Booking Sheet Consign"
 {
     Caption = 'Booking Sheet Consignee Allocations';
     PageType = List;
-    SourceTable = 50056;
+    SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
 
     layout
@@ -46,7 +46,7 @@ page 50142 "Received Booking Sheet Consign"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50075;
+                RunObject = Page "Booking Sheet FAM Allocation";
                 RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
                               "Shipper Code" = FIELD("Shipper Code"),
                               "Airline Code" = FIELD("Airline Code"),
@@ -60,7 +60,7 @@ page 50142 "Received Booking Sheet Consign"
 
                 trigger OnAction()
                 begin
-                    REPORT.RUN(50060, TRUE, TRUE, Rec);
+                    REPORT.RUN(Report::"Booking Sheet Pre Alert", TRUE, TRUE, Rec);
                 end;
             }
         }

@@ -2,7 +2,7 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
 {
     Caption = 'Weekly Customer Requirement Subform';
     PageType = ListPart;
-    SourceTable = 50048;
+    SourceTable = "Wk. Customer Wgt. Req. Line";
     ApplicationArea = All;
 
     layout
@@ -36,7 +36,7 @@ page 50062 "Wk. Customer Wgt. Req. Subform"
                 {
                     Caption = 'Weight By Day of Week';
                     Image = EntriesList;
-                    RunObject = Page 50063;
+                    RunObject = Page "Wk. Customer Req. By Day List";
                     RunPageLink = "Good Receipt No." = FIELD("Weekly No."),
                                   "Airline Code" = FIELD("Customer No.");
                     ShortCutKey = 'Shift+Ctrl+D';

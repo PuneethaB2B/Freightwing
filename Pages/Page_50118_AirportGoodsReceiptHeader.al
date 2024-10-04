@@ -118,7 +118,7 @@ page 50118 "Airport Goods Receipt Header"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50032;
+                    RunObject = Page "Shipment Update Header";
                     RunPageLink = "Manifest No" = FIELD("Flight Code"),
                                   "Delivery Agent" = FIELD("Country of Discharge");
 

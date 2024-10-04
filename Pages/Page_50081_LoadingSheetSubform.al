@@ -1,7 +1,7 @@
 page 50081 "Loading Sheet Subform"
 {
     PageType = ListPart;
-    SourceTable = 50061;
+    SourceTable = "Loading Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -129,7 +129,7 @@ page 50081 "Loading Sheet Subform"
                 Image = "Action";
                 action(GetGoodsReceiptLines)
                 {
-                    AccessByPermission = TableData 120 = R;
+                    AccessByPermission = TableData "Purch. Rcpt. Header" = R;
                     Caption = '&Get Good Receipt Lines';
                     Image = Receipt;
 
@@ -147,7 +147,7 @@ page 50081 "Loading Sheet Subform"
                 {
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
-                    RunObject = Page 50085;
+                    RunObject = Page "Loading Sheet ULD Allocations";
                     RunPageLink = "Loading Sheet No." = FIELD("Loading Sheet No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Item No." = FIELD("Item No."),
@@ -164,7 +164,7 @@ page 50081 "Loading Sheet Subform"
                 {
                     Caption = '& Notify Parties';
                     Image = EntriesList;
-                    RunObject = Page 50086;
+                    RunObject = Page "Loading Sheet Notify Parties";
                     RunPageLink = "Loading Sheet No." = FIELD("Loading Sheet No."),
                                   "Shipper Code" = FIELD("Shipper Code"),
                                   "Flight Code" = FIELD("Flight Code"),

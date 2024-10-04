@@ -2,7 +2,7 @@ page 50015 "Shipment Updates"
 {
     CardPageID = "Shipment Update Header";
     PageType = List;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     ApplicationArea = All;
 
     layout

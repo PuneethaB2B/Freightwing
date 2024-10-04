@@ -2,7 +2,7 @@ page 50080 "Loading Sheet"
 {
     PageType = Card;
     RefreshOnActivate = true;
-    SourceTable = 50060;
+    SourceTable = "Loading Sheet Header";
     SourceTableView = WHERE(Shipped = FILTER(false));
     ApplicationArea = All;
 
@@ -59,7 +59,7 @@ page 50080 "Loading Sheet"
                 {
                 }
             }
-            part(Page; 50081)
+            part(Page; "Loading Sheet Subform")
             {
                 SubPageLink = "Loading Sheet No." = FIELD("No.");
             }
@@ -130,7 +130,7 @@ page 50080 "Loading Sheet"
                         LoadingSheetHeader.RESET;
                         LoadingSheetHeader.SETRANGE("No.", Rec."No.");
                         IF LoadingSheetHeader.FINDFIRST THEN
-                            REPORT.RUNMODAL(50021, TRUE, FALSE, LoadingSheetHeader);
+                            REPORT.RUNMODAL(Report::"Loading Sheet", TRUE, FALSE, LoadingSheetHeader);
                     end;
                 }
                 action("Print and Email")
@@ -202,7 +202,7 @@ page 50080 "Loading Sheet"
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);
+                        PAGE.RUNMODAL(Page::"MAWB Test");
                     end;
                 }
             }
@@ -210,16 +210,16 @@ page 50080 "Loading Sheet"
     }
 
     var
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetLine: Record 50061;
-        LoadingSheetUlDAlloc: Record 50063;
-        GRn: Record 50051;
-        GRNHeader: Record 50052;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        LoadingSheetUlDAlloc: Record "Loading Sheet ULD Allocation";
+        GRn: Record "Good Receipt Line";
+        GRNHeader: Record "Good Receipt Header";
 
-    local procedure SubmitLS(LoadingSheetLine1: Record 50061)
+    local procedure SubmitLS(LoadingSheetLine1: Record "Loading Sheet Line")
     var
-        GRNLine: Record 50051;
-        LoadingSheetLine2: Record 50061;
+        GRNLine: Record "Good Receipt Line";
+        LoadingSheetLine2: Record "Loading Sheet Line";
         Shippedqty: Decimal;
     begin
         GRNLine.RESET;

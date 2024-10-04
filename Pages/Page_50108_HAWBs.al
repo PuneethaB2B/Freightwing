@@ -3,7 +3,7 @@ page 50108 HAWBs
     Caption = 'House Airway Bills';
     CardPageID = HAWB;
     PageType = List;
-    SourceTable = 50075;
+    SourceTable = "HAWB Header";
     SourceTableView = WHERE(Status = FILTER(<> Archived));
     ApplicationArea = All;
 

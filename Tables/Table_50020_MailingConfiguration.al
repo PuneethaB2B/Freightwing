@@ -86,7 +86,7 @@ table 50020 "Mailing Configuration"
     end;
 
     var
-        Cust: Record 18;
-        Consignee: Record 50015;
+        Cust: Record Customer;
+        Consignee: Record Consignee;
 }
 

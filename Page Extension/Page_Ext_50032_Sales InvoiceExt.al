@@ -25,9 +25,9 @@ pageextension 50032 SalesInvoiceExt extends "Sales Invoice"
                     SalesInvoiceHeader.SETRANGE(SalesInvoiceHeader."No.", Rec."No.");
                     IF SalesInvoiceHeader.FINDFIRST THEN BEGIN
                         IF CONFIRM('Print General Sales Invoice Format') THEN BEGIN
-                            REPORT.RUNMODAL(50065, TRUE, FALSE, SalesInvoiceHeader);
+                            REPORT.RUNMODAL(Report::"General Sales Invoice", TRUE, FALSE, SalesInvoiceHeader);
                         END ELSE BEGIN
-                            REPORT.RUNMODAL(50039, TRUE, FALSE, SalesInvoiceHeader);
+                            REPORT.RUNMODAL(Report::"MAWB Invoice TP", TRUE, FALSE, SalesInvoiceHeader);
                         END;
                     END;
                 END;
@@ -35,6 +35,6 @@ pageextension 50032 SalesInvoiceExt extends "Sales Invoice"
         }
     }
     var
-        SalesInvoiceHeader: Record 36;
+        SalesInvoiceHeader: Record "Sales Header";
 
 }

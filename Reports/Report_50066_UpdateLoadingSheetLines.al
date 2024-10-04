@@ -55,7 +55,7 @@ report 50066 "Update Loading Sheet Lines"
     }
 
     var
-        LSLine: Record 50061;
+        LSLine: Record "Loading Sheet Line";
         Window: Dialog;
 }
 

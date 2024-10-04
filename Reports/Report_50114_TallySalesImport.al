@@ -403,10 +403,10 @@ report 50114 "Tally Sales Import"
     var
         XRate: Decimal;
         Ok: Boolean;
-        Item: Record 27;
-        Customer: Record 18;
-        BookingSheetMAWBAllocation: Record 50070;
-        MAWBLine: Record 50076;
+        Item: Record Item;
+        Customer: Record Customer;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        MAWBLine: Record "MAWB Line";
         DivCode: Text[200];
 }
 

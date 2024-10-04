@@ -106,7 +106,7 @@ report 50113 Correction
         PurchInvLine: Record "Purch. Inv. Line";
         Cust: Record Customer;
         Items: Record Item;
-        DimMng: Codeunit 408;
+        DimMng: Codeunit DimensionManagement;
 
     local procedure SteDim(MAWBNo: Code[50]) i: Integer
     var

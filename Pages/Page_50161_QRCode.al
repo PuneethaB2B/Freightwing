@@ -4,7 +4,7 @@ page 50161 "QR Code."
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = CardPart;
-    SourceTable = 112;
+    SourceTable = "Sales Invoice Header";
     ApplicationArea = All;
 
     layout

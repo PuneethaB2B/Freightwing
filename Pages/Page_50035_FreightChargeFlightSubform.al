@@ -1,7 +1,7 @@
 page 50035 "Freight Charge Flight Subform"
 {
     PageType = ListPart;
-    SourceTable = 50026;
+    SourceTable = "Freight Charge By Flight";
     ApplicationArea = All;
 
     layout
@@ -58,7 +58,7 @@ page 50035 "Freight Charge Flight Subform"
                     Image = ItemLines;
                     //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedCategory = Process;
-                    RunObject = Page 50036;
+                    RunObject = Page "Freight Charge By Item";
                     RunPageLink = "Flight Code" = FIELD("Flight Code"),
                                   "Destination Airport" = FIELD("Destination Airport"),
                                   "Source Airport" = FIELD("Source Airport"),

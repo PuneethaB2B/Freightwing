@@ -146,7 +146,7 @@ report 50006 "Accounts Receivable Ageing"
 
                 trigger OnAfterGetRecord()
                 var
-                    CustLedgEntry: Record 21;
+                    CustLedgEntry: Record "Cust. Ledger Entry";
                 begin
                     CustLedgEntry.SETCURRENTKEY("Closed by Entry No.");
                     CustLedgEntry.SETRANGE("Closed by Entry No.", "Entry No.");
@@ -713,17 +713,17 @@ report 50006 "Accounts Receivable Ageing"
     end;
 
     var
-        GLSetup: Record 98;
-        TempCustLedgEntry: Record 21 temporary;
-        CustLedgEntryEndingDate: Record 21;
-        TotalCustLedgEntry: array[5] of Record 21;
-        GrandTotalCustLedgEntry: array[5] of Record 21;
-        AgedCustLedgEntry: array[6] of Record 21;
-        TempCurrency: Record 4 temporary;
-        TempCurrency2: Record 4 temporary;
-        TempCurrencyAmount: Record 264 temporary;
-        ExcelBuf: Record 370 temporary;
-        DetailedCustomerLedgerEntry: Record 379;
+        GLSetup: Record "General Ledger Setup";
+        TempCustLedgEntry: Record "Cust. Ledger Entry" temporary;
+        CustLedgEntryEndingDate: Record "Cust. Ledger Entry";
+        TotalCustLedgEntry: array[5] of Record "Cust. Ledger Entry";
+        GrandTotalCustLedgEntry: array[5] of Record "Cust. Ledger Entry";
+        AgedCustLedgEntry: array[6] of Record "Cust. Ledger Entry";
+        TempCurrency: Record Currency temporary;
+        TempCurrency2: Record Currency temporary;
+        TempCurrencyAmount: Record "Currency Amount" temporary;
+        ExcelBuf: Record "Excel Buffer" temporary;
+        DetailedCustomerLedgerEntry: Record "Detailed Cust. Ledg. Entry";
         CustFilter: Text;
         PrintAmountInLCY: Boolean;
         EndingDate: Date;
@@ -822,9 +822,9 @@ report 50006 "Accounts Receivable Ageing"
             HeaderText[i] := STRSUBSTNO('%1 \%2 %3', Text003, EndingDate - PeriodStartDate[i - 1] + 1, Text002);
     end;
 
-    local procedure InsertTemp(var CustLedgEntry: Record 21)
+    local procedure InsertTemp(var CustLedgEntry: Record "Cust. Ledger Entry")
     var
-        Currency: Record 4;
+        Currency: Record Currency;
     begin
         IF TempCustLedgEntry.GET(CustLedgEntry."Entry No.") THEN
             EXIT;

@@ -43,7 +43,7 @@ report 50037 "Update Booking Sheet Line"
     }
 
     var
-        BkLine: Record 50054;
-        BKMawb: Record 50070;
+        BkLine: Record "Booking Sheet Line";
+        BKMawb: Record "Booking Sheet MAWB Allocation";
 }
 

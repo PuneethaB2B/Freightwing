@@ -1,7 +1,7 @@
 page 50019 "Shipper Agents"
 {
     PageType = List;
-    SourceTable = 50011;
+    SourceTable = "Shipper Agent";
     ApplicationArea = All;
 
     layout

@@ -34,9 +34,9 @@ tableextension 50019 PurchaseLineExt extends "Purchase Line"
     }
 
     var
-        PurchLine: Record 39;
-        DimVal: Record 349;
-        TempDimensionSetEntry: Record 480 temporary;
-        Charges: Record 50018;
+        PurchLine: Record "Purchase Line";
+        DimVal: Record "Dimension Value";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
+        Charges: Record "Freight Charge";
 }
 

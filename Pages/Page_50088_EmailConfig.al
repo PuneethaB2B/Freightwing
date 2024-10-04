@@ -1,7 +1,7 @@
 page 50088 "Email Config"
 {
     PageType = List;
-    SourceTable = 50020;
+    SourceTable = "Mailing Configuration";
     ApplicationArea = All;
 
     layout

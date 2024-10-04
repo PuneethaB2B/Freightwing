@@ -13,7 +13,7 @@ page 50094 "Operations Role Center"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(Page1; 9175)
+                part(Page1; "Copy Profile")
                 {
                 }
             }
@@ -23,12 +23,12 @@ page 50094 "Operations Role Center"
                 {
                     Visible = false;
                 }
-               
+
                 part(SalesPerformance; "Sales Performance")
                 {
                     Visible = false;
                 }
-               
+
                 part(TrailingSalesOrdersChart; "Trailing Sales Orders Chart")
                 {
                     Visible = false;
@@ -70,7 +70,7 @@ page 50094 "Operations Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50132;
+                RunObject = Page "Goods Receipts";
             }
             action("Loading Sheet")
             {
@@ -78,7 +78,7 @@ page 50094 "Operations Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50083;
+                RunObject = Page "Loading Sheets";
             }
             action("Booking Sheet")
             {
@@ -86,7 +86,7 @@ page 50094 "Operations Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50071;
+                RunObject = Page "Booking Sheets";
                 RunPageView = WHERE(Status = FILTER(Submitted));
                 Visible = true;
             }
@@ -95,21 +95,21 @@ page 50094 "Operations Role Center"
                 Promoted = true;
                 PromotedCategory = "Report";
                 PromotedIsBig = true;
-                RunObject = Report 50021;
+                RunObject = Report "Loading Sheet";
             }
             action("Print Goods Receipt")
             {
                 Promoted = true;
                 PromotedCategory = "Report";
                 PromotedIsBig = true;
-                RunObject = Report 50018;
+                RunObject = Report "Goods Receipt Note";
             }
             action("Print Booking Sheet")
             {
                 Promoted = true;
                 PromotedCategory = "Report";
                 PromotedIsBig = true;
-                RunObject = Report 50019;
+                RunObject = Report "Booking Sheet";
             }
         }
     }

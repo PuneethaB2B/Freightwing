@@ -85,20 +85,20 @@ END;*/
     }
 
     var
-        GatePassHeader: Record 50068;
-        GatePassLine: Record 50069;
-        MAWBHeader: Record 50077;
-        LoadingSheetULDAllocation: Record 50063;
+        GatePassHeader: Record "Gate Pass Header";
+        GatePassLine: Record "Gate Pass Line";
+        MAWBHeader: Record "MAWB Header 2";
+        LoadingSheetULDAllocation: Record "Loading Sheet ULD Allocation";
         SalesInvoiceHeader: Record "Sales Invoice Header";
         Window: Dialog;
-        SalesHeader: Record 36;
-        MAWBLine: Record 50076;
-        HAWBHeader: Record 50075;
-        HAWBLine: Record 50074;
-        MAWBHeader1: Record 50077;
-        MAWBHeader2: Record 50077;
-        MAWBHeader3: Record 50077;
-        MAWBReceipt: Record 50039;
-        MAWBRec: Record 50039;
+        SalesHeader: Record "Sales Header";
+        MAWBLine: Record "MAWB Line";
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine: Record "HAWB Line";
+        MAWBHeader1: Record "MAWB Header 2";
+        MAWBHeader2: Record "MAWB Header 2";
+        MAWBHeader3: Record "MAWB Header 2";
+        MAWBReceipt: Record "MAWB Receipt";
+        MAWBRec: Record "MAWB Receipt";
 }
 

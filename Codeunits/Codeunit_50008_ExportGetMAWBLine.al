@@ -1,6 +1,6 @@
 codeunit 50008 "Export.-Get MAWB Line"
 {
-    TableNo = 37;
+    TableNo = "Sales Line";
 
     trigger OnRun()
     begin
@@ -16,14 +16,14 @@ codeunit 50008 "Export.-Get MAWB Line"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        SalesHeader: Record 36;
-        SalesLine: Record 37;
-        BookingSheetHeader: Record 50053;
-        MAWBLine: Record 50076;
-        GetSplitMAWBLines: Page 50121;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        MAWBLine: Record "MAWB Line";
+        GetSplitMAWBLines: Page "Get MAWB Lines";
 
 
-    procedure CreateSalesInvoiceLines(var MAWBLine2: Record 50076)
+    procedure CreateSalesInvoiceLines(var MAWBLine2: Record "MAWB Line")
     var
         TransferLine: Boolean;
     begin
@@ -44,7 +44,7 @@ codeunit 50008 "Export.-Get MAWB Line"
     end;
 
 
-    procedure SetSalesHeader(var SalesHeader2: Record 36)
+    procedure SetSalesHeader(var SalesHeader2: Record "Sales Header")
     begin
         SalesHeader.GET(SalesHeader2."Document Type", SalesHeader2."No.");
     end;

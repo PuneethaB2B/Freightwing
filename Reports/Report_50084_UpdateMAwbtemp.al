@@ -71,10 +71,10 @@ report 50084 "Update MAwb temp"
     }
 
     var
-        MAWBReceipt: Record 50039;
+        MAWBReceipt: Record "MAWB Receipt";
         Window: Dialog;
         i: Integer;
-        TempMAWB: Record 50002;
+        TempMAWB: Record "Temp MAWB";
         LineNO: Integer;
         recd: Text[30];
 }

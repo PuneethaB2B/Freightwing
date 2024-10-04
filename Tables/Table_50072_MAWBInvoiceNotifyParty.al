@@ -54,9 +54,9 @@ table 50072 "MAWB Invoice Notify Party"
 
     local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean)
     var
-        ReportSelections: Record 77;
-        MAWBInvoiceNotifyParty: Record 50072;
-        BookingSheetHeader: Record 50053;
+        ReportSelections: Record "Report Selections";
+        MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party";
+        BookingSheetHeader: Record "Booking Sheet Header";
     begin
         MAWBInvoiceNotifyParty.COPY(Rec);
         ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"MAWB Invoice");
@@ -75,10 +75,10 @@ table 50072 "MAWB Invoice Notify Party"
         UNTIL ReportSelections.NEXT = 0;
     end;
 
-    local procedure SendReport(ReportId: Integer; var MAWBInvoiceNotifyParty: Record 50072)
+    local procedure SendReport(ReportId: Integer; var MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party")
     var
-        DocumentMailing: Codeunit 50013;
-        FileManagement: Codeunit 419;
+        DocumentMailing: Codeunit "Export Document-Mailing";
+        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);

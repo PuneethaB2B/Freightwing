@@ -37,6 +37,6 @@ report 50083 "test mawb"
     }
 
     var
-        mawbreceipt: Record 50039;
+        mawbreceipt: Record "MAWB Receipt";
 }
 

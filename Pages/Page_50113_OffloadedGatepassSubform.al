@@ -1,7 +1,7 @@
 page 50113 "Offloaded Gatepass Subform"
 {
     PageType = ListPart;
-    SourceTable = 50065;
+    SourceTable = "Offloaded Gatepass Line";
     ApplicationArea = All;
 
     layout

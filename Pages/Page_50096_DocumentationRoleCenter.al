@@ -13,7 +13,7 @@ page 50096 "Documentation Role Center"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(CopyProfile; 9175)
+                part(CopyProfile; "Copy Profile")
                 {
                 }
             }
@@ -27,7 +27,7 @@ page 50096 "Documentation Role Center"
                 {
                     Visible = false;
                 }
-                
+
                 part(TrailingSalesOrdersChart; "Trailing Sales Orders Chart")
                 {
                     Visible = false;
@@ -69,7 +69,7 @@ page 50096 "Documentation Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50100;
+                RunObject = Page MAWBs;
             }
             action("House Airway Bills")
             {
@@ -77,7 +77,7 @@ page 50096 "Documentation Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50108;
+                RunObject = Page HAWBs;
             }
             action("Posted Loading Sheets")
             {
@@ -85,7 +85,7 @@ page 50096 "Documentation Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50102;
+                RunObject = Page "Posted Loading Sheets";
             }
         }
     }

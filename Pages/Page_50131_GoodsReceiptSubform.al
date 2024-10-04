@@ -3,7 +3,7 @@ page 50131 "Goods Receipt Subform"
     AutoSplitKey = true;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = 50051;
+    SourceTable = "Good Receipt Line";
     ApplicationArea = All;
 
     layout
@@ -106,7 +106,7 @@ page 50131 "Goods Receipt Subform"
                 Image = "Action";
                 action(GetBookingSheetLines1)
                 {
-                    AccessByPermission = TableData 120 = R;
+                    AccessByPermission = TableData "Purch. Rcpt. Header" = R;
                     Caption = '&Get Booking Sheet Lines';
                     Image = Receipt;
 
@@ -124,7 +124,7 @@ page 50131 "Goods Receipt Subform"
                 {
                     Caption = '& Notify Parties';
                     Image = EntriesList;
-                    RunObject = Page 50134;
+                    RunObject = Page "Goods Receipt Notify Parties";
                     RunPageLink = "Good Receipt No." = FIELD("Good Receipt No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
@@ -142,7 +142,7 @@ page 50131 "Goods Receipt Subform"
                     Caption = '& Pallet/ULD Allocation';
                     Description = 's';
                     Image = EntriesList;
-                    RunObject = Page 50135;
+                    RunObject = Page "Goods Receipt ULD Allocations";
                     RunPageLink = "Good Receipt No." = FIELD("Good Receipt No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "MAWB No" = FIELD("MAWB No.");

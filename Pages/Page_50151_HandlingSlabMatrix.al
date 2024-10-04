@@ -2,7 +2,7 @@ page 50151 "Handling Slab Matrix"
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Matrix Daywise,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 50045;
+    SourceTable = "Handling Slab Matrix";
     ApplicationArea = All;
 
     layout

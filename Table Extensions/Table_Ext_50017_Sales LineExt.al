@@ -194,15 +194,15 @@ tableextension 50017 SalesLineExt extends "Sales Line"
     end;
 
     var
-        Header: Record 36;
-        FreightCharge: Record 50018;
+        Header: Record "Sales Header";
+        FreightCharge: Record "Freight Charge";
         Margn: Decimal;
-        SalesLine: Record 37;
-        MAWBInvoiceCharge: Record 50073;
-        Cust: Record 18;
-        Charges: Record 50018;
+        SalesLine: Record "Sales Line";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        Cust: Record Customer;
+        Charges: Record "Freight Charge";
         SalesHeader: Record "Sales Header";
-        BookingSheetHAWBAllocation: Record 50056;
-        MAWBLine: Record 50076;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        MAWBLine: Record "MAWB Line";
 }
 

@@ -2,7 +2,7 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
 {
     Caption = 'Daily Weight Distribution By Customer Per Item';
     PageType = List;
-    SourceTable = 50043;
+    SourceTable = "Dl. Weight Dist. By Item";
     ApplicationArea = All;
 
     layout
@@ -45,13 +45,13 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
     end;
 
     var
-        TempDailyWeightDistByItem: Record 50043;
+        TempDailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
 
         "Customer No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        DailyWeightDistByItem: Record 50043;
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
     begin
         TempDailyWeightDistByItem.RESET;
         TempDailyWeightDistByItem.COPYFILTERS(Rec);

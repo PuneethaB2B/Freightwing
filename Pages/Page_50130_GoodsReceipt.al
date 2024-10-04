@@ -1,7 +1,7 @@
 page 50130 "Goods Receipt"
 {
     PageType = Card;
-    SourceTable = 50052;
+    SourceTable = "Good Receipt Header";
     SourceTableView = WHERE(Received = FILTER(false));
     ApplicationArea = All;
 
@@ -91,7 +91,7 @@ page 50130 "Goods Receipt"
                     Editable = false;
                 }
             }
-            part(Page; 50131)
+            part(Page; "Goods Receipt Subform")
             {
                 SubPageLink = "Good Receipt No." = FIELD("No.");
             }
@@ -158,7 +158,7 @@ page 50130 "Goods Receipt"
                         GoodReceiptHeader.RESET;
                         GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
-                            REPORT.RUNMODAL(50018, TRUE, FALSE, GoodReceiptHeader);
+                            REPORT.RUNMODAL(Report::"Goods Receipt Note", TRUE, FALSE, GoodReceiptHeader);
                     end;
                 }
                 action("&Print Acceptance Checklist")
@@ -178,7 +178,7 @@ page 50130 "Goods Receipt"
                         GoodReceiptHeader.RESET;
                         GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
-                            REPORT.RUNMODAL(50003, TRUE, FALSE, GoodReceiptHeader);
+                            REPORT.RUNMODAL(Report::"Acceptance Checklist", TRUE, FALSE, GoodReceiptHeader);
                     end;
                 }
                 action("Print and Email")
@@ -255,7 +255,7 @@ page 50130 "Goods Receipt"
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);
+                        PAGE.RUNMODAL(Page::"MAWB Test");
                     end;
                 }
             }
@@ -263,9 +263,9 @@ page 50130 "Goods Receipt"
     }
 
     var
-        GoodReceiptHeader: Record 50052;
-        BookingSheet: Record 50053;
-        GoodsReceiptLine: Record 50051;
-        BSline: Record 50054;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        BookingSheet: Record "Booking Sheet Header";
+        GoodsReceiptLine: Record "Good Receipt Line";
+        BSline: Record "Booking Sheet Line";
 }
 

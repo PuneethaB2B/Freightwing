@@ -2,7 +2,7 @@ page 50137 "Posted Goods Receipt"
 {
     Editable = false;
     PageType = Card;
-    SourceTable = 50052;
+    SourceTable = "Good Receipt Header";
     SourceTableView = WHERE(Received = FILTER(true));
     ApplicationArea = All;
 
@@ -49,7 +49,7 @@ page 50137 "Posted Goods Receipt"
                 {
                 }
             }
-            part(Page1; 50138)
+            part(Page1; "Posted Goods Receipt Subform")
             {
                 SubPageLink = "Good Receipt No." = FIELD("No.");
             }
@@ -77,7 +77,7 @@ page 50137 "Posted Goods Receipt"
                         GoodReceiptHeader.RESET;
                         GoodReceiptHeader.SETRANGE("No.", Rec."No.");
                         IF GoodReceiptHeader.FINDFIRST THEN
-                            REPORT.RUNMODAL(50018, TRUE, FALSE, GoodReceiptHeader);
+                            REPORT.RUNMODAL(Report::"Goods Receipt Note", TRUE, FALSE, GoodReceiptHeader);
                     end;
                 }
                 action("Print and Email")
@@ -130,8 +130,8 @@ page 50137 "Posted Goods Receipt"
     }
 
     var
-        GoodReceiptHeader: Record 50052;
-        LoadingSheetHeader: Record 50060;
-        GoodReceiptLine: Record 50051;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        GoodReceiptLine: Record "Good Receipt Line";
 }
 

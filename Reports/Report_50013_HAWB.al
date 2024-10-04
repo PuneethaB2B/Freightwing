@@ -80,7 +80,7 @@ report 50013 HAWB
             }
             dataitem("HAWB Line"; "HAWB Line")
             {
-                DataItemLink = "HAWB No."=FIELD("No.");
+                DataItemLink = "HAWB No." = FIELD("No.");
                 column(HAWBNo_HAWBLine; "HAWB Line"."HAWB No.")
                 {
                 }

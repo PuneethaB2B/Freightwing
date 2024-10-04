@@ -388,21 +388,21 @@ report 50025 "Sales Vs Purchase Comp V2"
     }
 
     var
-        gRecAirLines: Record 50021;
+        gRecAirLines: Record Airline;
         gDecWeight: Decimal;
-        gRecMAWBInvChrg: Record 50073;
+        gRecMAWBInvChrg: Record "MAWB Invoice Charge";
         gBoolShowSummary: Boolean;
         gBoolShowLosses: Boolean;
-        gRecCustomer: Record 18;
+        gRecCustomer: Record Customer;
         gRecSalesInvLCY: Decimal;
-        gRecCustomer2: Record 18;
+        gRecCustomer2: Record Customer;
         gDecSalesCrLCY: Decimal;
-        gRecVendor: Record 23;
-        gRecVendor2: Record 23;
+        gRecVendor: Record Vendor;
+        gRecVendor2: Record Vendor;
         gDecPurchInvLCY: Decimal;
         gDecPurchCrLCY: Decimal;
-        gRecPurchInvHr: Record 122;
-        gRecPurchCrHr: Record 124;
+        gRecPurchInvHr: Record "Purch. Inv. Header";
+        gRecPurchCrHr: Record "Purch. Cr. Memo Hdr.";
         gDateStartDate: Date;
         gDateEndDate: Date;
         gCodeTempMAWBNo: Code[50];
@@ -418,10 +418,10 @@ report 50025 "Sales Vs Purchase Comp V2"
         gDateAssignedDate: Date;
         gIntSalesCount: Integer;
         gIntPurchasesCount: Integer;
-        gRecSalesInvHr: Record 112;
-        gRecSalesCrHr: Record 114;
-        gRecPurchInvLine: Record 123;
-        gRecPurchCrLine: Record 125;
+        gRecSalesInvHr: Record "Sales Invoice Header";
+        gRecSalesCrHr: Record "Sales Cr.Memo Header";
+        gRecPurchInvLine: Record "Purch. Inv. Line";
+        gRecPurchCrLine: Record "Purch. Cr. Memo Line";
         gRecPurchDocNo: Code[30];
         gDecPurchInvAmount: Decimal;
         gDecPurchCrAmount: Decimal;
@@ -429,9 +429,9 @@ report 50025 "Sales Vs Purchase Comp V2"
 
     local procedure FetchTotalSalesNos()
     var
-        lRecSalesInvHr: Record 112;
-        lRecSalesCrHr: Record 114;
-        lRecMAWBReciept: Record 50039;
+        lRecSalesInvHr: Record "Sales Invoice Header";
+        lRecSalesCrHr: Record "Sales Cr.Memo Header";
+        lRecMAWBReciept: Record "MAWB Receipt";
         lCodeMAWBNo: Code[20];
     begin
         gIntTotalSalesNos := 0;
@@ -460,9 +460,9 @@ report 50025 "Sales Vs Purchase Comp V2"
 
     local procedure FetchTotalPurhaseNos()
     var
-        lRecPurchInvLine: Record 123;
-        lRecPurchCrLine: Record 125;
-        lRecMAWBReciept: Record 50039;
+        lRecPurchInvLine: Record "Purch. Inv. Line";
+        lRecPurchCrLine: Record "Purch. Cr. Memo Line";
+        lRecMAWBReciept: Record "MAWB Receipt";
         lCodeMAWBNo: Code[20];
     begin
         gIntTotalPurchaseNos := 0;
@@ -492,11 +492,11 @@ report 50025 "Sales Vs Purchase Comp V2"
 
     local procedure FetchTotalWeight()
     var
-        lRecSalesInvHr: Record 112;
-        lRecSalesCrHr: Record 114;
-        lRecPurchInvLine: Record 123;
-        lRecPurchCrLine: Record 125;
-        lRecMAWBReciept: Record 50039;
+        lRecSalesInvHr: Record "Sales Invoice Header";
+        lRecSalesCrHr: Record "Sales Cr.Memo Header";
+        lRecPurchInvLine: Record "Purch. Inv. Line";
+        lRecPurchCrLine: Record "Purch. Cr. Memo Line";
+        lRecMAWBReciept: Record "MAWB Receipt";
         lCodeMAWBNo: Code[20];
     begin
         lCodeMAWBNo := '';
@@ -517,8 +517,8 @@ report 50025 "Sales Vs Purchase Comp V2"
 
     local procedure "FetchBilltoName&Commodity"(MAWBNo: Code[50])
     var
-        lRecPstdSalesInvHr: Record 112;
-        lRecCustomer: Record 18;
+        lRecPstdSalesInvHr: Record "Sales Invoice Header";
+        lRecCustomer: Record Customer;
     begin
         gDateAssignedDate := 0D;
         gCodeCommodity := '';

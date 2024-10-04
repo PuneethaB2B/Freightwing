@@ -1,7 +1,7 @@
 page 50163 "HS Codes"
 {
     PageType = List;
-    SourceTable = 50082;
+    SourceTable = "HS Codes";
     ApplicationArea = All;
 
     layout

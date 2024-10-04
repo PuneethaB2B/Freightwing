@@ -1,7 +1,7 @@
 page 50154 "Pre Alert Subform"
 {
     PageType = List;
-    SourceTable = 50023;
+    SourceTable = "Pre Alert Line";
     ApplicationArea = All;
 
     layout

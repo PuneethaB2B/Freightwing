@@ -3,7 +3,7 @@ page 50098 MAWB
     Caption = 'Master Airway Bill';
     PageType = Card;
     PromotedActionCategories = ' New,Process,Reports,Export Invoicing,Third Party  Invoicing,c6,c7,c8,C9,C10';
-    SourceTable = 50077;
+    SourceTable = "MAWB Header 2";
     ApplicationArea = All;
 
     layout
@@ -98,7 +98,7 @@ page 50098 MAWB
                     Editable = false;
                 }
             }
-            part(Page; 50099)
+            part(Page; "MAWB Subform")
             {
                 SubPageLink = "MAWB No." = FIELD("No.");
             }
@@ -136,7 +136,7 @@ page 50098 MAWB
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50120;
+                    RunObject = Page "MAWB Invoice Charges";
                     RunPageLink = "MAWB No." = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     Visible = false;
@@ -277,7 +277,7 @@ page 50098 MAWB
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);
+                        PAGE.RUNMODAL(Page::"MAWB Test");
                     end;
                 }
                 action("Reset MAWB to Loadingsheet")
@@ -372,7 +372,7 @@ page 50098 MAWB
                         MAWBLine.RESET;
                         MAWBLine.SETRANGE(MAWBLine."MAWB No.", Rec."No.");
                         IF MAWBLine.FINDSET THEN BEGIN
-                            REPORT.RUN(50063, FALSE, FALSE, MAWBLine);
+                            REPORT.RUN(Report::"Update MAWB Dates", FALSE, FALSE, MAWBLine);
                         END;
                     end;
                 }
@@ -381,23 +381,23 @@ page 50098 MAWB
     }
 
     var
-        MAWBS: Record 50077;
+        MAWBS: Record "MAWB Header 2";
         Text0001: Label 'Do you want to archive the MAWB No. ';
-        MAWBLine: Record 50076;
-        MAWBCheck: Codeunit 50031;
+        MAWBLine: Record "MAWB Line";
+        MAWBCheck: Codeunit "Ammend Charges";
         MAWBStr: Code[50];
         Input: Dialog;
-        LoadingSheet: Record 50060;
-        LoadingSheetLine: Record 50061;
-        ImportExportSetup: Record 50010;
+        LoadingSheet: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        ImportExportSetup: Record "Import/Export Setup";
         JournalTemplate: Code[50];
         JournalBatch: Code[50];
-        ItemJnline: Record 83;
-        ItemLedgerEntry: Record 32;
-        HAWBLine: Record 50074;
-        AmmendCharges: Codeunit 50031;
-        MAWBInv: Record 50073;
-        MAWBReceipt: Record 50039;
+        ItemJnline: Record "Item Journal Line";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        HAWBLine: Record "HAWB Line";
+        AmmendCharges: Codeunit "Ammend Charges";
+        MAWBInv: Record "MAWB Invoice Charge";
+        MAWBReceipt: Record "MAWB Receipt";
         TBLTW: Decimal;
         TBLHN: Decimal;
 }

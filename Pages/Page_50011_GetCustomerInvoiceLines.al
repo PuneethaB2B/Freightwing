@@ -2,7 +2,7 @@ page 50011 "Get Customer Invoice Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 21;
+    SourceTable = "Cust. Ledger Entry";
     ApplicationArea = All;
 
     layout
@@ -65,14 +65,14 @@ page 50011 "Get Customer Invoice Lines"
     end;
 
     var
-        SalesInvHeader: Record 112;
-        TempCustLedgerEntry: Record 21 temporary;
+        SalesInvHeader: Record "Sales Invoice Header";
+        TempCustLedgerEntry: Record "Cust. Ledger Entry" temporary;
 
         "Customer No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        CustLedgerEntry: Record 21;
+        CustLedgerEntry: Record "Cust. Ledger Entry";
     begin
         TempCustLedgerEntry.RESET;
         TempCustLedgerEntry.COPYFILTERS(Rec);

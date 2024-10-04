@@ -1,7 +1,7 @@
 page 50072 "Booking Sheet ULD Allocations"
 {
     PageType = List;
-    SourceTable = 50055;
+    SourceTable = "Booking Sheet ULD Allocation";
     ApplicationArea = All;
 
     layout

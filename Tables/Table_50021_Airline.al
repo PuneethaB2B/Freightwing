@@ -86,9 +86,9 @@ table 50021 Airline
     end;
 
     var
-        Flight: Record 50022;
+        Flight: Record Flight;
         Text001: Label 'You cannot delete Airline %1 because there is at least one %2  associated with it.';
-        Vendor: Record 23;
+        Vendor: Record Vendor;
         Ok: Boolean;
 }
 

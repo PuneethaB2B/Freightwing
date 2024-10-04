@@ -5,7 +5,7 @@ page 50147 "Posted MAWB Invoices"
     DataCaptionFields = "Document Type";
     Editable = false;
     PageType = List;
-    SourceTable = 36;
+    SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             Posted = FILTER(true));
     ApplicationArea = All;
@@ -185,7 +185,7 @@ page 50147 "Posted MAWB Invoices"
                 Promoted = false;
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
-                RunObject = Report 209;
+                RunObject = Report "Sales Reservation Avail.";
             }
         }
     }

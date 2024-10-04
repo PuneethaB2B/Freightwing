@@ -1,7 +1,7 @@
 page 50141 Beneficiary
 {
     PageType = List;
-    SourceTable = 50003;
+    SourceTable = "Beneficiary Details";
     ApplicationArea = All;
 
     layout

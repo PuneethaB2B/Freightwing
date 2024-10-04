@@ -3,7 +3,7 @@ page 50050 "Dl. Weight Distribution"
     Caption = 'Daily Weight Distribution';
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = 50040;
+    SourceTable = "Dl. Weight Dist. Header";
     ApplicationArea = All;
 
     layout
@@ -32,7 +32,7 @@ page 50050 "Dl. Weight Distribution"
                 {
                 }
             }
-            part(Page; 50051)
+            part(Page; "Dl. Weight Dist. By Airline")
             {
                 SubPageLink = "Daily No." = FIELD("No.");
             }
@@ -55,7 +55,7 @@ page 50050 "Dl. Weight Distribution"
                     IF CONFIRM('Do you want to Validate?') THEN BEGIN
                         DlWeightDistByItem.RESET;
                         DlWeightDistByItem.SETRANGE(DlWeightDistByItem."Daily No.", Rec."No.");
-                        REPORT.RUNMODAL(50090, FALSE, FALSE, DlWeightDistByItem);
+                        REPORT.RUNMODAL(Report::"Validate Dl. Dist", FALSE, FALSE, DlWeightDistByItem);
                     END;
                 end;
             }
@@ -63,7 +63,7 @@ page 50050 "Dl. Weight Distribution"
     }
 
     var
-        DailyWeightDistByCustomer: Record 50042;
-        DlWeightDistByItem: Record 50043;
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
+        DlWeightDistByItem: Record "Dl. Weight Dist. By Item";
 }
 

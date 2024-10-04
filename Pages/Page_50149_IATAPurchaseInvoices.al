@@ -5,7 +5,7 @@ page 50149 "IATA Purchase Invoices"
     LinksAllowed = false;
     MultipleNewLines = true;
     PageType = List;
-    SourceTable = 50016;
+    SourceTable = "IATA Purchase Invoice";
     SourceTableView = WHERE(Converted = FILTER(false));
     ApplicationArea = All;
 
@@ -157,7 +157,7 @@ page 50149 "IATA Purchase Invoices"
                     Promoted = true;
                     PromotedCategory = "Report";
                     PromotedIsBig = true;
-                    RunObject = Report 50032;
+                    RunObject = Report "IATA Reconciliation";
                 }
                 action("Delete Line")
                 {
@@ -173,18 +173,18 @@ page 50149 "IATA Purchase Invoices"
     }
 
     var
-        IATAPurchaseInvoice: Record 50016;
+        IATAPurchaseInvoice: Record "IATA Purchase Invoice";
         Text001: Label 'Do you wish to convert the lines  into  Purchase Invoices?';
         Text002: Label 'The Lines have been converted into purchase invoices successfully';
-        ImportExportSetup: Record 50010;
+        ImportExportSetup: Record "Import/Export Setup";
         Window: Dialog;
-        AmmendCharges: Codeunit 50031;
-        Airlines: Record 50021;
+        AmmendCharges: Codeunit "Ammend Charges";
+        Airlines: Record Airline;
         ok: Boolean;
 
     local procedure GetTotalCharge("MAWB no": Code[50]) TotalCharge: Decimal
     var
-        MawbInvoiceCharge: Record 50073;
+        MawbInvoiceCharge: Record "MAWB Invoice Charge";
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB no");
@@ -199,9 +199,9 @@ page 50149 "IATA Purchase Invoices"
 
     local procedure GetTotalWeight("MAWB No": Code[50]) TotalWeight: Decimal
     var
-        LoadingSheet: Record 50060;
-        LoadingSheetLine: Record 50061;
-        MawbInvoiceCharge: Record 50073;
+        LoadingSheet: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        MawbInvoiceCharge: Record "MAWB Invoice Charge";
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB No");
@@ -214,8 +214,8 @@ page 50149 "IATA Purchase Invoices"
 
     local procedure GetPurchaseAcc(MAWB: Code[50]) AccNo: Code[50]
     var
-        BookingSheetMawb: Record 50070;
-        Cust: Record 18;
+        BookingSheetMawb: Record "Booking Sheet MAWB Allocation";
+        Cust: Record Customer;
     begin
         BookingSheetMawb.RESET;
         BookingSheetMawb.SETRANGE(BookingSheetMawb."MAWB No", MAWB);

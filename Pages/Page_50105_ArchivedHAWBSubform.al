@@ -7,7 +7,7 @@ page 50105 "Archived HAWB Subform"
     ModifyAllowed = false;
     PageType = ListPart;
     ShowFilter = false;
-    SourceTable = 50074;
+    SourceTable = "HAWB Line";
     ApplicationArea = All;
 
     layout

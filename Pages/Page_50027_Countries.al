@@ -3,7 +3,7 @@ page 50027 Countries
     Caption = 'Countries';
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Airports,C5,C6,C7,C8,C9,C10';
-    SourceTable = 9;
+    SourceTable = "Country/Region";
     ApplicationArea = All;
 
     layout
@@ -49,7 +49,7 @@ page 50027 Countries
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50029;
+                    RunObject = Page Airports;
                     RunPageLink = "Country Code" = FIELD(Code);
 
                     trigger OnAction()

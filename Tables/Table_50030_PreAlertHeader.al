@@ -124,9 +124,9 @@ table 50030 "Pre Alert Header"
 
             trigger OnValidate()
             var
-                ICPartner: Record 413;
+                ICPartner: Record "IC Partner";
                 ItemCrossReference: Record "Item Reference";
-                PrepmtMgt: Codeunit 441;
+                PrepmtMgt: Codeunit "Prepayment Mgt.";
             begin
             end;
         }
@@ -223,8 +223,8 @@ table 50030 "Pre Alert Header"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        Flights: Record 50022;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        Flights: Record Flight;
 }
 

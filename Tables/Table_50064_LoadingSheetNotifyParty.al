@@ -66,7 +66,7 @@ table 50064 "Loading Sheet Notify Party"
     }
 
     var
-        ShipperNotifyParty: Record 50067;
+        ShipperNotifyParty: Record "Shipper Notify Party";
         Text001: Label 'Do you want to notify: %1';
 
 
@@ -77,9 +77,9 @@ table 50064 "Loading Sheet Notify Party"
 
     local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean)
     var
-        ReportSelections: Record 77;
-        BookingSheetNotifyParty: Record 50057;
-        BookingSheetHeader: Record 50053;
+        ReportSelections: Record "Report Selections";
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
+        BookingSheetHeader: Record "Booking Sheet Header";
     begin
         BookingSheetNotifyParty.COPY(Rec);
         ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"Booking Sheet");
@@ -98,10 +98,10 @@ table 50064 "Loading Sheet Notify Party"
         UNTIL ReportSelections.NEXT = 0;
     end;
 
-    local procedure SendReport(ReportId: Integer; var BookingSheetNotifyParty: Record 50057)
+    local procedure SendReport(ReportId: Integer; var BookingSheetNotifyParty: Record "Booking Sheet Notify Party")
     var
-        DocumentMailing: Codeunit 50013;
-        FileManagement: Codeunit 419;
+        DocumentMailing: Codeunit "Export Document-Mailing";
+        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);

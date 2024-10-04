@@ -2,7 +2,7 @@ page 50093 "Gate Pass ULD Allocations"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50070;
+    SourceTable = "Booking Sheet MAWB Allocation";
     ApplicationArea = All;
 
     layout

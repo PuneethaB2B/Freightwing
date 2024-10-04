@@ -103,10 +103,10 @@ report 50075 "Airline Freight Rates"
     }
 
     var
-        Item: Record 27;
+        Item: Record Item;
         Ok: Boolean;
-        CompanyInformation: Record 79;
+        CompanyInformation: Record "Company Information";
         Filters: Text[250];
-        FreightCharge: Record 50018;
+        FreightCharge: Record "Freight Charge";
 }
 

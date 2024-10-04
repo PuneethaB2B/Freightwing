@@ -12,5 +12,5 @@ pageextension 50051 PurchCrMemSubformExt extends "Purch. Cr. Memo Subform"
         }
     }
 
-   
+
 }

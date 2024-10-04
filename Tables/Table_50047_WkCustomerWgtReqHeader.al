@@ -111,11 +111,11 @@ table 50047 "Wk. Customer Wgt. Req. Header"
     end;
 
     var
-        Cust: Record 18;
-        WeeklyCustWgtReqLine: Record 50048;
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        Country: Record 9;
+        Cust: Record Customer;
+        WeeklyCustWgtReqLine: Record "Wk. Customer Wgt. Req. Line";
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        Country: Record "Country/Region";
         Text001: Label 'Customer Weight Requirements for Week';
         Text002: Label 'You cannot delete Weekly Analysis %1 because it has entries associated with it';
 }

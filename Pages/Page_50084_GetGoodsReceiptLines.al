@@ -1,7 +1,7 @@
 page 50084 "Get Goods Receipt Lines"
 {
     PageType = List;
-    SourceTable = 50051;
+    SourceTable = "Good Receipt Line";
     ApplicationArea = All;
 
     layout
@@ -67,15 +67,15 @@ page 50084 "Get Goods Receipt Lines"
     end;
 
     var
-        LoadingSheetHeader: Record 50060;
-        TempGoodReceiptLine: Record 50051 temporary;
-        ExportGetGoodsReceipt: Codeunit 50009;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        TempGoodReceiptLine: Record "Good Receipt Line" temporary;
+        ExportGetGoodsReceipt: Codeunit "Export.-Get Goods Receipt";
 
         "GoodReceiptNo.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        GoodReceiptLine: Record 50051;
+        GoodReceiptLine: Record "Good Receipt Line";
     begin
         TempGoodReceiptLine.RESET;
         TempGoodReceiptLine.COPYFILTERS(Rec);
@@ -99,7 +99,7 @@ page 50084 "Get Goods Receipt Lines"
     end;
 
 
-    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record 50060)
+    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record "Loading Sheet Header")
     begin
         LoadingSheetHeader.RESET;
         LoadingSheetHeader.SETRANGE(LoadingSheetHeader."No.", LoadingSheetHeader2."No.");

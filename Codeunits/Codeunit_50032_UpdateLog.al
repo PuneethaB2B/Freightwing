@@ -1,6 +1,6 @@
 codeunit 50032 "Update Log"
 {
-    TableNo = 50077;
+    TableNo = "MAWB Header 2";
 
     trigger OnRun()
     begin
@@ -40,8 +40,8 @@ codeunit 50032 "Update Log"
     end;
 
     var
-        BKMawb: Record 50070;
-        BKLine: Record 50054;
-        BKLine1: Record 50054;
+        BKMawb: Record "Booking Sheet MAWB Allocation";
+        BKLine: Record "Booking Sheet Line";
+        BKLine1: Record "Booking Sheet Line";
 }
 

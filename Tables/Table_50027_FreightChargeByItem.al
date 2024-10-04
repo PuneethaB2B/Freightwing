@@ -62,6 +62,6 @@ table 50027 "Freight Charge By Item"
     end;
 
     var
-        ItemCharge: Record 50028;
+        ItemCharge: Record "Freight Item Charge";
 }
 

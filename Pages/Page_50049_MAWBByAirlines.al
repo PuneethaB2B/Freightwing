@@ -2,7 +2,7 @@ page 50049 "MAWB By Airlines"
 {
     CardPageID = "MAWB By Airline";
     PageType = List;
-    SourceTable = 50038;
+    SourceTable = "MAWB By Airline";
     ApplicationArea = All;
 
     layout
@@ -35,6 +35,6 @@ page 50049 "MAWB By Airlines"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

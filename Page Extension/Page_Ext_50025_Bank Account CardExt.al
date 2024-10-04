@@ -24,7 +24,7 @@ pageextension 50025 BankAccountCardExt extends "Bank Account Card"
         {
             action("Add Beneficiary")
             {
-                RunObject = Page 50141;
+                RunObject = Page Beneficiary;
                 RunPageLink = "Intermediary Bank" = FIELD("No.");
                 Image = AddAction;
                 ApplicationArea = All;

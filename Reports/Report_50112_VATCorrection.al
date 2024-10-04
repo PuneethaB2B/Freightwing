@@ -190,15 +190,15 @@ report 50112 "VAT Correction"
 
     var
         Window: Dialog;
-        GenJournalLine: Record 81;
-        FreightCharge: Record 50018;
-        SalesInvoiceLine: Record 113;
-        SalesInvoiceHeader: Record 112;
+        GenJournalLine: Record "Gen. Journal Line";
+        FreightCharge: Record "Freight Charge";
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
         Lineno: Integer;
-        SalesCrMemoHeader: Record 114;
-        SalesCrMemoLine: Record 115;
-        GLAccount: Record 15;
-        GLAccount1: Record 15;
-        GLAccount2: Record 15;
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
+        GLAccount: Record "G/L Account";
+        GLAccount1: Record "G/L Account";
+        GLAccount2: Record "G/L Account";
 }
 

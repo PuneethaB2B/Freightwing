@@ -94,11 +94,11 @@ table 50008 "Shipment Update Line"
         Email: Text[250];
         SMTP: Codeunit 400;
         Name: Text[100];
-        Notifyparty: Record 50017;
-        ImportActivities: Record 50009;
+        Notifyparty: Record "Notify Party";
+        ImportActivities: Record "Import Activities";
         Activity: Text;
         CRLF: Text[2];
-        PreAlertHeader: Record 50030;
+        PreAlertHeader: Record "Pre Alert Header";
         LineFeed: Char;
         CarriageReturn: Char;
 }

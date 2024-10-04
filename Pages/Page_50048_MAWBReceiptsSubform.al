@@ -2,7 +2,7 @@ page 50048 "MAWB Receipts Subform"
 {
     Editable = true;
     PageType = ListPart;
-    SourceTable = 50039;
+    SourceTable = "MAWB Receipt";
     ApplicationArea = All;
 
     layout
@@ -60,10 +60,10 @@ page 50048 "MAWB Receipts Subform"
                 {
                     Caption = '&Charges';
                     Image = EntriesList;
-                  /*   RunObject = Page 50229;
-                    RunPageLink = Field5 = FIELD("Airline Code"),
-                                  Field6 = FIELD("MAWB No."); B2BUPG
- */
+                    /*   RunObject = Page 50229;
+                      RunPageLink = Field5 = FIELD("Airline Code"),
+                                    Field6 = FIELD("MAWB No."); B2BUPG
+   */
                     trigger OnAction()
                     begin
                         //DocPrint.PrintPurchHeader(Rec);
@@ -98,7 +98,7 @@ page 50048 "MAWB Receipts Subform"
     }
 
     var
-        MAWBByAirline: Record 50038;
-        Airline: Record 50021;
+        MAWBByAirline: Record "MAWB By Airline";
+        Airline: Record Airline;
 }
 

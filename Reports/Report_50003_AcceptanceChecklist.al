@@ -128,7 +128,7 @@ report 50003 "Acceptance Checklist"
             }
             dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = "Good Receipt No."=FIELD("No.");
+                DataItemLink = "Good Receipt No." = FIELD("No.");
                 column(ULDS; ULDAllocations)
                 {
                 }
@@ -312,8 +312,8 @@ report 50003 "Acceptance Checklist"
     }
 
     var
-        CompanyInfo: Record 79;
+        CompanyInfo: Record "Company Information";
         ULDAllocations: Integer;
-        GRNUldAllocc: Record 50046;
+        GRNUldAllocc: Record "Good Receipt ULD Allocation";
 }
 

@@ -4,7 +4,7 @@ page 50066 "Released Gate Pass"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = 50068;
+    SourceTable = "Gate Pass Header";
     ApplicationArea = All;
 
     layout
@@ -69,7 +69,7 @@ page 50066 "Released Gate Pass"
                 {
                 }
             }
-            part(Page; 50067)
+            part(Page; "Released Gate Pass Subform")
             {
                 SubPageLink = "Gate-Pass No." = FIELD("No.");
             }
@@ -100,7 +100,7 @@ page 50066 "Released Gate Pass"
                         GatePassHeader.RESET;
                         GatePassHeader.SETRANGE("No.", Rec."No.");
                         IF GatePassHeader.FINDFIRST THEN BEGIN
-                            REPORT.RUNMODAL(50016, TRUE, FALSE, GatePassHeader);
+                            REPORT.RUNMODAL(Report::"Gate Pass", TRUE, FALSE, GatePassHeader);
                             ReleaseShipment(Rec."No.");
                         END;
                     end;
@@ -140,13 +140,13 @@ page 50066 "Released Gate Pass"
     }
 
     var
-        GatePassHeader: Record 50068;
+        GatePassHeader: Record "Gate Pass Header";
 
     local procedure ReleaseShipment(GPno: Code[50])
     var
-        GPline: Record 50069;
-        LoadingSheetULD: Record 50063;
-        GPHeader: Record 50068;
+        GPline: Record "Gate Pass Line";
+        LoadingSheetULD: Record "Loading Sheet ULD Allocation";
+        GPHeader: Record "Gate Pass Header";
     begin
         GPline.RESET;
         GPline.SETRANGE(GPline."Gate-Pass No.", GPno);

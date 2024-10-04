@@ -119,18 +119,18 @@ report 50097 "Self Audit"
     }
 
     var
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetLine: Record 50061;
-        MAWBHeader: Record 50077;
-        MAWBLine: Record 50076;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        MAWBHeader: Record "MAWB Header 2";
+        MAWBLine: Record "MAWB Line";
         Window: Dialog;
-        GoodReceiptHeader: Record 50052;
-        GoodReceiptLine: Record 50051;
-        ImportExportSetup: Record 50010;
-        HAWBHeader: Record 50075;
-        HAWBLine: Record 50074;
-        Booking: Record 50053;
-        Customer: Record 18;
-        Airport: Record 50019;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        GoodReceiptLine: Record "Good Receipt Line";
+        ImportExportSetup: Record "Import/Export Setup";
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine: Record "HAWB Line";
+        Booking: Record "Booking Sheet Header";
+        Customer: Record Customer;
+        Airport: Record Airport;
 }
 

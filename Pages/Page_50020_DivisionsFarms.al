@@ -1,7 +1,7 @@
 page 50020 "Divisions/Farms"
 {
     PageType = List;
-    SourceTable = 50013;
+    SourceTable = "Division/Farm";
     ApplicationArea = All;
 
     layout

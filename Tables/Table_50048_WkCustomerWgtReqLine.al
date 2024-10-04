@@ -62,10 +62,10 @@ table 50048 "Wk. Customer Wgt. Req. Line"
     }
 
     var
-        WeeklyCustWeighttReqHeader: Record 50047;
+        WeeklyCustWeighttReqHeader: Record "Wk. Customer Wgt. Req. Header";
         DayName: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         NextDate: Date;
-        Cust: Record 18;
+        Cust: Record Customer;
         Text001: Label 'You cannot delete Customer No. %1 because it has entries associated with it';
 }
 

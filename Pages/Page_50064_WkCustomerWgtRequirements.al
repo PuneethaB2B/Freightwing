@@ -3,7 +3,7 @@ page 50064 "Wk. Customer Wgt. Requirements"
     Caption = 'Weekly Customer Weight  Requirements';
     CardPageID = "Wk. Customer Wgt. Requirement";
     PageType = List;
-    SourceTable = 50047;
+    SourceTable = "Wk. Customer Wgt. Req. Header";
     ApplicationArea = All;
 
     layout
@@ -45,6 +45,6 @@ page 50064 "Wk. Customer Wgt. Requirements"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

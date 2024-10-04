@@ -93,13 +93,13 @@ table 50015 Consignee
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         Text001: Label 'You cannot delete Consignee %1 because there is at least one %2  associated with it.';
-        Consignee: Record 50015;
+        Consignee: Record Consignee;
 
 
-    procedure AssistEdit(OldConsignee: Record 50015): Boolean
+    procedure AssistEdit(OldConsignee: Record Consignee): Boolean
     begin
         Consignee := Rec;
         ImportExportSetup.GET;

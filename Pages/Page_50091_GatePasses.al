@@ -2,7 +2,7 @@ page 50091 "Gate Passes"
 {
     CardPageID = "Gate Pass";
     PageType = List;
-    SourceTable = 50068;
+    SourceTable = "Gate Pass Header";
     SourceTableView = WHERE(Status = FILTER(<> Released));
     ApplicationArea = All;
 

@@ -11,11 +11,11 @@ codeunit 50030 "Custom Mail"
         To_: Text[50];
         MessageBody: Text[250];
         Subject: Text[250];
-        ReportBookingSheetAllocation: Report 50060;
+        ReportBookingSheetAllocation: Report "Booking Sheet Pre Alert";
         ClientTempPath: Text;
-        gCduFileMgmt: Codeunit 419;
-        gRecCustomer: Record 18;
-        gRecConsignee: Record 50015;
+        gCduFileMgmt: Codeunit "File Management";
+        gRecCustomer: Record Customer;
+        gRecConsignee: Record Consignee;
         Error001: Label 'There is no email for Shipper %1';
 
     local procedure SendWithAttachment()
@@ -33,14 +33,14 @@ codeunit 50030 "Custom Mail"
     var
         Header: Label 'Dear %1';
         Body: Label 'Please Note we have %1 %2 planned on %3 // %4. Please Find attached Flight Details. <br> All Export Documents i.e MAWB//Packing List//Commercial Invoice//Phyto Sanitary Certificate etc will be scanned prior to flight Depature';
-        BookingSheetLine: Record 50054;
-        BookingSheetHeader: Record 50053;
-        BookingSheetHAWBAllocation: Record 50056;
-        BookingSheetMAWBAllocation: Record 50070;
+        BookingSheetLine: Record "Booking Sheet Line";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
         Window: Dialog;
-        MailingConfiguration: Record 50020;
-        BookingSheetHAWBAllocation1: Record 50056;
-        UserSetup: Record 91;
+        MailingConfiguration: Record "Mailing Configuration";
+        BookingSheetHAWBAllocation1: Record "Booking Sheet HAWB Allocation";
+        UserSetup: Record "User Setup";
         Subject: Text[250];
         Body1: Text[250];
         FlightNo: Code[50];
@@ -126,14 +126,14 @@ codeunit 50030 "Custom Mail"
 
     procedure SendInvoice(InvoiceNo: Code[50]; BillTo: Code[50]) Mailed: Boolean
     var
-        MailingConfiguration: Record 50020;
+        MailingConfiguration: Record "Mailing Configuration";
         Window: Dialog;
-        Customer: Record 18;
-        SalesHeader: Record 36;
-        SalesHeader1: Record 36;
+        Customer: Record Customer;
+        SalesHeader: Record "Sales Header";
+        SalesHeader1: Record "Sales Header";
         Subject: Text[100];
         Body: Text[250];
-        UserSetup: Record 91;
+        UserSetup: Record "User Setup";
     begin
         IF SalesHeader.GET(SalesHeader."Document Type"::Invoice, InvoiceNo) THEN BEGIN
             Customer.GET(SalesHeader."Bill-to Customer No.");
@@ -142,7 +142,7 @@ codeunit 50030 "Custom Mail"
             SalesHeader1.SETRANGE(SalesHeader1."Document Type", SalesHeader1."Document Type"::Invoice);
             SalesHeader1.SETRANGE(SalesHeader1."No.", SalesHeader."No.");
             IF SalesHeader1.FINDFIRST THEN BEGIN
-                REPORT.RUN(50039, FALSE, FALSE, SalesHeader1);
+                REPORT.RUN(Report::"MAWB Invoice TP", FALSE, FALSE, SalesHeader1);
 
             END;//Customer Type
             SLEEP(2000);
@@ -172,20 +172,20 @@ codeunit 50030 "Custom Mail"
     var
         Header: Label 'Dear %1';
         Body: Label 'Please Note we have %1 %2 planned on %3 // %4. Please Find attached Flight Details. <br> All Export Documents i.e MAWB//Packing List//Commercial Invoice//Phyto Sanitary Certificate etc will be scanned prior to flight Depature';
-        lRecBookingSheetLine: Record 50054;
-        lRecBookingSheetHeader: Record 50053;
-        lRecBookingSheetHAWBAllocation: Record 50056;
-        lRecBookingSheetMAWBAllocation: Record 50070;
+        lRecBookingSheetLine: Record "Booking Sheet Line";
+        lRecBookingSheetHeader: Record "Booking Sheet Header";
+        lRecBookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        lRecBookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
         lDlgWindow: Dialog;
-        lRecUserSetup: Record 91;
+        lRecUserSetup: Record "User Setup";
         lTxtEmailSubject: Text;
         lTxtEmailBody: Text;
         TxtBody1: Label 'Dear %1,';
         lTxtAppendBody1: Text;
         lTxtAppendBody2: Text;
         lTxtAppendBody3: Text;
-        lRecBookingSheetHAWBAllocConsignee: Record 50056;
-        lRecSMTPSetup: Record 409;
+        lRecBookingSheetHAWBAllocConsignee: Record "Booking Sheet HAWB Allocation";
+        lRecSMTPSetup: Record "SMTP Mail Setup";
     begin
         IF lRecBookingSheetHeader.GET("BSNo.") THEN BEGIN
             lDlgWindow.OPEN('Sending Pre Alerts....');

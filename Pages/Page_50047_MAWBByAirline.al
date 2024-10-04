@@ -2,7 +2,7 @@ page 50047 "MAWB By Airline"
 {
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Charges,C5,C6,C7,C8,C9,C10';
-    SourceTable = 50038;
+    SourceTable = "MAWB By Airline";
     ApplicationArea = All;
 
     layout
@@ -18,7 +18,7 @@ page 50047 "MAWB By Airline"
                 {
                 }
             }
-            part(Page; 50048)
+            part(Page; "MAWB Receipts Subform")
             {
                 SubPageLink = "Airline Code" = FIELD("Airline Code");
             }

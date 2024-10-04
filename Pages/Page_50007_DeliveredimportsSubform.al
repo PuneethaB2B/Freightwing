@@ -2,7 +2,7 @@ page 50007 "Delivered imports Subform"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50023;
+    SourceTable = "Pre Alert Line";
     ApplicationArea = All;
 
     layout

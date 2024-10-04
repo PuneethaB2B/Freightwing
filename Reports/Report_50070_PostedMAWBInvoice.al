@@ -462,7 +462,7 @@ report 50070 "Posted MAWB Invoice"
         Branch: Text[50];
         name: Text[50];
         Cust: Record Customer;
-        Currex: Record 330;
+        Currex: Record "Currency Exchange Rate";
         Exchange: Decimal;
         BillTo: Text[250];
         BookingSheetMAWB: Record "Booking Sheet MAWB Allocation";

@@ -2,7 +2,7 @@ page 50109 "Get HAWB Item Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50056;
+    SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
 
     layout
@@ -53,15 +53,15 @@ page 50109 "Get HAWB Item Lines"
     end;
 
     var
-        HAWBHeader: Record 50075;
-        TempBSHAWBAllocationLine: Record 50056 temporary;
-        ExportGetHAWBItem: Codeunit 50007;
+        HAWBHeader: Record "HAWB Header";
+        TempBSHAWBAllocationLine: Record "Booking Sheet HAWB Allocation" temporary;
+        ExportGetHAWBItem: Codeunit "Export.-Get BS HAWB Item";
 
         "HAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        BookingSheetHAWBAllocation: Record 50056;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
     begin
         TempBSHAWBAllocationLine.RESET;
         TempBSHAWBAllocationLine.COPYFILTERS(Rec);
@@ -85,7 +85,7 @@ page 50109 "Get HAWB Item Lines"
     end;
 
 
-    procedure SetHAWBHeader(var HAWBHeader2: Record 50075)
+    procedure SetHAWBHeader(var HAWBHeader2: Record "HAWB Header")
     begin
         HAWBHeader.GET(HAWBHeader2."No.");
     end;

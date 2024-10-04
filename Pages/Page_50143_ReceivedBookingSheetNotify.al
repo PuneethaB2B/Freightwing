@@ -2,7 +2,7 @@ page 50143 "Received Booking Sheet Notify"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = 50057;
+    SourceTable = "Booking Sheet Notify Party";
     ApplicationArea = All;
 
     layout
@@ -44,7 +44,7 @@ page 50143 "Received Booking Sheet Notify"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record 112;
+                        SalesInvHeader: Record "Sales Invoice Header";
                     begin
                         /*BookingSheetNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(BookingSheetNotifyParty);
@@ -73,8 +73,8 @@ page 50143 "Received Booking Sheet Notify"
     }
 
     var
-        BookingSheetNotifyParty: Record 50057;
-        BookingSheetNotifyParty2: Record 50057;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
+        BookingSheetNotifyParty2: Record "Booking Sheet Notify Party";
         Text001: Label 'Do you want to send the email notifications?';
 }
 

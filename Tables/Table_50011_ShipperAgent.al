@@ -40,7 +40,7 @@ table 50011 "Shipper Agent"
     }
 
     var
-        PostCode: Record 225;
-        ShippingAgent: Record 291;
+        PostCode: Record "Post Code";
+        ShippingAgent: Record "Shipping Agent";
 }
 

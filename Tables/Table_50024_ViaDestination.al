@@ -139,7 +139,7 @@ table 50024 "Via Destination"
         Text003: Label '%1 %2 cannot be less than %3 %4';
         Text004: Label '%1 %2 cannot be greater than %3 %4';
         Text005: Label '%1 %2 cannot be blank';
-        Flights: Record 50022;
+        Flights: Record Flight;
 
     local procedure ValidateTime()
     begin

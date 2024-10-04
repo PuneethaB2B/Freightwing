@@ -5,7 +5,7 @@ page 50101 "Posted Loading Sheet"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = 50060;
+    SourceTable = "Loading Sheet Header";
     ApplicationArea = All;
 
     layout
@@ -57,7 +57,7 @@ page 50101 "Posted Loading Sheet"
                 {
                 }
             }
-            part(Page; 50110)
+            part(Page; "Posted Loading Sheet Subform")
             {
                 SubPageLink = "Loading Sheet No." = FIELD("No.");
             }
@@ -102,7 +102,7 @@ page 50101 "Posted Loading Sheet"
                         LoadingSheetHeader.RESET;
                         LoadingSheetHeader.SETRANGE("No.", Rec."No.");
                         IF LoadingSheetHeader.FINDFIRST THEN
-                            REPORT.RUNMODAL(50021, TRUE, FALSE, LoadingSheetHeader);
+                            REPORT.RUNMODAL(Report::"Loading Sheet", TRUE, FALSE, LoadingSheetHeader);
                     end;
                 }
                 action("Print and Email")
@@ -188,7 +188,7 @@ page 50101 "Posted Loading Sheet"
                     trigger OnAction()
                     begin
                         IF CONFIRM('Do you want to validate Loading sheets?') THEN BEGIN
-                            REPORT.RUN(50066, FALSE, FALSE, Rec);
+                            REPORT.RUN(Report::"Update Loading Sheet Lines", FALSE, FALSE, Rec);
                         END;
                     end;
                 }
@@ -197,15 +197,15 @@ page 50101 "Posted Loading Sheet"
     }
 
     var
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetLine: Record 50061;
-        LoadingSheetUlDAlloc: Record 50063;
-        ImportExportSetup: Record 50010;
-        MAWBInv: Record 50073;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        LoadingSheetUlDAlloc: Record "Loading Sheet ULD Allocation";
+        ImportExportSetup: Record "Import/Export Setup";
+        MAWBInv: Record "MAWB Invoice Charge";
         JournalTemplate: Text[100];
         JournalBatch: Text[100];
-        ItemJnLine: Record 83;
-        MAWBLine: Record 50076;
-        HAWBLine: Record 50074;
+        ItemJnLine: Record "Item Journal Line";
+        MAWBLine: Record "MAWB Line";
+        HAWBLine: Record "HAWB Line";
 }
 

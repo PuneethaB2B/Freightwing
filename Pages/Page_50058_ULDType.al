@@ -1,7 +1,7 @@
 page 50058 "ULD Type"
 {
     PageType = Card;
-    SourceTable = 50031;
+    SourceTable = "ULD Type";
     ApplicationArea = All;
 
     layout
@@ -17,7 +17,7 @@ page 50058 "ULD Type"
                 {
                 }
             }
-            part(Page; 50059)
+            part(Page; "ULD Subform")
             {
                 SubPageLink = "ULD Type Code" = FIELD(Code);
             }

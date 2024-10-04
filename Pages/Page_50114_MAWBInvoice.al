@@ -46,7 +46,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnValidate()
                     begin
-                        Rec.SelltoCustomerNoOnAfterValidate;
+                        Rec.SelltoCustomerNoOnAfterValidate(Rec, xRec);
                     end;
                 }
                 field("Customer Type"; Rec."Customer Type")
@@ -122,7 +122,7 @@ page 50114 "MAWB Invoice"
                 {
                 }
             }
-            part(SalesLines; 50115)
+            part(SalesLines; "MAWB Invoice Subform")
             {
                 SubPageLink = "Document No." = FIELD("No.");
             }
@@ -346,7 +346,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        CalcInvDiscForHeader;
+                        Rec.CalcInvDiscForHeader();
                         COMMIT;
                         PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
@@ -354,7 +354,7 @@ page 50114 "MAWB Invoice"
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348 = R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ApplicationArea = all;
@@ -362,7 +362,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        ShowDocDim;
+                        Rec.ShowDocDim;
                         CurrPage.SAVERECORD;
                     end;
                 }
@@ -397,7 +397,7 @@ page 50114 "MAWB Invoice"
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
                 }
-                separator()
+                separator(fw)
                 {
                 }
                 action("Documents/Certificates")
@@ -407,7 +407,7 @@ page 50114 "MAWB Invoice"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50119;
+                    RunObject = Page "Airport Cargo Receipts";
                     RunPageLink = "MAWB No" = FIELD("No.");
                     ApplicationArea = All;
 
@@ -420,7 +420,7 @@ page 50114 "MAWB Invoice"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50120;
+                    RunObject = Page "MAWB Invoice Charges";
                     RunPageLink = "MAWB No." = FIELD("MAWB No.");
                     ApplicationArea = All;
 
@@ -433,13 +433,13 @@ page 50114 "MAWB Invoice"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50122;
+                    RunObject = Page "MAWB Invoice Notify Parties";
                     RunPageLink = "Invoice No." = FIELD("No.");
                     ApplicationArea = All;
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
-            group("Credit Card")
+            group("Credit Card1")
             {
                 Caption = 'Credit Card';
                 Image = CreditCardLog;
@@ -457,7 +457,7 @@ page 50114 "MAWB Invoice"
         }
         area(processing)
         {
-            group(Release)
+            group(Release1)
             {
                 Caption = 'Release';
                 Image = ReleaseDoc;
@@ -469,7 +469,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);
+                        PAGE.RUNMODAL(Page::"MAWB Test");
                     end;
                 }
                 action(Release)
@@ -509,7 +509,7 @@ page 50114 "MAWB Invoice"
                 Image = "Action";
                 action(CalculateInvoiceDiscount)
                 {
-                    AccessByPermission = TableData 19 = R;
+                    AccessByPermission = TableData "Cust. Invoice Disc." = R;
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
 
@@ -556,7 +556,7 @@ page 50114 "MAWB Invoice"
                     trigger OnAction()
                     begin
                         Check.CheckAllCharges(rec."MAWB No.", rec."No.");
-                        SplitMAWBInvoice;
+                        Rec.SplitMAWBInvoice;
                         // _________________ CALC Split factor _________________________________
                         TBLHNo := 0;
                         TBLMAWBLine.RESET;
@@ -587,7 +587,7 @@ page 50114 "MAWB Invoice"
                                 ELSE
                                     TBLSalesLine."Split Factor" := TBLHNo;
 
-                                IF (TBLCustomer."Customer Type" = 2) AND (Status = 0) THEN BEGIN
+                                IF (TBLCustomer."Customer Type" = 2) AND (Rec.Status = 0) THEN BEGIN
                                     IF (TBLSalesLine."Freight Charge Code" = '14') THEN BEGIN
                                         TBLSalesLine."Freight Charge Code" := '82';
                                         TBLSalesLine.Description := 'Freight Charges TP';
@@ -670,7 +670,7 @@ page 50114 "MAWB Invoice"
                                         TBLSalesLine.MODIFY;
                                     END; // if freight charge code is 34
                                 END // if customer is third party // ________________________ CALC Amnt Excl VAT _______
-                                ELSE IF (TBLCustomer."Customer Type" <> 2) AND (Status = 0) THEN BEGIN
+                                ELSE IF (TBLCustomer."Customer Type" <> 2) AND (Rec.Status = 0) THEN BEGIN
                                     IF TBLCustomer."Customer Type" = TBLCustomer."Customer Type"::Group THEN BEGIN//Calculate Handling charges based on customer type
                                         IF (TBLSalesLine."Freight Charge Code" IN ['118', '17']) THEN BEGIN
                                             IF TBLSalesLine."Freight Charge Code" = '118' THEN BEGIN
@@ -730,7 +730,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        StdCustSalesCode: Record 172;
+                        StdCustSalesCode: Record "Standard Customer Sales Code";
                     begin
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
@@ -777,7 +777,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -789,7 +789,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
@@ -827,7 +827,7 @@ page 50114 "MAWB Invoice"
             {
                 Caption = 'P&osting';
                 Image = Post;
-                action(Post)
+                action(Post1)
                 {
                     Caption = 'P&ost';
                     Image = PostOrder;
@@ -921,10 +921,10 @@ page 50114 "MAWB Invoice"
                             MAWBHeader.SETRANGE(MAWBHeader."No.", rec."MAWB No.");
                             IF MAWBHeader.FINDFIRST THEN BEGIN
                                 IF MAWBHeader."Has Houses" THEN BEGIN
-                                    REPORT.RUNMODAL(50015, TRUE, FALSE, SalesHeader);
+                                    REPORT.RUNMODAL(Report::"MAWB Invoice", TRUE, FALSE, SalesHeader);
                                 END ELSE BEGIN
                                     // REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
-                                    REPORT.RUNMODAL(50039, TRUE, FALSE, SalesHeader)
+                                    REPORT.RUNMODAL(Report::"MAWB Invoice TP", TRUE, FALSE, SalesHeader)
                                 END;
                             END ELSE BEGIN
                                 MESSAGE('MAWB Not found in Documentation');
@@ -990,7 +990,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting();
                     end;
                 }
                 action(Calc)
@@ -1010,7 +1010,7 @@ page 50114 "MAWB Invoice"
     trigger OnDeleteRecord(): Boolean
     begin
         CurrPage.SAVERECORD;
-        EXIT(ConfirmDeletion);
+        EXIT(Rec.ConfirmDeletion);
     end;
 
     trigger OnInit()
@@ -1028,9 +1028,9 @@ page 50114 "MAWB Invoice"
     trigger OnOpenPage()
     begin
         IF UserMgt.GetSalesFilter <> '' THEN BEGIN
-            FILTERGROUP(2);
-            SETRANGE(rec."Responsibility Center", UserMgt.GetSalesFilter);
-            FILTERGROUP(0);
+            Rec.FILTERGROUP(2);
+            Rec.SETRANGE(rec."Responsibility Center", UserMgt.GetSalesFilter);
+            rec.FILTERGROUP(0);
         END;
 
         SetDocNoVisible;
@@ -1038,57 +1038,57 @@ page 50114 "MAWB Invoice"
 
     var
         ChangeExchangeRate: Page "Change Exchange Rate";
-        CopySalesDoc: Report 292;
-        MoveNegSalesLines: Report 6699;
-        ReportPrint: Codeunit 228;
-        UserMgt: Codeunit 5700;
-        SalesCalcDiscountByType: Codeunit 56;
+        CopySalesDoc: Report "Copy Sales Document";
+        MoveNegSalesLines: Report "Move Negative Sales Lines";
+        ReportPrint: Codeunit "Test Report-Print";
+        UserMgt: Codeunit "User Setup Management";
+        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
 
 
         JobQueueVisible: Boolean;
         DocNoVisible: Boolean;
         ExternalDocNoMandatory: Boolean;
-        MAWBLine: Record 50076;
-        SalesHeader: Record 36;
-        ImportChargeMaster: Record 50007;
-        ImportExportSetup: Record 50010;
-        BookingSheetHAWBAllocation: Record 50056;
-        BookingSheetLine: Record 50054;
-        FreightCharge: Record 50018;
-        SalesLine: Record 37;
+        MAWBLine: Record "MAWB Line";
+        SalesHeader: Record "Sales Header";
+        ImportChargeMaster: Record "Import Charge";
+        ImportExportSetup: Record "Import/Export Setup";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        BookingSheetLine: Record "Booking Sheet Line";
+        FreightCharge: Record "Freight Charge";
+        SalesLine: Record "Sales Line";
         Text000: Label 'Ensure that all costs relating to %1 have been captured before posting invoice';
-        MAWBAlloc: Record 50070;
-        FCharges: Record 50018;
-        MAWBHeader: Record 50077;
-        Check: Codeunit 50031;
-        CustomMail: Codeunit 50030;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        FCharges: Record "Freight Charge";
+        MAWBHeader: Record "MAWB Header 2";
+        Check: Codeunit "Ammend Charges";
+        CustomMail: Codeunit "Custom Mail";
         Mailed: Boolean;
         Custcode: Code[30];
-        CustRec: Record 18;
-        TBLSalesLine: Record 37;
+        CustRec: Record Customer;
+        TBLSalesLine: Record "Sales Line";
         TBLPostValidate: Boolean;
-        TBLSalesHeader: Record 36;
-        TBLCustomer: Record 18;
+        TBLSalesHeader: Record "Sales Header";
+        TBLCustomer: Record Customer;
         TBLHNo: Integer;
-        TBLMAWBLine: Record 50076;
-        TBLFreightItemCharge: Record 50029;
+        TBLMAWBLine: Record "MAWB Line";
+        TBLFreightItemCharge: Record "Freight Item Charge Matrix";
         TBLFlightCode: Code[20];
         TBLAgreedRate: Decimal;
-        TBLMAWBInvoiceCharge: Record 50073;
-        TBLPurchInvLine: Record 123;
+        TBLMAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        TBLPurchInvLine: Record "Purch. Inv. Line";
         TBLCurrecnyCode: Code[10];
-        TBLPurchInvHeader: Record 122;
-        TBLExchangeRate: Record 330;
+        TBLPurchInvHeader: Record "Purch. Inv. Header";
+        TBLExchangeRate: Record "Currency Exchange Rate";
         TBLAmountLCY: Decimal;
         TBLAmountUSD: Decimal;
         TBLPurchLineAmount: Decimal;
-        TBLPurchInvLineTemp: Record 123 temporary;
-        gRecHandlingSlab: Record 50045;
-        gRecFreightCharges: Record 50018;
+        TBLPurchInvLineTemp: Record "Purch. Inv. Line" temporary;
+        gRecHandlingSlab: Record "Handling Slab Matrix";
+        gRecFreightCharges: Record "Freight Charge";
 
     local procedure Post(PostingCodeunitID: Integer)
     begin
-        SendToPosting(PostingCodeunitID);
+        Rec.SendToPosting(PostingCodeunitID);
         IF rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting" THEN
             CurrPage.CLOSE;
         CurrPage.UPDATE(FALSE);
@@ -1101,9 +1101,9 @@ page 50114 "MAWB Invoice"
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        IF GETFILTER(rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
+        IF Rec.GETFILTER(rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
             IF rec."Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
-                SETRANGE(rec."Sell-to Customer No.");
+                Rec.SETRANGE(rec."Sell-to Customer No.");
         CurrPage.UPDATE;
     end;
 
@@ -1134,7 +1134,7 @@ page 50114 "MAWB Invoice"
 
     local procedure SetDocNoVisible()
     var
-        DocumentNoVisibility: Codeunit 1400;
+        DocumentNoVisibility: Codeunit DocumentNoVisibility;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
         DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice, rec."No.");
@@ -1142,7 +1142,7 @@ page 50114 "MAWB Invoice"
 
     local procedure SetExtDocNoMandatoryCondition()
     var
-        SalesReceivablesSetup: Record 311;
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         SalesReceivablesSetup.GET;
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"
@@ -1150,10 +1150,10 @@ page 50114 "MAWB Invoice"
 
     local procedure CloseMawb(MAWB: Code[50])
     var
-        BookingSheetMAWBAllocation: Record 50070;
-        MAWBReceipt: Record 50039;
-        BookingSheetMAWBAllocation1: Record 50070;
-        BookingSheetMAWBAllocation2: Record 50070;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        MAWBReceipt: Record "MAWB Receipt";
+        BookingSheetMAWBAllocation1: Record "Booking Sheet MAWB Allocation";
+        BookingSheetMAWBAllocation2: Record "Booking Sheet MAWB Allocation";
         i: Integer;
     begin
         BookingSheetMAWBAllocation.RESET;

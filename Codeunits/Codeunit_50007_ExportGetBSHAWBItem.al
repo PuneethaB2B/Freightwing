@@ -1,6 +1,6 @@
 codeunit 50007 "Export.-Get BS HAWB Item"
 {
-    TableNo = 50074;
+    TableNo = "HAWB Line";
 
     trigger OnRun()
     begin
@@ -16,14 +16,14 @@ codeunit 50007 "Export.-Get BS HAWB Item"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        HAWBHeader: Record 50075;
-        HAWBLine: Record 50074;
-        BookingSheetHeader: Record 50053;
-        BookingSheetHAWBAllocation: Record 50056;
-        GetHAWBItemLines: Page 50109;
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine: Record "HAWB Line";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        GetHAWBItemLines: Page "Get HAWB Item Lines";
 
 
-    procedure CreateHAWBLines(var BookingSheetHAWBAllocation2: Record 50056)
+    procedure CreateHAWBLines(var BookingSheetHAWBAllocation2: Record "Booking Sheet HAWB Allocation")
     var
         TransferLine: Boolean;
     begin
@@ -42,7 +42,7 @@ codeunit 50007 "Export.-Get BS HAWB Item"
     end;
 
 
-    procedure SetHAWBHeader(var HAWBHeader2: Record 50075)
+    procedure SetHAWBHeader(var HAWBHeader2: Record "HAWB Header")
     begin
         HAWBHeader.GET(HAWBHeader2."No.");
     end;

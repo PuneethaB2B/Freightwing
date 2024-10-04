@@ -40,6 +40,6 @@ table 50014 "Shipper Farm"
     }
 
     var
-        Farm: Record 50013;
+        Farm: Record "Division/Farm";
 }
 

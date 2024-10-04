@@ -2,7 +2,7 @@ page 50006 "Delivered Imports List"
 {
     CardPageID = "Delivered Imports Header";
     PageType = List;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST(Delivered));
     ApplicationArea = All;
 

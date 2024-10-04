@@ -4,7 +4,7 @@ page 50067 "Released Gate Pass Subform"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = ListPart;
-    SourceTable = 50069;
+    SourceTable = "Gate Pass Line";
     ApplicationArea = All;
 
     layout
@@ -72,7 +72,7 @@ page 50067 "Released Gate Pass Subform"
                 {
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
-                    RunObject = Page 50093;
+                    RunObject = Page "Gate Pass ULD Allocations";
                     RunPageLink = "Booking Sheet No" = FIELD("Gate-Pass No."),
                                   "Weight Allocated" = FIELD("Item No.");
 

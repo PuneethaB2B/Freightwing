@@ -1,7 +1,7 @@
 page 50157 "Import Charges Master"
 {
     PageType = List;
-    SourceTable = 50007;
+    SourceTable = "Import Charge";
     ApplicationArea = All;
 
     layout
@@ -51,7 +51,7 @@ page 50157 "Import Charges Master"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50151;
+                    RunObject = Page "Handling Slab Matrix";
                     RunPageLink = "Freight Charge Code" = FIELD(Code);
                     Visible = false;
 

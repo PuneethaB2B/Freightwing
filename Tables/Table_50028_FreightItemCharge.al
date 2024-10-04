@@ -77,7 +77,7 @@ table 50028 "Freight Item Charge"
     end;
 
     var
-        FreightCharge: Record 50018;
-        ChargeMatrix: Record 50029;
+        FreightCharge: Record "Freight Charge";
+        ChargeMatrix: Record "Freight Item Charge Matrix";
 }
 

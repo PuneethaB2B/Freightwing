@@ -32,9 +32,9 @@ table 50054 "Booking Sheet Line"
 
             trigger OnValidate()
             var
-                ICPartner: Record 413;
+                ICPartner: Record "IC Partner";
                 ItemCrossReference: Record "Item Reference";
-                PrepmtMgt: Codeunit 441;
+                PrepmtMgt: Codeunit "Prepayment Mgt.";
             begin
                 Item.GET("Item No.");
                 Description := Item.Description;
@@ -366,38 +366,38 @@ table 50054 "Booking Sheet Line"
     end;
 
     var
-        HAWBReceipt: Record 50037;
-        Item: Record 27;
-        BookingSheetHeader: Record 50053;
-        DailyWeightDistByCustomer: Record 50042;
-        DailyWeightDistByItem: Record 50043;
-        Shipper: Record 18;
-        DailyWeightDistByAirline: Record 50041;
-        BookingSheetULDAllocation: Record 50055;
-        BSConsignee: Record 50056;
-        GoodReceiptULDAllocation: Record 50046;
+        HAWBReceipt: Record "HAWB Receipt";
+        Item: Record Item;
+        BookingSheetHeader: Record "Booking Sheet Header";
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
+        Shipper: Record Customer;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        BookingSheetULDAllocation: Record "Booking Sheet ULD Allocation";
+        BSConsignee: Record "Booking Sheet HAWB Allocation";
+        GoodReceiptULDAllocation: Record "Good Receipt ULD Allocation";
         Text001: Label 'You cannot delete Item No. %1 because it has entries associated with it';
-        BookingSheetNotifyParty: Record 50057;
-        GoodReceiptNotifyParty: Record 50049;
-        NotifyParty: Record 50017;
-        BookingSheetMAWBAllocation: Record 50070;
-        ViaDestination: Record 50024;
-        Flight: Record 50022;
-        Farms: Record 50058;
-        ImportExportSetup: Record 50010;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
+        GoodReceiptNotifyParty: Record "Good Receipt Notify Party";
+        NotifyParty: Record "Notify Party";
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        ViaDestination: Record "Via Destination";
+        Flight: Record Flight;
+        Farms: Record "Booking Sheet FAM Allocations";
+        ImportExportSetup: Record "Import/Export Setup";
 
 
-    procedure InsertGoodsReceiptFromBookingSheetLine(var GoodReceiptLine: Record 50051)
+    procedure InsertGoodsReceiptFromBookingSheetLine(var GoodReceiptLine: Record "Good Receipt Line")
     var
-        GoodReceiptHeader: Record 50052;
-        GoodReceiptAllocationHeader: Record 50052;
-        GoodReceiptAllocationLine: Record 50051;
-        TempGoodReceiptLine: Record 50051;
-        TransferOldExtLines: Codeunit 379;
-        ItemTrackingMgt: Codeunit 6500;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        GoodReceiptAllocationHeader: Record "Good Receipt Header";
+        GoodReceiptAllocationLine: Record "Good Receipt Line";
+        TempGoodReceiptLine: Record "Good Receipt Line";
+        TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
+        ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
     begin
         BookingSheetMAWBAllocation.RESET;
         BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."Booking Sheet No", "Booking Sheet No.");
@@ -596,9 +596,9 @@ table 50054 "Booking Sheet Line"
         END;//MAWBs
     end;
 
-    local procedure GetFARMS(mawb: Record 50070) no: Integer
+    local procedure GetFARMS(mawb: Record "Booking Sheet MAWB Allocation") no: Integer
     var
-        lines: Record 50054;
+        lines: Record "Booking Sheet Line";
     begin
         lines.RESET;
         lines.SETRANGE(lines."Booking Sheet No.", BookingSheetMAWBAllocation."Booking Sheet No");

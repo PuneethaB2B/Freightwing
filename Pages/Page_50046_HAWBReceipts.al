@@ -2,7 +2,7 @@ page 50046 "HAWB Receipts"
 {
     Caption = 'HAWB Receipts';
     PageType = List;
-    SourceTable = 50037;
+    SourceTable = "HAWB Receipt";
     ApplicationArea = All;
 
     layout
@@ -60,6 +60,6 @@ page 50046 "HAWB Receipts"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

@@ -1,7 +1,7 @@
 page 50059 "ULD Subform"
 {
     PageType = ListPart;
-    SourceTable = 50032;
+    SourceTable = ULD;
     ApplicationArea = All;
 
     layout

@@ -49,8 +49,8 @@ table 50078 "Wk. Customer Req. By Day Line"
     }
 
     var
-        WeeklyCustWeightReqLine: Record 50048;
-        WeeklyCustWeightReqHeader: Record 50047;
+        WeeklyCustWeightReqLine: Record "Wk. Customer Wgt. Req. Line";
+        WeeklyCustWeightReqHeader: Record "Wk. Customer Wgt. Req. Header";
         Text001: Label 'The %1 is not within the weekly schedule dates';
 }
 

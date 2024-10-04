@@ -2,7 +2,7 @@ page 50051 "Dl. Weight Dist. By Airline"
 {
     Caption = 'Daily Weight Distribution By Airline';
     PageType = ListPart;
-    SourceTable = 50041;
+    SourceTable = "Dl. Weight Dist. By Airline";
     ApplicationArea = All;
 
     layout
@@ -90,7 +90,7 @@ page 50051 "Dl. Weight Dist. By Airline"
                 {
                     Caption = '& Weight By Customer';
                     Image = EntriesList;
-                    RunObject = Page 50052;
+                    RunObject = Page "Dl. Weight Dist. By Customer";
                     RunPageLink = "Daily No." = FIELD("Daily No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
@@ -106,7 +106,7 @@ page 50051 "Dl. Weight Dist. By Airline"
                 {
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
-                    RunObject = Page 50054;
+                    RunObject = Page "Dl. ULD Allocation By Airline";
                     RunPageLink = "Daily No." = FIELD("Daily No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   Flight = FIELD("Flight Code"),
@@ -137,9 +137,9 @@ page 50051 "Dl. Weight Dist. By Airline"
     var
 
         CapBal: Boolean;
-        Flights: Record 50022;
+        Flights: Record Flight;
 
-    local procedure CalCapacityBalance(WeighDistByAirline: Record 50041)
+    local procedure CalCapacityBalance(WeighDistByAirline: Record "Dl. Weight Dist. By Airline")
     begin
         Rec.CALCFIELDS("Total Capacity Planned");
         Rec.CALCFIELDS("Total Weight Allocated");

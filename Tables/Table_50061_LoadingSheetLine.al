@@ -134,9 +134,9 @@ table 50061 "Loading Sheet Line"
 
             trigger OnValidate()
             var
-                ICPartner: Record 413;
+                ICPartner: Record "IC Partner";
                 ItemCrossReference: Record "Item Reference";
-                PrepmtMgt: Codeunit 441;
+                PrepmtMgt: Codeunit "Prepayment Mgt.";
             begin
                 Item.GET("Item No.");
                 Description := Item.Description;
@@ -274,28 +274,28 @@ table 50061 "Loading Sheet Line"
     end;
 
     var
-        FarmDivision: Record 50013;
-        LoadingSheetULDAllocation: Record 50063;
-        GoodReceiptLine: Record 50051;
-        LoadingSheetHeader: Record 50060;
-        GatePassULDAllocation: Record 50070;
-        LoadingSheetNotifyParty: Record 50064;
-        GRNheader: Record 50052;
-        Consignee: Record 50015;
-        Item: Record 27;
+        FarmDivision: Record "Division/Farm";
+        LoadingSheetULDAllocation: Record "Loading Sheet ULD Allocation";
+        GoodReceiptLine: Record "Good Receipt Line";
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        GatePassULDAllocation: Record "Booking Sheet MAWB Allocation";
+        LoadingSheetNotifyParty: Record "Loading Sheet Notify Party";
+        GRNheader: Record "Good Receipt Header";
+        Consignee: Record Consignee;
+        Item: Record Item;
 
 
-    procedure InsertGatePassFromLoadingSheet(var GatePassLine: Record 50069)
+    procedure InsertGatePassFromLoadingSheet(var GatePassLine: Record "Gate Pass Line")
     var
-        BookingSheetHeader: Record 50068;
-        GatePassLSheetHeader: Record 50068;
-        GatePassLSheetLine: Record 50069;
-        TempGatePassLine: Record 50069;
+        BookingSheetHeader: Record "Gate Pass Header";
+        GatePassLSheetHeader: Record "Gate Pass Header";
+        GatePassLSheetLine: Record "Gate Pass Line";
+        TempGatePassLine: Record "Gate Pass Line";
         TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        LoadingSheetLine: Record 50061;
+        LoadingSheetLine: Record "Loading Sheet Line";
     begin
         SETRANGE("Loading Sheet No.", "Loading Sheet No.");
         SETRANGE("Item No.", "Item No.");

@@ -1,7 +1,7 @@
 page 50089 "Gate Pass"
 {
     PageType = Card;
-    SourceTable = 50068;
+    SourceTable = "Gate Pass Header";
     ApplicationArea = All;
 
     layout
@@ -68,7 +68,7 @@ page 50089 "Gate Pass"
                 {
                 }
             }
-            part(Page; 50090)
+            part(Page; "Gate Pass Subform")
             {
                 SubPageLink = "Gate-Pass No." = FIELD("No.");
             }
@@ -100,10 +100,10 @@ page 50089 "Gate Pass"
                         GatePassHeader.SETRANGE("No.", Rec."No.");
                         IF GatePassHeader.FINDFIRST THEN
                             IF CONFIRM('Do you want to release the shippment?') THEN BEGIN
-                                REPORT.RUNMODAL(50016, TRUE, FALSE, GatePassHeader);
+                                REPORT.RUNMODAL(Report::"Gate Pass", TRUE, FALSE, GatePassHeader);
                                 ReleaseShipment(Rec."No.");
                             END ELSE BEGIN
-                                REPORT.RUNMODAL(50016, TRUE, FALSE, GatePassHeader);
+                                REPORT.RUNMODAL(Report::"Gate Pass", TRUE, FALSE, GatePassHeader);
                             END;
                     end;
                 }
@@ -142,15 +142,15 @@ page 50089 "Gate Pass"
     }
 
     var
-        GatePassHeader: Record 50068;
-        GPLine: Record 50069;
+        GatePassHeader: Record "Gate Pass Header";
+        GPLine: Record "Gate Pass Line";
 
 
     procedure ReleaseShipment(GPno: Code[50])
     var
-        GPline: Record 50069;
-        LoadingSheetULD: Record 50063;
-        GPHeader: Record 50068;
+        GPline: Record "Gate Pass Line";
+        LoadingSheetULD: Record "Loading Sheet ULD Allocation";
+        GPHeader: Record "Gate Pass Header";
     begin
         GPline.RESET;
         GPline.SETRANGE(GPline."Gate-Pass No.", GPno);
@@ -177,8 +177,8 @@ page 50089 "Gate Pass"
 
     procedure CloseMAWB(GPNO: Code[50])
     var
-        LoadingSheetULD: Record 50063;
-        MAWBHeader: Record 50077;
+        LoadingSheetULD: Record "Loading Sheet ULD Allocation";
+        MAWBHeader: Record "MAWB Header 2";
     begin
         GPLine.RESET;
         GPLine.SETRANGE(GPLine."Gate-Pass No.", GPNO);

@@ -2,7 +2,7 @@ page 50092 "Get Loading Sheet Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50061;
+    SourceTable = "Loading Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -59,15 +59,15 @@ page 50092 "Get Loading Sheet Lines"
     end;
 
     var
-        GatePassHeader: Record 50068;
-        TempLoadingSheetLine: Record 50061 temporary;
-        GetLoadingSheets: Codeunit 50005;
+        GatePassHeader: Record "Gate Pass Header";
+        TempLoadingSheetLine: Record "Loading Sheet Line" temporary;
+        GetLoadingSheets: Codeunit "Export.-Get Loading Sheet";
 
         "Item No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        LoadingSheetLine: Record 50061;
+        LoadingSheetLine: Record "Loading Sheet Line";
     begin
         TempLoadingSheetLine.RESET;
         TempLoadingSheetLine.COPYFILTERS(Rec);
@@ -91,7 +91,7 @@ page 50092 "Get Loading Sheet Lines"
     end;
 
 
-    procedure SetGatePassHeader(var GatePassHeader2: Record 50068)
+    procedure SetGatePassHeader(var GatePassHeader2: Record "Gate Pass Header")
     begin
         GatePassHeader.GET(GatePassHeader2."No.");
     end;

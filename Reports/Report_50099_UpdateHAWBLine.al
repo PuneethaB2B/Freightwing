@@ -50,8 +50,8 @@ report 50099 "Update HAWB Line"
     }
 
     var
-        HAWBLine: Record 50074;
-        BookingSheetHeader: Record 50053;
+        HAWBLine: Record "HAWB Line";
+        BookingSheetHeader: Record "Booking Sheet Header";
         Window: Dialog;
 }
 

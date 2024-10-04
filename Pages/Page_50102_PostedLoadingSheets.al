@@ -3,7 +3,7 @@ page 50102 "Posted Loading Sheets"
     CardPageID = "Posted Loading Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = 50060;
+    SourceTable = "Loading Sheet Header";
     SourceTableView = WHERE(Shipped = FILTER(true));
     ApplicationArea = All;
 
@@ -50,12 +50,12 @@ page 50102 "Posted Loading Sheets"
         {
             action("Run Batch")
             {
-                AccessByPermission = TableData 79 = I;
+                AccessByPermission = TableData "Company Information" = I;
                 Image = ResetStatus;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Report 50067;
+                RunObject = Report "Validate Mawbs";
             }
         }
     }

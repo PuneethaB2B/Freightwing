@@ -54,8 +54,8 @@ report 50073 "Update MAWB receipt Batch"
 
     var
         Window: Dialog;
-        BookingSheetMAWBAllocation: Record 50070;
-        BookingSheetHeader: Record 50053;
-        SalesInvoiceHeader: Record 112;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        BookingSheetHeader: Record "Booking Sheet Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
 }
 

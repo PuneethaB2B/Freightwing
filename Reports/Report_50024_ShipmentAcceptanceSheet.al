@@ -266,6 +266,6 @@ report 50024 "Shipment Acceptance Sheet"
     end;
 
     var
-        CompInfo: Record 79;
+        CompInfo: Record "Company Information";
 }
 

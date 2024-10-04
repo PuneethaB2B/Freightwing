@@ -78,8 +78,8 @@ table 50058 "Booking Sheet FAM Allocations"
     }
 
     var
-        ShipperFarm: Record 50014;
-        Shipper: Record 50011;
-        famAlloc: Record 50058;
+        ShipperFarm: Record "Shipper Farm";
+        Shipper: Record "Shipper Agent";
+        famAlloc: Record "Booking Sheet FAM Allocations";
 }
 

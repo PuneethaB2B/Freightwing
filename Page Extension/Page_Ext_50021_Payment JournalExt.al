@@ -63,9 +63,9 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                     GenJnlLine.SETRANGE(GenJnlLine."Document Type", Rec."Document Type");
                     GenJnlLine.SETRANGE(GenJnlLine."Document No.", Rec."Document No.");
                     IF GenJnlLine.FINDFIRST THEN BEGIN
-                        REPORT.RUN(50061, TRUE, TRUE, GenJnlLine);
+                        REPORT.RUN(Report::"Computer Check", TRUE, TRUE, GenJnlLine);
                         IF CONFIRM('Do you want to Print corresponding RTGS?') THEN BEGIN
-                            REPORT.RUN(50035, TRUE, TRUE, GenJnlLine);
+                            REPORT.RUN(Report::RTGS, TRUE, TRUE, GenJnlLine);
                         END;
                         GenJnlLine."Check Printed" := TRUE;
                         GenJnlLine.MODIFY;
@@ -87,7 +87,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                     GenJnlLine.SETRANGE(GenJnlLine."Document Type", Rec."Document Type");
                     GenJnlLine.SETRANGE(GenJnlLine."Document No.", Rec."Document No.");
                     IF GenJnlLine.FINDFIRST THEN
-                        REPORT.RUN(50029, TRUE, FALSE, GenJnlLine);
+                        REPORT.RUN(Report::"Applied Entries Voucher", TRUE, FALSE, GenJnlLine);
                 end;
             }
             action(Close)
@@ -117,8 +117,8 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
     }
 
     var
-        Vendor: Record 23;
-        CustomerPriceGroup: Record 6;
-        Customer: Record 18;
-        GenJnlLine : Record 81;
+        Vendor: Record Vendor;
+        CustomerPriceGroup: Record "Customer Price Group";
+        Customer: Record Customer;
+        GenJnlLine: Record "Gen. Journal Line";
 }

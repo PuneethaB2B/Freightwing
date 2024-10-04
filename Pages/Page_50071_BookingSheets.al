@@ -3,7 +3,7 @@ page 50071 "Booking Sheets"
     CardPageID = "Booking Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = 50053;
+    SourceTable = "Booking Sheet Header";
     SourceTableView = WHERE(Status = FILTER(Open | Submitted));
     ApplicationArea = All;
 
@@ -59,6 +59,6 @@ page 50071 "Booking Sheets"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

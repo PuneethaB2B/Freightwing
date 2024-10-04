@@ -2,7 +2,7 @@ page 50028 "Freight Charges"
 {
     Caption = 'Charges';
     PageType = List;
-    SourceTable = 50018;
+    SourceTable = "Freight Charge";
     ApplicationArea = All;
 
     layout
@@ -74,7 +74,7 @@ page 50028 "Freight Charges"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50151;
+                    RunObject = Page "Handling Slab Matrix";
                     RunPageLink = "Freight Charge Code" = FIELD(Code);
 
                     trigger OnAction()
@@ -91,6 +91,6 @@ page 50028 "Freight Charges"
 
     var
         Text000: Label 'Handling Slab applicable only for Handling Charges';
-        HandlingSlabMatrix: Record 50045;
+        HandlingSlabMatrix: Record "Handling Slab Matrix";
 }
 

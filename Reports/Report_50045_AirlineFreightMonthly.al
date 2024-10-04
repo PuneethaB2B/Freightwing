@@ -113,13 +113,13 @@ report 50045 "Airline Freight Monthly"
     var
         gDecItemTotalWeight: Decimal;
         gDecItemTotalAmount: Decimal;
-        gRecAirline: Record 50021;
+        gRecAirline: Record Airline;
         gCodeTempMawbNo: Code[20];
-        gDecPurchInvLine: Record 123;
-        gRecMAWBLine: Record 50076;
+        gDecPurchInvLine: Record "Purch. Inv. Line";
+        gRecMAWBLine: Record "MAWB Line";
         gCodeItemNo: Code[20];
         gCodeItemDesc: Text[50];
-        gRecCompanyInfo: Record 79;
+        gRecCompanyInfo: Record "Company Information";
         gBoolIncludeBreakDown: Boolean;
 }
 

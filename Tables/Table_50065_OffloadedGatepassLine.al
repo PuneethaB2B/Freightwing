@@ -186,14 +186,14 @@ table 50065 "Offloaded Gatepass Line"
     end;
 
     var
-        Item: Record 27;
-        LoadingSheetLine: Record 50061;
-        GatePassHeader: Record 50068;
-        GatePassULDAllocation: Record 50070;
-        HAWBLine: Record 50074;
-        HAWBHeader: Record 50075;
-        LoadingSheetULDAlloc: Record 50063;
+        Item: Record Item;
+        LoadingSheetLine: Record "Loading Sheet Line";
+        GatePassHeader: Record "Gate Pass Header";
+        GatePassULDAllocation: Record "Booking Sheet MAWB Allocation";
+        HAWBLine: Record "HAWB Line";
+        HAWBHeader: Record "HAWB Header";
+        LoadingSheetULDAlloc: Record "Loading Sheet ULD Allocation";
         Style: Boolean;
-        Shippers: Record 18;
+        Shippers: Record Customer;
 }
 

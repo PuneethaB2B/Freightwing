@@ -3,7 +3,7 @@ page 50014 "Sales Invoice - Import"
     Caption = 'Sales Invoice';
     PageType = Document;
     RefreshOnActivate = true;
-    SourceTable = 36;
+    SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
     ApplicationArea = All;
 
@@ -118,7 +118,7 @@ page 50014 "Sales Invoice - Import"
                 {
                 }
             }
-            part(SalesLines; 50013)
+            part(SalesLines; "Sales Invoice Subform - Import")
             {
                 SubPageLink = "Document No." = FIELD("No.");
             }
@@ -172,7 +172,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        // ShortcutDimension2CodeOnAfterV;  //naveen
+                        ShortcutDimension2CodeOnAfterV;
                     end;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
@@ -201,15 +201,15 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        //  PricesIncludingVATOnAfterValid;  //naveen
+                        PricesIncludingVATOnAfterValid;
                     end;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("Credit Card No."; "Credit Card No.")
-                {
-                }
+                /*  field("Credit Card No."; "Credit Card No.")
+                 {
+                 } */ //B2BUPG Removed in hiogher version, there is no data against the field.
                 field(GetCreditcardNumber; GetCreditcardNumber)
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
@@ -388,7 +388,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     begin
-                        CalcInvDiscForHeader;
+                        Rec.CalcInvDiscForHeader();
                         COMMIT;
                         PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
@@ -396,14 +396,14 @@ page 50014 "Sales Invoice - Import"
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348 = R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
 
                     trigger OnAction()
                     begin
-                        ShowDocDim;
+                        Rec.ShowDocDim();
                         CurrPage.SAVERECORD;
                     end;
                 }
@@ -444,7 +444,7 @@ page 50014 "Sales Invoice - Import"
                 {
                 }
             }
-            group("Credit Card")
+            group("Credit Card1")
             {
                 Caption = 'Credit Card';
                 Image = CreditCardLog;
@@ -462,7 +462,7 @@ page 50014 "Sales Invoice - Import"
         }
         area(processing)
         {
-            group(Release)
+            group(Release1)
             {
                 Caption = 'Release';
                 Image = ReleaseDoc;
@@ -494,7 +494,7 @@ page 50014 "Sales Invoice - Import"
                         SalesHeader.RESET;
                         SalesHeader.SETRANGE(SalesHeader."No.", Rec."No.");
                         IF SalesHeader.FINDFIRST THEN BEGIN
-                            REPORT.RUN(50095, TRUE, TRUE, SalesHeader);
+                            REPORT.RUN(Report::"Import Invoice", TRUE, TRUE, SalesHeader);
                         END;
                     end;
                 }
@@ -520,7 +520,7 @@ page 50014 "Sales Invoice - Import"
                 Image = "Action";
                 action(CalculateInvoiceDiscount)
                 {
-                    AccessByPermission = TableData 19 = R;
+                    AccessByPermission = TableData "Cust. Invoice Disc." = R;
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
 
@@ -530,7 +530,7 @@ page 50014 "Sales Invoice - Import"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator()
+                separator(fw)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -546,7 +546,7 @@ page 50014 "Sales Invoice - Import"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator(General3)
+                separator(fw1)
                 {
                 }
                 action("Copy Document")
@@ -588,7 +588,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "Approvals Management";
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -600,7 +600,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "Approvals Management";
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
@@ -610,7 +610,7 @@ page 50014 "Sales Invoice - Import"
                 }
                 action(Chargesrecovery)
                 {
-                    AccessByPermission = TableData 110 = R;
+                    AccessByPermission = TableData "Sales Shipment Header" = R;
                     Caption = 'Recover Charges from Petty Cash/LPO';
                     Ellipsis = true;
                     Image = Shipment;
@@ -620,7 +620,7 @@ page 50014 "Sales Invoice - Import"
                     trigger OnAction()
                     begin
                         //GetShipment;
-                        InsertUnrecoveredCharges();
+                        Rec.InsertUnrecoveredCharges();
                     end;
                 }
             }
@@ -653,7 +653,7 @@ page 50014 "Sales Invoice - Import"
             {
                 Caption = 'P&osting';
                 Image = Post;
-                action(Post)
+                action(Post1)
                 {
                     Caption = 'P&ost';
                     Image = PostOrder;
@@ -727,7 +727,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     begin
-                        CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting();
                     end;
                 }
             }
@@ -743,7 +743,7 @@ page 50014 "Sales Invoice - Import"
     trigger OnDeleteRecord(): Boolean
     begin
         CurrPage.SAVERECORD;
-        EXIT(ConfirmDeletion);
+        EXIT(Rec.ConfirmDeletion);
     end;
 
     trigger OnInit()
@@ -759,31 +759,31 @@ page 50014 "Sales Invoice - Import"
     trigger OnOpenPage()
     begin
         IF UserMgt.GetSalesFilter <> '' THEN BEGIN
-            FILTERGROUP(2);
-            SETRANGE(Rec."Responsibility Center", UserMgt.GetSalesFilter);
-            FILTERGROUP(0);
+            Rec.FILTERGROUP(2);
+            Rec.SETRANGE(Rec."Responsibility Center", UserMgt.GetSalesFilter);
+            Rec.FILTERGROUP(0);
         END;
 
         SetDocNoVisible;
     end;
 
     var
-        ChangeExchangeRate: Page "511";
-        CopySalesDoc: Report 292;
-        MoveNegSalesLines: Report 6699;
-        ReportPrint: Codeunit 228;
-        UserMgt: Codeunit 5700;
-        SalesCalcDiscountByType: Codeunit 56;
+        ChangeExchangeRate: Page "Change Exchange Rate";
+        CopySalesDoc: Report "Copy Sales Document";
+        MoveNegSalesLines: Report "Move Negative Sales Lines";
+        ReportPrint: Codeunit "Test Report-Print";
+        UserMgt: Codeunit "User Setup Management";
+        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
 
 
         JobQueueVisible: Boolean;
         DocNoVisible: Boolean;
         ExternalDocNoMandatory: Boolean;
-        SalesHeader: Record 36;
+        SalesHeader: Record "Sales Header";
 
     local procedure Post(PostingCodeunitID: Integer)
     begin
-        SendToPosting(PostingCodeunitID);
+        Rec.SendToPosting(PostingCodeunitID);
         IF rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting" THEN
             CurrPage.CLOSE;
         CurrPage.UPDATE(FALSE);
@@ -796,9 +796,9 @@ page 50014 "Sales Invoice - Import"
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        IF GETFILTER(Rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
+        IF Rec.GETFILTER(Rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
             IF rec."Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
-                SETRANGE(Rec."Sell-to Customer No.");
+                Rec.SETRANGE(Rec."Sell-to Customer No.");
         CurrPage.UPDATE;
     end;
 
@@ -837,7 +837,7 @@ page 50014 "Sales Invoice - Import"
 
     local procedure SetExtDocNoMandatoryCondition()
     var
-        SalesReceivablesSetup: Record 311;
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         SalesReceivablesSetup.GET;
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"

@@ -2,7 +2,7 @@ page 50110 "Posted Loading Sheet Subform"
 {
     Editable = false;
     PageType = ListPart;
-    SourceTable = 50061;
+    SourceTable = "Loading Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -101,7 +101,7 @@ page 50110 "Posted Loading Sheet Subform"
     }
 
     var
-        CompanyInfo: Record 79;
+        CompanyInfo: Record "Company Information";
 
 
     procedure GetBookingSheetLines()

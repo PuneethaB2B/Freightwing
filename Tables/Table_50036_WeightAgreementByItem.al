@@ -74,6 +74,6 @@ table 50036 "Weight Agreement By Item"
     }
 
     var
-        Item: Record 27;
+        Item: Record Item;
 }
 

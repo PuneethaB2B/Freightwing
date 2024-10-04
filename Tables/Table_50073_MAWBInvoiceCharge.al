@@ -158,6 +158,6 @@ table 50073 "MAWB Invoice Charge"
     end;
 
     var
-        Charges: Record 50018;
+        Charges: Record "Freight Charge";
 }
 

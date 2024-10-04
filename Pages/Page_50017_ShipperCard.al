@@ -2,7 +2,7 @@ page 50017 "Shipper Card"
 {
     PageType = Card;
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
-    SourceTable = 18;
+    SourceTable = Customer;
     ApplicationArea = All;
 
     layout
@@ -145,7 +145,7 @@ page 50017 "Shipper Card"
                 field("Block Payment Tolerance"; Rec."Block Payment Tolerance")
                 {
                 }
-                field("Preferred Bank Account"; "Preferred Bank Account")
+                field("Preferred Bank Account Code"; Rec."Preferred Bank Account Code")
                 {
                 }
             }
@@ -198,7 +198,7 @@ page 50017 "Shipper Card"
         }
         area(factboxes)
         {
-            part(Page1; 9080)
+            part(Page1; "Sales Hist. Sell-to FactBox")
             {
                 SubPageLink = "No." = FIELD("No."),
                               "Currency Filter" = FIELD("Currency Filter"),
@@ -207,7 +207,7 @@ page 50017 "Shipper Card"
                               "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                 Visible = true;
             }
-            part(Page2; 9081)
+            part(Page2; "Sales Hist. Bill-to FactBox")
             {
                 SubPageLink = "No." = FIELD("No."),
                               "Currency Filter" = FIELD("Currency Filter"),
@@ -216,7 +216,7 @@ page 50017 "Shipper Card"
                               "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                 Visible = false;
             }
-            part(Page3; 9082)
+            part(Page3; "Customer Statistics FactBox")
             {
                 SubPageLink = "No." = FIELD("No."),
                               "Currency Filter" = FIELD("Currency Filter"),
@@ -225,13 +225,13 @@ page 50017 "Shipper Card"
                               "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                 Visible = true;
             }
-            part(Page4; 9083)
+            part(Page4; "Dimensions FactBox")
             {
                 SubPageLink = "Table ID" = CONST(18),
                              "No." = FIELD("No.");
                 Visible = false;
             }
-            part(Page; 9085)
+            part(Page; "Service Hist. Sell-to FactBox")
             {
                 SubPageLink = "No." = FIELD("No."),
                               "Currency Filter" = FIELD("Currency Filter"),
@@ -240,7 +240,7 @@ page 50017 "Shipper Card"
                               "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                 Visible = false;
             }
-            part(Page5; 9086)
+            part(Page5; "Service Hist. Bill-to FactBox")
             {
                 SubPageLink = "No." = FIELD("No."),
                               "Currency Filter" = FIELD("Currency Filter"),
@@ -276,7 +276,7 @@ page 50017 "Shipper Card"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50019;
+                    RunObject = Page "Shipper Agents";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -296,7 +296,7 @@ page 50017 "Shipper Card"
                     Promoted = true;
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
-                    RunObject = Page 50021;
+                    RunObject = Page "Shipper Farms";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -316,7 +316,7 @@ page 50017 "Shipper Card"
                     Promoted = true;
                     PromotedCategory = Category6;
                     PromotedIsBig = true;
-                    RunObject = Page 50123;
+                    RunObject = Page "Shipper Items";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -336,7 +336,7 @@ page 50017 "Shipper Card"
                     Promoted = true;
                     PromotedCategory = Category7;
                     PromotedIsBig = true;
-                    RunObject = Page 50124;
+                    RunObject = Page "Shipper Notify Parties";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -356,7 +356,7 @@ page 50017 "Shipper Card"
                     Promoted = true;
                     PromotedCategory = Category8;
                     PromotedIsBig = true;
-                    RunObject = Page 50125;
+                    RunObject = Page "Shipper Consignees";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -372,7 +372,7 @@ page 50017 "Shipper Card"
                 action(Email)
                 {
                     Image = Email;
-                    RunObject = Page 50088;
+                    RunObject = Page "Email Config";
                     RunPageLink = Type = CONST(Shipper),
                                   "No." = FIELD("No.");
                 }

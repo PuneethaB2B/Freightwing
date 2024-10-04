@@ -1,6 +1,6 @@
 page 50156 "Pre Alert"
 {
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     ApplicationArea = All;
 
     layout
@@ -98,7 +98,7 @@ page 50156 "Pre Alert"
                     ShowMandatory = true;
                 }
             }
-            part(Page; 50154)
+            part(Page; "Pre Alert Subform")
             {
                 SubPageLink = "Pre Alert No" = FIELD("No.");
             }
@@ -121,7 +121,7 @@ page 50156 "Pre Alert"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50031;
+                    RunObject = Page Flights;
                     RunPageLink = "Flight No." = FIELD("Flight Code"),
                                   "Source Code" = FIELD("Country of Origin"),
                                   "Destination Code" = FIELD("Country of Discharge");

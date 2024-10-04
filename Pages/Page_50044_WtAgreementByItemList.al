@@ -2,7 +2,7 @@ page 50044 "Wt. Agreement By Item List"
 {
     Caption = 'Weight Agreement By Item';
     PageType = List;
-    SourceTable = 50036;
+    SourceTable = "Weight Agreement By Item";
     ApplicationArea = All;
 
     layout

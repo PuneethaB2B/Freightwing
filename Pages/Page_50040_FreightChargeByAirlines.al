@@ -2,7 +2,7 @@ page 50040 "Freight Charge By Airlines"
 {
     CardPageID = "Freight Charge By Airline";
     PageType = List;
-    SourceTable = 50025;
+    SourceTable = "Freight Charge By Airline";
     ApplicationArea = All;
 
     layout
@@ -40,7 +40,7 @@ page 50040 "Freight Charge By Airlines"
     end;
 
     var
-        G: Record 50025;
-        CopyChargesJob: Report 50104;
+        G: Record "Freight Charge By Airline";
+        CopyChargesJob: Report "Copy Charges -Job";
 }
 

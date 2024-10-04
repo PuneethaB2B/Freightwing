@@ -1,7 +1,7 @@
 page 50128 "Received Booking Sheet MAWB"
 {
     PageType = List;
-    SourceTable = 50070;
+    SourceTable = "Booking Sheet MAWB Allocation";
     ApplicationArea = All;
 
     layout
@@ -60,7 +60,7 @@ page 50128 "Received Booking Sheet MAWB"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50073;
+                RunObject = Page "Booking Sheet Consignee Alloca";
                 RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No"),
                               "Airline Code" = FIELD("Airline Code"),
                               "Destination Airport" = FIELD("Destination Airport"),

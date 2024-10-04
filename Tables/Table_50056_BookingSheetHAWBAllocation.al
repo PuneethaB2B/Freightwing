@@ -142,28 +142,28 @@ table 50056 "Booking Sheet HAWB Allocation"
     }
 
     var
-        Consignee: Record 50015;
-        BookingSheetLine: Record 50054;
+        Consignee: Record Consignee;
+        BookingSheetLine: Record "Booking Sheet Line";
         Text001: Label '%1 is not within the Airline Charges Effective Date';
-        HAWBReceipt: Record 50037;
+        HAWBReceipt: Record "HAWB Receipt";
         Text002: Label 'House Airway Bill No. %1 is already assigned';
-        BookingSheetNotifyParty: Record 50057;
-        NotifyParty: Record 50017;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
+        NotifyParty: Record "Notify Party";
         NotifyPartyNo: Code[10];
         NotifyPartyName: Text;
 
 
-    procedure InsertHAWBFromBookingSheetHAWBItem(var HAWBLine: Record 50074)
+    procedure InsertHAWBFromBookingSheetHAWBItem(var HAWBLine: Record "HAWB Line")
     var
-        HAWBHeader: Record 50075;
-        HAWBAllocationHeader: Record 50075;
-        HAWBAllocationLine: Record 50074;
-        TempHAWBLine: Record 50074;
-        TransferOldExtLines: Codeunit 379;
-        ItemTrackingMgt: Codeunit 6500;
+        HAWBHeader: Record "HAWB Header";
+        HAWBAllocationHeader: Record "HAWB Header";
+        HAWBAllocationLine: Record "HAWB Line";
+        TempHAWBLine: Record "HAWB Line";
+        TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
+        ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
     begin
         SETRANGE("Booking Sheet No.", "Booking Sheet No.");
         SETRANGE("Airline Code", "Airline Code");

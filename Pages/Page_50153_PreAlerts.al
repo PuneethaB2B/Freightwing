@@ -2,7 +2,7 @@ page 50153 "Pre Alerts"
 {
     CardPageID = "Pre Alert";
     PageType = List;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("Pre-Alert"));
     ApplicationArea = All;
 

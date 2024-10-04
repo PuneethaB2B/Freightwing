@@ -2,7 +2,7 @@ page 50030 Airlines
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Flights,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 50021;
+    SourceTable = Airline;
     ApplicationArea = All;
 
     layout
@@ -52,7 +52,7 @@ page 50030 Airlines
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50031;
+                    RunObject = Page Flights;
                     RunPageLink = "Airline Code" = FIELD(Code);
 
                     trigger OnAction()

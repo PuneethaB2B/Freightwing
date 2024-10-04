@@ -39,7 +39,7 @@ report 50110 "Update Charges"
     }
 
     var
-        Charges: Record 50072;
-        Ammen: Codeunit 50031;
+        Charges: Record "MAWB Invoice Notify Party";
+        Ammen: Codeunit "Ammend Charges";
 }
 

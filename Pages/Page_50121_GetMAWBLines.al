@@ -2,7 +2,7 @@ page 50121 "Get MAWB Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50076;
+    SourceTable = "MAWB Line";
     ApplicationArea = All;
 
     layout
@@ -82,15 +82,15 @@ page 50121 "Get MAWB Lines"
     end;
 
     var
-        SalesHeader: Record 36;
-        TempMAWBLine: Record 50076 temporary;
-        ExportGetMAWBAllocation: Codeunit 50008;
+        SalesHeader: Record "Sales Header";
+        TempMAWBLine: Record "MAWB Line" temporary;
+        ExportGetMAWBAllocation: Codeunit "Export.-Get MAWB Line";
 
         "MAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        MAWBLine: Record 50076;
+        MAWBLine: Record "MAWB Line";
     begin
         TempMAWBLine.RESET;
         TempMAWBLine.COPYFILTERS(Rec);
@@ -114,7 +114,7 @@ page 50121 "Get MAWB Lines"
     end;
 
 
-    procedure SetSalesHeader(var SalesHeader2: Record 36)
+    procedure SetSalesHeader(var SalesHeader2: Record "Sales Header")
     begin
         SalesHeader.GET(SalesHeader2."Document Type", SalesHeader2."No.");
     end;

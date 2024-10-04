@@ -182,29 +182,29 @@ table 50068 "Gate Pass Header"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        LoadingSheetHeader: Record 50060;
-        Shipper: Record 18;
-        Consignee: Record 50015;
-        GatePassHeader: Record 50068;
-        BookingSheetLine: Record 50054;
-        GatePassLine: Record 50069;
-        BookingSheetLine2: Record 50054;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        Shipper: Record Customer;
+        Consignee: Record Consignee;
+        GatePassHeader: Record "Gate Pass Header";
+        BookingSheetLine: Record "Booking Sheet Line";
+        GatePassLine: Record "Gate Pass Line";
+        BookingSheetLine2: Record "Booking Sheet Line";
         NextLineNo: Decimal;
         HAWBConsignee: Text[255];
-        LoadingSheetLine: Record 50061;
+        LoadingSheetLine: Record "Loading Sheet Line";
         LoadingSheetNos: Text[255];
-        BookingSheetHAWBAllocation: Record 50056;
-        LoadingSheetULDAllocation: Record 50063;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        LoadingSheetULDAllocation: Record "Loading Sheet ULD Allocation";
         ULDNos: Text[255];
-        Airlines: Record 50021;
-        MAWB: Record 50077;
-        HAWBLine: Record 50074;
-        HAWBHeader: Record 50075;
+        Airlines: Record Airline;
+        MAWB: Record "MAWB Header 2";
+        HAWBLine: Record "HAWB Line";
+        HAWBHeader: Record "HAWB Header";
 
 
-    procedure AssistEdit(OldGatePassHeader: Record 50068): Boolean
+    procedure AssistEdit(OldGatePassHeader: Record "Gate Pass Header"): Boolean
     begin
         GatePassHeader := Rec;
         ImportExportSetup.GET;

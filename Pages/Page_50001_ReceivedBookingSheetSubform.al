@@ -5,7 +5,7 @@ page 50001 "Received Booking Sheet Subform"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = ListPart;
-    SourceTable = 50054;
+    SourceTable = "Booking Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -133,8 +133,8 @@ page 50001 "Received Booking Sheet Subform"
     }
 
     var
-        BookingSheetHeader: Record 50053;
-        GoodReceiptHeader: Record 50052;
+        BookingSheetHeader: Record "Booking Sheet Header";
+        GoodReceiptHeader: Record "Good Receipt Header";
 
 
     procedure GetDistributionLines()

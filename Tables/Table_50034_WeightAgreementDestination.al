@@ -82,7 +82,7 @@ table 50034 "Weight Agreement Destination"
     end;
 
     var
-        WeightAgreementByDay: Record 50035;
+        WeightAgreementByDay: Record "Weight Agreement By Day";
         Text001: Label 'You cannot delete this line because there is at least one entries associated with it.';
         i: Integer;
 

@@ -2,7 +2,7 @@ page 50037 "Freight Item Charges"
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Matrix,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 50028;
+    SourceTable = "Freight Item Charge";
     ApplicationArea = All;
 
     layout
@@ -40,7 +40,7 @@ page 50037 "Freight Item Charges"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50038;
+                    RunObject = Page "Freight Item Charge Matrix";
                     RunPageLink = "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
                                   "Item No." = FIELD("Item No."),

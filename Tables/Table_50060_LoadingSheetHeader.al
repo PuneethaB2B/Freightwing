@@ -202,28 +202,28 @@ table 50060 "Loading Sheet Header"
     end;
 
     var
-        Shipper: Record 18;
-        BookingSheetHeader: Record 50053;
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        LoadingSheetLine: Record 50061;
-        BookingSheetLine: Record 50054;
+        Shipper: Record Customer;
+        BookingSheetHeader: Record "Booking Sheet Header";
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        LoadingSheetLine: Record "Loading Sheet Line";
+        BookingSheetLine: Record "Booking Sheet Line";
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
-        ItemJnline: Record 83;
+        ItemJnline: Record "Item Journal Line";
         PostingOption: Integer;
-        ItemLedgerEntry: Record 32;
+        ItemLedgerEntry: Record "Item Ledger Entry";
         Text001: Label 'Loading Sheet %1 does not have any lines';
         Text002: Label 'Ship';
         Text003: Label 'Loading Sheet %1 have not yet been received';
-        LoadingSheetHeader: Record 50060;
+        LoadingSheetHeader: Record "Loading Sheet Header";
         Text004: Label 'Loading Sheet for-';
         Text005: Label 'Are you sure that you want to post the loading sheet';
-        GRNLine: Record 50051;
-        LoadingSheetLines: Record 50061;
-        MAWBReceipt: Record 50039;
-        Header: Record 50060;
-        TempLoadingSheetLine: Record 50061;
+        GRNLine: Record "Good Receipt Line";
+        LoadingSheetLines: Record "Loading Sheet Line";
+        MAWBReceipt: Record "MAWB Receipt";
+        Header: Record "Loading Sheet Header";
+        TempLoadingSheetLine: Record "Loading Sheet Line";
 
 
     procedure LoadingSheetLinesExist(): Boolean
@@ -319,7 +319,7 @@ table 50060 "Loading Sheet Header"
     end;
 
 
-    procedure AssistEdit(OldLoadingSheetHeader: Record 50060): Boolean
+    procedure AssistEdit(OldLoadingSheetHeader: Record "Loading Sheet Header"): Boolean
     begin
         LoadingSheetHeader := Rec;
         ImportExportSetup.GET;
@@ -335,8 +335,8 @@ table 50060 "Loading Sheet Header"
 
     local procedure GetGoodReceiptStatus(GRNNo: Code[50]; GRNMawb: Code[50]; Division: Code[10]; Item: Code[50]) State: Boolean
     var
-        GRNLine1: Record 50051;
-        LoadingSheetLine1: Record 50061;
+        GRNLine1: Record "Good Receipt Line";
+        LoadingSheetLine1: Record "Loading Sheet Line";
         ReceivedBoxes: Decimal;
         ShippedBoxes: Decimal;
     begin
@@ -374,7 +374,7 @@ table 50060 "Loading Sheet Header"
 
     local procedure UpdateLoadingSheetLines(No: Code[50]; MAWb: Code[50])
     var
-        Lines: Record 50061;
+        Lines: Record "Loading Sheet Line";
     begin
     end;
 

@@ -22,7 +22,7 @@ table 50006 "Unrecovered Charge"
 
             trigger OnValidate()
             var
-                PrepaymentMgt: Codeunit 441;
+                PrepaymentMgt: Codeunit "Prepayment Mgt.";
             begin
             end;
         }
