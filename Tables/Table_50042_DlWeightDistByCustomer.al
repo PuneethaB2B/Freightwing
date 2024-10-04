@@ -111,25 +111,25 @@ table 50042 "Dl. Weight Dist. By Customer"
     }
 
     var
-        DailyWeightDistByAirline: Record 50041;
-        Cust: Record 18;
-        DailyWeightDistHeader: Record 50040;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        Cust: Record Customer;
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         Text001: Label 'Do you want to notify: %1';
         Text002: Label 'Do you want to send the notifications';
-        WeightByItem: Record 50043;
-        Flights: Record 50022;
-        ByAirline: Record 50041;
+        WeightByItem: Record "Dl. Weight Dist. By Item";
+        Flights: Record Flight;
+        ByAirline: Record "Dl. Weight Dist. By Airline";
 
 
-    procedure EmailRecords(ShowRequestForm: Boolean; var DailyWeightDistByCust: Record 50042)
+    procedure EmailRecords(ShowRequestForm: Boolean; var DailyWeightDistByCust: Record "Dl. Weight Dist. By Customer")
     begin
         SendRecords(ShowRequestForm, FALSE, DailyWeightDistByCust);
     end;
 
-    local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean; var DailyWeightDistByCust: Record 50042)
+    local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean; var DailyWeightDistByCust: Record "Dl. Weight Dist. By Customer")
     var
-        ReportSelections: Record 77;
+        ReportSelections: Record "Report Selections";
     begin
         /*WITH DailyWeightDistByCust DO BEGIN
           COPY(Rec);
@@ -169,10 +169,10 @@ table 50042 "Dl. Weight Dist. By Customer"
 
     end;
 
-    local procedure SendReport(ReportId: Integer; var DailyWeightDistByCust: Record 50042)
+    local procedure SendReport(ReportId: Integer; var DailyWeightDistByCust: Record "Dl. Weight Dist. By Customer")
     var
-        DocumentMailing: Codeunit 50013;
-        FileManagement: Codeunit 419;
+        DocumentMailing: Codeunit "Export Document-Mailing";
+        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);

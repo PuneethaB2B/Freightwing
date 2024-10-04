@@ -1,6 +1,6 @@
 codeunit 50009 "Export.-Get Goods Receipt"
 {
-    TableNo = 50061;
+    TableNo = "Loading Sheet Line";
 
     trigger OnRun()
     begin
@@ -20,14 +20,14 @@ codeunit 50009 "Export.-Get Goods Receipt"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        GoodReceiptHeader: Record 50052;
-        GoodReceiptLine: Record 50051;
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetLine: Record 50061;
-        GetGoodReceiptLines: Page 50084;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        GoodReceiptLine: Record "Good Receipt Line";
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        GetGoodReceiptLines: Page "Get Goods Receipt Lines";
 
 
-    procedure CreateLoadingSheetLines(var GoodReceiptLine2: Record 50051)
+    procedure CreateLoadingSheetLines(var GoodReceiptLine2: Record "Good Receipt Line")
     var
         TransferLine: Boolean;
     begin
@@ -46,7 +46,7 @@ codeunit 50009 "Export.-Get Goods Receipt"
     end;
 
 
-    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record 50060)
+    procedure SetLoadingSheetHeader(var LoadingSheetHeader2: Record "Loading Sheet Header")
     begin
         LoadingSheetHeader.RESET;
         LoadingSheetHeader.SETRANGE(LoadingSheetHeader."No.", LoadingSheetHeader2."No.");

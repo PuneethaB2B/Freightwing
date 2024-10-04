@@ -3,7 +3,7 @@ page 50082 "FWL Cargo Receipts"
     CardPageID = "FWL Goods Receipt Header";
     InsertAllowed = false;
     PageType = List;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("FWL Receipt"));
     ApplicationArea = All;
 

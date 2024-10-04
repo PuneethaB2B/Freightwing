@@ -3,7 +3,7 @@ page 50083 "Loading Sheets"
     CardPageID = "Loading Sheet";
     Editable = false;
     PageType = List;
-    SourceTable = 50060;
+    SourceTable = "Loading Sheet Header";
     SourceTableView = SORTING("No.")
                       ORDER(Descending)
                       WHERE(Shipped = FILTER(false),

@@ -5,7 +5,7 @@ page 50104 "Archived HAWB"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = 50075;
+    SourceTable = "HAWB Header";
     ApplicationArea = All;
 
     layout

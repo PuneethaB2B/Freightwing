@@ -4,7 +4,7 @@ codeunit 50034 "Using Report Functions"
     trigger OnRun()
     begin
         // Use the REPORT.RUNREQUESTPAGE function to run the request page to get report parameters
-        XmlParameters := REPORT.RUNREQUESTPAGE(116);
+        XmlParameters := REPORT.RUNREQUESTPAGE(Report::Statement);
         CurrentUser := USERID;
 
         // Save the request page parameters to the database table
@@ -34,7 +34,7 @@ codeunit 50034 "Using Report Functions"
 
         Content.CREATEOUTSTREAM(OStream);
 
-        REPORT.SAVEAS(116, XmlParameters, REPORTFORMAT::Pdf, OStream);
+        REPORT.SAVEAS(Report::Statement, XmlParameters, REPORTFORMAT::Pdf, OStream);
 
         Content.CLOSE;
         ReportParameters.GET(116, CurrentUser);
@@ -66,7 +66,7 @@ codeunit 50034 "Using Report Functions"
     end;
 
     var
-        ReportParameters: Record 50001;
+        ReportParameters: Record "Report Request Parameters";
         XmlParameters: Text;
         OStream: OutStream;
         IStream: InStream;
@@ -75,7 +75,7 @@ codeunit 50034 "Using Report Functions"
         TempFileName: Text;
         ClientTempPath: Text;
         SMTP: Codeunit 400;
-        SmtpSetup: Record 409;
+        SmtpSetup: Record "SMTP Mail Setup";
         lTxtBody1: Label 'Dear All,';
         lTxtBody2: Label 'Please find attached Statement of account as at';
         lTxtBody3: Label 'In case of any query noted, please report them to invoice.query@freightwings.co.ke for necessary response';

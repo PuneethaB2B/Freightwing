@@ -134,9 +134,9 @@ report 50074 "Airlines Comodity Report"
     }
 
     var
-        Airline: Record 50021;
-        CompanyInfo: Record 79;
-        Item: Record 27;
+        Airline: Record Airline;
+        CompanyInfo: Record "Company Information";
+        Item: Record Item;
         Filters: Text[250];
         Detailed: Boolean;
         TotalPurchase: Decimal;
@@ -145,7 +145,7 @@ report 50074 "Airlines Comodity Report"
 
     local procedure GetItem(MAWB2: Code[50]) ItemCode: Code[50]
     var
-        BookingSheetMAWBAllocation: Record 50070;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
     begin
         BookingSheetMAWBAllocation.RESET;
         BookingSheetMAWBAllocation.SETRANGE(BookingSheetMAWBAllocation."MAWB No", MAWB2);
@@ -155,8 +155,8 @@ report 50074 "Airlines Comodity Report"
 
     local procedure GetSales(mawb: Code[20]) SalesCost: Decimal
     var
-        SalesInvoiceLine: Record 113;
-        SalesInvoiceHeader: Record 112;
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
     begin
         SalesCost := 0;
         SalesInvoiceLine.RESET;
@@ -175,8 +175,8 @@ report 50074 "Airlines Comodity Report"
 
     local procedure GetPurchase(MAWB1: Code[50]) PurchaseAmount: Decimal
     var
-        PurchInvLine: Record 123;
-        PurchInvHeader: Record 122;
+        PurchInvLine: Record "Purch. Inv. Line";
+        PurchInvHeader: Record "Purch. Inv. Header";
     begin
         PurchInvLine.RESET;
         PurchInvLine.SETRANGE(PurchInvLine."Payment Voucher No.", MAWB1);
@@ -194,9 +194,9 @@ report 50074 "Airlines Comodity Report"
 
     local procedure GetWeight(MAWB3: Code[50]) ShippedWeight: Decimal
     var
-        LoadingSheetLine: Record 50061;
-        MAWBInvoiceCharge: Record 50073;
-        SalesInvoiceLine: Record 113;
+        LoadingSheetLine: Record "Loading Sheet Line";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        SalesInvoiceLine: Record "Sales Invoice Line";
     begin
         MAWBInvoiceCharge.RESET;
         MAWBInvoiceCharge.SETFILTER(MAWBInvoiceCharge."Chargeable Weight", '<>%1', 0);

@@ -68,10 +68,10 @@ report 50063 "Update MAWB Dates"
     }
 
     var
-        bookingsheetmawb: Record 50070;
-        BookingSheet: Record 50053;
-        LoadingSheet: Record 50060;
+        bookingsheetmawb: Record "Booking Sheet MAWB Allocation";
+        BookingSheet: Record "Booking Sheet Header";
+        LoadingSheet: Record "Loading Sheet Header";
         Window: Dialog;
-        Airlines: Record 50021;
+        Airlines: Record Airline;
 }
 

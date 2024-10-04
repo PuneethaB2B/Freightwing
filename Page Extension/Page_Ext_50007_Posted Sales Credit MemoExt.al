@@ -26,7 +26,7 @@ pageextension 50007 PostedSalesCreditMemoExt extends "Posted Sales Credit Memo"
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.ProcessSalesDocument(Rec);
                 end;
@@ -41,7 +41,7 @@ pageextension 50007 PostedSalesCreditMemoExt extends "Posted Sales Credit Memo"
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.GetJSONData(Rec);
                 end;

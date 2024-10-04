@@ -95,38 +95,38 @@ table 50043 "Dl. Weight Dist. By Item"
     }
 
     var
-        OrderBookingHeader: Record 50053;
+        OrderBookingHeader: Record "Booking Sheet Header";
         Day: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
         WeekDay: Text;
-        FreightChargeByAirline: Record 50025;
-        FreightChargeByFlight: Record 50026;
-        FreightChargeByItem: Record 50027;
-        FreightItemCharge: Record 50028;
-        FreightItemChargeMatrix: Record 50029;
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        FreightChargeByFlight: Record "Freight Charge By Flight";
+        FreightChargeByItem: Record "Freight Charge By Item";
+        FreightItemCharge: Record "Freight Item Charge";
+        FreightItemChargeMatrix: Record "Freight Item Charge Matrix";
         Text001: Label 'The %1 is not within the Freight Charge Effective Dates';
-        DailyWeightDistByAirline: Record 50041;
-        DailyWeightDistByCustomer: Record 50042;
-        DailyWeightDistHeader: Record 50040;
-        Item: Record 27;
-        DailyULDAllocationByAirline: Record 50044;
-        BookingSheetULDAllocation: Record 50055;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
+        Item: Record Item;
+        DailyULDAllocationByAirline: Record "Dl. ULD Allocation By Airline";
+        BookingSheetULDAllocation: Record "Booking Sheet ULD Allocation";
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
-        BookingSheetNotifyParty: Record 50057;
-        NotifyParty: Record 50017;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
+        NotifyParty: Record "Notify Party";
         NotifyPartyLineNo: Integer;
-        DlWeightDistByCust: Record 50042;
-        Airports: Record 50019;
+        DlWeightDistByCust: Record "Dl. Weight Dist. By Customer";
+        Airports: Record Airport;
 
 
-    procedure InsertOrderBookingLineFromDailyWeightDistByItem(var OrderBookingLine: Record 50054)
+    procedure InsertOrderBookingLineFromDailyWeightDistByItem(var OrderBookingLine: Record "Booking Sheet Line")
     var
-        OrderBookingHeader: Record 50053;
-        OrderBookingOrderHeader: Record 50053;
-        OrderBookingOrderLine: Record 50054;
-        TempOrderBookingLine: Record 50054;
-        PurchSetup: Record 312;
-        TransferOldExtLines: Codeunit 379;
-        ItemTrackingMgt: Codeunit 6500;
+        OrderBookingHeader: Record "Booking Sheet Header";
+        OrderBookingOrderHeader: Record "Booking Sheet Header";
+        OrderBookingOrderLine: Record "Booking Sheet Line";
+        TempOrderBookingLine: Record "Booking Sheet Line";
+        PurchSetup: Record "Purchases & Payables Setup";
+        TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
+        ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
     begin

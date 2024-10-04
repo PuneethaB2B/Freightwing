@@ -401,40 +401,40 @@ table 50077 "MAWB Header 2"
     end;
 
     var
-        Airport: Record 50019;
-        BKMawb: Record 50070;
-        ExchangeRates1: Record 330;
-        ExchangeRates: Record 330;
+        Airport: Record Airport;
+        BKMawb: Record "Booking Sheet MAWB Allocation";
+        ExchangeRates1: Record "Currency Exchange Rate";
+        ExchangeRates: Record "Currency Exchange Rate";
         Tot: Decimal;
         ChargeBle: Decimal;
-        ExportSetup: Record 50010;
-        LoadingSheetHeader: Record 50060;
+        ExportSetup: Record "Import/Export Setup";
+        LoadingSheetHeader: Record "Loading Sheet Header";
         HasHouses: Boolean;
         LineNo: Integer;
-        MAWBs: Record 50077;
-        BookingSheetMAWBAlloc: Record 50070;
-        MAWBLine4: Record 50076;
-        MAWBInCharges1: Record 50073;
-        MAWBLine2: Record 50076;
-        BookingSheetLine: Record 50054;
-        MAWBLine: Record 50076;
-        BookingSheetLine2: Record 50054;
+        MAWBs: Record "MAWB Header 2";
+        BookingSheetMAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        MAWBLine4: Record "MAWB Line";
+        MAWBInCharges1: Record "MAWB Invoice Charge";
+        MAWBLine2: Record "MAWB Line";
+        BookingSheetLine: Record "Booking Sheet Line";
+        MAWBLine: Record "MAWB Line";
+        BookingSheetLine2: Record "Booking Sheet Line";
         ShipperCount: Integer;
-        Shipper: Record 18;
-        BookingSheetHAWBAllocation: Record 50056;
-        Consignee: Record 50015;
-        HAWBLine: Record 50074;
-        HAWBLine2: Record 50074;
+        Shipper: Record Customer;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        Consignee: Record Consignee;
+        HAWBLine: Record "HAWB Line";
+        HAWBLine2: Record "HAWB Line";
         TotalQuantity: Decimal;
         SplitFactor: Decimal;
-        MAWBReceipt: Record 50039;
-        MAWBHeader: Record 50077;
-        FreightChargeByAirline: Record 50025;
-        FreightChargeByFlight: Record 50026;
-        FreightChargeByItem: Record 50027;
-        FreightItemCharge: Record 50028;
-        FreightItemChargeMatrix: Record 50029;
-        MAWBInvoiceCharge: Record 50073;
+        MAWBReceipt: Record "MAWB Receipt";
+        MAWBHeader: Record "MAWB Header 2";
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        FreightChargeByFlight: Record "Freight Charge By Flight";
+        FreightChargeByItem: Record "Freight Charge By Item";
+        FreightItemCharge: Record "Freight Item Charge";
+        FreightItemChargeMatrix: Record "Freight Item Charge Matrix";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
         CostAmount: Decimal;
         SalesAmount: Decimal;
         VATAmount: Decimal;
@@ -444,33 +444,33 @@ table 50077 "MAWB Header 2"
         SplitVATAmount: Decimal;
         SplitMarginAmount: Decimal;
         SplitSalesAmountIncVAT: Decimal;
-        MAWBInvoiceNotifyParty: Record 50072;
-        NotifyParty: Record 50017;
+        MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party";
+        NotifyParty: Record "Notify Party";
         Text50000: Label '-VAT';
         Text50001: Label '%1 %2 does not have any lines';
         Text50002: Label 'Do you want to calculate total charges for %1 %2?';
         Text50003: Label 'Do you want to split %1 %2?';
         Text50004: Label 'The booking date is not within the allowed flight charge effective dates';
-        GenJnlLine: Record 81;
-        VATPostingSetup: Record 325;
-        Currency: Record 4;
+        GenJnlLine: Record "Gen. Journal Line";
+        VATPostingSetup: Record "VAT Posting Setup";
+        Currency: Record Currency;
         TotalWeight: Decimal;
-        MAWBLineCharge: Record 50004;
-        UnrecoveredCharge: Record 50006;
+        MAWBLineCharge: Record "MAWB Line Charge";
+        UnrecoveredCharge: Record "Unrecovered Charge";
         TotalAmount: Decimal;
         PreviousT0weight: Decimal;
         PreviousT0weight2: Decimal;
-        FreightCharge: Record 50018;
-        VATPostingSetup2: Record 325;
-        ImportExportSetup: Record 50010;
-        GeneralLedgerSetup: Record 98;
-        MAWBReceipt2: Record 50039;
+        FreightCharge: Record "Freight Charge";
+        VATPostingSetup2: Record "VAT Posting Setup";
+        ImportExportSetup: Record "Import/Export Setup";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        MAWBReceipt2: Record "MAWB Receipt";
         MAWBReceiptdate: Date;
         InvoiceCurrency: Code[10];
-        ImpExpSetup: Record 50010;
-        BookingSheetMawbAllocation: Record 50070;
-        LoadingSheetLine: Record 50061;
-        gRecCustomer: Record 18;
+        ImpExpSetup: Record "Import/Export Setup";
+        BookingSheetMawbAllocation: Record "Booking Sheet MAWB Allocation";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        gRecCustomer: Record Customer;
 
 
     procedure DistinctRec()
@@ -510,15 +510,15 @@ table 50077 "MAWB Header 2"
 
     procedure CalculateMAWBCharges()
     var
-        BookingSheetLine: Record 50054;
-        Customer: Record 18;
-        FreightCharge: Record 50018;
-        HandlingSlab: Record 50045;
+        BookingSheetLine: Record "Booking Sheet Line";
+        Customer: Record Customer;
+        FreightCharge: Record "Freight Charge";
+        HandlingSlab: Record "Handling Slab Matrix";
         TotalSales: Decimal;
-        Items: Record 27;
+        Items: Record Item;
         FreightCost: Decimal;
-        FreightCharge3: Record 50018;
-        MAWBInvoiceCharge3: Record 50073;
+        FreightCharge3: Record "Freight Charge";
+        MAWBInvoiceCharge3: Record "MAWB Invoice Charge";
         Text002: Label 'Freight charge  has already been calculated';
     begin
         //=====================Philip==========
@@ -769,20 +769,20 @@ table 50077 "MAWB Header 2"
 
     procedure CalculateHandlingFees()
     var
-        BookingSheetLine: Record 50054;
-        Customer: Record 18;
-        FreightCharge: Record 50018;
-        HandlingSlab: Record 50045;
+        BookingSheetLine: Record "Booking Sheet Line";
+        Customer: Record Customer;
+        FreightCharge: Record "Freight Charge";
+        HandlingSlab: Record "Handling Slab Matrix";
         TotalSales: Decimal;
-        Items: Record 27;
+        Items: Record Item;
         FreightCost: Decimal;
-        MAWBInvoiceCharge: Record 50073;
-        HandlingSlabMatrix: Record 50045;
-        FreightItemCharge: Record 50028;
-        FreightCharge2: Record 50018;
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        HandlingSlabMatrix: Record "Handling Slab Matrix";
+        FreightItemCharge: Record "Freight Item Charge";
+        FreightCharge2: Record "Freight Charge";
         Text001: Label 'Are you sure that you want to calculate the Handling fees?';
-        FreightCharge3: Record 50018;
-        MAWBInvoiceCharge3: Record 50073;
+        FreightCharge3: Record "Freight Charge";
+        MAWBInvoiceCharge3: Record "MAWB Invoice Charge";
         Text002: Label 'Handling Fee has already been calculated';
     begin
         FreightCharge3.RESET;
@@ -859,7 +859,7 @@ table 50077 "MAWB Header 2"
 
     procedure ClearCalculatedCharges("MAWB No": Code[50])
     var
-        CalculatedCharges: Record 50073;
+        CalculatedCharges: Record "MAWB Invoice Charge";
     begin
         CalculatedCharges.RESET;
         CalculatedCharges.SETRANGE(CalculatedCharges."MAWB No.", "MAWB No");
@@ -871,8 +871,8 @@ table 50077 "MAWB Header 2"
 
     procedure ArchiveHouses("MAWB No": Code[50])
     var
-        HAWBHeaders: Record 50075;
-        HAWBLines: Record 50074;
+        HAWBHeaders: Record "HAWB Header";
+        HAWBLines: Record "HAWB Line";
     begin
         HAWBHeaders.RESET;
         HAWBHeaders.SETRANGE(HAWBHeaders."MAWB No.", "MAWB No");
@@ -887,8 +887,8 @@ table 50077 "MAWB Header 2"
 
     local procedure CountMAWb(MAWB: Code[40]) Equal: Boolean
     var
-        HAWB: Record 50074;
-        Fams: Record 50058;
+        HAWB: Record "HAWB Line";
+        Fams: Record "Booking Sheet FAM Allocations";
         i: Integer;
         j: Integer;
     begin

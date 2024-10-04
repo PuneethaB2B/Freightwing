@@ -16,7 +16,7 @@ pageextension 50044 ApprovalEntriesExt extends "Approval Entries"
                     SalesHeader.RESET;
                     SalesHeader.SETRANGE("No.", Rec."Document No.");
                     IF SalesHeader.FINDFIRST THEN
-                        REPORT.RUNMODAL(50039, TRUE, FALSE, SalesHeader)
+                        REPORT.RUNMODAL(Report::"MAWB Invoice TP", TRUE, FALSE, SalesHeader)
                     ELSE
                         MESSAGE('The Sales Invoice type cannot be previewed');
                 END;

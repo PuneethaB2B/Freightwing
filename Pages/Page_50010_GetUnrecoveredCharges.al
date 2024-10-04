@@ -1,7 +1,7 @@
 page 50010 "Get Unrecovered Charges"
 {
     PageType = List;
-    SourceTable = 50006;
+    SourceTable = "Unrecovered Charge";
     ApplicationArea = All;
 
     layout

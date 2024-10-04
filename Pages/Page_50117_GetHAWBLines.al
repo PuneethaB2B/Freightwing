@@ -2,7 +2,7 @@ page 50117 "Get HAWB Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50074;
+    SourceTable = "HAWB Line";
     ApplicationArea = All;
 
     layout
@@ -56,15 +56,15 @@ page 50117 "Get HAWB Lines"
     end;
 
     var
-        MAWBHeader: Record 50077;
-        TempHAWBLine: Record 50074 temporary;
-        ExportGetHAWBAllocation: Codeunit 50006;
+        MAWBHeader: Record "MAWB Header 2";
+        TempHAWBLine: Record "HAWB Line" temporary;
+        ExportGetHAWBAllocation: Codeunit "Export.-Get HAWB Line";
 
         "MAWB No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        HAWBLine: Record 50074;
+        HAWBLine: Record "HAWB Line";
     begin
         TempHAWBLine.RESET;
         TempHAWBLine.COPYFILTERS(Rec);
@@ -88,7 +88,7 @@ page 50117 "Get HAWB Lines"
     end;
 
 
-    procedure SetMAWBHeader(var MAWBHeader2: Record 50077)
+    procedure SetMAWBHeader(var MAWBHeader2: Record "MAWB Header 2")
     begin
         MAWBHeader.GET(MAWBHeader2."No.");
     end;

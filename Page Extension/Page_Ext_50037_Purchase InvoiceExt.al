@@ -69,8 +69,8 @@ pageextension 50037 MyExtension extends "Purchase Invoice"
         }
     }
     var
-        Dim: Codeunit 50028;
-        InvLines: Record 39;
-        TBLPurchaseInvoiceHeader: Record 38;
-        TBLPurchInvHeader: Record 122;
+        Dim: Codeunit "Invoicing Set Dimensions";
+        InvLines: Record "Purchase Line";
+        TBLPurchaseInvoiceHeader: Record "Purchase Header";
+        TBLPurchInvHeader: Record "Purch. Inv. Header";
 }

@@ -2,7 +2,7 @@ page 50155 "MAWB Invoice Entries"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 17;
+    SourceTable = "G/L Entry";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             "System-Created Entry" = FILTER(false));
     ApplicationArea = All;

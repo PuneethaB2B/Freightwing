@@ -159,6 +159,6 @@ report 50056 "Weight Distributions"
     }
 
     var
-        CompanyInfo: Record 79;
+        CompanyInfo: Record "Company Information";
 }
 

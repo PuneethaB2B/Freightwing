@@ -93,18 +93,18 @@ table 50040 "Dl. Weight Dist. Header"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        Country: Record 9;
-        DailyWeightDistByItem: Record 50043;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        Country: Record "Country/Region";
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
         Text001: Label 'Daily weight distribution to';
-        DailyWeightDistByAirline: Record 50041;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
         Text002: Label 'You cannot delete Daily Distribution %1 because it has entries associated with it';
-        DailyWeightDistHeader: Record 50040;
-        Dist: Record 50040;
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
+        Dist: Record "Dl. Weight Dist. Header";
 
 
-    procedure AssistEdit(OldDailyWeightDistHeader: Record 50040): Boolean
+    procedure AssistEdit(OldDailyWeightDistHeader: Record "Dl. Weight Dist. Header"): Boolean
     begin
         DailyWeightDistHeader := Rec;
         ImportExportSetup.GET;

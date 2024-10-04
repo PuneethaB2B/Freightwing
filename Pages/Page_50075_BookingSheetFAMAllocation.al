@@ -1,7 +1,7 @@
 page 50075 "Booking Sheet FAM Allocation"
 {
     PageType = List;
-    SourceTable = 50058;
+    SourceTable = "Booking Sheet FAM Allocations";
     ApplicationArea = All;
 
     layout

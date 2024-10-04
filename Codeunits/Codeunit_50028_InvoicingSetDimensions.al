@@ -6,24 +6,24 @@ codeunit 50028 "Invoicing Set Dimensions"
     end;
 
     var
-        DimVal: Record 349;
-        TempDimensionSetEntry: Record 480 temporary;
-        DimMng: Codeunit 408;
-        MAWBAlloc: Record 50070;
-        LoadingSheetLine: Record 50061;
-        Cust: Record 18;
-        Items: Record 27;
-        SalesHeader: Record 36;
-        SalesLine: Record 37;
-        PurchaseHeader: Record 38;
+        DimVal: Record "Dimension Value";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
+        DimMng: Codeunit DimensionManagement;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        Cust: Record Customer;
+        Items: Record Item;
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        PurchaseHeader: Record "Purchase Header";
         Ok: Boolean;
 
 
     procedure SetDimensions(MAWBNo: Code[50]; ShipperCode: Code[50])
     var
-        LoadingSheet: Record 50060;
-        LSLine: Record 50061;
-        LSLine1: Record 50061;
+        LoadingSheet: Record "Loading Sheet Header";
+        LSLine: Record "Loading Sheet Line";
+        LSLine1: Record "Loading Sheet Line";
     begin
         MAWBAlloc.RESET;
         MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No", MAWBNo);
@@ -75,9 +75,9 @@ codeunit 50028 "Invoicing Set Dimensions"
     end;
 
 
-    procedure SetDimensionsPurch(MAWBNo: Code[50]; PurchLine: Record 39)
+    procedure SetDimensionsPurch(MAWBNo: Code[50]; PurchLine: Record "Purchase Line")
     var
-        ls: Record 50060;
+        ls: Record "Loading Sheet Header";
     begin
         MAWBAlloc.RESET;
         MAWBAlloc.SETRANGE(MAWBAlloc."MAWB No", MAWBNo);

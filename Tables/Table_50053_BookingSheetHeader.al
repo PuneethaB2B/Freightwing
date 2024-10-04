@@ -189,25 +189,25 @@ table 50053 "Booking Sheet Header"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        DailyWeightDistByItem: Record 50043;
-        DailyWeightDistHeader: Record 50040;
-        BookingSheetLine: Record 50054;
-        DailyWeightDistByAirline: Record 50041;
-        MAWBReceipt: Record 50039;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
+        BookingSheetLine: Record "Booking Sheet Line";
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        MAWBReceipt: Record "MAWB Receipt";
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
-        ItemJnline: Record 83;
+        ItemJnline: Record "Item Journal Line";
         Text001: Label 'Booking Sheet %1 does not have any lines';
         Text002: Label 'Receive';
         PostingOption: Integer;
         Text003: Label 'Booking Sheet %1 have not yet been received';
-        ItemLedgerEntry: Record 32;
-        Shipper: Record 18;
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        Shipper: Record Customer;
         Text004: Label 'You cannot delete Booking Sheet %1 because it has entries associated with it';
         Text005: Label 'Booking Sheet for';
-        BookingSheetHeader: Record 50053;
+        BookingSheetHeader: Record "Booking Sheet Header";
 
 
     procedure BookingSheetLinesExist(): Boolean
@@ -293,7 +293,7 @@ table 50053 "Booking Sheet Header"
     end;
 
 
-    procedure AssistEdit(OldBookingSheetHeader: Record 50053): Boolean
+    procedure AssistEdit(OldBookingSheetHeader: Record "Booking Sheet Header"): Boolean
     begin
         BookingSheetHeader := Rec;
         ImportExportSetup.GET;

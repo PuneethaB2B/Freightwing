@@ -3,7 +3,7 @@ page 50107 "HAWB Subform"
     AutoSplitKey = true;
     Caption = 'House Airway Bill Subform';
     PageType = ListPart;
-    SourceTable = 50074;
+    SourceTable = "HAWB Line";
     ApplicationArea = All;
 
     layout
@@ -114,11 +114,11 @@ page 50107 "HAWB Subform"
     end;
 
     var
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
         BookedWeight: Decimal;
-        HAWBLine: Record 50074;
+        HAWBLine: Record "HAWB Line";
         GrossWeight: Decimal;
-        HAWB: Record 50075;
+        HAWB: Record "HAWB Header";
 
 
     procedure GetHAWBItem()

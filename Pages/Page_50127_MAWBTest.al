@@ -38,6 +38,6 @@ page 50127 "MAWB Test"
 
     var
         "MAWB No": Code[50];
-        MAWBTe: Codeunit 50031;
+        MAWBTe: Codeunit "Ammend Charges";
 }
 

@@ -66,7 +66,7 @@ table 50049 "Good Receipt Notify Party"
     }
 
     var
-        ShipperNotifyParty: Record 50067;
+        ShipperNotifyParty: Record "Shipper Notify Party";
         Text001: Label 'Do you want to notify: %1';
 
 
@@ -77,9 +77,9 @@ table 50049 "Good Receipt Notify Party"
 
     local procedure SendRecords(ShowRequestForm: Boolean; SendAsEmail: Boolean)
     var
-        ReportSelections: Record 77;
-        GoodReceiptNotifyParty: Record 50049;
-        BookingSheetHeader: Record 50053;
+        ReportSelections: Record "Report Selections";
+        GoodReceiptNotifyParty: Record "Good Receipt Notify Party";
+        BookingSheetHeader: Record "Booking Sheet Header";
     begin
         GoodReceiptNotifyParty.COPY(Rec);
         ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"Goods Receipt Note");
@@ -98,10 +98,10 @@ table 50049 "Good Receipt Notify Party"
         UNTIL ReportSelections.NEXT = 0;
     end;
 
-    local procedure SendReport(ReportId: Integer; var GoodReceiptNotifyParty: Record 50049)
+    local procedure SendReport(ReportId: Integer; var GoodReceiptNotifyParty: Record "Good Receipt Notify Party")
     var
-        DocumentMailing: Codeunit 50013;
-        FileManagement: Codeunit 419;
+        DocumentMailing: Codeunit "Export Document-Mailing";
+        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
     begin
         ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);

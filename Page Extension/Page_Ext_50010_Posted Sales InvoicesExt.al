@@ -59,7 +59,7 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
                     SalesInvoiceHeader.RESET;
                     SalesInvoiceHeader.SETRANGE(SalesInvoiceHeader."No.", Rec."No.");
                     IF SalesInvoiceHeader.FINDFIRST THEN BEGIN
-                        REPORT.RUNMODAL(50106, TRUE, FALSE, SalesInvoiceHeader);
+                        REPORT.RUNMODAL(Report::"Posted Import Invoice", TRUE, FALSE, SalesInvoiceHeader);
                     END;
                     ;
                 end;
@@ -76,7 +76,7 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
                     SalesInvoiceHeader.RESET;
                     SalesInvoiceHeader.SETRANGE(SalesInvoiceHeader."No.", Rec."No.");
                     IF SalesInvoiceHeader.FINDFIRST THEN BEGIN
-                        REPORT.RUNMODAL(50093, TRUE, FALSE, SalesInvoiceHeader);
+                        REPORT.RUNMODAL(Report::"Posted General Sales Invoice", TRUE, FALSE, SalesInvoiceHeader);
                     END;
                 end;
             }
@@ -92,9 +92,9 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
                     MAWBHeader.SETRANGE(MAWBHeader."No.", Rec."MAWB No.");
                     IF MAWBHeader.FINDFIRST THEN BEGIN
                         IF MAWBHeader."Has Houses" THEN BEGIN
-                            REPORT.RUNMODAL(50070, TRUE, FALSE, SalesInvoiceHeader);
+                            REPORT.RUNMODAL(Report::"Posted MAWB Invoice", TRUE, FALSE, SalesInvoiceHeader);
                         END ELSE BEGIN
-                            REPORT.RUNMODAL(50064, TRUE, FALSE, SalesInvoiceHeader)
+                            REPORT.RUNMODAL(Report::"MAWB Invoice Posted", TRUE, FALSE, SalesInvoiceHeader)
                         END;//Has no houses
                     END ELSE
                         MESSAGE('Documentation for MAWB %1 NOT Found', Rec."MAWB No.");
@@ -114,7 +114,7 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.ProcessSalesDocument(Rec);
                 end;

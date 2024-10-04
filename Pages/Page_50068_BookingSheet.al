@@ -1,7 +1,7 @@
 page 50068 "Booking Sheet"
 {
     PageType = Card;
-    SourceTable = 50053;
+    SourceTable = "Booking Sheet Header";
     ApplicationArea = All;
 
     layout
@@ -51,7 +51,7 @@ page 50068 "Booking Sheet"
                 {
                 }
             }
-            part(BookingSheetSubform; 50069)
+            part(BookingSheetSubform; "Booking Sheet Subform")
             {
                 SubPageLink = "Booking Sheet No." = FIELD("No."),
                               "Booking Date" = FIELD("Booking Date");
@@ -80,7 +80,7 @@ page 50068 "Booking Sheet"
                         BookingSheetHeader.RESET;
                         BookingSheetHeader.SETRANGE("No.", Rec."No.");
                         IF BookingSheetHeader.FINDFIRST THEN BEGIN
-                            REPORT.RUN(50019, TRUE, FALSE, BookingSheetHeader);
+                            REPORT.RUN(Report::"Booking Sheet", TRUE, FALSE, BookingSheetHeader);
                         END;
                     end;
                 }
@@ -163,7 +163,7 @@ page 50068 "Booking Sheet"
 
                     trigger OnAction()
                     begin
-                        PAGE.RUNMODAL(50127);
+                        PAGE.RUNMODAL(Page::"MAWB Test");
                     end;
                 }
             }
@@ -191,11 +191,11 @@ page 50068 "Booking Sheet"
     }
 
     var
-        BookingSheetHeader: Record 50053;
-        BookingSheetLine: Record 50054;
-        MAWBAlloc: Record 50070;
-        BSConsignee: Record 50056;
-        GRNLine: Record 50052;
-        CustomMail: Codeunit 50030;
+        BookingSheetHeader: Record "Booking Sheet Header";
+        BookingSheetLine: Record "Booking Sheet Line";
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        BSConsignee: Record "Booking Sheet HAWB Allocation";
+        GRNLine: Record "Good Receipt Header";
+        CustomMail: Codeunit "Custom Mail";
 }
 

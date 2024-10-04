@@ -458,7 +458,7 @@ report 50019 "Booking Sheet"
         Remks: Text[250];
         "Prepared By": Text;
         CompanyInfo: Record "Company Information";
-        ULDAllocation: Record 50055;
+        ULDAllocation: Record "Booking Sheet ULD Allocation";
         MAWBAlloc: Record "Booking Sheet MAWB Allocation";
         MAWBString: Text[250];
         Flights: Record Flight;

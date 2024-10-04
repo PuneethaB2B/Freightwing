@@ -6,7 +6,7 @@ page 50129 "Received Booking Sheets"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    SourceTable = 50053;
+    SourceTable = "Booking Sheet Header";
     SourceTableView = WHERE(Status = FILTER(Received));
     ApplicationArea = All;
 

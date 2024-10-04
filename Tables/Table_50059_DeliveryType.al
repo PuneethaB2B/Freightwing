@@ -1,7 +1,7 @@
 table 50059 "Delivery Type"
 {
-    DrillDownPageID = 50076;
-    LookupPageID = 50076;
+    DrillDownPageID = "Delivery Types";
+    LookupPageID = "Delivery Types";
 
     fields
     {

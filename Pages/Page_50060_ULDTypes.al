@@ -2,7 +2,7 @@ page 50060 "ULD Types"
 {
     CardPageID = "ULD Type";
     PageType = List;
-    SourceTable = 50031;
+    SourceTable = "ULD Type";
     ApplicationArea = All;
 
     layout

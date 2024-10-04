@@ -122,15 +122,15 @@ table 50017 "Notify Party"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        Cust: Record 18;
-        Consignee: Record 50015;
-        NotifyParty: Record 50017;
-        Employee: Record 5200;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        Cust: Record Customer;
+        Consignee: Record Consignee;
+        NotifyParty: Record "Notify Party";
+        Employee: Record Employee;
 
 
-    procedure AssistEdit(OldNotifyParty: Record 50017): Boolean
+    procedure AssistEdit(OldNotifyParty: Record "Notify Party"): Boolean
     begin
         NotifyParty := Rec;
         ImportExportSetup.GET;

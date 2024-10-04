@@ -14,7 +14,7 @@ page 50095 "Customer Service Role Center"
                 {
                     Visible = false;
                 }
-                part(CopyProfile; 9175)
+                part(CopyProfile; "Copy Profile")
                 {
                 }
             }
@@ -24,12 +24,12 @@ page 50095 "Customer Service Role Center"
                 {
                     Visible = false;
                 }
-                
+
                 part(SalesPerformance; "Sales Performance")
                 {
                     Visible = false;
                 }
-               
+
                 part(TrailingSalesOrdersChart; "Trailing Sales Orders Chart")
                 {
                     Visible = false;
@@ -38,7 +38,7 @@ page 50095 "Customer Service Role Center"
                 {
                     Visible = false;
                 }
-               part(MyCustomers; "My Customers")
+                part(MyCustomers; "My Customers")
                 {
                     Visible = false;
                 }
@@ -72,7 +72,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50055;
+                RunObject = Page "Dl. Weight Distributions";
             }
             action("Booking Sheet")
             {
@@ -80,7 +80,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50071;
+                RunObject = Page "Booking Sheets";
             }
             action("MAWB Receipt")
             {
@@ -88,7 +88,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50049;
+                RunObject = Page "MAWB By Airlines";
             }
             action(Airlines)
             {
@@ -96,7 +96,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50030;
+                RunObject = Page Airlines;
             }
             action(Airports)
             {
@@ -104,7 +104,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50029;
+                RunObject = Page Airports;
             }
             action(Items)
             {
@@ -112,7 +112,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 31;
+                RunObject = Page "Item List";
             }
             action(Shippers)
             {
@@ -120,7 +120,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50018;
+                RunObject = Page "Shipper List";
             }
             action(Farms)
             {
@@ -128,7 +128,7 @@ page 50095 "Customer Service Role Center"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50020;
+                RunObject = Page "Divisions/Farms";
             }
             separator(General2)
             {
@@ -140,14 +140,14 @@ page 50095 "Customer Service Role Center"
                     Promoted = true;
                     PromotedCategory = "Report";
                     PromotedIsBig = true;
-                    RunObject = Report 50019;
+                    RunObject = Report "Booking Sheet";
                 }
                 action("Wight Distribution")
                 {
                     Promoted = true;
                     PromotedCategory = "Report";
                     PromotedIsBig = true;
-                    RunObject = Report 50020;
+                    RunObject = Report "Daily Weight Distribution";
                     Scope = Page;
                 }
             }

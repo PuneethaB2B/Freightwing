@@ -3,7 +3,7 @@ report 50002 "FWL Check"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/FWLCheck.rdl';
     Caption = 'Check';
-    Permissions = TableData 270 = m;
+    Permissions = TableData "Bank Account" = m;
     ApplicationArea = All;
 
     dataset

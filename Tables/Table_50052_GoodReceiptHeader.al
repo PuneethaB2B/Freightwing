@@ -222,28 +222,28 @@ table 50052 "Good Receipt Header"
     end;
 
     var
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
-        DailyWeightDistByItem: Record 50043;
-        DailyWeightDistHeader: Record 50040;
-        BookingSheetLine: Record 50054;
-        DailyWeightDistByAirline: Record 50041;
-        MAWBReceipt: Record 50039;
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
+        BookingSheetLine: Record "Booking Sheet Line";
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        MAWBReceipt: Record "MAWB Receipt";
         JournalTemplate: Code[10];
         JournalBatch: Code[10];
-        ItemJnline: Record 83;
+        ItemJnline: Record "Item Journal Line";
         Text001: Label 'Goods Receipt %1 does not have any lines';
         Text002: Label 'Receive';
         PostingOption: Integer;
         Text003: Label 'Good Receipt %1 have not yet been received';
-        ItemLedgerEntry: Record 32;
-        Shipper: Record 18;
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        Shipper: Record Customer;
         Text004: Label 'You cannot delete Goods Receipt %1 because it has entries associated with it';
         Text005: Label 'Good Receipt for';
-        GoodReceiptLine: Record 50051;
-        GoodReceiptHeader: Record 50052;
+        GoodReceiptLine: Record "Good Receipt Line";
+        GoodReceiptHeader: Record "Good Receipt Header";
         NextLineNo: Decimal;
-        BookingSheet: Record 50053;
+        BookingSheet: Record "Booking Sheet Header";
 
 
     procedure GoodReceiptLinesExist(): Boolean
@@ -330,7 +330,7 @@ table 50052 "Good Receipt Header"
     end;
 
 
-    procedure AssistEdit(OldGoodReceiptHeader: Record 50052): Boolean
+    procedure AssistEdit(OldGoodReceiptHeader: Record "Good Receipt Header"): Boolean
     begin
         GoodReceiptHeader := Rec;
         ImportExportSetup.GET;
@@ -347,8 +347,8 @@ table 50052 "Good Receipt Header"
 
     procedure CloseBookingSheet(BookingSheetNo: Code[50])
     var
-        BSHeader: Record 50053;
-        BSLine: Record 50054;
+        BSHeader: Record "Booking Sheet Header";
+        BSLine: Record "Booking Sheet Line";
     begin
         IF BSHeader.GET(BookingSheetNo) THEN BEGIN
             BSLine.RESET;

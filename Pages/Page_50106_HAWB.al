@@ -2,7 +2,7 @@ page 50106 HAWB
 {
     Caption = 'House Airway Bill';
     PageType = Card;
-    SourceTable = 50075;
+    SourceTable = "HAWB Header";
     ApplicationArea = All;
 
     layout
@@ -77,7 +77,7 @@ page 50106 HAWB
                     Editable = false;
                 }
             }
-            part(Page; 50107)
+            part(Page; "HAWB Subform")
             {
                 SubPageLink = "MAWB No." = FIELD("MAWB No."),
                               "Shipper Code" = FIELD("Shipper Code"),

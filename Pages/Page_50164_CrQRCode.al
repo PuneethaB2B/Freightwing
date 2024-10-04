@@ -4,7 +4,7 @@ page 50164 "Cr. QR Code."
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = CardPart;
-    SourceTable = 114;
+    SourceTable = "Sales Cr.Memo Header";
     ApplicationArea = All;
 
     layout
@@ -14,7 +14,7 @@ page 50164 "Cr. QR Code."
             field("Invoice Number"; Rec."Invoice Number")
             {
             }
-            field("Deivice Code";Rec."Device Code")
+            field("Deivice Code"; Rec."Device Code")
             {
             }
             field("QR Code"; Rec."QR Code")

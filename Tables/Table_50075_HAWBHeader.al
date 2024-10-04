@@ -202,23 +202,23 @@ table 50075 "HAWB Header"
     end;
 
     var
-        BookingSheetHAWBAllocation: Record 50056;
-        HAWBLine: Record 50074;
-        BookingSheetLine: Record 50054;
-        Shipper: Record 18;
-        Consignee: Record 50015;
-        HAWBReceipt: Record 50037;
-        HAWBLine2: Record 50074;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        HAWBLine: Record "HAWB Line";
+        BookingSheetLine: Record "Booking Sheet Line";
+        Shipper: Record Customer;
+        Consignee: Record Consignee;
+        HAWBReceipt: Record "HAWB Receipt";
+        HAWBLine2: Record "HAWB Line";
         TotalQuantity: Decimal;
-        BookingSheetHAWBAlloc: Record 50056;
-        HAWBLine3: Record 50074;
+        BookingSheetHAWBAlloc: Record "Booking Sheet HAWB Allocation";
+        HAWBLine3: Record "HAWB Line";
         NextLineNo: Decimal;
-        ImpExpSetup: Record 50010;
-        BookingSheetMAWBAlloc: Record 50070;
-        LoadingSheet: Record 50061;
-        loadingSheetHeader: Record 50060;
-        Consignees: Record 50015;
-        HAWBHeader: Record 50075;
-        HAWBLine1: Record 50074;
+        ImpExpSetup: Record "Import/Export Setup";
+        BookingSheetMAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        LoadingSheet: Record "Loading Sheet Line";
+        loadingSheetHeader: Record "Loading Sheet Header";
+        Consignees: Record Consignee;
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine1: Record "HAWB Line";
 }
 

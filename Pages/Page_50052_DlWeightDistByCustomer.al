@@ -3,7 +3,7 @@ page 50052 "Dl. Weight Dist. By Customer"
     Caption = 'Daily Weight Distribution By Customer';
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Weight,Notification,C6,C7,C8,C9,C10';
-    SourceTable = 50042;
+    SourceTable = "Dl. Weight Dist. By Customer";
     ApplicationArea = All;
 
     layout
@@ -44,7 +44,7 @@ page 50052 "Dl. Weight Dist. By Customer"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50053;
+                    RunObject = Page "Dl. Weight Dist. By Item";
                     RunPageLink = "Daily No." = FIELD("Daily No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Destination Code" = FIELD("Destination Code"),
@@ -72,7 +72,7 @@ page 50052 "Dl. Weight Dist. By Customer"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record 112;
+                        SalesInvHeader: Record "Sales Invoice Header";
                     begin
                         //DailyWeightDistByCustomer := Rec;
                         //CurrPage.SETSELECTIONFILTER(DailyWeightDistByCustomer);
@@ -112,10 +112,10 @@ page 50052 "Dl. Weight Dist. By Customer"
     end;
 
     var
-        DailyWeightDistByAirline: Record 50041;
-        DailyWeightDistByCustomer: Record 50042;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
         Text001: Label 'Do you want to send the notifications';
-        DailyWeightDistByCustomer2: Record 50042;
-        WeightByItem: Record 50043;
+        DailyWeightDistByCustomer2: Record "Dl. Weight Dist. By Customer";
+        WeightByItem: Record "Dl. Weight Dist. By Item";
 }
 

@@ -68,7 +68,7 @@ report 50012 MAWB
             }
             dataitem("MAWB Line"; "MAWB Line")
             {
-                DataItemLink = "MAWB No."=FIELD("No.");
+                DataItemLink = "MAWB No." = FIELD("No.");
                 column(MAWBNo_MAWBLine; "MAWB Line"."MAWB No.")
                 {
                 }
@@ -147,7 +147,7 @@ report 50012 MAWB
             }
             dataitem("HAWB Header2"; "HAWB Header")
             {
-                DataItemLink = "MAWB No."=FIELD("No.");
+                DataItemLink = "MAWB No." = FIELD("No.");
                 column(No_HAWBHeader; "HAWB Header2"."No.")
                 {
                 }

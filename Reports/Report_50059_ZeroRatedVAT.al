@@ -253,19 +253,19 @@ report 50059 "Zero Rated VAT"
     }
 
     var
-        Cust: Record 18;
-        Vend: Record 23;
+        Cust: Record Customer;
+        Vend: Record Vendor;
         Name: Text[250];
-        Setup: Record 50010;
+        Setup: Record "Import/Export Setup";
         PIN: Code[50];
         Origin: Code[10];
         Dest: Code[10];
-        BSMawb: Record 50070;
-        InvLine: Record 113;
-        PurchInvLine: Record 123;
+        BSMawb: Record "Booking Sheet MAWB Allocation";
+        InvLine: Record "Sales Invoice Line";
+        PurchInvLine: Record "Purch. Inv. Line";
         Desc: Text[250];
-        SalesCrMemoLine: Record 115;
-        SalesInvoiceHeader: Record 112;
-        SalesCrMemoHeader: Record 114;
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesCrMemoHeader: Record "Sales Cr.Memo Header";
 }
 

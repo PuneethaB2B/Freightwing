@@ -69,6 +69,6 @@ tableextension 50013 ShippingAgentExt extends "Shipping Agent"
     }
 
     var
-        PostCode: Record 225;
+        PostCode: Record "Post Code";
 }
 

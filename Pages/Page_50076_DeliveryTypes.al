@@ -1,7 +1,7 @@
 page 50076 "Delivery Types"
 {
     PageType = List;
-    SourceTable = 50059;
+    SourceTable = "Delivery Type";
     ApplicationArea = All;
 
     layout

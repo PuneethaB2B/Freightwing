@@ -8,7 +8,7 @@ page 50146 "Posted MAWB Invoice Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     PromotedActionCategories = ' New,Posting,Reports,Documents/Certificates,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 37;
+    SourceTable = "Sales Line";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
     ApplicationArea = All;
 
@@ -128,7 +128,7 @@ page 50146 "Posted MAWB Invoice Subform"
 
                         trigger OnValidate()
                         var
-                            SalesHeader: Record 36;
+                            SalesHeader: Record "Sales Header";
                         begin
                             SalesHeader.GET(Rec."Document Type", Rec."Document No.");
                             SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount", SalesHeader);
@@ -203,7 +203,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 Image = "Action";
                 action("Get &Price")
                 {
-                    AccessByPermission = TableData 7002 = R;
+                    AccessByPermission = TableData "Sales Price" = R;
                     Caption = 'Get &Price';
                     Ellipsis = true;
                     Image = Price;
@@ -215,7 +215,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action("Get Li&ne Discount")
                 {
-                    AccessByPermission = TableData 7004 = R;
+                    AccessByPermission = TableData "Sales Line Discount" = R;
                     Caption = 'Get Li&ne Discount';
                     Ellipsis = true;
                     Image = LineDiscount;
@@ -227,7 +227,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action("E&xplode BOM")
                 {
-                    AccessByPermission = TableData 90 = R;
+                    AccessByPermission = TableData "BOM Component" = R;
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
 
@@ -238,7 +238,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action("Insert &Ext. Texts")
                 {
-                    AccessByPermission = TableData 279 = R;
+                    AccessByPermission = TableData "Extended Text Header" = R;
                     Caption = 'Insert &Ext. Texts';
                     Image = Text;
 
@@ -249,7 +249,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action(GetShipmentLines)
                 {
-                    AccessByPermission = TableData 110 = R;
+                    AccessByPermission = TableData "Sales Shipment Header" = R;
                     Caption = 'Get &Shipment Lines';
                     Ellipsis = true;
                     Image = Shipment;
@@ -311,7 +311,7 @@ page 50146 "Posted MAWB Invoice Subform"
                     }
                     action(Location)
                     {
-                        AccessByPermission = TableData 14 = R;
+                        AccessByPermission = TableData Location = R;
                         Caption = 'Location';
                         Image = Warehouse;
 
@@ -333,7 +333,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348 = R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
@@ -355,7 +355,7 @@ page 50146 "Posted MAWB Invoice Subform"
                 }
                 action("Item Charge &Assignment")
                 {
-                    AccessByPermission = TableData 5800 = R;
+                    AccessByPermission = TableData "Item Charge" = R;
                     Caption = 'Item Charge &Assignment';
 
                     trigger OnAction()
@@ -383,7 +383,7 @@ page 50146 "Posted MAWB Invoice Subform"
         IF SalesHeader.GET(Rec."Document Type", Rec."Document No.") THEN;
 
         DocumentTotals.SalesUpdateTotalsControls(Rec, TotalSalesHeader, TotalSalesLine, RefreshMessageEnabled,
-          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, VATAmount);
+          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, CurrPage.Editable, VATAmount);
 
         TypeChosen := Rec.Type <> Rec.Type::" ";
     end;
@@ -399,7 +399,7 @@ page 50146 "Posted MAWB Invoice Subform"
 
     trigger OnDeleteRecord(): Boolean
     var
-        ReserveSalesLine: Codeunit 99000832;
+        ReserveSalesLine: Codeunit "Sales Line-Reserve";
     begin
         IF (Rec.Quantity <> 0) AND Rec.ItemExists(Rec."No.") THEN BEGIN
             COMMIT;
@@ -421,14 +421,14 @@ page 50146 "Posted MAWB Invoice Subform"
     end;
 
     var
-        TotalSalesHeader: Record 37;
-        TotalSalesLine: Record 37;
-        SalesHeader: Record 36;
-        TransferExtendedText: Codeunit 378;
-        SalesPriceCalcMgt: Codeunit 7000;
-        ItemAvailFormsMgt: Codeunit 353;
-        SalesCalcDiscByType: Codeunit 56;
-        DocumentTotals: Codeunit 57;
+        TotalSalesHeader: Record "Sales Line";
+        TotalSalesLine: Record "Sales Line";
+        SalesHeader: Record "Sales Header";
+        TransferExtendedText: Codeunit "Transfer Extended Text";
+        SalesPriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
+        ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
+        DocumentTotals: Codeunit "Document Totals";
         VATAmount: Decimal;
         ShortcutDimCode: array[8] of Code[20];
         UpdateAllowedVar: Boolean;
@@ -441,7 +441,7 @@ page 50146 "Posted MAWB Invoice Subform"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
         StyleText: Boolean;
-        TempSalesLine: Record 37 temporary;
+        TempSalesLine: Record "Sales Line" temporary;
         "HAWB No.HideValue": Boolean;
 
 
@@ -579,7 +579,7 @@ page 50146 "Posted MAWB Invoice Subform"
 
     local procedure IsFirstDocLine(): Boolean
     var
-        SalesLine: Record 37;
+        SalesLine: Record "Sales Line";
     begin
         TempSalesLine.RESET;
         TempSalesLine.COPYFILTERS(Rec);
@@ -610,10 +610,10 @@ page 50146 "Posted MAWB Invoice Subform"
 
     local procedure GetDefaultCharges()
     var
-        MAWBReceipt: Record 50039;
-        FreightCharge: Record 50018;
-        SalesLine: Record 37;
-        MAWBLine: Record 50076;
+        MAWBReceipt: Record "MAWB Receipt";
+        FreightCharge: Record "Freight Charge";
+        SalesLine: Record "Sales Line";
+        MAWBLine: Record "MAWB Line";
     begin
         //*******INSERT MAWB CHARGES********
         IF SalesLine.FINDLAST THEN BEGIN

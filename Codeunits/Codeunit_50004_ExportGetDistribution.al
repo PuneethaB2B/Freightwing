@@ -1,6 +1,6 @@
 codeunit 50004 "Export.-Get Distribution"
 {
-    TableNo = 50054;
+    TableNo = "Booking Sheet Line";
 
     trigger OnRun()
     begin
@@ -17,16 +17,16 @@ codeunit 50004 "Export.-Get Distribution"
 
     var
         Text000: Label 'The %1 on the %2 %3 and the %4 %5 must be the same.';
-        OrderBookingHeader: Record 50053;
-        OrderBookingLine: Record 50054;
-        DailyWeightDistHeader: Record 50040;
-        DailyWeightDistByItem: Record 50043;
-        GetOrderBooking: Page 50070;
-        DailyWeightDistByAirline: Record 50041;
-        DailyWeightDistByCustomer: Record 50042;
+        OrderBookingHeader: Record "Booking Sheet Header";
+        OrderBookingLine: Record "Booking Sheet Line";
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
+        GetOrderBooking: Page "Get Distribution Lines";
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
 
 
-    procedure CreateOrderBookingLines(var DailyWeightDistByItem2: Record 50043)
+    procedure CreateOrderBookingLines(var DailyWeightDistByItem2: Record "Dl. Weight Dist. By Item")
     var
         TransferLine: Boolean;
     begin
@@ -46,7 +46,7 @@ codeunit 50004 "Export.-Get Distribution"
     end;
 
 
-    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record 50053)
+    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record "Booking Sheet Header")
     begin
         OrderBookingHeader.GET(OrderBookingHeader2."No.");
     end;

@@ -65,8 +65,8 @@ report 50090 "Validate Dl. Dist"
     }
 
     var
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetLine: Record 50061;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
         Window: Dialog;
         Shipped: Decimal;
 }

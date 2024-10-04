@@ -22,7 +22,7 @@ pageextension 50000 SalesCreditMemoExt extends "Sales Credit Memo"
     }
 
     var
-        MAWBReceipt: Record 50039;
-        SalesInvoiceHeader: Record 112;
+        MAWBReceipt: Record "MAWB Receipt";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
 }
 

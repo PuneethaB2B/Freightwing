@@ -147,7 +147,7 @@ report 50015 "MAWB Invoice"
             }
             dataitem("Sales Line"; "Sales Line")
             {
-                DataItemLink = "Document No."=FIELD("No.");
+                DataItemLink = "Document No." = FIELD("No.");
                 column(VAT_SalesLine; "Sales Line"."VAT %")
                 {
                 }

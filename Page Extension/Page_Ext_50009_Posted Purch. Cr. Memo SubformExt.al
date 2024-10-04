@@ -13,5 +13,5 @@ pageextension 50009 PostedPurchCrMemoSubformExt extends "Posted Purch. Cr. Memo 
                 ApplicationArea = all;
             }
         }
-    }   
+    }
 }

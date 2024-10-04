@@ -1,6 +1,6 @@
 page 50032 "Shipment Update Header"
 {
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     ApplicationArea = All;
 
     layout
@@ -29,7 +29,7 @@ page 50032 "Shipment Update Header"
                 {
                 }
             }
-            part(Page; 50024)
+            part(Page; "Shipment Update Subform")
             {
                 SubPageLink = "Pre Alert No" = FIELD("No.");
             }
@@ -52,7 +52,7 @@ page 50032 "Shipment Update Header"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50026;
+                    RunObject = Page "Notify Party List";
                     RunPageView = WHERE(Type = CONST(Management));
                     Visible = true;
                 }

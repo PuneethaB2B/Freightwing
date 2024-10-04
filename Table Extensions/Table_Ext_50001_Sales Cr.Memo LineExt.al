@@ -2,9 +2,9 @@ tableextension 50001 SaleCrMemoLineExt extends "Sales Cr.Memo Line"
 {
     procedure GetHSCode(): Code[50]
     var
-        HSCodes: Record 50082;
-        GLAccount: Record 15;
-        Item: Record 27;
+        HSCodes: Record "HS Codes";
+        GLAccount: Record "G/L Account";
+        Item: Record Item;
     begin
         CASE Type OF
             Type::"G/L Account":

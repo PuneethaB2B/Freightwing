@@ -197,27 +197,27 @@ table 50016 "IATA Purchase Invoice"
     end;
 
     var
-        PurchaseInvoiceHeader: Record 38;
-        PurchaseInvoiceLine: Record 39;
+        PurchaseInvoiceHeader: Record "Purchase Header";
+        PurchaseInvoiceLine: Record "Purchase Line";
         Text001: Label 'Do you wish to convert MAWB No. %1  into a Purchase Invoice?';
         Text002: Label 'MAWB No. %1 has been converted into a Purchase Invoice number %2';
-        GLAccount: Record 15;
-        Vendors: Record 23;
-        IATAPurchaseInvoice1: Record 50016;
-        IATAPurchaseInvoice: Record 50016;
-        ImportExportSetup: Record 50010;
+        GLAccount: Record "G/L Account";
+        Vendors: Record Vendor;
+        IATAPurchaseInvoice1: Record "IATA Purchase Invoice";
+        IATAPurchaseInvoice: Record "IATA Purchase Invoice";
+        ImportExportSetup: Record "Import/Export Setup";
         LineNo: Integer;
-        Airlines: Record 50021;
-        InvoicingSetDimensions: Codeunit 50028;
+        Airlines: Record Airline;
+        InvoicingSetDimensions: Codeunit "Invoicing Set Dimensions";
         Ok: Boolean;
-        IATAPurchaseInvoice2: Record 50016;
+        IATAPurchaseInvoice2: Record "IATA Purchase Invoice";
 
 
-    procedure ConvertIATATempToPurchInvoice(var IATAPurchaseInvoice: Record 50016)
+    procedure ConvertIATATempToPurchInvoice(var IATAPurchaseInvoice: Record "IATA Purchase Invoice")
     var
-        Vend: Record 23;
+        Vend: Record Vendor;
         Window: Dialog;
-        Airlines: Record 50021;
+        Airlines: Record Airline;
     begin
         Window.OPEN('Converting IATA Lines to Purchase Invoice Lines \Converting Airline #1### \Invoice Number #2### \Adding MAWB #3####');
 
@@ -301,8 +301,8 @@ table 50016 "IATA Purchase Invoice"
 
     local procedure getChargeCode(MAWB: Code[50]) Charge: Code[50]
     var
-        cust: Record 18;
-        ls: Record 50060;
+        cust: Record Customer;
+        ls: Record "Loading Sheet Header";
     begin
         ls.RESET;
         ls.SETRANGE(ls."MAWB No.", MAWB);

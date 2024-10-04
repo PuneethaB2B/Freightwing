@@ -6,7 +6,7 @@ page 50013 "Sales Invoice Subform - Import"
     LinksAllowed = false;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = 37;
+    SourceTable = "Sales Line";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
     ApplicationArea = All;
 
@@ -651,6 +651,7 @@ page 50013 "Sales Invoice Subform - Import"
         }
     }
     
+    
 
     trigger OnAfterGetCurrRecord()
     begin
@@ -821,6 +822,6 @@ page 50013 "Sales Invoice Subform - Import"
         SalesHeader.GET("Document Type","Document No.");
         IF DocumentTotals.SalesCheckNumberOfLinesLimit(SalesHeader) THEN
           DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec,VATAmount,TotalSalesLine);
-        CurrPage.UPDATE;
+        CurrPage.UPDATE();
     end;
 }

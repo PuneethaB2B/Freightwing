@@ -2,7 +2,7 @@ page 50133 "Get Booking Sheet Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50054;
+    SourceTable = "Booking Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -65,14 +65,14 @@ page 50133 "Get Booking Sheet Lines"
     end;
 
     var
-        GoodReceiptHeader: Record 50052;
-        TempBookingSheetLine: Record 50054 temporary;
-        GetBookingSheets: Codeunit 50010;
+        GoodReceiptHeader: Record "Good Receipt Header";
+        TempBookingSheetLine: Record "Booking Sheet Line" temporary;
+        GetBookingSheets: Codeunit "Export.-Get Booking Sheet";
         "BookingSheetNo.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
     begin
         TempBookingSheetLine.RESET;
         TempBookingSheetLine.COPYFILTERS(Rec);
@@ -97,7 +97,7 @@ page 50133 "Get Booking Sheet Lines"
     end;
 
 
-    procedure SetGoodReceiptHeader(var GoodReceiptHeader2: Record 50052)
+    procedure SetGoodReceiptHeader(var GoodReceiptHeader2: Record "Good Receipt Header")
     begin
         GoodReceiptHeader.GET(GoodReceiptHeader2."No.");
     end;

@@ -2,7 +2,7 @@ page 50042 "Wt. Agreement By Dest. Subform"
 {
     Caption = 'Weight Agreement By Destination Subform';
     PageType = ListPart;
-    SourceTable = 50034;
+    SourceTable = "Weight Agreement Destination";
     ApplicationArea = All;
 
     layout
@@ -42,7 +42,7 @@ page 50042 "Wt. Agreement By Dest. Subform"
                 {
                     Caption = '& Weight By Day of Week';
                     Image = EntriesList;
-                    RunObject = Page 50043;
+                    RunObject = Page "Wt. Agreement By Day List";
                     RunPageLink = "Airline Code" = FIELD("Airline Code"),
                                   "Source Code" = FIELD("Source Code"),
                                   "Destination Code" = FIELD("Destination Code"),

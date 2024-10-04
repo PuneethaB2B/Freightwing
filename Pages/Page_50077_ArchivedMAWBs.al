@@ -8,7 +8,7 @@ page 50077 "Archived MAWBs"
     PageType = List;
     RefreshOnActivate = true;
     ShowFilter = true;
-    SourceTable = 50077;
+    SourceTable = "MAWB Header 2";
     SourceTableView = WHERE(Status = FILTER(Archived));
     ApplicationArea = All;
 

@@ -5,7 +5,7 @@ page 50145 "Posted MAWB Invoice"
     PageType = Document;
     PromotedActionCategories = ' New,Process,Reports,Documents & Charges,C5,C6,C7,C8,C9,C10';
     RefreshOnActivate = true;
-    SourceTable = 36;
+    SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             Posted = FILTER(true));
     ApplicationArea = All;
@@ -106,7 +106,7 @@ page 50145 "Posted MAWB Invoice"
                     Importance = Promoted;
                 }
             }
-            part(SalesLines; 50146)
+            part(SalesLines; "Posted MAWB Invoice Subform")
             {
                 SubPageLink = "Document No." = FIELD("No.");
             }
@@ -253,65 +253,65 @@ page 50145 "Posted MAWB Invoice"
                 field("Exit Point"; Rec."Exit Point")
                 {
                 }
-                field(Area;Area)
-        {
+                field("Area"; Rec."Area")
+                {
+                }
+            }
         }
-    }
-}
         area(factboxes)
         {
-            part(SalesHistSelltoFactBox;"Sales Hist. Sell-to FactBox")
+            part(SalesHistSelltoFactBox; "Sales Hist. Sell-to FactBox")
             {
-                SubPageLink = "No."=FIELD("Sell-to Customer No.");
+                SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = false;
             }
-            part(SalesHistBilltoFactBox;"Sales Hist. Bill-to FactBox")
+            part(SalesHistBilltoFactBox; "Sales Hist. Bill-to FactBox")
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No.");
+                SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = false;
             }
-            part(Customer Statistics FactBox;"Customer Statistics FactBox")
+            part(CustomerStatisticsFactBox; "Customer Statistics FactBox")
             {
-                SubPageLink = "No."=FIELD("Bill-to Customer No.");
+                SubPageLink = "No." = FIELD("Bill-to Customer No.");
                 Visible = true;
             }
-            part(CustomerDetailsFactBox;"Customer Details FactBox")
+            part(CustomerDetailsFactBox; "Customer Details FactBox")
             {
-                SubPageLink = "No."=FIELD("Sell-to Customer No.");
+                SubPageLink = "No." = FIELD("Sell-to Customer No.");
                 Visible = true;
             }
-            part(SalesLineFactBox;"Sales Line FactBox")
+            part(SalesLineFactBox; "Sales Line FactBox")
             {
                 Provider = SalesLines;
-                SubPageLink = "Document Type"=FIELD("Document Type"),
-                              "Document No."=FIELD("Document No."),
-                              "Line No."=FIELD("Line No.");
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("Document No."),
+                              "Line No." = FIELD("Line No.");
                 Visible = false;
             }
-            part(ItemInvoicingFactBox;"Item Invoicing FactBox")
+            part(ItemInvoicingFactBox; "Item Invoicing FactBox")
             {
                 Provider = SalesLines;
-                SubPageLink = "No."=FIELD("No.");
+                SubPageLink = "No." = FIELD("No.");
                 Visible = true;
             }
-            part(ApprovalFactBox;"Approval FactBox")
+            part(ApprovalFactBox; "Approval FactBox")
             {
-                SubPageLink = "Table ID"=CONST(36),
-                              "Document Type"=FIELD("Document Type"),
-                              "Document No."=FIELD("No.");
+                SubPageLink = "Table ID" = CONST(36),
+                              "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 Visible = false;
             }
-            part(ResourceDetailsFactBox;"Resource Details FactBox")
+            part(ResourceDetailsFactBox; "Resource Details FactBox")
             {
                 Provider = SalesLines;
-                SubPageLink = "No."=FIELD("No.");
+                SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
-            systempart(;Notes)
+            systempart(Notes1; Notes)
             {
                 Visible = true;
             }
-            systempart(;Links)
+            systempart(Links1; Links)
             {
                 Visible = false;
             }
@@ -338,22 +338,22 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        CalcInvDiscForHeader;
+                        Rec.CalcInvDiscForHeader();
                         COMMIT;
-                        PAGE.RUNMODAL(PAGE::"Sales Statistics",Rec);
+                        PAGE.RUNMODAL(PAGE::"Sales Statistics", Rec);
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348=R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
 
                     trigger OnAction()
                     begin
-                        ShowDocDim;
+                        Rec.ShowDocDim();
                         CurrPage.SAVERECORD;
                     end;
                 }
@@ -361,8 +361,8 @@ page 50145 "Posted MAWB Invoice"
                 {
                     Caption = 'Customer';
                     Image = Customer;
-                    RunObject = Page 21;
-                                    RunPageLink = "No."=FIELD("Sell-to Customer No.");
+                    RunObject = Page "Customer Card";
+                    RunPageLink = "No." = FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -372,9 +372,9 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalEntries: Page 658;
+                        ApprovalEntries: Page "Approval Entries";
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header","Document Type","No.");
+                        ApprovalEntries.SetRecordFilters(DATABASE::"Sales Header", Rec."Document Type", rec."No.");
                         ApprovalEntries.RUN;
                     end;
                 }
@@ -382,12 +382,12 @@ page 50145 "Posted MAWB Invoice"
                 {
                     Caption = 'Co&mments';
                     Image = ViewComments;
-                    RunObject = Page 67;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
-                                  "No."=FIELD("No."),
-                                  "Document Line No."=CONST(0);
+                    RunObject = Page "Sales Comment Sheet";
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No."),
+                                  "Document Line No." = CONST(0);
                 }
-                separator()
+                separator(General1)
                 {
                 }
                 action("Documents/Certificates")
@@ -397,8 +397,8 @@ page 50145 "Posted MAWB Invoice"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50119;
-                                    RunPageLink = "MAWB No"= FIELD("No.");
+                    RunObject = Page "Airport Cargo Receipts";
+                    RunPageLink = "MAWB No" = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
                 action("MAWB Charges")
@@ -408,12 +408,12 @@ page 50145 "Posted MAWB Invoice"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50120;
-                                    RunPageLink = "MAWB No."=FIELD("MAWB No.");
+                    RunObject = Page "MAWB Invoice Charges";
+                    RunPageLink = "MAWB No." = FIELD("MAWB No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                 }
             }
-            group("Credit Card")
+            group("Credit Card1")
             {
                 Caption = 'Credit Card';
                 Image = CreditCardLog;
@@ -423,15 +423,15 @@ page 50145 "Posted MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     RunObject = Page 829;
-                                    RunPageLink = "Document Type"=FIELD("Document Type"),
-                                  "Document No."=FIELD("No."),
-                                  "Customer No."=FIELD("Bill-to Customer No.");
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "Document No." = FIELD("No."),
+                                  "Customer No." = FIELD("Bill-to Customer No.");
                 }
             }
         }
         area(processing)
         {
-            group(Release)
+            group(Release1)
             {
                 Caption = 'Release';
                 Image = ReleaseDoc;
@@ -446,7 +446,7 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualRelease(Rec);
                     end;
@@ -458,12 +458,12 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ReleaseSalesDoc: Codeunit 414;
+                        ReleaseSalesDoc: Codeunit "Release Sales Document";
                     begin
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
                 }
-                separator()
+                separator(General2)
                 {
                 }
             }
@@ -475,7 +475,7 @@ page 50145 "Posted MAWB Invoice"
                 Visible = false;
                 action(CalculateInvoiceDiscount)
                 {
-                    AccessByPermission = TableData 19=R;
+                    AccessByPermission = TableData "Cust. Invoice Disc." = R;
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
 
@@ -485,7 +485,7 @@ page 50145 "Posted MAWB Invoice"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator()
+                separator(General3)
                 {
                 }
                 action(CalculateMAWBCharges)
@@ -498,10 +498,10 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        CalculateMAWBCharges;
+                        Rec.CalculateMAWBCharges();
                     end;
                 }
-                separator()
+                separator(General4)
                 {
                 }
                 action(GetDefaultCharges)
@@ -518,7 +518,7 @@ page 50145 "Posted MAWB Invoice"
                         //GetDefaultCharges;
                     end;
                 }
-                separator()
+                separator(General5)
                 {
                 }
                 action(SplitMAWBInvoice)
@@ -532,10 +532,10 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        SplitMAWBInvoice;
+                        Rec.SplitMAWBInvoice();
                     end;
                 }
-                separator()
+                separator(General6)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -546,12 +546,12 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        StdCustSalesCode: Record 172;
+                        StdCustSalesCode: Record "Standard Customer Sales Code";
                     begin
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator()
+                separator(General7)
                 {
                 }
                 action("Copy Document")
@@ -583,7 +583,7 @@ page 50145 "Posted MAWB Invoice"
                         MoveNegSalesLines.ShowDocument;
                     end;
                 }
-                separator()
+                separator(General8)
                 {
                 }
                 action("Send A&pproval Request")
@@ -593,7 +593,7 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Export F/O Consolidation";
                     begin
                         IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
@@ -605,12 +605,12 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit 439;
+                        ApprovalMgt: Codeunit "Export F/O Consolidation";
                     begin
-                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
+                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
-                separator()
+                separator(General9)
                 {
                 }
             }
@@ -646,7 +646,7 @@ page 50145 "Posted MAWB Invoice"
                 Caption = 'P&osting';
                 Image = Post;
                 Visible = false;
-                action(Post)
+                action(Post1)
                 {
                     Caption = 'P&ost';
                     Image = PostOrder;
@@ -658,7 +658,7 @@ page 50145 "Posted MAWB Invoice"
                     trigger OnAction()
                     begin
                         //Post(CODEUNIT::"Sales-Post (Yes/No)");
-                        PostSalesInvoice;
+                        Rec.PostSalesInvoice();
                     end;
                 }
                 action(Print)
@@ -674,9 +674,9 @@ page 50145 "Posted MAWB Invoice"
                     begin
                         //ReportPrint.PrintSalesHeader(Rec);
                         SalesHeader.RESET;
-                        SalesHeader.SETRANGE("No.","No.");
+                        SalesHeader.SETRANGE("No.", Rec."No.");
                         IF SalesHeader.FINDFIRST THEN
-                          REPORT.RUNMODAL(50015,TRUE,FALSE, SalesHeader);
+                            REPORT.RUNMODAL(Report::"MAWB Invoice", TRUE, FALSE, SalesHeader);
                     end;
                 }
                 action("Post and &Print")
@@ -713,7 +713,7 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices",TRUE,TRUE,Rec);
+                        REPORT.RUNMODAL(REPORT::"Batch Post Sales Invoices", TRUE, TRUE, Rec);
                         CurrPage.UPDATE(FALSE);
                     end;
                 }
@@ -725,7 +725,7 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting();
                     end;
                 }
                 action(Calc)
@@ -738,14 +738,14 @@ page 50145 "Posted MAWB Invoice"
 
     trigger OnAfterGetRecord()
     begin
-        JobQueueVisible := "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting";
+        JobQueueVisible := Rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting";
         SetExtDocNoMandatoryCondition;
     end;
 
     trigger OnDeleteRecord(): Boolean
     begin
         CurrPage.SAVERECORD;
-        EXIT(ConfirmDeletion);
+        EXIT(Rec.ConfirmDeletion);
     end;
 
     trigger OnInit()
@@ -755,39 +755,38 @@ page 50145 "Posted MAWB Invoice"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        "Responsibility Center" := UserMgt.GetSalesFilter;
+        Rec."Responsibility Center" := UserMgt.GetSalesFilter;
     end;
 
     trigger OnOpenPage()
     begin
         IF UserMgt.GetSalesFilter <> '' THEN BEGIN
-          FILTERGROUP(2);
-          SETRANGE("Responsibility Center",UserMgt.GetSalesFilter);
-          FILTERGROUP(0);
+            Rec.FILTERGROUP(2);
+            Rec.SETRANGE(Rec."Responsibility Center", UserMgt.GetSalesFilter);
+            Rec.FILTERGROUP(0);
         END;
 
         SetDocNoVisible;
     end;
 
     var
-        ChangeExchangeRate: Page 511;
-                                CopySalesDoc: Report 292;
-                                MoveNegSalesLines: Report 6699;
-                                ReportPrint: Codeunit 228;
-                                UserMgt: Codeunit 5700;
-                                SalesCalcDiscountByType: Codeunit 56;
+        ChangeExchangeRate: Page "Change Exchange Rate";
+        CopySalesDoc: Report "Copy Sales Document";
+        MoveNegSalesLines: Report "Move Negative Sales Lines";
+        ReportPrint: Codeunit "Test Report-Print";
+        UserMgt: Codeunit "User Setup Management";
+        SalesCalcDiscountByType: Codeunit "Sales - Calc Discount By Type";
 
-                                JobQueueVisible: Boolean;
-                                DocNoVisible: Boolean;
-                                ExternalDocNoMandatory: Boolean;
-                                MAWBLine: Record 50076;
-                                SalesHeader: Record 36;
-                                ApplicationArea = All;
+        JobQueueVisible: Boolean;
+        DocNoVisible: Boolean;
+        ExternalDocNoMandatory: Boolean;
+        MAWBLine: Record "MAWB Line";
+        SalesHeader: Record "Sales Header";
 
     local procedure Post(PostingCodeunitID: Integer)
     begin
-        SendToPosting(PostingCodeunitID);
-        IF "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting" THEN
+        Rec.SendToPosting(PostingCodeunitID);
+        IF rec."Job Queue Status" = rec."Job Queue Status"::"Scheduled for Posting" THEN
             CurrPage.CLOSE;
         CurrPage.UPDATE(FALSE);
     end;
@@ -799,9 +798,9 @@ page 50145 "Posted MAWB Invoice"
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        IF GETFILTER("Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
-            IF "Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
-                SETRANGE("Sell-to Customer No.");
+        IF Rec.GETFILTER(Rec."Sell-to Customer No.") = xRec."Sell-to Customer No." THEN
+            IF rec."Sell-to Customer No." <> xRec."Sell-to Customer No." THEN
+                Rec.SETRANGE(Rec."Sell-to Customer No.");
         CurrPage.UPDATE;
     end;
 
@@ -832,15 +831,15 @@ page 50145 "Posted MAWB Invoice"
 
     local procedure SetDocNoVisible()
     var
-        DocumentNoVisibility: Codeunit 1400;
+        DocumentNoVisibility: Codeunit DocumentNoVisibility;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
-        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice, "No.");
+        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Invoice, Rec."No.");
     end;
 
     local procedure SetExtDocNoMandatoryCondition()
     var
-        SalesReceivablesSetup: Record 311;
+        SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
         SalesReceivablesSetup.GET;
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"

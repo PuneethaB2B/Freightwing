@@ -2,7 +2,7 @@ page 50061 "Wk. Customer Wgt. Requirement"
 {
     Caption = 'Weekly Customer Weight  Requirement';
     PageType = Card;
-    SourceTable = 50047;
+    SourceTable = "Wk. Customer Wgt. Req. Header";
     ApplicationArea = All;
 
     layout
@@ -52,7 +52,7 @@ page 50061 "Wk. Customer Wgt. Requirement"
                 {
                 }
             }
-            part(Page; 50062)
+            part(Page; "Wk. Customer Wgt. Req. Subform")
             {
                 SubPageLink = "Weekly No." = FIELD("No.");
             }

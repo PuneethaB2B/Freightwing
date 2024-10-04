@@ -7,7 +7,7 @@ page 50078 "Archived MAWB"
     PromotedActionCategories = ' New,Process,Reports,Export Invoicing,Third Party  Invoicing,c6,c7,c8,C9,C10';
     RefreshOnActivate = true;
     ShowFilter = false;
-    SourceTable = 50077;
+    SourceTable = "MAWB Header 2";
     ApplicationArea = All;
 
     layout
@@ -162,7 +162,7 @@ page 50078 "Archived MAWB"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50120;
+                    RunObject = Page "MAWB Invoice Charges";
                     RunPageLink = "MAWB No." = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     Visible = false;
@@ -179,7 +179,7 @@ page 50078 "Archived MAWB"
                         MAWBReceipt.RESET;
                         MAWBReceipt.SETRANGE(MAWBReceipt."MAWB No.", Rec."No.");
                         IF MAWBReceipt.FINDFIRST THEN BEGIN
-                            REPORT.RUNMODAL(50036, TRUE, FALSE, MAWBReceipt);
+                            REPORT.RUNMODAL(Report::"MAWB Usage", TRUE, FALSE, MAWBReceipt);
                         END;
                     end;
                 }
@@ -235,7 +235,7 @@ page 50078 "Archived MAWB"
                             MAWBLine.RESET;
                             MAWBLine.SETRANGE(MAWBLine."MAWB No.", Rec."No.");
                             IF MAWBLine.FIND('-') THEN BEGIN
-                                REPORT.RUNMODAL(50063, FALSE, FALSE, MAWBLine);
+                                REPORT.RUNMODAL(Report::"Update MAWB Dates", FALSE, FALSE, MAWBLine);
                             END;
                         END;
                     end;
@@ -274,25 +274,25 @@ page 50078 "Archived MAWB"
     end;
 
     var
-        MAWBS: Record 50077;
+        MAWBS: Record "MAWB Header 2";
         Text0001: Label 'Do you want to archive the MAWB No. ';
-        Ammend: Codeunit 50031;
+        Ammend: Codeunit "Ammend Charges";
         String: Text[250];
         Opt: Integer;
-        MAWBReceipt: Record 50039;
-        MAWBHeader: Record 50077;
-        MAWBLine: Record 50076;
-        HAWBHeader: Record 50075;
-        HAWBLine: Record 50074;
-        MAWBInvoiceCharge: Record 50073;
-        UpdateLog: Codeunit 50032;
-        BKMawb: Record 50070;
-        BKLine: Record 50054;
-        BKLine1: Record 50054;
-        LoadingSheetLine: Record 50061;
+        MAWBReceipt: Record "MAWB Receipt";
+        MAWBHeader: Record "MAWB Header 2";
+        MAWBLine: Record "MAWB Line";
+        HAWBHeader: Record "HAWB Header";
+        HAWBLine: Record "HAWB Line";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
+        UpdateLog: Codeunit "Update Log";
+        BKMawb: Record "Booking Sheet MAWB Allocation";
+        BKLine: Record "Booking Sheet Line";
+        BKLine1: Record "Booking Sheet Line";
+        LoadingSheetLine: Record "Loading Sheet Line";
         TBLTW: Decimal;
         TBLHN: Integer;
-        gCduTBLFunctions: Codeunit 50018;
+        gCduTBLFunctions: Codeunit "TBL Functions";
         gBoolModified: Boolean;
 }
 

@@ -81,7 +81,7 @@ report 50016 "Gate Pass"
             }
             dataitem("Gate Pass Line"; "Gate Pass Line")
             {
-                DataItemLink = "Gate-Pass No."=FIELD("No.");
+                DataItemLink = "Gate-Pass No." = FIELD("No.");
                 column(GatePassNo_GatePassLine; "Gate Pass Line"."Gate-Pass No.")
                 {
                 }
@@ -168,7 +168,7 @@ report 50016 "Gate Pass"
                 }
                 dataitem("Offloaded Gatepass Header"; "Offloaded Gatepass Header")
                 {
-                    DataItemLink = "Gate Pass No"=FIELD("Gate-Pass No.");
+                    DataItemLink = "Gate Pass No" = FIELD("Gate-Pass No.");
                     column(ULDType_OffloadedULDs; "Offloaded Gatepass Header"."ULD Type")
                     {
                     }

@@ -57,8 +57,8 @@ table 50033 "Weight Agreement By Airline"
     end;
 
     var
-        Airline: Record 50021;
-        WeightAgreementDestination: Record 50034;
+        Airline: Record Airline;
+        WeightAgreementDestination: Record "Weight Agreement Destination";
         Text001: Label 'You cannot delete Airline %1 because there is at least one entries associated with it.';
         Text002: Label 'Weight Agreement for';
 }

@@ -3,7 +3,7 @@ page 50018 "Shipper List"
     CardPageID = "Shipper Card";
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
-    SourceTable = 18;
+    SourceTable = Customer;
     ApplicationArea = All;
 
     layout
@@ -71,7 +71,7 @@ page 50018 "Shipper List"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50019;
+                    RunObject = Page "Shipper Agents";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -91,7 +91,7 @@ page 50018 "Shipper List"
                     Promoted = true;
                     PromotedCategory = Category5;
                     PromotedIsBig = true;
-                    RunObject = Page 50021;
+                    RunObject = Page "Shipper Farms";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -111,7 +111,7 @@ page 50018 "Shipper List"
                     Promoted = true;
                     PromotedCategory = Category6;
                     PromotedIsBig = true;
-                    RunObject = Page 50123;
+                    RunObject = Page "Shipper Items";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -131,7 +131,7 @@ page 50018 "Shipper List"
                     Promoted = true;
                     PromotedCategory = Category7;
                     PromotedIsBig = true;
-                    RunObject = Page 50124;
+                    RunObject = Page "Shipper Notify Parties";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()
@@ -151,7 +151,7 @@ page 50018 "Shipper List"
                     Promoted = true;
                     PromotedCategory = Category8;
                     PromotedIsBig = true;
-                    RunObject = Page 50125;
+                    RunObject = Page "Shipper Consignees";
                     RunPageLink = "Shipper Code" = FIELD("No.");
 
                     trigger OnAction()

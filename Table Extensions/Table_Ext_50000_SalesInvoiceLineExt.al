@@ -81,9 +81,9 @@ tableextension 50000 SalesInvoiceLineExt extends "Sales Invoice Line"
 
     procedure GetHSCode(): Code[50]
     var
-        HSCodes: Record 50082;
-        GLAccount: Record 15;
-        Item: Record 27;
+        HSCodes: Record "HS Codes";
+        GLAccount: Record "G/L Account";
+        Item: Record Item;
     begin
         CASE Type OF
             Type::"G/L Account":
@@ -107,6 +107,6 @@ tableextension 50000 SalesInvoiceLineExt extends "Sales Invoice Line"
     var
         Text000: Label 'Invoice No. %1:';
         Text001: Label 'The program cannot find this purchase line.';
-        MAWBLine: Record 50076;
+        MAWBLine: Record "MAWB Line";
 }
 

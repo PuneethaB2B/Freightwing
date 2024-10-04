@@ -40,7 +40,7 @@ report 50005 "Goods Receipt Note NP"
             }
             dataitem("Good Receipt Line"; "Good Receipt Line")
             {
-                DataItemLink = "Good Receipt No."=FIELD("Good Receipt No.");
+                DataItemLink = "Good Receipt No." = FIELD("Good Receipt No.");
                 column(GoodReceiptNo_GoodReceiptLine; "Good Receipt Line"."Good Receipt No.")
                 {
                 }

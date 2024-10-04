@@ -4,7 +4,7 @@ page 50055 "Dl. Weight Distributions"
     CardPageID = "Dl. Weight Distribution";
     PageType = List;
     ShowFilter = false;
-    SourceTable = 50040;
+    SourceTable = "Dl. Weight Dist. Header";
     ApplicationArea = All;
 
     layout
@@ -47,6 +47,6 @@ page 50055 "Dl. Weight Distributions"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

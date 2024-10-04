@@ -164,15 +164,15 @@ report 50089 "Sales Purch Comp"
     var
         SalesLCY: Decimal;
         PurchLCY: Decimal;
-        PurchInvHeader: Record 122;
+        PurchInvHeader: Record "Purch. Inv. Header";
         Ok: Boolean;
         Weight: Decimal;
-        MAWBInvoiceCharge: Record 50073;
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
         Summary: Boolean;
         Losses: Boolean;
-        Airlines: Record 50021;
-        Customers: Record 18;
-        Vendors: Record 23;
+        Airlines: Record Airline;
+        Customers: Record Customer;
+        Vendors: Record Vendor;
         DateFilters: Text;
 }
 

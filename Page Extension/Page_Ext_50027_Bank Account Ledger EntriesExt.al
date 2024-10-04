@@ -32,5 +32,5 @@ pageextension 50027 BankAccountLedgerEntriesExt extends "Bank Account Ledger Ent
 
     var
         statementdate: Date;
-        BankAccountStatement: Record 275;
+        BankAccountStatement: Record "Bank Account Statement";
 }

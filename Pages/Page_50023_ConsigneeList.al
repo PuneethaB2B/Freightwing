@@ -3,7 +3,7 @@ page 50023 "Consignee List"
     CardPageID = "Consignee Card";
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Banks,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 50015;
+    SourceTable = Consignee;
     ApplicationArea = All;
 
     layout
@@ -66,7 +66,7 @@ page 50023 "Consignee List"
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50024;
+                    RunObject = Page "Shipment Update Subform";
                     RunPageLink = "Activity Code" = FIELD("No.");
 
                     trigger OnAction()

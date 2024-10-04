@@ -3,7 +3,7 @@ page 50132 "Goods Receipts"
     CardPageID = "Goods Receipt";
     Editable = false;
     PageType = List;
-    SourceTable = 50052;
+    SourceTable = "Good Receipt Header";
     SourceTableView = WHERE(Received = FILTER(false),
                             Status = FILTER(Open | Submitted));
     ApplicationArea = All;

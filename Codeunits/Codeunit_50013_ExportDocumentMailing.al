@@ -11,7 +11,7 @@ codeunit 50013 "Export Document-Mailing"
         ReportAsPdfFileNameMsg: Label '%1-%2.pdf', Comment = '%1 = Document Type %2 = Invoice No.';
 
 
-    procedure EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record 50042; AttachmentFilePath: Text[250])
+    procedure EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
         Text001: Label 'Daily Weight Distribution';
@@ -26,7 +26,7 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure EmailDailyWeightDistByCustomerFile(AttachmentFilePath: Text[250]; SendEmaillToCustNo: Code[20]; SendEmaillToCustName: Text[50]; EmailDocName: Text[50])
     var
-        TempEmailItem: Record 9500 temporary;
+        TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
         EmailScenario: Enum "Email Scenario";
     begin
@@ -44,9 +44,9 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure GetToAddressFromDailyWeightDistByCustomer(BillToCustomerNo: Code[20]): Text[250]
     var
-        Customer: Record 18;
+        Customer: Record Customer;
         ToAddress: Text;
-        DailyWeightDistByCustomer: Record 50042;
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
     begin
         IF Customer.GET(BillToCustomerNo) THEN
             ToAddress := Customer."E-Mail";
@@ -59,7 +59,7 @@ codeunit 50013 "Export Document-Mailing"
     end;
 
 
-    procedure EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty: Record 50057; AttachmentFilePath: Text[250])
+    procedure EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty: Record "Booking Sheet Notify Party"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
         Text001: Label 'Booking Sheet';
@@ -74,7 +74,7 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure EmailBookingSheetNotifyPartyFile(AttachmentFilePath: Text[250]; SendEmaillToNPNo: Code[20]; SendEmaillToNPName: Text[50]; EmailDocName: Text[50])
     var
-        TempEmailItem: Record 9500 temporary;
+        TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
         EmailScenario: Enum "Email Scenario";
     begin
@@ -92,9 +92,9 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure GetToAddressFromBookingSheetNotifyParty(NotifyPartyNo: Code[20]): Text[250]
     var
-        NotifyParty: Record 50017;
+        NotifyParty: Record "Notify Party";
         ToAddress: Text;
-        BookingSheetNotifyParty: Record 50057;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
     begin
         IF NotifyParty.GET(NotifyPartyNo) THEN
             ToAddress := NotifyParty."E-Mail";
@@ -106,7 +106,7 @@ codeunit 50013 "Export Document-Mailing"
     end;
 
 
-    procedure EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty: Record 50049; AttachmentFilePath: Text[250])
+    procedure EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty: Record "Good Receipt Notify Party"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
         Text001: Label 'Goods Receipt Note';
@@ -121,7 +121,7 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure EmailGoodReceiptNotifyPartyFile(AttachmentFilePath: Text[250]; SendEmaillToNPNo: Code[20]; SendEmaillToNPName: Text[50]; EmailDocName: Text[50])
     var
-        TempEmailItem: Record 9500 temporary;
+        TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
         EmailScenario: Enum "Email Scenario";
     begin
@@ -139,9 +139,9 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure GetToAddressFromGoodReceiptNotifyParty(NotifyPartyNo: Code[20]): Text[250]
     var
-        NotifyParty: Record 50017;
+        NotifyParty: Record "Notify Party";
         ToAddress: Text;
-        BookingSheetNotifyParty: Record 50057;
+        BookingSheetNotifyParty: Record "Booking Sheet Notify Party";
     begin
         IF NotifyParty.GET(NotifyPartyNo) THEN
             ToAddress := NotifyParty."E-Mail";
@@ -153,7 +153,7 @@ codeunit 50013 "Export Document-Mailing"
     end;
 
 
-    procedure EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty: Record 50072; AttachmentFilePath: Text[250])
+    procedure EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party"; AttachmentFilePath: Text[250])
     var
         DocumentType: Text;
         Text001: Label 'MAWB Invoice';
@@ -168,7 +168,7 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure EmailMAWBInvoiceNotifyPartyFile(AttachmentFilePath: Text[250]; SendEmaillToNPNo: Code[20]; SendEmaillToNPName: Text[50]; EmailDocName: Text[50])
     var
-        TempEmailItem: Record 9500 temporary;
+        TempEmailItem: Record "Email Item" temporary;
         AttachmentFileName: Text[250];
         EmailScenario: Enum "Email Scenario";
     begin
@@ -186,9 +186,9 @@ codeunit 50013 "Export Document-Mailing"
 
     local procedure GetToAddressFromMAWBInvoiceNotifyParty(NotifyPartyNo: Code[20]): Text[250]
     var
-        NotifyParty: Record 50017;
+        NotifyParty: Record "Notify Party";
         ToAddress: Text;
-        MAWBInvoiceNotifyParty: Record 50072;
+        MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party";
     begin
         IF NotifyParty.GET(NotifyPartyNo) THEN
             ToAddress := NotifyParty."E-Mail";

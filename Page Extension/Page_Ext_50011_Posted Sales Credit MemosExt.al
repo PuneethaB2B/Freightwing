@@ -51,7 +51,7 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.ProcessSalesDocument(Rec);
                 end;
@@ -66,7 +66,7 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.GetJSONData(Rec);
                 end;
@@ -74,21 +74,21 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
         }
     }
 
-    PROCEDURE EmailCreditMemo(pRecSalesCrMemoHeader: Record 114);
+    PROCEDURE EmailCreditMemo(pRecSalesCrMemoHeader: Record "Sales Cr.Memo Header");
     VAR
-        ReportSelections: Record 77;
-        lRecSalesCrMemoHeader: Record 114;
-        DocumentMailing: Codeunit 260;
-        FileManagement: Codeunit 419;
+        ReportSelections: Record "Report Selections";
+        lRecSalesCrMemoHeader: Record "Sales Cr.Memo Header";
+        DocumentMailing: Codeunit "Document-Mailing";
+        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
         AttachmentFileName: Text[250];
         ReportAsPdfFileNameMsg: Label '@@@="%1 = Document Type %2 = Invoice No.";ENU=Sales %1 %2.pdf';
-        EmailBody: Record 50000;
-        EmailBody2: Record 50000;
-        SMTPSetup: Record 409;
-        Customer: Record 18;
+        EmailBody: Record "Email Body";
+        EmailBody2: Record "Email Body";
+        SMTPSetup: Record "SMTP Mail Setup";
+        Customer: Record Customer;
         EmailSubjectCapTxt: Label '@@@="%1 = Customer Name. %2 = Document Type %3 = Invoice No.";ENU=%1 - %2 %3';
-        EmailBodyPage: Page 50000;
+        EmailBodyPage: Page "Email Body";
         SMTPMail: Codeunit 400;
     BEGIN
         WITH pRecSalesCrMemoHeader DO BEGIN

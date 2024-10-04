@@ -6,9 +6,9 @@ codeunit 50029 "Invoicing Get Mawb Charges"
     end;
 
 
-    procedure GetCalculatedCharges(SalesLine: Record 113; MawbNo: Code[50])
+    procedure GetCalculatedCharges(SalesLine: Record "Sales Invoice Line"; MawbNo: Code[50])
     var
-        MawbInvoiceCharge: Record 50073;
+        MawbInvoiceCharge: Record "MAWB Invoice Charge";
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", MawbNo);

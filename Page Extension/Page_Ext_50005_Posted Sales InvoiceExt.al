@@ -67,7 +67,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                     SalesInvoiceHeader.RESET;
                     SalesInvoiceHeader.SETRANGE(SalesInvoiceHeader."No.", Rec."No.");
                     IF SalesInvoiceHeader.FINDFIRST THEN
-                        REPORT.RUNMODAL(50106, TRUE, FALSE, SalesInvoiceHeader);
+                        REPORT.RUNMODAL(Report::"Posted Import Invoice", TRUE, FALSE, SalesInvoiceHeader);
                 END;
             }
             action("General Invoice")
@@ -96,7 +96,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 ApplicationArea = All;
                 trigger OnAction()
                 VAR
-                    SalesInvHeader: Record 112;
+                    SalesInvHeader: Record "Sales Invoice Header";
                 BEGIN
                     SalesInvoiceHeader.RESET;
                     SalesInvoiceHeader.SETRANGE(SalesInvoiceHeader."No.", Rec."No.");
@@ -105,9 +105,9 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                         MAWBHeader.SETRANGE(MAWBHeader."No.", Rec."MAWB No.");
                         IF MAWBHeader.FINDFIRST THEN BEGIN
                             IF MAWBHeader."Has Houses" THEN BEGIN
-                                REPORT.RUNMODAL(50070, TRUE, FALSE, SalesInvoiceHeader);
+                                REPORT.RUNMODAL(Report::"Posted MAWB Invoice", TRUE, FALSE, SalesInvoiceHeader);
                             END ELSE BEGIN
-                                REPORT.RUNMODAL(50064, TRUE, FALSE, SalesInvoiceHeader)
+                                REPORT.RUNMODAL(Report::"MAWB Invoice Posted", TRUE, FALSE, SalesInvoiceHeader)
                             END;//Has no houses
                         END ELSE
                             MESSAGE('Documentation for MAWB %1 NOT Found', Rec."MAWB No.");
@@ -125,7 +125,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.ProcessSalesDocument(Rec);
                 end;
@@ -140,7 +140,7 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 PromotedCategory = Process;
                 trigger OnAction()
                 var
-                    TIMSManager: Codeunit 50035;
+                    TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.GetJSONData(Rec);
                 end;
@@ -148,6 +148,6 @@ pageextension 50005 PostedSalesInvoiceExt extends "Posted Sales Invoice"
         }
     }
     var
-        SalesInvoiceHeader: Record 112;
-        MAWBHeader: Record 50077;
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        MAWBHeader: Record "MAWB Header 2";
 }

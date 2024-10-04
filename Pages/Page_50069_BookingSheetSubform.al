@@ -3,7 +3,7 @@ page 50069 "Booking Sheet Subform"
     AutoSplitKey = true;
     MultipleNewLines = true;
     PageType = ListPart;
-    SourceTable = 50054;
+    SourceTable = "Booking Sheet Line";
     ApplicationArea = All;
 
     layout
@@ -118,7 +118,7 @@ page 50069 "Booking Sheet Subform"
                 Image = "Action";
                 action(GetDistributionLines1)
                 {
-                    AccessByPermission = TableData 120 = R;
+                    AccessByPermission = TableData "Purch. Rcpt. Header" = R;
                     Caption = '&Get Distribution Lines';
                     Image = Receipt;
 
@@ -136,7 +136,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = '& Pallet/ULD Allocation';
                     Image = EntriesList;
-                    RunObject = Page 50072;
+                    RunObject = Page "Booking Sheet ULD Allocations";
                     RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
@@ -156,7 +156,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = '& Consignee/HAWB Allocation';
                     Image = EntriesList;
-                    RunObject = Page 50073;
+                    RunObject = Page "Booking Sheet Consignee Alloca";
                     RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
@@ -176,7 +176,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = '& Notify Parties';
                     Image = EntriesList;
-                    RunObject = Page 50074;
+                    RunObject = Page "Booking Sheet Notify Parties";
                     RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
                                   "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight Code"),
@@ -215,7 +215,7 @@ page 50069 "Booking Sheet Subform"
                 {
                     Caption = '& FAM Allocations';
                     Image = EntriesList;
-                    RunObject = Page 50075;
+                    RunObject = Page "Booking Sheet FAM Allocation";
                     RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
                                   "Shipper Code" = FIELD("Shipper Code"),
                                   "Item No" = FIELD("Item No."),

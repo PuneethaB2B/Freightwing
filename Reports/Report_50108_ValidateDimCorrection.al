@@ -90,17 +90,17 @@ report 50108 "Validate Dim Correction"
 
     var
         Window: Dialog;
-        SalesHeader: Record 112;
-        LoadingSheet: Record 50060;
-        LSLine: Record 50061;
-        DimVal: Record 349;
-        TempDimensionSetEntry: Record 480 temporary;
-        DimMng: Codeunit 408;
-        MAWBAlloc: Record 50070;
-        LoadingSheetLine: Record 50061;
-        Cust: Record 18;
-        Items: Record 27;
-        Table11: Record 112;
-        SalesInvoiceHeader: Record 112;
+        SalesHeader: Record "Sales Invoice Header";
+        LoadingSheet: Record "Loading Sheet Header";
+        LSLine: Record "Loading Sheet Line";
+        DimVal: Record "Dimension Value";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
+        DimMng: Codeunit DimensionManagement;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        Cust: Record Customer;
+        Items: Record Item;
+        Table11: Record "Sales Invoice Header";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
 }
 

@@ -105,12 +105,12 @@ table 50070 "Booking Sheet MAWB Allocation"
     end;
 
     var
-        BookingSheetLine: Record 50054;
-        BkSheetMAWB: Record 50070;
+        BookingSheetLine: Record "Booking Sheet Line";
+        BkSheetMAWB: Record "Booking Sheet MAWB Allocation";
         TotalWeightLine: Decimal;
         TotalAllocatedWEight: Decimal;
-        Flights: Record 50022;
-        Consignee: Record 50015;
-        BookingSheetHAWBAllocation: Record 50056;
+        Flights: Record Flight;
+        Consignee: Record Consignee;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
 }
 

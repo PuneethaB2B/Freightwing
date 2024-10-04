@@ -198,14 +198,14 @@ table 50041 "Dl. Weight Dist. By Airline"
     }
 
     var
-        DailyWeightDistHeader: Record 50040;
+        DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
-        Airline: Record 50021;
-        DailyWeightDistByCustomer: Record 50042;
-        Flights: Record 50022;
-        WtByAirline: Record 50041;
-        viaDest: Record 50024;
-        Flights1: Record 50022;
-        ImportExportSetup: Record 50010;
+        Airline: Record Airline;
+        DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer";
+        Flights: Record Flight;
+        WtByAirline: Record "Dl. Weight Dist. By Airline";
+        viaDest: Record "Via Destination";
+        Flights1: Record Flight;
+        ImportExportSetup: Record "Import/Export Setup";
 }
 

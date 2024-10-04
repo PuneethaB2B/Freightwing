@@ -526,24 +526,24 @@ report 50052 "Airline Payments"
     }
 
     var
-        CompanyInformation: Record 79;
-        PurchInvHeader: Record 122;
-        Airline: Record 50021;
+        CompanyInformation: Record "Company Information";
+        PurchInvHeader: Record "Purch. Inv. Header";
+        Airline: Record Airline;
         "Filter": Text[250];
         Summary: Boolean;
-        Vendors: Record 23;
-        MAWBInvoiceCharge: Record 50073;
+        Vendors: Record Vendor;
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
         ShippedWeight: Decimal;
-        BookingSheetMAWBAllocation: Record 50070;
-        Customer: Record 18;
-        Item: Record 27;
-        gRecCurrExch: Record 330;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        Customer: Record Customer;
+        Item: Record Item;
+        gRecCurrExch: Record "Currency Exchange Rate";
         gDecAmountLCY: Decimal;
         gCodeDocumentNo: Code[50];
         gDatePaymentDate: Date;
         gDecPaymentAmount: Decimal;
-        gRecVendorLedgerEntry: Record 25;
-        gRecDtldVendLedgerEntry: Record 380;
+        gRecVendorLedgerEntry: Record "Vendor Ledger Entry";
+        gRecDtldVendLedgerEntry: Record "Detailed Vendor Ledg. Entry";
         gDecPaymentAmtLCY: Decimal;
 }
 

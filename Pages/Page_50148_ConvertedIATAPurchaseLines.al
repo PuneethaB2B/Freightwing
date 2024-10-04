@@ -5,7 +5,7 @@ page 50148 "Converted IATA Purchase Lines"
     ModifyAllowed = false;
     MultipleNewLines = true;
     PageType = List;
-    SourceTable = 50016;
+    SourceTable = "IATA Purchase Invoice";
     SourceTableView = WHERE(Converted = CONST(true));
     ApplicationArea = All;
 
@@ -118,16 +118,16 @@ page 50148 "Converted IATA Purchase Lines"
     }
 
     var
-        IATAPurchaseInvoice: Record 50016;
+        IATAPurchaseInvoice: Record "IATA Purchase Invoice";
         Text001: Label 'Do you wish to convert the lines  into  Purchase Invoices?';
         Text002: Label 'The Lines have been converted into purchase invoices successfully';
         Window: Dialog;
-        ImportExportSetup: Record 50010;
-        AmmendCharges: Codeunit 50031;
+        ImportExportSetup: Record "Import/Export Setup";
+        AmmendCharges: Codeunit "Ammend Charges";
 
     local procedure GetTotalCharge("MAWB no": Code[50]) TotalCharge: Decimal
     var
-        MawbInvoiceCharge: Record 50073;
+        MawbInvoiceCharge: Record "MAWB Invoice Charge";
     begin
         MawbInvoiceCharge.RESET;
         MawbInvoiceCharge.SETRANGE(MawbInvoiceCharge."MAWB No.", "MAWB no");
@@ -142,9 +142,9 @@ page 50148 "Converted IATA Purchase Lines"
 
     local procedure GetTotalWeight("MAWB No": Code[50]) TotalWeight: Decimal
     var
-        LoadingSheet: Record 50060;
-        LoadingSheetLine: Record 50061;
-        MawbInvoiceCharge: Record 50073;
+        LoadingSheet: Record "Loading Sheet Header";
+        LoadingSheetLine: Record "Loading Sheet Line";
+        MawbInvoiceCharge: Record "MAWB Invoice Charge";
     begin
         /*AmmendCharges.ClearCalculatedCharges("MAWB no");
         AmmendCharges.CalculateMAWBCharges("MAWB no");
@@ -161,8 +161,8 @@ page 50148 "Converted IATA Purchase Lines"
 
     local procedure GetPurchaseAcc(MAWB: Code[50]) AccNo: Code[50]
     var
-        BookingSheetMawb: Record 50070;
-        Cust: Record 18;
+        BookingSheetMawb: Record "Booking Sheet MAWB Allocation";
+        Cust: Record Customer;
     begin
         BookingSheetMawb.RESET;
         BookingSheetMawb.SETRANGE(BookingSheetMawb."MAWB No", MAWB);

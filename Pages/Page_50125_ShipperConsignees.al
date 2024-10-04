@@ -1,7 +1,7 @@
 page 50125 "Shipper Consignees"
 {
     PageType = List;
-    SourceTable = 50066;
+    SourceTable = "Shipper Consignee";
     ApplicationArea = All;
 
     layout

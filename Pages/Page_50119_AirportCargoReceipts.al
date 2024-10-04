@@ -3,7 +3,7 @@ page 50119 "Airport Cargo Receipts"
     CardPageID = "Airport Goods Receipt Header";
     InsertAllowed = false;
     PageType = List;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("Airport Receipt"));
     ApplicationArea = All;
 

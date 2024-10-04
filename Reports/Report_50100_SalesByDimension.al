@@ -342,7 +342,7 @@ report 50100 "Sales By Dimension"
                 dataitem("Dimension Set Entry"; "Dimension Set Entry")
                 {
                     DataItemLink = "Dimension Set ID" = FIELD("Dimension Set ID");
-                    DataItemTableView = WHERE("Dimension Code" = FILTER(PRODUCTGROUP));
+                    DataItemTableView = WHERE("Dimension Code" = FILTER('PRODUCTGROUP'));
                     column(DimensionSetID_DimensionSetEntry; "Dimension Set Entry"."Dimension Set ID")
                     {
                     }
@@ -437,7 +437,7 @@ report 50100 "Sales By Dimension"
 
     local procedure CountHouses(MAWB: Code[50]; Shipper: Code[50]; hawb: Code[50]) Houses: Integer
     var
-        InvLine: Record 113;
+        InvLine: Record "Sales Invoice Line";
     begin
         Houses := 0;
         InvLine.RESET;

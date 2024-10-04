@@ -90,7 +90,7 @@ table 50035 "Weight Agreement By Day"
 
     var
         Text001: Label 'You cannot delete %1 because there is at least one item entries associated with it.';
-        WeightAgreementByItem: Record 50036;
+        WeightAgreementByItem: Record "Weight Agreement By Item";
         DayofWeek: Option Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;
 }
 

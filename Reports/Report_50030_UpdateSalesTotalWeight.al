@@ -59,7 +59,7 @@ report 50030 "Update Sales Total Weight"
 
     var
         gCodeTempHAWBNo: Code[20];
-        gRecSalesLine: Record 113;
+        gRecSalesLine: Record "Sales Invoice Line";
         glDecSalesLineWeight: Decimal;
 }
 

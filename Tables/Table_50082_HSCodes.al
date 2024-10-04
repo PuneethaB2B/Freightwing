@@ -1,7 +1,7 @@
 table 50082 "HS Codes"
 {
-    DrillDownPageID = 50163;
-    LookupPageID = 50163;
+    DrillDownPageID = "HS Codes";
+    LookupPageID = "HS Codes";
 
     fields
     {

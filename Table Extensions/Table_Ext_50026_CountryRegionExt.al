@@ -9,7 +9,7 @@ tableextension 50026 CountryRegionExt extends "Country/Region"
     end;
 
     var
-        Airport: Record 50019;
+        Airport: Record Airport;
         Text001: Label 'You cannot delete Country Code %1 because it has entries associated with it';
 }
 

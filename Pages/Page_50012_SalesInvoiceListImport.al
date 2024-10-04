@@ -4,7 +4,7 @@ page 50012 "Sales Invoice List - Import"
     CardPageID = "Sales Invoice - Import";
     Editable = false;
     PageType = List;
-    SourceTable = 36;
+    SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = CONST(Invoice));
     ApplicationArea = All;
 
@@ -149,13 +149,13 @@ page 50012 "Sales Invoice List - Import"
         }
         area(factboxes)
         {
-            part(Page1; 9082)
+            part(Page1; "Customer Statistics FactBox")
             {
                 SubPageLink = "No." = FIELD("Bill-to Customer No."),
                               "Date Filter" = FIELD("Date Filter");
                 Visible = true;
             }
-            part(Page; 9084)
+            part(Page; "Customer Details FactBox")
             {
                 SubPageLink = "No." = FIELD("Bill-to Customer No."),
                               "Date Filter" = FIELD("Date Filter");
@@ -206,7 +206,7 @@ page 50012 "Sales Invoice List - Import"
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348 = R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
@@ -383,14 +383,14 @@ page 50012 "Sales Invoice List - Import"
 
     trigger OnOpenPage()
     var
-        SalesSetup: Record 311;
+        SalesSetup: Record "Sales & Receivables Setup";
     begin
         Rec.SetSecurityFilterOnRespCenter;
         JobQueueActive := SalesSetup.JobQueueActive;
     end;
 
     var
-        ReportPrint: Codeunit 228;
+        ReportPrint: Codeunit "Test Report-Print";
         JobQueueActive: Boolean;
 }
 

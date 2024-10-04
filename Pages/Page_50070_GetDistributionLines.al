@@ -2,7 +2,7 @@ page 50070 "Get Distribution Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 50043;
+    SourceTable = "Dl. Weight Dist. By Item";
     ApplicationArea = All;
 
     layout
@@ -54,15 +54,15 @@ page 50070 "Get Distribution Lines"
     end;
 
     var
-        OrderBookingHeader: Record 5053;
-        TempDailyWeightDistByItem: Record 50043 temporary;
-        GetOrderBookings: Codeunit 50004;
+        OrderBookingHeader: Record "Business Relation";
+        TempDailyWeightDistByItem: Record "Dl. Weight Dist. By Item" temporary;
+        GetOrderBookings: Codeunit "Export.-Get Distribution";
 
         "Item No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        DailyWeightDistByItem: Record 50043;
+        DailyWeightDistByItem: Record "Dl. Weight Dist. By Item";
     begin
         TempDailyWeightDistByItem.RESET;
         TempDailyWeightDistByItem.COPYFILTERS(Rec);
@@ -88,7 +88,7 @@ page 50070 "Get Distribution Lines"
     end;
 
 
-    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record 50053)
+    procedure SetOrderBookingHeader(var OrderBookingHeader2: Record "Booking Sheet Header")
     begin
         OrderBookingHeader.GET(OrderBookingHeader2."No.");
         //ReceiptHeader.TESTFIELD("Document Type",ReceiptHeader."Document Type"::"Receipt Voucher");

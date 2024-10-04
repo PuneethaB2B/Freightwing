@@ -55,6 +55,6 @@ table 50007 "Import Charge"
     }
 
     var
-        FreightCharge: Record 50018;
+        FreightCharge: Record "Freight Charge";
 }
 

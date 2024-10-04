@@ -100,8 +100,8 @@ report 50086 "Update MAWB Archives"
         gIntTotalHeaderWeight: Decimal;
         gIntTotalHouseNos: Integer;
         gDiaWindow: Dialog;
-        gRecItem: Record 27;
-        gRecPurchInvLine: Record 123;
-        gRecCurrency: Record 330;
+        gRecItem: Record Item;
+        gRecPurchInvLine: Record "Purch. Inv. Line";
+        gRecCurrency: Record "Currency Exchange Rate";
 }
 

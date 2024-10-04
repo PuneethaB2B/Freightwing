@@ -51,6 +51,6 @@ table 50003 "Beneficiary Details"
     }
 
     var
-        Banks: Record 270;
+        Banks: Record "Bank Account";
 }
 

@@ -283,14 +283,14 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     local procedure GetPurchAmount(mawb: Code[50]; Charge: Code[10]) Amnt: Decimal
     var
-        PurchInvHeader: Record 122;
-        PurchInvLine: Record 123;
-        ImportExportSetup: Record 50010;
-        ExchangeRates: Record 330;
+        PurchInvHeader: Record "Purch. Inv. Header";
+        PurchInvLine: Record "Purch. Inv. Line";
+        ImportExportSetup: Record "Import/Export Setup";
+        ExchangeRates: Record "Currency Exchange Rate";
         Rate: Decimal;
         LCYAmnt: Decimal;
         InvAmnt: Decimal;
-        ExchangeRates1: Record 330;
+        ExchangeRates1: Record "Currency Exchange Rate";
         TempLCY: Decimal;
     begin
         ImportExportSetup.GET;
@@ -325,7 +325,7 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     local procedure GetExchangeRate(From: Code[10]; Dates: Date) Rate: Decimal
     var
-        ExchangeRates: Record 330;
+        ExchangeRates: Record "Currency Exchange Rate";
     begin
         ExchangeRates.RESET;
         IF From <> '' THEN BEGIN
@@ -494,12 +494,12 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     procedure CalculateMAWBCharges()
     var
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
         Customer: Record Customer;
-        FreightCharge: Record 50018;
-        HandlingSlab: Record 50045;
+        FreightCharge: Record "Freight Charge";
+        HandlingSlab: Record "Handling Slab Matrix";
         TotalSales: Decimal;
-        Items: Record 27;
+        Items: Record Item;
         FreightCost: Decimal;
     begin
         /*IF CONFIRM(Text50002,FALSE,FIELDCAPTION("MAWB No."),"MAWB No.") THEN BEGIN
@@ -711,9 +711,9 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     procedure SplitMAWBInvoice()
     var
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
         BookedWeight: Decimal;
-        Customer: Record 18;
+        Customer: Record Customer;
     begin
         //==========SPLIT THE INVOICE============
         IF CONFIRM(Text50003, FALSE, FIELDCAPTION("MAWB No."), "MAWB No.") THEN BEGIN
@@ -923,11 +923,11 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     procedure InsertUnrecoveredCharges()
     var
-        UnrecoveredCharges: Record 50006;
+        UnrecoveredCharges: Record "Unrecovered Charge";
         Text001: Label 'Are you sure you want to include charges from petty cash and LPO';
-        SalesHeader: Record 36;
+        SalesHeader: Record "Sales Header";
         Text002: Label 'Invoice Sales Lines has been updated';
-        SalesLine: Record 37;
+        SalesLine: Record "Sales Line";
         Text003: Label 'Nothing to recover';
     begin
         IF CONFIRM(Text001) THEN BEGIN
@@ -991,46 +991,46 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
     end;
 
     var
-        MAWBInCharg: Record 50073;
-        AmmendCharge: Codeunit 50031;
-        GPHeader: Record 50068;
+        MAWBInCharg: Record "MAWB Invoice Charge";
+        AmmendCharge: Codeunit "Ammend Charges";
+        GPHeader: Record "Gate Pass Header";
         ShippedWeight: Decimal;
-        GatePassLine: Record 50069;
-        Offload: Record 50065;
-        SetDim: Codeunit 50028;
-        DimVal: Record 349;
-        TempDimSetEntry: Record 480 temporary;
-        MAWBLine7: Record 50076;
-        SalesLine2: Record 37;
+        GatePassLine: Record "Gate Pass Line";
+        Offload: Record "Offloaded Gatepass Line";
+        SetDim: Codeunit "Invoicing Set Dimensions";
+        DimVal: Record "Dimension Value";
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        MAWBLine7: Record "MAWB Line";
+        SalesLine2: Record "Sales Line";
         HasHouses: Boolean;
-        HAWBLines: Record 50074;
-        LoadingSheetHeader: Record 50060;
+        HAWBLines: Record "HAWB Line";
+        LoadingSheetHeader: Record "Loading Sheet Header";
         SplitWeight: Decimal;
         SplitAmount: Decimal;
-        MAWBLine4: Record 50076;
+        MAWBLine4: Record "MAWB Line";
         Hawbs: Integer;
-        "Freight Charg": Record 50018;
-        BookingSheetHAWBAllocation: Record 50056;
-        Item: Record 27;
-        BookingSheetLine: Record 50054;
-        MAWBReceipt: Record 50039;
-        FreightCharge: Record 50018;
-        HAWBHeader: Record 50075;
-        ImportExportSetup: Record 50010;
+        "Freight Charg": Record "Freight Charge";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        Item: Record Item;
+        BookingSheetLine: Record "Booking Sheet Line";
+        MAWBReceipt: Record "MAWB Receipt";
+        FreightCharge: Record "Freight Charge";
+        HAWBHeader: Record "HAWB Header";
+        ImportExportSetup: Record "Import/Export Setup";
         JournalTemplate: Code[20];
         JournalBatch: Code[20];
-        GenJnlLine: Record 81;
-        VATPostingSetup: Record 325;
-        Currency: Record 4;
+        GenJnlLine: Record "Gen. Journal Line";
+        VATPostingSetup: Record "VAT Posting Setup";
+        Currency: Record Currency;
         Text50000: Label '-VAT';
-        MAWBHeader: Record 50077;
-        MAWBLine: Record 50076;
-        FreightChargeByAirline: Record 50025;
-        FreightChargeByFlight: Record 50026;
-        FreightChargeByItem: Record 50027;
-        FreightItemCharge: Record 50028;
-        FreightItemChargeMatrix: Record 50029;
-        MAWBInvoiceCharge: Record 50073;
+        MAWBHeader: Record "MAWB Header 2";
+        MAWBLine: Record "MAWB Line";
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        FreightChargeByFlight: Record "Freight Charge By Flight";
+        FreightChargeByItem: Record "Freight Charge By Item";
+        FreightItemCharge: Record "Freight Item Charge";
+        FreightItemChargeMatrix: Record "Freight Item Charge Matrix";
+        MAWBInvoiceCharge: Record "MAWB Invoice Charge";
         CostAmount: Decimal;
         SalesAmount: Decimal;
         VATAmount: Decimal;
@@ -1044,23 +1044,23 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
         Text50001: Label '%1 %2 does not have any lines';
         Text50002: Label 'Do you want to calculate total charges for %1 %2?';
         Text50003: Label 'Do you want to split %1 %2?';
-        MAWBInvoiceNotifyParty: Record 50072;
-        NotifyParty: Record 50017;
+        MAWBInvoiceNotifyParty: Record "MAWB Invoice Notify Party";
+        NotifyParty: Record "Notify Party";
         Text50004: Label 'The booking date is not within the allowed flight charge effective dates';
-        PreAlertHeader: Record 50030;
-        PreAlertLine: Record 50023;
-        Customer: Record 18;
-        ImportChargeMaster: Record 50007;
-        GLAccount: Record 15;
-        SalesLine5: Record 37;
+        PreAlertHeader: Record "Pre Alert Header";
+        PreAlertLine: Record "Pre Alert Line";
+        Customer: Record Customer;
+        ImportChargeMaster: Record "Import Charge";
+        GLAccount: Record "G/L Account";
+        SalesLine5: Record "Sales Line";
         LineNo: Integer;
-        BookingSheetLine2: Record 50054;
-        HAWBHeader2: Record 50075;
+        BookingSheetLine2: Record "Booking Sheet Line";
+        HAWBHeader2: Record "HAWB Header";
         "Count": Integer;
-        MAWBLine2: Record 50076;
+        MAWBLine2: Record "MAWB Line";
         DivisionFactor: Decimal;
-        MAWBAlloc: Record 50070;
-        TBLExchangeRate: Record 330;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        TBLExchangeRate: Record "Currency Exchange Rate";
         TBLAmountLCY: Decimal;
         TBLAmountUSD: Decimal;
         Cust: Record Customer;

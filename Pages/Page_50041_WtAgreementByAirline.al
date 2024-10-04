@@ -2,7 +2,7 @@ page 50041 "Wt. Agreement By Airline"
 {
     Caption = 'Weight Agreement By Airline';
     PageType = Card;
-    SourceTable = 50033;
+    SourceTable = "Weight Agreement By Airline";
     ApplicationArea = All;
 
     layout
@@ -30,7 +30,7 @@ page 50041 "Wt. Agreement By Airline"
                 {
                 }
             }
-            part(Page; 50042)
+            part(Page; "Wt. Agreement By Dest. Subform")
             {
                 SubPageLink = "Airline Code" = FIELD("Airline Code");
             }

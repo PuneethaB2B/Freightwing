@@ -1,7 +1,7 @@
 page 50021 "Shipper Farms"
 {
     PageType = List;
-    SourceTable = 50014;
+    SourceTable = "Shipper Farm";
     ApplicationArea = All;
 
     layout

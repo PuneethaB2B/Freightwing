@@ -35,7 +35,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
                 action("Customer Statement By Email")
                 {
                     Image = Report;
-                    RunObject = codeunit 50034;
+                    RunObject = codeunit "Using Report Functions";
                     ApplicationArea = All;
                     trigger OnAction()
                     begin
@@ -46,7 +46,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
                 {
                     captionML = ENU = 'Customer Statement';
                     Image = Report;
-                    RunObject = report 116;
+                    RunObject = report Statement;
                     ApplicationArea = All;
                 }
 
@@ -54,5 +54,5 @@ pageextension 50018 CustomerListExt extends "Customer List"
         }
     }
     VAR
-        gCduReportOperation: Codeunit 50034;
+        gCduReportOperation: Codeunit "Using Report Functions";
 }

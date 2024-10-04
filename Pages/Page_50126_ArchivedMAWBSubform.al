@@ -2,7 +2,7 @@ page 50126 "Archived MAWB Subform"
 {
     Caption = 'Master Airway Bill Subform';
     PageType = ListPart;
-    SourceTable = 50076;
+    SourceTable = "MAWB Line";
     ApplicationArea = All;
 
     layout
@@ -92,11 +92,11 @@ page 50126 "Archived MAWB Subform"
         Text001: Label 'Master Airway Bill No. %1 does not have any lines';
         TotalWeight: Decimal;
         BookedWeight: Decimal;
-        BookingSheetLine: Record 50054;
-        MAWBLine: Record 50076;
-        LoadingSheetLine: Record 50061;
+        BookingSheetLine: Record "Booking Sheet Line";
+        MAWBLine: Record "MAWB Line";
+        LoadingSheetLine: Record "Loading Sheet Line";
         ShippedWeight: Decimal;
-        MAWBAllocation: Record 50070;
+        MAWBAllocation: Record "Booking Sheet MAWB Allocation";
 
 
     // [Scope('Internal')]
@@ -107,7 +107,7 @@ page 50126 "Archived MAWB Subform"
 
     local procedure GetTotalWeight(MAWB: Code[50]) Total: Decimal
     var
-        MAWBLine1: Record 50076;
+        MAWBLine1: Record "MAWB Line";
     begin
         MAWBLine1.RESET;
         MAWBLine1.SETRANGE(MAWBLine1."MAWB No.", Rec."MAWB No.");

@@ -13,7 +13,7 @@ page 50097 "Security Role Centre"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(Page1; 9175)
+                part(Page1; "Copy Profile")
                 {
                 }
             }
@@ -68,28 +68,28 @@ page 50097 "Security Role Centre"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50077;
+                RunObject = Page "Archived MAWBs";
             }
             action("Gate Passes")
             {
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50091;
+                RunObject = Page "Gate Passes";
             }
             action("Posted Loading Sheets")
             {
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50102;
+                RunObject = Page "Posted Loading Sheets";
             }
             action("Gate Pass")
             {
                 Promoted = true;
                 PromotedCategory = "Report";
                 PromotedIsBig = true;
-                RunObject = Report 50016;
+                RunObject = Report "Gate Pass";
             }
         }
     }

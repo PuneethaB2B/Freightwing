@@ -184,29 +184,29 @@ table 50074 "HAWB Line"
     end;
 
     var
-        Item: Record 27;
-        BookingSheetHAWBAllocation: Record 50056;
-        BookingSheetLine: Record 50054;
+        Item: Record Item;
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        BookingSheetLine: Record "Booking Sheet Line";
         TotalQuantity: Decimal;
         RoundDirection: Text;
         RoundPrecision: Decimal;
-        ImportExport: Record 50010;
+        ImportExport: Record "Import/Export Setup";
         NxtLineNo: Integer;
-        HawbLine: Record 50074;
+        HawbLine: Record "HAWB Line";
         GrossWeight: Decimal;
         BookedWeight: Decimal;
-        HAWBReceipt: Record 50037;
+        HAWBReceipt: Record "HAWB Receipt";
 
 
-    procedure InsertMAWBFromHAWBLine(MAWBLine: Record 50076)
+    procedure InsertMAWBFromHAWBLine(MAWBLine: Record "MAWB Line")
     var
-        MAWBAllocationLine: Record 50076;
-        TempMAWBLine: Record 50076;
+        MAWBAllocationLine: Record "MAWB Line";
+        TempMAWBLine: Record "MAWB Line";
         TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        BookingSheetLine: Record 50054;
+        BookingSheetLine: Record "Booking Sheet Line";
     begin
         SETRANGE("MAWB No.", "MAWB No.");
         SETRANGE("HAWB No.", "HAWB No.");

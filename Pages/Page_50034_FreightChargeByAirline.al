@@ -1,7 +1,7 @@
 page 50034 "Freight Charge By Airline"
 {
     PageType = Card;
-    SourceTable = 50025;
+    SourceTable = "Freight Charge By Airline";
     ApplicationArea = All;
 
     layout
@@ -23,7 +23,7 @@ page 50034 "Freight Charge By Airline"
                 {
                 }
             }
-            part(Page; 50035)
+            part(Page; "Freight Charge Flight Subform")
             {
                 SubPageLink = "Airline Code" = FIELD("Airline Code"),
                               "Effective Start Date" = FIELD("Effective Start Date"),
@@ -109,15 +109,15 @@ page 50034 "Freight Charge By Airline"
     }
 
     var
-        Flights: Record 50022;
-        ViaDest: Record 50024;
-        ChargeByFlight: Record 50026;
-        WeightByDest: Record 50034;
-        ChargeByItem: Record 50027;
-        ItemCharge: Record 50028;
-        It: Record 50029;
-        FreightChargeByAirline: Record 50025;
-        CopyCharges: Page 50002;
+        Flights: Record Flight;
+        ViaDest: Record "Via Destination";
+        ChargeByFlight: Record "Freight Charge By Flight";
+        WeightByDest: Record "Weight Agreement Destination";
+        ChargeByItem: Record "Freight Charge By Item";
+        ItemCharge: Record "Freight Item Charge";
+        It: Record "Freight Item Charge Matrix";
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        CopyCharges: Page "Copy Charges";
 
     local procedure GetAirlineDestinations(AirlineCode: Code[50])
     begin
@@ -173,7 +173,7 @@ page 50034 "Freight Charge By Airline"
 
     local procedure GetCountry(AirportCode: Code[50]) Country: Text[50]
     var
-        Airports: Record 50019;
+        Airports: Record Airport;
     begin
         Airports.RESET;
         Airports.SETRANGE(Airports.Code, AirportCode);

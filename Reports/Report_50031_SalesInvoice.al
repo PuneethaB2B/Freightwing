@@ -3,7 +3,7 @@ report 50031 "Sales Invoice"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/SalesInvoice.rdl';
     Caption = 'Sales - Invoice';
-    Permissions = TableData 7190 = rimd;
+    Permissions = TableData "Sales Shipment Buffer" = rimd;
     PreviewMode = PrintLayout;
     ApplicationArea = All;
 
@@ -604,7 +604,7 @@ report 50031 "Sales Invoice"
 
                             trigger OnAfterGetRecord()
                             var
-                                ItemTranslation: Record 30;
+                                ItemTranslation: Record "Item Translation";
                             begin
                                 IF Number = 1 THEN
                                     TempPostedAsmLine.FINDSET
@@ -1006,7 +1006,7 @@ report 50031 "Sales Invoice"
                     ShipmentMethod.GET("Shipment Method Code");
                     ShipmentMethod.TranslateDescription(ShipmentMethod, "Language Code");
                 END;
-                FormatAddr.SalesInvShipTo(ShipToAddr,CustAddr, "Sales Invoice Header");
+                FormatAddr.SalesInvShipTo(ShipToAddr, "Sales Invoice Header");
                 ShowShippingAddr := "Sell-to Customer No." <> "Bill-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(ShipToAddr) DO
                     IF ShipToAddr[i] <> CustAddr[i] THEN

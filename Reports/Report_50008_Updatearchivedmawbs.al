@@ -51,6 +51,6 @@ report 50008 "Update archived mawbs"
 
     var
         Window: Dialog;
-        MAWBReceipt: Record 50039;
+        MAWBReceipt: Record "MAWB Receipt";
 }
 

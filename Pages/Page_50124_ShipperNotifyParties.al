@@ -1,7 +1,7 @@
 page 50124 "Shipper Notify Parties"
 {
     PageType = List;
-    SourceTable = 50067;
+    SourceTable = "Shipper Notify Party";
     ApplicationArea = All;
 
     layout

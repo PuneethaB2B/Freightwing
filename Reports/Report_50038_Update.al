@@ -65,8 +65,8 @@ report 50038 Update
     }
 
     var
-        MAWBAlloc: Record 50070;
-        Flight: Record 50022;
-        BookingSheetLine: Record 50054;
+        MAWBAlloc: Record "Booking Sheet MAWB Allocation";
+        Flight: Record Flight;
+        BookingSheetLine: Record "Booking Sheet Line";
 }
 

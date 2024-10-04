@@ -59,7 +59,7 @@ report 50101 "Update Test"
     }
 
     var
-        MAWBHeader2: Record 50077;
-        SalesInvoiceHeader: Record 112;
+        MAWBHeader2: Record "MAWB Header 2";
+        SalesInvoiceHeader: Record "Sales Invoice Header";
 }
 

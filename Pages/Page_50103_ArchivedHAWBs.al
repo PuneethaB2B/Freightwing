@@ -6,7 +6,7 @@ page 50103 "Archived HAWBs"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    SourceTable = 50075;
+    SourceTable = "HAWB Header";
     SourceTableView = WHERE(Status = FILTER(Archived));
     ApplicationArea = All;
 

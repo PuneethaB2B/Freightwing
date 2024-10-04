@@ -2,7 +2,7 @@ page 50134 "Goods Receipt Notify Parties"
 {
     PageType = List;
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
-    SourceTable = 50049;
+    SourceTable = "Good Receipt Notify Party";
     ApplicationArea = All;
 
     layout
@@ -42,7 +42,7 @@ page 50134 "Goods Receipt Notify Parties"
 
                     trigger OnAction()
                     var
-                        SalesInvHeader: Record 112;
+                        SalesInvHeader: Record "Sales Invoice Header";
                     begin
                         GoodReceiptNotifyParty := Rec;
                         CurrPage.SETSELECTIONFILTER(GoodReceiptNotifyParty);
@@ -54,6 +54,6 @@ page 50134 "Goods Receipt Notify Parties"
     }
 
     var
-        GoodReceiptNotifyParty: Record 50049;
+        GoodReceiptNotifyParty: Record "Good Receipt Notify Party";
 }
 

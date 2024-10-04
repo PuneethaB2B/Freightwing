@@ -85,13 +85,13 @@ table 50026 "Freight Charge By Flight"
     end;
 
     var
-        FreightChargeByAirline: Record 50025;
-        CountryRegion: Record 9;
-        Flight: Record 50022;
-        ByFlight: Record 50026;
-        ViaDest: Record 50024;
-        ByFlight2: Record 50026;
-        ByItem: Record 50027;
+        FreightChargeByAirline: Record "Freight Charge By Airline";
+        CountryRegion: Record "Country/Region";
+        Flight: Record Flight;
+        ByFlight: Record "Freight Charge By Flight";
+        ViaDest: Record "Via Destination";
+        ByFlight2: Record "Freight Charge By Flight";
+        ByItem: Record "Freight Charge By Item";
 
     local procedure GetDestinations(FlightNo: Code[50])
     begin

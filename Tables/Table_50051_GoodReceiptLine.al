@@ -33,9 +33,9 @@ table 50051 "Good Receipt Line"
 
             trigger OnValidate()
             var
-                ICPartner: Record 413;
+                ICPartner: Record "IC Partner";
                 ItemCrossReference: Record "Item Reference";
-                PrepmtMgt: Codeunit 441;
+                PrepmtMgt: Codeunit "Prepayment Mgt.";
             begin
             end;
         }
@@ -317,40 +317,40 @@ table 50051 "Good Receipt Line"
     end;
 
     var
-        HAWBReceipt: Record 50037;
-        Item: Record 27;
-        BookingSheetHeader: Record 50053;
-        BookingSheetLine: Record 50054;
-        Shipper: Record 18;
-        DailyWeightDistByAirline: Record 50041;
-        BookingSheetULDAllocation: Record 50055;
-        BookingSheetHAWBAllocation: Record 50056;
-        LoadingSheetULDAllocation: Record 50063;
+        HAWBReceipt: Record "HAWB Receipt";
+        Item: Record Item;
+        BookingSheetHeader: Record "Booking Sheet Header";
+        BookingSheetLine: Record "Booking Sheet Line";
+        Shipper: Record Customer;
+        DailyWeightDistByAirline: Record "Dl. Weight Dist. By Airline";
+        BookingSheetULDAllocation: Record "Booking Sheet ULD Allocation";
+        BookingSheetHAWBAllocation: Record "Booking Sheet HAWB Allocation";
+        LoadingSheetULDAllocation: Record "Loading Sheet ULD Allocation";
         Text001: Label 'You cannot delete Item No. %1 because it has entries associated with it';
-        LoadingSheetNotifyParty: Record 50064;
-        GoodReceiptNotifyParty: Record 50049;
-        GoodReceiptULDAllocation: Record 50046;
-        GRHeader: Record 50052;
-        GRNLine: Record 50051;
-        LoadingSheetLine1: Record 50061;
+        LoadingSheetNotifyParty: Record "Loading Sheet Notify Party";
+        GoodReceiptNotifyParty: Record "Good Receipt Notify Party";
+        GoodReceiptULDAllocation: Record "Good Receipt ULD Allocation";
+        GRHeader: Record "Good Receipt Header";
+        GRNLine: Record "Good Receipt Line";
+        LoadingSheetLine1: Record "Loading Sheet Line";
         ShippedQty: Decimal;
-        LoadingSheetLine2: Record 50061;
-        Consignees: Record 50015;
-        BookingSheetMAWBAllocation: Record 50070;
-        LoadingSheetHeader: Record 50060;
+        LoadingSheetLine2: Record "Loading Sheet Line";
+        Consignees: Record Consignee;
+        BookingSheetMAWBAllocation: Record "Booking Sheet MAWB Allocation";
+        LoadingSheetHeader: Record "Loading Sheet Header";
 
 
-    procedure InsertLoadingSheetFromGoodReceiptLine(var LoadingSheetLine: Record 50061)
+    procedure InsertLoadingSheetFromGoodReceiptLine(var LoadingSheetLine: Record "Loading Sheet Line")
     var
-        LoadingSheetHeader: Record 50060;
-        LoadingSheetGRNHeader: Record 50060;
-        LoadingSheetGRNLine: Record 50061;
-        TempLoadingSheetLine: Record 50061;
+        LoadingSheetHeader: Record "Loading Sheet Header";
+        LoadingSheetGRNHeader: Record "Loading Sheet Header";
+        LoadingSheetGRNLine: Record "Loading Sheet Line";
+        TempLoadingSheetLine: Record "Loading Sheet Line";
         TransferOldExtLines: Codeunit "Transfer Old Ext. Text Lines";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
         NextLineNo: Integer;
         ExtTextLine: Boolean;
-        GoodReceiptLine: Record 50051;
+        GoodReceiptLine: Record "Good Receipt Line";
     begin
         SETRANGE("Good Receipt No.", "Good Receipt No.");
         SETRANGE("Shipper Code", "Shipper Code");

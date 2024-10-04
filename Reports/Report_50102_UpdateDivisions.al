@@ -45,8 +45,8 @@ report 50102 "Update Divisions"
     }
 
     var
-        MAWBLine: Record 50076;
+        MAWBLine: Record "MAWB Line";
         Window: Dialog;
-        SalesInvoiceLine: Record 113;
+        SalesInvoiceLine: Record "Sales Invoice Line";
 }
 

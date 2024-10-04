@@ -151,6 +151,6 @@ table 50010 "Import/Export Setup"
     }
 
     var
-        Vend: Record 23;
+        Vend: Record Vendor;
 }
 

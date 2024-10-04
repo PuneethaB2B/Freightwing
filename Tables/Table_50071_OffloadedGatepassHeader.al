@@ -257,25 +257,25 @@ table 50071 "Offloaded Gatepass Header"
     end;
 
     var
-        LoadingSheetULD: Record 50063;
-        GatePassLine: Record 50069;
-        Shippers: Record 18;
-        LoadingSheet: Record 50060;
-        Consignees: Record 50015;
-        Airlines: Record 50021;
+        LoadingSheetULD: Record "Loading Sheet ULD Allocation";
+        GatePassLine: Record "Gate Pass Line";
+        Shippers: Record Customer;
+        LoadingSheet: Record "Loading Sheet Header";
+        Consignees: Record Consignee;
+        Airlines: Record Airline;
         NextNo: Integer;
-        Items: Record 27;
-        Fams: Record 50013;
-        Offload: Record 50071;
-        OffloadedLines: Record 50065;
-        ImportExportSetup: Record 50010;
-        NoSeriesMgt: Codeunit 396;
+        Items: Record Item;
+        Fams: Record "Division/Farm";
+        Offload: Record "Offloaded Gatepass Header";
+        OffloadedLines: Record "Offloaded Gatepass Line";
+        ImportExportSetup: Record "Import/Export Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         JournalTemplate: Code[50];
         JournalBatch: Code[50];
-        ItemJnLine: Record 83;
-        ItemLedgerEntry: Record 32;
-        MAWBLine: Record 50076;
-        OffloadedLines2: Record 50065;
+        ItemJnLine: Record "Item Journal Line";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        MAWBLine: Record "MAWB Line";
+        OffloadedLines2: Record "Offloaded Gatepass Line";
         Chargeable: Decimal;
 
 

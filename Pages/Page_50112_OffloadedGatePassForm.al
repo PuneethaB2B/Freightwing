@@ -1,7 +1,7 @@
 page 50112 "Offloaded Gate Pass Form"
 {
     PageType = Card;
-    SourceTable = 50071;
+    SourceTable = "Offloaded Gatepass Header";
     ApplicationArea = All;
 
     layout
@@ -50,7 +50,7 @@ page 50112 "Offloaded Gate Pass Form"
                     Editable = false;
                 }
             }
-            part(page; 50113)
+            part(page; "Offloaded Gatepass Subform")
             {
                 SubPageLink = "Gate-Pass No." = FIELD("Gate Pass No"),
                               No = FIELD(No);

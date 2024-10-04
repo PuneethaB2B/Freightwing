@@ -2,7 +2,7 @@ page 50073 "Booking Sheet Consignee Alloca"
 {
     Caption = 'Booking Sheet Consignee Allocations';
     PageType = List;
-    SourceTable = 50056;
+    SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
 
     layout
@@ -46,7 +46,7 @@ page 50073 "Booking Sheet Consignee Alloca"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
-                RunObject = Page 50075;
+                RunObject = Page "Booking Sheet FAM Allocation";
                 RunPageLink = "Booking Sheet No" = FIELD("Booking Sheet No."),
                               "Shipper Code" = FIELD("Shipper Code"),
                               "Airline Code" = FIELD("Airline Code"),
@@ -60,7 +60,7 @@ page 50073 "Booking Sheet Consignee Alloca"
 
                 trigger OnAction()
                 begin
-                    REPORT.RUN(50060, TRUE, TRUE, Rec);
+                    REPORT.RUN(Report::"Booking Sheet Pre Alert", TRUE, TRUE, Rec);
                 end;
             }
             action(ULDs)
@@ -68,7 +68,7 @@ page 50073 "Booking Sheet Consignee Alloca"
                 Image = Add;
                 Promoted = true;
                 PromotedCategory = Process;
-                RunObject = Page 50072;
+                RunObject = Page "Booking Sheet ULD Allocations";
                 RunPageLink = "Booking Sheet No." = FIELD("Booking Sheet No."),
                               "Airline Code" = FIELD("Airline Code"),
                               "Shipper Code" = FIELD("Shipper Code"),

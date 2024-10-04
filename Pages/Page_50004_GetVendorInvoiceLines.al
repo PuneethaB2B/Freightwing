@@ -2,7 +2,7 @@ page 50004 "Get Vendor Invoice Lines"
 {
     Editable = false;
     PageType = List;
-    SourceTable = 25;
+    SourceTable = "Vendor Ledger Entry";
     ApplicationArea = All;
 
     layout
@@ -59,14 +59,14 @@ page 50004 "Get Vendor Invoice Lines"
     end;
 
     var
-        PurchInvHeader: Record 122;
-        TempVendorLedgerEntry: Record 25 temporary;
+        PurchInvHeader: Record "Purch. Inv. Header";
+        TempVendorLedgerEntry: Record "Vendor Ledger Entry" temporary;
 
         "Document No.HideValue": Boolean;
 
     local procedure IsFirstDocLine(): Boolean
     var
-        VendorLedgerEntry: Record 25;
+        VendorLedgerEntry: Record "Vendor Ledger Entry";
     begin
         TempVendorLedgerEntry.RESET;
         TempVendorLedgerEntry.COPYFILTERS(Rec);

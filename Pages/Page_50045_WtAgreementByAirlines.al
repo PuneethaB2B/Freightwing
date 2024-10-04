@@ -3,7 +3,7 @@ page 50045 "Wt. Agreement By Airlines"
     Caption = 'Weight Agreement By Airlines';
     CardPageID = "Wt. Agreement By Airline";
     PageType = List;
-    SourceTable = 50033;
+    SourceTable = "Weight Agreement By Airline";
     ApplicationArea = All;
 
     layout
@@ -35,6 +35,6 @@ page 50045 "Wt. Agreement By Airlines"
     end;
 
     var
-        gRecUserAccess: Record 50050;
+        gRecUserAccess: Record "User Access to Cust Service";
 }
 

@@ -1,7 +1,7 @@
 page 50008 "Delivered Imports Header"
 {
     Editable = false;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     ApplicationArea = All;
 
     layout
@@ -86,7 +86,7 @@ page 50008 "Delivered Imports Header"
                 {
                 }
             }
-            part(fw; 50007)
+            part(fw; "Delivered imports Subform")
             {
                 SubPageLink = "Pre Alert No" = FIELD("No.");
             }
@@ -109,7 +109,7 @@ page 50008 "Delivered Imports Header"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50032;
+                    RunObject = Page "Shipment Update Header";
                     RunPageLink = "Manifest No" = FIELD("Flight Code"),
                                   "Delivery Agent" = FIELD("Country of Discharge");
 

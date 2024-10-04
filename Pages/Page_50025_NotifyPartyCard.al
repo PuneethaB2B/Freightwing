@@ -1,7 +1,7 @@
 page 50025 "Notify Party Card"
 {
     PageType = Card;
-    SourceTable = 50017;
+    SourceTable = "Notify Party";
     ApplicationArea = All;
 
     layout

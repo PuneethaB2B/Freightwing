@@ -51,6 +51,6 @@ table 50004 "MAWB Line Charge"
     }
 
     var
-        FreightCharge: Record 50018;
+        FreightCharge: Record "Freight Charge";
 }
 

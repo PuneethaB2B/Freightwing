@@ -35,6 +35,6 @@ table 50066 "Shipper Consignee"
     }
 
     var
-        Consignee: Record 50015;
+        Consignee: Record Consignee;
 }
 

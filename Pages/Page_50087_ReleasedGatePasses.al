@@ -5,7 +5,7 @@ page 50087 "Released Gate Passes"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
-    SourceTable = 50068;
+    SourceTable = "Gate Pass Header";
     SourceTableView = WHERE(Status = FILTER(Released));
     ApplicationArea = All;
 

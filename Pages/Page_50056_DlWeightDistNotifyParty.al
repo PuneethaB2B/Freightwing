@@ -1,7 +1,7 @@
 page 50056 "Dl. Weight Dist. Notify Party"
 {
     PageType = List;
-    SourceTable = 50045;
+    SourceTable = "Handling Slab Matrix";
     ApplicationArea = All;
 
     layout

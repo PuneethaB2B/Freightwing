@@ -15,11 +15,11 @@ tableextension 50002 PurchInvoiceLineExt extends "Purch. Inv. Line"
     begin
     end;
 
-    procedure GetPVLines(var TempPurchInvLine: Record 123 temporary)
+    procedure GetPVLines(var TempPurchInvLine: Record "Purch. Inv. Line" temporary)
     var
-        PurchInvLine: Record 123;
-        ItemLedgEntry: Record 32;
-        ValueEntry: Record 5802;
+        PurchInvLine: Record "Purch. Inv. Line";
+        ItemLedgEntry: Record "Item Ledger Entry";
+        ValueEntry: Record "Value Entry";
     begin
         /*TempPurchInvLine.RESET;
         TempPurchInvLine.DELETEALL;
@@ -53,6 +53,6 @@ tableextension 50002 PurchInvoiceLineExt extends "Purch. Inv. Line"
     var
         Text000: Label 'Invoice No. %1:';
         Text001: Label 'The program cannot find this purchase line.';
-        Charges: Record 50018;
+        Charges: Record "Freight Charge";
 }
 

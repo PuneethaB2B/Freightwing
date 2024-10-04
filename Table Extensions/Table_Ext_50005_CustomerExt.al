@@ -73,11 +73,11 @@ tableextension 50005 CustomerExt extends Customer
 
 
     var
-        ShipperAgent: Record 50011;
-        ShipperItem: Record 50012;
-        ShipperFarm: Record 50014;
-        ShipperNotifyParty: Record 50067;
-        ShipperConsignee: Record 50066;
+        ShipperAgent: Record "Shipper Agent";
+        ShipperItem: Record "Shipper Item";
+        ShipperFarm: Record "Shipper Farm";
+        ShipperNotifyParty: Record "Shipper Notify Party";
+        ShipperConsignee: Record "Shipper Consignee";
         Text50000: Label 'You cannot delete Shipper %1 because there is at least one %2  associated with it.';
 }
 

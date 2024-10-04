@@ -2,7 +2,7 @@ page 50031 Flights
 {
     PageType = List;
     PromotedActionCategories = ' New,Posting,Reports,Schedule,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 50022;
+    SourceTable = Flight;
     ApplicationArea = All;
 
     layout
@@ -67,7 +67,7 @@ page 50031 Flights
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50032;
+                    RunObject = Page "Shipment Update Header";
                     RunPageLink = "No." = FIELD("Airline Code"),
                                   "Manifest No" = FIELD("Flight Code");
                     Visible = false;
@@ -85,7 +85,7 @@ page 50031 Flights
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page 50033;
+                    RunObject = Page "Via Destination";
                     RunPageLink = "Airline Code" = FIELD("Airline Code"),
                                   "Flight Code" = FIELD("Flight No."),
                                   "Source Airport" = FIELD("Source Airport"),

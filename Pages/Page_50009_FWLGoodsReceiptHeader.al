@@ -1,7 +1,7 @@
 page 50009 "FWL Goods Receipt Header"
 {
     InsertAllowed = false;
-    SourceTable = 50030;
+    SourceTable = "Pre Alert Header";
     ApplicationArea = All;
 
     layout
@@ -102,7 +102,7 @@ page 50009 "FWL Goods Receipt Header"
                 {
                 }
             }
-            part(Page; 50154)
+            part(Page; "Pre Alert Subform")
             {
                 SubPageLink = "Pre Alert No" = FIELD("No.");
             }
@@ -125,7 +125,7 @@ page 50009 "FWL Goods Receipt Header"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50032;
+                    RunObject = Page "Shipment Update Header";
                     RunPageLink = "Manifest No" = FIELD("Flight Code"),
                                   "Delivery Agent" = FIELD("Country of Discharge");
 

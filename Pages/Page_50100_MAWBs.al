@@ -3,7 +3,7 @@ page 50100 MAWBs
     Caption = 'Master Airway Bills';
     CardPageID = MAWB;
     PageType = List;
-    SourceTable = 50077;
+    SourceTable = "MAWB Header 2";
     SourceTableView = WHERE(Status = FILTER(<> Archived));
     ApplicationArea = All;
 

@@ -7,7 +7,7 @@ page 50115 "MAWB Invoice Subform"
     MultipleNewLines = true;
     PageType = ListPart;
     PromotedActionCategories = ' New,Posting,Reports,Documents/Certificates,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
-    SourceTable = 37;
+    SourceTable = "Sales Line";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
     ApplicationArea = All;
 
@@ -239,7 +239,7 @@ page 50115 "MAWB Invoice Subform"
 
                         trigger OnValidate()
                         var
-                            SalesHeader: Record 36;
+                            SalesHeader: Record "Sales Header";
                         begin
                             SalesHeader.GET(Rec."Document Type", Rec."Document No.");
                             SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount", SalesHeader);
@@ -341,7 +341,7 @@ page 50115 "MAWB Invoice Subform"
                 Image = "Action";
                 action("Get &Price")
                 {
-                    AccessByPermission = TableData 7002 = R;
+                    AccessByPermission = TableData "Sales Price" = R;
                     Caption = 'Get &Price';
                     Ellipsis = true;
                     Image = Price;
@@ -354,7 +354,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("Get Li&ne Discount")
                 {
-                    AccessByPermission = TableData 7004 = R;
+                    AccessByPermission = TableData "Sales Line Discount" = R;
                     Caption = 'Get Li&ne Discount';
                     Ellipsis = true;
                     Image = LineDiscount;
@@ -367,7 +367,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("E&xplode BOM")
                 {
-                    AccessByPermission = TableData 90 = R;
+                    AccessByPermission = TableData "BOM Component" = R;
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
                     Visible = false;
@@ -379,7 +379,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("Insert &Ext. Texts")
                 {
-                    AccessByPermission = TableData 279 = R;
+                    AccessByPermission = TableData "Extended Text Header" = R;
                     Caption = 'Insert &Ext. Texts';
                     Image = Text;
                     Visible = false;
@@ -391,7 +391,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action(GetShipmentLines)
                 {
-                    AccessByPermission = TableData 110 = R;
+                    AccessByPermission = TableData "Sales Shipment Header" = R;
                     Caption = 'Get &Shipment Lines';
                     Ellipsis = true;
                     Image = Shipment;
@@ -549,7 +549,7 @@ page 50115 "MAWB Invoice Subform"
                     }
                     action(Location)
                     {
-                        AccessByPermission = TableData 14 = R;
+                        AccessByPermission = TableData Location = R;
                         Caption = 'Location';
                         Image = Warehouse;
 
@@ -571,7 +571,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348 = R;
+                    AccessByPermission = TableData Dimension = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
@@ -593,7 +593,7 @@ page 50115 "MAWB Invoice Subform"
                 }
                 action("Item Charge &Assignment")
                 {
-                    AccessByPermission = TableData 5800 = R;
+                    AccessByPermission = TableData "Item Charge" = R;
                     Caption = 'Item Charge &Assignment';
 
                     trigger OnAction()
@@ -621,7 +621,7 @@ page 50115 "MAWB Invoice Subform"
         IF SalesHeader.GET(Rec."Document Type", Rec."Document No.") THEN;
 
         DocumentTotals.SalesUpdateTotalsControls(Rec, TotalSalesHeader, TotalSalesLine, RefreshMessageEnabled,
-          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, VATAmount);
+          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, CurrPage.Editable, VATAmount);
 
         TypeChosen := Rec.Type <> Rec.Type::" ";
     end;
@@ -639,7 +639,7 @@ page 50115 "MAWB Invoice Subform"
 
     trigger OnDeleteRecord(): Boolean
     var
-        ReserveSalesLine: Codeunit 99000832;
+        ReserveSalesLine: Codeunit "Sales Line-Reserve";
     begin
         IF (Rec.Quantity <> 0) AND Rec.ItemExists(Rec."No.") THEN BEGIN
             COMMIT;
@@ -661,14 +661,14 @@ page 50115 "MAWB Invoice Subform"
     end;
 
     var
-        TotalSalesHeader: Record 36;
-        TotalSalesLine: Record 37;
-        SalesHeader: Record 36;
-        TransferExtendedText: Codeunit 378;
-        SalesPriceCalcMgt: Codeunit 7000;
-        ItemAvailFormsMgt: Codeunit 353;
-        SalesCalcDiscByType: Codeunit 56;
-        DocumentTotals: Codeunit 57;
+        TotalSalesHeader: Record "Sales Header";
+        TotalSalesLine: Record "Sales Line";
+        SalesHeader: Record "Sales Header";
+        TransferExtendedText: Codeunit "Transfer Extended Text";
+        SalesPriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
+        ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
+        DocumentTotals: Codeunit "Document Totals";
         VATAmount: Decimal;
         ShortcutDimCode: array[8] of Code[20];
         UpdateAllowedVar: Boolean;
@@ -681,14 +681,14 @@ page 50115 "MAWB Invoice Subform"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
         StyleText: Boolean;
-        TempSalesLine: Record 37 temporary;
+        TempSalesLine: Record "Sales Line" temporary;
 
         "HAWB No.HideValue": Boolean;
-        TBLCustomer: Record 18;
-        TBLSalesHeader: Record 36;
-        TBLSalesLine: Record 37;
-        TBLMAWBLine: Record 50076;
-        TBLFreightItemCharge: Record 50029;
+        TBLCustomer: Record Customer;
+        TBLSalesHeader: Record "Sales Header";
+        TBLSalesLine: Record "Sales Line";
+        TBLMAWBLine: Record "MAWB Line";
+        TBLFreightItemCharge: Record "Freight Item Charge Matrix";
         TBLFlightCode: Code[10];
         TBLHNo: Integer;
         TBLFlag: Boolean;
@@ -697,15 +697,15 @@ page 50115 "MAWB Invoice Subform"
         TBLRowFlag: Boolean;
         TxtInfo: Label 'Totals can''t be caculated while the sales invioce is not open.';
         TBLAgreedRate: Decimal;
-        TBLMAWBInvoiceCharge: Record 50073;
+        TBLMAWBInvoiceCharge: Record "MAWB Invoice Charge";
         TBLItemNo: Code[20];
-        TBLItem: Record 27;
+        TBLItem: Record Item;
         TBLHNo1: Code[20];
         TBLHNo2: Code[20];
         TBLTotalVATExcl: Decimal;
-        TBLPurchInvLine: Record 123;
-        TBLPurchInvHeader: Record 122;
-        TBLExchangeRate: Record 330;
+        TBLPurchInvLine: Record "Purch. Inv. Line";
+        TBLPurchInvHeader: Record "Purch. Inv. Header";
+        TBLExchangeRate: Record "Currency Exchange Rate";
         TBLCurrecnyCode: Code[10];
         TBLAmountLCY: Decimal;
         TBLAmountUSD: Decimal;
@@ -846,7 +846,7 @@ page 50115 "MAWB Invoice Subform"
 
     local procedure IsFirstDocLine(): Boolean
     var
-        SalesLine: Record 37;
+        SalesLine: Record "Sales Line";
     begin
         TempSalesLine.RESET;
         TempSalesLine.COPYFILTERS(Rec);
@@ -877,10 +877,10 @@ page 50115 "MAWB Invoice Subform"
 
     local procedure GetDefaultCharges()
     var
-        MAWBReceipt: Record 50039;
-        FreightCharge: Record 50018;
-        SalesLine: Record 37;
-        MAWBLine: Record 50076;
+        MAWBReceipt: Record "MAWB Receipt";
+        FreightCharge: Record "Freight Charge";
+        SalesLine: Record "Sales Line";
+        MAWBLine: Record "MAWB Line";
     begin
         //*******INSERT MAWB CHARGES*******
         IF SalesLine.FINDLAST THEN BEGIN
@@ -929,7 +929,7 @@ page 50115 "MAWB Invoice Subform"
 
     local procedure CheckTotalWeightAndCorrect(var pDecTotalWeight: Decimal): Decimal
     var
-        lRecSalesLine: Record 37;
+        lRecSalesLine: Record "Sales Line";
         lDecSalesLineWeight: Decimal;
         lCodeTempHAWBNo: Code[20];
     begin
