@@ -670,7 +670,7 @@ page 50013 "Sales Invoice Subform - Import"
 
     trigger OnDeleteRecord(): Boolean
     var
-        ReserveSalesLine: Codeunit "99000832";
+        ReserveSalesLine: Codeunit 99000832;
     begin
         IF (Quantity <> 0) AND ItemExists("No.") THEN BEGIN
           COMMIT;

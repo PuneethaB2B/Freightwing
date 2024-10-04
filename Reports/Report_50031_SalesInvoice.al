@@ -595,11 +595,10 @@ report 50031 "Sales Invoice"
                             }
                             column(TempPostAsmLineVartCode; BlanksForIndent + TempPostedAsmLine."Variant Code")
                             {
-                                DecimalPlaces = 0 : 5;
+
                             }
                             column(TempPostedAsmLineUOM; GetUOMText(TempPostedAsmLine."Unit of Measure Code"))
                             {
-                                DecimalPlaces = 0 : 5;
                             }
 
                             trigger OnAfterGetRecord()
@@ -950,7 +949,14 @@ report 50031 "Sales Invoice"
             trigger OnAfterGetRecord()
             begin
                 CompanyInfo3.CALCFIELDS(Picture);
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                // CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+
+                Language.Reset();
+                Language.SetRange("Windows Language ID", GlobalLanguage);
+                if Language.FindFirst() then;
+
+                if Language.Get("Language Code") then
+                    CurrReport.Language := Language."Windows Language ID";
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -1006,7 +1012,7 @@ report 50031 "Sales Invoice"
                     ShipmentMethod.GET("Shipment Method Code");
                     ShipmentMethod.TranslateDescription(ShipmentMethod, "Language Code");
                 END;
-                FormatAddr.SalesInvShipTo(ShipToAddr, "Sales Invoice Header");
+                FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, "Sales Invoice Header");
                 ShowShippingAddr := "Sell-to Customer No." <> "Bill-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(ShipToAddr) DO
                     IF ShipToAddr[i] <> CustAddr[i] THEN
@@ -1478,6 +1484,7 @@ report 50031 "Sales Invoice"
         PostedAsmHeader: Record "Posted Assembly Header";
         PostedAsmLine: Record "Posted Assembly Line";
         SalesShipmentLine: Record "Posted Assembly Line";
+        SalesShipmentLine1:Record "Sales Shipment Line";
     begin
         TempPostedAsmLine.DELETEALL;
         IF "Sales Invoice Line".Type <> "Sales Invoice Line".Type::Item THEN
@@ -1493,7 +1500,7 @@ report 50031 "Sales Invoice"
             IF ItemLedgerEntry.GET(ValueEntry."Item Ledger Entry No.") THEN
                 IF ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::"Sales Shipment" THEN BEGIN
                     SalesShipmentLine.GET(ItemLedgerEntry."Document No.", ItemLedgerEntry."Document Line No.");
-                    IF SalesShipmentLine.AsmToShipmentExists(PostedAsmHeader) THEN BEGIN
+                    IF SalesShipmentLine1.AsmToShipmentExists(PostedAsmHeader) THEN BEGIN
                         PostedAsmLine.SETRANGE("Document No.", PostedAsmHeader."No.");
                         IF PostedAsmLine.FINDSET THEN
                             REPEAT

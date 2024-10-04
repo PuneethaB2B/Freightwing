@@ -593,9 +593,10 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "Export F/O Consolidation";
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
-                        IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
+                        IF ApprovalMgt.IsSalesApprovalsWorkflowEnabled(Rec) THEN
+                            ApprovalMgt.OnSendSalesDocForApproval(Rec);       //B2BUPG
                     end;
                 }
                 action("Cancel Approval Re&quest")
@@ -605,9 +606,9 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     var
-                        ApprovalMgt: Codeunit "Export F/O Consolidation";
+                        ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
-                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
+                        ApprovalMgt.OnCancelSalesApprovalRequest(Rec);      //B2BUPG
                     end;
                 }
                 separator(General9)

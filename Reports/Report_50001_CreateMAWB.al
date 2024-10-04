@@ -92,14 +92,14 @@ report 50001 "Create MAWB"
     begin
         Count := 0;
         IF PrefixCode = '' THEN BEGIN
-            rec.GET(AirlineCode);
-            IF rec."Prefix Code" = '' THEN
-                ERROR('The Airline %1 has no Prefix Defined on Master Data', rec.Name);
+            rec1.GET(AirlineCode);
+            IF rec1."Prefix Code" = '' THEN
+                ERROR('The Airline %1 has no Prefix Defined on Master Data', rec1.Name);
         END
         ELSE BEGIN
         END;
-        rec.GET(AirlineCode);
-        PrefixCode := rec."Prefix Code";
+        rec1.GET(AirlineCode);
+        PrefixCode := rec1."Prefix Code";
         MAWBCount := "Numbers To Generate";
         NextNo := StartNo;
         ProgressWindow.OPEN('Creating MAWB number #1#######');
@@ -128,7 +128,7 @@ report 50001 "Create MAWB"
                     END;
                     MAWBReceipt."MAWB No." := PrefixCode + BillNo + FORMAT(NextNo);
                     MAWBReceipt."Receipt Date" := TODAY;
-                    MAWBReceipt."MAWB Fees" := rec."AWB Fee";
+                    MAWBReceipt."MAWB Fees" := rec1."AWB Fee";
                     MAWBReceipt."Prefix Code" := PrefixCode;
                     MAWBReceipt."Bill No." := BillNo;
                     MAWBReceipt."Start No." := NextNo;
@@ -173,7 +173,7 @@ report 50001 "Create MAWB"
         "Numbers To Generate": Integer;
         "Count": Integer;
         "Cost Per One Airway Bill": Decimal;
-        rec: Record Airline;
+        rec1: Record Airline;
 
 
     procedure SetPar(pAirlineCode: Code[20]; pMAWBFees: Decimal; pKAAFees: Decimal; pFreightChargeCode: Code[20]; Prefix: Code[10])

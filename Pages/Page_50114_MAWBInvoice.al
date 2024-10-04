@@ -76,7 +76,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnValidate()
                     begin
-                        BilltoCustomerNoOnAfterValidate;
+                        CurrPage.Update();
                     end;
                 }
                 field("Bill-to Name"; Rec."Bill-to Name")
@@ -794,7 +794,7 @@ page 50114 "MAWB Invoice"
                         IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
-                separator()
+                separator(fw1)
                 {
                 }
             }

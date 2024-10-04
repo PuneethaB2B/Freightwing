@@ -115,7 +115,7 @@ report 50060 "Booking Sheet Pre Alert"
                                    "Shipper Code" = FIELD("Shipper Code"),
                                    "Destination Airport" = FIELD("Destination Airport"),
                                    "Flight Code" = FIELD("Flight No");
-                    column(ShippingAgentName; ShippingAgent.Name)
+                    column(ShippingAgentName; ShippingAgent."Agent Name")
                     {
                     }
                     column(BookingSheetNo_BookingSheetLine; "Booking Sheet Line"."Booking Sheet No.")

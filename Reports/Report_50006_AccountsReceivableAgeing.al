@@ -7,7 +7,7 @@ report 50006 "Accounts Receivable Ageing"
 
     dataset
     {
-        dataitem(Customer; 18)
+        dataitem(Customer; Customer)
         {
             RequestFilterFields = "No.";
             column(TodayFormatted; FORMAT(TODAY, 0, 4))
@@ -139,7 +139,7 @@ report 50006 "Accounts Receivable Ageing"
             column(CustomerType_Customer; Customer."Customer Type")
             {
             }
-            dataitem(DataItem8503; 21)
+            dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = FIELD("No.");
                 DataItemTableView = SORTING("Customer No.", "Posting Date", "Currency Code");
@@ -180,7 +180,7 @@ report 50006 "Accounts Receivable Ageing"
                     SETRANGE("Posting Date", EndingDate + 1, 99991231D);
                 end;
             }
-            dataitem(OpenCustLedgEntry; 21)
+            dataitem(OpenCustLedgEntry; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = FIELD("No.");
                 DataItemTableView = SORTING("Customer No.", Open, Positive, "Due Date", "Currency Code");
@@ -205,12 +205,12 @@ report 50006 "Accounts Receivable Ageing"
                     END;
                 end;
             }
-            dataitem(CurrencyLoop; 2000000026)
+            dataitem(CurrencyLoop; Integer)
             {
                 DataItemTableView = SORTING(Number)
                                     WHERE(Number = FILTER(1 ..));
                 PrintOnlyIfDetail = true;
-                dataitem(TempCustLedgEntryLoop; 2000000026)
+                dataitem(TempCustLedgEntryLoop; Integer)
                 {
                     DataItemTableView = SORTING(Number)
                                         WHERE(Number = FILTER(1 ..));
@@ -903,34 +903,34 @@ report 50006 "Accounts Receivable Ageing"
     procedure MakeExcelInfo()
     begin
         ExcelBuf.SetUseInfoSheet;
-        ExcelBuf.AddInfoColumn(FORMAT(Text013), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(COMPANYNAME, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text013), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(COMPANYNAME, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text015), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(FORMAT(Text012), FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text015), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text012), FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text014), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(REPORT::"Aged Accounts Receivable", FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Number);
+        ExcelBuf.AddInfoColumn(FORMAT(Text014), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(REPORT::"Aged Accounts Receivable", FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Number);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text016), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(USERID, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text016), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(USERID, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text017), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(TODAY, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Date);
+        ExcelBuf.AddInfoColumn(FORMAT(Text017), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(TODAY, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Date);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text018), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(Customer.GETFILTERS, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text018), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(Customer.GETFILTERS, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(Text019), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn("Cust. Ledger Entry".GETFILTERS, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(Text019), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn("Cust. Ledger Entry".GETFILTERS, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         IF PrintAmountInLCY THEN BEGIN
             ExcelBuf.NewRow;
-            ExcelBuf.AddInfoColumn(FORMAT(Text008), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-            ExcelBuf.AddInfoColumn(PrintAmountInLCY, FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+            ExcelBuf.AddInfoColumn(FORMAT(Text008), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+            ExcelBuf.AddInfoColumn(PrintAmountInLCY, FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         END;
         ExcelBuf.NewRow;
-        ExcelBuf.AddInfoColumn(FORMAT(COPYSTR(Text004, 1, 7)), FALSE, '', TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
-        ExcelBuf.AddInfoColumn(FORMAT(SELECTSTR(AgingBy + 1, Text009)), FALSE, '', FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(COPYSTR(Text004, 1, 7)), FALSE, TRUE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
+        ExcelBuf.AddInfoColumn(FORMAT(SELECTSTR(AgingBy + 1, Text009)), FALSE, FALSE, FALSE, FALSE, '', ExcelBuf."Cell Type"::Text);
         ExcelBuf.ClearNewRow;
         MakeExcelDataHeader;
     end;
@@ -977,7 +977,7 @@ report 50006 "Accounts Receivable Ageing"
 
     procedure CreateExcelbook()
     begin
-        ExcelBuf.CreateBookAndOpenExcel(Text011, Text012, COMPANYNAME, USERID);
+        //ExcelBuf.CreateBookAndOpenExcel(Text011, Text012, COMPANYNAME, USERID);        //B2BUPG
         ERROR('');
     end;
 

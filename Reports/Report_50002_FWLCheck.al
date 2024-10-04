@@ -450,76 +450,78 @@ report 50002 "FWL Check"
                         Decimals: Decimal;
                     begin
                         IF NOT TestPrint THEN BEGIN
-                            CheckLedgEntry.INIT;
-                            CheckLedgEntry."Bank Account No." := BankAcc2."No.";
-                            CheckLedgEntry."Posting Date" := "Posting Date";
-                            CheckLedgEntry."Document Type" := "Document Type";
-                            CheckLedgEntry."Document No." := UseCheckNo;
-                            CheckLedgEntry.Description := Description;
-                            CheckLedgEntry."Bank Payment Type" := "Bank Payment Type";
-                            CheckLedgEntry."Bal. Account Type" := BalancingType;
-                            CheckLedgEntry."Bal. Account No." := BalancingNo;
-                            IF FoundLast THEN BEGIN
-                                IF TotalLineAmount <= 0 THEN
-                                    ERROR(
-                                      Text020,
-                                      UseCheckNo, TotalLineAmount);
-                                CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::Printed;
-                                CheckLedgEntry.Amount := TotalLineAmount;
-                            END ELSE BEGIN
-                                CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::Voided;
-                                CheckLedgEntry.Amount := 0;
-                            END;
-                            CheckLedgEntry."Check Date" := "Posting Date";
-                            CheckLedgEntry."Check No." := UseCheckNo;
-                            CheckManagement.InsertCheck(CheckLedgEntry);
+                            WITH GenJnlLine DO BEGIN
+                                CheckLedgEntry.INIT;
+                                CheckLedgEntry."Bank Account No." := BankAcc2."No.";
+                                CheckLedgEntry."Posting Date" := "Posting Date";
+                                CheckLedgEntry."Document Type" := "Document Type";
+                                CheckLedgEntry."Document No." := UseCheckNo;
+                                CheckLedgEntry.Description := Description;
+                                CheckLedgEntry."Bank Payment Type" := "Bank Payment Type";
+                                CheckLedgEntry."Bal. Account Type" := BalancingType;
+                                CheckLedgEntry."Bal. Account No." := BalancingNo;
+                                IF FoundLast THEN BEGIN
+                                    IF TotalLineAmount <= 0 THEN
+                                        ERROR(
+                                          Text020,
+                                          UseCheckNo, TotalLineAmount);
+                                    CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::Printed;
+                                    CheckLedgEntry.Amount := TotalLineAmount;
+                                END ELSE BEGIN
+                                    CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::Voided;
+                                    CheckLedgEntry.Amount := 0;
+                                END;
+                                CheckLedgEntry."Check Date" := "Posting Date";
+                                CheckLedgEntry."Check No." := UseCheckNo;
+                                CustomCodeu.InsertCheck(CheckLedgEntry);
 
-                            IF FoundLast THEN BEGIN
-                                IF BankAcc2."Currency Code" <> '' THEN
-                                    Currency.GET(BankAcc2."Currency Code")
-                                ELSE
-                                    Currency.InitRoundingPrecision;
-                                Decimals := CheckLedgEntry.Amount - ROUND(CheckLedgEntry.Amount, 1, '<');
-                                IF STRLEN(FORMAT(Decimals)) < STRLEN(FORMAT(Currency."Amount Rounding Precision")) THEN
-                                    IF Decimals = 0 THEN
-                                        CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0) +
-                                          COPYSTR(FORMAT(0.01), 2, 1) +
-                                          PADSTR('', STRLEN(FORMAT(Currency."Amount Rounding Precision")) - 2, '0')
+                                IF FoundLast THEN BEGIN
+                                    IF BankAcc2."Currency Code" <> '' THEN
+                                        Currency.GET(BankAcc2."Currency Code")
                                     ELSE
-                                        CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0) +
-                                          PADSTR('', STRLEN(FORMAT(Currency."Amount Rounding Precision")) - STRLEN(FORMAT(Decimals)), '0')
-                                ELSE
-                                    CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0);
-                                FormatNoText(DescriptionLine, CheckLedgEntry.Amount, BankAcc2."Currency Code");
-                                VoidText := '';
-                            END ELSE BEGIN
-                                CLEAR(CheckAmountText);
-                                CLEAR(DescriptionLine);
-                                TotalText := Text065;
-                                DescriptionLine[1] := Text021;
+                                        Currency.InitRoundingPrecision;
+                                    Decimals := CheckLedgEntry.Amount - ROUND(CheckLedgEntry.Amount, 1, '<');
+                                    IF STRLEN(FORMAT(Decimals)) < STRLEN(FORMAT(Currency."Amount Rounding Precision")) THEN
+                                        IF Decimals = 0 THEN
+                                            CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0) +
+                                              COPYSTR(FORMAT(0.01), 2, 1) +
+                                              PADSTR('', STRLEN(FORMAT(Currency."Amount Rounding Precision")) - 2, '0')
+                                        ELSE
+                                            CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0) +
+                                              PADSTR('', STRLEN(FORMAT(Currency."Amount Rounding Precision")) - STRLEN(FORMAT(Decimals)), '0')
+                                    ELSE
+                                        CheckAmountText := FORMAT(CheckLedgEntry.Amount, 0, 0);
+                                    FormatNoText(DescriptionLine, CheckLedgEntry.Amount, BankAcc2."Currency Code");
+                                    VoidText := '';
+                                END ELSE BEGIN
+                                    CLEAR(CheckAmountText);
+                                    CLEAR(DescriptionLine);
+                                    TotalText := Text065;
+                                    DescriptionLine[1] := Text021;
+                                    DescriptionLine[2] := DescriptionLine[1];
+                                    VoidText := Text022;
+                                end;
+                                //END ELSE BEGIN
+                                CheckLedgEntry.INIT;
+                                CheckLedgEntry."Bank Account No." := BankAcc2."No.";
+                                CheckLedgEntry."Posting Date" := "Posting Date";
+                                CheckLedgEntry."Document No." := UseCheckNo;
+                                CheckLedgEntry.Description := Text023;
+                                CheckLedgEntry."Bank Payment Type" := "Bank Payment Type"::"Computer Check";
+                                CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::"Test Print";
+                                CheckLedgEntry."Check Date" := "Posting Date";
+                                CheckLedgEntry."Check No." := UseCheckNo;
+                                CheckManagement.InsertCheck(CheckLedgEntry, RecordId);
+
+                                CheckAmountText := Text024;
+                                DescriptionLine[1] := Text025;
                                 DescriptionLine[2] := DescriptionLine[1];
                                 VoidText := Text022;
                             END;
-                        END ELSE BEGIN
-                            CheckLedgEntry.INIT;
-                            CheckLedgEntry."Bank Account No." := BankAcc2."No.";
-                            CheckLedgEntry."Posting Date" := "Posting Date";
-                            CheckLedgEntry."Document No." := UseCheckNo;
-                            CheckLedgEntry.Description := Text023;
-                            CheckLedgEntry."Bank Payment Type" := "Bank Payment Type"::"Computer Check";
-                            CheckLedgEntry."Entry Status" := CheckLedgEntry."Entry Status"::"Test Print";
-                            CheckLedgEntry."Check Date" := "Posting Date";
-                            CheckLedgEntry."Check No." := UseCheckNo;
-                            CheckManagement.InsertCheck(CheckLedgEntry,RecordId);
 
-                            CheckAmountText := Text024;
-                            DescriptionLine[1] := Text025;
-                            DescriptionLine[2] := DescriptionLine[1];
-                            VoidText := Text022;
-                        END;
-
-                        ChecksPrinted := ChecksPrinted + 1;
-                        FirstPage := FALSE;
+                            ChecksPrinted := ChecksPrinted + 1;
+                            FirstPage := FALSE;
+                        end;
                     end;
                 }
 
@@ -919,6 +921,7 @@ report 50002 "FWL Check"
         Currency: Record Currency;
         FormatAddr: Codeunit "Format Address";
         CheckManagement: Codeunit CheckManagement;
+        CustomCodeu: Codeunit CustomCode;
         CompanyAddr: array[8] of Text[50];
         CheckToAddr: array[8] of Text[50];
         OnesText: array[20] of Text[30];

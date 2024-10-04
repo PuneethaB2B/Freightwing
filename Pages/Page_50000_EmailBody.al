@@ -31,7 +31,7 @@ page 50000 "Email Body"
 
                 trigger OnAssistEdit()
                 begin
-                    FileManagement.DownloadHandler(Rec."Attachment Path", SaveFileDialogTitleMsg, '', SaveFileDialogFilterMsg, Rec."Attachment Name");
+                    DownloadHandler(Rec."Attachment Path", SaveFileDialogTitleMsg, '', SaveFileDialogFilterMsg, Rec."Attachment Name");
                 end;
             }
             field(Body; Rec.Body)
@@ -50,5 +50,18 @@ page 50000 "Email Body"
         FileManagement: Codeunit "File Management";
         SaveFileDialogTitleMsg: Label 'Save PDF file';
         SaveFileDialogFilterMsg: Label 'PDF Files (*.pdf)|*.pdf';
+
+    procedure DownloadHandler(FromFile: Text; DialogTitle: Text; ToFolder: Text; ToFilter: Text; ToFile: Text) Downloaded: Boolean
+    begin
+        ClearLastError();
+        Downloaded := Download(FromFile, DialogTitle, ToFolder, ToFilter, ToFile);
+        if not Downloaded then
+            if GetLastErrorText <> '' then
+                Error('%1', GetLastErrorText);
+    end;
+
+    procedure Download(FromFile: Text; DialogTitle: Text; ToFolder: Text; ToFilter: Text; var ToFile: Text): Boolean
+    begin
+    end;
 }
 
