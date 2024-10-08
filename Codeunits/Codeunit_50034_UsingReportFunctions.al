@@ -41,19 +41,19 @@ codeunit 50034 "Using Report Functions"
         //MESSAGE(FORMAT(ReportParameters.ToEmail));
         SmtpSetup.GET;
         CLEAR(lTxtMergeBody);
-        SMTP.CreateMessage('Freight Wings', SmtpSetup."User ID", ReportParameters.ToEmail, 'Customer Statement', '', TRUE);
-        SMTP.AppendBody(lTxtBody1);
-        SMTP.AppendBody('<br>');
+        EmailMessage.Create('Freight Wings', SmtpSetup."User ID", ReportParameters.ToEmail, 'Customer Statement', '', TRUE);
+        EmailMessage.AppendtoBody(lTxtBody1);
+        EmailMessage.AppendtoBody('<br>');
         lTxtMergeBody := lTxtBody2 + ' ' + FORMAT(ReportParameters."Statement Period End Date") + '.';
-        SMTP.AppendBody(lTxtMergeBody);
-        SMTP.AppendBody('<br><br>');
-        SMTP.AppendBody(lTxtBody3);
-        SMTP.AppendBody('<br><br>');
-        SMTP.AppendBody(lTxtBody4);
-        SMTP.AppendBody('<br>');
-        SMTP.AppendBody(lTxtBody5);
-        SMTP.AddAttachment(ClientTempPath, 'Customer Statement.pdf');
-        SMTP.Send();
+        EmailMessage.AppendtoBody(lTxtMergeBody);
+        EmailMessage.AppendtoBody('<br><br>');
+        EmailMessage.AppendtoBody(lTxtBody3);
+        EmailMessage.AppendtoBody('<br><br>');
+        EmailMessage.AppendtoBody(lTxtBody4);
+        EmailMessage.AppendtoBody('<br>');
+        EmailMessage.AppendtoBody(lTxtBody5);
+        EmailMessage.AddAttachment(ClientTempPath, 'Customer Statement.pdf', '');
+        Email.Send(EmailMessage);
         MESSAGE('Customer Statement successfully send');
 
         // Use the REPORT.EXECUTE function to preview the report
@@ -76,6 +76,8 @@ codeunit 50034 "Using Report Functions"
         ClientTempPath: Text;
         //SMTP: Codeunit 400;
         //SmtpSetup: Record "SMTP Mail Setup";
+        EmailMessage: Codeunit "Email Message";
+        Email: Codeunit Email;
         lTxtBody1: Label 'Dear All,';
         lTxtBody2: Label 'Please find attached Statement of account as at';
         lTxtBody3: Label 'In case of any query noted, please report them to invoice.query@freightwings.co.ke for necessary response';
