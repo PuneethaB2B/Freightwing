@@ -17,7 +17,7 @@ codeunit 50035 "TIMS Manager."
         RecRef: RecordRef;
         SalesCrHeader: Record "Sales Cr.Memo Header";
         HttpWebRequestMgt: Codeunit "Http Web Request Mgt.";
-        TempBlob: Record TempBlob;
+        TempBlob: Codeunit "Temp Blob";
         StringBuilder: DotNet StringBuilder;
         StringWriter: DotNet StringWriter;
         GlobalNULL: Variant;
@@ -374,7 +374,7 @@ codeunit 50035 "TIMS Manager."
                     SalesCrMemoLine.RESET;
                     SalesCrMemoLine.SETRANGE("Document No.", SalesCrHeader."No.");
                     SalesCrMemoLine.SETFILTER("No.", '<>%1', '');
-                    IF SalesCrMemoLine.FINDSET(FALSE, FALSE) THEN
+                    IF SalesCrMemoLine.FINDSET() THEN
                         REPEAT
                             JsonTextWriter.WriteStartObject;
                             JsonTextWriter.WritePropertyName('productCode');
@@ -472,7 +472,7 @@ codeunit 50035 "TIMS Manager."
                                     END;
                                 'CUSN':
                                     BEGIN
-                                        SalesCrHeader."Deivice Code" := TempPostingExchField.Value;
+                                        SalesCrHeader."Device Code" := TempPostingExchField.Value;
                                     END;
                             END;
                         UNTIL TempPostingExchField.NEXT = 0;
@@ -627,7 +627,7 @@ codeunit 50035 "TIMS Manager."
 
     local procedure GetTotalSalesLine(DocNo: Code[20]; Zero: Boolean): Decimal
     var
-        SalesInvLine: Record "113";
+        SalesInvLine: Record 113;
         TotalPrice: Decimal;
     begin
         CLEAR(TotalPrice);
@@ -667,7 +667,7 @@ codeunit 50035 "TIMS Manager."
 
     local procedure GetTotalVATSalesLine(DocNo: Code[20]): Decimal
     var
-        SalesInvLine: Record "113";
+        SalesInvLine: Record 113;
         TotalPrice: Decimal;
     begin
         CLEAR(TotalPrice);
@@ -702,7 +702,7 @@ codeunit 50035 "TIMS Manager."
     local procedure GetTotalSalesCreditLine(DocNo: Code[20]; Zero: Boolean): Decimal
     var
         TotalPrice: Decimal;
-        SalesCrMemoLine: Record "115";
+        SalesCrMemoLine: Record 115;
     begin
         CLEAR(TotalPrice);
         SalesCrMemoLine.RESET;
@@ -739,7 +739,7 @@ codeunit 50035 "TIMS Manager."
 
     local procedure GetTotalVATSalesCreditLine(DocNo: Code[20]): Decimal
     var
-        SalesCrMemoLine: Record "115";
+        SalesCrMemoLine: Record 115;
         TotalPrice: Decimal;
     begin
         CLEAR(TotalPrice);
@@ -779,12 +779,12 @@ codeunit 50035 "TIMS Manager."
         txt: Text;
         ResponseJsonText: Text;
         String: DotNet String;
-        TempPostingExchField: Record "50081" temporary;
+        TempPostingExchField: Record 50081 temporary;
         i: Integer;
         Colmn: Integer;
-        Item: Record "27";
-        GLAccount: Record "15";
-        SalesPost: Codeunit "80";
+        Item: Record 27;
+        GLAccount: Record 15;
+        SalesPost: Codeunit 80;
         UnitPrice: Decimal;
         TaxRate: Integer;
         TestFile: File;
@@ -815,7 +815,7 @@ codeunit 50035 "TIMS Manager."
                     SalesInvHeader.CALCFIELDS("Amount Including VAT", "VAT Amount", Amount);
                     FileNameTxt := SalesInvHeader."No.";
                     FileNamex := Setup."QR Location" + 'Json.TXT';
-                    /*IF NOT( SalesInvHeader."Invoice Number" ='') THEN
+                    /*IF NOT( SalesInvHeader."Invo
                       EXIT;*///BT
                     IF EXISTS(FileNamex) THEN
                         ERASE(FileNamex);
@@ -887,7 +887,7 @@ codeunit 50035 "TIMS Manager."
                     SalesInvoiceLine.RESET;
                     SalesInvoiceLine.SETRANGE("Document No.", SalesInvHeader."No.");
                     SalesInvoiceLine.SETFILTER("No.", '<>%1', '');
-                    IF SalesInvoiceLine.FINDSET(FALSE, FALSE) THEN
+                    IF SalesInvoiceLine.FINDSET() THEN
                         REPEAT
                             JsonTextWriter.WriteStartObject;
                             JsonTextWriter.WritePropertyName('productCode');
@@ -958,7 +958,7 @@ codeunit 50035 "TIMS Manager."
                     SalesCrHeader.CALCFIELDS("Amount Including VAT", Amount);
                     FileNameTxt := SalesCrHeader."No.";
                     FileNamex := Setup."QR Location" + 'Json.TXT';
-                    /*IF NOT ( SalesCrHeader."Invoice Number" = '') THEN
+                    /*IF NOT ( SalesCrHeader."Invoi
                       EXIT;*/
                     IF EXISTS(FileNamex) THEN
                         ERASE(FileNamex);
@@ -1033,7 +1033,7 @@ codeunit 50035 "TIMS Manager."
                     SalesCrMemoLine.RESET;
                     SalesCrMemoLine.SETRANGE("Document No.", SalesCrHeader."No.");
                     SalesCrMemoLine.SETFILTER("No.", '<>%1', '');
-                    IF SalesCrMemoLine.FINDSET(FALSE, FALSE) THEN
+                    IF SalesCrMemoLine.FINDSET() THEN
                         REPEAT
                             JsonTextWriter.WriteStartObject;
                             JsonTextWriter.WritePropertyName('productCode');

@@ -363,9 +363,9 @@ report 50061 "Computer Check"
             column(DimensionSetID_GenJournalLine; "Gen. Journal Line"."Dimension Set ID")
             {
             }
-            column(CreditCardNo_GenJournalLine; "Gen. Journal Line"."Credit Card No.")
-            {
-            }
+            // column(CreditCardNo_GenJournalLine; "Gen. Journal Line"."Credit Card No.")
+            // {
+            // }  //B2BUPG Removed in hiogher version, there is no data against the field.
             column(JobTaskNo_GenJournalLine; "Gen. Journal Line"."Job Task No.")
             {
             }

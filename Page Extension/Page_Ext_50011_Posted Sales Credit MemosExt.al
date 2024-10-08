@@ -90,13 +90,26 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
         EmailSubjectCapTxt: Label '@@@="%1 = Customer Name. %2 = Document Type %3 = Invoice No.";ENU=%1 - %2 %3';
         EmailBodyPage: Page "Email Body";
         SMTPMail: Codeunit 400;
+        EmailMessage: Codeunit "Email Message";
+        AttachmentTempBlob: Codeunit "Temp Blob";
+        AttchmentOutStream: OutStream;
+        AttcahmentInstream: InStream;
+        RecordrefVar: RecordRef;
+        StandardSalesCreditMem: Report "Standard Sales - Credit Memo";
     BEGIN
         WITH pRecSalesCrMemoHeader DO BEGIN
-            ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+            // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
             lRecSalesCrMemoHeader.RESET;
             lRecSalesCrMemoHeader.SETRANGE(lRecSalesCrMemoHeader."No.", pRecSalesCrMemoHeader."No.");
             IF lRecSalesCrMemoHeader.FINDFIRST THEN
-                REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader);
+                //REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader);  //B2BUPG
+
+                AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
+            RecordrefVar.GetTable(lRecSalesCrMemoHeader);
+            StandardSalesCreditMem.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+            AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+
+
             COMMIT;
             AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, 'Credit Memos', pRecSalesCrMemoHeader."No.");
             //Insert Into Email Body.

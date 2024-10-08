@@ -191,9 +191,9 @@ page 50114 "MAWB Invoice"
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("Credit Card No."; "Credit Card No.")
-                {
-                }
+                // field("Credit Card No."; "Credit Card No.")
+                // {
+                // }//B2BUPG Removed in hiogher version, there is no data against the field.
                 field(GetCreditcardNumber; GetCreditcardNumber)
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
@@ -448,10 +448,10 @@ page 50114 "MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     ApplicationArea = All;
                     Image = CreditCardLog;
-                    RunObject = Page 829;
-                    RunPageLink = "Document Type" = FIELD("Document Type"),
-                                  "Document No." = FIELD("No."),
-                                  "Customer No." = FIELD("Bill-to Customer No.");
+                    // RunObject = Page 829;
+                    // RunPageLink = "Document Type" = FIELD("Document Type"),
+                    //               "Document No." = FIELD("No."),
+                    //               "Customer No." = FIELD("Bill-to Customer No.");  //B2BUPG
                 }
             }
         }
@@ -779,7 +779,8 @@ page 50114 "MAWB Invoice"
                     var
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
-                        IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
+                        IF ApprovalMgt.IsSalesApprovalsWorkflowEnabled(Rec) THEN
+                            ApprovalMgt.OnSendSalesDocForApproval(Rec);       //B2BUPG
                     end;
                 }
                 action("Cancel Approval Re&quest")
@@ -791,7 +792,7 @@ page 50114 "MAWB Invoice"
                     var
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
-                        IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
+                        ApprovalMgt.OnCancelSalesApprovalRequest(Rec);      //B2BUPG
                     end;
                 }
                 separator(fw1)
@@ -809,7 +810,8 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Authorize;
+                        //Authorize;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
                 action("Void A&uthorize")
@@ -819,7 +821,8 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Void;
+                        //Void;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
             }

@@ -180,9 +180,9 @@ page 50145 "Posted MAWB Invoice"
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                field("Credit Card No."; "Credit Card No.")
-                {
-                }
+                // field("Credit Card No."; "Credit Card No.")
+                // {
+                // }  //B2BUPG Removed in hiogher version, there is no data against the field.
                 field(GetCreditcardNumber; GetCreditcardNumber)
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
@@ -422,10 +422,10 @@ page 50145 "Posted MAWB Invoice"
                 {
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
-                    RunObject = Page 829;
-                    RunPageLink = "Document Type" = FIELD("Document Type"),
-                                  "Document No." = FIELD("No."),
-                                  "Customer No." = FIELD("Bill-to Customer No.");
+                    // RunObject = Page 829;
+                    // RunPageLink = "Document Type" = FIELD("Document Type"),
+                    //               "Document No." = FIELD("No."),
+                    //               "Customer No." = FIELD("Bill-to Customer No."); //B2BUPG
                 }
             }
         }
@@ -628,7 +628,8 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Authorize;
+                        //Authorize;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
                 action("Void A&uthorize")
@@ -638,7 +639,8 @@ page 50145 "Posted MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        Void;
+                        // Void;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
             }

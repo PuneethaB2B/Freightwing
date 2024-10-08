@@ -47,6 +47,13 @@ codeunit 50030 "Custom Mail"
         FlightDate: Date;
         Route: Code[100];
         ConName: Text[250];
+
+        EmailMessage: Codeunit "Email Message";
+        AttachmentTempBlob: Codeunit "Temp Blob";
+        AttchmentOutStream: OutStream;
+        AttcahmentInstream: InStream;
+        BookingSheetPreAlert: Report "Booking Sheet Pre Alert";
+        RecordrefVar: RecordRef;
     begin
         IF BookingSheetHeader.GET("BSNo.") THEN BEGIN
             Window.OPEN('Mailing To #1#####\Adding Emails #2#####');
@@ -80,8 +87,15 @@ codeunit 50030 "Custom Mail"
                                     IF BookingSheetHAWBAllocation1.FINDFIRST THEN BEGIN
                                         //REPORT.RUN(50060,FALSE,FALSE,BookingSheetHAWBAllocation1);\
                                         //ClientTempPath := TEMPORARYPATH+'\Report.PDF';
-                                        ClientTempPath := gCduFileMgmt.ClientTempFileName('.PDF');
-                                        REPORT.SAVEASPDF(50060, ClientTempPath, BookingSheetHAWBAllocation1);
+                                        //ClientTempPath := gCduFileMgmt.ClientTempFileName('.PDF');
+                                        //REPORT.SAVEASPDF(50060, ClientTempPath, BookingSheetHAWBAllocation1);
+
+                                        AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
+                                        RecordrefVar.GetTable(BookingSheetHAWBAllocation1);
+                                        BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+                                        AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+                                        //B2BUPG
+
                                         SLEEP(5000);
                                         FlightNo := BookingSheetMAWBAllocation."Flight No";
                                         Route := BookingSheetMAWBAllocation."Source Airport" + '-' + BookingSheetMAWBAllocation."Destination Airport";
@@ -186,6 +200,12 @@ codeunit 50030 "Custom Mail"
         lTxtAppendBody3: Text;
         lRecBookingSheetHAWBAllocConsignee: Record "Booking Sheet HAWB Allocation";
         lRecSMTPSetup: Record "SMTP Mail Setup";
+        EmailMessage: Codeunit "Email Message";
+        AttachmentTempBlob: Codeunit "Temp Blob";
+        AttchmentOutStream: OutStream;
+        AttcahmentInstream: InStream;
+        BookingSheetPreAlert: Report "Booking Sheet Pre Alert";
+        RecordrefVar: RecordRef;
     begin
         IF lRecBookingSheetHeader.GET("BSNo.") THEN BEGIN
             lDlgWindow.OPEN('Sending Pre Alerts....');
@@ -219,8 +239,14 @@ codeunit 50030 "Custom Mail"
                                             lRecBookingSheetHAWBAllocConsignee.COPYFILTERS(lRecBookingSheetHAWBAllocation);
                                             lRecBookingSheetHAWBAllocConsignee.SETRANGE("Consignee Code", lRecBookingSheetHAWBAllocation."Consignee Code");
                                             IF lRecBookingSheetHAWBAllocConsignee.FINDFIRST THEN BEGIN
-                                                ClientTempPath := TEMPORARYPATH + '\Report.pdf';
-                                                REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee);
+                                                //ClientTempPath := TEMPORARYPATH + '\Report.pdf';
+                                                // REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee);
+
+                                                AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
+                                                RecordrefVar.GetTable(lRecBookingSheetHAWBAllocConsignee);
+                                                BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+                                                AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+                                                //B2BUPG
                                                 lTxtEmailSubject := lRecBookingSheetHAWBAllocation."Consignee Name" + ' SHIPMENT PRE-ADVISE NOTIFICATION - ' +
                                                                     lRecBookingSheetMAWBAllocation."Flight No" + '//' + FORMAT(lRecBookingSheetHeader."Booking Date") + ' ' +
                                                                     lRecBookingSheetMAWBAllocation."Source Airport" + '-' + lRecBookingSheetMAWBAllocation."Destination Airport";

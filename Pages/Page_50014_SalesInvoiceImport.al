@@ -453,10 +453,10 @@ page 50014 "Sales Invoice - Import"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
                     ApplicationArea = All;
-                    RunObject = Page 829;
-                    RunPageLink = "Document Type" = FIELD("Document Type"),
-                                  "Document No." = FIELD("No."),
-                                  "Customer No." = FIELD("Bill-to Customer No.");
+                    // RunObject = Page 829;
+                    // RunPageLink = "Document Type" = FIELD("Document Type"),
+                    //               "Document No." = FIELD("No."),
+                    //               "Customer No." = FIELD("Bill-to Customer No.");   //B2BUPG //829 page is missing "DO Payment Trans. Log Entries"
                 }
             }
         }
@@ -636,7 +636,8 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     begin
-                        Authorize;
+                        //Authorize;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
                 action("Void A&uthorize")
@@ -646,7 +647,8 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnAction()
                     begin
-                        Void;
+                        //Void;
+                        //B2BUPG  Code removed in higher version
                     end;
                 }
             }

@@ -51,7 +51,8 @@ page 50013 "Sales Invoice Subform - Import"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        CrossReferenceNoLookUp;
+                        // CrossReferenceNoLookUp;  //B2BUPG
+                        ItemReferenceMgt.SalesReferenceNoLookUp(Rec, SalesHeaderRec);
                         InsertExtendedText(FALSE);
                         NoOnAfterValidate;
                     end;
@@ -284,121 +285,121 @@ page 50013 "Sales Invoice Subform - Import"
                 {
                     Visible = false;
                 }
-                field(ShortcutDimCode[3];ShortcutDimCode[3])
+                field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     CaptionClass = '1,2,3';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(3,ShortcutDimCode[3]);
+                        Rec.LookupShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(3,ShortcutDimCode[3]);
+                        Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
                 }
-                field(ShortcutDimCode[4];ShortcutDimCode[4])
+                field("ShortcutDimCode[4]"; ShortcutDimCode[4])
                 {
                     CaptionClass = '1,2,4';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(4,ShortcutDimCode[4]);
+                        Rec.LookupShortcutDimCode(4, ShortcutDimCode[4]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(4,ShortcutDimCode[4]);
+                        Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
                     end;
                 }
-                field(ShortcutDimCode[5];ShortcutDimCode[5])
+                field("ShortcutDimCode[5]"; ShortcutDimCode[5])
                 {
                     CaptionClass = '1,2,5';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(5,ShortcutDimCode[5]);
+                        Rec.LookupShortcutDimCode(5, ShortcutDimCode[5]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(5,ShortcutDimCode[5]);
+                        Rec.ValidateShortcutDimCode(5, ShortcutDimCode[5]);
                     end;
                 }
-                field(ShortcutDimCode[6];ShortcutDimCode[6])
+                field("ShortcutDimCode[6]"; ShortcutDimCode[6])
                 {
                     CaptionClass = '1,2,6';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(6,ShortcutDimCode[6]);
+                        Rec.LookupShortcutDimCode(6, ShortcutDimCode[6]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(6,ShortcutDimCode[6]);
+                        Rec.ValidateShortcutDimCode(6, ShortcutDimCode[6]);
                     end;
                 }
-                field(ShortcutDimCode[7];ShortcutDimCode[7])
+                field("ShortcutDimCode[7]"; ShortcutDimCode[7])
                 {
                     CaptionClass = '1,2,7';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(7,ShortcutDimCode[7]);
+                        Rec.LookupShortcutDimCode(7, ShortcutDimCode[7]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(7,ShortcutDimCode[7]);
+                        Rec.ValidateShortcutDimCode(7, ShortcutDimCode[7]);
                     end;
                 }
-                field(ShortcutDimCode[8];ShortcutDimCode[8])
+                field("ShortcutDimCode[8]"; ShortcutDimCode[8])
                 {
                     CaptionClass = '1,2,8';
                     Visible = false;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(8,ShortcutDimCode[8]);
+                        Rec.LookupShortcutDimCode(8, ShortcutDimCode[8]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(8,ShortcutDimCode[8]);
+                        Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
                     end;
                 }
-                field("Document No.";"Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                     Editable = false;
                     Visible = false;
                 }
-                field("Line No.";"Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     Editable = false;
                     Visible = false;
                 }
-                field("Gen. Bus. Posting Group";"Gen. Bus. Posting Group")
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
                 }
-                field("Gen. Prod. Posting Group";"Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                 }
-                field("VAT Bus. Posting Group";"VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
             }
-            group(General)
+            group(General3)
             {
                 group(General1)
                 {
-                    field("Invoice Discount Amount";TotalSalesLine."Inv. Discount Amount")
+                    field("Invoice Discount Amount"; TotalSalesLine."Inv. Discount Amount")
                     {
                         AutoFormatType = 1;
                         Caption = 'Invoice Discount Amount';
@@ -408,26 +409,26 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnValidate()
                         var
-                            SalesHeader: Record "36";
+                            SalesHeader: Record "Sales Header";
                         begin
-                            SalesHeader.GET("Document Type","Document No.");
-                            SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount",SalesHeader);
+                            SalesHeader.GET(Rec."Document Type", Rec."Document No.");
+                            SalesCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalSalesLine."Inv. Discount Amount", SalesHeader);
                             CurrPage.UPDATE(FALSE);
                         end;
                     }
-                    field("Invoice Disc. Pct.";SalesCalcDiscByType.GetCustInvoiceDiscountPct(Rec))
+                    field("Invoice Disc. Pct."; SalesCalcDiscByType.GetCustInvoiceDiscountPct(Rec))
                     {
                         Caption = 'Invoice Discount %';
-                        DecimalPlaces = 0:2;
+                        DecimalPlaces = 0 : 2;
                         Editable = false;
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
                         Visible = true;
                     }
                 }
-                group()
+                group(General2)
                 {
-                    field("Total Amount Excl. VAT";TotalSalesLine.Amount)
+                    field("Total Amount Excl. VAT"; TotalSalesLine.Amount)
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalExclVATCaption(SalesHeader."Currency Code");
@@ -437,7 +438,7 @@ page 50013 "Sales Invoice Subform - Import"
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
                     }
-                    field("Total VAT Amount";VATAmount)
+                    field("Total VAT Amount"; VATAmount)
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalVATCaption(SalesHeader."Currency Code");
@@ -446,7 +447,7 @@ page 50013 "Sales Invoice Subform - Import"
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
                     }
-                    field("Total Amount Incl. VAT";TotalSalesLine."Amount Including VAT")
+                    field("Total Amount Incl. VAT"; TotalSalesLine."Amount Including VAT")
                     {
                         AutoFormatType = 1;
                         CaptionClass = DocumentTotals.GetTotalInclVATCaption(SalesHeader."Currency Code");
@@ -454,7 +455,7 @@ page 50013 "Sales Invoice Subform - Import"
                         Editable = false;
                         StyleExpr = TotalAmountStyle;
                     }
-                    field(RefreshTotals;RefreshMessageText)
+                    field(RefreshTotals; RefreshMessageText)
                     {
                         DrillDown = true;
                         Editable = false;
@@ -463,7 +464,7 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnDrillDown()
                         begin
-                            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec,VATAmount,TotalSalesLine);
+                            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
                             CurrPage.UPDATE(FALSE);
                         end;
                     }
@@ -482,7 +483,7 @@ page 50013 "Sales Invoice Subform - Import"
                 Image = "Action";
                 action("Get &Price")
                 {
-                    AccessByPermission = TableData 7002=R;
+                    AccessByPermission = TableData 7002 = R;
                     Caption = 'Get &Price';
                     Ellipsis = true;
                     Image = Price;
@@ -495,7 +496,7 @@ page 50013 "Sales Invoice Subform - Import"
                 }
                 action("Get Li&ne Discount")
                 {
-                    AccessByPermission = TableData 7004=R;
+                    AccessByPermission = TableData 7004 = R;
                     Caption = 'Get Li&ne Discount';
                     Ellipsis = true;
                     Image = LineDiscount;
@@ -508,7 +509,7 @@ page 50013 "Sales Invoice Subform - Import"
                 }
                 action("E&xplode BOM")
                 {
-                    AccessByPermission = TableData 90=R;
+                    AccessByPermission = TableData 90 = R;
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
                     Visible = false;
@@ -520,7 +521,7 @@ page 50013 "Sales Invoice Subform - Import"
                 }
                 action("Insert &Ext. Texts")
                 {
-                    AccessByPermission = TableData 279=R;
+                    AccessByPermission = TableData 279 = R;
                     Caption = 'Insert &Ext. Texts';
                     Image = Text;
                     Visible = false;
@@ -532,7 +533,7 @@ page 50013 "Sales Invoice Subform - Import"
                 }
                 action(GetShipmentLines)
                 {
-                    AccessByPermission = TableData 110=R;
+                    AccessByPermission = TableData 110 = R;
                     Caption = 'Get &Shipment Lines';
                     Ellipsis = true;
                     Image = Shipment;
@@ -559,7 +560,7 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByEvent)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByEvent)
                         end;
                     }
                     action(Period)
@@ -569,7 +570,7 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByPeriod)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByPeriod)
                         end;
                     }
                     action(Variant)
@@ -579,18 +580,18 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByVariant)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByVariant)
                         end;
                     }
                     action(Location)
                     {
-                        AccessByPermission = TableData 14=R;
+                        AccessByPermission = TableData 14 = R;
                         Caption = 'Location';
                         Image = Warehouse;
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByLocation)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByLocation)
                         end;
                     }
                     action("BOM Level")
@@ -600,20 +601,20 @@ page 50013 "Sales Invoice Subform - Import"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec,ItemAvailFormsMgt.ByBOM)
+                            ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByBOM)
                         end;
                     }
                 }
                 action(Dimensions)
                 {
-                    AccessByPermission = TableData 348=R;
+                    AccessByPermission = TableData 348 = R;
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
 
                     trigger OnAction()
                     begin
-                        ShowDimensions;
+                        Rec.ShowDimensions;
                     end;
                 }
                 action("Co&mments")
@@ -623,17 +624,17 @@ page 50013 "Sales Invoice Subform - Import"
 
                     trigger OnAction()
                     begin
-                        ShowLineComments;
+                        Rec.ShowLineComments;
                     end;
                 }
                 action("Item Charge &Assignment")
                 {
-                    AccessByPermission = TableData 5800=R;
+                    AccessByPermission = TableData 5800 = R;
                     Caption = 'Item Charge &Assignment';
 
                     trigger OnAction()
                     begin
-                        ShowItemChargeAssgnt;
+                        Rec.ShowItemChargeAssgnt;
                     end;
                 }
                 action("Item &Tracking Lines")
@@ -644,59 +645,62 @@ page 50013 "Sales Invoice Subform - Import"
 
                     trigger OnAction()
                     begin
-                        OpenItemTrackingLines;
+                        Rec.OpenItemTrackingLines;
                     end;
                 }
             }
         }
     }
-    
-    
+
+
 
     trigger OnAfterGetCurrRecord()
     begin
-        IF SalesHeader.GET("Document Type","Document No.") THEN;
+        IF SalesHeader.GET(Rec."Document Type", Rec."Document No.") THEN;
 
-        DocumentTotals.SalesUpdateTotalsControls(Rec,TotalSalesHeader,TotalSalesLine,RefreshMessageEnabled,
-          TotalAmountStyle,RefreshMessageText,InvDiscAmountEditable,VATAmount);
+        DocumentTotals.SalesUpdateTotalsControls(Rec, TotalSalesHeader, TotalSalesLine, RefreshMessageEnabled,
+          TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, CurrPage.Editable, VATAmount);
 
-        TypeChosen := Type <> Type::" ";
+        TypeChosen := Rec.Type <> Rec.Type::" ";
     end;
 
     trigger OnAfterGetRecord()
     begin
-        ShowShortcutDimCode(ShortcutDimCode);
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
     end;
 
     trigger OnDeleteRecord(): Boolean
     var
         ReserveSalesLine: Codeunit 99000832;
     begin
-        IF (Quantity <> 0) AND ItemExists("No.") THEN BEGIN
-          COMMIT;
-          IF NOT ReserveSalesLine.DeleteLineConfirm(Rec) THEN
-            EXIT(FALSE);
-          ReserveSalesLine.DeleteLine(Rec);
+        IF (Rec.Quantity <> 0) AND Rec.ItemExists(Rec."No.") THEN BEGIN
+            COMMIT;
+            IF NOT ReserveSalesLine.DeleteLineConfirm(Rec) THEN
+                EXIT(FALSE);
+            ReserveSalesLine.DeleteLine(Rec);
         END;
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        InitType;
+        Rec.InitType;
         CLEAR(ShortcutDimCode);
     end;
 
     var
-        TotalSalesHeader: Record 36;
-        TotalSalesLine: Record 37;
-        SalesHeader: Record 36;
-        TransferExtendedText: Codeunit 378;
-        SalesPriceCalcMgt: Codeunit 7000;
-        ItemAvailFormsMgt: Codeunit 353;
-        SalesCalcDiscByType: Codeunit 56;
-        DocumentTotals: Codeunit 57;
+
+        ShortcutDimCode: array[8] of Code[20];
+        TotalSalesHeader: Record "Sales Header";
+        TotalSalesLine: Record "Sales Line";
+        SalesHeader: Record "Sales Header";
+        SalesHeaderRec: Record "Sales Header";
+        TransferExtendedText: Codeunit "Transfer Extended Text";
+        SalesPriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
+        ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
+        SalesCalcDiscByType: Codeunit "Sales - Calc Discount By Type";
+        DocumentTotals: Codeunit "Document Totals";
+        ItemReferenceMgt: Codeunit "Item Reference Management";
         VATAmount: Decimal;
-        ShortcutDimCode: array [8] of Code[20];
         UpdateAllowedVar: Boolean;
         Text000: Label 'Unable to run this function while in View mode.';
         ItemPanelVisible: Boolean;
@@ -706,92 +710,92 @@ page 50013 "Sales Invoice Subform - Import"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
 
-    
+
     procedure ApproveCalcInvDisc()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
     end;
 
-    
+
     procedure CalcInvDisc()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount", Rec);
     end;
 
-    
+
     procedure ExplodeBOM()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM", Rec);
     end;
 
-    
+
     procedure GetShipment()
     begin
-        CODEUNIT.RUN(CODEUNIT::"Sales-Get Shipment",Rec);
+        CODEUNIT.RUN(CODEUNIT::"Sales-Get Shipment", Rec);
     end;
 
-    
+
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
-        IF TransferExtendedText.SalesCheckIfAnyExtText(Rec,Unconditionally) THEN BEGIN
-          CurrPage.SAVERECORD;
-          COMMIT;
-          TransferExtendedText.InsertSalesExtText(Rec);
+        IF TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) THEN BEGIN
+            CurrPage.SAVERECORD;
+            COMMIT;
+            TransferExtendedText.InsertSalesExtText(Rec);
         END;
         IF TransferExtendedText.MakeUpdate THEN
-          UpdateForm(TRUE);
+            UpdateForm(TRUE);
     end;
 
-    
+
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.UPDATE(SetSaveRecord);
     end;
 
-    
+
     procedure ShowPrices()
     begin
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         CLEAR(SalesPriceCalcMgt);
-        SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader,Rec);
+        SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader, Rec);
     end;
 
-    
+
     procedure ShowLineDisc()
     begin
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         CLEAR(SalesPriceCalcMgt);
-        SalesPriceCalcMgt.GetSalesLineLineDisc(SalesHeader,Rec);
+        SalesPriceCalcMgt.GetSalesLineLineDisc(SalesHeader, Rec);
     end;
 
-    
+
     procedure SetUpdateAllowed(UpdateAllowed: Boolean)
     begin
         UpdateAllowedVar := UpdateAllowed;
     end;
 
-    
+
     procedure UpdateAllowed(): Boolean
     begin
         IF UpdateAllowedVar = FALSE THEN BEGIN
-          MESSAGE(Text000);
-          EXIT(FALSE);
+            MESSAGE(Text000);
+            EXIT(FALSE);
         END;
         EXIT(TRUE);
     end;
 
     local procedure TypeOnAfterValidate()
     begin
-        ItemPanelVisible := Type = Type::Item;
+        ItemPanelVisible := Rec.Type = Rec.Type::Item;
     end;
 
     local procedure NoOnAfterValidate()
     begin
         InsertExtendedText(FALSE);
-        IF (Type = Type::"Charge (Item)") AND ("No." <> xRec."No.") AND
+        IF (Rec.Type = Rec.Type::"Charge (Item)") AND (Rec."No." <> xRec."No.") AND
            (xRec."No." <> '')
         THEN
-          CurrPage.SAVERECORD;
+            CurrPage.SAVERECORD;
     end;
 
     local procedure CrossReferenceNoOnAfterValidat()
@@ -801,17 +805,17 @@ page 50013 "Sales Invoice Subform - Import"
 
     local procedure QuantityOnAfterValidate()
     begin
-        IF Reserve = Reserve::Always THEN BEGIN
-          CurrPage.SAVERECORD;
-          AutoReserve;
+        IF Rec.Reserve = Rec.Reserve::Always THEN BEGIN
+            CurrPage.SAVERECORD;
+            Rec.AutoReserve;
         END;
     end;
 
     local procedure UnitofMeasureCodeOnAfterValida()
     begin
-        IF Reserve = Reserve::Always THEN BEGIN
-          CurrPage.SAVERECORD;
-          AutoReserve;
+        IF Rec.Reserve = Rec.Reserve::Always THEN BEGIN
+            CurrPage.SAVERECORD;
+            Rec.AutoReserve;
         END;
     end;
 
@@ -819,9 +823,9 @@ page 50013 "Sales Invoice Subform - Import"
     begin
         CurrPage.SAVERECORD;
 
-        SalesHeader.GET("Document Type","Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         IF DocumentTotals.SalesCheckNumberOfLinesLimit(SalesHeader) THEN
-          DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec,VATAmount,TotalSalesLine);
+            DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
         CurrPage.UPDATE();
     end;
 }

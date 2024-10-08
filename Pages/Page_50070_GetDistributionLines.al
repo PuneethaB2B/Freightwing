@@ -54,7 +54,8 @@ page 50070 "Get Distribution Lines"
     end;
 
     var
-        OrderBookingHeader: Record "Business Relation";
+        //OrderBookingHeader: Record "Business Relation";  
+        OrderBookingHeader: Record "Booking Sheet Header";//B2BUPG
         TempDailyWeightDistByItem: Record "Dl. Weight Dist. By Item" temporary;
         GetOrderBookings: Codeunit "Export.-Get Distribution";
 

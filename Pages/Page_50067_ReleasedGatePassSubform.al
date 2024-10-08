@@ -73,8 +73,7 @@ page 50067 "Released Gate Pass Subform"
                     Caption = '& ULD Allocation';
                     Image = EntriesList;
                     RunObject = Page "Gate Pass ULD Allocations";
-                    RunPageLink = "Booking Sheet No" = FIELD("Gate-Pass No."),
-                                  "Weight Allocated" = FIELD("Item No.");
+                   // RunPageLink ="Booking Sheet No" = FIELD("Gate-Pass No."), "Weight Allocated" = FIELD("Item No.");  //B2BUPG
 
                     trigger OnAction()
                     begin
