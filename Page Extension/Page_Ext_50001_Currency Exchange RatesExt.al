@@ -16,8 +16,8 @@ pageextension 50001 CurrencyExchangeRatesExt extends "Currency Exchange Rates"
                     Promoted = true;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
-                    RunObject = Page 50230;
-                    RunPageLink = Field1 = FIELD("Currency Code");
+                    // RunObject = Page 50230;
+                    // RunPageLink = Field1 = FIELD("Currency Code");  //B2BUPG
                     ApplicationArea = All;
                     trigger OnAction()
                     begin

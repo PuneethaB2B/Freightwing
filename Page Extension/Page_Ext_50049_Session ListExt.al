@@ -1,15 +1,15 @@
-pageextension 50049 SessionListExt extends "Session List"
-{
-    layout
-    {
-        // Add changes to page layout here
-    }
+// pageextension 50049 SessionListExt extends "Session List"
+// {
+//     layout
+//     {
+//         // Add changes to page layout here
+//     }
 
-    actions
-    {
-        // Add changes to page actions here
-    }
+//     actions
+//     {
+//         // Add changes to page actions here
+//     }
 
-    var
-        myInt: Integer;
-}
+//     var
+//         myInt: Integer;
+// }

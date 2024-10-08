@@ -5,7 +5,7 @@ table 50049 "Good Receipt Notify Party"
     {
         field(1; "Good Receipt No."; Code[20])
         {
-            TableRelation = 50096.Field1;
+            //TableRelation = 50096.Field1;
         }
         field(2; "Airline Code"; Code[10])
         {
@@ -103,9 +103,16 @@ table 50049 "Good Receipt Notify Party"
         DocumentMailing: Codeunit "Export Document-Mailing";
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
+        RecordRef: RecordRef;
+        AttachmentOutStream: OutStream;
+        AttachmentTempBlob: Codeunit "Temp Blob";
+        AttcahmentInstream: InStream;
     begin
-        ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
-        REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, GoodReceiptNotifyParty);
+        // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        AttachmentTempBlob.CreateOutStream(AttachmentOutStream, TextEncoding::UTF8);
+        RecordRef.GetTable(GoodReceiptNotifyParty);
+        REPORT.SaveAs(ReportId, '', ReportFormat::Pdf, AttachmentOutStream, RecordRef);
+        AttachmentTempBlob.CreateInStream(AttcahmentInstream);
         COMMIT;
         DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
     end;

@@ -5,7 +5,7 @@ table 50046 "Good Receipt ULD Allocation"
     {
         field(1; "Good Receipt No."; Code[20])
         {
-            TableRelation = Table50096.Field1;
+            //TableRelation = Table50096.Field1; //B2BUPG
         }
         field(2; "Airline Code"; Code[20])
         {
@@ -40,7 +40,7 @@ table 50046 "Good Receipt ULD Allocation"
         }
         field(12; "MAWB No"; Code[50])
         {
-            TableRelation = Table50096.Field27;
+            // TableRelation = Table50096.Field27;  //B2BUPG
         }
     }
 

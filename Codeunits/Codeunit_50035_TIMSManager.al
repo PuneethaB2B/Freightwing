@@ -34,15 +34,15 @@ codeunit 50035 "TIMS Manager."
         LastColumn: Integer;
         InStr: InStream;
         NumRead: Integer;
-        [RunOnClient]
+
         QRCodeProvider: DotNet BarcodeWriter;
-        [RunOnClient]
+
         Encoder: DotNet EncodingOptions;
-        [RunOnClient]
+
         QRCodeFormat: DotNet BarcodeFormat;
         ImageFormat: DotNet ImageFormat;
         bitmap: DotNet Bitmap;
-        [RunOnClient]
+
         BitMatrix: DotNet BitMatrix;
         QRCodeInput: Text;
         FileNameTxt: Text;

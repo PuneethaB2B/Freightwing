@@ -421,7 +421,7 @@ page 50146 "Posted MAWB Invoice Subform"
     end;
 
     var
-        TotalSalesHeader: Record "Sales Line";
+        TotaLsalesheader: Record "Sales Header";
         TotalSalesLine: Record "Sales Line";
         SalesHeader: Record "Sales Header";
         TransferExtendedText: Codeunit "Transfer Extended Text";

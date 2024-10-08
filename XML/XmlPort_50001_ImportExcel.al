@@ -55,18 +55,18 @@ xmlport 50001 "Import Excel"
                 fieldelement(Dim3; "TEST AV"."Consignee Code")
                 {
                 }
-                fieldelement(Dim4; "TEST AV".Field15)
-                {
-                }
-                fieldelement(Dim5; "TEST AV".Field16)
-                {
-                }
-                fieldelement(Dim6; "TEST AV".Field17)
-                {
-                }
-                fieldelement(EntryNo; "TEST AV".Field18)
-                {
-                }
+                // fieldelement(Dim4; "TEST AV".Field15)
+                // {
+                // }
+                // fieldelement(Dim5; "TEST AV".Field16)
+                // {
+                // }
+                // fieldelement(Dim6; "TEST AV".Field17)
+                // {
+                // }
+                // fieldelement(EntryNo; "TEST AV".Field18)
+                // {
+                // }   //B2BUPG
             }
         }
     }

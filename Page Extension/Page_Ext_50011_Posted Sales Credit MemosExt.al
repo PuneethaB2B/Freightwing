@@ -85,12 +85,13 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
         ReportAsPdfFileNameMsg: Label '@@@="%1 = Document Type %2 = Invoice No.";ENU=Sales %1 %2.pdf';
         EmailBody: Record "Email Body";
         EmailBody2: Record "Email Body";
-        SMTPSetup: Record "SMTP Mail Setup";
+        // SMTPSetup: Record "SMTP Mail Setup";
         Customer: Record Customer;
         EmailSubjectCapTxt: Label '@@@="%1 = Customer Name. %2 = Document Type %3 = Invoice No.";ENU=%1 - %2 %3';
         EmailBodyPage: Page "Email Body";
-        SMTPMail: Codeunit 400;
+        //SMTPMail: Codeunit 400;
         EmailMessage: Codeunit "Email Message";
+        Email: Codeunit Email;
         AttachmentTempBlob: Codeunit "Temp Blob";
         AttchmentOutStream: OutStream;
         AttcahmentInstream: InStream;

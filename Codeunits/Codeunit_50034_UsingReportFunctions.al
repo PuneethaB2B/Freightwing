@@ -74,8 +74,8 @@ codeunit 50034 "Using Report Functions"
         Content: File;
         TempFileName: Text;
         ClientTempPath: Text;
-        SMTP: Codeunit 400;
-        SmtpSetup: Record "SMTP Mail Setup";
+        //SMTP: Codeunit 400;
+        //SmtpSetup: Record "SMTP Mail Setup";
         lTxtBody1: Label 'Dear All,';
         lTxtBody2: Label 'Please find attached Statement of account as at';
         lTxtBody3: Label 'In case of any query noted, please report them to invoice.query@freightwings.co.ke for necessary response';

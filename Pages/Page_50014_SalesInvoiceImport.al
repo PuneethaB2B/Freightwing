@@ -210,10 +210,10 @@ page 50014 "Sales Invoice - Import"
                 /*  field("Credit Card No."; "Credit Card No.")
                  {
                  } */ //B2BUPG Removed in hiogher version, there is no data against the field.
-                field(GetCreditcardNumber; GetCreditcardNumber)
-                {
-                    Caption = 'Cr. Card Number (Last 4 Digits)';
-                }
+                // field(GetCreditcardNumber; GetCreditcardNumber)
+                // {
+                //     Caption = 'Cr. Card Number (Last 4 Digits)';
+                // }
             }
             group(Shipping)
             {

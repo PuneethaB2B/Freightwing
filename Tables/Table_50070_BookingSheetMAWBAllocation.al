@@ -44,7 +44,7 @@ table 50070 "Booking Sheet MAWB Allocation"
         }
         field(10; "Consignee Code"; Code[10])
         {
-            TableRelation = Table50091.Field2 WHERE(Field1 = FIELD("Shipper Code"));
+            //TableRelation = Table50091.Field2 WHERE(Field1 = FIELD("Shipper Code"));  //B2BUPG
 
             trigger OnValidate()
             begin

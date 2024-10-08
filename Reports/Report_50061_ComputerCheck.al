@@ -432,18 +432,18 @@ report 50061 "Computer Check"
             column(DirectDebitMandateID_GenJournalLine; "Gen. Journal Line"."Direct Debit Mandate ID")
             {
             }
-            column(PostingExchEntryNo_GenJournalLine; "Gen. Journal Line"."Posting Exch. Entry No.")
-            {
-            }
+            // column(PostingExchEntryNo_GenJournalLine; "Gen. Journal Line"."Posting Exch. Entry No.")
+            // {
+            // }
             column(PayerInformation_GenJournalLine; "Gen. Journal Line"."Payer Information")
             {
             }
             column(TransactionInformation_GenJournalLine; "Gen. Journal Line"."Transaction Information")
             {
             }
-            column(PostingExchLineNo_GenJournalLine; "Gen. Journal Line"."Posting Exch. Line No.")
-            {
-            }
+            // column(PostingExchLineNo_GenJournalLine; "Gen. Journal Line"."Posting Exch. Line No.")
+            // {
+            // }  //B2BUPG
             column(AppliedAutomatically_GenJournalLine; "Gen. Journal Line"."Applied Automatically")
             {
             }

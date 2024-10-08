@@ -169,7 +169,7 @@ page 50116 "MAWB Invoices"
                                 PageID := PAGE::"Blanket Sales Order";
                         END;
 
-                        PageID := GetPageId(PageID);
+                        //PageID := GetPageId(PageID);  //Naveen B2BUPG
 
                         IF PageID <> 0 THEN
                             PAGE.RUN(PageID, Rec);
@@ -191,15 +191,15 @@ page 50116 "MAWB Invoices"
         }
     }
 
-    local procedure GetPageId(PageId: Integer): Integer
-    var
-        MiniPagesMapping: Record 1305;
-    begin
-        IF MiniPagesMapping.READPERMISSION THEN
-            IF MiniPagesMapping.GET(PageId) THEN
-                EXIT(MiniPagesMapping."Substitute Page ID");
+    // local procedure GetPageId(PageId: Integer): Integer
+    // var
+    //     MiniPagesMapping: Record 1305;
+    // begin
+    //     IF MiniPagesMapping.READPERMISSION THEN
+    //         IF MiniPagesMapping.GET(PageId) THEN
+    //             EXIT(MiniPagesMapping."Substitute Page ID");
 
-        EXIT(PageId);
-    end;
+    //     EXIT(PageId);
+    // end; //Naveen B2BUPG
 }
 

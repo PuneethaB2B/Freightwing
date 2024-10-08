@@ -408,9 +408,9 @@ report 50095 "Import Invoice"
             column(DimensionSetID_SalesHeader; "Sales Header"."Dimension Set ID")
             {
             }
-            column(AuthorizationRequired_SalesHeader; "Sales Header"."Authorization Required")
-            {
-            }
+            // column(AuthorizationRequired_SalesHeader; "Sales Header"."Authorization Required")
+            // {
+            // }
             // column(CreditCardNo_SalesHeader; "Sales Header"."Credit Card No.")
             // {
             // }  //B2BUPG Removed in hiogher version, there is no data against the field.
