@@ -107,14 +107,21 @@ table 50049 "Good Receipt Notify Party"
         AttachmentOutStream: OutStream;
         AttachmentTempBlob: Codeunit "Temp Blob";
         AttcahmentInstream: InStream;
+        FileName: Text[250];
     begin
-        // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        FileName := 'GoodReceiptReport_' + FORMAT(TODAY, 0, '<Year4><Month,2><Day,2>') + '.pdf';
         AttachmentTempBlob.CreateOutStream(AttachmentOutStream, TextEncoding::UTF8);
         RecordRef.GetTable(GoodReceiptNotifyParty);
         REPORT.SaveAs(ReportId, '', ReportFormat::Pdf, AttachmentOutStream, RecordRef);
         AttachmentTempBlob.CreateInStream(AttcahmentInstream);
         COMMIT;
         DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
+
+        //Naveen B2BUPG
+        // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, GoodReceiptNotifyParty);
+        // COMMIT;
+        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
     end;
 }
 

@@ -178,17 +178,21 @@ table 50042 "Dl. Weight Dist. By Customer"
         AttchmentOutStream: OutStream;
         AttcahmentInstream: InStream;
         RecordrefVar: RecordRef;
+        FileName: Text[250];
     begin
-        //ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
-        //REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, DailyWeightDistByCust);
-
+        FileName := 'BookingSheetReport_' + FORMAT(TODAY, 0, '<Year4><Month,2><Day,2>') + '.pdf';
         AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
         RecordrefVar.GetTable(DailyWeightDistByCust);
-        // StandardSalesCreditMem.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+        Report.SaveAs(ReportId, '', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
         AttachmentTempBlob.CreateInStream(AttcahmentInstream);
-        //B2BUPG
         COMMIT;
-        DocumentMailing.EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCust, ServerAttachmentFilePath);
+        DocumentMailing.EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCust, FileName);
+
+        //Naveen B2BUPG
+        //ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        //REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, DailyWeightDistByCust);
+        // COMMIT;
+        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
     end;
 }
 
