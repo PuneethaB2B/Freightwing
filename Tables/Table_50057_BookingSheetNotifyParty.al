@@ -117,7 +117,7 @@ table 50057 "Booking Sheet Notify Party"
                 IF NOT SendAsEmail THEN BEGIN
                     REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, BookingSheetNotifyParty)
                 END ELSE BEGIN
-                    SendReport(ReportSelections."Report ID", BookingSheetNotifyParty);
+                    SendReport(ReportSelections."Report ID", BookingSheetNotifyParty);  //Naveen B2BUPG
                 END;
             UNTIL ReportSelections.NEXT = 0;
         END ELSE BEGIN
@@ -148,11 +148,25 @@ table 50057 "Booking Sheet Notify Party"
         DocumentMailing: Codeunit "Export Document-Mailing";
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
+        OutStream: OutStream;
+        InStream: InStream;
+        TempBlob: Codeunit "Temp Blob";
+        RecordRef: RecordRef;
+        FileName: Text[250];
     begin
-        ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
-        REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, BookingSheetNotifyParty);
+        FileName := 'BookingSheetReport_' + FORMAT(TODAY, 0, '<Year4><Month,2><Day,2>') + '.pdf';
+        TempBlob.CreateOutStream(OutStream, TextEncoding::UTF8);
+        RecordRef.GetTable(BookingSheetNotifyParty);
+        REPORT.SaveAs(ReportId, '', REPORTFORMAT::Pdf, OutStream, RecordRef);
+        TempBlob.CreateInStream(InStream);
         COMMIT;
-        DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, ServerAttachmentFilePath);
+        DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, FileName);
+
+        //Naveen B2BUPG
+        // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, BookingSheetNotifyParty);
+        // COMMIT;
+        // DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, ServerAttachmentFilePath);
     end;
 }
 

@@ -47,10 +47,12 @@ table 50008 "Shipment Update Line"
                                 LineFeed := 10;
                                 CarriageReturn := 13;
                                 CRLF := FORMAT(LineFeed) + FORMAT(CarriageReturn);
-                                //Email := Notifyparty."E-Mail";
+                                Email := Notifyparty."E-Mail";
                                 ToReceipients := Notifyparty."E-Mail";
                                 Name := Notifyparty.Name;
-                                SMTP.CreateMessage(COMPANYNAME, 'system@fwl.com', Email, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ', FALSE);
+                                EmailMessage.Create(ToReceipients, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ');
+                                //Naveen B2BUPG
+                                //SMTP.CreateMessage(COMPANYNAME, 'system@fwl.com', Email, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ', FALSE);
                                 Body := Activity + ' ' + ' For Pre-Alert No. ' + ' ' + "Pre Alert No" + ' ' + 'has been completed.';
                                 EmailMessage.AppendtoBody('Dear ' + Name + ',' + CRLF + Body);
                                 //SMTP.AppendBody(CRLF+CRLF+Body);
@@ -69,7 +71,9 @@ table 50008 "Shipment Update Line"
                                 EmailMessage.AppendtoBody(CRLF + 'Remarks ' + '-' + Remarks);
                                 EmailMessage.AppendtoBody(CRLF + 'Document Collected By ' + '-' + "Collected By");
                                 //SMTP.AddBCC( Email);
-                                Email.Send(EmailMessage);
+                                EmailCode.Send(EmailMessage);
+                            //Naveen B2BUPG
+                            //SMTP.Send();
                             UNTIL Notifyparty.NEXT = 0;
                         END;
                         MESSAGE('Notifications Sent');
@@ -94,10 +98,10 @@ table 50008 "Shipment Update Line"
     var
         Text001: Label 'Are you sure you want to send status Alerts';
         Body: Text[1024];
-        //Email: Text[250];
+        Email: Text[250];
         //  SMTP: Codeunit 400;
         EmailMessage: Codeunit "Email Message";
-        Email: Codeunit Email;
+        EmailCode: Codeunit Email;
         Name: Text[100];
         Notifyparty: Record "Notify Party";
         ImportActivities: Record "Import Activities";

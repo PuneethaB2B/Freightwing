@@ -91,6 +91,12 @@ codeunit 50030 "Custom Mail"
                                     IF BookingSheetHAWBAllocation1.FINDFIRST THEN BEGIN
                                         //REPORT.RUN(50060,FALSE,FALSE,BookingSheetHAWBAllocation1);\
                                         //ClientTempPath := TEMPORARYPATH+'\Report.PDF';
+
+                                        AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
+                                        RecordrefVar.GetTable(BookingSheetHAWBAllocation1);
+                                        BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+                                        AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+                                        //Naveen B2BUPG
                                         //ClientTempPath := gCduFileMgmt.ClientTempFileName('.PDF');
                                         //REPORT.SAVEASPDF(50060, ClientTempPath, BookingSheetHAWBAllocation1);
                                         SLEEP(5000);
@@ -102,17 +108,14 @@ codeunit 50030 "Custom Mail"
                                         Body1 := 'Dear ' + ConName + '. <BR>Please note we have ' + ConName + ' ' + BookingSheetLine.Description + ''' Planned on ' + FlightNo + '//' + FORMAT(FlightDate) + ' ' + Route;
                                         //UserSetup.GET(USERID);
                                         //SMTPCU.CreateMessage('Customer Service',UserSetup."E-Mail",UserSetup."E-Mail",Subject,Body1,TRUE);
-                                        //SMTPCU.CreateMessage('Customer Service', 'bthota@technobraingroup.com', 'bthota@technobraingroup.com', Subject, Body1, TRUE);
+                                        EmailMessage.Create('bthota@technobraingroup.com', Subject, Body1, TRUE);
                                         //SMTPCU.AddAttachment('C:\Temp NAV Reports\Report.pdf','Pre Alert.PDF');
-                                        // SMTPCU.AddAttachment(ClientTempPath, 'Pre Alert.PDF');
+                                        EmailMessage.AddAttachment(ClientTempPath, 'Pre Alert.PDF', '');
                                         ToRecipient := 'bthota@technobraingroup.com';
                                         EmailMessage.Create(ToRecipient, Subject, Body1, true);
                                         EmailMessage.AppendToBody('<BR><BR>');
                                         EmailMessage.AppendToBody(body);
-                                        AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
-                                        RecordrefVar.GetTable(BookingSheetHAWBAllocation1);
-                                        BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
-                                        AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+
                                         MailingConfiguration.RESET;
                                         //              MailingConfiguration.SETRANGE(MailingConfiguration.Type,MailingConfiguration.Type::Consignee);
                                         MailingConfiguration.SETFILTER(MailingConfiguration."No.", '=%1|%2', BookingSheetHAWBAllocation1."Consignee Code", BookingSheetHAWBAllocation."Shipper Code");
@@ -158,6 +161,7 @@ codeunit 50030 "Custom Mail"
         UserSetup: Record "User Setup";
         EmailMessage: Codeunit "Email Message";
         Email: Codeunit Email;
+        EmailRecipientType: Enum "Email Recipient Type";
     begin
         IF SalesHeader.GET(SalesHeader."Document Type"::Invoice, InvoiceNo) THEN BEGIN
             Customer.GET(SalesHeader."Bill-to Customer No.");
@@ -171,8 +175,8 @@ codeunit 50030 "Custom Mail"
             END;//Customer Type
             SLEEP(2000);
             UserSetup.GET(USERID);
-            EmailMessage.Create(UserSetup."E-Mail", UserSetup."E-Mail", 'Invoice', Body);
-            EmailMessage.AddAttachment('C:\Temp NAV Reports\Report.pdf', 'Sales Invoice.PDF');
+            EmailMessage.Create(UserSetup."E-Mail", 'Invoice', Body);
+            EmailMessage.AddAttachment('Sales Invoice.PDF', 'C:\Temp NAV Reports\Report.pdf', '');
             MailingConfiguration.RESET;
             MailingConfiguration.SETRANGE(MailingConfiguration."No.", BillTo);
             MailingConfiguration.SETRANGE(MailingConfiguration."Exclude From Invoice", FALSE);
@@ -181,7 +185,8 @@ codeunit 50030 "Custom Mail"
                 REPEAT
                     Window.UPDATE(1, MailingConfiguration.Name);
                     Window.UPDATE(2, MailingConfiguration.Email);
-                    SMTPCU.AddRecipients(MailingConfiguration.Email);
+                    EmailMessage.AddRecipient(EmailRecipientType::cc, gRecConsignee."CC/Email");
+                    //SMTPCU.AddRecipients(MailingConfiguration.Email); //B2BUPG
                     SLEEP(1000);
                 UNTIL MailingConfiguration.NEXT = 0;
                 Email.Send(EmailMessage);
@@ -217,6 +222,7 @@ codeunit 50030 "Custom Mail"
         BookingSheetPreAlert: Report "Booking Sheet Pre Alert";
         RecordrefVar: RecordRef;
         email: Codeunit Email;
+        EmailRecipient: Enum "Email Recipient Type";
     begin
         IF lRecBookingSheetHeader.GET("BSNo.") THEN BEGIN
             lDlgWindow.OPEN('Sending Pre Alerts....');
@@ -250,23 +256,24 @@ codeunit 50030 "Custom Mail"
                                             lRecBookingSheetHAWBAllocConsignee.COPYFILTERS(lRecBookingSheetHAWBAllocation);
                                             lRecBookingSheetHAWBAllocConsignee.SETRANGE("Consignee Code", lRecBookingSheetHAWBAllocation."Consignee Code");
                                             IF lRecBookingSheetHAWBAllocConsignee.FINDFIRST THEN BEGIN
-                                                //ClientTempPath := TEMPORARYPATH + '\Report.pdf';
-                                                // REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee);
+
 
                                                 AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
                                                 RecordrefVar.GetTable(lRecBookingSheetHAWBAllocConsignee);
                                                 BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
                                                 AttachmentTempBlob.CreateInStream(AttcahmentInstream);
-                                                //B2BUPG
+                                                //Naveen B2BUPG
+                                                //ClientTempPath := TEMPORARYPATH + '\Report.pdf';
+                                                // REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee);
                                                 lTxtEmailSubject := lRecBookingSheetHAWBAllocation."Consignee Name" + ' SHIPMENT PRE-ADVISE NOTIFICATION - ' +
                                                                     lRecBookingSheetMAWBAllocation."Flight No" + '//' + FORMAT(lRecBookingSheetHeader."Booking Date") + ' ' +
                                                                     lRecBookingSheetMAWBAllocation."Source Airport" + '-' + lRecBookingSheetMAWBAllocation."Destination Airport";
                                                 lRecUserSetup.GET(USERID);
-                                                lRecSMTPSetup.GET;
+                                                // lRecSMTPSetup.GET;
                                                 //Send to Shipper
                                                 IF gRecCustomer.GET(lRecBookingSheetHAWBAllocConsignee."Shipper Code") THEN BEGIN
                                                     IF gRecCustomer."E-Mail" <> '' THEN BEGIN
-                                                        EmailMessage.Create(lRecSMTPSetup."User ID", gRecCustomer."E-Mail", lTxtEmailSubject, lTxtEmailBody, TRUE);
+                                                        EmailMessage.Create(gRecCustomer."E-Mail", lTxtEmailSubject, lTxtEmailBody, TRUE);
                                                         //Appending Body to email as per shipper
                                                         lTxtAppendBody1 := 'Dear All,';
                                                         lTxtAppendBody2 := 'Please note your shipment is Planned on ' + lRecBookingSheetMAWBAllocation."Flight No" + '//' +
@@ -304,13 +311,16 @@ codeunit 50030 "Custom Mail"
                                                         EmailMessage.AddAttachment(ClientTempPath, 'Flight Details.pdf', '');
                                                         //Add CC's of Customer
                                                         IF gRecCustomer."Email/CC" <> '' THEN
-                                                            SMTPCU.AddRecipients(gRecCustomer."Email/CC");
+                                                            EmailMessage.AddRecipient(EmailRecipient::Cc, gRecCustomer."Email/CC");
+                                                        // SMTPCU.AddRecipients(gRecCustomer."Email/CC");
                                                         // Add Consignee Emails
                                                         IF gRecConsignee.GET(lRecBookingSheetHAWBAllocConsignee."Consignee Code") THEN BEGIN
                                                             IF gRecConsignee."E-Mail" <> '' THEN
-                                                                SMTPCU.AddRecipients(gRecConsignee."E-Mail");
+                                                                EmailMessage.AddRecipient(EmailRecipient::"To", gRecConsignee."E-Mail");
+                                                            //SMTPCU.AddRecipients(gRecConsignee."E-Mail");
                                                             IF gRecConsignee."CC/Email" <> '' THEN
-                                                                SMTPCU.AddRecipients(gRecConsignee."CC/Email");
+                                                                EmailMessage.AddRecipient(EmailRecipient::Cc, gRecConsignee."CC/Email");
+                                                            //SMTPCU.AddRecipients(gRecConsignee."CC/Email");
                                                         END;
                                                         email.Send(EmailMessage);
                                                     END ELSE

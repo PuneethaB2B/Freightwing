@@ -41,36 +41,36 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
         }
         addafter("&Navigate")
         {
-            action("Create Tims")
-            {
-                Caption = 'Create Tims';
-                ApplicationArea = all;
-                Image = Invoice;
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Process;
-                trigger OnAction()
-                var
-                    TIMSManager: Codeunit "TIMS Manager.";
-                begin
-                    TIMSManager.ProcessSalesDocument(Rec);
-                end;
-            }
-            action("Generate JSON")
-            {
-                Caption = 'Generate JSON';
-                ApplicationArea = all;
-                Image = GetActionMessages;
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Process;
-                trigger OnAction()
-                var
-                    TIMSManager: Codeunit "TIMS Manager.";
-                begin
-                    TIMSManager.GetJSONData(Rec);
-                end;
-            }
+            // action("Create Tims")
+            // {
+            //     Caption = 'Create Tims';
+            //     ApplicationArea = all;
+            //     Image = Invoice;
+            //     Promoted = true;
+            //     PromotedIsBig = true;
+            //     PromotedCategory = Process;
+            //     trigger OnAction()
+            //     var
+            //         TIMSManager: Codeunit "TIMS Manager.";
+            //     begin
+            //         TIMSManager.ProcessSalesDocument(Rec);
+            //     end;
+            // }
+            // action("Generate JSON")
+            // {
+            //     Caption = 'Generate JSON';
+            //     ApplicationArea = all;
+            //     Image = GetActionMessages;
+            //     Promoted = true;
+            //     PromotedIsBig = true;
+            //     PromotedCategory = Process;
+            //     trigger OnAction()
+            //     var
+            //         TIMSManager: Codeunit "TIMS Manager.";
+            //     begin
+            //         TIMSManager.GetJSONData(Rec);
+            //     end;
+            // }
         }
     }
 
@@ -103,18 +103,18 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
             lRecSalesCrMemoHeader.RESET;
             lRecSalesCrMemoHeader.SETRANGE(lRecSalesCrMemoHeader."No.", pRecSalesCrMemoHeader."No.");
             IF lRecSalesCrMemoHeader.FINDFIRST THEN
-                //REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader);  //B2BUPG
-
                 AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
             RecordrefVar.GetTable(lRecSalesCrMemoHeader);
             StandardSalesCreditMem.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
-            AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+AttachmentTempBlob.CreateInStream(AttcahmentInstream);
 
+            //Naveen B2BUPG
+            //REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader);  //B2BUPG
 
             COMMIT;
             AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, 'Credit Memos', pRecSalesCrMemoHeader."No.");
             //Insert Into Email Body.
-            SMTPSetup.GET;
+            //SMTPSetup.GET;
             Customer.GET(pRecSalesCrMemoHeader."Bill-to Customer No.");
             //Delete
             EmailBody2.RESET;
@@ -122,7 +122,7 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
             //Insert
             EmailBody2.INIT;
             EmailBody2."No." := pRecSalesCrMemoHeader."No.";
-            EmailBody2."From Address" := SMTPSetup."User ID";
+            //EmailBody2."From Address" := SMTPSetup."User ID";
             EmailBody2."To Address" := Customer."E-Mail";
             EmailBody2."CC Email" := Customer."Email/CC";
             EmailBody2.Subject := COPYSTR(
@@ -135,11 +135,18 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
             COMMIT;
             EmailBody.GET(pRecSalesCrMemoHeader."No.");
             IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN BEGIN
-                SMTPMail.CreateMessage('Freight Wings', EmailBody."From Address", EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
+                EmailMessage.Create(EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
                 IF EmailBody."CC Email" <> '' THEN
-                    SMTPMail.AddCC(EmailBody."CC Email");
-                SMTPMail.AddAttachment(EmailBody."Attachment Path", EmailBody."Attachment Name");
-                SMTPMail.Send;
+                    EmailMessage.AddAttachment(EmailBody."Attachment Name", EmailBody."Attachment Path", '');
+                Email.Send(EmailMessage);
+
+                //Naveen B2BUPG
+                // IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN BEGIN
+                //     SMTPMail.CreateMessage('Freight Wings', EmailBody."From Address", EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
+                //     IF EmailBody."CC Email" <> '' THEN
+                //         SMTPMail.AddCC(EmailBody."CC Email");
+                //     SMTPMail.AddAttachment(EmailBody."Attachment Path", EmailBody."Attachment Name");
+                //     SMTPMail.Send;
                 MESSAGE('Send');
             END ELSE
                 MESSAGE('Cancelled');

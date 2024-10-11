@@ -80,11 +80,25 @@ table 50072 "MAWB Invoice Notify Party"
         DocumentMailing: Codeunit "Export Document-Mailing";
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text[250];
+        OutStream: OutStream;
+        InStream: InStream;
+        TempBlob: Codeunit "Temp Blob";
+        RecordRef: RecordRef;
+        FileName: Text[250];
     begin
-        ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
-        REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, MAWBInvoiceNotifyParty);
+        FileName := 'MAWBInvoiceReport_' + FORMAT(TODAY, 0, '<Year4><Month,2><Day,2>') + '.pdf';
+        TempBlob.CreateOutStream(OutStream, TextEncoding::UTF8);
+        RecordRef.GetTable(MAWBInvoiceNotifyParty);
+        REPORT.SaveAs(ReportId, '', REPORTFORMAT::Pdf, OutStream, RecordRef);
+        TempBlob.CreateInStream(InStream);
         COMMIT;
-        DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, ServerAttachmentFilePath);
+        DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, FileName);
+
+        //Naveen B2BUPG
+        // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
+        // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, MAWBInvoiceNotifyParty);
+        // COMMIT;
+        // DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, ServerAttachmentFilePath);
     end;
 }
 
