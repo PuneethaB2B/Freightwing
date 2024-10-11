@@ -374,7 +374,7 @@ codeunit 50038 "Events And Subscribers"
     //Codeunit 440 Approvals Mgt Notification<<
 
     //Codeunit 452 Report Distribution Management>>
-    PROCEDURE SendDailyWeightDistributionReport(DailyWeightDistHeader: Record "Dl. Weight Dist. Header"; ReportID: Integer; SendTo: 'Email,Disk')
+    PROCEDURE SendDailyWeightDistributionReport(DailyWeightDistHeader: Record "Dl. Weight Dist. Header"; ReportID: Integer; SendTo: option Email,Disk)
     VAR
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text;
@@ -382,22 +382,36 @@ codeunit 50038 "Events And Subscribers"
         Text001: Label 'ENU=Daily Weight Distribution';
         ServerSaveAsPdfFailedErr: Label 'ENU=Cannot open the document because it is empty or cannot be created.';
         ServerSaveAsPdfAbortedErr: Label 'ENU=You must select a sales invoice.';
+        AttachmentTempBlob: Codeunit "Temp Blob";
+        AttchmentOutStream: OutStream;
+        RecordrefVar: RecordRef;
+        AttcahmentInstream: InStream;
     BEGIN
-        ServerAttachmentFilePath := FileManagement.ServerTempFileName('pdf');
+        //ServerAttachmentFilePath := FileManagement.ServerTempFileName('pdf');
 
         WITH DailyWeightDistHeader DO BEGIN
             SETRECFILTER;
-            IF NOT REPORT.SAVEASPDF(ReportID, ServerAttachmentFilePath, DailyWeightDistHeader) THEN
+            AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
+            RecordrefVar.GetTable(DailyWeightDistHeader);
+            Report.SaveAs(ReportId, '', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
+            AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+            IF NOT REPORT.SAVEAS(ReportID, '', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar) THEN
                 ERROR(ServerSaveAsPdfFailedErr);
 
-            IF NOT EXISTS(ServerAttachmentFilePath) THEN
-                ERROR(ServerSaveAsPdfAbortedErr);
+            //Naveen B2BUPG
+            // WITH DailyWeightDistHeader DO BEGIN
+            //     SETRECFILTER;
+            //     IF NOT REPORT.SAVEASPDF(ReportID, ServerAttachmentFilePath, DailyWeightDistHeader) THEN
+            //         ERROR(ServerSaveAsPdfFailedErr);
+
+            // IF NOT EXISTS(ServerAttachmentFilePath) THEN
+            //     ERROR(ServerSaveAsPdfAbortedErr);
 
             DocumentType := Text001;
         END;
     END;
 
-    LOCAL PROCEDURE HandleDistDocumentReport(HeaderDoc: Variant; SendTo: 'Email,Disk')
+    LOCAL PROCEDURE HandleDistDocumentReport(HeaderDoc: Variant; SendTo: Option Email,Disk)
     VAR
         ReportSelections: Record "Report Selections";
         SalesInvoiceHeader: Record "Sales Invoice Header";
@@ -426,6 +440,4 @@ codeunit 50038 "Events And Subscribers"
     END;
 
     //Codeunit 452 Report Distribution Management<<
-    var
-    Rep:Codeunit "Report Distribution Management";
 }
