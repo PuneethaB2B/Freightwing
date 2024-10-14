@@ -77,9 +77,10 @@ codeunit 50038 "Events And Subscribers"
     VAR
         DocumentType: Text;
         Text001: Label 'ENU=Daily Weight Distribution';
+        Doc: Codeunit "Document-Mailing";
     BEGIN
         DocumentType := Text001;
-        EmailFile(AttachmentFilePath,
+        Doc.EmailFile(AttachmentFilePath,
           DailyWeightDistByCustomer."Daily No.",
           DailyWeightDistByCustomer."Customer No.",
           DailyWeightDistByCustomer."Customer Name",
@@ -165,7 +166,7 @@ codeunit 50038 "Events And Subscribers"
             END;
             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By ID" := USERID;
+            "Last Modified By User ID" := USERID;
             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
             "Approval Type" := AppTemplate."Approval Type";
             "Limit Type" := AppTemplate."Limit Type";
@@ -209,7 +210,7 @@ codeunit 50038 "Events And Subscribers"
             END;
             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By ID" := USERID;
+            "Last Modified By User ID" := USERID;
             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
             "Approval Type" := AppTemplate."Approval Type";
             "Limit Type" := AppTemplate."Limit Type";
@@ -253,7 +254,7 @@ codeunit 50038 "Events And Subscribers"
             END;
             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By ID" := USERID;
+            "Last Modified By User ID" := USERID;
             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
             "Approval Type" := AppTemplate."Approval Type";
             "Limit Type" := AppTemplate."Limit Type";
@@ -297,7 +298,7 @@ codeunit 50038 "Events And Subscribers"
             END;
             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By ID" := USERID;
+            "Last Modified By User ID" := USERID;
             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
             "Approval Type" := AppTemplate."Approval Type";
             "Limit Type" := AppTemplate."Limit Type";
@@ -341,7 +342,7 @@ codeunit 50038 "Events And Subscribers"
             END;
             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By ID" := USERID;
+            "Last Modified By User ID" := USERID;
             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
             "Approval Type" := AppTemplate."Approval Type";
             "Limit Type" := AppTemplate."Limit Type";

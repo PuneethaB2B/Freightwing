@@ -78,7 +78,7 @@ codeunit 50034 "Using Report Functions"
         OStream: OutStream;
         IStream: InStream;
         CurrentUser: Code[100];
-        Content: File;
+        //Content: File;
         TempFileName: Text;
         ClientTempPath: Text;
         //SMTP: Codeunit 400;

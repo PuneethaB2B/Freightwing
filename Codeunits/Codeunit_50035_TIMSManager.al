@@ -67,6 +67,7 @@ codeunit 50035 "TIMS Manager."
         Item: Record Item;
         GLAccount: Record "G/L Account";
         SalesPost: Codeunit "Sales-Post";
+        EventsAndSubs: Codeunit "Events And Subscribers";
         UnitPrice: Decimal;
         TaxRate: Integer;
         TestFile: File;
@@ -99,10 +100,10 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     IF NOT (SalesInvHeader."Invoice Number" = '') THEN
                         EXIT;
-                    IF EXISTS(FileNamex) THEN
-                        ERASE(FileNamex);
-                    TestFile.CREATE(FileNamex);
-                    TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    //IF EXISTS(FileNamex) THEN
+                    //    ERASE(FileNamex);
+                    // TestFile.CREATE(FileNamex);
+                    //  TestFile.CREATEOUTSTREAM(OutStreamObj);  //B2BUPG
 
                     AmountInc := GetTotalSalesLine(SalesInvHeader."No.", FALSE);
 
@@ -172,7 +173,7 @@ codeunit 50035 "TIMS Manager."
                     SalesInvoiceLine.RESET;
                     SalesInvoiceLine.SETRANGE("Document No.", SalesInvHeader."No.");
                     SalesInvoiceLine.SETFILTER("No.", '<>%1', '');
-                    IF SalesInvoiceLine.FINDSET(FALSE, FALSE) THEN
+                    IF SalesInvoiceLine.FINDSET() THEN
                         REPEAT
                             JsonTextWriter.WriteStartObject;
                             JsonTextWriter.WritePropertyName('productCode');
@@ -231,7 +232,7 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.Flush;
                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    TestFile.CLOSE;
+                    //TestFile.CLOSE;
 
 
                     IF NOT CallWebService(Setup."Invoice Url", 'POST') THEN
@@ -276,9 +277,9 @@ codeunit 50035 "TIMS Manager."
 
                             END;
                         UNTIL TempPostingExchField.NEXT = 0;
-                        IF SalesPost.ModifySalesInv(SalesInvHeader) THEN
-                            IF EXISTS(QRFileName) THEN
-                                ERASE(QRFileName);
+                        IF EventsAndSubs.ModifySalesInv(SalesInvHeader) THEN
+                            // IF EXISTS(QRFileName) THEN
+                            //     ERASE(QRFileName);
 
                         COMMIT;
                     END;
@@ -299,10 +300,10 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     IF NOT (SalesCrHeader."Invoice Number" = '') THEN
                         EXIT;
-                    IF EXISTS(FileNamex) THEN
-                        ERASE(FileNamex);
-                    TestFile.CREATE(FileNamex);
-                    TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    // IF EXISTS(FileNamex) THEN
+                    //     ERASE(FileNamex);
+                    // TestFile.CREATE(FileNamex);
+                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
 
                     AmountInc := GetTotalSalesCreditLine(SalesCrHeader."No.", GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0);
                     IF NOT (GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0) THEN
@@ -433,8 +434,7 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.Flush;
                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    TestFile.CLOSE;
-
+                    //  TestFile.CLOSE;
 
                     IF NOT CallWebService(Setup."Invoice Url", 'POST') THEN
                         EXIT;
@@ -476,16 +476,13 @@ codeunit 50035 "TIMS Manager."
                                     END;
                             END;
                         UNTIL TempPostingExchField.NEXT = 0;
-                        IF SalesPost.ModifySalesCreditMemo(SalesCrHeader) THEN
-                            IF EXISTS(QRFileName) THEN
-                                ERASE(QRFileName);
+                        IF EventsAndSubs.ModifySalesCreditMemo(SalesCrHeader) THEN
+                            // IF EXISTS(QRFileName) THEN
+                            //     ERASE(QRFileName);
 
                         COMMIT;
                     END;
-
-
                 END;
-
         END;
     end;
 
@@ -501,8 +498,8 @@ codeunit 50035 "TIMS Manager."
         // >> BT
         MESSAGE(FORMAT(JSonString));
         // << BT
-        TempBlob.INIT;
-        TempBlob.Blob.CREATEINSTREAM(InStr);
+        // TempBlob.INIT;
+        TempBlob.CREATEINSTREAM(InStr);
         EXIT(HttpWebRequestMgt.GetResponse(InStr, HttpStatusCode, ResponseHeaders));
     end;
 
@@ -817,10 +814,10 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     /*IF NOT( SalesInvHeader."Invo
                       EXIT;*///BT
-                    IF EXISTS(FileNamex) THEN
-                        ERASE(FileNamex);
-                    TestFile.CREATE(FileNamex);
-                    TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    // IF EXISTS(FileNamex) THEN
+                    //     ERASE(FileNamex);
+                    // TestFile.CREATE(FileNamex);
+                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
                     AmountInc := GetTotalSalesLine(SalesInvHeader."No.", FALSE);
                     IF SalesInvHeader."Currency Factor" <> 0 THEN BEGIN
                         VATAmount := ABS((SalesInvHeader."Amount Including VAT" - SalesInvHeader.Amount) / SalesInvHeader."Currency Factor")
@@ -943,7 +940,7 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.Flush;
                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    TestFile.CLOSE;
+                    // TestFile.CLOSE;
                     //Display Json Structure
                     MESSAGE(FORMAT(JSonString));
                 END;
@@ -960,10 +957,10 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     /*IF NOT ( SalesCrHeader."Invoi
                       EXIT;*/
-                    IF EXISTS(FileNamex) THEN
-                        ERASE(FileNamex);
-                    TestFile.CREATE(FileNamex);
-                    TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    // IF EXISTS(FileNamex) THEN
+                    //     ERASE(FileNamex);
+                    // TestFile.CREATE(FileNamex);
+                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
                     AmountInc := GetTotalSalesCreditLine(SalesCrHeader."No.", GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0);
                     IF NOT (GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0) THEN
                         VATAmount := ROUND(((AmountInc * 0.16) / 1.16), 0.01, '=');
@@ -1092,7 +1089,6 @@ codeunit 50035 "TIMS Manager."
                     MESSAGE(FORMAT(JSonString));
                 END;
         END;
-
     end;
 }
 
