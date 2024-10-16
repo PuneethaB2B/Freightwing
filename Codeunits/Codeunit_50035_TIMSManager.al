@@ -48,7 +48,7 @@ codeunit 50035 "TIMS Manager."
         FileNameTxt: Text;
         BmpFormat: Label '.bmp';
         QRCodeFileName: Text;
-        TempBlob2: Record TempBlob temporary;
+        TempBlob2: Codeunit "Temp Blob";
         FileManager: Codeunit "File Management";
         QRFileName: Text;
         JsonText: Text;
@@ -100,6 +100,9 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     IF NOT (SalesInvHeader."Invoice Number" = '') THEN
                         EXIT;
+
+                    TempBlob.CreateOutStream(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
                     //IF EXISTS(FileNamex) THEN
                     //    ERASE(FileNamex);
                     // TestFile.CREATE(FileNamex);
@@ -283,8 +286,8 @@ codeunit 50035 "TIMS Manager."
 
                         COMMIT;
                     END;
-
-
+                    TempBlob.CreateInStream(InStr);
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
                 END;
             DATABASE::"Sales Cr.Memo Header":
                 BEGIN
@@ -300,6 +303,9 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     IF NOT (SalesCrHeader."Invoice Number" = '') THEN
                         EXIT;
+
+                    TempBlob.CreateOutStream(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
                     // IF EXISTS(FileNamex) THEN
                     //     ERASE(FileNamex);
                     // TestFile.CREATE(FileNamex);
@@ -467,7 +473,7 @@ codeunit 50035 "TIMS Manager."
                                             GetQRCodeProvider();
                                             CLEAR(TempBlob2);
                                             FileManager.BLOBImportFromServerFile(TempBlob2, QRCodeFileName);
-                                            SalesCrHeader."QR Code" := TempBlob2.Blob;
+                                            SalesCrHeader."QR Code" := TempBlob2;
                                         END;
                                     END;
                                 'CUSN':
@@ -482,6 +488,8 @@ codeunit 50035 "TIMS Manager."
 
                         COMMIT;
                     END;
+                    TempBlob.CreateInStream(InStr);
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
                 END;
         END;
     end;
@@ -611,12 +619,21 @@ codeunit 50035 "TIMS Manager."
 
 
     procedure MoveToPath(SourceFileName: Text) DestinationFileName: Text
+    var
+        TempBlob: Codeunit "Temp Blob";
+        OutStr: OutStream;
+        InStream: InStream;
     begin
         DestinationFileName := Setup."QR Location" + SourceFileName + BmpFormat;
 
         IF NOT ISSERVICETIER THEN
-            IF EXISTS(DestinationFileName) THEN
-                ERASE(DestinationFileName);
+            // IF EXISTS(DestinationFileName) THEN
+            //     ERASE(DestinationFileName);
+
+            TempBlob.CreateOutStream(OutStr);
+        OutStr.WriteText(DestinationFileName);
+        TempBlob.CreateInStream(InStream);
+        DownloadFromStream(InStream, '', '', 'bmp', DestinationFileName); //Naveen B2BUPG
 
         bitmap.Save(DestinationFileName, ImageFormat.Bmp);
         QRCodeFileName := DestinationFileName;
@@ -792,6 +809,7 @@ codeunit 50035 "TIMS Manager."
         AmtInc: Decimal;
         TotalAmt: Decimal;
         AllowedChars: Label 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        TempBlob: Codeunit "Temp Blob";
     begin
         //Replicated the Feature to get the JSON Data for the both Invoice and Credit Memo
         CLEAR(Url);
@@ -814,6 +832,8 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     /*IF NOT( SalesInvHeader."Invo
                       EXIT;*///BT
+                    TempBlob.CreateOutStream(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
                     // IF EXISTS(FileNamex) THEN
                     //     ERASE(FileNamex);
                     // TestFile.CREATE(FileNamex);
@@ -942,6 +962,8 @@ codeunit 50035 "TIMS Manager."
                     OutStreamObj.WRITETEXT();
                     // TestFile.CLOSE;
                     //Display Json Structure
+                    TempBlob.CreateInStream(InStr);
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
                     MESSAGE(FORMAT(JSonString));
                 END;
             DATABASE::"Sales Cr.Memo Header":
@@ -957,6 +979,8 @@ codeunit 50035 "TIMS Manager."
                     FileNamex := Setup."QR Location" + 'Json.TXT';
                     /*IF NOT ( SalesCrHeader."Invoi
                       EXIT;*/
+                    TempBlob.CreateOutStream(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
                     // IF EXISTS(FileNamex) THEN
                     //     ERASE(FileNamex);
                     // TestFile.CREATE(FileNamex);
@@ -1086,6 +1110,8 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.Flush;
                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
+                    TempBlob.CreateInStream(InStr);
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
                     MESSAGE(FORMAT(JSonString));
                 END;
         END;

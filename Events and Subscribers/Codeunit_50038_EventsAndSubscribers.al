@@ -73,19 +73,18 @@ codeunit 50038 "Events And Subscribers"
     //Codeunit 90 Purch.-Post<<
 
     //Codeunit 260 Document-Mailing>>
-    PROCEDURE EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250]);
-    VAR
-        DocumentType: Text;
-        Text001: Label 'ENU=Daily Weight Distribution';
-        Doc: Codeunit "Document-Mailing";
-    BEGIN
-        DocumentType := Text001;
-        Doc.EmailFile(AttachmentFilePath,
-          DailyWeightDistByCustomer."Daily No.",
-          DailyWeightDistByCustomer."Customer No.",
-          DailyWeightDistByCustomer."Customer Name",
-          DocumentType);
-    END;
+    // PROCEDURE EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250]);
+    // VAR
+    //     DocumentType: Text;
+    //     Text001: Label 'ENU=Daily Weight Distribution';
+    // BEGIN
+    //     DocumentType := Text001;
+    //     DocumentMailing.EmailFile(AttachmentFilePath,
+    //       DailyWeightDistByCustomer."Daily No.",
+    //       DailyWeightDistByCustomer."Customer No.",
+    //       DailyWeightDistByCustomer."Customer Name",
+    //       DocumentType);
+    // END;  //0 References for this function
 
     LOCAL PROCEDURE EmaiDailyWeightDistByCustomerFile(AttachmentFilePath: Text[250]; PostedDocNo: Code[20]; SendEmaillToNPNo: Code[20]; SendEmaillToNPName: Text[50]; EmailDocName: Text[50]);
     VAR
