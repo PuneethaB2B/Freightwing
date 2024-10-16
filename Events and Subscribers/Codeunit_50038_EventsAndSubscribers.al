@@ -10,12 +10,22 @@ codeunit 50038 "Events And Subscribers"
     //Codeunit 22 Item Jnl.-Post Line<<
 
     //Codeunit 80 Sales-Post>>
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeInsertInvoiceHeader', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeSalesInvHeaderInsert', '', false, false)]
 
-    local procedure OnBeforeInsertInvoiceHeader(SalesHeader: Record "Sales Header"; var SalesInvHeader: Record "Sales Invoice Header"; var IsHandled: Boolean)
+    local procedure OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
     begin
         SalesInvHeader.Commodity := SalesHeader.Commodity;
         SalesInvHeader."Total Weight" := SalesHeader."Total Weight";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostGLAndCustomer', '', false, false)]
+    local procedure OnAfterPostGLAndCustomer(var SalesHeader: Record "Sales Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; TotalSalesLine: Record "Sales Line"; TotalSalesLineLCY: Record "Sales Line"; CommitIsSuppressed: Boolean;
+            WhseShptHeader: Record "Warehouse Shipment Header"; WhseShip: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header"; var SalesInvHeader: Record "Sales Invoice Header"; var SalesCrMemoHeader: Record "Sales Cr.Memo Header";
+            var CustLedgEntry: Record "Cust. Ledger Entry"; var SrcCode: Code[10]; GenJnlLineDocNo: Code[20]; GenJnlLineExtDocNo: Code[35]; var GenJnlLineDocType: Enum "Gen. Journal Document Type"; PreviewMode: Boolean; DropShipOrder: Boolean)
+    begin
+        IF SalesHeader.Invoice THEN BEGIN
+            //TIMSManager.ProcessSalesDocument(SalesInvHeader);
+        END;
     end;
 
     PROCEDURE ModifySalesInv(VAR SalesInvoiceHeader: Record "Sales Invoice Header"): Boolean;
@@ -31,8 +41,8 @@ codeunit 50038 "Events And Subscribers"
 
     //Codeunit 90 Purch.-Post>>
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostPurchLine', '', false, false)]
-    local procedure OnBeforePostPurchLine(var PurchHeader: Record "Purchase Header"; var PurchLine: Record "Purchase Line"; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnRunOnBeforePostPurchLine', '', false, false)]
+    local procedure OnRunOnBeforePostPurchLine(var PurchLine: Record "Purchase Line"; var PurchHeader: Record "Purchase Header"; var IsHandled: Boolean)
     var
         UnrecoveredCharges: Record "Unrecovered Charge";
     begin
@@ -62,29 +72,30 @@ codeunit 50038 "Events And Subscribers"
         UnrecoveredCharges.INSERT;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnPostVendorEntryOnAfterInitNewLine', '', false, false)]
-    local procedure OnPostVendorEntryOnAfterInitNewLine(var PurchaseHeader: Record "Purchase Header"; var GenJnlLine: Record "Gen. Journal Line")
+    [EventSubscriber(ObjectType::Table, Database::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromPurchHeader', '', false, false)]
+    local procedure OnAfterCopyGenJnlLineFromPurchHeader(PurchaseHeader: Record "Purchase Header"; var GenJournalLine: Record "Gen. Journal Line")
     var
         Vendor: Record Vendor;
     begin
         IF Vendor.GET(PurchaseHeader."Buy-from Vendor No.") THEN //PHILIP
-            GenJnlLine."VAT Registration No." := Vendor."VAT Registration No.";//"VAT Registration No.";
+            GenJournalLine."VAT Registration No." := Vendor."VAT Registration No.";//"VAT Registration No.";
     end;
     //Codeunit 90 Purch.-Post<<
 
     //Codeunit 260 Document-Mailing>>
-    // PROCEDURE EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250]);
-    // VAR
-    //     DocumentType: Text;
-    //     Text001: Label 'ENU=Daily Weight Distribution';
-    // BEGIN
-    //     DocumentType := Text001;
-    //     DocumentMailing.EmailFile(AttachmentFilePath,
-    //       DailyWeightDistByCustomer."Daily No.",
-    //       DailyWeightDistByCustomer."Customer No.",
-    //       DailyWeightDistByCustomer."Customer Name",
-    //       DocumentType);
-    // END;  //0 References for this function
+    PROCEDURE EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250]);
+    VAR
+        DocumentType: Text;
+        Text001: Label 'ENU=Daily Weight Distribution';
+        Doc: Codeunit "Document-Mailing";
+    BEGIN
+        DocumentType := Text001;
+        Doc.EmailFile(AttachmentFilePath,
+          DailyWeightDistByCustomer."Daily No.",
+          DailyWeightDistByCustomer."Customer No.",
+          DailyWeightDistByCustomer."Customer Name",
+          DocumentType);
+    END;
 
     LOCAL PROCEDURE EmaiDailyWeightDistByCustomerFile(AttachmentFilePath: Text[250]; PostedDocNo: Code[20]; SendEmaillToNPNo: Code[20]; SendEmaillToNPName: Text[50]; EmailDocName: Text[50]);
     VAR
@@ -121,8 +132,8 @@ codeunit 50038 "Events And Subscribers"
         EXIT(ToAddress);
     END;
     //Codeunit 260 Document-Mailing<<
-    //Codeunit 367 CheckManagement>>
 
+    //Codeunit 367 CheckManagement>>
     LOCAL PROCEDURE "====FWL===="();
     BEGIN
     END;
@@ -374,14 +385,41 @@ codeunit 50038 "Events And Subscribers"
     //Codeunit 440 Approvals Mgt Notification<<
 
     //Codeunit 452 Report Distribution Management>>
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Report Distribution Management", 'OnAfterGetFullDocumentTypeText', '', false, false)]
+    local procedure OnAfterGetFullDocumentTypeText(DocumentVariant: Variant; var DocumentTypeText: Text[50]; var DocumentRecordRef: RecordRef)
+    var
+        DailyWeightDistRecRef: RecordRef;
+        DailyWeightDistHeader: Record 50040;
+        ReportSelections: Record 77;
+        SendTo: option Email,Disk;
+        SalesHeaderRecRef: RecordRef;
+        UnSupportedTableTypeErr: Label 'The table %1 is not supported.';
+    begin
+        //...GET THE DISTRIBUTION HEADER
+        DailyWeightDistRecRef.GETTABLE(DocumentVariant);
+        CASE DailyWeightDistRecRef.NUMBER OF
+            DATABASE::"Dl. Weight Dist. Header":
+                BEGIN
+                    DailyWeightDistRecRef.SETTABLE(DailyWeightDistHeader);
+                    BEGIN
+                        ReportSelections.SETRANGE(Usage, ReportSelections.Usage::"Daily Weight Distribution");
+                        ReportSelections.FINDFIRST;
+                        SendDailyWeightDistributionReport(DocumentVariant, ReportSelections."Report ID", SendTo);
+                    END;
+                END;
+            ELSE
+                ERROR(STRSUBSTNO(UnSupportedTableTypeErr, SalesHeaderRecRef.NAME));
+        END;
+    end;
+
     PROCEDURE SendDailyWeightDistributionReport(DailyWeightDistHeader: Record "Dl. Weight Dist. Header"; ReportID: Integer; SendTo: option Email,Disk)
     VAR
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text;
         DocumentType: Text;
         Text001: Label 'ENU=Daily Weight Distribution';
-        ServerSaveAsPdfFailedErr: Label 'ENU=Cannot open the document because it is empty or cannot be created.';
-        ServerSaveAsPdfAbortedErr: Label 'ENU=You must select a sales invoice.';
+        ServerSaveAsPdfFailedErr: Label 'Cannot open the document because it is empty or cannot be created.';
+        ServerSaveAsPdfAbortedErr: Label 'You must select a sales invoice.';
         AttachmentTempBlob: Codeunit "Temp Blob";
         AttchmentOutStream: OutStream;
         RecordrefVar: RecordRef;
@@ -420,7 +458,7 @@ codeunit 50038 "Events And Subscribers"
         SalesHeaderRecRef: RecordRef;
         DailyWeightDistRecRef: RecordRef;
         DailyWeightDistHeader: Record "Dl. Weight Dist. Header";
-        UnSupportedTableTypeErr: Label 'ENU=The table %1 is not supported.';
+        UnSupportedTableTypeErr: Label 'The table %1 is not supported.';
     BEGIN
         //...GET THE DISTRIBUTION HEADER
         DailyWeightDistRecRef.GETTABLE(HeaderDoc);
@@ -440,4 +478,7 @@ codeunit 50038 "Events And Subscribers"
     END;
 
     //Codeunit 452 Report Distribution Management<<
+var
+cc: Codeunit 1297;
 }
+
