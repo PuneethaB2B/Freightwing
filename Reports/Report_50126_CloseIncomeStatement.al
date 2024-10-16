@@ -2,6 +2,7 @@ report 50126 "Close Income Statement_UPG"
 {
     Caption = 'Close Income Statement';
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -224,6 +225,7 @@ report 50126 "Close Income Statement_UPG"
                     field(FiscalYearEndingDate; EndDateReq)
                     {
                         Caption = 'Fiscal Year Ending Date';
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -234,6 +236,7 @@ report 50126 "Close Income Statement_UPG"
                     {
                         Caption = 'Gen. Journal Template';
                         TableRelation = "Gen. Journal Template";
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -245,6 +248,7 @@ report 50126 "Close Income Statement_UPG"
                     {
                         Caption = 'Gen. Journal Batch';
                         Lookup = true;
+                        ApplicationArea = All;
 
                         trigger OnLookup(var Text: Text): Boolean
                         begin
@@ -273,11 +277,13 @@ report 50126 "Close Income Statement_UPG"
                     field(DocumentNo; DocNo)
                     {
                         Caption = 'Document No.';
+                        ApplicationArea = All;
                     }
                     field(RetainedEarningsAcc; RetainedEarningsGLAcc."No.")
                     {
                         Caption = 'Retained Earnings Acc.';
                         TableRelation = "G/L Account";
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -290,6 +296,7 @@ report 50126 "Close Income Statement_UPG"
                     field(PostingDescription; PostingDescription)
                     {
                         Caption = 'Posting Description';
+                        ApplicationArea = All;
                     }
                     group("Close by")
                     {
@@ -297,11 +304,13 @@ report 50126 "Close Income Statement_UPG"
                         field(ClosePerBusUnit; ClosePerBusUnit)
                         {
                             Caption = 'Business Unit Code';
+                            ApplicationArea = All;
                         }
                         field(Dimensions; ColumnDim)
                         {
                             Caption = 'Dimensions';
                             Editable = false;
+                            ApplicationArea = All;
 
                             trigger OnAssistEdit()
                             var
@@ -320,6 +329,7 @@ report 50126 "Close Income Statement_UPG"
                     field(IsInvtPeriodClosed; IsInvtPeriodClosed)
                     {
                         Caption = 'Inventory Period Closed';
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -608,7 +618,7 @@ report 50126 "Close Income Statement_UPG"
 
     end;
 
-    
+
     procedure InitializeRequestTest(EndDate: Date; GenJournalLine: Record "Gen. Journal Line"; GLAccount: Record "G/L Account"; CloseByBU: Boolean)
     begin
         EndDateReq := EndDate;

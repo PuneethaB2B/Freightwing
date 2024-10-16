@@ -3,6 +3,7 @@ report 50123 "Statement_UPG"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/Statement.rdl';
     Caption = 'Statement';
+    ApplicationArea = All;
 
     dataset
     {
@@ -531,7 +532,7 @@ report 50123 "Statement_UPG"
 
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
-                
+
                 PrintLine := FALSE;
                 Cust2 := Customer;
                 COPYFILTER("Currency Filter", Currency2.Code);
@@ -610,14 +611,17 @@ report 50123 "Statement_UPG"
                     field("Start Date"; StartDate)
                     {
                         Caption = 'Start Date';
+                        ApplicationArea = All;
                     }
                     field("End Date"; EndDate)
                     {
                         Caption = 'End Date';
+                        ApplicationArea = All;
                     }
                     field(ShowOverdueEntries; PrintEntriesDue)
                     {
                         Caption = 'Show Overdue Entries';
+                        ApplicationArea = All;
                     }
                     group(Include)
                     {
@@ -626,6 +630,7 @@ report 50123 "Statement_UPG"
                         {
                             Caption = 'Include All Customers with Ledger Entries';
                             MultiLine = true;
+                            ApplicationArea = All;
 
                             trigger OnValidate()
                             begin
@@ -637,6 +642,7 @@ report 50123 "Statement_UPG"
                         {
                             Caption = 'Include All Customers with a Balance';
                             MultiLine = true;
+                            ApplicationArea = All;
 
                             trigger OnValidate()
                             begin
@@ -647,10 +653,12 @@ report 50123 "Statement_UPG"
                         field(IncludeReversedEntries; PrintReversedEntries)
                         {
                             Caption = 'Include Reversed Entries';
+                            ApplicationArea = All;
                         }
                         field(IncludeUnappliedEntries; PrintUnappliedEntries)
                         {
                             Caption = 'Include Unapplied Entries';
+                            ApplicationArea = All;
                         }
                     }
                     group("Aging Band")
@@ -659,21 +667,25 @@ report 50123 "Statement_UPG"
                         field(IncludeAgingBand; IncludeAgingBand)
                         {
                             Caption = 'Include Aging Band';
+                            ApplicationArea = All;
                         }
                         field(AgingBandPeriodLengt; PeriodLength)
                         {
                             Caption = 'Aging Band Period Length';
+                            ApplicationArea = All;
                         }
                         field(AgingBandby; DateChoice)
                         {
                             Caption = 'Aging Band by';
                             OptionCaption = 'Due Date,Posting Date';
+                            ApplicationArea = All;
                         }
                     }
                     field(LogInteraction; LogInteraction)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -879,7 +891,7 @@ report 50123 "Statement_UPG"
         AgingBandBuf.MODIFY;
     end;
 
-     
+
     procedure SkipReversedUnapplied(var DtldCustLedgEntries: Record "Detailed Cust. Ledg. Entry"): Boolean
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
@@ -897,7 +909,7 @@ report 50123 "Statement_UPG"
         EXIT(FALSE);
     end;
 
-     
+
     procedure InitializeRequest(NewPrintEntriesDue: Boolean; NewPrintAllHavingEntry: Boolean; NewPrintAllHavingBal: Boolean; NewPrintReversedEntries: Boolean; NewPrintUnappliedEntries: Boolean; NewIncludeAgingBand: Boolean; NewPeriodLength: Text[30]; NewDateChoice: Option; NewLogInteraction: Boolean; NewStartDate: Date; NewEndDate: Date)
     begin
         InitRequestPageDataInternal;
@@ -915,7 +927,7 @@ report 50123 "Statement_UPG"
         EndDate := NewEndDate;
     end;
 
-     
+
     procedure InitRequestPageDataInternal()
     begin
         IF isInitialized THEN

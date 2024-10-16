@@ -51,6 +51,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                 PromotedIsBig = true;
                 Image = PrintCheck;
                 PromotedCategory = Report;
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
                     Rec.TESTFIELD("Bank Payment Type", "Bank Payment Type"::"Computer Check");
@@ -79,6 +80,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
                 PromotedIsBig = true;
                 Image = Report;
                 PromotedCategory = Report;
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
                     GenJnlLine.RESET;
@@ -92,6 +94,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
             }
             action(Close)
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -105,6 +108,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
             }
             action(Open)
             {
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
                     IF CONFIRM('Do you want to Undo Check Printing') THEN BEGIN

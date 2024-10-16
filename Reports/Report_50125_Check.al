@@ -5,6 +5,7 @@ report 50125 "Check_UPG"
     Caption = 'Check';
     Permissions = TableData "Bank Account" = m;
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -780,6 +781,7 @@ report 50125 "Check_UPG"
                     {
                         Caption = 'Bank Account';
                         TableRelation = "Bank Account";
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -789,23 +791,28 @@ report 50125 "Check_UPG"
                     field(LastCheckNo; UseCheckNo)
                     {
                         Caption = 'Last Check No.';
+                        ApplicationArea = All;
                     }
                     field(OneCheckPerVendorPerDocumentNo; OneCheckPrVendor)
                     {
                         Caption = 'One Check per Vendor per Document No.';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                     field(ReprintChecks; ReprintChecks)
                     {
                         Caption = 'Reprint Checks';
+                        ApplicationArea = All;
                     }
                     field(TestPrinting; TestPrint)
                     {
                         Caption = 'Test Print';
+                        ApplicationArea = All;
                     }
                     field(PreprintedStub; PreprintedStub)
                     {
                         Caption = 'Preprinted Stub';
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -967,7 +974,7 @@ report 50125 "Check_UPG"
         YourDocNoCaptionLbl: Label 'Your Doc. No.';
         TransportCaptionLbl: Label 'Transport';
 
-      
+
     procedure FormatNoText(var NoText: array[2] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
         PrintExponent: Boolean;
@@ -1183,7 +1190,7 @@ report 50125 "Check_UPG"
         END;
     end;
 
-      
+
     procedure InitTextVariable()
     begin
         OnesText[1] := Text032;
@@ -1222,7 +1229,7 @@ report 50125 "Check_UPG"
         ExponentText[4] := Text061;
     end;
 
-      
+
     procedure InitializeRequest(BankAcc: Code[20]; LastCheckNo: Code[20]; NewOneCheckPrVend: Boolean; NewReprintChecks: Boolean; NewTestPrint: Boolean; NewPreprintedStub: Boolean)
     begin
         IF BankAcc <> '' THEN
@@ -1235,7 +1242,7 @@ report 50125 "Check_UPG"
             END;
     end;
 
-    
+
     procedure ExchangeAmt(PostingDate: Date; CurrencyCode: Code[10]; CurrencyCode2: Code[10]; Amount: Decimal) Amount2: Decimal
     begin
         IF (CurrencyCode <> '') AND (CurrencyCode2 = '') THEN
@@ -1254,7 +1261,7 @@ report 50125 "Check_UPG"
                     Amount2 := Amount;
     end;
 
-      
+
     procedure ABSMin(Decimal1: Decimal; Decimal2: Decimal): Decimal
     begin
         IF ABS(Decimal1) < ABS(Decimal2) THEN
@@ -1262,7 +1269,7 @@ report 50125 "Check_UPG"
         EXIT(Decimal2);
     end;
 
-     
+
     procedure InputBankAccount()
     begin
         IF BankAcc2."No." <> '' THEN BEGIN

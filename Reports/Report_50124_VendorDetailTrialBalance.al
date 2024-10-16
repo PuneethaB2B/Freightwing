@@ -3,6 +3,7 @@ report 50124 "Vendor-DetailTrialBalance_UPG"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/VendorDetailTrialBalance.rdl';
     Caption = 'Vendor - Detail Trial Balance';
+    ApplicationArea = All;
 
     dataset
     {
@@ -334,15 +335,18 @@ report 50124 "Vendor-DetailTrialBalance_UPG"
                     field(ShowAmountsInLCY; PrintAmountsInLCY)
                     {
                         Caption = 'Show Amounts in LCY';
+                        ApplicationArea = All;
                     }
                     field(PrintOnlyOnePerPage; PrintOnlyOnePerPage)
                     {
                         Caption = 'New Page per Vendor';
+                        ApplicationArea = All;
                     }
                     field(ExcludeBalanceOnly; ExcludeBalanceOnly)
                     {
                         Caption = 'Exclude Vendors That Have A Balance Only';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -409,7 +413,7 @@ report 50124 "Vendor-DetailTrialBalance_UPG"
         TotalLCYBeforePeriodCaptionLbl: Label 'Total (LCY) Before Period';
         gDateEndDate: Date;
 
-     
+
     procedure InitializeRequest(NewPrintAmountsInLCY: Boolean; NewPrintOnlyOnePerPage: Boolean; NewExcludeBalanceOnly: Boolean)
     begin
         PrintAmountsInLCY := NewPrintAmountsInLCY;

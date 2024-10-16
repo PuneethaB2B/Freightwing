@@ -4,6 +4,7 @@ report 50129 "Purchase - Invoice_UPG"
     RDLCLayout = 'Reports/Layout/PurchaseInvoice.rdl';
     Caption = 'Purchase - Invoice';
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -811,15 +812,18 @@ report 50129 "Purchase - Invoice_UPG"
                     field(NoOfCopies; NoOfCopies)
                     {
                         Caption = 'No. of Copies';
+                        ApplicationArea = All;
                     }
                     field(ShowInternalInfo; ShowInternalInfo)
                     {
                         Caption = 'Show Internal Information';
+                        ApplicationArea = All;
                     }
                     field(LogInteraction; LogInteraction)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
+                        ApplicationArea = All;
                     }
                 }
             }

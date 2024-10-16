@@ -5,6 +5,7 @@ report 50122 "Sales - Credit Memo_UPG"
     Caption = 'Sales - Credit Memo';
     Permissions = TableData "Sales Shipment Buffer" = rimd;
     PreviewMode = PrintLayout;
+    ApplicationArea = All;
 
     dataset
     {
@@ -744,7 +745,7 @@ report 50122 "Sales - Credit Memo_UPG"
 
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
-                
+
 
                 CompanyInfo.GET;
 
@@ -826,15 +827,18 @@ report 50122 "Sales - Credit Memo_UPG"
                     field(NoOfCopies; NoOfCopies)
                     {
                         Caption = 'No. of Copies';
+                        ApplicationArea = All;
                     }
                     field(ShowInternalInfo; ShowInternalInfo)
                     {
                         Caption = 'Show Internal Information';
+                        ApplicationArea = All;
                     }
                     field(LogInteraction; LogInteraction)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -992,7 +996,7 @@ report 50122 "Sales - Credit Memo_UPG"
         SalesCrMemoLineDiscCaptionLbl: Label 'Discount %';
         HSCode: Code[50];
 
-     
+
     procedure InitLogInteraction()
     begin
         LogInteraction := SegManagement.FindInteractTmplCode(6) <> '';
@@ -1042,7 +1046,7 @@ report 50122 "Sales - Credit Memo_UPG"
             EXIT("Sales Cr.Memo Header"."Posting Date");
     end;
 
-      
+
     procedure GenerateBufferFromValueEntry(SalesCrMemoLine2: Record "Sales Cr.Memo Line")
     var
         ValueEntry: Record "Value Entry";
@@ -1133,7 +1137,7 @@ report 50122 "Sales - Credit Memo_UPG"
             UNTIL (ReturnReceiptLine.NEXT = 0) OR (TotalQuantity = 0);
     end;
 
-     
+
     procedure CorrectShipment(var ReturnReceiptLine: Record "Return Receipt Line")
     var
         SalesCrMemoLine: Record "Sales Cr.Memo Line";
@@ -1147,7 +1151,7 @@ report 50122 "Sales - Credit Memo_UPG"
             UNTIL SalesCrMemoLine.NEXT = 0;
     end;
 
-      
+
     procedure AddBufferEntry(SalesCrMemoLine: Record "Sales Cr.Memo Line"; QtyOnShipment: Decimal; PostingDate: Date)
     begin
         SalesShipmentBuffer.SETRANGE("Document No.", SalesCrMemoLine."Document No.");
@@ -1180,7 +1184,7 @@ report 50122 "Sales - Credit Memo_UPG"
         EXIT(Text005);
     end;
 
-     
+
     procedure InitializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewLogInteraction: Boolean)
     begin
         NoOfCopies := NewNoOfCopies;

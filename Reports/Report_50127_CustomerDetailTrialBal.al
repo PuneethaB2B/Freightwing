@@ -3,6 +3,7 @@ report 50127 "Customer-Detail Trial Bal_UPG"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/CustomerDetailTrialBal.rdl';
     Caption = 'Customer - Detail Trial Bal.';
+    ApplicationArea = All;
 
     dataset
     {
@@ -322,15 +323,18 @@ report 50127 "Customer-Detail Trial Bal_UPG"
                     field(ShowAmountsInLCY; PrintAmountsInLCY)
                     {
                         Caption = 'Show Amounts in LCY';
+                        ApplicationArea = All;
                     }
                     field(NewPageperCustomer; PrintOnlyOnePerPage)
                     {
                         Caption = 'New Page per Customer';
+                        ApplicationArea = All;
                     }
                     field(ExcludeCustHaveaBalanceOnly; ExcludeBalanceOnly)
                     {
                         Caption = 'Exclude Customers That Have a Balance Only';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -394,7 +398,7 @@ report 50127 "Customer-Detail Trial Bal_UPG"
         OpeningBalCaptionLbl: Label 'Total Adj. of Opening Balance';
         gDateEndDate: Date;
 
-      
+
     procedure InitializeRequest(ShowAmountInLCY: Boolean; SetPrintOnlyOnePerPage: Boolean; SetExcludeBalanceOnly: Boolean)
     begin
         PrintOnlyOnePerPage := SetPrintOnlyOnePerPage;

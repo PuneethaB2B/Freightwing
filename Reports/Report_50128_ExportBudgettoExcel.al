@@ -2,6 +2,7 @@ report 50128 "Export Budget to Excel_UPG"
 {
     Caption = 'Export Budget to Excel';
     ProcessingOnly = true;
+    ApplicationArea = All;
 
     dataset
     {
@@ -319,19 +320,23 @@ report 50128 "Export Budget to Excel_UPG"
                     field(StartDate; StartDate)
                     {
                         Caption = 'Start Date';
+                        ApplicationArea = All;
                     }
                     field(NoOfPeriods; NoOfPeriods)
                     {
                         Caption = 'No. of Periods';
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
                         Caption = 'Period Length';
+                        ApplicationArea = All;
                     }
                     field(ColumnDim; ColumnDim)
                     {
                         Caption = 'Column Dimensions';
                         Editable = false;
+                        ApplicationArea = All;
 
                         trigger OnAssistEdit()
                         begin
@@ -341,6 +346,7 @@ report 50128 "Export Budget to Excel_UPG"
                     field(IncludeTotalingFormulas; IncludeTotalingFormulas)
                     {
                         Caption = 'Include Totaling Formulas';
+                        ApplicationArea = All;
                     }
                 }
             }
