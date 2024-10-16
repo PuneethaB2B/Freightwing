@@ -1,4 +1,4 @@
-report 50127 "Customer-Detail Trial Bal-UPG"
+report 50127 "Customer-Detail Trial Bal_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/CustomerDetailTrialBal.rdl';

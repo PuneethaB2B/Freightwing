@@ -1,4 +1,4 @@
-report 50123 "Statement-UPG"
+report 50123 "Statement_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/Statement.rdl';

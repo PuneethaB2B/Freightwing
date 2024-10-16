@@ -597,6 +597,8 @@ page 50145 "Posted MAWB Invoice"
                     begin
                         IF ApprovalMgt.IsSalesApprovalsWorkflowEnabled(Rec) THEN
                             ApprovalMgt.OnSendSalesDocForApproval(Rec);       //B2BUPG
+
+                        //IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
                 }
                 action("Cancel Approval Re&quest")
@@ -609,6 +611,8 @@ page 50145 "Posted MAWB Invoice"
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         ApprovalMgt.OnCancelSalesApprovalRequest(Rec);      //B2BUPG
+
+                        // IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
                 separator(General9)

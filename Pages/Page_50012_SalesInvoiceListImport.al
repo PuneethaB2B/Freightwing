@@ -278,6 +278,8 @@ page 50012 "Sales Invoice List - Import"
                     begin
                         IF ApprovalMgt.IsSalesApprovalsWorkflowEnabled(Rec) THEN
                             ApprovalMgt.OnSendSalesDocForApproval(Rec);       //B2BUPG
+
+                        // IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
                 }
                 action("Cancel Approval Re&quest")
@@ -290,6 +292,8 @@ page 50012 "Sales Invoice List - Import"
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         ApprovalMgt.OnCancelSalesApprovalRequest(Rec);      //B2BUPG
+
+                        // IF ApprovalMgt.CancelSalesApprovalRequest(Rec, TRUE, TRUE) THEN;
                     end;
                 }
                 separator(General1)

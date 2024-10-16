@@ -1,4 +1,4 @@
-report 50125 "Check-UPG"
+report 50125 "Check_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/Check.rdl';

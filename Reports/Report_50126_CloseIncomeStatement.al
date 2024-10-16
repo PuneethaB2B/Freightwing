@@ -1,4 +1,4 @@
-report 50126 "Close Income Statement-UPG"
+report 50126 "Close Income Statement_UPG"
 {
     Caption = 'Close Income Statement';
     ProcessingOnly = true;

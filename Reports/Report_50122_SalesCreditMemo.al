@@ -1,4 +1,4 @@
-report 50122 "Sales - Credit Memo"
+report 50122 "Sales - Credit Memo_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/SalesCreditMemo.rdl';

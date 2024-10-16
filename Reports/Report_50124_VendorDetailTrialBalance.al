@@ -1,4 +1,4 @@
-report 50124 "Vendor-DetailTrialBalance-UPG"
+report 50124 "Vendor-DetailTrialBalance_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/VendorDetailTrialBalance.rdl';

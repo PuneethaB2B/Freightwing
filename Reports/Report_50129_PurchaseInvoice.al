@@ -1,4 +1,4 @@
-report 50129 "Purchase - Invoice-UPG"
+report 50129 "Purchase - Invoice_UPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/PurchaseInvoice.rdl';
@@ -731,7 +731,7 @@ report 50129 "Purchase - Invoice-UPG"
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
 
-                
+
                 CompanyInfo.GET;
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN

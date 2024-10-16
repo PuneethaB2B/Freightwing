@@ -1,4 +1,4 @@
-report 50128 "Export Budget to Excel-UPG"
+report 50128 "Export Budget to Excel_UPG"
 {
     Caption = 'Export Budget to Excel';
     ProcessingOnly = true;
