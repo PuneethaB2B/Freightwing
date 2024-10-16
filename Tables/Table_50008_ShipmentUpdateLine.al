@@ -51,8 +51,8 @@ table 50008 "Shipment Update Line"
                                 ToReceipients := Notifyparty."E-Mail";
                                 Name := Notifyparty.Name;
                                 EmailMessage.Create(ToReceipients, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ');
-                                //Naveen B2BUPG
-                                //SMTP.CreateMessage(COMPANYNAME, 'system@fwl.com', Email, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ', FALSE);
+
+                                //SMTP.CreateMessage(COMPANYNAME, 'system@fwl.com', Email, "Pre Alert No" + ' ' + 'Shipment Update Status', ' ', FALSE);//B2BUPG handled above where smtp structure is changed in higher version
                                 Body := Activity + ' ' + ' For Pre-Alert No. ' + ' ' + "Pre Alert No" + ' ' + 'has been completed.';
                                 EmailMessage.AppendtoBody('Dear ' + Name + ',' + CRLF + Body);
                                 //SMTP.AppendBody(CRLF+CRLF+Body);
@@ -72,8 +72,8 @@ table 50008 "Shipment Update Line"
                                 EmailMessage.AppendtoBody(CRLF + 'Document Collected By ' + '-' + "Collected By");
                                 //SMTP.AddBCC( Email);
                                 EmailCode.Send(EmailMessage);
-                            //Naveen B2BUPG
-                            //SMTP.Send();
+                            
+                            //SMTP.Send();//B2BUPG handled above where smtp structure is changed in higher version
                             UNTIL Notifyparty.NEXT = 0;
                         END;
                         MESSAGE('Notifications Sent');

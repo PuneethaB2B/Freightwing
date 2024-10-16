@@ -66,7 +66,7 @@ xmlport 50001 "Import Excel"
                 // }
                 // fieldelement(EntryNo; "TEST AV".Field18)
                 // {
-                // }   //B2BUPG
+                // }   //B2BUPG getiing error in client database as these fields are not available
             }
         }
     }

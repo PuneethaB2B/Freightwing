@@ -188,11 +188,11 @@ table 50042 "Dl. Weight Dist. By Customer"
         COMMIT;
         DocumentMailing.EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCust, FileName);
 
-        //Naveen B2BUPG
+
         //ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
         //REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, DailyWeightDistByCust);
         // COMMIT;
-        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
+        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath); // B2BUPG handled above using streams
     end;
 }
 

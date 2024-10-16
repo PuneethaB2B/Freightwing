@@ -33,13 +33,13 @@ codeunit 50034 "Using Report Functions"
         REPORT.SAVEAS(ReportID, XmlParameters, REPORTFORMAT::Pdf, OStream);
         TempBlob.CreateInStream(IStream);
 
-        //Naveen B2BUPG
-        // ClientTempPath := TEMPORARYPATH + '\Cust_Statement.pdf';
-        // Content.CREATE(ClientTempPath);
+        /*  
+         ClientTempPath := TEMPORARYPATH + '\Cust_Statement.pdf';
+         Content.CREATE(ClientTempPath);
 
-        // Content.CREATEOUTSTREAM(OStream);
+         Content.CREATEOUTSTREAM(OStream);
 
-        // REPORT.SAVEAS(Report::Statement, XmlParameters, REPORTFORMAT::Pdf, OStream);
+         REPORT.SAVEAS(Report::Statement, XmlParameters, REPORTFORMAT::Pdf, OStream); */ // B2BUPG handled above using streams
 
         // Content.CLOSE;
         ReportParameters.GET(116, CurrentUser);
@@ -47,8 +47,8 @@ codeunit 50034 "Using Report Functions"
         // SmtpSetup.GET;
         CLEAR(lTxtMergeBody);
         EmailMessage.Create(ReportParameters.ToEmail, 'Customer Statement', '', TRUE);
-        //EmailMessage.Create('Freight Wings', SmtpSetup."User ID", ReportParameters.ToEmail, 'Customer Statement', '', TRUE); 
-        //Naveen B2BUPG
+        //EmailMessage.Create('Freight Wings', SmtpSetup."User ID", ReportParameters.ToEmail, 'Customer Statement', '', TRUE); // B2BUPG handled above
+
         EmailMessage.AppendtoBody(lTxtBody1);
         EmailMessage.AppendtoBody('<br>');
         lTxtMergeBody := lTxtBody2 + ' ' + FORMAT(ReportParameters."Statement Period End Date") + '.';

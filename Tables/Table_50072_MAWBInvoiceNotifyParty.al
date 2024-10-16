@@ -98,7 +98,7 @@ table 50072 "MAWB Invoice Notify Party"
         // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
         // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, MAWBInvoiceNotifyParty);
         // COMMIT;
-        // DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, ServerAttachmentFilePath);
+        // DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, ServerAttachmentFilePath); // B2BUPG handled above using streams
     end;
 }
 

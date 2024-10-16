@@ -117,11 +117,10 @@ table 50064 "Loading Sheet Notify Party"
         COMMIT;
         DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, FileName)
 
-        //Naveen B2BUPG
         // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
         // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, BookingSheetNotifyParty);
         // COMMIT;
-        // DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, ServerAttachmentFilePath);
+        // DocumentMailing.EmailFileFromBookingSheetNotifyParty(BookingSheetNotifyParty, ServerAttachmentFilePath); // B2BUPG handled above using streams
     end;
 }
 

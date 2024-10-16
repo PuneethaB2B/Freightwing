@@ -448,10 +448,10 @@ page 50114 "MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     ApplicationArea = All;
                     Image = CreditCardLog;
-                    // RunObject = Page 829;
-                    // RunPageLink = "Document Type" = FIELD("Document Type"),
-                    //               "Document No." = FIELD("No."),
-                    //               "Customer No." = FIELD("Bill-to Customer No.");  //B2BUPG
+                   /*  RunObject = Page 829;
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "Document No." = FIELD("No."),
+                                  "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
                 }
             }
         }
@@ -810,8 +810,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        //Authorize;
-                        //B2BUPG  Code removed in higher version
+                        //Authorize;   //B2BUPG No code found in client and also not working when performed action               
                     end;
                 }
                 action("Void A&uthorize")
@@ -821,8 +820,7 @@ page 50114 "MAWB Invoice"
 
                     trigger OnAction()
                     begin
-                        //Void;
-                        //B2BUPG  Code removed in higher version
+                        //Void; //B2BUPG No code found in client and also not working when performed action               
                     end;
                 }
             }

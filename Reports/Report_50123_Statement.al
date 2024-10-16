@@ -531,7 +531,7 @@ report 50123 "Statement-UPG"
 
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
-                // CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");//Naveen B2BUPG
+                
                 PrintLine := FALSE;
                 Cust2 := Customer;
                 COPYFILTER("Currency Filter", Currency2.Code);

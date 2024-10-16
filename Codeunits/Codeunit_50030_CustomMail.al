@@ -96,9 +96,10 @@ codeunit 50030 "Custom Mail"
                                         RecordrefVar.GetTable(BookingSheetHAWBAllocation1);
                                         BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
                                         AttachmentTempBlob.CreateInStream(AttcahmentInstream);
-                                        //Naveen B2BUPG
-                                        //ClientTempPath := gCduFileMgmt.ClientTempFileName('.PDF');
-                                        //REPORT.SAVEASPDF(50060, ClientTempPath, BookingSheetHAWBAllocation1);
+
+                                        /* ClientTempPath := gCduFileMgmt.ClientTempFileName('.PDF');
+                                        REPORT.SAVEASPDF(50060, ClientTempPath, BookingSheetHAWBAllocation1); */ // B2BUPG handled above using streams
+
                                         SLEEP(5000);
                                         FlightNo := BookingSheetMAWBAllocation."Flight No";
                                         Route := BookingSheetMAWBAllocation."Source Airport" + '-' + BookingSheetMAWBAllocation."Destination Airport";
@@ -186,7 +187,7 @@ codeunit 50030 "Custom Mail"
                     Window.UPDATE(1, MailingConfiguration.Name);
                     Window.UPDATE(2, MailingConfiguration.Email);
                     EmailMessage.AddRecipient(EmailRecipientType::cc, gRecConsignee."CC/Email");
-                    //SMTPCU.AddRecipients(MailingConfiguration.Email); //B2BUPG
+                    //SMTPCU.AddRecipients(MailingConfiguration.Email); //B2BUPG this code is handled above where microsoft changed the smtpmail structure in BC
                     SLEEP(1000);
                 UNTIL MailingConfiguration.NEXT = 0;
                 Email.Send(EmailMessage);
@@ -262,9 +263,9 @@ codeunit 50030 "Custom Mail"
                                                 RecordrefVar.GetTable(lRecBookingSheetHAWBAllocConsignee);
                                                 BookingSheetPreAlert.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
                                                 AttachmentTempBlob.CreateInStream(AttcahmentInstream);
-                                                //Naveen B2BUPG
-                                                //ClientTempPath := TEMPORARYPATH + '\Report.pdf';
-                                                // REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee);
+
+                                                /*  ClientTempPath := TEMPORARYPATH + '\Report.pdf';
+                                                 REPORT.SAVEASPDF(50060, ClientTempPath, lRecBookingSheetHAWBAllocConsignee); */ // B2BUPG handled above using streams 
                                                 lTxtEmailSubject := lRecBookingSheetHAWBAllocation."Consignee Name" + ' SHIPMENT PRE-ADVISE NOTIFICATION - ' +
                                                                     lRecBookingSheetMAWBAllocation."Flight No" + '//' + FORMAT(lRecBookingSheetHeader."Booking Date") + ' ' +
                                                                     lRecBookingSheetMAWBAllocation."Source Airport" + '-' + lRecBookingSheetMAWBAllocation."Destination Airport";

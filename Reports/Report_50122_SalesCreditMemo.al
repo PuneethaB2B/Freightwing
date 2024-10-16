@@ -744,7 +744,7 @@ report 50122 "Sales - Credit Memo"
 
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
-                // CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");//Naveen B2BUPG
+                
 
                 CompanyInfo.GET;
 

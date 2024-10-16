@@ -14,14 +14,14 @@ report 50105 "Trial Item"
                 IF Item."Item Category Code" = '' THEN
                     Item."Item Category Code" := Item."Inventory Posting Group";
                 Item."Item Category Code" := Item."Inventory Posting Group";
-                //B2BUPG
+                
                 Item.MODIFY;
             end;
 
             trigger OnPreDataItem()
             begin
                 SETRANGE(Item."Item Category Code", '');
-                //B2BUPG
+                
             end;
         }
     }

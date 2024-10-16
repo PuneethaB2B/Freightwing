@@ -51,7 +51,7 @@ page 50013 "Sales Invoice Subform - Import"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        // CrossReferenceNoLookUp;  //B2BUPG
+                        CrossReferenceNoLookUp;  //B2BUPG
                         ItemReferenceMgt.SalesReferenceNoLookUp(Rec, SalesHeaderRec);
                         InsertExtendedText(FALSE);
                         NoOnAfterValidate;

@@ -128,8 +128,8 @@ table 50051 "Good Receipt Line"
         field(26; "Flight Code"; Code[20])
         {
             Editable = false;
-            // TableRelation = "Pre Alert Line"."HAWB No" WHERE("Pre Alert No" = FIELD("Airline Code"),
-            //                                                   "C&F Agent" = FIELD("Booking Date")); //B2BUPG
+            TableRelation = "Pre Alert Line"."HAWB No" WHERE("Pre Alert No" = FIELD("Airline Code"),
+                                                              "C&F Agent" = FIELD("Booking Date")); //B2BUPG
         }
         field(27; "MAWB No."; Code[20])
         {

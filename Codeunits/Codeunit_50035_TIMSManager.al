@@ -102,11 +102,12 @@ codeunit 50035 "TIMS Manager."
                         EXIT;
 
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
-                    //IF EXISTS(FileNamex) THEN
-                    //    ERASE(FileNamex);
-                    // TestFile.CREATE(FileNamex);
-                    //  TestFile.CREATEOUTSTREAM(OutStreamObj);  //B2BUPG
+                    OutStreamObj.WriteText(FileNamex);// 
+                                                      /*    IF EXISTS(FileNamex) THEN
+                                                            ERASE(FileNamex);
+                                                         TestFile.CREATE(FileNamex);
+                                                          TestFile.CREATEOUTSTREAM(OutStreamObj); */  // B2BUPG handled above using streams
+
 
                     AmountInc := GetTotalSalesLine(SalesInvHeader."No.", FALSE);
 
@@ -286,8 +287,10 @@ codeunit 50035 "TIMS Manager."
 
                         COMMIT;
                     END;
-                    TempBlob.CreateInStream(InStr);
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
+                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//// B2BUPG handled using streams
+
                 END;
             DATABASE::"Sales Cr.Memo Header":
                 BEGIN
@@ -305,11 +308,12 @@ codeunit 50035 "TIMS Manager."
                         EXIT;
 
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
-                    // IF EXISTS(FileNamex) THEN
-                    //     ERASE(FileNamex);
-                    // TestFile.CREATE(FileNamex);
-                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);
+                    /*  IF EXISTS(FileNamex) THEN
+                         ERASE(FileNamex);
+                     TestFile.CREATE(FileNamex);
+                     TestFile.CREATEOUTSTREAM(OutStreamObj); */ // B2BUPG handled above using streams
+
 
                     AmountInc := GetTotalSalesCreditLine(SalesCrHeader."No.", GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0);
                     IF NOT (GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0) THEN
@@ -488,8 +492,10 @@ codeunit 50035 "TIMS Manager."
 
                         COMMIT;
                     END;
-                    TempBlob.CreateInStream(InStr);
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
+                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled  using streams
+
                 END;
         END;
     end;
@@ -833,11 +839,12 @@ codeunit 50035 "TIMS Manager."
                     /*IF NOT( SalesInvHeader."Invo
                       EXIT;*///BT
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
-                    // IF EXISTS(FileNamex) THEN
-                    //     ERASE(FileNamex);
-                    // TestFile.CREATE(FileNamex);
-                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);
+                    /* IF EXISTS(FileNamex) THEN
+                        ERASE(FileNamex);
+                    TestFile.CREATE(FileNamex);
+                    TestFile.CREATEOUTSTREAM(OutStreamObj); */ // B2BUPG handled above using streams
+
                     AmountInc := GetTotalSalesLine(SalesInvHeader."No.", FALSE);
                     IF SalesInvHeader."Currency Factor" <> 0 THEN BEGIN
                         VATAmount := ABS((SalesInvHeader."Amount Including VAT" - SalesInvHeader.Amount) / SalesInvHeader."Currency Factor")
@@ -962,8 +969,10 @@ codeunit 50035 "TIMS Manager."
                     OutStreamObj.WRITETEXT();
                     // TestFile.CLOSE;
                     //Display Json Structure
-                    TempBlob.CreateInStream(InStr);
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
+                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled using streams
+
                     MESSAGE(FORMAT(JSonString));
                 END;
             DATABASE::"Sales Cr.Memo Header":
@@ -980,11 +989,12 @@ codeunit 50035 "TIMS Manager."
                     /*IF NOT ( SalesCrHeader."Invoi
                       EXIT;*/
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);//Naveen B2BUPG
-                    // IF EXISTS(FileNamex) THEN
-                    //     ERASE(FileNamex);
-                    // TestFile.CREATE(FileNamex);
-                    // TestFile.CREATEOUTSTREAM(OutStreamObj);
+                    OutStreamObj.WriteText(FileNamex);
+                    /*  IF EXISTS(FileNamex) THEN
+                         ERASE(FileNamex);
+                     TestFile.CREATE(FileNamex);
+                     TestFile.CREATEOUTSTREAM(OutStreamObj); */ // B2BUPG handled above using streams
+
                     AmountInc := GetTotalSalesCreditLine(SalesCrHeader."No.", GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0);
                     IF NOT (GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0) THEN
                         VATAmount := ROUND(((AmountInc * 0.16) / 1.16), 0.01, '=');
@@ -1110,8 +1120,10 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.Flush;
                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    TempBlob.CreateInStream(InStr);
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);//Naveen B2BUPG
+                    TempBlob.CreateInStream(InStr); // B2BUPG handled  using streams
+
+                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled  using streams
+
                     MESSAGE(FORMAT(JSonString));
                 END;
         END;

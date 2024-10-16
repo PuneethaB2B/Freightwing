@@ -731,8 +731,7 @@ report 50129 "Purchase - Invoice-UPG"
                 if Language.Get("Language Code") then
                     CurrReport.Language := Language."Windows Language ID";
 
-                //CurrReport.LANGUAGE := Language.GetLanguageID("Language Code"); //Naveen B2BUPG
-
+                
                 CompanyInfo.GET;
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN

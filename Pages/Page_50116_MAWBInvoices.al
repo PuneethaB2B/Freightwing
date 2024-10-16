@@ -191,15 +191,15 @@ page 50116 "MAWB Invoices"
         }
     }
 
-    // local procedure GetPageId(PageId: Integer): Integer
-    // var
-    //     MiniPagesMapping: Record 1305;
-    // begin
-    //     IF MiniPagesMapping.READPERMISSION THEN
-    //         IF MiniPagesMapping.GET(PageId) THEN
-    //             EXIT(MiniPagesMapping."Substitute Page ID");
+    /* local procedure GetPageId(PageId: Integer): Integer
+    var
+        MiniPagesMapping: Record 1305;
+    begin
+        IF MiniPagesMapping.READPERMISSION THEN
+            IF MiniPagesMapping.GET(PageId) THEN
+                EXIT(MiniPagesMapping."Substitute Page ID");
 
-    //     EXIT(PageId);
-    // end; //Naveen B2BUPG
+        EXIT(PageId);
+    end; */ //Naveen B2BUPG
 }
 

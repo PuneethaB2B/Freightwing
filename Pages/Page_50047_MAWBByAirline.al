@@ -42,7 +42,7 @@ page 50047 "MAWB By Airline"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     /* RunObject = Page 50228;
-                    RunPageLink = Field5 = FIELD("Airline Code"); */ //B2BUPG
+                    RunPageLink = Field5 = FIELD("Airline Code"); */ //B2BUPG due to Page 50228 is not found in client db
 
                     trigger OnAction()
                     begin

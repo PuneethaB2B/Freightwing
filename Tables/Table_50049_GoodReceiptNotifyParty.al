@@ -117,11 +117,11 @@ table 50049 "Good Receipt Notify Party"
         COMMIT;
         DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
 
-        //Naveen B2BUPG
+
         // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
         // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, GoodReceiptNotifyParty);
         // COMMIT;
-        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath);
+        // DocumentMailing.EmailFileFromGoodReceiptNotifyParty(GoodReceiptNotifyParty, ServerAttachmentFilePath); // B2BUPG handled above using streams
     end;
 }
 

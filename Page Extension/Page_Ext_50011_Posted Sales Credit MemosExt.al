@@ -106,10 +106,11 @@ pageextension 50011 PostedSalesCreditMemosExt extends "Posted Sales Credit Memos
                 AttachmentTempBlob.CreateOutStream(AttchmentOutStream, TextEncoding::UTF8);
             RecordrefVar.GetTable(lRecSalesCrMemoHeader);
             StandardSalesCreditMem.SaveAs('', ReportFormat::Pdf, AttchmentOutStream, RecordrefVar);
-AttachmentTempBlob.CreateInStream(AttcahmentInstream);
+            AttachmentTempBlob.CreateInStream(AttcahmentInstream);
 
-            //Naveen B2BUPG
-            //REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader);  //B2BUPG
+
+            //REPORT.SAVEASPDF(207, ServerAttachmentFilePath, lRecSalesCrMemoHeader); // B2BUPG handled above using streams
+
 
             COMMIT;
             AttachmentFileName := STRSUBSTNO(ReportAsPdfFileNameMsg, 'Credit Memos', pRecSalesCrMemoHeader."No.");
@@ -134,19 +135,19 @@ AttachmentTempBlob.CreateInStream(AttcahmentInstream);
             EmailBody2.INSERT;
             COMMIT;
             EmailBody.GET(pRecSalesCrMemoHeader."No.");
-            IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN BEGIN
-                EmailMessage.Create(EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
-                IF EmailBody."CC Email" <> '' THEN
-                    EmailMessage.AddAttachment(EmailBody."Attachment Name", EmailBody."Attachment Path", '');
+            /*  IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN 
+                 EmailMessage.Create(EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE); */ //B2BUPG due to Page 50237 is not found in client db
+            IF EmailBody."CC Email" <> '' THEN BEGIN
+                EmailMessage.AddAttachment(EmailBody."Attachment Name", EmailBody."Attachment Path", '');
                 Email.Send(EmailMessage);
 
-                //Naveen B2BUPG
-                // IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN BEGIN
-                //     SMTPMail.CreateMessage('Freight Wings', EmailBody."From Address", EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
-                //     IF EmailBody."CC Email" <> '' THEN
-                //         SMTPMail.AddCC(EmailBody."CC Email");
-                //     SMTPMail.AddAttachment(EmailBody."Attachment Path", EmailBody."Attachment Name");
-                //     SMTPMail.Send;
+                /*  
+                 IF (PAGE.RUNMODAL(PAGE::Page50237, EmailBody) = ACTION::LookupOK) THEN BEGIN
+                     SMTPMail.CreateMessage('Freight Wings', EmailBody."From Address", EmailBody."To Address", EmailBody.Subject, EmailBody.Body, FALSE);
+                     IF EmailBody."CC Email" <> '' THEN
+                         SMTPMail.AddCC(EmailBody."CC Email");
+                     SMTPMail.AddAttachment(EmailBody."Attachment Path", EmailBody."Attachment Name");
+                     SMTPMail.Send; */ //B2BUPG this code is handled above where microsoft changed the smtpmail structure in BC
                 MESSAGE('Send');
             END ELSE
                 MESSAGE('Cancelled');
