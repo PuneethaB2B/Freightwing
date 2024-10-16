@@ -1,0 +1,12 @@
+{
+    "json.schemas": [
+    
+    ],
+    "al.assemblyProbingPaths": [
+        "./.netpackages",
+        "C:/Windows/Assembly",
+        "C:/Program Files/Microsoft Dynamics 365 Business Central/230/Service/",
+        "C:/Program Files/Microsoft Dynamics 365 Business Central/230/Service/Add-ins/"
+    ],
+    "al.browser": "Chrome"
+}
