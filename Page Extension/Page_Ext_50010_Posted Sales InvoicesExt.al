@@ -112,12 +112,12 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
-                trigger OnAction()
-                var
-                    TIMSManager: Codeunit "TIMS Manager.";
-                begin
-                    TIMSManager.ProcessSalesDocument(Rec);
-                end;
+                /*                 trigger OnAction()
+                                var
+                                    TIMSManager: Codeunit "TIMS Manager.";
+                                begin
+                                    TIMSManager.ProcessSalesDocument(Rec);
+                                end; */ //B2BUPG Integration
             }
         }
     }

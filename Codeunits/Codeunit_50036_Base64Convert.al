@@ -1,4 +1,4 @@
-codeunit 50036 "Base64 Convert."
+/* codeunit 50036 "Base64 Convert."
 {
 
     trigger OnRun()
@@ -36,3 +36,4 @@ codeunit 50036 "Base64 Convert."
     end;
 }
 
+ */ // B2BUPG Integration

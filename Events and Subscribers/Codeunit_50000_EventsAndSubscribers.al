@@ -86,7 +86,7 @@ codeunit 50000 "Events And Subscribers"
     PROCEDURE EmailFileFromDailyWeightDistByCustomer(DailyWeightDistByCustomer: Record "Dl. Weight Dist. By Customer"; AttachmentFilePath: Text[250]);
     VAR
         DocumentType: Text;
-        Text001: Label 'ENU=Daily Weight Distribution';
+        Text001: Label 'Daily Weight Distribution';
         Doc: Codeunit "Document-Mailing";
     BEGIN
         /*  DocumentType := Text001;
@@ -145,7 +145,7 @@ codeunit 50000 "Events And Subscribers"
     BEGIN
     END;
 
-    PROCEDURE MakeApprovalEntryPayments(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[20]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
+    /* PROCEDURE MakeApprovalEntryPayments(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[20]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
     VAR
         ApprovalEntry: Record "Approval Entry";
         NewSequenceNo: Integer;
@@ -184,12 +184,12 @@ codeunit 50000 "Events And Subscribers"
             INSERT;
         END;
     END;
-
+ */ //B2BUPG No Approvalsetup table in higher version and this procedure has 0 references 
     PROCEDURE "...RECEIPT VOUCHER APPROVALS..."();
     BEGIN
     END;
 
-    PROCEDURE MakeApprovalEntryReceipts(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
+    /* PROCEDURE MakeApprovalEntryReceipts(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
     VAR
         ApprovalEntry: Record "Approval Entry";
         NewSequenceNo: Integer;
@@ -227,57 +227,57 @@ codeunit 50000 "Events And Subscribers"
             //"Available Credit Limit (LCY)" := ExeedAmountLCY;
             INSERT;
         END;
-    END;
+    END; */ //B2BUPG No Approvalsetup  and approval template tables in higher version and this procedure has 0 references
 
     LOCAL PROCEDURE "...PURCHASE REQUISITION APPROVALS--"();
     BEGIN
     END;
 
-    PROCEDURE MakeApprovalEntryRequisitions(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
-    VAR
-        ApprovalEntry: Record "Approval Entry";
-        NewSequenceNo: Integer;
-    BEGIN
-        WITH ApprovalEntry DO BEGIN
-            SETRANGE("Table ID", TableID);
-            SETRANGE("Document Type", DocType);
-            SETRANGE("Document No.", DocNo);
-            IF FIND('+') THEN
-                NewSequenceNo := "Sequence No." + 1
-            ELSE
-                NewSequenceNo := 1;
-            "Table ID" := TableID;
-            "Document Type" := "Document Type"::"Purchase Requisition";
-            "Document No." := DocNo;
-            //"Salespers./Purch. Code" := SalespersonPurchaser;
-            "Sequence No." := NewSequenceNo;
-            "Approval Code" := ApprovalCode;
-            "Sender ID" := USERID;
-            Amount := ApprovalAmount;
-            "Amount (LCY)" := ApprovalAmount;
-            "Currency Code" := CurrencyCode;
-            "Approver ID" := ApproverId;
-            IF ApproverId = USERID THEN BEGIN
-                Status := Status::Approved
-            END ELSE BEGIN
-                Status := Status::Created;
-            END;
-            "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
-            "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By User ID" := USERID;
-            "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
-            "Approval Type" := AppTemplate."Approval Type";
-            "Limit Type" := AppTemplate."Limit Type";
-            //"Available Credit Limit (LCY)" := ExeedAmountLCY;
-            INSERT;
-        END;
-    END;
+    /*  PROCEDURE MakeApprovalEntryRequisitions(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
+     VAR
+         ApprovalEntry: Record "Approval Entry";
+         NewSequenceNo: Integer;
+     BEGIN
+         WITH ApprovalEntry DO BEGIN
+             SETRANGE("Table ID", TableID);
+             SETRANGE("Document Type", DocType);
+             SETRANGE("Document No.", DocNo);
+             IF FIND('+') THEN
+                 NewSequenceNo := "Sequence No." + 1
+             ELSE
+                 NewSequenceNo := 1;
+             "Table ID" := TableID;
+             "Document Type" := "Document Type"::"Purchase Requisition";
+             "Document No." := DocNo;
+             //"Salespers./Purch. Code" := SalespersonPurchaser;
+             "Sequence No." := NewSequenceNo;
+             "Approval Code" := ApprovalCode;
+             "Sender ID" := USERID;
+             Amount := ApprovalAmount;
+             "Amount (LCY)" := ApprovalAmount;
+             "Currency Code" := CurrencyCode;
+             "Approver ID" := ApproverId;
+             IF ApproverId = USERID THEN BEGIN
+                 Status := Status::Approved
+             END ELSE BEGIN
+                 Status := Status::Created;
+             END;
+             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
+             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
+             "Last Modified By User ID" := USERID;
+             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
+             "Approval Type" := AppTemplate."Approval Type";
+             "Limit Type" := AppTemplate."Limit Type";
+             //"Available Credit Limit (LCY)" := ExeedAmountLCY;
+             INSERT;
+         END;
+     END; */ //B2BUPG No Approvalsetup  and approval template tables in higher version and this procedure has 0 references
 
     PROCEDURE "...PETTY CASH VOUCHER APPROVALS..."();
     BEGIN
     END;
 
-    PROCEDURE MakeApprovalEntryPettyCash(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
+    /* PROCEDURE MakeApprovalEntryPettyCash(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
     VAR
         ApprovalEntry: Record "Approval Entry";
         NewSequenceNo: Integer;
@@ -315,52 +315,52 @@ codeunit 50000 "Events And Subscribers"
             //"Available Credit Limit (LCY)" := ExeedAmountLCY;
             INSERT;
         END;
-    END;
+    END; */ //B2BUPG No Approvalsetup  and approval template tables in higher version and this procedure has 0 references
 
     LOCAL PROCEDURE "...RFP APPROVALS--"();
     BEGIN
     END;
 
-    PROCEDURE MakeApprovalEntryRFPs(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
-    VAR
-        ApprovalEntry: Record "Approval Entry";
-        NewSequenceNo: Integer;
-    BEGIN
-        WITH ApprovalEntry DO BEGIN
-            SETRANGE("Table ID", TableID);
-            SETRANGE("Document Type", DocType);
-            SETRANGE("Document No.", DocNo);
-            IF FIND('+') THEN
-                NewSequenceNo := "Sequence No." + 1
-            ELSE
-                NewSequenceNo := 1;
-            "Table ID" := TableID;
-            "Document Type" := "Document Type"::"Request for Quotation";
-            "Document No." := DocNo;
-            //"Salespers./Purch. Code" := SalespersonPurchaser;
-            "Sequence No." := NewSequenceNo;
-            "Approval Code" := ApprovalCode;
-            "Sender ID" := USERID;
-            Amount := ApprovalAmount;
-            "Amount (LCY)" := ApprovalAmount;
-            "Currency Code" := CurrencyCode;
-            "Approver ID" := ApproverId;
-            IF ApproverId = USERID THEN BEGIN
-                Status := Status::Approved
-            END ELSE BEGIN
-                Status := Status::Created;
-            END;
-            "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
-            "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
-            "Last Modified By User ID" := USERID;
-            "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
-            "Approval Type" := AppTemplate."Approval Type";
-            "Limit Type" := AppTemplate."Limit Type";
-            //"Available Credit Limit (LCY)" := ExeedAmountLCY;
-            INSERT;
-        END;
-    END;
-    //Codeunit 439 Approvals Management <<
+    /*  PROCEDURE MakeApprovalEntryRFPs(TableID: Integer; DocType: Integer; DocNo: Code[20]; ApprovalSetup: Record 452; ApproverId: Code[30]; ApprovalCode: Code[30]; UserSetup: Record "User Setup"; ApprovalAmount: Decimal; CurrencyCode: Code[10]; AppTemplate: Record 464);
+     VAR
+         ApprovalEntry: Record "Approval Entry";
+         NewSequenceNo: Integer;
+     BEGIN
+         WITH ApprovalEntry DO BEGIN
+             SETRANGE("Table ID", TableID);
+             SETRANGE("Document Type", DocType);
+             SETRANGE("Document No.", DocNo);
+             IF FIND('+') THEN
+                 NewSequenceNo := "Sequence No." + 1
+             ELSE
+                 NewSequenceNo := 1;
+             "Table ID" := TableID;
+             "Document Type" := "Document Type"::"Request for Quotation";
+             "Document No." := DocNo;
+             //"Salespers./Purch. Code" := SalespersonPurchaser;
+             "Sequence No." := NewSequenceNo;
+             "Approval Code" := ApprovalCode;
+             "Sender ID" := USERID;
+             Amount := ApprovalAmount;
+             "Amount (LCY)" := ApprovalAmount;
+             "Currency Code" := CurrencyCode;
+             "Approver ID" := ApproverId;
+             IF ApproverId = USERID THEN BEGIN
+                 Status := Status::Approved
+             END ELSE BEGIN
+                 Status := Status::Created;
+             END;
+             "Date-Time Sent for Approval" := CREATEDATETIME(TODAY, TIME);
+             "Last Date-Time Modified" := CREATEDATETIME(TODAY, TIME);
+             "Last Modified By User ID" := USERID;
+             "Due Date" := CALCDATE(ApprovalSetup."Due Date Formula", TODAY);
+             "Approval Type" := AppTemplate."Approval Type";
+             "Limit Type" := AppTemplate."Limit Type";
+             //"Available Credit Limit (LCY)" := ExeedAmountLCY;
+             INSERT;
+         END;
+     END; */ //B2BUPG No Approvalsetup  and approval template tables in higher version and this procedure has 0 references
+             //Codeunit 439 Approvals Management <<
 
     //Codeunit 440 Approvals Mgt Notification>>
     PROCEDURE "....PAYMENT VOUCHER APPROVALS...."();
@@ -417,7 +417,7 @@ codeunit 50000 "Events And Subscribers"
         FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text;
         DocumentType: Text;
-        Text001: Label 'ENU=Daily Weight Distribution';
+        Text001: Label 'Daily Weight Distribution';
         ServerSaveAsPdfFailedErr: Label 'Cannot open the document because it is empty or cannot be created.';
         ServerSaveAsPdfAbortedErr: Label 'You must select a sales invoice.';
         AttachmentTempBlob: Codeunit "Temp Blob";

@@ -86,7 +86,7 @@ page 50008 "Delivered Imports Header"
                 {
                 }
             }
-            part(fw; "Delivered imports Subform")
+            part(Page; "Delivered imports Subform")
             {
                 SubPageLink = "Pre Alert No" = FIELD("No.");
             }

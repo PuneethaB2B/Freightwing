@@ -51,7 +51,7 @@ table 50053 "Booking Sheet Header"
         field(8; "Flight Code"; Code[20])
         {
             TableRelation = "Pre Alert Line"."HAWB No" WHERE("Pre Alert No" = FIELD("Airline Code"),
-                                                              "C&F Agent" = FIELD("Booking Date"),
+                                                              /* "C&F Agent" = FIELD("Booking Date"), */
                                                               "Consignee Code" = FIELD("Destination Code"));  //B2BUPG
         }
         field(9; "MAWB No."; Code[20])

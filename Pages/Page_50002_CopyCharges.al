@@ -211,7 +211,7 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-    //[Scope('Internal')]
+   
     procedure initParam(pCharg: Record "Freight Charge By Airline")
     begin
         Start := pCharg."Effective Start Date";

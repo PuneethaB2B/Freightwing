@@ -168,7 +168,7 @@ page 50147 "Posted MAWB Invoices"
                                 PageID := PAGE::"Blanket Sales Order";
                         END;
 
-                        PageID := GetPageId(PageID); //Naveen B2BUPG
+                        PageID := GetPageId(PageID); 
 
                         IF PageID <> 0 THEN
                             PAGE.RUN(PageID, Rec);
@@ -199,6 +199,6 @@ page 50147 "Posted MAWB Invoices"
                 EXIT(MiniPagesMapping."Substitute Page ID");
 
         EXIT(PageId);
-    end;  //Naveen B2BUPG
+    end;  
 }
 
