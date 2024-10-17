@@ -168,7 +168,7 @@ page 50147 "Posted MAWB Invoices"
                                 PageID := PAGE::"Blanket Sales Order";
                         END;
 
-                        PageID := GetPageId(PageID); 
+                        PageID := GetPageId(PageID);
 
                         IF PageID <> 0 THEN
                             PAGE.RUN(PageID, Rec);
@@ -192,13 +192,13 @@ page 50147 "Posted MAWB Invoices"
 
     local procedure GetPageId(PageId: Integer): Integer
     var
-        MiniPagesMapping: Record 1305;
+    // MiniPagesMapping: Record 1305;
     begin
-        IF MiniPagesMapping.READPERMISSION THEN
-            IF MiniPagesMapping.GET(PageId) THEN
-                EXIT(MiniPagesMapping."Substitute Page ID");
+        /*   IF MiniPagesMapping.READPERMISSION THEN
+              IF MiniPagesMapping.GET(PageId) THEN
+                  EXIT(MiniPagesMapping."Substitute Page ID");*/ //B2BUPG Due to microsoft has removed this object in higher version, also there is no data in particular table 1305
 
         EXIT(PageId);
-    end;  
+    end;
 }
 
