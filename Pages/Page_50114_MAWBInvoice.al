@@ -452,10 +452,7 @@ page 50114 "MAWB Invoice"
                      RunPageLink = "Document Type" = FIELD("Document Type"),
                                    "Document No." = FIELD("No."),
                                    "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
-                    /*  RunObject = Page 829;
-                     RunPageLink = "Document Type" = FIELD("Document Type"),
-                                   "Document No." = FIELD("No."),
-                                   "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
+
                 }
             }
         }
@@ -523,7 +520,7 @@ page 50114 "MAWB Invoice"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator(General2)
+                separator(Separator2)
                 {
                 }
                 action("Re Calculate Charges")
@@ -542,10 +539,10 @@ page 50114 "MAWB Invoice"
                         Check.CalculateHandlingFees(rec."MAWB No.");
                     end;
                 }
-                separator(General3)
+                separator(Separator3)
                 {
                 }
-                separator(General4)
+                separator(Separator4)
                 {
                 }
                 action(SplitMAWBInvoice)
@@ -723,7 +720,7 @@ page 50114 "MAWB Invoice"
                         // ****************************** End of modifications ************************************
                     end;
                 }
-                separator(Seperator2)
+                separator(Seperator5)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -739,7 +736,7 @@ page 50114 "MAWB Invoice"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator(Separator3)
+                separator(Separator6)
                 {
                 }
                 action("Copy Document")
@@ -803,7 +800,7 @@ page 50114 "MAWB Invoice"
                         //IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
-                separator(Separator4)
+                separator(Separator7)
                 {
                 }
             }
