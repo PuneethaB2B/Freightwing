@@ -448,10 +448,10 @@ page 50114 "MAWB Invoice"
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     ApplicationArea = All;
                     Image = CreditCardLog;
-                   /*  RunObject = Page 829;
-                    RunPageLink = "Document Type" = FIELD("Document Type"),
-                                  "Document No." = FIELD("No."),
-                                  "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
+                    /*  RunObject = Page 829;
+                     RunPageLink = "Document Type" = FIELD("Document Type"),
+                                   "Document No." = FIELD("No."),
+                                   "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
                 }
             }
         }
@@ -781,6 +781,8 @@ page 50114 "MAWB Invoice"
                     begin
                         IF ApprovalMgt.IsSalesApprovalsWorkflowEnabled(Rec) THEN
                             ApprovalMgt.OnSendSalesDocForApproval(Rec);       //B2BUPG
+
+                        //IF ApprovalMgt.SendSalesApprovalRequest(Rec) THEN;
                     end;
                 }
                 action("Cancel Approval Re&quest")
@@ -793,6 +795,8 @@ page 50114 "MAWB Invoice"
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                     begin
                         ApprovalMgt.OnCancelSalesApprovalRequest(Rec);      //B2BUPG
+
+                        //IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
                 separator(fw1)
