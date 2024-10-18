@@ -639,7 +639,7 @@
 //             TempBlob.CreateOutStream(OutStr);
 //         OutStr.WriteText(DestinationFileName);
 //         TempBlob.CreateInStream(InStream);
-//         DownloadFromStream(InStream, '', '', 'bmp', DestinationFileName); //Naveen B2BUPG
+//         DownloadFromStream(InStream, '', '', 'bmp', DestinationFileName); // B2BUPG
 
 //         bitmap.Save(DestinationFileName, ImageFormat.Bmp);
 //         QRCodeFileName := DestinationFileName;

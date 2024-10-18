@@ -94,7 +94,7 @@ table 50072 "MAWB Invoice Notify Party"
         COMMIT;
         DocumentMailing.EmailFileFromMAWBInvoiceNotifyParty(MAWBInvoiceNotifyParty, FileName);
 
-        //Naveen B2BUPG
+        // B2BUPG
         // ServerAttachmentFilePath := COPYSTR(FileManagement.ServerTempFileName('pdf'), 1, 250);
         // REPORT.SAVEASPDF(ReportId, ServerAttachmentFilePath, MAWBInvoiceNotifyParty);
         // COMMIT;

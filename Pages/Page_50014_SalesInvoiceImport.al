@@ -164,7 +164,7 @@ page 50014 "Sales Invoice - Import"
 
                     trigger OnValidate()
                     begin
-                        //  ShortcutDimension1CodeOnAfterV;  //naveen
+                        //  ShortcutDimension1CodeOnAfterV;  
                     end;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
@@ -280,7 +280,7 @@ page 50014 "Sales Invoice - Import"
                               Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
                               CurrPage.UPDATE;
                           END;
-                          CLEAR(ChangeExchangeRate); */  //naveen
+                          CLEAR(ChangeExchangeRate); */  
                     end;
 
                     trigger OnValidate()

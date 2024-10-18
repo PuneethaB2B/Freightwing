@@ -117,7 +117,7 @@ table 50057 "Booking Sheet Notify Party"
                 IF NOT SendAsEmail THEN BEGIN
                     REPORT.RUNMODAL(ReportSelections."Report ID", ShowRequestForm, FALSE, BookingSheetNotifyParty)
                 END ELSE BEGIN
-                    SendReport(ReportSelections."Report ID", BookingSheetNotifyParty);  //Naveen B2BUPG
+                    SendReport(ReportSelections."Report ID", BookingSheetNotifyParty);  // B2BUPG
                 END;
             UNTIL ReportSelections.NEXT = 0;
         END ELSE BEGIN
