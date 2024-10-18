@@ -2,16 +2,8 @@ tableextension 50005 CustomerExt extends Customer
 {
     fields
     {
-
-        //Unsupported feature: Property Modification (CalcFormula) on "Balance(Field 58)".
-
-
-        //Unsupported feature: Property Modification (CalcFormula) on ""Balance (LCY)"(Field 59)".
-
         modify("E-Mail")
         {
-
-            //Unsupported feature: Property Modification (Data type) on ""E-Mail"(Field 102)".
 
             Description = '//TBLBT Changed from 80 to 250';
         }

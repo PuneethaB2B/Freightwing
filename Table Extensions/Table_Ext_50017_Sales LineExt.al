@@ -10,49 +10,7 @@ tableextension 50017 SalesLineExt extends "Sales Line"
                 "Line Amount" := "Line Amount" + "VAT Amount";
             end;
         }
-        //Unsupported feature: Property Insertion (Editable) on "Description(Field 11)".
 
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Discount %"(Field 27)".
-
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Discount Amount"(Field 28)".
-
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Amount"(Field 103)".
-
-
-        //Unsupported feature: Property Modification (Data type) on ""Product Group Code"(Field 5712)".
-
-
-        //Unsupported feature: Property Deletion (Editable) on ""VAT %"(Field 25)".
-
-
-        //Unsupported feature: Code Modification on ""Line Amount"(Field 103).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        TESTFIELD(Type);
-        TESTFIELD(Quantity);
-        TESTFIELD("Unit Price");
-        GetSalesHeader;
-        "Line Amount" := ROUND("Line Amount",Currency."Amount Rounding Precision");
-        VALIDATE(
-          "Line Discount Amount",ROUND(Quantity * "Unit Price",Currency."Amount Rounding Precision") - "Line Amount");
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        TESTFIELD(Type);
-        TESTFIELD(Quantity);
-        //TESTFIELD("Unit Price");
-        #4..7
-        */
-        //end;
         field(50000; "MAWB No."; Code[20])
         {
             Editable = false;
@@ -181,6 +139,7 @@ tableextension 50017 SalesLineExt extends "Sales Line"
     }
     trigger OnAfterDelete()
     begin
+        //********EXPORT PROCESS*******
         IF "Document Type" = "Document Type"::Invoice THEN BEGIN
             MAWBLine.RESET;
             MAWBLine.SETRANGE("MAWB No.", "MAWB No.");

@@ -2,15 +2,6 @@ tableextension 50019 PurchaseLineExt extends "Purchase Line"
 {
     fields
     {
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Discount %"(Field 27)".
-
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Discount Amount"(Field 28)".
-
-
-        //Unsupported feature: Property Insertion (Editable) on ""Line Amount"(Field 103)".
-
         field(50000; "MAWB No."; Code[20])
         {
             TableRelation = "MAWB Receipt"."MAWB No.";

@@ -4,17 +4,17 @@ tableextension 50032 SalesShipmentLineExt extends "Sales Shipment Line"
     {
         // Add changes to table fields here
     }
-    
+
     keys
     {
         // Add changes to keys here
     }
-    
+
     fieldgroups
     {
         // Add changes to field groups here
     }
-     procedure AsmToShipmentExists(var PostedAsmHeader: Record "Posted Assembly Header"):Boolean
+    procedure AsmToShipmentExists(var PostedAsmHeader: Record "Posted Assembly Header"): Boolean
     var
         PostedAssembleToOrderLink: Record "Posted Assemble-to-Order Link";
     begin
@@ -24,6 +24,6 @@ tableextension 50032 SalesShipmentLineExt extends "Sales Shipment Line"
 
     end;
 
-    
-    
+
+
 }

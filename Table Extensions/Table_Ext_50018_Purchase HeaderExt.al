@@ -2,9 +2,6 @@ tableextension 50018 PurchaseHeaderExt extends "Purchase Header"
 {
     fields
     {
-
-        //Unsupported feature: Property Modification (Editable) on "Status(Field 120)".
-
         field(50000; "Purchase Requisition No."; Code[20])
         {
         }

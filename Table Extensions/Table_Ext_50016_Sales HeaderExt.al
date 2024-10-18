@@ -259,27 +259,7 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
         }
     }
 
-
-    //Unsupported feature: Code Modification on "SalesLinesExist(PROCEDURE 3)".
-
-    //procedure SalesLinesExist();
-    //Parameters and return type have not been exported.
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    SalesLine.RESET;
-    SalesLine.SETRANGE("Document Type","Document Type");
-    SalesLine.SETRANGE("Document No.","No.");
-    EXIT(SalesLine.FINDFIRST);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..3
-    EXIT(SalesLine.FINDSET);
-    */
-    //end;
+   
 
     local procedure GetPurchAmount(mawb: Code[50]; Charge: Code[10]) Amnt: Decimal
     var
