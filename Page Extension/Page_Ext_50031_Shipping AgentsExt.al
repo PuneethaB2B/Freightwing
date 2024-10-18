@@ -12,7 +12,7 @@ pageextension 50031 ShippingAgentsExt extends "Shipping Agents"
         modify("Internet Address")
         {
             ApplicationArea = all;
-            CaptionML = ENU = 'Home Page';
+            Caption = 'Home Page';
         }
         addafter("Account No.")
         {

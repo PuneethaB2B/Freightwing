@@ -180,13 +180,13 @@ page 50145 "Posted MAWB Invoice"
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                // field("Credit Card No."; "Credit Card No.")
-                // {
-                // }  //B2BUPG Removed in hiogher version, there is no data against the field.
-                // field(GetCreditcardNumber; GetCreditcardNumber)
-                // {
-                //     Caption = 'Cr. Card Number (Last 4 Digits)';
-                // }
+                /* field("Credit Card No."; "Credit Card No.")
+                {
+                }  
+                field(GetCreditcardNumber; GetCreditcardNumber)
+                {
+                    Caption = 'Cr. Card Number (Last 4 Digits)';
+                } */ //B2BUPG Removed in higher version, there is no data against the field.
             }
             group(Shipping)
             {
@@ -307,11 +307,11 @@ page 50145 "Posted MAWB Invoice"
                 SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
-            systempart(Notes1; Notes)
+            systempart(Notes; Notes)
             {
                 Visible = true;
             }
-            systempart(Links1; Links)
+            systempart(Links; Links)
             {
                 Visible = false;
             }
@@ -387,7 +387,7 @@ page 50145 "Posted MAWB Invoice"
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
                 }
-                separator(General1)
+                separator(Separator)
                 {
                 }
                 action("Documents/Certificates")
@@ -463,7 +463,7 @@ page 50145 "Posted MAWB Invoice"
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
                 }
-                separator(General2)
+                separator(Separator1)
                 {
                 }
             }
@@ -485,7 +485,7 @@ page 50145 "Posted MAWB Invoice"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator(General3)
+                separator(Separator3)
                 {
                 }
                 action(CalculateMAWBCharges)
@@ -501,7 +501,7 @@ page 50145 "Posted MAWB Invoice"
                         Rec.CalculateMAWBCharges();
                     end;
                 }
-                separator(General4)
+                separator(Separator4)
                 {
                 }
                 action(GetDefaultCharges)
@@ -518,7 +518,7 @@ page 50145 "Posted MAWB Invoice"
                         //GetDefaultCharges;
                     end;
                 }
-                separator(General5)
+                separator(separator5)
                 {
                 }
                 action(SplitMAWBInvoice)
@@ -535,7 +535,7 @@ page 50145 "Posted MAWB Invoice"
                         Rec.SplitMAWBInvoice();
                     end;
                 }
-                separator(General6)
+                separator(Separator6)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -551,7 +551,7 @@ page 50145 "Posted MAWB Invoice"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator(General7)
+                separator(Sepatator7)
                 {
                 }
                 action("Copy Document")
@@ -583,7 +583,7 @@ page 50145 "Posted MAWB Invoice"
                         MoveNegSalesLines.ShowDocument;
                     end;
                 }
-                separator(General8)
+                separator(Separator8)
                 {
                 }
                 action("Send A&pproval Request")
@@ -615,7 +615,7 @@ page 50145 "Posted MAWB Invoice"
                         // IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
-                separator(General9)
+                separator(Separator9)
                 {
                 }
             }

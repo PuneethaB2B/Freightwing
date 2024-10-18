@@ -14,7 +14,7 @@ pageextension 50027 BankAccountLedgerEntriesExt extends "Bank Account Ledger Ent
             }
             field(statementdate; statementdate)
             {
-                CaptionML = ENU = 'Statement Date';
+                Caption = 'Statement Date';
                 ApplicationArea = all;
             }
         }

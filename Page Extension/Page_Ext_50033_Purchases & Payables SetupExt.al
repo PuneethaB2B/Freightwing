@@ -2,11 +2,11 @@ pageextension 50033 PurchasesPayablesSetupExt extends "Purchases & Payables Setu
 {
     layout
     {
-        addafter("Posted Prepmt. Cr. Memo Nos.")
+        addafter("Number Series")
         {
             group("Purchase  Requisition")
             {
-                CaptionML = ENU = 'Purchase  Requisition';
+                Caption = 'Purchase  Requisition';
                 field("Purchase Requisition Nos."; Rec."Purchase Requisition Nos.")
                 {
                     ApplicationArea = all;

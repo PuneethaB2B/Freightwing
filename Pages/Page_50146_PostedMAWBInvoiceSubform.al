@@ -16,7 +16,7 @@ page 50146 "Posted MAWB Invoice Subform"
     {
         area(content)
         {
-            repeater(fw)
+            repeater(General)
             {
                 field("HAWB No."; Rec."HAWB No.")
                 {
@@ -111,10 +111,10 @@ page 50146 "Posted MAWB Invoice Subform"
                     StyleExpr = StyleText;
                 }
             }
-            group(fw1)
+            group(Group)
             {
                 Visible = false;
-                group(fw2)
+                group(General1)
                 {
                     Visible = false;
                     field("Invoice Discount Amount"; TotalSalesLine."Inv. Discount Amount")
@@ -145,7 +145,7 @@ page 50146 "Posted MAWB Invoice Subform"
                         Visible = true;
                     }
                 }
-                group(fw3)
+                group(General3)
                 {
                     Visible = false;
                     field("Total Amount Excl. VAT"; TotalSalesLine.Amount)

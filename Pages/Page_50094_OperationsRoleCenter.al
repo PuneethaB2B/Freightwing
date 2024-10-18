@@ -13,11 +13,11 @@ page 50094 "Operations Role Center"
                 part(SmallBusinessOwnerAct; "Small Business Owner Act.")
                 {
                 }
-                part(Page1; "Copy Profile")
+                part(CopyProfile; "Copy Profile")
                 {
                 }
             }
-            group(fw1)
+            group(General1)
             {
                 part(FinancePerformance; "Finance Performance")
                 {

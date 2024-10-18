@@ -70,7 +70,7 @@ page 50080 "Loading Sheet"
     {
         area(processing)
         {
-            group(FW)
+            group(ActionGroup)
             {
                 action(Post)
                 {

@@ -60,7 +60,7 @@ page 50137 "Posted Goods Receipt"
     {
         area(processing)
         {
-            group(fw)
+            group(ActionGroup)
             {
                 action("&Print")
                 {

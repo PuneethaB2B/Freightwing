@@ -28,7 +28,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
         {
             field("Payer Information"; Rec."Payer Information")
             {
-                CaptionML = ENU = 'Name On Cheque';
+                Caption = 'Name On Cheque';
                 ApplicationArea = all;
             }
         }
@@ -75,7 +75,7 @@ pageextension 50021 PaymentJournalExt extends "Payment Journal"
             }
             action("Payment Voucher")
             {
-                CaptionML = ENU = 'Payment Voucher';
+                Caption = 'Payment Voucher';
                 Promoted = true;
                 PromotedIsBig = true;
                 Image = Report;

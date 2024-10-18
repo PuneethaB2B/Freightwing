@@ -66,7 +66,7 @@ page 50150 "Received Booking Sheet"
     {
         area(processing)
         {
-            group(fw)
+            group(Actiongroup)
             {
                 action("&Print")
                 {

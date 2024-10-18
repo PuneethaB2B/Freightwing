@@ -191,13 +191,13 @@ page 50114 "MAWB Invoice"
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                 }
-                // field("Credit Card No."; "Credit Card No.")
-                // {
-                // }//B2BUPG Removed in hiogher version, there is no data against the field.
-                // field(GetCreditcardNumber; GetCreditcardNumber)
-                // {
-                //     Caption = 'Cr. Card Number (Last 4 Digits)';
-                // }
+                /*  field("Credit Card No."; "Credit Card No.")
+                 {
+                 }
+                 field(GetCreditcardNumber; GetCreditcardNumber)
+                 {
+                     Caption = 'Cr. Card Number (Last 4 Digits)';
+                 } */ //B2BUPG Removed in higher version, there is no data against the field.
             }
             group(Shipping)
             {
@@ -317,11 +317,11 @@ page 50114 "MAWB Invoice"
                 SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
-            systempart(Links1; Links)
+            systempart(Links; Links)
             {
                 Visible = false;
             }
-            systempart(Notes1; Notes)
+            systempart(Notes; Notes)
             {
                 Visible = true;
             }
@@ -397,7 +397,7 @@ page 50114 "MAWB Invoice"
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
                 }
-                separator(fw)
+                separator(Seperator)
                 {
                 }
                 action("Documents/Certificates")
@@ -452,6 +452,10 @@ page 50114 "MAWB Invoice"
                      RunPageLink = "Document Type" = FIELD("Document Type"),
                                    "Document No." = FIELD("No."),
                                    "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
+                    /*  RunObject = Page 829;
+                     RunPageLink = "Document Type" = FIELD("Document Type"),
+                                   "Document No." = FIELD("No."),
+                                   "Customer No." = FIELD("Bill-to Customer No."); */  //B2BUPG microsoft has removed Page 829 in higher version
                 }
             }
         }
@@ -499,7 +503,7 @@ page 50114 "MAWB Invoice"
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
                 }
-                separator(General1)
+                separator(Seperator1)
                 {
                 }
             }
@@ -719,7 +723,7 @@ page 50114 "MAWB Invoice"
                         // ****************************** End of modifications ************************************
                     end;
                 }
-                separator(General5)
+                separator(Seperator2)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -735,7 +739,7 @@ page 50114 "MAWB Invoice"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator(General7)
+                separator(Separator3)
                 {
                 }
                 action("Copy Document")
@@ -767,7 +771,7 @@ page 50114 "MAWB Invoice"
                         MoveNegSalesLines.ShowDocument;
                     end;
                 }
-                separator(General6)
+                separator(Separator)
                 {
                 }
                 action("Send A&pproval Request")
@@ -799,7 +803,7 @@ page 50114 "MAWB Invoice"
                         //IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
-                separator(fw1)
+                separator(Separator4)
                 {
                 }
             }

@@ -45,7 +45,7 @@ pageextension 50010 PostedSalesInvoicesExt extends "Posted Sales Invoices"
 
     actions
     {
-        addlast("&Invoice")
+        addbefore(Print)
         {
             action("Import Invoice")
             {

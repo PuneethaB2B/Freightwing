@@ -68,7 +68,7 @@ page 50101 "Posted Loading Sheet"
     {
         area(processing)
         {
-            group(fw)
+            group(ActionGroup)
             {
                 action(Post)
                 {

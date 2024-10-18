@@ -14,7 +14,7 @@ page 50147 "Posted MAWB Invoices"
     {
         area(content)
         {
-            repeater(fw)
+            repeater(Group)
             {
                 field("No."; Rec."No.")
                 {

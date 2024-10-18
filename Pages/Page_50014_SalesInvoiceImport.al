@@ -510,7 +510,7 @@ page 50014 "Sales Invoice - Import"
                         ReleaseSalesDoc.PerformManualReopen(Rec);
                     end;
                 }
-                separator(General2)
+                separator(Seperator)
                 {
                 }
             }
@@ -530,7 +530,7 @@ page 50014 "Sales Invoice - Import"
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
-                separator(fw)
+                separator(sperator1)
                 {
                 }
                 action("Get St&d. Cust. Sales Codes")
@@ -546,7 +546,7 @@ page 50014 "Sales Invoice - Import"
                         StdCustSalesCode.InsertSalesLines(Rec);
                     end;
                 }
-                separator(fw1)
+                separator(Seperator2)
                 {
                 }
                 action("Copy Document")
@@ -578,7 +578,7 @@ page 50014 "Sales Invoice - Import"
                         MoveNegSalesLines.ShowDocument;
                     end;
                 }
-                separator(General4)
+                separator(Sperator3)
                 {
                 }
                 action("Send A&pproval Request")
@@ -610,7 +610,7 @@ page 50014 "Sales Invoice - Import"
                         //IF ApprovalMgt.CancelSalesApprovalRequest(Rec,TRUE,TRUE) THEN;
                     end;
                 }
-                separator(General5)
+                separator(Seperator4)
                 {
                 }
                 action(Chargesrecovery)

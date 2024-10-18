@@ -102,7 +102,7 @@ page 50130 "Goods Receipt"
     {
         area(processing)
         {
-            group(FW)
+            group(ActionGroup)
             {
                 action(Post)
                 {

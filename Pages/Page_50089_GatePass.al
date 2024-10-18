@@ -79,7 +79,7 @@ page 50089 "Gate Pass"
     {
         area(processing)
         {
-            group(fw)
+            group(ActionGroup)
             {
                 action("&Print")
                 {

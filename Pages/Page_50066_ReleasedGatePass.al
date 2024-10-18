@@ -80,7 +80,7 @@ page 50066 "Released Gate Pass"
     {
         area(processing)
         {
-            group(fw)
+            group(ActionGroup)
             {
                 action("&Print")
                 {

@@ -10,7 +10,7 @@ page 50027 Countries
     {
         area(content)
         {
-            repeater(fw)
+            repeater(Group)
             {
                 field(Code; Rec.Code)
                 {

@@ -99,7 +99,7 @@ page 50126 "Archived MAWB Subform"
         MAWBAllocation: Record "Booking Sheet MAWB Allocation";
 
 
-    // [Scope('Internal')]
+    
     procedure GetHAWBAllocation()
     begin
         CODEUNIT.RUN(CODEUNIT::"Export.-Get HAWB Line", Rec);

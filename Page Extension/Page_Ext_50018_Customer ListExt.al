@@ -7,6 +7,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
             field("Customer Type"; Rec."Customer Type")
             {
                 ApplicationArea = all;
+                Caption = 'Customer Type';
                 Editable = false;
             }
         }
@@ -31,9 +32,11 @@ pageextension 50018 CustomerListExt extends "Customer List"
         {
             group("Customer Statements")
             {
+                Caption = 'Customer Statements';
                 Image = Report;
                 action("Customer Statement By Email")
                 {
+                    Caption = 'Customer Statement By Email';
                     Image = Report;
                     RunObject = codeunit "Using Report Functions";
                     ApplicationArea = All;
@@ -44,7 +47,7 @@ pageextension 50018 CustomerListExt extends "Customer List"
                 }
                 action("Customer Statement")
                 {
-                    captionML = ENU = 'Customer Statement';
+                    Caption = 'Customer Statement';
                     Image = Report;
                     RunObject = report Statement;
                     ApplicationArea = All;

@@ -161,11 +161,11 @@ page 50012 "Sales Invoice List - Import"
                               "Date Filter" = FIELD("Date Filter");
                 Visible = true;
             }
-            systempart(fw; Links)
+            systempart(System; Links)
             {
                 Visible = false;
             }
-            systempart(fw1; Notes)
+            systempart(System1; Notes)
             {
                 Visible = true;
             }

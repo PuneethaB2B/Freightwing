@@ -128,7 +128,7 @@ page 50140 "Customer Service Role Center_"
                 PromotedIsBig = true;
                 RunObject = Page "MAWB By Airlines";
             }
-            separator(General2)
+            separator(Separator)
             {
             }
             group(Reports)
