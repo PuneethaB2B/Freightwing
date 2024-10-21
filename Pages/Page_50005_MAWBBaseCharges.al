@@ -3,6 +3,7 @@ page 50005 "MAWB Base Charges"
     PageType = List;
     SourceTable = "MAWB Base Charge";
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

@@ -4,6 +4,7 @@ report 50044 "MAWB Stock Summary"
     RDLCLayout = 'Reports/Layout/MAWBStockSummary.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

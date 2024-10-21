@@ -4,6 +4,7 @@ report 50058 "General Rated Sales"
     RDLCLayout = 'Reports/Layout/GeneralRatedSales.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

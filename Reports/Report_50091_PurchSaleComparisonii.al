@@ -4,6 +4,7 @@ report 50091 "Purch. Sale Comparison ii"
     RDLCLayout = 'Reports/Layout/PurchSaleComparisonii.rdl';
     Caption = 'Purch. Sale Comparison';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

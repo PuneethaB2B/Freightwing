@@ -4,6 +4,7 @@ page 50134 "Goods Receipt Notify Parties"
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = "Good Receipt Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

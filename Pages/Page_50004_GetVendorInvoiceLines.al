@@ -4,6 +4,7 @@ page 50004 "Get Vendor Invoice Lines"
     PageType = List;
     SourceTable = "Vendor Ledger Entry";
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

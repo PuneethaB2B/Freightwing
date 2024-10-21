@@ -5,6 +5,7 @@ page 50086 "Loading Sheet Notify Parties"
     SourceTable =
     "Loading Sheet Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

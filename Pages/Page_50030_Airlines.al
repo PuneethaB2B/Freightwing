@@ -4,6 +4,7 @@ page 50030 Airlines
     PromotedActionCategories = ' New,Posting,Reports,Flights,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = Airline;
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

@@ -6,6 +6,7 @@ page 50120 "MAWB Invoice Charges"
     PageType = List;
     SourceTable = "MAWB Invoice Charge";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

@@ -3,6 +3,7 @@ report 50082 "Freight Reconciliation"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/FreightReconciliation.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

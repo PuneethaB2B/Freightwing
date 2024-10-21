@@ -9,6 +9,7 @@ page 50116 "MAWB Invoices"
     SourceTableView = WHERE("Document Type" = FILTER(Invoice),
                             Posted = FILTER(false));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

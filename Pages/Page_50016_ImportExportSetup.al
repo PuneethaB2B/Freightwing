@@ -3,6 +3,7 @@ page 50016 "Import/Export Setup"
     PageType = Card;
     SourceTable = "Import/Export Setup";
     ApplicationArea = All;
+    UsageCategory=Administration;
 
     layout
     {

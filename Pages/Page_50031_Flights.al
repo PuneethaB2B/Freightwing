@@ -4,6 +4,7 @@ page 50031 Flights
     PromotedActionCategories = ' New,Posting,Reports,Schedule,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = Flight;
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

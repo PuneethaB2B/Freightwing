@@ -4,6 +4,7 @@ report 50127 "Customer-Detail Trial Bal_UPG"
     RDLCLayout = 'Reports/Layout/CustomerDetailTrialBal.rdl';
     Caption = 'Customer - Detail Trial Bal.';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

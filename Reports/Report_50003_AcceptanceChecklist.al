@@ -4,6 +4,7 @@ report 50003 "Acceptance Checklist"
     RDLCLayout = 'Reports/Layout/AcceptanceChecklist.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

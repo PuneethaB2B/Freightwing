@@ -3,6 +3,7 @@ report 50081 "Shipment Report"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/ShipmentReport.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

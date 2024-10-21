@@ -4,6 +4,7 @@ page 50007 "Delivered imports Subform"
     PageType = List;
     SourceTable = "Pre Alert Line";
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

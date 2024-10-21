@@ -4,6 +4,7 @@ report 50065 "General Sales Invoice"
     RDLCLayout = 'Reports/Layout/GeneralSalesInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

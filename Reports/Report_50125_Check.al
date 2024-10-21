@@ -6,6 +6,7 @@ report 50125 "Check_UPG"
     Permissions = TableData "Bank Account" = m;
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

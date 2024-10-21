@@ -3,6 +3,7 @@ page 50084 "Get Goods Receipt Lines"
     PageType = List;
     SourceTable = "Good Receipt Line";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

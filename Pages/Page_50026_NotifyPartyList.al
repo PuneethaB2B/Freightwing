@@ -4,6 +4,7 @@ page 50026 "Notify Party List"
     PageType = List;
     SourceTable = "Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

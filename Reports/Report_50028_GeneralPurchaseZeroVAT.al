@@ -4,6 +4,7 @@ report 50028 "General Purchase Zero VAT"
     RDLCLayout = 'Reports/Layout/GeneralPurchaseZeroVAT.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

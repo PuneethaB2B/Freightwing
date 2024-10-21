@@ -4,6 +4,7 @@ report 50075 "Airline Freight Rates"
     RDLCLayout = 'Reports/Layout/AirlineFreightRates.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

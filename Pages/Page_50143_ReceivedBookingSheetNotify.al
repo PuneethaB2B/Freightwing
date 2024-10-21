@@ -4,6 +4,7 @@ page 50143 "Received Booking Sheet Notify"
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = "Booking Sheet Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

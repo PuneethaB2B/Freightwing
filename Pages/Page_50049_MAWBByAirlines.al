@@ -4,6 +4,7 @@ page 50049 "MAWB By Airlines"
     PageType = List;
     SourceTable = "MAWB By Airline";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

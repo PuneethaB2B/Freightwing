@@ -3,6 +3,7 @@ page 50163 "HS Codes"
     PageType = List;
     SourceTable = "HS Codes";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

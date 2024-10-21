@@ -4,6 +4,7 @@ report 50019 "Booking Sheet"
     RDLCLayout = 'Reports/Layout/BookingSheet.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

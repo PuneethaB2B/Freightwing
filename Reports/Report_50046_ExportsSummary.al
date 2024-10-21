@@ -4,6 +4,7 @@ report 50046 "Exports Summary"
     RDLCLayout = 'Reports/Layout/ExportsSummary.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

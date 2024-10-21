@@ -4,6 +4,7 @@ page 50070 "Get Distribution Lines"
     PageType = List;
     SourceTable = "Dl. Weight Dist. By Item";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

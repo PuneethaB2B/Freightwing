@@ -5,6 +5,7 @@ page 50091 "Gate Passes"
     SourceTable = "Gate Pass Header";
     SourceTableView = WHERE(Status = FILTER(<> Released));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

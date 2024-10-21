@@ -3,6 +3,7 @@ page 50029 Airports
     PageType = List;
     SourceTable = Airport;
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

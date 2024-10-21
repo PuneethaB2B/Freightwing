@@ -3,6 +3,7 @@ page 50076 "Delivery Types"
     PageType = List;
     SourceTable = "Delivery Type";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

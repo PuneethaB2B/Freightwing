@@ -3,6 +3,7 @@ report 50105 "Trial Item"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/TrialItem.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

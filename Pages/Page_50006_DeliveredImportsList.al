@@ -5,6 +5,7 @@ page 50006 "Delivered Imports List"
     SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST(Delivered));
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

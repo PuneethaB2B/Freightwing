@@ -4,6 +4,7 @@ report 50018 "Goods Receipt Note"
     RDLCLayout = 'Reports/Layout/GoodsReceiptNote.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

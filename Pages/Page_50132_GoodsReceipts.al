@@ -7,6 +7,7 @@ page 50132 "Goods Receipts"
     SourceTableView = WHERE(Received = FILTER(false),
                             Status = FILTER(Open | Submitted));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

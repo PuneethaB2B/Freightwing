@@ -3,7 +3,7 @@ report 50114 "Tally Sales Import"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/TallySalesImport.rdl';
     ApplicationArea = All;
-
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem("Sales Invoice Header"; "Sales Invoice Header")

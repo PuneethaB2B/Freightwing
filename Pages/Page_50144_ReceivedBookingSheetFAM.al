@@ -3,6 +3,7 @@ page 50144 "Received Booking Sheet FAM"
     PageType = List;
     SourceTable = "Booking Sheet FAM Allocations";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

@@ -5,6 +5,7 @@ page 50023 "Consignee List"
     PromotedActionCategories = ' New,Posting,Reports,Banks,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = Consignee;
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

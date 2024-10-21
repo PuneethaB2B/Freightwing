@@ -5,6 +5,7 @@ page 50064 "Wk. Customer Wgt. Requirements"
     PageType = List;
     SourceTable = "Wk. Customer Wgt. Req. Header";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

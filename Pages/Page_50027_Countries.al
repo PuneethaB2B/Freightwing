@@ -5,6 +5,7 @@ page 50027 Countries
     PromotedActionCategories = ' New,Posting,Reports,Airports,C5,C6,C7,C8,C9,C10';
     SourceTable = "Country/Region";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

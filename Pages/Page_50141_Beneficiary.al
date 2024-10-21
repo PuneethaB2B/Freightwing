@@ -3,6 +3,7 @@ page 50141 Beneficiary
     PageType = List;
     SourceTable = "Beneficiary Details";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

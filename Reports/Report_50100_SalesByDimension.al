@@ -4,6 +4,7 @@ report 50100 "Sales By Dimension"
     RDLCLayout = 'Reports/Layout/SalesByDimension.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

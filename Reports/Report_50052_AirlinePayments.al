@@ -3,6 +3,7 @@ report 50052 "Airline Payments"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/AirlinePayments.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

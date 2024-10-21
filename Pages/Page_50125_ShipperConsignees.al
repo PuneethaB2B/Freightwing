@@ -3,6 +3,7 @@ page 50125 "Shipper Consignees"
     PageType = List;
     SourceTable = "Shipper Consignee";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

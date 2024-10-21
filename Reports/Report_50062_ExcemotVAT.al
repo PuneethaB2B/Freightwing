@@ -5,6 +5,7 @@ report 50062 "Excemot VAT"
     Caption = 'Exempt VAT';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

@@ -4,7 +4,7 @@ report 50047 "Airlines Freight"
     RDLCLayout = 'Reports/Layout/AirlinesFreight.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
-
+    UsageCategory=ReportsAndAnalysis;
     dataset
     {
         dataitem("MAWB Receipt"; "MAWB Receipt")

@@ -4,6 +4,7 @@ report 50020 "Daily Weight Distribution"
     RDLCLayout = 'Reports/Layout/DailyWeightDistribution.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -5,6 +5,7 @@ page 50111 "Offloaded Gate Pass"
     PageType = List;
     SourceTable = "Offloaded Gatepass Header";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

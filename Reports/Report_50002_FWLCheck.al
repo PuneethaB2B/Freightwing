@@ -5,6 +5,7 @@ report 50002 "FWL Check"
     Caption = 'Check';
     Permissions = TableData "Bank Account" = m;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

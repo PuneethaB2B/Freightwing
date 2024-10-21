@@ -2,6 +2,7 @@ page 50002 "Copy Charges"
 {
     PageType = StandardDialog;
     ApplicationArea = All;
+    UsageCategory = None;
 
     layout
     {
@@ -211,7 +212,7 @@ page 50002 "Copy Charges"
         CopyTo.INSERT;
     end;
 
-   
+
     procedure initParam(pCharg: Record "Freight Charge By Airline")
     begin
         Start := pCharg."Effective Start Date";

@@ -3,6 +3,7 @@ report 50048 "Exports By Destination"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/ExportsByDestination.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

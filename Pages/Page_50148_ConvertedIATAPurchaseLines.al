@@ -8,6 +8,7 @@ page 50148 "Converted IATA Purchase Lines"
     SourceTable = "IATA Purchase Invoice";
     SourceTableView = WHERE(Converted = CONST(true));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

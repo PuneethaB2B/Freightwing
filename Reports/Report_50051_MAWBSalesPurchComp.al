@@ -4,6 +4,7 @@ report 50051 "MAWB Sales Purch. Comp"
     RDLCLayout = 'Reports/Layout/MAWBSalesPurchComp.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

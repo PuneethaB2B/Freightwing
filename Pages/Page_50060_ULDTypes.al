@@ -4,6 +4,7 @@ page 50060 "ULD Types"
     PageType = List;
     SourceTable = "ULD Type";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

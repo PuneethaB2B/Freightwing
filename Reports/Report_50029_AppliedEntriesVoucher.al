@@ -3,6 +3,7 @@ report 50029 "Applied Entries Voucher"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/AppliedEntriesVoucher.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

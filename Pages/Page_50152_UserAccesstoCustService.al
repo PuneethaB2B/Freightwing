@@ -4,6 +4,7 @@ page 50152 "User Access to Cust Service"
     PageType = List;
     SourceTable = "User Access to Cust Service";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

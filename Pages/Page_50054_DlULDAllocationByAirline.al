@@ -4,6 +4,7 @@ page 50054 "Dl. ULD Allocation By Airline"
     PageType = List;
     SourceTable = "Dl. ULD Allocation By Airline";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

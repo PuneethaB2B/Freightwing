@@ -4,6 +4,7 @@ report 50060 "Booking Sheet Pre Alert"
     RDLCLayout = 'Reports/Layout/BookingSheetPreAlert.rdl';
     PreviewMode = Normal;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

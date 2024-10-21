@@ -4,6 +4,7 @@ report 50006 "Accounts Receivable Ageing"
     RDLCLayout = 'Reports/Layout/AccountsReceivableAgeing.rdl';
     Caption = 'Aged Accounts Receivable';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -3,6 +3,7 @@ report 50089 "Sales Purch Comp"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/SalesPurchComp.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50039 "Import Activities"
     PageType = List;
     SourceTable = "Import Activities";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

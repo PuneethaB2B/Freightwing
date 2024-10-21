@@ -3,6 +3,7 @@ page 50124 "Shipper Notify Parties"
     PageType = List;
     SourceTable = "Shipper Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

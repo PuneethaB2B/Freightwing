@@ -5,6 +5,7 @@ page 50000 "Email Body"
     SourceTable = "Email Body";
     SourceTableTemporary = true;
     ApplicationArea = All;
+    UsageCategory = None;
 
     layout
     {

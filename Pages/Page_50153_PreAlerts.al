@@ -5,6 +5,7 @@ page 50153 "Pre Alerts"
     SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("Pre-Alert"));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

@@ -4,6 +4,7 @@ page 50046 "HAWB Receipts"
     PageType = List;
     SourceTable = "HAWB Receipt";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

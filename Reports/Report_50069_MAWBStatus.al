@@ -4,6 +4,7 @@ report 50069 "MAWB Status"
     RDLCLayout = 'Reports/Layout/MAWBStatus.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

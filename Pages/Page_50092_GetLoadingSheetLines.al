@@ -4,6 +4,7 @@ page 50092 "Get Loading Sheet Lines"
     PageType = List;
     SourceTable = "Loading Sheet Line";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

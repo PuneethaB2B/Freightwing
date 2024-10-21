@@ -3,6 +3,7 @@ report 50026 "Curr Reconciliation Vendor"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/CurrReconciliationVendor.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

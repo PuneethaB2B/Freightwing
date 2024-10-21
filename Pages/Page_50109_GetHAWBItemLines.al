@@ -4,6 +4,7 @@ page 50109 "Get HAWB Item Lines"
     PageType = List;
     SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

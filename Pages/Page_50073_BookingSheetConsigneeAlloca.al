@@ -4,6 +4,7 @@ page 50073 "Booking Sheet Consignee Alloca"
     PageType = List;
     SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

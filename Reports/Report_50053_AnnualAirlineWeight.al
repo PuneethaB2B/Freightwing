@@ -4,6 +4,7 @@ report 50053 "Annual Airline Weight"
     RDLCLayout = 'Reports/Layout/AnnualAirlineWeight.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

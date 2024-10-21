@@ -4,6 +4,7 @@ page 50057 "Dl. Weight Dist.Cust. Per Item"
     PageType = List;
     SourceTable = "Dl. Weight Dist. By Item";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

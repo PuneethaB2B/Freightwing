@@ -3,6 +3,7 @@ page 50021 "Shipper Farms"
     PageType = List;
     SourceTable = "Shipper Farm";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

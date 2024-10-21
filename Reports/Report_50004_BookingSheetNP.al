@@ -3,6 +3,7 @@ report 50004 "Booking Sheet NP"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/BookingSheetNP.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -3,6 +3,7 @@ report 50050 "Currency Reconciliation Report"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/CurrencyReconciliationReport.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

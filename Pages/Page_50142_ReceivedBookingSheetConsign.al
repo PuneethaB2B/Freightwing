@@ -4,6 +4,7 @@ page 50142 "Received Booking Sheet Consign"
     PageType = List;
     SourceTable = "Booking Sheet HAWB Allocation";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

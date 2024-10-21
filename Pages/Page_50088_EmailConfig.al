@@ -3,6 +3,7 @@ page 50088 "Email Config"
     PageType = List;
     SourceTable = "Mailing Configuration";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

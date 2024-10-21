@@ -3,6 +3,7 @@ page 50135 "Goods Receipt ULD Allocations"
     PageType = List;
     SourceTable = "Good Receipt ULD Allocation";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

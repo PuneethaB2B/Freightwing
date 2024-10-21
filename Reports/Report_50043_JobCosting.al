@@ -3,6 +3,7 @@ report 50043 "Job Costing"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/JobCosting.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

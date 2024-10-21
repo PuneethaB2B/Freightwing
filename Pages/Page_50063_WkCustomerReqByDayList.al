@@ -4,6 +4,7 @@ page 50063 "Wk. Customer Req. By Day List"
     PageType = List;
     SourceTable = "Good Receipt Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

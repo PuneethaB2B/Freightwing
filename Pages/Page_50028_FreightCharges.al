@@ -4,6 +4,7 @@ page 50028 "Freight Charges"
     PageType = List;
     SourceTable = "Freight Charge";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

@@ -6,6 +6,7 @@ page 50119 "Airport Cargo Receipts"
     SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("Airport Receipt"));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

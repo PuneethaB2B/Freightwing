@@ -4,6 +4,7 @@ report 50021 "Loading Sheet"
     RDLCLayout = 'Reports/Layout/LoadingSheet.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

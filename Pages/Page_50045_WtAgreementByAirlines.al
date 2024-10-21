@@ -5,6 +5,7 @@ page 50045 "Wt. Agreement By Airlines"
     PageType = List;
     SourceTable = "Weight Agreement By Airline";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

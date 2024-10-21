@@ -5,6 +5,7 @@ report 50129 "Purchase - Invoice_UPG"
     Caption = 'Purchase - Invoice';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

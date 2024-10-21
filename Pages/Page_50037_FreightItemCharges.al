@@ -4,6 +4,7 @@ page 50037 "Freight Item Charges"
     PromotedActionCategories = ' New,Posting,Reports,Matrix,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = "Freight Item Charge";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

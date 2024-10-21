@@ -4,6 +4,7 @@ report 50124 "Vendor-DetailTrialBalance_UPG"
     RDLCLayout = 'Reports/Layout/VendorDetailTrialBalance.rdl';
     Caption = 'Vendor - Detail Trial Balance';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

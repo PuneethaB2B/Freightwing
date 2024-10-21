@@ -4,7 +4,7 @@ page 50015 "Shipment Updates"
     PageType = List;
     SourceTable = "Pre Alert Header";
     ApplicationArea = All;
-
+    UsageCategory = Lists;
     layout
     {
         area(content)

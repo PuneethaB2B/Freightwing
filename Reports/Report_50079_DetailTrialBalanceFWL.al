@@ -4,6 +4,7 @@ report 50079 "Detail Trial Balance FWL"
     RDLCLayout = 'Reports/Layout/DetailTrialBalanceFWL.rdl';
     Caption = 'Detail Trial Balance';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

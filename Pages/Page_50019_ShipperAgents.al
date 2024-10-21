@@ -3,6 +3,7 @@ page 50019 "Shipper Agents"
     PageType = List;
     SourceTable = "Shipper Agent";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

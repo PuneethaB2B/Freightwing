@@ -4,6 +4,7 @@ report 50106 "Posted Import Invoice"
     RDLCLayout = 'Reports/Layout/PostedImportInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

@@ -4,6 +4,7 @@ report 50059 "Zero Rated VAT"
     RDLCLayout = 'Reports/Layout/ZeroRatedVAT.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

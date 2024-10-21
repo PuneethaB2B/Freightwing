@@ -4,6 +4,7 @@ report 50061 "Computer Check"
     RDLCLayout = 'Reports/Layout/ComputerCheck.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

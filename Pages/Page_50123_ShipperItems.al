@@ -3,6 +3,7 @@ page 50123 "Shipper Items"
     PageType = List;
     SourceTable = "Shipper Item";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

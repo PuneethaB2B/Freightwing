@@ -3,6 +3,7 @@ report 50023 "Expenditure Schedule"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/ExpenditureSchedule.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

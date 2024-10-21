@@ -4,6 +4,7 @@ page 50044 "Wt. Agreement By Item List"
     PageType = List;
     SourceTable = "Weight Agreement By Item";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

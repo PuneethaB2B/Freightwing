@@ -6,6 +6,7 @@ page 50082 "FWL Cargo Receipts"
     SourceTable = "Pre Alert Header";
     SourceTableView = WHERE(Status = CONST("FWL Receipt"));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

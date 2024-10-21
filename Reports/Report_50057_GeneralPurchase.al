@@ -4,6 +4,7 @@ report 50057 "General Purchase"
     RDLCLayout = 'Reports/Layout/GeneralPurchase.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

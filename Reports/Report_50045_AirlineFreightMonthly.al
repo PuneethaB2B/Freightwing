@@ -3,6 +3,7 @@ report 50045 "Airline Freight Monthly"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/AirlineFreightMonthly.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

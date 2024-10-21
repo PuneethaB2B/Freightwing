@@ -11,6 +11,7 @@ page 50077 "Archived MAWBs"
     SourceTable = "MAWB Header 2";
     SourceTableView = WHERE(Status = FILTER(Archived));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

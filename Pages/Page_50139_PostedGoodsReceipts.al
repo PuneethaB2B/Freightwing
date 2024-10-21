@@ -6,6 +6,7 @@ page 50139 "Posted Goods Receipts"
     SourceTable = "Good Receipt Header";
     SourceTableView = WHERE(Received = FILTER(true));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

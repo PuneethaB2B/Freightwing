@@ -4,6 +4,7 @@ report 50123 "Statement_UPG"
     RDLCLayout = 'Reports/Layout/Statement.rdl';
     Caption = 'Statement';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

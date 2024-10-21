@@ -6,6 +6,7 @@ page 50071 "Booking Sheets"
     SourceTable = "Booking Sheet Header";
     SourceTableView = WHERE(Status = FILTER(Open | Submitted));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

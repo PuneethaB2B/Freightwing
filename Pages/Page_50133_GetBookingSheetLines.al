@@ -4,6 +4,7 @@ page 50133 "Get Booking Sheet Lines"
     PageType = List;
     SourceTable = "Booking Sheet Line";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

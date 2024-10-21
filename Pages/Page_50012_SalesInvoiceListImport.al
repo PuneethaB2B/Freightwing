@@ -7,6 +7,7 @@ page 50012 "Sales Invoice List - Import"
     SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = CONST(Invoice));
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

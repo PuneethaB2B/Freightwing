@@ -9,6 +9,7 @@ page 50083 "Loading Sheets"
                       WHERE(Shipped = FILTER(false),
                             Status = FILTER(<> Closed));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

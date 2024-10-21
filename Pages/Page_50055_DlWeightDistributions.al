@@ -6,6 +6,7 @@ page 50055 "Dl. Weight Distributions"
     ShowFilter = false;
     SourceTable = "Dl. Weight Dist. Header";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

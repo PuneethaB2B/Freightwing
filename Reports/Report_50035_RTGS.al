@@ -4,6 +4,7 @@ report 50035 RTGS
     RDLCLayout = 'Reports/Layout/RTGS.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

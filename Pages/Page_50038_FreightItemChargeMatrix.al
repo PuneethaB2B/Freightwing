@@ -4,6 +4,7 @@ page 50038 "Freight Item Charge Matrix"
     PromotedActionCategories = ' New,Posting,Reports,Matrix Daywise,Category5_caption,Category6_caption,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     SourceTable = "Freight Item Charge Matrix";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

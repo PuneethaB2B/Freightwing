@@ -4,6 +4,7 @@ page 50117 "Get HAWB Lines"
     PageType = List;
     SourceTable = "HAWB Line";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

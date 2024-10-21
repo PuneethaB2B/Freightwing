@@ -3,7 +3,7 @@ report 50107 "Validate Loading Sheets"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/ValidateLoadingSheets.rdl';
     ApplicationArea = All;
-
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem("Loading Sheet Header"; "Loading Sheet Header")

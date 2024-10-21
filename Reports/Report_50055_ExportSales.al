@@ -4,6 +4,7 @@ report 50055 "Export Sales"
     RDLCLayout = 'Reports/Layout/ExportSales.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

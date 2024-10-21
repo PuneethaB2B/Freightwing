@@ -4,6 +4,7 @@ report 50016 "Gate Pass"
     RDLCLayout = 'Reports/Layout/GatePass.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -3,6 +3,7 @@ report 50077 "P&L Schedule Report"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/PLScheduleReport.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

@@ -4,6 +4,7 @@ page 50122 "MAWB Invoice Notify Parties"
     PromotedActionCategories = ' New,Process,Reports,Notification,C5,C6,C7,C8,C9,C10';
     SourceTable = "MAWB Invoice Notify Party";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

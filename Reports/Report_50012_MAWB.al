@@ -3,6 +3,7 @@ report 50012 MAWB
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/MAWB.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -6,7 +6,6 @@ page 50014 "Sales Invoice - Import"
     SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Invoice));
     ApplicationArea = All;
-
     layout
     {
         area(content)
@@ -280,7 +279,7 @@ page 50014 "Sales Invoice - Import"
                               Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
                               CurrPage.UPDATE;
                           END;
-                          CLEAR(ChangeExchangeRate); */  
+                          CLEAR(ChangeExchangeRate); */
                     end;
 
                     trigger OnValidate()

@@ -5,6 +5,7 @@ page 50018 "Shipper List"
     PromotedActionCategories = ' New,Posting,Reports,Agents,Farms,Items,Notify Parties,Consignees,C9,C10';
     SourceTable = Customer;
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

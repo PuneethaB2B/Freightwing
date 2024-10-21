@@ -9,6 +9,7 @@ page 50103 "Archived HAWBs"
     SourceTable = "HAWB Header";
     SourceTableView = WHERE(Status = FILTER(Archived));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

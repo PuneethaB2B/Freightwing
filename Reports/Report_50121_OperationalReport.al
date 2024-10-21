@@ -3,6 +3,7 @@ report 50121 "Operational Report"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/OperationalReport.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

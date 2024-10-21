@@ -4,6 +4,7 @@ page 50011 "Get Customer Invoice Lines"
     PageType = List;
     SourceTable = "Cust. Ledger Entry";
     ApplicationArea = All;
+    UsageCategory=Lists;
 
     layout
     {

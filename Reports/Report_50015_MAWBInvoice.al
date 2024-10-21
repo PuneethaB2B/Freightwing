@@ -4,6 +4,7 @@ report 50015 "MAWB Invoice"
     RDLCLayout = 'Reports/Layout/MAWBInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

@@ -4,6 +4,7 @@ report 50080 "Monthly Airline Export"
     RDLCLayout = 'Reports/Layout/MonthlyAirlineExport.rdl';
     Caption = 'Airline Freight';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

@@ -3,6 +3,7 @@ page 50033 "Via Destination"
     PageType = List;
     SourceTable = "Via Destination";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

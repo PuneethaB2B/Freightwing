@@ -4,6 +4,7 @@ page 50040 "Freight Charge By Airlines"
     PageType = List;
     SourceTable = "Freight Charge By Airline";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

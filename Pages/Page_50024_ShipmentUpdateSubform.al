@@ -3,7 +3,7 @@ page 50024 "Shipment Update Subform"
     PageType = List;
     SourceTable = "Shipment Update Line";
     ApplicationArea = All;
-
+    UsageCategory = Lists;
     layout
     {
         area(content)

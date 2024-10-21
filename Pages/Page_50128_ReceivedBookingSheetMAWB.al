@@ -3,6 +3,7 @@ page 50128 "Received Booking Sheet MAWB"
     PageType = List;
     SourceTable = "Booking Sheet MAWB Allocation";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

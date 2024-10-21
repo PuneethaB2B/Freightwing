@@ -3,6 +3,7 @@ report 50013 HAWB
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/HAWB.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

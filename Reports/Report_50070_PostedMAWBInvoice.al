@@ -4,6 +4,7 @@ report 50070 "Posted MAWB Invoice"
     RDLCLayout = 'Reports/Layout/PostedMAWBInvoice.rdl';
     PreviewMode = PrintLayout;
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

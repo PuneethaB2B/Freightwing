@@ -4,6 +4,7 @@ page 50121 "Get MAWB Lines"
     PageType = List;
     SourceTable = "MAWB Line";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

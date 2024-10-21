@@ -3,6 +3,7 @@ page 50056 "Dl. Weight Dist. Notify Party"
     PageType = List;
     SourceTable = "Handling Slab Matrix";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {

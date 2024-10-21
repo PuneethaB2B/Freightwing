@@ -3,6 +3,7 @@ report 50005 "Goods Receipt Note NP"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/GoodsReceiptNoteNP.rdl';
     ApplicationArea = All;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {

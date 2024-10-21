@@ -3,6 +3,7 @@ report 50078 "Purchase Anlitycs.CR"
     DefaultLayout = RDLC;
     RDLCLayout = 'Reports/Layout/PurchaseAnlitycsCR.rdl';
     ApplicationArea = All;
+    UsageCategory=ReportsAndAnalysis;
 
     dataset
     {

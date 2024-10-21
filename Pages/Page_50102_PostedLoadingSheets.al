@@ -6,6 +6,7 @@ page 50102 "Posted Loading Sheets"
     SourceTable = "Loading Sheet Header";
     SourceTableView = WHERE(Shipped = FILTER(true));
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {
