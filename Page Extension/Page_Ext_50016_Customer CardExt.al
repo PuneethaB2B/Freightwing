@@ -34,5 +34,17 @@ pageextension 50016 CustomerCardExt extends "Customer Card"
                 ApplicationArea = all;
             }
         }
+        addbefore("Email/CC")
+        {
+            field("E-Mail 1"; Rec."E-Mail 1")
+            {
+                Caption = 'E-Mail';
+                ApplicationArea = All;
+            }
+        }
+        modify("E-Mail")
+        {
+            Visible = false;
+        }
     }
 }

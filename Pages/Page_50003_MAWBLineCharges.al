@@ -4,7 +4,8 @@ page 50003 "MAWB Line Charges"
     PageType = List;
     SourceTable = "MAWB Line Charge";
     ApplicationArea = All;
-    UsageCategory=Lists;
+    UsageCategory = Lists;
+    Caption = 'MAWB Line Charges';
 
     layout
     {

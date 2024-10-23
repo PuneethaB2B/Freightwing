@@ -6,6 +6,7 @@ page 50000 "Email Body"
     SourceTableTemporary = true;
     ApplicationArea = All;
     UsageCategory = None;
+    Caption = 'Email Body';
 
     layout
     {

@@ -62,7 +62,7 @@ table 50016 "IATA Purchase Invoice"
         }
         field(15; "Line No."; Integer)
         {
-            AutoIncrement = true;
+            //AutoIncrement = true;
             Editable = false;
         }
         field(16; "Vendor No."; Code[20])

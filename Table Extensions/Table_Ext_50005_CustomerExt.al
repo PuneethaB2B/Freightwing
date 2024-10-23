@@ -31,6 +31,10 @@ tableextension 50005 CustomerExt extends Customer
             OptionCaption = 'Docket Weight,Volume Metric Weight';
             OptionMembers = "Docket Weight","Volume Metric Weight";
         }
+        field(50006; "E-Mail 1"; Text[250])
+        {
+
+        }
     }
 
     trigger OnAfterDelete()
