@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,252 +10,6 @@
       <rd:DataSourceID>055ec118-f039-4c2b-ba64-ca2388b18574</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_GatePassHeader">
-          <DataField>No_GatePassHeader</DataField>
-        </Field>
-        <Field Name="GatePassDate_GatePassHeader">
-          <DataField>GatePassDate_GatePassHeader</DataField>
-        </Field>
-        <Field Name="MAWBNo_GatePassHeader">
-          <DataField>MAWBNo_GatePassHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_GatePassHeader">
-          <DataField>AirlineCode_GatePassHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_GatePassHeader">
-          <DataField>FlightCode_GatePassHeader</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_GatePassHeader">
-          <DataField>LoadingSheetNo_GatePassHeader</DataField>
-        </Field>
-        <Field Name="LoadingSheetDate_GatePassHeader">
-          <DataField>LoadingSheetDate_GatePassHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_GatePassHeader">
-          <DataField>ShipperCode_GatePassHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_GatePassHeader">
-          <DataField>ConsigneeCode_GatePassHeader</DataField>
-        </Field>
-        <Field Name="PreparedBy_GatePassHeader">
-          <DataField>PreparedBy_GatePassHeader</DataField>
-        </Field>
-        <Field Name="NoSeries_GatePassHeader">
-          <DataField>NoSeries_GatePassHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_GatePassHeader">
-          <DataField>ShipperName_GatePassHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeName_GatePassHeader">
-          <DataField>ConsigneeName_GatePassHeader</DataField>
-        </Field>
-        <Field Name="VehicleNo_GatePassHeader">
-          <DataField>VehicleNo_GatePassHeader</DataField>
-        </Field>
-        <Field Name="DriverName_GatePassHeader">
-          <DataField>DriverName_GatePassHeader</DataField>
-        </Field>
-        <Field Name="EscortVehicleNo_GatePassHeader">
-          <DataField>EscortVehicleNo_GatePassHeader</DataField>
-        </Field>
-        <Field Name="SupervisorName_GatePassHeader">
-          <DataField>SupervisorName_GatePassHeader</DataField>
-        </Field>
-        <Field Name="CompName">
-          <DataField>CompName</DataField>
-        </Field>
-        <Field Name="CompPicture">
-          <DataField>CompPicture</DataField>
-        </Field>
-        <Field Name="MAWBNo">
-          <DataField>MAWBNo</DataField>
-        </Field>
-        <Field Name="Shade_GatePassHeader">
-          <DataField>Shade_GatePassHeader</DataField>
-        </Field>
-        <Field Name="ActualDepartureTime_GatePassHeader">
-          <DataField>ActualDepartureTime_GatePassHeader</DataField>
-        </Field>
-        <Field Name="PreparedBy">
-          <DataField>PreparedBy</DataField>
-        </Field>
-        <Field Name="GatePassNo_GatePassLine">
-          <DataField>GatePassNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="ItemNo_GatePassLine">
-          <DataField>ItemNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_GatePassLine">
-          <DataField>UnitofMeasureCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="Quantity_GatePassLine">
-          <DataField>Quantity_GatePassLine</DataField>
-        </Field>
-        <Field Name="Quantity_GatePassLineFormat">
-          <DataField>Quantity_GatePassLineFormat</DataField>
-        </Field>
-        <Field Name="VehicleNo_GatePassLine">
-          <DataField>VehicleNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="DriverName_GatePassLine">
-          <DataField>DriverName_GatePassLine</DataField>
-        </Field>
-        <Field Name="EscortVehicleNo_GatePassLine">
-          <DataField>EscortVehicleNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="SupervisorName_GatePassLine">
-          <DataField>SupervisorName_GatePassLine</DataField>
-        </Field>
-        <Field Name="Description_GatePassLine">
-          <DataField>Description_GatePassLine</DataField>
-        </Field>
-        <Field Name="ULDType_GatePassLine">
-          <DataField>ULDType_GatePassLine</DataField>
-        </Field>
-        <Field Name="ULDNo_GatePassLine">
-          <DataField>ULDNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="LineNo_GatePassLine">
-          <DataField>LineNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="Type_GatePassLine">
-          <DataField>Type_GatePassLine</DataField>
-        </Field>
-        <Field Name="LocationCode_GatePassLine">
-          <DataField>LocationCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_GatePassLine">
-          <DataField>MAWBNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_GatePassLine">
-          <DataField>AirlineCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="FlightCode_GatePassLine">
-          <DataField>FlightCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_GatePassLine">
-          <DataField>ConsigneeCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_GatePassLine">
-          <DataField>ShipperCode_GatePassLine</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_GatePassLine">
-          <DataField>LoadingSheetNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="HAWBNo_GatePassLine">
-          <DataField>HAWBNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="CustomEntryNo_GatePassLine">
-          <DataField>CustomEntryNo_GatePassLine</DataField>
-        </Field>
-        <Field Name="PhytoCertificate_GatePassLine">
-          <DataField>PhytoCertificate_GatePassLine</DataField>
-        </Field>
-        <Field Name="NoOfBoxes">
-          <DataField>NoOfBoxes</DataField>
-        </Field>
-        <Field Name="NoOfBoxesFormat">
-          <DataField>NoOfBoxesFormat</DataField>
-        </Field>
-        <Field Name="UldWeight">
-          <DataField>UldWeight</DataField>
-        </Field>
-        <Field Name="UldWeightFormat">
-          <DataField>UldWeightFormat</DataField>
-        </Field>
-        <Field Name="LoadingSheet">
-          <DataField>LoadingSheet</DataField>
-        </Field>
-        <Field Name="Product">
-          <DataField>Product</DataField>
-        </Field>
-        <Field Name="Shade">
-          <DataField>Shade</DataField>
-        </Field>
-        <Field Name="ULDType_OffloadedULDs">
-          <DataField>ULDType_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ULDNo_OffloadedULDs">
-          <DataField>ULDNo_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="GatePassNo_OffloadedULDs">
-          <DataField>GatePassNo_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="MAWBNo_OffloadedULDs">
-          <DataField>MAWBNo_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_OffloadedULDs">
-          <DataField>LoadingSheetNo_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="No_OffloadedULDs">
-          <DataField>No_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="CreatedBy_OffloadedULDs">
-          <DataField>CreatedBy_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="CreatedOn_OffloadedULDs">
-          <DataField>CreatedOn_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="NoOfBoxes_OffloadedULDs">
-          <DataField>NoOfBoxes_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="NoOfBoxes_OffloadedULDsFormat">
-          <DataField>NoOfBoxes_OffloadedULDsFormat</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_OffloadedULDs">
-          <DataField>ConsigneeCode_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ShipperCode_OffloadedULDs">
-          <DataField>ShipperCode_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ShipperName_OffloadedULDs">
-          <DataField>ShipperName_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ConsigneeName_OffloadedULDs">
-          <DataField>ConsigneeName_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="Airline_OffloadedULDs">
-          <DataField>Airline_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="AirlineShade_OffloadedULDs">
-          <DataField>AirlineShade_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_OffloadedULDs">
-          <DataField>FWLDocketWeight_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_OffloadedULDsFormat">
-          <DataField>FWLDocketWeight_OffloadedULDsFormat</DataField>
-        </Field>
-        <Field Name="Processed_OffloadedULDs">
-          <DataField>Processed_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ItemCode_OffloadedULDs">
-          <DataField>ItemCode_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="ItemName_OffloadedULDs">
-          <DataField>ItemName_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="DivisionCode_OffloadedULDs">
-          <DataField>DivisionCode_OffloadedULDs</DataField>
-        </Field>
-        <Field Name="DivisionName_OffloadedULDs">
-          <DataField>DivisionName_OffloadedULDs</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2672,4 +2426,245 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_GatePassHeader">
+          <DataField>No_GatePassHeader</DataField>
+        </Field>
+        <Field Name="GatePassDate_GatePassHeader">
+          <DataField>GatePassDate_GatePassHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_GatePassHeader">
+          <DataField>MAWBNo_GatePassHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_GatePassHeader">
+          <DataField>AirlineCode_GatePassHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_GatePassHeader">
+          <DataField>FlightCode_GatePassHeader</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_GatePassHeader">
+          <DataField>LoadingSheetNo_GatePassHeader</DataField>
+        </Field>
+        <Field Name="LoadingSheetDate_GatePassHeader">
+          <DataField>LoadingSheetDate_GatePassHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_GatePassHeader">
+          <DataField>ShipperCode_GatePassHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_GatePassHeader">
+          <DataField>ConsigneeCode_GatePassHeader</DataField>
+        </Field>
+        <Field Name="PreparedBy_GatePassHeader">
+          <DataField>PreparedBy_GatePassHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_GatePassHeader">
+          <DataField>NoSeries_GatePassHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_GatePassHeader">
+          <DataField>ShipperName_GatePassHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeName_GatePassHeader">
+          <DataField>ConsigneeName_GatePassHeader</DataField>
+        </Field>
+        <Field Name="VehicleNo_GatePassHeader">
+          <DataField>VehicleNo_GatePassHeader</DataField>
+        </Field>
+        <Field Name="DriverName_GatePassHeader">
+          <DataField>DriverName_GatePassHeader</DataField>
+        </Field>
+        <Field Name="EscortVehicleNo_GatePassHeader">
+          <DataField>EscortVehicleNo_GatePassHeader</DataField>
+        </Field>
+        <Field Name="SupervisorName_GatePassHeader">
+          <DataField>SupervisorName_GatePassHeader</DataField>
+        </Field>
+        <Field Name="CompName">
+          <DataField>CompName</DataField>
+        </Field>
+        <Field Name="CompPicture">
+          <DataField>CompPicture</DataField>
+        </Field>
+        <Field Name="MAWBNo">
+          <DataField>MAWBNo</DataField>
+        </Field>
+        <Field Name="Shade_GatePassHeader">
+          <DataField>Shade_GatePassHeader</DataField>
+        </Field>
+        <Field Name="ActualDepartureTime_GatePassHeader">
+          <DataField>ActualDepartureTime_GatePassHeader</DataField>
+        </Field>
+        <Field Name="PreparedBy">
+          <DataField>PreparedBy</DataField>
+        </Field>
+        <Field Name="GatePassNo_GatePassLine">
+          <DataField>GatePassNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="ItemNo_GatePassLine">
+          <DataField>ItemNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_GatePassLine">
+          <DataField>UnitofMeasureCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="Quantity_GatePassLine">
+          <DataField>Quantity_GatePassLine</DataField>
+        </Field>
+        <Field Name="Quantity_GatePassLineFormat">
+          <DataField>Quantity_GatePassLineFormat</DataField>
+        </Field>
+        <Field Name="VehicleNo_GatePassLine">
+          <DataField>VehicleNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="DriverName_GatePassLine">
+          <DataField>DriverName_GatePassLine</DataField>
+        </Field>
+        <Field Name="EscortVehicleNo_GatePassLine">
+          <DataField>EscortVehicleNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="SupervisorName_GatePassLine">
+          <DataField>SupervisorName_GatePassLine</DataField>
+        </Field>
+        <Field Name="Description_GatePassLine">
+          <DataField>Description_GatePassLine</DataField>
+        </Field>
+        <Field Name="ULDType_GatePassLine">
+          <DataField>ULDType_GatePassLine</DataField>
+        </Field>
+        <Field Name="ULDNo_GatePassLine">
+          <DataField>ULDNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="LineNo_GatePassLine">
+          <DataField>LineNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="Type_GatePassLine">
+          <DataField>Type_GatePassLine</DataField>
+        </Field>
+        <Field Name="LocationCode_GatePassLine">
+          <DataField>LocationCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_GatePassLine">
+          <DataField>MAWBNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_GatePassLine">
+          <DataField>AirlineCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="FlightCode_GatePassLine">
+          <DataField>FlightCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_GatePassLine">
+          <DataField>ConsigneeCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_GatePassLine">
+          <DataField>ShipperCode_GatePassLine</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_GatePassLine">
+          <DataField>LoadingSheetNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="HAWBNo_GatePassLine">
+          <DataField>HAWBNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="CustomEntryNo_GatePassLine">
+          <DataField>CustomEntryNo_GatePassLine</DataField>
+        </Field>
+        <Field Name="PhytoCertificate_GatePassLine">
+          <DataField>PhytoCertificate_GatePassLine</DataField>
+        </Field>
+        <Field Name="NoOfBoxes">
+          <DataField>NoOfBoxes</DataField>
+        </Field>
+        <Field Name="NoOfBoxesFormat">
+          <DataField>NoOfBoxesFormat</DataField>
+        </Field>
+        <Field Name="UldWeight">
+          <DataField>UldWeight</DataField>
+        </Field>
+        <Field Name="UldWeightFormat">
+          <DataField>UldWeightFormat</DataField>
+        </Field>
+        <Field Name="LoadingSheet">
+          <DataField>LoadingSheet</DataField>
+        </Field>
+        <Field Name="Product">
+          <DataField>Product</DataField>
+        </Field>
+        <Field Name="Shade">
+          <DataField>Shade</DataField>
+        </Field>
+        <Field Name="ULDType_OffloadedULDs">
+          <DataField>ULDType_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ULDNo_OffloadedULDs">
+          <DataField>ULDNo_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="GatePassNo_OffloadedULDs">
+          <DataField>GatePassNo_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="MAWBNo_OffloadedULDs">
+          <DataField>MAWBNo_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_OffloadedULDs">
+          <DataField>LoadingSheetNo_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="No_OffloadedULDs">
+          <DataField>No_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="CreatedBy_OffloadedULDs">
+          <DataField>CreatedBy_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="CreatedOn_OffloadedULDs">
+          <DataField>CreatedOn_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="NoOfBoxes_OffloadedULDs">
+          <DataField>NoOfBoxes_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="NoOfBoxes_OffloadedULDsFormat">
+          <DataField>NoOfBoxes_OffloadedULDsFormat</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_OffloadedULDs">
+          <DataField>ConsigneeCode_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ShipperCode_OffloadedULDs">
+          <DataField>ShipperCode_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ShipperName_OffloadedULDs">
+          <DataField>ShipperName_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ConsigneeName_OffloadedULDs">
+          <DataField>ConsigneeName_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="Airline_OffloadedULDs">
+          <DataField>Airline_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="AirlineShade_OffloadedULDs">
+          <DataField>AirlineShade_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_OffloadedULDs">
+          <DataField>FWLDocketWeight_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_OffloadedULDsFormat">
+          <DataField>FWLDocketWeight_OffloadedULDsFormat</DataField>
+        </Field>
+        <Field Name="Processed_OffloadedULDs">
+          <DataField>Processed_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ItemCode_OffloadedULDs">
+          <DataField>ItemCode_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="ItemName_OffloadedULDs">
+          <DataField>ItemName_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="DivisionCode_OffloadedULDs">
+          <DataField>DivisionCode_OffloadedULDs</DataField>
+        </Field>
+        <Field Name="DivisionName_OffloadedULDs">
+          <DataField>DivisionName_OffloadedULDs</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

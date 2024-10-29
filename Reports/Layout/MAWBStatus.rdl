@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,96 +10,6 @@
       <rd:DataSourceID>20d26ec0-0eb6-4e8b-a9ab-20b62cca59ff</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ReceiptDate_MAWBReceipt">
-          <DataField>ReceiptDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceipt">
-          <DataField>MAWBFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceiptFormat">
-          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Assigned_MAWBReceipt">
-          <DataField>Assigned_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBReceipt">
-          <DataField>FreightChargeCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="Prepared_MAWBReceipt">
-          <DataField>Prepared_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="PrefixCode_MAWBReceipt">
-          <DataField>PrefixCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="BillNo_MAWBReceipt">
-          <DataField>BillNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="StartNo_MAWBReceipt">
-          <DataField>StartNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="EndNo_MAWBReceipt">
-          <DataField>EndNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="KAAFees_MAWBReceipt">
-          <DataField>KAAFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="KAAFees_MAWBReceiptFormat">
-          <DataField>KAAFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Invoiced_MAWBReceipt">
-          <DataField>Invoiced_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="AirlineName">
-          <DataField>AirlineName</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="AssignedDate_">
-          <DataField>AssignedDate_</DataField>
-        </Field>
-        <Field Name="BillTo">
-          <DataField>BillTo</DataField>
-        </Field>
-        <Field Name="InvoiceNo">
-          <DataField>InvoiceNo</DataField>
-        </Field>
-        <Field Name="Filters">
-          <DataField>Filters</DataField>
-        </Field>
-        <Field Name="Uninvoiced">
-          <DataField>Uninvoiced</DataField>
-        </Field>
-        <Field Name="Comment">
-          <DataField>Comment</DataField>
-        </Field>
-        <Field Name="InvoicedAmount">
-          <DataField>InvoicedAmount</DataField>
-        </Field>
-        <Field Name="InvoicedAmountFormat">
-          <DataField>InvoicedAmountFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1750,4 +1660,89 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ReceiptDate_MAWBReceipt">
+          <DataField>ReceiptDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceipt">
+          <DataField>MAWBFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceiptFormat">
+          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Assigned_MAWBReceipt">
+          <DataField>Assigned_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBReceipt">
+          <DataField>FreightChargeCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="Prepared_MAWBReceipt">
+          <DataField>Prepared_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="PrefixCode_MAWBReceipt">
+          <DataField>PrefixCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="BillNo_MAWBReceipt">
+          <DataField>BillNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="StartNo_MAWBReceipt">
+          <DataField>StartNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="EndNo_MAWBReceipt">
+          <DataField>EndNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="KAAFees_MAWBReceipt">
+          <DataField>KAAFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="KAAFees_MAWBReceiptFormat">
+          <DataField>KAAFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Invoiced_MAWBReceipt">
+          <DataField>Invoiced_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="AirlineName">
+          <DataField>AirlineName</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="AssignedDate_">
+          <DataField>AssignedDate_</DataField>
+        </Field>
+        <Field Name="BillTo">
+          <DataField>BillTo</DataField>
+        </Field>
+        <Field Name="InvoiceNo">
+          <DataField>InvoiceNo</DataField>
+        </Field>
+        <Field Name="Filters">
+          <DataField>Filters</DataField>
+        </Field>
+        <Field Name="Uninvoiced">
+          <DataField>Uninvoiced</DataField>
+        </Field>
+        <Field Name="Comment">
+          <DataField>Comment</DataField>
+        </Field>
+        <Field Name="InvoicedAmount">
+          <DataField>InvoicedAmount</DataField>
+        </Field>
+        <Field Name="InvoicedAmountFormat">
+          <DataField>InvoicedAmountFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -23,6 +23,7 @@
         MemoryStream.Close();
         EXIT(Base64String);
     end;
+    
 
 
     procedure FromBase64(Base64String: Text; var OutS: OutStream)
@@ -34,6 +35,6 @@
         MemoryStream.WriteTo(OutS);
         MemoryStream.Close();
     end;
-}
+}*/
 
- */ // B2BUPG Integration
+// B2BUPG Integration  This codeunit is already in Base.

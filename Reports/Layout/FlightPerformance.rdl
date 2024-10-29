@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,99 +10,6 @@
       <rd:DataSourceID>aa5852f3-b349-46a8-ac25-1648a34c64c1</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Company_Name">
-          <DataField>Company_Name</DataField>
-        </Field>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="Flight_AirLine_Code">
-          <DataField>Flight_AirLine_Code</DataField>
-        </Field>
-        <Field Name="Flight_Code">
-          <DataField>Flight_Code</DataField>
-        </Field>
-        <Field Name="Destination_Code">
-          <DataField>Destination_Code</DataField>
-        </Field>
-        <Field Name="Destination_Airport">
-          <DataField>Destination_Airport</DataField>
-        </Field>
-        <Field Name="Airline_Name">
-          <DataField>Airline_Name</DataField>
-        </Field>
-        <Field Name="Actual_Weight_Booked">
-          <DataField>Actual_Weight_Booked</DataField>
-        </Field>
-        <Field Name="Actual_Weight_BookedFormat">
-          <DataField>Actual_Weight_BookedFormat</DataField>
-        </Field>
-        <Field Name="Cut_off_Time">
-          <DataField>Cut_off_Time</DataField>
-        </Field>
-        <Field Name="Scheduled_Dept_Time">
-          <DataField>Scheduled_Dept_Time</DataField>
-        </Field>
-        <Field Name="Shipment_Delivery_Time">
-          <DataField>Shipment_Delivery_Time</DataField>
-        </Field>
-        <Field Name="Shipment_Delivery_TimeFormat">
-          <DataField>Shipment_Delivery_TimeFormat</DataField>
-        </Field>
-        <Field Name="Actual_Dept_Date">
-          <DataField>Actual_Dept_Date</DataField>
-        </Field>
-        <Field Name="Actual_Dept_Time">
-          <DataField>Actual_Dept_Time</DataField>
-        </Field>
-        <Field Name="Scheduled_Arrival_Date">
-          <DataField>Scheduled_Arrival_Date</DataField>
-        </Field>
-        <Field Name="Scheduled_Arrival_Time">
-          <DataField>Scheduled_Arrival_Time</DataField>
-        </Field>
-        <Field Name="Actual_Arrival_Date">
-          <DataField>Actual_Arrival_Date</DataField>
-        </Field>
-        <Field Name="Actual_Arrival_Time">
-          <DataField>Actual_Arrival_Time</DataField>
-        </Field>
-        <Field Name="Delayed">
-          <DataField>Delayed</DataField>
-        </Field>
-        <Field Name="TotalCapacityPlanned_DlWeightDistByAirline">
-          <DataField>TotalCapacityPlanned_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="TotalCapacityPlanned_DlWeightDistByAirlineFormat">
-          <DataField>TotalCapacityPlanned_DlWeightDistByAirlineFormat</DataField>
-        </Field>
-        <Field Name="TotalWeightAllocated_DlWeightDistByAirline">
-          <DataField>TotalWeightAllocated_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="TotalWeightAllocated_DlWeightDistByAirlineFormat">
-          <DataField>TotalWeightAllocated_DlWeightDistByAirlineFormat</DataField>
-        </Field>
-        <Field Name="TotalShippedWeight_DlWeightDistByAirline">
-          <DataField>TotalShippedWeight_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="TotalShippedWeight_DlWeightDistByAirlineFormat">
-          <DataField>TotalShippedWeight_DlWeightDistByAirlineFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1672,4 +1579,92 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Company_Name">
+          <DataField>Company_Name</DataField>
+        </Field>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="Flight_AirLine_Code">
+          <DataField>Flight_AirLine_Code</DataField>
+        </Field>
+        <Field Name="Flight_Code">
+          <DataField>Flight_Code</DataField>
+        </Field>
+        <Field Name="Destination_Code">
+          <DataField>Destination_Code</DataField>
+        </Field>
+        <Field Name="Destination_Airport">
+          <DataField>Destination_Airport</DataField>
+        </Field>
+        <Field Name="Airline_Name">
+          <DataField>Airline_Name</DataField>
+        </Field>
+        <Field Name="Actual_Weight_Booked">
+          <DataField>Actual_Weight_Booked</DataField>
+        </Field>
+        <Field Name="Actual_Weight_BookedFormat">
+          <DataField>Actual_Weight_BookedFormat</DataField>
+        </Field>
+        <Field Name="Cut_off_Time">
+          <DataField>Cut_off_Time</DataField>
+        </Field>
+        <Field Name="Scheduled_Dept_Time">
+          <DataField>Scheduled_Dept_Time</DataField>
+        </Field>
+        <Field Name="Shipment_Delivery_Time">
+          <DataField>Shipment_Delivery_Time</DataField>
+        </Field>
+        <Field Name="Shipment_Delivery_TimeFormat">
+          <DataField>Shipment_Delivery_TimeFormat</DataField>
+        </Field>
+        <Field Name="Actual_Dept_Date">
+          <DataField>Actual_Dept_Date</DataField>
+        </Field>
+        <Field Name="Actual_Dept_Time">
+          <DataField>Actual_Dept_Time</DataField>
+        </Field>
+        <Field Name="Scheduled_Arrival_Date">
+          <DataField>Scheduled_Arrival_Date</DataField>
+        </Field>
+        <Field Name="Scheduled_Arrival_Time">
+          <DataField>Scheduled_Arrival_Time</DataField>
+        </Field>
+        <Field Name="Actual_Arrival_Date">
+          <DataField>Actual_Arrival_Date</DataField>
+        </Field>
+        <Field Name="Actual_Arrival_Time">
+          <DataField>Actual_Arrival_Time</DataField>
+        </Field>
+        <Field Name="Delayed">
+          <DataField>Delayed</DataField>
+        </Field>
+        <Field Name="TotalCapacityPlanned_DlWeightDistByAirline">
+          <DataField>TotalCapacityPlanned_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="TotalCapacityPlanned_DlWeightDistByAirlineFormat">
+          <DataField>TotalCapacityPlanned_DlWeightDistByAirlineFormat</DataField>
+        </Field>
+        <Field Name="TotalWeightAllocated_DlWeightDistByAirline">
+          <DataField>TotalWeightAllocated_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="TotalWeightAllocated_DlWeightDistByAirlineFormat">
+          <DataField>TotalWeightAllocated_DlWeightDistByAirlineFormat</DataField>
+        </Field>
+        <Field Name="TotalShippedWeight_DlWeightDistByAirline">
+          <DataField>TotalShippedWeight_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="TotalShippedWeight_DlWeightDistByAirlineFormat">
+          <DataField>TotalShippedWeight_DlWeightDistByAirlineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

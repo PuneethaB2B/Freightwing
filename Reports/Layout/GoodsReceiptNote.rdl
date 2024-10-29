@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,288 +10,6 @@
       <rd:DataSourceID>f1c71e12-6938-4b50-9aac-02a6e70c7fe5</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="No_GoodReceiptHeader">
-          <DataField>No_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ReceiptDate_GoodReceiptHeader">
-          <DataField>ReceiptDate_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_GoodReceiptHeader">
-          <DataField>ShipperCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_GoodReceiptHeader">
-          <DataField>ShipperName_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_GoodReceiptHeader">
-          <DataField>ConsigneeCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ClearingAgentCode_GoodReceiptHeader">
-          <DataField>ClearingAgentCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_GoodReceiptHeader">
-          <DataField>AirlineCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_GoodReceiptHeader">
-          <DataField>FlightCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="MAWBNo_GoodReceiptHeader">
-          <DataField>MAWBNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ShipperAddress_GoodReceiptHeader">
-          <DataField>ShipperAddress_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="Description_GoodReceiptHeader">
-          <DataField>Description_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="PortofLoading_GoodReceiptHeader">
-          <DataField>PortofLoading_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="CutoffTime_GoodReceiptHeader">
-          <DataField>CutoffTime_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="DestinationCode_GoodReceiptHeader">
-          <DataField>DestinationCode_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="PortofDischarge_GoodReceiptHeader">
-          <DataField>PortofDischarge_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="PlaceofDelivery_GoodReceiptHeader">
-          <DataField>PlaceofDelivery_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ViaRouteTransist_GoodReceiptHeader">
-          <DataField>ViaRouteTransist_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="BookedWeight_GoodReceiptHeader">
-          <DataField>BookedWeight_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="BookedWeight_GoodReceiptHeaderFormat">
-          <DataField>BookedWeight_GoodReceiptHeaderFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptHeader">
-          <DataField>ActualWeight_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptHeaderFormat">
-          <DataField>ActualWeight_GoodReceiptHeaderFormat</DataField>
-        </Field>
-        <Field Name="PreparedBy_GoodReceiptHeader">
-          <DataField>PreparedBy_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="NoSeries_GoodReceiptHeader">
-          <DataField>NoSeries_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="WeightDifference_GoodReceiptHeader">
-          <DataField>WeightDifference_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="WeightDifference_GoodReceiptHeaderFormat">
-          <DataField>WeightDifference_GoodReceiptHeaderFormat</DataField>
-        </Field>
-        <Field Name="MAWBDate_GoodReceiptHeader">
-          <DataField>MAWBDate_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="Received_GoodReceiptHeader">
-          <DataField>Received_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="Invoiced_GoodReceiptHeader">
-          <DataField>Invoiced_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_GoodReceiptHeader">
-          <DataField>TypeofDelivery_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_GoodReceiptHeader">
-          <DataField>BookingSheetNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="ExternalDocNo_GoodReceiptHeader">
-          <DataField>ExternalDocNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="PostedBy_GoodReceiptHeader">
-          <DataField>PostedBy_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="VehicleNo_GoodReceiptHeader">
-          <DataField>VehicleNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="DriverName_GoodReceiptHeader">
-          <DataField>DriverName_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="VehicleArrivalTime_GoodReceiptHeader">
-          <DataField>VehicleArrivalTime_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="SealNo_GoodReceiptHeader">
-          <DataField>SealNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="DeliveryNo_GoodReceiptHeader">
-          <DataField>DeliveryNo_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="DeliveryDate_GoodReceiptHeader">
-          <DataField>DeliveryDate_GoodReceiptHeader</DataField>
-        </Field>
-        <Field Name="GoodReceiptNo_GoodReceiptLine">
-          <DataField>GoodReceiptNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="LineNo_GoodReceiptLine">
-          <DataField>LineNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Description_GoodReceiptLine">
-          <DataField>Description_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_GoodReceiptLine">
-          <DataField>UnitofMeasureCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Type_GoodReceiptLine">
-          <DataField>Type_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ItemNo_GoodReceiptLine">
-          <DataField>ItemNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_GoodReceiptLine">
-          <DataField>BookedWeight_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_GoodReceiptLineFormat">
-          <DataField>BookedWeight_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptLine">
-          <DataField>ActualWeight_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptLineFormat">
-          <DataField>ActualWeight_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_GoodReceiptLine">
-          <DataField>ULDTypeCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ULDNo_GoodReceiptLine">
-          <DataField>ULDNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Quantity_GoodReceiptLine">
-          <DataField>Quantity_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Quantity_GoodReceiptLineFormat">
-          <DataField>Quantity_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="WeightDifference_GoodReceiptLine">
-          <DataField>WeightDifference_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="WeightDifference_GoodReceiptLineFormat">
-          <DataField>WeightDifference_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_GoodReceiptLine">
-          <DataField>BookedLineAmount_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_GoodReceiptLineFormat">
-          <DataField>BookedLineAmount_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_GoodReceiptLine">
-          <DataField>ActualLineAmount_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_GoodReceiptLineFormat">
-          <DataField>ActualLineAmount_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="RateAmount_GoodReceiptLine">
-          <DataField>RateAmount_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="RateAmount_GoodReceiptLineFormat">
-          <DataField>RateAmount_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="LocationCode_GoodReceiptLine">
-          <DataField>LocationCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ProductGroupCode_GoodReceiptLine">
-          <DataField>ProductGroupCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Status_GoodReceiptLine">
-          <DataField>Status_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ApprovedBy_GoodReceiptLine">
-          <DataField>ApprovedBy_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ApprovalDate_GoodReceiptLine">
-          <DataField>ApprovalDate_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_GoodReceiptLine">
-          <DataField>ConsigneeCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ClearingAgentCode_GoodReceiptLine">
-          <DataField>ClearingAgentCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_GoodReceiptLine">
-          <DataField>AirlineCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="FlightCode_GoodReceiptLine">
-          <DataField>FlightCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_GoodReceiptLine">
-          <DataField>MAWBNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="PortofLoading_GoodReceiptLine">
-          <DataField>PortofLoading_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="CutoffTime_GoodReceiptLine">
-          <DataField>CutoffTime_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_GoodReceiptLine">
-          <DataField>DestinationCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="PortofDischarge_GoodReceiptLine">
-          <DataField>PortofDischarge_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="PlaceofDelivery_GoodReceiptLine">
-          <DataField>PlaceofDelivery_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ViaRouteTransist_GoodReceiptLine">
-          <DataField>ViaRouteTransist_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="MAWBDate_GoodReceiptLine">
-          <DataField>MAWBDate_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_GoodReceiptLine">
-          <DataField>TypeofDelivery_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="BookingDate_GoodReceiptLine">
-          <DataField>BookingDate_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_GoodReceiptLine">
-          <DataField>ShipperCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_GoodReceiptLine">
-          <DataField>DivisionFarmCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_GoodReceiptLine">
-          <DataField>LoadingSheetNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DestinationAirport_GoodReceiptLine">
-          <DataField>DestinationAirport_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="SourceAirport_GoodReceiptLine">
-          <DataField>SourceAirport_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="SourceCode_GoodReceiptLine">
-          <DataField>SourceCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_GoodReceiptLine">
-          <DataField>ArrivalTemperature_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_GoodReceiptLineFormat">
-          <DataField>ArrivalTemperature_GoodReceiptLineFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2637,4 +2355,281 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="No_GoodReceiptHeader">
+          <DataField>No_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ReceiptDate_GoodReceiptHeader">
+          <DataField>ReceiptDate_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_GoodReceiptHeader">
+          <DataField>ShipperCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_GoodReceiptHeader">
+          <DataField>ShipperName_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_GoodReceiptHeader">
+          <DataField>ConsigneeCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_GoodReceiptHeader">
+          <DataField>ClearingAgentCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_GoodReceiptHeader">
+          <DataField>AirlineCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_GoodReceiptHeader">
+          <DataField>FlightCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_GoodReceiptHeader">
+          <DataField>MAWBNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ShipperAddress_GoodReceiptHeader">
+          <DataField>ShipperAddress_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="Description_GoodReceiptHeader">
+          <DataField>Description_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="PortofLoading_GoodReceiptHeader">
+          <DataField>PortofLoading_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="CutoffTime_GoodReceiptHeader">
+          <DataField>CutoffTime_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_GoodReceiptHeader">
+          <DataField>DestinationCode_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="PortofDischarge_GoodReceiptHeader">
+          <DataField>PortofDischarge_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_GoodReceiptHeader">
+          <DataField>PlaceofDelivery_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_GoodReceiptHeader">
+          <DataField>ViaRouteTransist_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_GoodReceiptHeader">
+          <DataField>BookedWeight_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_GoodReceiptHeaderFormat">
+          <DataField>BookedWeight_GoodReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptHeader">
+          <DataField>ActualWeight_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptHeaderFormat">
+          <DataField>ActualWeight_GoodReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="PreparedBy_GoodReceiptHeader">
+          <DataField>PreparedBy_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_GoodReceiptHeader">
+          <DataField>NoSeries_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_GoodReceiptHeader">
+          <DataField>WeightDifference_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_GoodReceiptHeaderFormat">
+          <DataField>WeightDifference_GoodReceiptHeaderFormat</DataField>
+        </Field>
+        <Field Name="MAWBDate_GoodReceiptHeader">
+          <DataField>MAWBDate_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="Received_GoodReceiptHeader">
+          <DataField>Received_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="Invoiced_GoodReceiptHeader">
+          <DataField>Invoiced_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_GoodReceiptHeader">
+          <DataField>TypeofDelivery_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_GoodReceiptHeader">
+          <DataField>BookingSheetNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="ExternalDocNo_GoodReceiptHeader">
+          <DataField>ExternalDocNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="PostedBy_GoodReceiptHeader">
+          <DataField>PostedBy_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="VehicleNo_GoodReceiptHeader">
+          <DataField>VehicleNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="DriverName_GoodReceiptHeader">
+          <DataField>DriverName_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="VehicleArrivalTime_GoodReceiptHeader">
+          <DataField>VehicleArrivalTime_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="SealNo_GoodReceiptHeader">
+          <DataField>SealNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="DeliveryNo_GoodReceiptHeader">
+          <DataField>DeliveryNo_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="DeliveryDate_GoodReceiptHeader">
+          <DataField>DeliveryDate_GoodReceiptHeader</DataField>
+        </Field>
+        <Field Name="GoodReceiptNo_GoodReceiptLine">
+          <DataField>GoodReceiptNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="LineNo_GoodReceiptLine">
+          <DataField>LineNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Description_GoodReceiptLine">
+          <DataField>Description_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_GoodReceiptLine">
+          <DataField>UnitofMeasureCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Type_GoodReceiptLine">
+          <DataField>Type_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ItemNo_GoodReceiptLine">
+          <DataField>ItemNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_GoodReceiptLine">
+          <DataField>BookedWeight_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_GoodReceiptLineFormat">
+          <DataField>BookedWeight_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptLine">
+          <DataField>ActualWeight_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptLineFormat">
+          <DataField>ActualWeight_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_GoodReceiptLine">
+          <DataField>ULDTypeCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ULDNo_GoodReceiptLine">
+          <DataField>ULDNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Quantity_GoodReceiptLine">
+          <DataField>Quantity_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Quantity_GoodReceiptLineFormat">
+          <DataField>Quantity_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="WeightDifference_GoodReceiptLine">
+          <DataField>WeightDifference_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="WeightDifference_GoodReceiptLineFormat">
+          <DataField>WeightDifference_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_GoodReceiptLine">
+          <DataField>BookedLineAmount_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_GoodReceiptLineFormat">
+          <DataField>BookedLineAmount_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_GoodReceiptLine">
+          <DataField>ActualLineAmount_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_GoodReceiptLineFormat">
+          <DataField>ActualLineAmount_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="RateAmount_GoodReceiptLine">
+          <DataField>RateAmount_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="RateAmount_GoodReceiptLineFormat">
+          <DataField>RateAmount_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="LocationCode_GoodReceiptLine">
+          <DataField>LocationCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ProductGroupCode_GoodReceiptLine">
+          <DataField>ProductGroupCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Status_GoodReceiptLine">
+          <DataField>Status_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ApprovedBy_GoodReceiptLine">
+          <DataField>ApprovedBy_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ApprovalDate_GoodReceiptLine">
+          <DataField>ApprovalDate_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_GoodReceiptLine">
+          <DataField>ConsigneeCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_GoodReceiptLine">
+          <DataField>ClearingAgentCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_GoodReceiptLine">
+          <DataField>AirlineCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="FlightCode_GoodReceiptLine">
+          <DataField>FlightCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_GoodReceiptLine">
+          <DataField>MAWBNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="PortofLoading_GoodReceiptLine">
+          <DataField>PortofLoading_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="CutoffTime_GoodReceiptLine">
+          <DataField>CutoffTime_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_GoodReceiptLine">
+          <DataField>DestinationCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="PortofDischarge_GoodReceiptLine">
+          <DataField>PortofDischarge_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_GoodReceiptLine">
+          <DataField>PlaceofDelivery_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_GoodReceiptLine">
+          <DataField>ViaRouteTransist_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="MAWBDate_GoodReceiptLine">
+          <DataField>MAWBDate_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_GoodReceiptLine">
+          <DataField>TypeofDelivery_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="BookingDate_GoodReceiptLine">
+          <DataField>BookingDate_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_GoodReceiptLine">
+          <DataField>ShipperCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_GoodReceiptLine">
+          <DataField>DivisionFarmCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_GoodReceiptLine">
+          <DataField>LoadingSheetNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DestinationAirport_GoodReceiptLine">
+          <DataField>DestinationAirport_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="SourceAirport_GoodReceiptLine">
+          <DataField>SourceAirport_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="SourceCode_GoodReceiptLine">
+          <DataField>SourceCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_GoodReceiptLine">
+          <DataField>ArrivalTemperature_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_GoodReceiptLineFormat">
+          <DataField>ArrivalTemperature_GoodReceiptLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

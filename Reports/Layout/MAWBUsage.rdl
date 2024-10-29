@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,219 +10,6 @@
       <rd:DataSourceID>8d71467f-0ef2-4be5-aff0-e64dd8728dcf</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Filters">
-          <DataField>Filters</DataField>
-        </Field>
-        <Field Name="CompanyLogo">
-          <DataField>CompanyLogo</DataField>
-        </Field>
-        <Field Name="No_MAWBHeader">
-          <DataField>No_MAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_MAWBHeader">
-          <DataField>ShipperCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperAddress_MAWBHeader">
-          <DataField>ShipperAddress_MAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_MAWBHeader">
-          <DataField>ShipperName_MAWBHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_MAWBHeader">
-          <DataField>ConsigneeCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeName_MAWBHeader">
-          <DataField>ConsigneeName_MAWBHeader</DataField>
-        </Field>
-        <Field Name="AgentsIATACode_MAWBHeader">
-          <DataField>AgentsIATACode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="CarrierAgentCode_MAWBHeader">
-          <DataField>CarrierAgentCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="SourceAirport_MAWBHeader">
-          <DataField>SourceAirport_MAWBHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_MAWBHeader">
-          <DataField>AirlineCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="DestinationAirport_MAWBHeader">
-          <DataField>DestinationAirport_MAWBHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_MAWBHeader">
-          <DataField>FlightCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="DestinationCode_MAWBHeader">
-          <DataField>DestinationCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="PreparationDate_MAWBHeader">
-          <DataField>PreparationDate_MAWBHeader</DataField>
-        </Field>
-        <Field Name="Consolidated_MAWBHeader">
-          <DataField>Consolidated_MAWBHeader</DataField>
-        </Field>
-        <Field Name="AgentCode_MAWBHeader">
-          <DataField>AgentCode_MAWBHeader</DataField>
-        </Field>
-        <Field Name="HasHouses_MAWBHeader2">
-          <DataField>HasHouses_MAWBHeader2</DataField>
-        </Field>
-        <Field Name="CustomEntryNo_MAWBHeader2">
-          <DataField>CustomEntryNo_MAWBHeader2</DataField>
-        </Field>
-        <Field Name="EuroFormNo_MAWBHeader2">
-          <DataField>EuroFormNo_MAWBHeader2</DataField>
-        </Field>
-        <Field Name="CommercialInvoiceNo_MAWBHeader2">
-          <DataField>CommercialInvoiceNo_MAWBHeader2</DataField>
-        </Field>
-        <Field Name="PhytoCertificate_MAWBHeader2">
-          <DataField>PhytoCertificate_MAWBHeader2</DataField>
-        </Field>
-        <Field Name="InvoiceRate">
-          <DataField>InvoiceRate</DataField>
-        </Field>
-        <Field Name="InvoiceRateFormat">
-          <DataField>InvoiceRateFormat</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBLine">
-          <DataField>MAWBNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="ItemNo_MAWBLine">
-          <DataField>ItemNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="Description_MAWBLine">
-          <DataField>Description_MAWBLine</DataField>
-        </Field>
-        <Field Name="SplitWeight_MAWBLine">
-          <DataField>SplitWeight_MAWBLine</DataField>
-        </Field>
-        <Field Name="SplitWeight_MAWBLineFormat">
-          <DataField>SplitWeight_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="UnitofMeasure_MAWBLine">
-          <DataField>UnitofMeasure_MAWBLine</DataField>
-        </Field>
-        <Field Name="RateCharge_MAWBLine">
-          <DataField>RateCharge_MAWBLine</DataField>
-        </Field>
-        <Field Name="RateCharge_MAWBLineFormat">
-          <DataField>RateCharge_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_MAWBLine">
-          <DataField>ChargeableWeight_MAWBLine</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_MAWBLineFormat">
-          <DataField>ChargeableWeight_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="HAWBNo_MAWBLine">
-          <DataField>HAWBNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="LineAmount_MAWBLine">
-          <DataField>LineAmount_MAWBLine</DataField>
-        </Field>
-        <Field Name="LineAmount_MAWBLineFormat">
-          <DataField>LineAmount_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="Quantity_MAWBLine">
-          <DataField>Quantity_MAWBLine</DataField>
-        </Field>
-        <Field Name="Quantity_MAWBLineFormat">
-          <DataField>Quantity_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="LineNo_MAWBLine">
-          <DataField>LineNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="DivisionCode_MAWBLine">
-          <DataField>DivisionCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_MAWBLine">
-          <DataField>GrossWeight_MAWBLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_MAWBLineFormat">
-          <DataField>GrossWeight_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="AirlineCode_MAWBLine">
-          <DataField>AirlineCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_MAWBLine">
-          <DataField>ConsigneeCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="FlightCode_MAWBLine">
-          <DataField>FlightCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_MAWBLine">
-          <DataField>DestinationCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="FlightDate_MAWBLine">
-          <DataField>FlightDate_MAWBLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_MAWBLine">
-          <DataField>UnitofMeasureCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="Type_MAWBLine">
-          <DataField>Type_MAWBLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_MAWBLine">
-          <DataField>ShipperCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="InvoiceNo_MAWBLine">
-          <DataField>InvoiceNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_MAWBLine">
-          <DataField>DivisionFarmCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="SplitFactor_MAWBLine">
-          <DataField>SplitFactor_MAWBLine</DataField>
-        </Field>
-        <Field Name="SplitFactor_MAWBLineFormat">
-          <DataField>SplitFactor_MAWBLineFormat</DataField>
-        </Field>
-        <Field Name="LocationCode_MAWBLine">
-          <DataField>LocationCode_MAWBLine</DataField>
-        </Field>
-        <Field Name="CustomEnrtyNo_MAWBLine">
-          <DataField>CustomEnrtyNo_MAWBLine</DataField>
-        </Field>
-        <Field Name="ConsigneeName">
-          <DataField>ConsigneeName</DataField>
-        </Field>
-        <Field Name="ShipperName">
-          <DataField>ShipperName</DataField>
-        </Field>
-        <Field Name="AirlineName">
-          <DataField>AirlineName</DataField>
-        </Field>
-        <Field Name="MasterDataRate">
-          <DataField>MasterDataRate</DataField>
-        </Field>
-        <Field Name="MasterDataRateFormat">
-          <DataField>MasterDataRateFormat</DataField>
-        </Field>
-        <Field Name="SalesInvoiceRate">
-          <DataField>SalesInvoiceRate</DataField>
-        </Field>
-        <Field Name="SalesInvoiceRateFormat">
-          <DataField>SalesInvoiceRateFormat</DataField>
-        </Field>
-        <Field Name="Phyto_MAWBLine">
-          <DataField>Phyto_MAWBLine</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -5225,4 +5012,212 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Filters">
+          <DataField>Filters</DataField>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="No_MAWBHeader">
+          <DataField>No_MAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_MAWBHeader">
+          <DataField>ShipperCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperAddress_MAWBHeader">
+          <DataField>ShipperAddress_MAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_MAWBHeader">
+          <DataField>ShipperName_MAWBHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_MAWBHeader">
+          <DataField>ConsigneeCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeName_MAWBHeader">
+          <DataField>ConsigneeName_MAWBHeader</DataField>
+        </Field>
+        <Field Name="AgentsIATACode_MAWBHeader">
+          <DataField>AgentsIATACode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="CarrierAgentCode_MAWBHeader">
+          <DataField>CarrierAgentCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="SourceAirport_MAWBHeader">
+          <DataField>SourceAirport_MAWBHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_MAWBHeader">
+          <DataField>AirlineCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="DestinationAirport_MAWBHeader">
+          <DataField>DestinationAirport_MAWBHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_MAWBHeader">
+          <DataField>FlightCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_MAWBHeader">
+          <DataField>DestinationCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="PreparationDate_MAWBHeader">
+          <DataField>PreparationDate_MAWBHeader</DataField>
+        </Field>
+        <Field Name="Consolidated_MAWBHeader">
+          <DataField>Consolidated_MAWBHeader</DataField>
+        </Field>
+        <Field Name="AgentCode_MAWBHeader">
+          <DataField>AgentCode_MAWBHeader</DataField>
+        </Field>
+        <Field Name="HasHouses_MAWBHeader2">
+          <DataField>HasHouses_MAWBHeader2</DataField>
+        </Field>
+        <Field Name="CustomEntryNo_MAWBHeader2">
+          <DataField>CustomEntryNo_MAWBHeader2</DataField>
+        </Field>
+        <Field Name="EuroFormNo_MAWBHeader2">
+          <DataField>EuroFormNo_MAWBHeader2</DataField>
+        </Field>
+        <Field Name="CommercialInvoiceNo_MAWBHeader2">
+          <DataField>CommercialInvoiceNo_MAWBHeader2</DataField>
+        </Field>
+        <Field Name="PhytoCertificate_MAWBHeader2">
+          <DataField>PhytoCertificate_MAWBHeader2</DataField>
+        </Field>
+        <Field Name="InvoiceRate">
+          <DataField>InvoiceRate</DataField>
+        </Field>
+        <Field Name="InvoiceRateFormat">
+          <DataField>InvoiceRateFormat</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBLine">
+          <DataField>MAWBNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="ItemNo_MAWBLine">
+          <DataField>ItemNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="Description_MAWBLine">
+          <DataField>Description_MAWBLine</DataField>
+        </Field>
+        <Field Name="SplitWeight_MAWBLine">
+          <DataField>SplitWeight_MAWBLine</DataField>
+        </Field>
+        <Field Name="SplitWeight_MAWBLineFormat">
+          <DataField>SplitWeight_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_MAWBLine">
+          <DataField>UnitofMeasure_MAWBLine</DataField>
+        </Field>
+        <Field Name="RateCharge_MAWBLine">
+          <DataField>RateCharge_MAWBLine</DataField>
+        </Field>
+        <Field Name="RateCharge_MAWBLineFormat">
+          <DataField>RateCharge_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_MAWBLine">
+          <DataField>ChargeableWeight_MAWBLine</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_MAWBLineFormat">
+          <DataField>ChargeableWeight_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="HAWBNo_MAWBLine">
+          <DataField>HAWBNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="LineAmount_MAWBLine">
+          <DataField>LineAmount_MAWBLine</DataField>
+        </Field>
+        <Field Name="LineAmount_MAWBLineFormat">
+          <DataField>LineAmount_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="Quantity_MAWBLine">
+          <DataField>Quantity_MAWBLine</DataField>
+        </Field>
+        <Field Name="Quantity_MAWBLineFormat">
+          <DataField>Quantity_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="LineNo_MAWBLine">
+          <DataField>LineNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="DivisionCode_MAWBLine">
+          <DataField>DivisionCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_MAWBLine">
+          <DataField>GrossWeight_MAWBLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_MAWBLineFormat">
+          <DataField>GrossWeight_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="AirlineCode_MAWBLine">
+          <DataField>AirlineCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_MAWBLine">
+          <DataField>ConsigneeCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="FlightCode_MAWBLine">
+          <DataField>FlightCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_MAWBLine">
+          <DataField>DestinationCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="FlightDate_MAWBLine">
+          <DataField>FlightDate_MAWBLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_MAWBLine">
+          <DataField>UnitofMeasureCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="Type_MAWBLine">
+          <DataField>Type_MAWBLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_MAWBLine">
+          <DataField>ShipperCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="InvoiceNo_MAWBLine">
+          <DataField>InvoiceNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_MAWBLine">
+          <DataField>DivisionFarmCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="SplitFactor_MAWBLine">
+          <DataField>SplitFactor_MAWBLine</DataField>
+        </Field>
+        <Field Name="SplitFactor_MAWBLineFormat">
+          <DataField>SplitFactor_MAWBLineFormat</DataField>
+        </Field>
+        <Field Name="LocationCode_MAWBLine">
+          <DataField>LocationCode_MAWBLine</DataField>
+        </Field>
+        <Field Name="CustomEnrtyNo_MAWBLine">
+          <DataField>CustomEnrtyNo_MAWBLine</DataField>
+        </Field>
+        <Field Name="ConsigneeName">
+          <DataField>ConsigneeName</DataField>
+        </Field>
+        <Field Name="ShipperName">
+          <DataField>ShipperName</DataField>
+        </Field>
+        <Field Name="AirlineName">
+          <DataField>AirlineName</DataField>
+        </Field>
+        <Field Name="MasterDataRate">
+          <DataField>MasterDataRate</DataField>
+        </Field>
+        <Field Name="MasterDataRateFormat">
+          <DataField>MasterDataRateFormat</DataField>
+        </Field>
+        <Field Name="SalesInvoiceRate">
+          <DataField>SalesInvoiceRate</DataField>
+        </Field>
+        <Field Name="SalesInvoiceRateFormat">
+          <DataField>SalesInvoiceRateFormat</DataField>
+        </Field>
+        <Field Name="Phyto_MAWBLine">
+          <DataField>Phyto_MAWBLine</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

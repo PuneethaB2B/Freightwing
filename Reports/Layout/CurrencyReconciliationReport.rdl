@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,123 +10,6 @@
       <rd:DataSourceID>2e22594d-6fca-412e-83a6-f0de3ae65032</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ShowCustomer">
-          <DataField>ShowCustomer</DataField>
-        </Field>
-        <Field Name="ShowVendor">
-          <DataField>ShowVendor</DataField>
-        </Field>
-        <Field Name="PostingDate_CustLedgerEntry">
-          <DataField>PostingDate_CustLedgerEntry</DataField>
-        </Field>
-        <Field Name="DocumentNo_CustLedgerEntry">
-          <DataField>DocumentNo_CustLedgerEntry</DataField>
-        </Field>
-        <Field Name="CustomerNo_CustLedgerEntry">
-          <DataField>CustomerNo_CustLedgerEntry</DataField>
-        </Field>
-        <Field Name="CurrencyCode_CustLedgerEntry">
-          <DataField>CurrencyCode_CustLedgerEntry</DataField>
-        </Field>
-        <Field Name="Amount_CustLedgerEntry">
-          <DataField>Amount_CustLedgerEntry</DataField>
-        </Field>
-        <Field Name="Amount_CustLedgerEntryFormat">
-          <DataField>Amount_CustLedgerEntryFormat</DataField>
-        </Field>
-        <Field Name="BookingRate_Customer">
-          <DataField>BookingRate_Customer</DataField>
-        </Field>
-        <Field Name="BookingRate_CustomerFormat">
-          <DataField>BookingRate_CustomerFormat</DataField>
-        </Field>
-        <Field Name="AuditRate_Customer">
-          <DataField>AuditRate_Customer</DataField>
-        </Field>
-        <Field Name="AuditRate_CustomerFormat">
-          <DataField>AuditRate_CustomerFormat</DataField>
-        </Field>
-        <Field Name="AmountLCY_Customer">
-          <DataField>AmountLCY_Customer</DataField>
-        </Field>
-        <Field Name="AmountLCY_CustomerFormat">
-          <DataField>AmountLCY_CustomerFormat</DataField>
-        </Field>
-        <Field Name="RateDiff_Customer">
-          <DataField>RateDiff_Customer</DataField>
-        </Field>
-        <Field Name="RateDiff_CustomerFormat">
-          <DataField>RateDiff_CustomerFormat</DataField>
-        </Field>
-        <Field Name="UnRealAmt_Customer">
-          <DataField>UnRealAmt_Customer</DataField>
-        </Field>
-        <Field Name="UnRealAmt_CustomerFormat">
-          <DataField>UnRealAmt_CustomerFormat</DataField>
-        </Field>
-        <Field Name="PostingDate_VendorLedgerEntry">
-          <DataField>PostingDate_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="DocumentNo_VendorLedgerEntry">
-          <DataField>DocumentNo_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="VendorNo_VendorLedgerEntry">
-          <DataField>VendorNo_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="CurrencyCode_VendorLedgerEntry">
-          <DataField>CurrencyCode_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="RemainingAmount_VendorLedgerEntry">
-          <DataField>RemainingAmount_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="RemainingAmount_VendorLedgerEntryFormat">
-          <DataField>RemainingAmount_VendorLedgerEntryFormat</DataField>
-        </Field>
-        <Field Name="BookingRate_Vendor">
-          <DataField>BookingRate_Vendor</DataField>
-        </Field>
-        <Field Name="BookingRate_VendorFormat">
-          <DataField>BookingRate_VendorFormat</DataField>
-        </Field>
-        <Field Name="AuditRate_Vendor">
-          <DataField>AuditRate_Vendor</DataField>
-        </Field>
-        <Field Name="AuditRate_VendorFormat">
-          <DataField>AuditRate_VendorFormat</DataField>
-        </Field>
-        <Field Name="AmountLCY_Vendor">
-          <DataField>AmountLCY_Vendor</DataField>
-        </Field>
-        <Field Name="AmountLCY_VendorFormat">
-          <DataField>AmountLCY_VendorFormat</DataField>
-        </Field>
-        <Field Name="RateDiff_Vendor">
-          <DataField>RateDiff_Vendor</DataField>
-        </Field>
-        <Field Name="RateDiff_VendorFormat">
-          <DataField>RateDiff_VendorFormat</DataField>
-        </Field>
-        <Field Name="UnRealAmt_Vendor">
-          <DataField>UnRealAmt_Vendor</DataField>
-        </Field>
-        <Field Name="UnRealAmt_VendorFormat">
-          <DataField>UnRealAmt_VendorFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2362,4 +2245,116 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ShowCustomer">
+          <DataField>ShowCustomer</DataField>
+        </Field>
+        <Field Name="ShowVendor">
+          <DataField>ShowVendor</DataField>
+        </Field>
+        <Field Name="PostingDate_CustLedgerEntry">
+          <DataField>PostingDate_CustLedgerEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_CustLedgerEntry">
+          <DataField>DocumentNo_CustLedgerEntry</DataField>
+        </Field>
+        <Field Name="CustomerNo_CustLedgerEntry">
+          <DataField>CustomerNo_CustLedgerEntry</DataField>
+        </Field>
+        <Field Name="CurrencyCode_CustLedgerEntry">
+          <DataField>CurrencyCode_CustLedgerEntry</DataField>
+        </Field>
+        <Field Name="Amount_CustLedgerEntry">
+          <DataField>Amount_CustLedgerEntry</DataField>
+        </Field>
+        <Field Name="Amount_CustLedgerEntryFormat">
+          <DataField>Amount_CustLedgerEntryFormat</DataField>
+        </Field>
+        <Field Name="BookingRate_Customer">
+          <DataField>BookingRate_Customer</DataField>
+        </Field>
+        <Field Name="BookingRate_CustomerFormat">
+          <DataField>BookingRate_CustomerFormat</DataField>
+        </Field>
+        <Field Name="AuditRate_Customer">
+          <DataField>AuditRate_Customer</DataField>
+        </Field>
+        <Field Name="AuditRate_CustomerFormat">
+          <DataField>AuditRate_CustomerFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_Customer">
+          <DataField>AmountLCY_Customer</DataField>
+        </Field>
+        <Field Name="AmountLCY_CustomerFormat">
+          <DataField>AmountLCY_CustomerFormat</DataField>
+        </Field>
+        <Field Name="RateDiff_Customer">
+          <DataField>RateDiff_Customer</DataField>
+        </Field>
+        <Field Name="RateDiff_CustomerFormat">
+          <DataField>RateDiff_CustomerFormat</DataField>
+        </Field>
+        <Field Name="UnRealAmt_Customer">
+          <DataField>UnRealAmt_Customer</DataField>
+        </Field>
+        <Field Name="UnRealAmt_CustomerFormat">
+          <DataField>UnRealAmt_CustomerFormat</DataField>
+        </Field>
+        <Field Name="PostingDate_VendorLedgerEntry">
+          <DataField>PostingDate_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_VendorLedgerEntry">
+          <DataField>DocumentNo_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="VendorNo_VendorLedgerEntry">
+          <DataField>VendorNo_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="CurrencyCode_VendorLedgerEntry">
+          <DataField>CurrencyCode_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="RemainingAmount_VendorLedgerEntry">
+          <DataField>RemainingAmount_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="RemainingAmount_VendorLedgerEntryFormat">
+          <DataField>RemainingAmount_VendorLedgerEntryFormat</DataField>
+        </Field>
+        <Field Name="BookingRate_Vendor">
+          <DataField>BookingRate_Vendor</DataField>
+        </Field>
+        <Field Name="BookingRate_VendorFormat">
+          <DataField>BookingRate_VendorFormat</DataField>
+        </Field>
+        <Field Name="AuditRate_Vendor">
+          <DataField>AuditRate_Vendor</DataField>
+        </Field>
+        <Field Name="AuditRate_VendorFormat">
+          <DataField>AuditRate_VendorFormat</DataField>
+        </Field>
+        <Field Name="AmountLCY_Vendor">
+          <DataField>AmountLCY_Vendor</DataField>
+        </Field>
+        <Field Name="AmountLCY_VendorFormat">
+          <DataField>AmountLCY_VendorFormat</DataField>
+        </Field>
+        <Field Name="RateDiff_Vendor">
+          <DataField>RateDiff_Vendor</DataField>
+        </Field>
+        <Field Name="RateDiff_VendorFormat">
+          <DataField>RateDiff_VendorFormat</DataField>
+        </Field>
+        <Field Name="UnRealAmt_Vendor">
+          <DataField>UnRealAmt_Vendor</DataField>
+        </Field>
+        <Field Name="UnRealAmt_VendorFormat">
+          <DataField>UnRealAmt_VendorFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

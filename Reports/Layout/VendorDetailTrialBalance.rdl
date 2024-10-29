@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,207 +10,6 @@
       <rd:DataSourceID>87c53af1-fc5f-41ac-b1d0-82930778f46c</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="VendDatetFilterPeriod">
-          <DataField>VendDatetFilterPeriod</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="VendorTblCapVendFltr">
-          <DataField>VendorTblCapVendFltr</DataField>
-        </Field>
-        <Field Name="VendFilter">
-          <DataField>VendFilter</DataField>
-        </Field>
-        <Field Name="PageGroupNo">
-          <DataField>PageGroupNo</DataField>
-        </Field>
-        <Field Name="PrintAmountsInLCY">
-          <DataField>PrintAmountsInLCY</DataField>
-        </Field>
-        <Field Name="ExcludeBalanceOnly">
-          <DataField>ExcludeBalanceOnly</DataField>
-        </Field>
-        <Field Name="PrintOnlyOnePerPage">
-          <DataField>PrintOnlyOnePerPage</DataField>
-        </Field>
-        <Field Name="AmountCaption">
-          <DataField>AmountCaption</DataField>
-        </Field>
-        <Field Name="RemainingAmtCaption">
-          <DataField>RemainingAmtCaption</DataField>
-        </Field>
-        <Field Name="No_Vendor">
-          <DataField>No_Vendor</DataField>
-        </Field>
-        <Field Name="Name_Vendor">
-          <DataField>Name_Vendor</DataField>
-        </Field>
-        <Field Name="PhoneNo_Vendor">
-          <DataField>PhoneNo_Vendor</DataField>
-        </Field>
-        <Field Name="StartBalanceLCY">
-          <DataField>StartBalanceLCY</DataField>
-        </Field>
-        <Field Name="StartBalanceLCYFormat">
-          <DataField>StartBalanceLCYFormat</DataField>
-        </Field>
-        <Field Name="StartBalAdjLCY">
-          <DataField>StartBalAdjLCY</DataField>
-        </Field>
-        <Field Name="StartBalAdjLCYFormat">
-          <DataField>StartBalAdjLCYFormat</DataField>
-        </Field>
-        <Field Name="VendBalanceLCY">
-          <DataField>VendBalanceLCY</DataField>
-        </Field>
-        <Field Name="VendBalanceLCYFormat">
-          <DataField>VendBalanceLCYFormat</DataField>
-        </Field>
-        <Field Name="StrtBalLCYStartBalAdjLCY">
-          <DataField>StrtBalLCYStartBalAdjLCY</DataField>
-        </Field>
-        <Field Name="StrtBalLCYStartBalAdjLCYFormat">
-          <DataField>StrtBalLCYStartBalAdjLCYFormat</DataField>
-        </Field>
-        <Field Name="VendDetailTrialBalCap">
-          <DataField>VendDetailTrialBalCap</DataField>
-        </Field>
-        <Field Name="PageCaption">
-          <DataField>PageCaption</DataField>
-        </Field>
-        <Field Name="AllamountsareinLCYCaption">
-          <DataField>AllamountsareinLCYCaption</DataField>
-        </Field>
-        <Field Name="ReportIncludesvendorshavebalanceCaption">
-          <DataField>ReportIncludesvendorshavebalanceCaption</DataField>
-        </Field>
-        <Field Name="PostingDateCaption">
-          <DataField>PostingDateCaption</DataField>
-        </Field>
-        <Field Name="BalanceLCYCaption">
-          <DataField>BalanceLCYCaption</DataField>
-        </Field>
-        <Field Name="DueDateCaption">
-          <DataField>DueDateCaption</DataField>
-        </Field>
-        <Field Name="AdjofOpeningBalanceCaption">
-          <DataField>AdjofOpeningBalanceCaption</DataField>
-        </Field>
-        <Field Name="TotalLCYCaption">
-          <DataField>TotalLCYCaption</DataField>
-        </Field>
-        <Field Name="TotalAdjofOpenBalCaption">
-          <DataField>TotalAdjofOpenBalCaption</DataField>
-        </Field>
-        <Field Name="TotalLCYBeforePeriodCaption">
-          <DataField>TotalLCYBeforePeriodCaption</DataField>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-        </Field>
-        <Field Name="PostingDate_VendLedgEntry">
-          <DataField>PostingDate_VendLedgEntry</DataField>
-        </Field>
-        <Field Name="DocType_VendLedgEntry">
-          <DataField>DocType_VendLedgEntry</DataField>
-        </Field>
-        <Field Name="DocNo_VendLedgerEntry">
-          <DataField>DocNo_VendLedgerEntry</DataField>
-        </Field>
-        <Field Name="Desc_VendLedgerEntry">
-          <DataField>Desc_VendLedgerEntry</DataField>
-        </Field>
-        <Field Name="VendAmount">
-          <DataField>VendAmount</DataField>
-        </Field>
-        <Field Name="VendAmountFormat">
-          <DataField>VendAmountFormat</DataField>
-        </Field>
-        <Field Name="VendBalLCY2">
-          <DataField>VendBalLCY2</DataField>
-        </Field>
-        <Field Name="VendBalLCY2Format">
-          <DataField>VendBalLCY2Format</DataField>
-        </Field>
-        <Field Name="VendRemainAmount">
-          <DataField>VendRemainAmount</DataField>
-        </Field>
-        <Field Name="VendRemainAmountFormat">
-          <DataField>VendRemainAmountFormat</DataField>
-        </Field>
-        <Field Name="VendEntryDueDate">
-          <DataField>VendEntryDueDate</DataField>
-        </Field>
-        <Field Name="EntryNo_VendorLedgerEntry">
-          <DataField>EntryNo_VendorLedgerEntry</DataField>
-        </Field>
-        <Field Name="VendCurrencyCode">
-          <DataField>VendCurrencyCode</DataField>
-        </Field>
-        <Field Name="EntryTyp_DetVendLedgEntry">
-          <DataField>EntryTyp_DetVendLedgEntry</DataField>
-        </Field>
-        <Field Name="Correction">
-          <DataField>Correction</DataField>
-        </Field>
-        <Field Name="CorrectionFormat">
-          <DataField>CorrectionFormat</DataField>
-        </Field>
-        <Field Name="Entry_DetVendLedgEntry2">
-          <DataField>Entry_DetVendLedgEntry2</DataField>
-        </Field>
-        <Field Name="VendBalanceLCY3">
-          <DataField>VendBalanceLCY3</DataField>
-        </Field>
-        <Field Name="VendBalanceLCY3Format">
-          <DataField>VendBalanceLCY3Format</DataField>
-        </Field>
-        <Field Name="ApplicationRounding">
-          <DataField>ApplicationRounding</DataField>
-        </Field>
-        <Field Name="ApplicationRoundingFormat">
-          <DataField>ApplicationRoundingFormat</DataField>
-        </Field>
-        <Field Name="VendBalanceLCY4">
-          <DataField>VendBalanceLCY4</DataField>
-        </Field>
-        <Field Name="VendBalanceLCY4Format">
-          <DataField>VendBalanceLCY4Format</DataField>
-        </Field>
-        <Field Name="StartBalAdjLCY1">
-          <DataField>StartBalAdjLCY1</DataField>
-        </Field>
-        <Field Name="StartBalAdjLCY1Format">
-          <DataField>StartBalAdjLCY1Format</DataField>
-        </Field>
-        <Field Name="StartBalanceLCY1">
-          <DataField>StartBalanceLCY1</DataField>
-        </Field>
-        <Field Name="StartBalanceLCY1Format">
-          <DataField>StartBalanceLCY1Format</DataField>
-        </Field>
-        <Field Name="VendBalStrtBalStrtBalAdj">
-          <DataField>VendBalStrtBalStrtBalAdj</DataField>
-        </Field>
-        <Field Name="VendBalStrtBalStrtBalAdjFormat">
-          <DataField>VendBalStrtBalStrtBalAdjFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -7026,4 +6825,200 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>d39b4e5f-097d-4c38-9c75-1c16b28f2dac</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="VendDatetFilterPeriod">
+          <DataField>VendDatetFilterPeriod</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="VendorTblCapVendFltr">
+          <DataField>VendorTblCapVendFltr</DataField>
+        </Field>
+        <Field Name="VendFilter">
+          <DataField>VendFilter</DataField>
+        </Field>
+        <Field Name="PageGroupNo">
+          <DataField>PageGroupNo</DataField>
+        </Field>
+        <Field Name="PrintAmountsInLCY">
+          <DataField>PrintAmountsInLCY</DataField>
+        </Field>
+        <Field Name="ExcludeBalanceOnly">
+          <DataField>ExcludeBalanceOnly</DataField>
+        </Field>
+        <Field Name="PrintOnlyOnePerPage">
+          <DataField>PrintOnlyOnePerPage</DataField>
+        </Field>
+        <Field Name="AmountCaption">
+          <DataField>AmountCaption</DataField>
+        </Field>
+        <Field Name="RemainingAmtCaption">
+          <DataField>RemainingAmtCaption</DataField>
+        </Field>
+        <Field Name="No_Vendor">
+          <DataField>No_Vendor</DataField>
+        </Field>
+        <Field Name="Name_Vendor">
+          <DataField>Name_Vendor</DataField>
+        </Field>
+        <Field Name="PhoneNo_Vendor">
+          <DataField>PhoneNo_Vendor</DataField>
+        </Field>
+        <Field Name="StartBalanceLCY">
+          <DataField>StartBalanceLCY</DataField>
+        </Field>
+        <Field Name="StartBalanceLCYFormat">
+          <DataField>StartBalanceLCYFormat</DataField>
+        </Field>
+        <Field Name="StartBalAdjLCY">
+          <DataField>StartBalAdjLCY</DataField>
+        </Field>
+        <Field Name="StartBalAdjLCYFormat">
+          <DataField>StartBalAdjLCYFormat</DataField>
+        </Field>
+        <Field Name="VendBalanceLCY">
+          <DataField>VendBalanceLCY</DataField>
+        </Field>
+        <Field Name="VendBalanceLCYFormat">
+          <DataField>VendBalanceLCYFormat</DataField>
+        </Field>
+        <Field Name="StrtBalLCYStartBalAdjLCY">
+          <DataField>StrtBalLCYStartBalAdjLCY</DataField>
+        </Field>
+        <Field Name="StrtBalLCYStartBalAdjLCYFormat">
+          <DataField>StrtBalLCYStartBalAdjLCYFormat</DataField>
+        </Field>
+        <Field Name="VendDetailTrialBalCap">
+          <DataField>VendDetailTrialBalCap</DataField>
+        </Field>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="AllamountsareinLCYCaption">
+          <DataField>AllamountsareinLCYCaption</DataField>
+        </Field>
+        <Field Name="ReportIncludesvendorshavebalanceCaption">
+          <DataField>ReportIncludesvendorshavebalanceCaption</DataField>
+        </Field>
+        <Field Name="PostingDateCaption">
+          <DataField>PostingDateCaption</DataField>
+        </Field>
+        <Field Name="BalanceLCYCaption">
+          <DataField>BalanceLCYCaption</DataField>
+        </Field>
+        <Field Name="DueDateCaption">
+          <DataField>DueDateCaption</DataField>
+        </Field>
+        <Field Name="AdjofOpeningBalanceCaption">
+          <DataField>AdjofOpeningBalanceCaption</DataField>
+        </Field>
+        <Field Name="TotalLCYCaption">
+          <DataField>TotalLCYCaption</DataField>
+        </Field>
+        <Field Name="TotalAdjofOpenBalCaption">
+          <DataField>TotalAdjofOpenBalCaption</DataField>
+        </Field>
+        <Field Name="TotalLCYBeforePeriodCaption">
+          <DataField>TotalLCYBeforePeriodCaption</DataField>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+        </Field>
+        <Field Name="PostingDate_VendLedgEntry">
+          <DataField>PostingDate_VendLedgEntry</DataField>
+        </Field>
+        <Field Name="DocType_VendLedgEntry">
+          <DataField>DocType_VendLedgEntry</DataField>
+        </Field>
+        <Field Name="DocNo_VendLedgerEntry">
+          <DataField>DocNo_VendLedgerEntry</DataField>
+        </Field>
+        <Field Name="Desc_VendLedgerEntry">
+          <DataField>Desc_VendLedgerEntry</DataField>
+        </Field>
+        <Field Name="VendAmount">
+          <DataField>VendAmount</DataField>
+        </Field>
+        <Field Name="VendAmountFormat">
+          <DataField>VendAmountFormat</DataField>
+        </Field>
+        <Field Name="VendBalLCY2">
+          <DataField>VendBalLCY2</DataField>
+        </Field>
+        <Field Name="VendBalLCY2Format">
+          <DataField>VendBalLCY2Format</DataField>
+        </Field>
+        <Field Name="VendRemainAmount">
+          <DataField>VendRemainAmount</DataField>
+        </Field>
+        <Field Name="VendRemainAmountFormat">
+          <DataField>VendRemainAmountFormat</DataField>
+        </Field>
+        <Field Name="VendEntryDueDate">
+          <DataField>VendEntryDueDate</DataField>
+        </Field>
+        <Field Name="EntryNo_VendorLedgerEntry">
+          <DataField>EntryNo_VendorLedgerEntry</DataField>
+        </Field>
+        <Field Name="VendCurrencyCode">
+          <DataField>VendCurrencyCode</DataField>
+        </Field>
+        <Field Name="EntryTyp_DetVendLedgEntry">
+          <DataField>EntryTyp_DetVendLedgEntry</DataField>
+        </Field>
+        <Field Name="Correction">
+          <DataField>Correction</DataField>
+        </Field>
+        <Field Name="CorrectionFormat">
+          <DataField>CorrectionFormat</DataField>
+        </Field>
+        <Field Name="Entry_DetVendLedgEntry2">
+          <DataField>Entry_DetVendLedgEntry2</DataField>
+        </Field>
+        <Field Name="VendBalanceLCY3">
+          <DataField>VendBalanceLCY3</DataField>
+        </Field>
+        <Field Name="VendBalanceLCY3Format">
+          <DataField>VendBalanceLCY3Format</DataField>
+        </Field>
+        <Field Name="ApplicationRounding">
+          <DataField>ApplicationRounding</DataField>
+        </Field>
+        <Field Name="ApplicationRoundingFormat">
+          <DataField>ApplicationRoundingFormat</DataField>
+        </Field>
+        <Field Name="VendBalanceLCY4">
+          <DataField>VendBalanceLCY4</DataField>
+        </Field>
+        <Field Name="VendBalanceLCY4Format">
+          <DataField>VendBalanceLCY4Format</DataField>
+        </Field>
+        <Field Name="StartBalAdjLCY1">
+          <DataField>StartBalAdjLCY1</DataField>
+        </Field>
+        <Field Name="StartBalAdjLCY1Format">
+          <DataField>StartBalAdjLCY1Format</DataField>
+        </Field>
+        <Field Name="StartBalanceLCY1">
+          <DataField>StartBalanceLCY1</DataField>
+        </Field>
+        <Field Name="StartBalanceLCY1Format">
+          <DataField>StartBalanceLCY1Format</DataField>
+        </Field>
+        <Field Name="VendBalStrtBalStrtBalAdj">
+          <DataField>VendBalStrtBalStrtBalAdj</DataField>
+        </Field>
+        <Field Name="VendBalStrtBalStrtBalAdjFormat">
+          <DataField>VendBalStrtBalStrtBalAdjFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,66 +10,6 @@
       <rd:DataSourceID>ded88061-af92-4270-ac1d-89598bb1f8a7</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="EntryNo_VATEntry">
-          <DataField>EntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="PostingDate_VATEntry">
-          <DataField>PostingDate_VATEntry</DataField>
-        </Field>
-        <Field Name="DocumentNo_VATEntry">
-          <DataField>DocumentNo_VATEntry</DataField>
-        </Field>
-        <Field Name="DocumentType_VATEntry">
-          <DataField>DocumentType_VATEntry</DataField>
-        </Field>
-        <Field Name="Amount_VATEntry">
-          <DataField>Amount_VATEntry</DataField>
-        </Field>
-        <Field Name="Amount_VATEntryFormat">
-          <DataField>Amount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="DocumentDate_VATEntry">
-          <DataField>DocumentDate_VATEntry</DataField>
-        </Field>
-        <Field Name="VATRegistrationNo_VATEntry">
-          <DataField>VATRegistrationNo_VATEntry</DataField>
-        </Field>
-        <Field Name="Reversed_VATEntry">
-          <DataField>Reversed_VATEntry</DataField>
-        </Field>
-        <Field Name="Source_No">
-          <DataField>Source_No</DataField>
-        </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-        </Field>
-        <Field Name="VAT_Product_postinggroup">
-          <DataField>VAT_Product_postinggroup</DataField>
-        </Field>
-        <Field Name="Companyinfo_VATRegistrationNo">
-          <DataField>Companyinfo_VATRegistrationNo</DataField>
-        </Field>
-        <Field Name="Source_Name">
-          <DataField>Source_Name</DataField>
-        </Field>
-        <Field Name="Tax_Type">
-          <DataField>Tax_Type</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -395,4 +335,59 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="EntryNo_VATEntry">
+          <DataField>EntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="PostingDate_VATEntry">
+          <DataField>PostingDate_VATEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_VATEntry">
+          <DataField>DocumentNo_VATEntry</DataField>
+        </Field>
+        <Field Name="DocumentType_VATEntry">
+          <DataField>DocumentType_VATEntry</DataField>
+        </Field>
+        <Field Name="Amount_VATEntry">
+          <DataField>Amount_VATEntry</DataField>
+        </Field>
+        <Field Name="Amount_VATEntryFormat">
+          <DataField>Amount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="DocumentDate_VATEntry">
+          <DataField>DocumentDate_VATEntry</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_VATEntry">
+          <DataField>VATRegistrationNo_VATEntry</DataField>
+        </Field>
+        <Field Name="Reversed_VATEntry">
+          <DataField>Reversed_VATEntry</DataField>
+        </Field>
+        <Field Name="Source_No">
+          <DataField>Source_No</DataField>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+        </Field>
+        <Field Name="VAT_Product_postinggroup">
+          <DataField>VAT_Product_postinggroup</DataField>
+        </Field>
+        <Field Name="Companyinfo_VATRegistrationNo">
+          <DataField>Companyinfo_VATRegistrationNo</DataField>
+        </Field>
+        <Field Name="Source_Name">
+          <DataField>Source_Name</DataField>
+        </Field>
+        <Field Name="Tax_Type">
+          <DataField>Tax_Type</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

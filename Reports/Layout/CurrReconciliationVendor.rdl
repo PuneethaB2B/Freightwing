@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,63 +10,6 @@
       <rd:DataSourceID>4c7502f0-e92b-4f73-a031-69937e8f2177</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="EntryType">
-          <DataField>EntryType</DataField>
-        </Field>
-        <Field Name="Vend_PostingDate">
-          <DataField>Vend_PostingDate</DataField>
-        </Field>
-        <Field Name="VendorName">
-          <DataField>VendorName</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="CurrencyCode">
-          <DataField>CurrencyCode</DataField>
-        </Field>
-        <Field Name="DetailedAmount">
-          <DataField>DetailedAmount</DataField>
-        </Field>
-        <Field Name="DetailedAmountFormat">
-          <DataField>DetailedAmountFormat</DataField>
-        </Field>
-        <Field Name="OriginalAmount">
-          <DataField>OriginalAmount</DataField>
-        </Field>
-        <Field Name="OriginalAmountFormat">
-          <DataField>OriginalAmountFormat</DataField>
-        </Field>
-        <Field Name="BookingRate">
-          <DataField>BookingRate</DataField>
-        </Field>
-        <Field Name="BookingRateFormat">
-          <DataField>BookingRateFormat</DataField>
-        </Field>
-        <Field Name="AuditRate">
-          <DataField>AuditRate</DataField>
-        </Field>
-        <Field Name="AuditRateFormat">
-          <DataField>AuditRateFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1400,4 +1343,56 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="EntryType">
+          <DataField>EntryType</DataField>
+        </Field>
+        <Field Name="Vend_PostingDate">
+          <DataField>Vend_PostingDate</DataField>
+        </Field>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="DetailedAmount">
+          <DataField>DetailedAmount</DataField>
+        </Field>
+        <Field Name="DetailedAmountFormat">
+          <DataField>DetailedAmountFormat</DataField>
+        </Field>
+        <Field Name="OriginalAmount">
+          <DataField>OriginalAmount</DataField>
+        </Field>
+        <Field Name="OriginalAmountFormat">
+          <DataField>OriginalAmountFormat</DataField>
+        </Field>
+        <Field Name="BookingRate">
+          <DataField>BookingRate</DataField>
+        </Field>
+        <Field Name="BookingRateFormat">
+          <DataField>BookingRateFormat</DataField>
+        </Field>
+        <Field Name="AuditRate">
+          <DataField>AuditRate</DataField>
+        </Field>
+        <Field Name="AuditRateFormat">
+          <DataField>AuditRateFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

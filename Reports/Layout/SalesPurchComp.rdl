@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,72 +10,6 @@
       <rd:DataSourceID>66429873-ebb5-4770-824a-e29b78ae056f</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ChargeableWeeight">
-          <DataField>ChargeableWeeight</DataField>
-        </Field>
-        <Field Name="ChargeableWeeightFormat">
-          <DataField>ChargeableWeeightFormat</DataField>
-        </Field>
-        <Field Name="ShowSummary">
-          <DataField>ShowSummary</DataField>
-        </Field>
-        <Field Name="ShowLoss">
-          <DataField>ShowLoss</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_PurchInvLine">
-          <DataField>AmountIncludingVAT_PurchInvLine</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_PurchInvLineFormat">
-          <DataField>AmountIncludingVAT_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="BuyfromVendorNo_PurchInvLine">
-          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DocumentNo_PurchInvLine">
-          <DataField>DocumentNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Description_PurchInvLine">
-          <DataField>Description_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PostingDate_SalesInvoiceHeader">
-          <DataField>PostingDate_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="SelltoCustomerNo_SalesInvoiceHeader">
-          <DataField>SelltoCustomerNo_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="No_SalesInvoiceHeader">
-          <DataField>No_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_SalesInvoiceLine">
-          <DataField>AmountIncludingVAT_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_SalesInvoiceLineFormat">
-          <DataField>AmountIncludingVAT_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="Description_SalesInvoiceLine">
-          <DataField>Description_SalesInvoiceLine</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3222,4 +3156,65 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ChargeableWeeight">
+          <DataField>ChargeableWeeight</DataField>
+        </Field>
+        <Field Name="ChargeableWeeightFormat">
+          <DataField>ChargeableWeeightFormat</DataField>
+        </Field>
+        <Field Name="ShowSummary">
+          <DataField>ShowSummary</DataField>
+        </Field>
+        <Field Name="ShowLoss">
+          <DataField>ShowLoss</DataField>
+        </Field>
+        <Field Name="PostingDate_SalesInvoiceHeader">
+          <DataField>PostingDate_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="SelltoCustomerNo_SalesInvoiceHeader">
+          <DataField>SelltoCustomerNo_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="No_SalesInvoiceHeader">
+          <DataField>No_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_SalesInvoiceLine">
+          <DataField>AmountIncludingVAT_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_SalesInvoiceLineFormat">
+          <DataField>AmountIncludingVAT_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="Description_SalesInvoiceLine">
+          <DataField>Description_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="BuyfromVendorNo_PurchInvLine">
+          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DocumentNo_PurchInvLine">
+          <DataField>DocumentNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Description_PurchInvLine">
+          <DataField>Description_PurchInvLine</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_PurchInvLine">
+          <DataField>AmountIncludingVAT_PurchInvLine</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_PurchInvLineFormat">
+          <DataField>AmountIncludingVAT_PurchInvLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

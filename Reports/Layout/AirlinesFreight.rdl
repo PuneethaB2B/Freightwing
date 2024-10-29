@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,186 +10,6 @@
       <rd:DataSourceID>f484c9dc-734f-46bc-9005-f60109353e5f</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="InvoiceCurr">
-          <DataField>InvoiceCurr</DataField>
-        </Field>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ReceiptDate_MAWBReceipt">
-          <DataField>ReceiptDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceipt">
-          <DataField>MAWBFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceiptFormat">
-          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Assigned_MAWBReceipt">
-          <DataField>Assigned_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBReceipt">
-          <DataField>FreightChargeCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="Prepared_MAWBReceipt">
-          <DataField>Prepared_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-        </Field>
-        <Field Name="City">
-          <DataField>City</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="PostalCode">
-          <DataField>PostalCode</DataField>
-        </Field>
-        <Field Name="ItemNo_LoadingSheetLine">
-          <DataField>ItemNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Description_LoadingSheetLine">
-          <DataField>Description_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_LoadingSheetLine">
-          <DataField>AirlineCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_LoadingSheetLine">
-          <DataField>MAWBNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="InvoiceNo_MAWBInvoiceCharge">
-          <DataField>InvoiceNo_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="ItemNo_MAWBInvoiceCharge">
-          <DataField>ItemNo_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="Description_MAWBInvoiceCharge">
-          <DataField>Description_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBInvoiceCharge">
-          <DataField>FreightChargeCode_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="UnitOfMeasure_MAWBInvoiceCharge">
-          <DataField>UnitOfMeasure_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="BaseUnitPrice_MAWBInvoiceCharge">
-          <DataField>BaseUnitPrice_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="BaseUnitPrice_MAWBInvoiceChargeFormat">
-          <DataField>BaseUnitPrice_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="CostAmount_MAWBInvoiceCharge">
-          <DataField>CostAmount_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="CostAmount_MAWBInvoiceChargeFormat">
-          <DataField>CostAmount_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="SalesAmountExVAT_MAWBInvoiceCharge">
-          <DataField>SalesAmountExVAT_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="SalesAmountExVAT_MAWBInvoiceChargeFormat">
-          <DataField>SalesAmountExVAT_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBInvoiceCharge">
-          <DataField>MAWBNo_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="VATAmount_MAWBInvoiceCharge">
-          <DataField>VATAmount_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="VATAmount_MAWBInvoiceChargeFormat">
-          <DataField>VATAmount_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="LineNo_MAWBInvoiceCharge">
-          <DataField>LineNo_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="CurrencyCode_MAWBInvoiceCharge">
-          <DataField>CurrencyCode_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="Margin_MAWBInvoiceCharge">
-          <DataField>Margin_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="Margin_MAWBInvoiceChargeFormat">
-          <DataField>Margin_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="SalesAmountIncVAT_MAWBInvoiceCharge">
-          <DataField>SalesAmountIncVAT_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="SalesAmountIncVAT_MAWBInvoiceChargeFormat">
-          <DataField>SalesAmountIncVAT_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="VAT_MAWBInvoiceCharge">
-          <DataField>VAT_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="VAT_MAWBInvoiceChargeFormat">
-          <DataField>VAT_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="TransactionDate_MAWBInvoiceCharge">
-          <DataField>TransactionDate_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="FreightCost_MAWBInvoiceCharge">
-          <DataField>FreightCost_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="PurchaseACCode_MAWBInvoiceCharge">
-          <DataField>PurchaseACCode_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="PurchaseInvoiceNo_MAWBInvoiceCharge">
-          <DataField>PurchaseInvoiceNo_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="SalesAmountIncMargin_MAWBInvoiceCharge">
-          <DataField>SalesAmountIncMargin_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="SalesAmountIncMargin_MAWBInvoiceChargeFormat">
-          <DataField>SalesAmountIncMargin_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="InvoiceUnitPrice_MAWBInvoiceCharge">
-          <DataField>InvoiceUnitPrice_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="InvoiceUnitPrice_MAWBInvoiceChargeFormat">
-          <DataField>InvoiceUnitPrice_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="PreparedBy_MAWBInvoiceCharge">
-          <DataField>PreparedBy_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="PreparedOn_MAWBInvoiceCharge">
-          <DataField>PreparedOn_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="ContractRate_MAWBInvoiceCharge">
-          <DataField>ContractRate_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="ContractRate_MAWBInvoiceChargeFormat">
-          <DataField>ContractRate_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="AgreedRate_MAWBInvoiceCharge">
-          <DataField>AgreedRate_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="AgreedRate_MAWBInvoiceChargeFormat">
-          <DataField>AgreedRate_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_MAWBInvoiceCharge">
-          <DataField>ChargeableWeight_MAWBInvoiceCharge</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_MAWBInvoiceChargeFormat">
-          <DataField>ChargeableWeight_MAWBInvoiceChargeFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1199,4 +1019,179 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="InvoiceCurr">
+          <DataField>InvoiceCurr</DataField>
+        </Field>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ReceiptDate_MAWBReceipt">
+          <DataField>ReceiptDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceipt">
+          <DataField>MAWBFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceiptFormat">
+          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Assigned_MAWBReceipt">
+          <DataField>Assigned_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBReceipt">
+          <DataField>FreightChargeCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="Prepared_MAWBReceipt">
+          <DataField>Prepared_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="PostalCode">
+          <DataField>PostalCode</DataField>
+        </Field>
+        <Field Name="ItemNo_LoadingSheetLine">
+          <DataField>ItemNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Description_LoadingSheetLine">
+          <DataField>Description_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetLine">
+          <DataField>AirlineCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetLine">
+          <DataField>MAWBNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="InvoiceNo_MAWBInvoiceCharge">
+          <DataField>InvoiceNo_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="ItemNo_MAWBInvoiceCharge">
+          <DataField>ItemNo_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="Description_MAWBInvoiceCharge">
+          <DataField>Description_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBInvoiceCharge">
+          <DataField>FreightChargeCode_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="UnitOfMeasure_MAWBInvoiceCharge">
+          <DataField>UnitOfMeasure_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="BaseUnitPrice_MAWBInvoiceCharge">
+          <DataField>BaseUnitPrice_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="BaseUnitPrice_MAWBInvoiceChargeFormat">
+          <DataField>BaseUnitPrice_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="CostAmount_MAWBInvoiceCharge">
+          <DataField>CostAmount_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="CostAmount_MAWBInvoiceChargeFormat">
+          <DataField>CostAmount_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="SalesAmountExVAT_MAWBInvoiceCharge">
+          <DataField>SalesAmountExVAT_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="SalesAmountExVAT_MAWBInvoiceChargeFormat">
+          <DataField>SalesAmountExVAT_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBInvoiceCharge">
+          <DataField>MAWBNo_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="VATAmount_MAWBInvoiceCharge">
+          <DataField>VATAmount_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="VATAmount_MAWBInvoiceChargeFormat">
+          <DataField>VATAmount_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="LineNo_MAWBInvoiceCharge">
+          <DataField>LineNo_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="CurrencyCode_MAWBInvoiceCharge">
+          <DataField>CurrencyCode_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="Margin_MAWBInvoiceCharge">
+          <DataField>Margin_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="Margin_MAWBInvoiceChargeFormat">
+          <DataField>Margin_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="SalesAmountIncVAT_MAWBInvoiceCharge">
+          <DataField>SalesAmountIncVAT_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="SalesAmountIncVAT_MAWBInvoiceChargeFormat">
+          <DataField>SalesAmountIncVAT_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="VAT_MAWBInvoiceCharge">
+          <DataField>VAT_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="VAT_MAWBInvoiceChargeFormat">
+          <DataField>VAT_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="TransactionDate_MAWBInvoiceCharge">
+          <DataField>TransactionDate_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="FreightCost_MAWBInvoiceCharge">
+          <DataField>FreightCost_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="PurchaseACCode_MAWBInvoiceCharge">
+          <DataField>PurchaseACCode_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="PurchaseInvoiceNo_MAWBInvoiceCharge">
+          <DataField>PurchaseInvoiceNo_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="SalesAmountIncMargin_MAWBInvoiceCharge">
+          <DataField>SalesAmountIncMargin_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="SalesAmountIncMargin_MAWBInvoiceChargeFormat">
+          <DataField>SalesAmountIncMargin_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="InvoiceUnitPrice_MAWBInvoiceCharge">
+          <DataField>InvoiceUnitPrice_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="InvoiceUnitPrice_MAWBInvoiceChargeFormat">
+          <DataField>InvoiceUnitPrice_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="PreparedBy_MAWBInvoiceCharge">
+          <DataField>PreparedBy_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="PreparedOn_MAWBInvoiceCharge">
+          <DataField>PreparedOn_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="ContractRate_MAWBInvoiceCharge">
+          <DataField>ContractRate_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="ContractRate_MAWBInvoiceChargeFormat">
+          <DataField>ContractRate_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="AgreedRate_MAWBInvoiceCharge">
+          <DataField>AgreedRate_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="AgreedRate_MAWBInvoiceChargeFormat">
+          <DataField>AgreedRate_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_MAWBInvoiceCharge">
+          <DataField>ChargeableWeight_MAWBInvoiceCharge</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_MAWBInvoiceChargeFormat">
+          <DataField>ChargeableWeight_MAWBInvoiceChargeFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

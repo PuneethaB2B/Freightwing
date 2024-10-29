@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <DataSources>
     <DataSource Name="DataSource">
@@ -59,4 +59,191 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="EntryNo_GLEntry">
+          <DataField>EntryNo_GLEntry</DataField>
+        </Field>
+        <Field Name="GLAccountNo_GLEntry">
+          <DataField>GLAccountNo_GLEntry</DataField>
+        </Field>
+        <Field Name="PostingDate_GLEntry">
+          <DataField>PostingDate_GLEntry</DataField>
+        </Field>
+        <Field Name="DocumentType_GLEntry">
+          <DataField>DocumentType_GLEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_GLEntry">
+          <DataField>DocumentNo_GLEntry</DataField>
+        </Field>
+        <Field Name="Description_GLEntry">
+          <DataField>Description_GLEntry</DataField>
+        </Field>
+        <Field Name="BalAccountNo_GLEntry">
+          <DataField>BalAccountNo_GLEntry</DataField>
+        </Field>
+        <Field Name="Amount_GLEntry">
+          <DataField>Amount_GLEntry</DataField>
+        </Field>
+        <Field Name="Amount_GLEntryFormat">
+          <DataField>Amount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="GlobalDimension1Code_GLEntry">
+          <DataField>GlobalDimension1Code_GLEntry</DataField>
+        </Field>
+        <Field Name="GlobalDimension2Code_GLEntry">
+          <DataField>GlobalDimension2Code_GLEntry</DataField>
+        </Field>
+        <Field Name="UserID_GLEntry">
+          <DataField>UserID_GLEntry</DataField>
+        </Field>
+        <Field Name="SourceCode_GLEntry">
+          <DataField>SourceCode_GLEntry</DataField>
+        </Field>
+        <Field Name="SystemCreatedEntry_GLEntry">
+          <DataField>SystemCreatedEntry_GLEntry</DataField>
+        </Field>
+        <Field Name="PriorYearEntry_GLEntry">
+          <DataField>PriorYearEntry_GLEntry</DataField>
+        </Field>
+        <Field Name="JobNo_GLEntry">
+          <DataField>JobNo_GLEntry</DataField>
+        </Field>
+        <Field Name="Quantity_GLEntry">
+          <DataField>Quantity_GLEntry</DataField>
+        </Field>
+        <Field Name="Quantity_GLEntryFormat">
+          <DataField>Quantity_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="VATAmount_GLEntry">
+          <DataField>VATAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="VATAmount_GLEntryFormat">
+          <DataField>VATAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="BusinessUnitCode_GLEntry">
+          <DataField>BusinessUnitCode_GLEntry</DataField>
+        </Field>
+        <Field Name="JournalBatchName_GLEntry">
+          <DataField>JournalBatchName_GLEntry</DataField>
+        </Field>
+        <Field Name="ReasonCode_GLEntry">
+          <DataField>ReasonCode_GLEntry</DataField>
+        </Field>
+        <Field Name="GenPostingType_GLEntry">
+          <DataField>GenPostingType_GLEntry</DataField>
+        </Field>
+        <Field Name="GenBusPostingGroup_GLEntry">
+          <DataField>GenBusPostingGroup_GLEntry</DataField>
+        </Field>
+        <Field Name="GenProdPostingGroup_GLEntry">
+          <DataField>GenProdPostingGroup_GLEntry</DataField>
+        </Field>
+        <Field Name="BalAccountType_GLEntry">
+          <DataField>BalAccountType_GLEntry</DataField>
+        </Field>
+        <Field Name="TransactionNo_GLEntry">
+          <DataField>TransactionNo_GLEntry</DataField>
+        </Field>
+        <Field Name="DebitAmount_GLEntry">
+          <DataField>DebitAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="DebitAmount_GLEntryFormat">
+          <DataField>DebitAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="CreditAmount_GLEntry">
+          <DataField>CreditAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="CreditAmount_GLEntryFormat">
+          <DataField>CreditAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="DocumentDate_GLEntry">
+          <DataField>DocumentDate_GLEntry</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo_GLEntry">
+          <DataField>ExternalDocumentNo_GLEntry</DataField>
+        </Field>
+        <Field Name="SourceType_GLEntry">
+          <DataField>SourceType_GLEntry</DataField>
+        </Field>
+        <Field Name="SourceNo_GLEntry">
+          <DataField>SourceNo_GLEntry</DataField>
+        </Field>
+        <Field Name="NoSeries_GLEntry">
+          <DataField>NoSeries_GLEntry</DataField>
+        </Field>
+        <Field Name="TaxAreaCode_GLEntry">
+          <DataField>TaxAreaCode_GLEntry</DataField>
+        </Field>
+        <Field Name="TaxLiable_GLEntry">
+          <DataField>TaxLiable_GLEntry</DataField>
+        </Field>
+        <Field Name="TaxGroupCode_GLEntry">
+          <DataField>TaxGroupCode_GLEntry</DataField>
+        </Field>
+        <Field Name="UseTax_GLEntry">
+          <DataField>UseTax_GLEntry</DataField>
+        </Field>
+        <Field Name="VATBusPostingGroup_GLEntry">
+          <DataField>VATBusPostingGroup_GLEntry</DataField>
+        </Field>
+        <Field Name="VATProdPostingGroup_GLEntry">
+          <DataField>VATProdPostingGroup_GLEntry</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyAmount_GLEntry">
+          <DataField>AdditionalCurrencyAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyAmount_GLEntryFormat">
+          <DataField>AdditionalCurrencyAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrencyDebitAmount_GLEntry">
+          <DataField>AddCurrencyDebitAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="AddCurrencyDebitAmount_GLEntryFormat">
+          <DataField>AddCurrencyDebitAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrencyCreditAmount_GLEntry">
+          <DataField>AddCurrencyCreditAmount_GLEntry</DataField>
+        </Field>
+        <Field Name="AddCurrencyCreditAmount_GLEntryFormat">
+          <DataField>AddCurrencyCreditAmount_GLEntryFormat</DataField>
+        </Field>
+        <Field Name="CloseIncomeStatementDimID_GLEntry">
+          <DataField>CloseIncomeStatementDimID_GLEntry</DataField>
+        </Field>
+        <Field Name="ICPartnerCode_GLEntry">
+          <DataField>ICPartnerCode_GLEntry</DataField>
+        </Field>
+        <Field Name="Reversed_GLEntry">
+          <DataField>Reversed_GLEntry</DataField>
+        </Field>
+        <Field Name="ReversedbyEntryNo_GLEntry">
+          <DataField>ReversedbyEntryNo_GLEntry</DataField>
+        </Field>
+        <Field Name="ReversedEntryNo_GLEntry">
+          <DataField>ReversedEntryNo_GLEntry</DataField>
+        </Field>
+        <Field Name="GLAccountName_GLEntry">
+          <DataField>GLAccountName_GLEntry</DataField>
+        </Field>
+        <Field Name="DimensionSetID_GLEntry">
+          <DataField>DimensionSetID_GLEntry</DataField>
+        </Field>
+        <Field Name="ProdOrderNo_GLEntry">
+          <DataField>ProdOrderNo_GLEntry</DataField>
+        </Field>
+        <Field Name="FAEntryType_GLEntry">
+          <DataField>FAEntryType_GLEntry</DataField>
+        </Field>
+        <Field Name="FAEntryNo_GLEntry">
+          <DataField>FAEntryNo_GLEntry</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

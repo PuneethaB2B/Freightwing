@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,339 +10,6 @@
       <rd:DataSourceID>a6d255c8-6a6d-490d-8c96-1fbecbf09cbd</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-        </Field>
-        <Field Name="No_LoadingSheetHeader">
-          <DataField>No_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="LoadingDate_LoadingSheetHeader">
-          <DataField>LoadingDate_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_LoadingSheetHeader">
-          <DataField>ShipperCode_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_LoadingSheetHeader">
-          <DataField>ShipperName_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="MAWBNo_LoadingSheetHeader">
-          <DataField>MAWBNo_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_LoadingSheetHeader">
-          <DataField>BookingSheetNo_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="BookingSheetDate_LoadingSheetHeader">
-          <DataField>BookingSheetDate_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_LoadingSheetHeader">
-          <DataField>FlightCode_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="DestinationCode_LoadingSheetHeader">
-          <DataField>DestinationCode_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="OffloadingStartTime_LoadingSheetHeader">
-          <DataField>OffloadingStartTime_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="OffloadingEndTime_LoadingSheetHeader">
-          <DataField>OffloadingEndTime_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="VehicleNo_LoadingSheetHeader">
-          <DataField>VehicleNo_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="VehicleArrivalTime_LoadingSheetHeader">
-          <DataField>VehicleArrivalTime_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="SealNo_LoadingSheetHeader">
-          <DataField>SealNo_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="ScreenerName_LoadingSheetHeader">
-          <DataField>ScreenerName_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="CommodityOrigin_LoadingSheetHeader">
-          <DataField>CommodityOrigin_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_LoadingSheetHeader">
-          <DataField>ConsigneeCode_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_LoadingSheetHeader">
-          <DataField>AirlineCode_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="OffloadingPlace_LoadingSheetHeader">
-          <DataField>OffloadingPlace_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="PreparedBy_LoadingSheetHeader">
-          <DataField>PreparedBy_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="NoSeries_LoadingSheetHeader">
-          <DataField>NoSeries_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="Description_LoadingSheetHeader">
-          <DataField>Description_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="Shipped_LoadingSheetHeader">
-          <DataField>Shipped_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="PostedBy_LoadingSheetHeader">
-          <DataField>PostedBy_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="Dimension">
-          <DataField>Dimension</DataField>
-        </Field>
-        <Field Name="DimensionFormat">
-          <DataField>DimensionFormat</DataField>
-        </Field>
-        <Field Name="Origin">
-          <DataField>Origin</DataField>
-        </Field>
-        <Field Name="uldstring">
-          <DataField>uldstring</DataField>
-        </Field>
-        <Field Name="ULDNos">
-          <DataField>ULDNos</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_LoadingSheetLine">
-          <DataField>LoadingSheetNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="LineNo_LoadingSheetLine">
-          <DataField>LineNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Description_LoadingSheetLine">
-          <DataField>Description_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_LoadingSheetLine">
-          <DataField>UnitofMeasureCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_LoadingSheetLine">
-          <DataField>DivisionFarmCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLDocketNo_LoadingSheetLine">
-          <DataField>FWLDocketNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetLine">
-          <DataField>FWLDocketWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetLineFormat">
-          <DataField>FWLDocketWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="FWLGrossWeight_LoadingSheetLine">
-          <DataField>FWLGrossWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLGrossWeight_LoadingSheetLineFormat">
-          <DataField>FWLGrossWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="AirlineDocketWeight_LoadingSheetLine">
-          <DataField>AirlineDocketWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineDocketWeight_LoadingSheetLineFormat">
-          <DataField>AirlineDocketWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Quantity_LoadingSheetLine">
-          <DataField>Quantity_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Quantity_LoadingSheetLineFormat">
-          <DataField>Quantity_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_LoadingSheetLine">
-          <DataField>ULDTypeCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="SkidPer_LoadingSheetLine">
-          <DataField>SkidPer_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="SkidPer_LoadingSheetLineFormat">
-          <DataField>SkidPer_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ULDNo_LoadingSheetLine">
-          <DataField>ULDNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ULDQuantity_LoadingSheetLine">
-          <DataField>ULDQuantity_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ULDQuantity_LoadingSheetLineFormat">
-          <DataField>ULDQuantity_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Position_LoadingSheetLine">
-          <DataField>Position_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_LoadingSheetLine">
-          <DataField>ArrivalTemperature_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_LoadingSheetLineFormat">
-          <DataField>ArrivalTemperature_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="DepartureTemperature_LoadingSheetLine">
-          <DataField>DepartureTemperature_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="DepartureTemperature_LoadingSheetLineFormat">
-          <DataField>DepartureTemperature_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="XRay_LoadingSheetLine">
-          <DataField>XRay_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_LoadingSheetLine">
-          <DataField>ShipperCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FlightCode_LoadingSheetLine">
-          <DataField>FlightCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_LoadingSheetLine">
-          <DataField>DestinationCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_LoadingSheetLine">
-          <DataField>ConsigneeCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_LoadingSheetLine">
-          <DataField>AirlineCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_LoadingSheetLine">
-          <DataField>MAWBNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Type_LoadingSheetLine">
-          <DataField>Type_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ItemNo_LoadingSheetLine">
-          <DataField>ItemNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="LocationCode_LoadingSheetLine">
-          <DataField>LocationCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="QuantityAvailable_LoadingSheetLine">
-          <DataField>QuantityAvailable_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="QuantityAvailable_LoadingSheetLineFormat">
-          <DataField>QuantityAvailable_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="LoadingQuantity_LoadingSheetLine">
-          <DataField>LoadingQuantity_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="LoadingQuantity_LoadingSheetLineFormat">
-          <DataField>LoadingQuantity_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ShippedQuantity_LoadingSheetLine">
-          <DataField>ShippedQuantity_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ShippedQuantity_LoadingSheetLineFormat">
-          <DataField>ShippedQuantity_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="BalanceQuantity_LoadingSheetLine">
-          <DataField>BalanceQuantity_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="BalanceQuantity_LoadingSheetLineFormat">
-          <DataField>BalanceQuantity_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Temperature_LoadingSheetLine">
-          <DataField>Temperature_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Temperature_LoadingSheetLineFormat">
-          <DataField>Temperature_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Return_LoadingSheetLine">
-          <DataField>Return_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ReturntoLocationCode_LoadingSheetLine">
-          <DataField>ReturntoLocationCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="GatePassNo_LoadingSheetLine">
-          <DataField>GatePassNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetLine">
-          <DataField>Dimension_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetLineFormat">
-          <DataField>Dimension_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Length_LoadingSheetLine">
-          <DataField>Length_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Length_LoadingSheetLineFormat">
-          <DataField>Length_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Width_LoadingSheetLine">
-          <DataField>Width_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Width_LoadingSheetLineFormat">
-          <DataField>Width_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="Height_LoadingSheetLine">
-          <DataField>Height_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Height_LoadingSheetLineFormat">
-          <DataField>Height_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ConsigneeName_LoadingSheetLine">
-          <DataField>ConsigneeName_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="LoadingSheetNo_LoadingSheetULDAllocation">
-          <DataField>LoadingSheetNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="AirlineCode_LoadingSheetULDAllocation">
-          <DataField>AirlineCode_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_LoadingSheetULDAllocation">
-          <DataField>ULDTypeCode_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Quantity_LoadingSheetULDAllocation">
-          <DataField>Quantity_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Quantity_LoadingSheetULDAllocationFormat">
-          <DataField>Quantity_LoadingSheetULDAllocationFormat</DataField>
-        </Field>
-        <Field Name="ItemNo_LoadingSheetULDAllocation">
-          <DataField>ItemNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="ULDNo_LoadingSheetULDAllocation">
-          <DataField>ULDNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Remarks_LoadingSheetULDAllocation">
-          <DataField>Remarks_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="LineNo_LoadingSheetULDAllocation">
-          <DataField>LineNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetULDAllocation">
-          <DataField>FWLDocketWeight_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetULDAllocationFormat">
-          <DataField>FWLDocketWeight_LoadingSheetULDAllocationFormat</DataField>
-        </Field>
-        <Field Name="MWABNo_LoadingSheetULDAllocation">
-          <DataField>MWABNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="FWLDocketNo_LoadingSheetULDAllocation">
-          <DataField>FWLDocketNo_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="FAM_LoadingSheetULDAllocation">
-          <DataField>FAM_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="NoOfBoxes_LoadingSheetULDAllocation">
-          <DataField>NoOfBoxes_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="NoOfBoxes_LoadingSheetULDAllocationFormat">
-          <DataField>NoOfBoxes_LoadingSheetULDAllocationFormat</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetULDAllocation">
-          <DataField>Dimension_LoadingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetULDAllocationFormat">
-          <DataField>Dimension_LoadingSheetULDAllocationFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2878,4 +2545,332 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="No_LoadingSheetHeader">
+          <DataField>No_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="LoadingDate_LoadingSheetHeader">
+          <DataField>LoadingDate_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_LoadingSheetHeader">
+          <DataField>ShipperCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_LoadingSheetHeader">
+          <DataField>ShipperName_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetHeader">
+          <DataField>MAWBNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_LoadingSheetHeader">
+          <DataField>BookingSheetNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetDate_LoadingSheetHeader">
+          <DataField>BookingSheetDate_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_LoadingSheetHeader">
+          <DataField>FlightCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_LoadingSheetHeader">
+          <DataField>DestinationCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingStartTime_LoadingSheetHeader">
+          <DataField>OffloadingStartTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingEndTime_LoadingSheetHeader">
+          <DataField>OffloadingEndTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="VehicleNo_LoadingSheetHeader">
+          <DataField>VehicleNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="VehicleArrivalTime_LoadingSheetHeader">
+          <DataField>VehicleArrivalTime_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="SealNo_LoadingSheetHeader">
+          <DataField>SealNo_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ScreenerName_LoadingSheetHeader">
+          <DataField>ScreenerName_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="CommodityOrigin_LoadingSheetHeader">
+          <DataField>CommodityOrigin_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_LoadingSheetHeader">
+          <DataField>ConsigneeCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetHeader">
+          <DataField>AirlineCode_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="OffloadingPlace_LoadingSheetHeader">
+          <DataField>OffloadingPlace_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="PreparedBy_LoadingSheetHeader">
+          <DataField>PreparedBy_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_LoadingSheetHeader">
+          <DataField>NoSeries_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="Description_LoadingSheetHeader">
+          <DataField>Description_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="Shipped_LoadingSheetHeader">
+          <DataField>Shipped_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="PostedBy_LoadingSheetHeader">
+          <DataField>PostedBy_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="Dimension">
+          <DataField>Dimension</DataField>
+        </Field>
+        <Field Name="DimensionFormat">
+          <DataField>DimensionFormat</DataField>
+        </Field>
+        <Field Name="Origin">
+          <DataField>Origin</DataField>
+        </Field>
+        <Field Name="uldstring">
+          <DataField>uldstring</DataField>
+        </Field>
+        <Field Name="ULDNos">
+          <DataField>ULDNos</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_LoadingSheetLine">
+          <DataField>LoadingSheetNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LineNo_LoadingSheetLine">
+          <DataField>LineNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Description_LoadingSheetLine">
+          <DataField>Description_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_LoadingSheetLine">
+          <DataField>UnitofMeasureCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_LoadingSheetLine">
+          <DataField>DivisionFarmCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketNo_LoadingSheetLine">
+          <DataField>FWLDocketNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLine">
+          <DataField>FWLDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLineFormat">
+          <DataField>FWLDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLine">
+          <DataField>FWLGrossWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLineFormat">
+          <DataField>FWLGrossWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLine">
+          <DataField>AirlineDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLineFormat">
+          <DataField>AirlineDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetLine">
+          <DataField>Quantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetLineFormat">
+          <DataField>Quantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_LoadingSheetLine">
+          <DataField>ULDTypeCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLine">
+          <DataField>SkidPer_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLineFormat">
+          <DataField>SkidPer_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDNo_LoadingSheetLine">
+          <DataField>ULDNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDQuantity_LoadingSheetLine">
+          <DataField>ULDQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDQuantity_LoadingSheetLineFormat">
+          <DataField>ULDQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Position_LoadingSheetLine">
+          <DataField>Position_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_LoadingSheetLine">
+          <DataField>ArrivalTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_LoadingSheetLineFormat">
+          <DataField>ArrivalTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLine">
+          <DataField>DepartureTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLineFormat">
+          <DataField>DepartureTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="XRay_LoadingSheetLine">
+          <DataField>XRay_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_LoadingSheetLine">
+          <DataField>ShipperCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FlightCode_LoadingSheetLine">
+          <DataField>FlightCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_LoadingSheetLine">
+          <DataField>DestinationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_LoadingSheetLine">
+          <DataField>ConsigneeCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetLine">
+          <DataField>AirlineCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetLine">
+          <DataField>MAWBNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Type_LoadingSheetLine">
+          <DataField>Type_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ItemNo_LoadingSheetLine">
+          <DataField>ItemNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LocationCode_LoadingSheetLine">
+          <DataField>LocationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="QuantityAvailable_LoadingSheetLine">
+          <DataField>QuantityAvailable_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="QuantityAvailable_LoadingSheetLineFormat">
+          <DataField>QuantityAvailable_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="LoadingQuantity_LoadingSheetLine">
+          <DataField>LoadingQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LoadingQuantity_LoadingSheetLineFormat">
+          <DataField>LoadingQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ShippedQuantity_LoadingSheetLine">
+          <DataField>ShippedQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ShippedQuantity_LoadingSheetLineFormat">
+          <DataField>ShippedQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="BalanceQuantity_LoadingSheetLine">
+          <DataField>BalanceQuantity_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="BalanceQuantity_LoadingSheetLineFormat">
+          <DataField>BalanceQuantity_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Temperature_LoadingSheetLine">
+          <DataField>Temperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Temperature_LoadingSheetLineFormat">
+          <DataField>Temperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Return_LoadingSheetLine">
+          <DataField>Return_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ReturntoLocationCode_LoadingSheetLine">
+          <DataField>ReturntoLocationCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="GatePassNo_LoadingSheetLine">
+          <DataField>GatePassNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetLine">
+          <DataField>Dimension_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetLineFormat">
+          <DataField>Dimension_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Length_LoadingSheetLine">
+          <DataField>Length_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Length_LoadingSheetLineFormat">
+          <DataField>Length_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Width_LoadingSheetLine">
+          <DataField>Width_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Width_LoadingSheetLineFormat">
+          <DataField>Width_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="Height_LoadingSheetLine">
+          <DataField>Height_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Height_LoadingSheetLineFormat">
+          <DataField>Height_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ConsigneeName_LoadingSheetLine">
+          <DataField>ConsigneeName_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="LoadingSheetNo_LoadingSheetULDAllocation">
+          <DataField>LoadingSheetNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="AirlineCode_LoadingSheetULDAllocation">
+          <DataField>AirlineCode_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_LoadingSheetULDAllocation">
+          <DataField>ULDTypeCode_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetULDAllocation">
+          <DataField>Quantity_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Quantity_LoadingSheetULDAllocationFormat">
+          <DataField>Quantity_LoadingSheetULDAllocationFormat</DataField>
+        </Field>
+        <Field Name="ItemNo_LoadingSheetULDAllocation">
+          <DataField>ItemNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="ULDNo_LoadingSheetULDAllocation">
+          <DataField>ULDNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Remarks_LoadingSheetULDAllocation">
+          <DataField>Remarks_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="LineNo_LoadingSheetULDAllocation">
+          <DataField>LineNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetULDAllocation">
+          <DataField>FWLDocketWeight_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetULDAllocationFormat">
+          <DataField>FWLDocketWeight_LoadingSheetULDAllocationFormat</DataField>
+        </Field>
+        <Field Name="MWABNo_LoadingSheetULDAllocation">
+          <DataField>MWABNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="FWLDocketNo_LoadingSheetULDAllocation">
+          <DataField>FWLDocketNo_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="FAM_LoadingSheetULDAllocation">
+          <DataField>FAM_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="NoOfBoxes_LoadingSheetULDAllocation">
+          <DataField>NoOfBoxes_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="NoOfBoxes_LoadingSheetULDAllocationFormat">
+          <DataField>NoOfBoxes_LoadingSheetULDAllocationFormat</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetULDAllocation">
+          <DataField>Dimension_LoadingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetULDAllocationFormat">
+          <DataField>Dimension_LoadingSheetULDAllocationFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

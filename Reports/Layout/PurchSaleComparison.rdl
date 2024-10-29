@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,249 +10,6 @@
       <rd:DataSourceID>6db6bc3c-6424-4e8c-a9c4-214f5017e5f5</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ReceiptDate_MAWBReceipt">
-          <DataField>ReceiptDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceipt">
-          <DataField>MAWBFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceiptFormat">
-          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Assigned_MAWBReceipt">
-          <DataField>Assigned_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBReceipt">
-          <DataField>FreightChargeCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBCredit">
-          <DataField>MAWBCredit</DataField>
-        </Field>
-        <Field Name="MAWBCreditFormat">
-          <DataField>MAWBCreditFormat</DataField>
-        </Field>
-        <Field Name="NoHouses">
-          <DataField>NoHouses</DataField>
-        </Field>
-        <Field Name="AirlineName">
-          <DataField>AirlineName</DataField>
-        </Field>
-        <Field Name="Summary">
-          <DataField>Summary</DataField>
-        </Field>
-        <Field Name="Loss">
-          <DataField>Loss</DataField>
-        </Field>
-        <Field Name="PurchCreditMemoAmount">
-          <DataField>PurchCreditMemoAmount</DataField>
-        </Field>
-        <Field Name="PurchCreditMemoAmountFormat">
-          <DataField>PurchCreditMemoAmountFormat</DataField>
-        </Field>
-        <Field Name="CrMemoNo">
-          <DataField>CrMemoNo</DataField>
-        </Field>
-        <Field Name="Lines">
-          <DataField>Lines</DataField>
-        </Field>
-        <Field Name="SelltoCustomerName_SalesInvoiceHeader">
-          <DataField>SelltoCustomerName_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="SelltoCustomerNo_SalesInvoiceHeader">
-          <DataField>SelltoCustomerNo_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="CurrencyFactor_SalesInvoiceHeader">
-          <DataField>CurrencyFactor_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="CurrencyFactor_SalesInvoiceHeaderFormat">
-          <DataField>CurrencyFactor_SalesInvoiceHeaderFormat</DataField>
-        </Field>
-        <Field Name="No_SalesInvoiceHeader">
-          <DataField>No_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoCustomerNo_SalesInvoiceHeader">
-          <DataField>BilltoCustomerNo_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoName_SalesInvoiceHeader">
-          <DataField>BilltoName_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoName2_SalesInvoiceHeader">
-          <DataField>BilltoName2_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoAddress_SalesInvoiceHeader">
-          <DataField>BilltoAddress_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoAddress2_SalesInvoiceHeader">
-          <DataField>BilltoAddress2_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoCity_SalesInvoiceHeader">
-          <DataField>BilltoCity_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="BilltoContact_SalesInvoiceHeader">
-          <DataField>BilltoContact_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="YourReference_SalesInvoiceHeader">
-          <DataField>YourReference_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoCode_SalesInvoiceHeader">
-          <DataField>ShiptoCode_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoName_SalesInvoiceHeader">
-          <DataField>ShiptoName_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoName2_SalesInvoiceHeader">
-          <DataField>ShiptoName2_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoAddress_SalesInvoiceHeader">
-          <DataField>ShiptoAddress_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoAddress2_SalesInvoiceHeader">
-          <DataField>ShiptoAddress2_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoCity_SalesInvoiceHeader">
-          <DataField>ShiptoCity_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShiptoContact_SalesInvoiceHeader">
-          <DataField>ShiptoContact_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="OrderDate_SalesInvoiceHeader">
-          <DataField>OrderDate_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="PostingDate_SalesInvoiceHeader">
-          <DataField>PostingDate_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="ShipmentDate_SalesInvoiceHeader">
-          <DataField>ShipmentDate_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="PostingDescription_SalesInvoiceHeader">
-          <DataField>PostingDescription_SalesInvoiceHeader</DataField>
-        </Field>
-        <Field Name="SalesCreditMemoAmount">
-          <DataField>SalesCreditMemoAmount</DataField>
-        </Field>
-        <Field Name="SalesCreditMemoAmountFormat">
-          <DataField>SalesCreditMemoAmountFormat</DataField>
-        </Field>
-        <Field Name="SelltoCustomerNo_SalesInvoiceLine">
-          <DataField>SelltoCustomerNo_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="DocumentNo_SalesInvoiceLine">
-          <DataField>DocumentNo_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="LineNo_SalesInvoiceLine">
-          <DataField>LineNo_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Type_SalesInvoiceLine">
-          <DataField>Type_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="No_SalesInvoiceLine">
-          <DataField>No_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="LocationCode_SalesInvoiceLine">
-          <DataField>LocationCode_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="PostingGroup_SalesInvoiceLine">
-          <DataField>PostingGroup_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="ShipmentDate_SalesInvoiceLine">
-          <DataField>ShipmentDate_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Description_SalesInvoiceLine">
-          <DataField>Description_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Description2_SalesInvoiceLine">
-          <DataField>Description2_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasure_SalesInvoiceLine">
-          <DataField>UnitofMeasure_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Quantity_SalesInvoiceLine">
-          <DataField>Quantity_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Quantity_SalesInvoiceLineFormat">
-          <DataField>Quantity_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="UnitPrice_SalesInvoiceLine">
-          <DataField>UnitPrice_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="UnitPrice_SalesInvoiceLineFormat">
-          <DataField>UnitPrice_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_SalesInvoiceLine">
-          <DataField>UnitCostLCY_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_SalesInvoiceLineFormat">
-          <DataField>UnitCostLCY_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="VAT_SalesInvoiceLine">
-          <DataField>VAT_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="VAT_SalesInvoiceLineFormat">
-          <DataField>VAT_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="LineDiscount_SalesInvoiceLine">
-          <DataField>LineDiscount_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="LineDiscount_SalesInvoiceLineFormat">
-          <DataField>LineDiscount_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="LineDiscountAmount_SalesInvoiceLine">
-          <DataField>LineDiscountAmount_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="LineDiscountAmount_SalesInvoiceLineFormat">
-          <DataField>LineDiscountAmount_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="Amount_SalesInvoiceLine">
-          <DataField>Amount_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="Amount_SalesInvoiceLineFormat">
-          <DataField>Amount_SalesInvoiceLineFormat</DataField>
-        </Field>
-        <Field Name="PurchaseAmount">
-          <DataField>PurchaseAmount</DataField>
-        </Field>
-        <Field Name="PurchaseAmountFormat">
-          <DataField>PurchaseAmountFormat</DataField>
-        </Field>
-        <Field Name="LineCreditPurch">
-          <DataField>LineCreditPurch</DataField>
-        </Field>
-        <Field Name="LineCreditPurchFormat">
-          <DataField>LineCreditPurchFormat</DataField>
-        </Field>
-        <Field Name="InvNo12">
-          <DataField>InvNo12</DataField>
-        </Field>
-        <Field Name="Vendor">
-          <DataField>Vendor</DataField>
-        </Field>
-        <Field Name="HAWBNo_SalesInvoiceLine">
-          <DataField>HAWBNo_SalesInvoiceLine</DataField>
-        </Field>
-        <Field Name="PPdate">
-          <DataField>PPdate</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -6763,4 +6520,242 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ReceiptDate_MAWBReceipt">
+          <DataField>ReceiptDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceipt">
+          <DataField>MAWBFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceiptFormat">
+          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Assigned_MAWBReceipt">
+          <DataField>Assigned_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBReceipt">
+          <DataField>FreightChargeCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBCredit">
+          <DataField>MAWBCredit</DataField>
+        </Field>
+        <Field Name="MAWBCreditFormat">
+          <DataField>MAWBCreditFormat</DataField>
+        </Field>
+        <Field Name="NoHouses">
+          <DataField>NoHouses</DataField>
+        </Field>
+        <Field Name="AirlineName">
+          <DataField>AirlineName</DataField>
+        </Field>
+        <Field Name="Summary">
+          <DataField>Summary</DataField>
+        </Field>
+        <Field Name="Loss">
+          <DataField>Loss</DataField>
+        </Field>
+        <Field Name="PurchCreditMemoAmount">
+          <DataField>PurchCreditMemoAmount</DataField>
+        </Field>
+        <Field Name="PurchCreditMemoAmountFormat">
+          <DataField>PurchCreditMemoAmountFormat</DataField>
+        </Field>
+        <Field Name="CrMemoNo">
+          <DataField>CrMemoNo</DataField>
+        </Field>
+        <Field Name="Lines">
+          <DataField>Lines</DataField>
+        </Field>
+        <Field Name="SelltoCustomerName_SalesInvoiceHeader">
+          <DataField>SelltoCustomerName_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="SelltoCustomerNo_SalesInvoiceHeader">
+          <DataField>SelltoCustomerNo_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_SalesInvoiceHeader">
+          <DataField>CurrencyFactor_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="CurrencyFactor_SalesInvoiceHeaderFormat">
+          <DataField>CurrencyFactor_SalesInvoiceHeaderFormat</DataField>
+        </Field>
+        <Field Name="No_SalesInvoiceHeader">
+          <DataField>No_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoCustomerNo_SalesInvoiceHeader">
+          <DataField>BilltoCustomerNo_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoName_SalesInvoiceHeader">
+          <DataField>BilltoName_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoName2_SalesInvoiceHeader">
+          <DataField>BilltoName2_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoAddress_SalesInvoiceHeader">
+          <DataField>BilltoAddress_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoAddress2_SalesInvoiceHeader">
+          <DataField>BilltoAddress2_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoCity_SalesInvoiceHeader">
+          <DataField>BilltoCity_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="BilltoContact_SalesInvoiceHeader">
+          <DataField>BilltoContact_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="YourReference_SalesInvoiceHeader">
+          <DataField>YourReference_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoCode_SalesInvoiceHeader">
+          <DataField>ShiptoCode_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoName_SalesInvoiceHeader">
+          <DataField>ShiptoName_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoName2_SalesInvoiceHeader">
+          <DataField>ShiptoName2_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoAddress_SalesInvoiceHeader">
+          <DataField>ShiptoAddress_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoAddress2_SalesInvoiceHeader">
+          <DataField>ShiptoAddress2_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoCity_SalesInvoiceHeader">
+          <DataField>ShiptoCity_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShiptoContact_SalesInvoiceHeader">
+          <DataField>ShiptoContact_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="OrderDate_SalesInvoiceHeader">
+          <DataField>OrderDate_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="PostingDate_SalesInvoiceHeader">
+          <DataField>PostingDate_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="ShipmentDate_SalesInvoiceHeader">
+          <DataField>ShipmentDate_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="PostingDescription_SalesInvoiceHeader">
+          <DataField>PostingDescription_SalesInvoiceHeader</DataField>
+        </Field>
+        <Field Name="SalesCreditMemoAmount">
+          <DataField>SalesCreditMemoAmount</DataField>
+        </Field>
+        <Field Name="SalesCreditMemoAmountFormat">
+          <DataField>SalesCreditMemoAmountFormat</DataField>
+        </Field>
+        <Field Name="SelltoCustomerNo_SalesInvoiceLine">
+          <DataField>SelltoCustomerNo_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="DocumentNo_SalesInvoiceLine">
+          <DataField>DocumentNo_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="LineNo_SalesInvoiceLine">
+          <DataField>LineNo_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Type_SalesInvoiceLine">
+          <DataField>Type_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="No_SalesInvoiceLine">
+          <DataField>No_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="LocationCode_SalesInvoiceLine">
+          <DataField>LocationCode_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="PostingGroup_SalesInvoiceLine">
+          <DataField>PostingGroup_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="ShipmentDate_SalesInvoiceLine">
+          <DataField>ShipmentDate_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Description_SalesInvoiceLine">
+          <DataField>Description_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Description2_SalesInvoiceLine">
+          <DataField>Description2_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_SalesInvoiceLine">
+          <DataField>UnitofMeasure_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Quantity_SalesInvoiceLine">
+          <DataField>Quantity_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Quantity_SalesInvoiceLineFormat">
+          <DataField>Quantity_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="UnitPrice_SalesInvoiceLine">
+          <DataField>UnitPrice_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="UnitPrice_SalesInvoiceLineFormat">
+          <DataField>UnitPrice_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_SalesInvoiceLine">
+          <DataField>UnitCostLCY_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_SalesInvoiceLineFormat">
+          <DataField>UnitCostLCY_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="VAT_SalesInvoiceLine">
+          <DataField>VAT_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="VAT_SalesInvoiceLineFormat">
+          <DataField>VAT_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="LineDiscount_SalesInvoiceLine">
+          <DataField>LineDiscount_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="LineDiscount_SalesInvoiceLineFormat">
+          <DataField>LineDiscount_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="LineDiscountAmount_SalesInvoiceLine">
+          <DataField>LineDiscountAmount_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="LineDiscountAmount_SalesInvoiceLineFormat">
+          <DataField>LineDiscountAmount_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="Amount_SalesInvoiceLine">
+          <DataField>Amount_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="Amount_SalesInvoiceLineFormat">
+          <DataField>Amount_SalesInvoiceLineFormat</DataField>
+        </Field>
+        <Field Name="PurchaseAmount">
+          <DataField>PurchaseAmount</DataField>
+        </Field>
+        <Field Name="PurchaseAmountFormat">
+          <DataField>PurchaseAmountFormat</DataField>
+        </Field>
+        <Field Name="LineCreditPurch">
+          <DataField>LineCreditPurch</DataField>
+        </Field>
+        <Field Name="LineCreditPurchFormat">
+          <DataField>LineCreditPurchFormat</DataField>
+        </Field>
+        <Field Name="InvNo12">
+          <DataField>InvNo12</DataField>
+        </Field>
+        <Field Name="Vendor">
+          <DataField>Vendor</DataField>
+        </Field>
+        <Field Name="HAWBNo_SalesInvoiceLine">
+          <DataField>HAWBNo_SalesInvoiceLine</DataField>
+        </Field>
+        <Field Name="PPdate">
+          <DataField>PPdate</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,144 +10,6 @@
       <rd:DataSourceID>cb242622-38ef-43e2-8d7e-3978812819fe</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="IATAInvoiceDate_IATAPurchaseInvoice">
-          <DataField>IATAInvoiceDate_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="MAWBNo_IATAPurchaseInvoice">
-          <DataField>MAWBNo_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="WeightAsPerFWL_IATAPurchaseInvoice">
-          <DataField>WeightAsPerFWL_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="WeightAsPerFWL_IATAPurchaseInvoiceFormat">
-          <DataField>WeightAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="AmountAsPerFWL_IATAPurchaseInvoice">
-          <DataField>AmountAsPerFWL_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="AmountAsPerFWL_IATAPurchaseInvoiceFormat">
-          <DataField>AmountAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="RatePerKiloAsPerFWL_IATAPurchaseInvoice">
-          <DataField>RatePerKiloAsPerFWL_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="RatePerKiloAsPerFWL_IATAPurchaseInvoiceFormat">
-          <DataField>RatePerKiloAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="WeightAsPerIATA_IATAPurchaseInvoice">
-          <DataField>WeightAsPerIATA_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="WeightAsPerIATA_IATAPurchaseInvoiceFormat">
-          <DataField>WeightAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="AmountAsPerIATA_IATAPurchaseInvoice">
-          <DataField>AmountAsPerIATA_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="AmountAsPerIATA_IATAPurchaseInvoiceFormat">
-          <DataField>AmountAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="RatePerKiloAsPerIATA_IATAPurchaseInvoice">
-          <DataField>RatePerKiloAsPerIATA_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="RatePerKiloAsPerIATA_IATAPurchaseInvoiceFormat">
-          <DataField>RatePerKiloAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="DifferenceinWeight_IATAPurchaseInvoice">
-          <DataField>DifferenceinWeight_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="DifferenceinWeight_IATAPurchaseInvoiceFormat">
-          <DataField>DifferenceinWeight_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="RateDifference_IATAPurchaseInvoice">
-          <DataField>RateDifference_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="RateDifference_IATAPurchaseInvoiceFormat">
-          <DataField>RateDifference_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="DifferenceInAmount_IATAPurchaseInvoice">
-          <DataField>DifferenceInAmount_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="DifferenceInAmount_IATAPurchaseInvoiceFormat">
-          <DataField>DifferenceInAmount_IATAPurchaseInvoiceFormat</DataField>
-        </Field>
-        <Field Name="Comments_IATAPurchaseInvoice">
-          <DataField>Comments_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="LineNo_IATAPurchaseInvoice">
-          <DataField>LineNo_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="VendorNo_IATAPurchaseInvoice">
-          <DataField>VendorNo_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="VendorName_IATAPurchaseInvoice">
-          <DataField>VendorName_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="BillingStartDate_IATAPurchaseInvoice">
-          <DataField>BillingStartDate_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="BillingEndDate_IATAPurchaseInvoice">
-          <DataField>BillingEndDate_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="IATAInvoiceNo_IATAPurchaseInvoice">
-          <DataField>IATAInvoiceNo_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="Converted_IATAPurchaseInvoice">
-          <DataField>Converted_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="PurchaseInvoiceNo_IATAPurchaseInvoice">
-          <DataField>PurchaseInvoiceNo_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="AirlineCode_IATAPurchaseInvoice">
-          <DataField>AirlineCode_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="PurchaseACCode_IATAPurchaseInvoice">
-          <DataField>PurchaseACCode_IATAPurchaseInvoice</DataField>
-        </Field>
-        <Field Name="CompInfoPicture">
-          <DataField>CompInfoPicture</DataField>
-        </Field>
-        <Field Name="CompInfoName">
-          <DataField>CompInfoName</DataField>
-        </Field>
-        <Field Name="PageCaption">
-          <DataField>PageCaption</DataField>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-        </Field>
-        <Field Name="City">
-          <DataField>City</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="PostCode">
-          <DataField>PostCode</DataField>
-        </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-        </Field>
-        <Field Name="CustType">
-          <DataField>CustType</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -4448,4 +4310,137 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="IATAInvoiceDate_IATAPurchaseInvoice">
+          <DataField>IATAInvoiceDate_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="MAWBNo_IATAPurchaseInvoice">
+          <DataField>MAWBNo_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="WeightAsPerFWL_IATAPurchaseInvoice">
+          <DataField>WeightAsPerFWL_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="WeightAsPerFWL_IATAPurchaseInvoiceFormat">
+          <DataField>WeightAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="AmountAsPerFWL_IATAPurchaseInvoice">
+          <DataField>AmountAsPerFWL_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="AmountAsPerFWL_IATAPurchaseInvoiceFormat">
+          <DataField>AmountAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="RatePerKiloAsPerFWL_IATAPurchaseInvoice">
+          <DataField>RatePerKiloAsPerFWL_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="RatePerKiloAsPerFWL_IATAPurchaseInvoiceFormat">
+          <DataField>RatePerKiloAsPerFWL_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="WeightAsPerIATA_IATAPurchaseInvoice">
+          <DataField>WeightAsPerIATA_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="WeightAsPerIATA_IATAPurchaseInvoiceFormat">
+          <DataField>WeightAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="AmountAsPerIATA_IATAPurchaseInvoice">
+          <DataField>AmountAsPerIATA_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="AmountAsPerIATA_IATAPurchaseInvoiceFormat">
+          <DataField>AmountAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="RatePerKiloAsPerIATA_IATAPurchaseInvoice">
+          <DataField>RatePerKiloAsPerIATA_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="RatePerKiloAsPerIATA_IATAPurchaseInvoiceFormat">
+          <DataField>RatePerKiloAsPerIATA_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="DifferenceinWeight_IATAPurchaseInvoice">
+          <DataField>DifferenceinWeight_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="DifferenceinWeight_IATAPurchaseInvoiceFormat">
+          <DataField>DifferenceinWeight_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="RateDifference_IATAPurchaseInvoice">
+          <DataField>RateDifference_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="RateDifference_IATAPurchaseInvoiceFormat">
+          <DataField>RateDifference_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="DifferenceInAmount_IATAPurchaseInvoice">
+          <DataField>DifferenceInAmount_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="DifferenceInAmount_IATAPurchaseInvoiceFormat">
+          <DataField>DifferenceInAmount_IATAPurchaseInvoiceFormat</DataField>
+        </Field>
+        <Field Name="Comments_IATAPurchaseInvoice">
+          <DataField>Comments_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="LineNo_IATAPurchaseInvoice">
+          <DataField>LineNo_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="VendorNo_IATAPurchaseInvoice">
+          <DataField>VendorNo_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="VendorName_IATAPurchaseInvoice">
+          <DataField>VendorName_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="BillingStartDate_IATAPurchaseInvoice">
+          <DataField>BillingStartDate_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="BillingEndDate_IATAPurchaseInvoice">
+          <DataField>BillingEndDate_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="IATAInvoiceNo_IATAPurchaseInvoice">
+          <DataField>IATAInvoiceNo_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="Converted_IATAPurchaseInvoice">
+          <DataField>Converted_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="PurchaseInvoiceNo_IATAPurchaseInvoice">
+          <DataField>PurchaseInvoiceNo_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="AirlineCode_IATAPurchaseInvoice">
+          <DataField>AirlineCode_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="PurchaseACCode_IATAPurchaseInvoice">
+          <DataField>PurchaseACCode_IATAPurchaseInvoice</DataField>
+        </Field>
+        <Field Name="CompInfoPicture">
+          <DataField>CompInfoPicture</DataField>
+        </Field>
+        <Field Name="CompInfoName">
+          <DataField>CompInfoName</DataField>
+        </Field>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="PostCode">
+          <DataField>PostCode</DataField>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="CustType">
+          <DataField>CustType</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

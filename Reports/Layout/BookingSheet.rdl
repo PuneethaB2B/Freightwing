@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,411 +11,6 @@
       <rd:DataSourceID>a1032054-44c3-44ad-b0a0-f2e5a36fabe4</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Total">
-          <DataField>Total</DataField>
-        </Field>
-        <Field Name="TotalFormat">
-          <DataField>TotalFormat</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="Email">
-          <DataField>Email</DataField>
-        </Field>
-        <Field Name="PhoneNO">
-          <DataField>PhoneNO</DataField>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-        </Field>
-        <Field Name="No_BookingSheetHeader">
-          <DataField>No_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="BookingDate_BookingSheetHeader">
-          <DataField>BookingDate_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetHeader">
-          <DataField>ShipperCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_BookingSheetHeader">
-          <DataField>ShipperName_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_BookingSheetHeader">
-          <DataField>ConsigneeCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ClearingAgentCode_BookingSheetHeader">
-          <DataField>ClearingAgentCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetHeader">
-          <DataField>AirlineCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_BookingSheetHeader">
-          <DataField>FlightCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="MAWBNo_BookingSheetHeader">
-          <DataField>MAWBNo_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ShipperAddress_BookingSheetHeader">
-          <DataField>ShipperAddress_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="Description_BookingSheetHeader">
-          <DataField>Description_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="PortofLoading_BookingSheetHeader">
-          <DataField>PortofLoading_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="CutoffTime_BookingSheetHeader">
-          <DataField>CutoffTime_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="DestinationCode_BookingSheetHeader">
-          <DataField>DestinationCode_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="PortofDischarge_BookingSheetHeader">
-          <DataField>PortofDischarge_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="PlaceofDelivery_BookingSheetHeader">
-          <DataField>PlaceofDelivery_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ViaRouteTransist_BookingSheetHeader">
-          <DataField>ViaRouteTransist_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetHeader">
-          <DataField>BookedWeight_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetHeaderFormat">
-          <DataField>BookedWeight_BookingSheetHeaderFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetHeader">
-          <DataField>ActualWeight_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetHeaderFormat">
-          <DataField>ActualWeight_BookingSheetHeaderFormat</DataField>
-        </Field>
-        <Field Name="PreparedBy_BookingSheetHeader">
-          <DataField>PreparedBy_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="NoSeries_BookingSheetHeader">
-          <DataField>NoSeries_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetHeader">
-          <DataField>WeightDifference_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetHeaderFormat">
-          <DataField>WeightDifference_BookingSheetHeaderFormat</DataField>
-        </Field>
-        <Field Name="MAWBDate_BookingSheetHeader">
-          <DataField>MAWBDate_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="Received_BookingSheetHeader">
-          <DataField>Received_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="Invoiced_BookingSheetHeader">
-          <DataField>Invoiced_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_BookingSheetHeader">
-          <DataField>TypeofDelivery_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="Comments_BookingSheetHeader">
-          <DataField>Comments_BookingSheetHeader</DataField>
-        </Field>
-        <Field Name="PrepBy">
-          <DataField>PrepBy</DataField>
-        </Field>
-        <Field Name="DestinationString">
-          <DataField>DestinationString</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_BookingSheetLine">
-          <DataField>BookingSheetNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="LineNo_BookingSheetLine">
-          <DataField>LineNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Description_BookingSheetLine">
-          <DataField>Description_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_BookingSheetLine">
-          <DataField>UnitofMeasureCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Type_BookingSheetLine">
-          <DataField>Type_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ItemNo_BookingSheetLine">
-          <DataField>ItemNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetLine">
-          <DataField>BookedWeight_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetLineFormat">
-          <DataField>BookedWeight_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetLine">
-          <DataField>ActualWeight_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetLineFormat">
-          <DataField>ActualWeight_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_BookingSheetLine">
-          <DataField>ULDTypeCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ULDNo_BookingSheetLine">
-          <DataField>ULDNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetLine">
-          <DataField>Quantity_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetLineFormat">
-          <DataField>Quantity_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetLine">
-          <DataField>WeightDifference_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetLineFormat">
-          <DataField>WeightDifference_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_BookingSheetLine">
-          <DataField>BookedLineAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_BookingSheetLineFormat">
-          <DataField>BookedLineAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_BookingSheetLine">
-          <DataField>ActualLineAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_BookingSheetLineFormat">
-          <DataField>ActualLineAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="RateAmount_BookingSheetLine">
-          <DataField>RateAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="RateAmount_BookingSheetLineFormat">
-          <DataField>RateAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="LocationCode_BookingSheetLine">
-          <DataField>LocationCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ProductGroupCode_BookingSheetLine">
-          <DataField>ProductGroupCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Status_BookingSheetLine">
-          <DataField>Status_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ApprovedBy_BookingSheetLine">
-          <DataField>ApprovedBy_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ApprovalDate_BookingSheetLine">
-          <DataField>ApprovalDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_BookingSheetLine">
-          <DataField>ConsigneeCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ClearingAgentCode_BookingSheetLine">
-          <DataField>ClearingAgentCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetLine">
-          <DataField>AirlineCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="FlightCode_BookingSheetLine">
-          <DataField>FlightCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_BookingSheetLine">
-          <DataField>MAWBNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PortofLoading_BookingSheetLine">
-          <DataField>PortofLoading_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="CutoffTime_BookingSheetLine">
-          <DataField>CutoffTime_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_BookingSheetLine">
-          <DataField>DestinationCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PortofDischarge_BookingSheetLine">
-          <DataField>PortofDischarge_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PlaceofDelivery_BookingSheetLine">
-          <DataField>PlaceofDelivery_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ViaRouteTransist_BookingSheetLine">
-          <DataField>ViaRouteTransist_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBDate_BookingSheetLine">
-          <DataField>MAWBDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_BookingSheetLine">
-          <DataField>TypeofDelivery_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookingDate_BookingSheetLine">
-          <DataField>BookingDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetLine">
-          <DataField>ShipperCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_BookingSheetLine">
-          <DataField>DivisionFarmCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="GoodReceiptNo_BookingSheetLine">
-          <DataField>GoodReceiptNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="SourceAirport_BookingSheetLine">
-          <DataField>SourceAirport_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DestinationAirport_BookingSheetLine">
-          <DataField>DestinationAirport_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="SourceCode_BookingSheetLine">
-          <DataField>SourceCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ConnectingAirline_BookingSheetLine">
-          <DataField>ConnectingAirline_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ConnectingFlightNo_BookingSheetLine">
-          <DataField>ConnectingFlightNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ConnectingFlightDate_BookingSheetLine">
-          <DataField>ConnectingFlightDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DepartureTime_BookingSheetLine">
-          <DataField>DepartureTime_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ShipmentDeliveryTime_BookingSheetLine">
-          <DataField>ShipmentDeliveryTime_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_BookingSheetMAWBAllocation">
-          <DataField>BookingSheetNo_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="LineNo_BookingSheetMAWBAllocation">
-          <DataField>LineNo_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="ItemNo_BookingSheetMAWBAllocation">
-          <DataField>ItemNo_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="MAWBNo_BookingSheetMAWBAllocation">
-          <DataField>MAWBNo_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="WeightAllocated_BookingSheetMAWBAllocation">
-          <DataField>WeightAllocated_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="WeightAllocated_BookingSheetMAWBAllocationFormat">
-          <DataField>WeightAllocated_BookingSheetMAWBAllocationFormat</DataField>
-        </Field>
-        <Field Name="FlightNo_BookingSheetMAWBAllocation">
-          <DataField>FlightNo_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetMAWBAllocation">
-          <DataField>AirlineCode_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="SourceAirport_BookingSheetMAWBAllocation">
-          <DataField>SourceAirport_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="DestinationAirport_BookingSheetMAWBAllocation">
-          <DataField>DestinationAirport_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_BookingSheetMAWBAllocation">
-          <DataField>ConsigneeCode_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="ConsigneeName_BookingSheetMAWBAllocation">
-          <DataField>ConsigneeName_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetMAWBAllocation">
-          <DataField>ShipperCode_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="BSA_BookingSheetMAWBAllocation">
-          <DataField>BSA_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="Houses_BookingSheetMAWBAllocation">
-          <DataField>Houses_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="Invoiced_BookingSheetMAWBAllocation">
-          <DataField>Invoiced_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="Comment_BookingSheetMAWBAllocation">
-          <DataField>Comment_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="MAWBReceived_BookingSheetMAWBAllocation">
-          <DataField>MAWBReceived_BookingSheetMAWBAllocation</DataField>
-        </Field>
-        <Field Name="ULD">
-          <DataField>ULD</DataField>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_BookingSheetHAWBAllocation">
-          <DataField>BookingSheetNo_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetHAWBAllocation">
-          <DataField>AirlineCode_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_BookingSheetHAWBAllocation">
-          <DataField>ConsigneeCode_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="HAWBNo_BookingSheetHAWBAllocation">
-          <DataField>HAWBNo_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="ItemNo_BookingSheetHAWBAllocation">
-          <DataField>ItemNo_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="ConsigneeName_BookingSheetHAWBAllocation">
-          <DataField>ConsigneeName_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="MAWBNo_BookingSheetHAWBAllocation">
-          <DataField>MAWBNo_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetHAWBAllocation">
-          <DataField>ShipperCode_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="HAWBPrepared_BookingSheetHAWBAllocation">
-          <DataField>HAWBPrepared_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="FlightCode_BookingSheetHAWBAllocation">
-          <DataField>FlightCode_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="GrossWeight_BookingSheetHAWBAllocation">
-          <DataField>GrossWeight_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="GrossWeight_BookingSheetHAWBAllocationFormat">
-          <DataField>GrossWeight_BookingSheetHAWBAllocationFormat</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_BookingSheetHAWBAllocation">
-          <DataField>ChargeableWeight_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_BookingSheetHAWBAllocationFormat">
-          <DataField>ChargeableWeight_BookingSheetHAWBAllocationFormat</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetHAWBAllocation">
-          <DataField>Quantity_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetHAWBAllocationFormat">
-          <DataField>Quantity_BookingSheetHAWBAllocationFormat</DataField>
-        </Field>
-        <Field Name="SourceAirport_BookingSheetHAWBAllocation">
-          <DataField>SourceAirport_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="DestinationAirport_BookingSheetHAWBAllocation">
-          <DataField>DestinationAirport_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="Invoiced_BookingSheetHAWBAllocation">
-          <DataField>Invoiced_BookingSheetHAWBAllocation</DataField>
-        </Field>
-        <Field Name="Main">
-          <DataField>Main</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2307,4 +1902,404 @@ End Function</Code>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+        </Field>
+        <Field Name="TotalFormat">
+          <DataField>TotalFormat</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+        </Field>
+        <Field Name="PhoneNO">
+          <DataField>PhoneNO</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="No_BookingSheetHeader">
+          <DataField>No_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetHeader">
+          <DataField>BookingDate_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetHeader">
+          <DataField>ShipperCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_BookingSheetHeader">
+          <DataField>ShipperName_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetHeader">
+          <DataField>ConsigneeCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_BookingSheetHeader">
+          <DataField>ClearingAgentCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetHeader">
+          <DataField>AirlineCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetHeader">
+          <DataField>FlightCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetHeader">
+          <DataField>MAWBNo_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ShipperAddress_BookingSheetHeader">
+          <DataField>ShipperAddress_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Description_BookingSheetHeader">
+          <DataField>Description_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PortofLoading_BookingSheetHeader">
+          <DataField>PortofLoading_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetHeader">
+          <DataField>CutoffTime_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_BookingSheetHeader">
+          <DataField>DestinationCode_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PortofDischarge_BookingSheetHeader">
+          <DataField>PortofDischarge_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_BookingSheetHeader">
+          <DataField>PlaceofDelivery_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_BookingSheetHeader">
+          <DataField>ViaRouteTransist_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetHeader">
+          <DataField>BookedWeight_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetHeaderFormat">
+          <DataField>BookedWeight_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetHeader">
+          <DataField>ActualWeight_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetHeaderFormat">
+          <DataField>ActualWeight_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="PreparedBy_BookingSheetHeader">
+          <DataField>PreparedBy_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="NoSeries_BookingSheetHeader">
+          <DataField>NoSeries_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetHeader">
+          <DataField>WeightDifference_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetHeaderFormat">
+          <DataField>WeightDifference_BookingSheetHeaderFormat</DataField>
+        </Field>
+        <Field Name="MAWBDate_BookingSheetHeader">
+          <DataField>MAWBDate_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Received_BookingSheetHeader">
+          <DataField>Received_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Invoiced_BookingSheetHeader">
+          <DataField>Invoiced_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetHeader">
+          <DataField>TypeofDelivery_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="Comments_BookingSheetHeader">
+          <DataField>Comments_BookingSheetHeader</DataField>
+        </Field>
+        <Field Name="PrepBy">
+          <DataField>PrepBy</DataField>
+        </Field>
+        <Field Name="DestinationString">
+          <DataField>DestinationString</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_BookingSheetLine">
+          <DataField>BookingSheetNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="LineNo_BookingSheetLine">
+          <DataField>LineNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Description_BookingSheetLine">
+          <DataField>Description_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_BookingSheetLine">
+          <DataField>UnitofMeasureCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Type_BookingSheetLine">
+          <DataField>Type_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetLine">
+          <DataField>ItemNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLine">
+          <DataField>BookedWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLineFormat">
+          <DataField>BookedWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLine">
+          <DataField>ActualWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLineFormat">
+          <DataField>ActualWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_BookingSheetLine">
+          <DataField>ULDTypeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDNo_BookingSheetLine">
+          <DataField>ULDNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLine">
+          <DataField>Quantity_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLineFormat">
+          <DataField>Quantity_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLine">
+          <DataField>WeightDifference_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLineFormat">
+          <DataField>WeightDifference_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLine">
+          <DataField>BookedLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLineFormat">
+          <DataField>BookedLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLine">
+          <DataField>ActualLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLineFormat">
+          <DataField>ActualLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLine">
+          <DataField>RateAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLineFormat">
+          <DataField>RateAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="LocationCode_BookingSheetLine">
+          <DataField>LocationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ProductGroupCode_BookingSheetLine">
+          <DataField>ProductGroupCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Status_BookingSheetLine">
+          <DataField>Status_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovedBy_BookingSheetLine">
+          <DataField>ApprovedBy_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovalDate_BookingSheetLine">
+          <DataField>ApprovalDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetLine">
+          <DataField>ConsigneeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_BookingSheetLine">
+          <DataField>ClearingAgentCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetLine">
+          <DataField>AirlineCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetLine">
+          <DataField>FlightCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetLine">
+          <DataField>MAWBNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofLoading_BookingSheetLine">
+          <DataField>PortofLoading_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetLine">
+          <DataField>CutoffTime_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_BookingSheetLine">
+          <DataField>DestinationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofDischarge_BookingSheetLine">
+          <DataField>PortofDischarge_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_BookingSheetLine">
+          <DataField>PlaceofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_BookingSheetLine">
+          <DataField>ViaRouteTransist_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBDate_BookingSheetLine">
+          <DataField>MAWBDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetLine">
+          <DataField>TypeofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetLine">
+          <DataField>BookingDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetLine">
+          <DataField>ShipperCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_BookingSheetLine">
+          <DataField>DivisionFarmCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="GoodReceiptNo_BookingSheetLine">
+          <DataField>GoodReceiptNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="SourceAirport_BookingSheetLine">
+          <DataField>SourceAirport_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationAirport_BookingSheetLine">
+          <DataField>DestinationAirport_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="SourceCode_BookingSheetLine">
+          <DataField>SourceCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConnectingAirline_BookingSheetLine">
+          <DataField>ConnectingAirline_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConnectingFlightNo_BookingSheetLine">
+          <DataField>ConnectingFlightNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConnectingFlightDate_BookingSheetLine">
+          <DataField>ConnectingFlightDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DepartureTime_BookingSheetLine">
+          <DataField>DepartureTime_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipmentDeliveryTime_BookingSheetLine">
+          <DataField>ShipmentDeliveryTime_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_BookingSheetMAWBAllocation">
+          <DataField>BookingSheetNo_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="LineNo_BookingSheetMAWBAllocation">
+          <DataField>LineNo_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetMAWBAllocation">
+          <DataField>ItemNo_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetMAWBAllocation">
+          <DataField>MAWBNo_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="WeightAllocated_BookingSheetMAWBAllocation">
+          <DataField>WeightAllocated_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="WeightAllocated_BookingSheetMAWBAllocationFormat">
+          <DataField>WeightAllocated_BookingSheetMAWBAllocationFormat</DataField>
+        </Field>
+        <Field Name="FlightNo_BookingSheetMAWBAllocation">
+          <DataField>FlightNo_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetMAWBAllocation">
+          <DataField>AirlineCode_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="SourceAirport_BookingSheetMAWBAllocation">
+          <DataField>SourceAirport_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="DestinationAirport_BookingSheetMAWBAllocation">
+          <DataField>DestinationAirport_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetMAWBAllocation">
+          <DataField>ConsigneeCode_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="ConsigneeName_BookingSheetMAWBAllocation">
+          <DataField>ConsigneeName_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetMAWBAllocation">
+          <DataField>ShipperCode_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="BSA_BookingSheetMAWBAllocation">
+          <DataField>BSA_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="Houses_BookingSheetMAWBAllocation">
+          <DataField>Houses_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="Invoiced_BookingSheetMAWBAllocation">
+          <DataField>Invoiced_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="Comment_BookingSheetMAWBAllocation">
+          <DataField>Comment_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="MAWBReceived_BookingSheetMAWBAllocation">
+          <DataField>MAWBReceived_BookingSheetMAWBAllocation</DataField>
+        </Field>
+        <Field Name="ULD">
+          <DataField>ULD</DataField>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_BookingSheetHAWBAllocation">
+          <DataField>BookingSheetNo_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetHAWBAllocation">
+          <DataField>AirlineCode_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetHAWBAllocation">
+          <DataField>ConsigneeCode_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="HAWBNo_BookingSheetHAWBAllocation">
+          <DataField>HAWBNo_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetHAWBAllocation">
+          <DataField>ItemNo_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="ConsigneeName_BookingSheetHAWBAllocation">
+          <DataField>ConsigneeName_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetHAWBAllocation">
+          <DataField>MAWBNo_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetHAWBAllocation">
+          <DataField>ShipperCode_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="HAWBPrepared_BookingSheetHAWBAllocation">
+          <DataField>HAWBPrepared_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetHAWBAllocation">
+          <DataField>FlightCode_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="GrossWeight_BookingSheetHAWBAllocation">
+          <DataField>GrossWeight_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="GrossWeight_BookingSheetHAWBAllocationFormat">
+          <DataField>GrossWeight_BookingSheetHAWBAllocationFormat</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_BookingSheetHAWBAllocation">
+          <DataField>ChargeableWeight_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_BookingSheetHAWBAllocationFormat">
+          <DataField>ChargeableWeight_BookingSheetHAWBAllocationFormat</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetHAWBAllocation">
+          <DataField>Quantity_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetHAWBAllocationFormat">
+          <DataField>Quantity_BookingSheetHAWBAllocationFormat</DataField>
+        </Field>
+        <Field Name="SourceAirport_BookingSheetHAWBAllocation">
+          <DataField>SourceAirport_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="DestinationAirport_BookingSheetHAWBAllocation">
+          <DataField>DestinationAirport_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="Invoiced_BookingSheetHAWBAllocation">
+          <DataField>Invoiced_BookingSheetHAWBAllocation</DataField>
+        </Field>
+        <Field Name="Main">
+          <DataField>Main</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

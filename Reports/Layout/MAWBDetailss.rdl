@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,99 +10,6 @@
       <rd:DataSourceID>3f7f0fd5-e952-4997-ba12-2e326956ef6e</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ReceiptDate_MAWBReceipt">
-          <DataField>ReceiptDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceipt">
-          <DataField>MAWBFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceiptFormat">
-          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Assigned_MAWBReceipt">
-          <DataField>Assigned_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBReceipt">
-          <DataField>FreightChargeCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="NoHouses">
-          <DataField>NoHouses</DataField>
-        </Field>
-        <Field Name="AirlineName">
-          <DataField>AirlineName</DataField>
-        </Field>
-        <Field Name="ChargeableWeight">
-          <DataField>ChargeableWeight</DataField>
-        </Field>
-        <Field Name="ChargeableWeightFormat">
-          <DataField>ChargeableWeightFormat</DataField>
-        </Field>
-        <Field Name="FreightAmount">
-          <DataField>FreightAmount</DataField>
-        </Field>
-        <Field Name="FreightAmountFormat">
-          <DataField>FreightAmountFormat</DataField>
-        </Field>
-        <Field Name="Shipper">
-          <DataField>Shipper</DataField>
-        </Field>
-        <Field Name="BilledTo">
-          <DataField>BilledTo</DataField>
-        </Field>
-        <Field Name="VAT">
-          <DataField>VAT</DataField>
-        </Field>
-        <Field Name="VATFormat">
-          <DataField>VATFormat</DataField>
-        </Field>
-        <Field Name="Rate">
-          <DataField>Rate</DataField>
-        </Field>
-        <Field Name="RateFormat">
-          <DataField>RateFormat</DataField>
-        </Field>
-        <Field Name="TotalAmount">
-          <DataField>TotalAmount</DataField>
-        </Field>
-        <Field Name="TotalAmountFormat">
-          <DataField>TotalAmountFormat</DataField>
-        </Field>
-        <Field Name="NonFreight">
-          <DataField>NonFreight</DataField>
-        </Field>
-        <Field Name="NonFreightFormat">
-          <DataField>NonFreightFormat</DataField>
-        </Field>
-        <Field Name="MarginAmnt">
-          <DataField>MarginAmnt</DataField>
-        </Field>
-        <Field Name="MarginAmntFormat">
-          <DataField>MarginAmntFormat</DataField>
-        </Field>
-        <Field Name="ItemDescription">
-          <DataField>ItemDescription</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2382,4 +2289,92 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ReceiptDate_MAWBReceipt">
+          <DataField>ReceiptDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceipt">
+          <DataField>MAWBFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceiptFormat">
+          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Assigned_MAWBReceipt">
+          <DataField>Assigned_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBReceipt">
+          <DataField>FreightChargeCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="NoHouses">
+          <DataField>NoHouses</DataField>
+        </Field>
+        <Field Name="AirlineName">
+          <DataField>AirlineName</DataField>
+        </Field>
+        <Field Name="ChargeableWeight">
+          <DataField>ChargeableWeight</DataField>
+        </Field>
+        <Field Name="ChargeableWeightFormat">
+          <DataField>ChargeableWeightFormat</DataField>
+        </Field>
+        <Field Name="FreightAmount">
+          <DataField>FreightAmount</DataField>
+        </Field>
+        <Field Name="FreightAmountFormat">
+          <DataField>FreightAmountFormat</DataField>
+        </Field>
+        <Field Name="Shipper">
+          <DataField>Shipper</DataField>
+        </Field>
+        <Field Name="BilledTo">
+          <DataField>BilledTo</DataField>
+        </Field>
+        <Field Name="VAT">
+          <DataField>VAT</DataField>
+        </Field>
+        <Field Name="VATFormat">
+          <DataField>VATFormat</DataField>
+        </Field>
+        <Field Name="Rate">
+          <DataField>Rate</DataField>
+        </Field>
+        <Field Name="RateFormat">
+          <DataField>RateFormat</DataField>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+        </Field>
+        <Field Name="TotalAmountFormat">
+          <DataField>TotalAmountFormat</DataField>
+        </Field>
+        <Field Name="NonFreight">
+          <DataField>NonFreight</DataField>
+        </Field>
+        <Field Name="NonFreightFormat">
+          <DataField>NonFreightFormat</DataField>
+        </Field>
+        <Field Name="MarginAmnt">
+          <DataField>MarginAmnt</DataField>
+        </Field>
+        <Field Name="MarginAmntFormat">
+          <DataField>MarginAmntFormat</DataField>
+        </Field>
+        <Field Name="ItemDescription">
+          <DataField>ItemDescription</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

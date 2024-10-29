@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,249 +10,6 @@
       <rd:DataSourceID>211d9bb0-6762-4d10-bbde-28f44b7e4a96</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Descrip">
-          <DataField>Descrip</DataField>
-        </Field>
-        <Field Name="CrMemoNo">
-          <DataField>CrMemoNo</DataField>
-        </Field>
-        <Field Name="CrMemoDate">
-          <DataField>CrMemoDate</DataField>
-        </Field>
-        <Field Name="ETR">
-          <DataField>ETR</DataField>
-        </Field>
-        <Field Name="VendorName">
-          <DataField>VendorName</DataField>
-        </Field>
-        <Field Name="Desc">
-          <DataField>Desc</DataField>
-        </Field>
-        <Field Name="VAT">
-          <DataField>VAT</DataField>
-        </Field>
-        <Field Name="EntryNo_VATEntry">
-          <DataField>EntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="GenBusPostingGroup_VATEntry">
-          <DataField>GenBusPostingGroup_VATEntry</DataField>
-        </Field>
-        <Field Name="GenProdPostingGroup_VATEntry">
-          <DataField>GenProdPostingGroup_VATEntry</DataField>
-        </Field>
-        <Field Name="PostingDate_VATEntry">
-          <DataField>PostingDate_VATEntry</DataField>
-        </Field>
-        <Field Name="DocumentNo_VATEntry">
-          <DataField>DocumentNo_VATEntry</DataField>
-        </Field>
-        <Field Name="DocumentType_VATEntry">
-          <DataField>DocumentType_VATEntry</DataField>
-        </Field>
-        <Field Name="Type_VATEntry">
-          <DataField>Type_VATEntry</DataField>
-        </Field>
-        <Field Name="Base_VATEntry">
-          <DataField>Base_VATEntry</DataField>
-        </Field>
-        <Field Name="Base_VATEntryFormat">
-          <DataField>Base_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="Amount_VATEntry">
-          <DataField>Amount_VATEntry</DataField>
-        </Field>
-        <Field Name="Amount_VATEntryFormat">
-          <DataField>Amount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="VATCalculationType_VATEntry">
-          <DataField>VATCalculationType_VATEntry</DataField>
-        </Field>
-        <Field Name="BilltoPaytoNo_VATEntry">
-          <DataField>BilltoPaytoNo_VATEntry</DataField>
-        </Field>
-        <Field Name="EU3PartyTrade_VATEntry">
-          <DataField>EU3PartyTrade_VATEntry</DataField>
-        </Field>
-        <Field Name="UserID_VATEntry">
-          <DataField>UserID_VATEntry</DataField>
-        </Field>
-        <Field Name="SourceCode_VATEntry">
-          <DataField>SourceCode_VATEntry</DataField>
-        </Field>
-        <Field Name="ReasonCode_VATEntry">
-          <DataField>ReasonCode_VATEntry</DataField>
-        </Field>
-        <Field Name="ClosedbyEntryNo_VATEntry">
-          <DataField>ClosedbyEntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="Closed_VATEntry">
-          <DataField>Closed_VATEntry</DataField>
-        </Field>
-        <Field Name="CountryRegionCode_VATEntry">
-          <DataField>CountryRegionCode_VATEntry</DataField>
-        </Field>
-        <Field Name="InternalRefNo_VATEntry">
-          <DataField>InternalRefNo_VATEntry</DataField>
-        </Field>
-        <Field Name="TransactionNo_VATEntry">
-          <DataField>TransactionNo_VATEntry</DataField>
-        </Field>
-        <Field Name="UnrealizedAmount_VATEntry">
-          <DataField>UnrealizedAmount_VATEntry</DataField>
-        </Field>
-        <Field Name="UnrealizedAmount_VATEntryFormat">
-          <DataField>UnrealizedAmount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="UnrealizedBase_VATEntry">
-          <DataField>UnrealizedBase_VATEntry</DataField>
-        </Field>
-        <Field Name="UnrealizedBase_VATEntryFormat">
-          <DataField>UnrealizedBase_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="RemainingUnrealizedAmount_VATEntry">
-          <DataField>RemainingUnrealizedAmount_VATEntry</DataField>
-        </Field>
-        <Field Name="RemainingUnrealizedAmount_VATEntryFormat">
-          <DataField>RemainingUnrealizedAmount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="RemainingUnrealizedBase_VATEntry">
-          <DataField>RemainingUnrealizedBase_VATEntry</DataField>
-        </Field>
-        <Field Name="RemainingUnrealizedBase_VATEntryFormat">
-          <DataField>RemainingUnrealizedBase_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="ExternalDocumentNo_VATEntry">
-          <DataField>ExternalDocumentNo_VATEntry</DataField>
-        </Field>
-        <Field Name="NoSeries_VATEntry">
-          <DataField>NoSeries_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxAreaCode_VATEntry">
-          <DataField>TaxAreaCode_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxLiable_VATEntry">
-          <DataField>TaxLiable_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxGroupCode_VATEntry">
-          <DataField>TaxGroupCode_VATEntry</DataField>
-        </Field>
-        <Field Name="UseTax_VATEntry">
-          <DataField>UseTax_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxJurisdictionCode_VATEntry">
-          <DataField>TaxJurisdictionCode_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxGroupUsed_VATEntry">
-          <DataField>TaxGroupUsed_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxType_VATEntry">
-          <DataField>TaxType_VATEntry</DataField>
-        </Field>
-        <Field Name="TaxonTax_VATEntry">
-          <DataField>TaxonTax_VATEntry</DataField>
-        </Field>
-        <Field Name="SalesTaxConnectionNo_VATEntry">
-          <DataField>SalesTaxConnectionNo_VATEntry</DataField>
-        </Field>
-        <Field Name="UnrealizedVATEntryNo_VATEntry">
-          <DataField>UnrealizedVATEntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="VATBusPostingGroup_VATEntry">
-          <DataField>VATBusPostingGroup_VATEntry</DataField>
-        </Field>
-        <Field Name="VATProdPostingGroup_VATEntry">
-          <DataField>VATProdPostingGroup_VATEntry</DataField>
-        </Field>
-        <Field Name="AdditionalCurrencyAmount_VATEntry">
-          <DataField>AdditionalCurrencyAmount_VATEntry</DataField>
-        </Field>
-        <Field Name="AdditionalCurrencyAmount_VATEntryFormat">
-          <DataField>AdditionalCurrencyAmount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AdditionalCurrencyBase_VATEntry">
-          <DataField>AdditionalCurrencyBase_VATEntry</DataField>
-        </Field>
-        <Field Name="AdditionalCurrencyBase_VATEntryFormat">
-          <DataField>AdditionalCurrencyBase_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AddCurrencyUnrealizedAmt_VATEntry">
-          <DataField>AddCurrencyUnrealizedAmt_VATEntry</DataField>
-        </Field>
-        <Field Name="AddCurrencyUnrealizedAmt_VATEntryFormat">
-          <DataField>AddCurrencyUnrealizedAmt_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AddCurrencyUnrealizedBase_VATEntry">
-          <DataField>AddCurrencyUnrealizedBase_VATEntry</DataField>
-        </Field>
-        <Field Name="AddCurrencyUnrealizedBase_VATEntryFormat">
-          <DataField>AddCurrencyUnrealizedBase_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="VATBaseDiscount_VATEntry">
-          <DataField>VATBaseDiscount_VATEntry</DataField>
-        </Field>
-        <Field Name="VATBaseDiscount_VATEntryFormat">
-          <DataField>VATBaseDiscount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AddCurrRemUnrealAmount_VATEntry">
-          <DataField>AddCurrRemUnrealAmount_VATEntry</DataField>
-        </Field>
-        <Field Name="AddCurrRemUnrealAmount_VATEntryFormat">
-          <DataField>AddCurrRemUnrealAmount_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AddCurrRemUnrealBase_VATEntry">
-          <DataField>AddCurrRemUnrealBase_VATEntry</DataField>
-        </Field>
-        <Field Name="AddCurrRemUnrealBase_VATEntryFormat">
-          <DataField>AddCurrRemUnrealBase_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="VATDifference_VATEntry">
-          <DataField>VATDifference_VATEntry</DataField>
-        </Field>
-        <Field Name="VATDifference_VATEntryFormat">
-          <DataField>VATDifference_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="AddCurrVATDifference_VATEntry">
-          <DataField>AddCurrVATDifference_VATEntry</DataField>
-        </Field>
-        <Field Name="AddCurrVATDifference_VATEntryFormat">
-          <DataField>AddCurrVATDifference_VATEntryFormat</DataField>
-        </Field>
-        <Field Name="ShiptoOrderAddressCode_VATEntry">
-          <DataField>ShiptoOrderAddressCode_VATEntry</DataField>
-        </Field>
-        <Field Name="DocumentDate_VATEntry">
-          <DataField>DocumentDate_VATEntry</DataField>
-        </Field>
-        <Field Name="VATRegistrationNo_VATEntry">
-          <DataField>VATRegistrationNo_VATEntry</DataField>
-        </Field>
-        <Field Name="Reversed_VATEntry">
-          <DataField>Reversed_VATEntry</DataField>
-        </Field>
-        <Field Name="ReversedbyEntryNo_VATEntry">
-          <DataField>ReversedbyEntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="ReversedEntryNo_VATEntry">
-          <DataField>ReversedEntryNo_VATEntry</DataField>
-        </Field>
-        <Field Name="EUService_VATEntry">
-          <DataField>EUService_VATEntry</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1447,4 +1204,242 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Descrip">
+          <DataField>Descrip</DataField>
+        </Field>
+        <Field Name="CrMemoNo">
+          <DataField>CrMemoNo</DataField>
+        </Field>
+        <Field Name="CrMemoDate">
+          <DataField>CrMemoDate</DataField>
+        </Field>
+        <Field Name="ETR">
+          <DataField>ETR</DataField>
+        </Field>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
+        </Field>
+        <Field Name="Desc">
+          <DataField>Desc</DataField>
+        </Field>
+        <Field Name="VAT">
+          <DataField>VAT</DataField>
+        </Field>
+        <Field Name="EntryNo_VATEntry">
+          <DataField>EntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="GenBusPostingGroup_VATEntry">
+          <DataField>GenBusPostingGroup_VATEntry</DataField>
+        </Field>
+        <Field Name="GenProdPostingGroup_VATEntry">
+          <DataField>GenProdPostingGroup_VATEntry</DataField>
+        </Field>
+        <Field Name="PostingDate_VATEntry">
+          <DataField>PostingDate_VATEntry</DataField>
+        </Field>
+        <Field Name="DocumentNo_VATEntry">
+          <DataField>DocumentNo_VATEntry</DataField>
+        </Field>
+        <Field Name="DocumentType_VATEntry">
+          <DataField>DocumentType_VATEntry</DataField>
+        </Field>
+        <Field Name="Type_VATEntry">
+          <DataField>Type_VATEntry</DataField>
+        </Field>
+        <Field Name="Base_VATEntry">
+          <DataField>Base_VATEntry</DataField>
+        </Field>
+        <Field Name="Base_VATEntryFormat">
+          <DataField>Base_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="Amount_VATEntry">
+          <DataField>Amount_VATEntry</DataField>
+        </Field>
+        <Field Name="Amount_VATEntryFormat">
+          <DataField>Amount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="VATCalculationType_VATEntry">
+          <DataField>VATCalculationType_VATEntry</DataField>
+        </Field>
+        <Field Name="BilltoPaytoNo_VATEntry">
+          <DataField>BilltoPaytoNo_VATEntry</DataField>
+        </Field>
+        <Field Name="EU3PartyTrade_VATEntry">
+          <DataField>EU3PartyTrade_VATEntry</DataField>
+        </Field>
+        <Field Name="UserID_VATEntry">
+          <DataField>UserID_VATEntry</DataField>
+        </Field>
+        <Field Name="SourceCode_VATEntry">
+          <DataField>SourceCode_VATEntry</DataField>
+        </Field>
+        <Field Name="ReasonCode_VATEntry">
+          <DataField>ReasonCode_VATEntry</DataField>
+        </Field>
+        <Field Name="ClosedbyEntryNo_VATEntry">
+          <DataField>ClosedbyEntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="Closed_VATEntry">
+          <DataField>Closed_VATEntry</DataField>
+        </Field>
+        <Field Name="CountryRegionCode_VATEntry">
+          <DataField>CountryRegionCode_VATEntry</DataField>
+        </Field>
+        <Field Name="InternalRefNo_VATEntry">
+          <DataField>InternalRefNo_VATEntry</DataField>
+        </Field>
+        <Field Name="TransactionNo_VATEntry">
+          <DataField>TransactionNo_VATEntry</DataField>
+        </Field>
+        <Field Name="UnrealizedAmount_VATEntry">
+          <DataField>UnrealizedAmount_VATEntry</DataField>
+        </Field>
+        <Field Name="UnrealizedAmount_VATEntryFormat">
+          <DataField>UnrealizedAmount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="UnrealizedBase_VATEntry">
+          <DataField>UnrealizedBase_VATEntry</DataField>
+        </Field>
+        <Field Name="UnrealizedBase_VATEntryFormat">
+          <DataField>UnrealizedBase_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="RemainingUnrealizedAmount_VATEntry">
+          <DataField>RemainingUnrealizedAmount_VATEntry</DataField>
+        </Field>
+        <Field Name="RemainingUnrealizedAmount_VATEntryFormat">
+          <DataField>RemainingUnrealizedAmount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="RemainingUnrealizedBase_VATEntry">
+          <DataField>RemainingUnrealizedBase_VATEntry</DataField>
+        </Field>
+        <Field Name="RemainingUnrealizedBase_VATEntryFormat">
+          <DataField>RemainingUnrealizedBase_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNo_VATEntry">
+          <DataField>ExternalDocumentNo_VATEntry</DataField>
+        </Field>
+        <Field Name="NoSeries_VATEntry">
+          <DataField>NoSeries_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxAreaCode_VATEntry">
+          <DataField>TaxAreaCode_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxLiable_VATEntry">
+          <DataField>TaxLiable_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxGroupCode_VATEntry">
+          <DataField>TaxGroupCode_VATEntry</DataField>
+        </Field>
+        <Field Name="UseTax_VATEntry">
+          <DataField>UseTax_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxJurisdictionCode_VATEntry">
+          <DataField>TaxJurisdictionCode_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxGroupUsed_VATEntry">
+          <DataField>TaxGroupUsed_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxType_VATEntry">
+          <DataField>TaxType_VATEntry</DataField>
+        </Field>
+        <Field Name="TaxonTax_VATEntry">
+          <DataField>TaxonTax_VATEntry</DataField>
+        </Field>
+        <Field Name="SalesTaxConnectionNo_VATEntry">
+          <DataField>SalesTaxConnectionNo_VATEntry</DataField>
+        </Field>
+        <Field Name="UnrealizedVATEntryNo_VATEntry">
+          <DataField>UnrealizedVATEntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="VATBusPostingGroup_VATEntry">
+          <DataField>VATBusPostingGroup_VATEntry</DataField>
+        </Field>
+        <Field Name="VATProdPostingGroup_VATEntry">
+          <DataField>VATProdPostingGroup_VATEntry</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyAmount_VATEntry">
+          <DataField>AdditionalCurrencyAmount_VATEntry</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyAmount_VATEntryFormat">
+          <DataField>AdditionalCurrencyAmount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyBase_VATEntry">
+          <DataField>AdditionalCurrencyBase_VATEntry</DataField>
+        </Field>
+        <Field Name="AdditionalCurrencyBase_VATEntryFormat">
+          <DataField>AdditionalCurrencyBase_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrencyUnrealizedAmt_VATEntry">
+          <DataField>AddCurrencyUnrealizedAmt_VATEntry</DataField>
+        </Field>
+        <Field Name="AddCurrencyUnrealizedAmt_VATEntryFormat">
+          <DataField>AddCurrencyUnrealizedAmt_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrencyUnrealizedBase_VATEntry">
+          <DataField>AddCurrencyUnrealizedBase_VATEntry</DataField>
+        </Field>
+        <Field Name="AddCurrencyUnrealizedBase_VATEntryFormat">
+          <DataField>AddCurrencyUnrealizedBase_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="VATBaseDiscount_VATEntry">
+          <DataField>VATBaseDiscount_VATEntry</DataField>
+        </Field>
+        <Field Name="VATBaseDiscount_VATEntryFormat">
+          <DataField>VATBaseDiscount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrRemUnrealAmount_VATEntry">
+          <DataField>AddCurrRemUnrealAmount_VATEntry</DataField>
+        </Field>
+        <Field Name="AddCurrRemUnrealAmount_VATEntryFormat">
+          <DataField>AddCurrRemUnrealAmount_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrRemUnrealBase_VATEntry">
+          <DataField>AddCurrRemUnrealBase_VATEntry</DataField>
+        </Field>
+        <Field Name="AddCurrRemUnrealBase_VATEntryFormat">
+          <DataField>AddCurrRemUnrealBase_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="VATDifference_VATEntry">
+          <DataField>VATDifference_VATEntry</DataField>
+        </Field>
+        <Field Name="VATDifference_VATEntryFormat">
+          <DataField>VATDifference_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="AddCurrVATDifference_VATEntry">
+          <DataField>AddCurrVATDifference_VATEntry</DataField>
+        </Field>
+        <Field Name="AddCurrVATDifference_VATEntryFormat">
+          <DataField>AddCurrVATDifference_VATEntryFormat</DataField>
+        </Field>
+        <Field Name="ShiptoOrderAddressCode_VATEntry">
+          <DataField>ShiptoOrderAddressCode_VATEntry</DataField>
+        </Field>
+        <Field Name="DocumentDate_VATEntry">
+          <DataField>DocumentDate_VATEntry</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_VATEntry">
+          <DataField>VATRegistrationNo_VATEntry</DataField>
+        </Field>
+        <Field Name="Reversed_VATEntry">
+          <DataField>Reversed_VATEntry</DataField>
+        </Field>
+        <Field Name="ReversedbyEntryNo_VATEntry">
+          <DataField>ReversedbyEntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="ReversedEntryNo_VATEntry">
+          <DataField>ReversedEntryNo_VATEntry</DataField>
+        </Field>
+        <Field Name="EUService_VATEntry">
+          <DataField>EUService_VATEntry</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

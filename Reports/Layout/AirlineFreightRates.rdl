@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,96 +10,6 @@
       <rd:DataSourceID>0ed167fb-c47f-44f0-bb94-b089b5fcc8b8</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="AirlineCode_FreightItemChargeMatrix">
-          <DataField>AirlineCode_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="FlightCode_FreightItemChargeMatrix">
-          <DataField>FlightCode_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="ItemNo_FreightItemChargeMatrix">
-          <DataField>ItemNo_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_FreightItemChargeMatrix">
-          <DataField>FreightChargeCode_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_FreightItemChargeMatrix">
-          <DataField>UnitofMeasureCode_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="NoofPallets_FreightItemChargeMatrix">
-          <DataField>NoofPallets_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="NoofPallets_FreightItemChargeMatrixFormat">
-          <DataField>NoofPallets_FreightItemChargeMatrixFormat</DataField>
-        </Field>
-        <Field Name="ULDType_FreightItemChargeMatrix">
-          <DataField>ULDType_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="FromWeight_FreightItemChargeMatrix">
-          <DataField>FromWeight_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="FromWeight_FreightItemChargeMatrixFormat">
-          <DataField>FromWeight_FreightItemChargeMatrixFormat</DataField>
-        </Field>
-        <Field Name="ToWeight_FreightItemChargeMatrix">
-          <DataField>ToWeight_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="ToWeight_FreightItemChargeMatrixFormat">
-          <DataField>ToWeight_FreightItemChargeMatrixFormat</DataField>
-        </Field>
-        <Field Name="RateAmount_FreightItemChargeMatrix">
-          <DataField>RateAmount_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="RateAmount_FreightItemChargeMatrixFormat">
-          <DataField>RateAmount_FreightItemChargeMatrixFormat</DataField>
-        </Field>
-        <Field Name="CurrencyCode_FreightItemChargeMatrix">
-          <DataField>CurrencyCode_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="Calculation_FreightItemChargeMatrix">
-          <DataField>Calculation_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="Difference_FreightItemChargeMatrix">
-          <DataField>Difference_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="Difference_FreightItemChargeMatrixFormat">
-          <DataField>Difference_FreightItemChargeMatrixFormat</DataField>
-        </Field>
-        <Field Name="Sourceairport_FreightItemChargeMatrix">
-          <DataField>Sourceairport_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="DestinationAirport_FreightItemChargeMatrix">
-          <DataField>DestinationAirport_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="EffectiveStartDate_FreightItemChargeMatrix">
-          <DataField>EffectiveStartDate_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="EffectiveEndDate_FreightItemChargeMatrix">
-          <DataField>EffectiveEndDate_FreightItemChargeMatrix</DataField>
-        </Field>
-        <Field Name="Item">
-          <DataField>Item</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="Filters">
-          <DataField>Filters</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1223,4 +1133,89 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="AirlineCode_FreightItemChargeMatrix">
+          <DataField>AirlineCode_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="FlightCode_FreightItemChargeMatrix">
+          <DataField>FlightCode_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="ItemNo_FreightItemChargeMatrix">
+          <DataField>ItemNo_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_FreightItemChargeMatrix">
+          <DataField>FreightChargeCode_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_FreightItemChargeMatrix">
+          <DataField>UnitofMeasureCode_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="NoofPallets_FreightItemChargeMatrix">
+          <DataField>NoofPallets_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="NoofPallets_FreightItemChargeMatrixFormat">
+          <DataField>NoofPallets_FreightItemChargeMatrixFormat</DataField>
+        </Field>
+        <Field Name="ULDType_FreightItemChargeMatrix">
+          <DataField>ULDType_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="FromWeight_FreightItemChargeMatrix">
+          <DataField>FromWeight_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="FromWeight_FreightItemChargeMatrixFormat">
+          <DataField>FromWeight_FreightItemChargeMatrixFormat</DataField>
+        </Field>
+        <Field Name="ToWeight_FreightItemChargeMatrix">
+          <DataField>ToWeight_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="ToWeight_FreightItemChargeMatrixFormat">
+          <DataField>ToWeight_FreightItemChargeMatrixFormat</DataField>
+        </Field>
+        <Field Name="RateAmount_FreightItemChargeMatrix">
+          <DataField>RateAmount_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="RateAmount_FreightItemChargeMatrixFormat">
+          <DataField>RateAmount_FreightItemChargeMatrixFormat</DataField>
+        </Field>
+        <Field Name="CurrencyCode_FreightItemChargeMatrix">
+          <DataField>CurrencyCode_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="Calculation_FreightItemChargeMatrix">
+          <DataField>Calculation_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="Difference_FreightItemChargeMatrix">
+          <DataField>Difference_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="Difference_FreightItemChargeMatrixFormat">
+          <DataField>Difference_FreightItemChargeMatrixFormat</DataField>
+        </Field>
+        <Field Name="Sourceairport_FreightItemChargeMatrix">
+          <DataField>Sourceairport_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="DestinationAirport_FreightItemChargeMatrix">
+          <DataField>DestinationAirport_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="EffectiveStartDate_FreightItemChargeMatrix">
+          <DataField>EffectiveStartDate_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="EffectiveEndDate_FreightItemChargeMatrix">
+          <DataField>EffectiveEndDate_FreightItemChargeMatrix</DataField>
+        </Field>
+        <Field Name="Item">
+          <DataField>Item</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="Filters">
+          <DataField>Filters</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,201 +10,6 @@
       <rd:DataSourceID>fb4434e3-e61c-42e7-b157-d10444748632</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ShowBookingSheet">
-          <DataField>ShowBookingSheet</DataField>
-        </Field>
-        <Field Name="ShowgGoodsReciept">
-          <DataField>ShowgGoodsReciept</DataField>
-        </Field>
-        <Field Name="ShowLoadingSheet">
-          <DataField>ShowLoadingSheet</DataField>
-        </Field>
-        <Field Name="BookingDate_BookingSheetOprReportTemp">
-          <DataField>BookingDate_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="MawbNo_BookingSheetOprReportTemp">
-          <DataField>MawbNo_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="ShipperName_BookingSheetOprReportTemp">
-          <DataField>ShipperName_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="HAWBNo_BookingSheetOprReportTemp">
-          <DataField>HAWBNo_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetOprReportTemp">
-          <DataField>BookedWeight_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetOprReportTempFormat">
-          <DataField>BookedWeight_BookingSheetOprReportTempFormat</DataField>
-        </Field>
-        <Field Name="FlightNo_BookingSheetOprReportTemp">
-          <DataField>FlightNo_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="DestinationAirport_BookingSheetOprReportTemp">
-          <DataField>DestinationAirport_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="DepartureTime_BookingSheetOprReportTemp">
-          <DataField>DepartureTime_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="CutoffTime_BookingSheetOprReportTemp">
-          <DataField>CutoffTime_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="ULDAllocation_BookingSheetOprReportTemp">
-          <DataField>ULDAllocation_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="ConsigneeName_BookingSheetOprReportTemp">
-          <DataField>ConsigneeName_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_BookingSheetOprReportTemp">
-          <DataField>TypeofDelivery_BookingSheetOprReportTemp</DataField>
-        </Field>
-        <Field Name="GoodReceiptNo_GoodReceiptLine">
-          <DataField>GoodReceiptNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_GoodReceiptLine">
-          <DataField>MAWBNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="RecieptDate_GoodReceiptLine">
-          <DataField>RecieptDate_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DeliveryNo_GoodReceiptLine">
-          <DataField>DeliveryNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DeliveryDate_GoodReceiptLine">
-          <DataField>DeliveryDate_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="SealNo_GoodReceiptLine">
-          <DataField>SealNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="VehicleNo_GoodReceiptLine">
-          <DataField>VehicleNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="VehicleArrivalTime_GoodReceiptLine">
-          <DataField>VehicleArrivalTime_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="AcceptanceSerialNo_GoodReceiptLine">
-          <DataField>AcceptanceSerialNo_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_GoodReceiptLine">
-          <DataField>ArrivalTemperature_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ArrivalTemperature_GoodReceiptLineFormat">
-          <DataField>ArrivalTemperature_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="Description_GoodReceiptLine">
-          <DataField>Description_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_GoodReceiptLine">
-          <DataField>DivisionFarmCode_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Quantity_GoodReceiptLine">
-          <DataField>Quantity_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Quantity_GoodReceiptLineFormat">
-          <DataField>Quantity_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptLine">
-          <DataField>ActualWeight_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_GoodReceiptLineFormat">
-          <DataField>ActualWeight_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="Volume_GoodReceiptLine">
-          <DataField>Volume_GoodReceiptLine</DataField>
-        </Field>
-        <Field Name="Volume_GoodReceiptLineFormat">
-          <DataField>Volume_GoodReceiptLineFormat</DataField>
-        </Field>
-        <Field Name="No_LoadingSheetHeader">
-          <DataField>No_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="LoadingDate_LoadingSheetHeader">
-          <DataField>LoadingDate_LoadingSheetHeader</DataField>
-        </Field>
-        <Field Name="ULDWeight_LoadingSheetLine">
-          <DataField>ULDWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="ULDWeight_LoadingSheetLineFormat">
-          <DataField>ULDWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="NoofBoxes_LoadingSheetLine">
-          <DataField>NoofBoxes_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="NoofBoxes_LoadingSheetLineFormat">
-          <DataField>NoofBoxes_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_LoadingSheetLine">
-          <DataField>ULDTypeCode_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="SkidPer_LoadingSheetLine">
-          <DataField>SkidPer_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="SkidPer_LoadingSheetLineFormat">
-          <DataField>SkidPer_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ConsigneeName_LoadingSheetLine">
-          <DataField>ConsigneeName_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_LoadingSheetLine">
-          <DataField>MAWBNo_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetLine">
-          <DataField>Dimension_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="Dimension_LoadingSheetLineFormat">
-          <DataField>Dimension_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="DepartureTemperature_LoadingSheetLine">
-          <DataField>DepartureTemperature_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="DepartureTemperature_LoadingSheetLineFormat">
-          <DataField>DepartureTemperature_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="VolumeWeight_LoadingSheetLine">
-          <DataField>VolumeWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="VolumeWeight_LoadingSheetLineFormat">
-          <DataField>VolumeWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetLine">
-          <DataField>FWLDocketWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLDocketWeight_LoadingSheetLineFormat">
-          <DataField>FWLDocketWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="FWLGrossWeight_LoadingSheetLine">
-          <DataField>FWLGrossWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="FWLGrossWeight_LoadingSheetLineFormat">
-          <DataField>FWLGrossWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="AirlineDocketWeight_LoadingSheetLine">
-          <DataField>AirlineDocketWeight_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineDocketWeight_LoadingSheetLineFormat">
-          <DataField>AirlineDocketWeight_LoadingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="VaccumTemperature_LoadingSheetLine">
-          <DataField>VaccumTemperature_LoadingSheetLine</DataField>
-        </Field>
-        <Field Name="VaccumTemperature_LoadingSheetLineFormat">
-          <DataField>VaccumTemperature_LoadingSheetLineFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3725,4 +3530,194 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ShowBookingSheet">
+          <DataField>ShowBookingSheet</DataField>
+        </Field>
+        <Field Name="ShowgGoodsReciept">
+          <DataField>ShowgGoodsReciept</DataField>
+        </Field>
+        <Field Name="ShowLoadingSheet">
+          <DataField>ShowLoadingSheet</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetOprReportTemp">
+          <DataField>BookingDate_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="MawbNo_BookingSheetOprReportTemp">
+          <DataField>MawbNo_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="ShipperName_BookingSheetOprReportTemp">
+          <DataField>ShipperName_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="HAWBNo_BookingSheetOprReportTemp">
+          <DataField>HAWBNo_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetOprReportTemp">
+          <DataField>BookedWeight_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetOprReportTempFormat">
+          <DataField>BookedWeight_BookingSheetOprReportTempFormat</DataField>
+        </Field>
+        <Field Name="FlightNo_BookingSheetOprReportTemp">
+          <DataField>FlightNo_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="DestinationAirport_BookingSheetOprReportTemp">
+          <DataField>DestinationAirport_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="DepartureTime_BookingSheetOprReportTemp">
+          <DataField>DepartureTime_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetOprReportTemp">
+          <DataField>CutoffTime_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="ULDAllocation_BookingSheetOprReportTemp">
+          <DataField>ULDAllocation_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="ConsigneeName_BookingSheetOprReportTemp">
+          <DataField>ConsigneeName_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetOprReportTemp">
+          <DataField>TypeofDelivery_BookingSheetOprReportTemp</DataField>
+        </Field>
+        <Field Name="GoodReceiptNo_GoodReceiptLine">
+          <DataField>GoodReceiptNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_GoodReceiptLine">
+          <DataField>MAWBNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="RecieptDate_GoodReceiptLine">
+          <DataField>RecieptDate_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DeliveryNo_GoodReceiptLine">
+          <DataField>DeliveryNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DeliveryDate_GoodReceiptLine">
+          <DataField>DeliveryDate_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="SealNo_GoodReceiptLine">
+          <DataField>SealNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="VehicleNo_GoodReceiptLine">
+          <DataField>VehicleNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="VehicleArrivalTime_GoodReceiptLine">
+          <DataField>VehicleArrivalTime_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="AcceptanceSerialNo_GoodReceiptLine">
+          <DataField>AcceptanceSerialNo_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_GoodReceiptLine">
+          <DataField>ArrivalTemperature_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ArrivalTemperature_GoodReceiptLineFormat">
+          <DataField>ArrivalTemperature_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="Description_GoodReceiptLine">
+          <DataField>Description_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_GoodReceiptLine">
+          <DataField>DivisionFarmCode_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Quantity_GoodReceiptLine">
+          <DataField>Quantity_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Quantity_GoodReceiptLineFormat">
+          <DataField>Quantity_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptLine">
+          <DataField>ActualWeight_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_GoodReceiptLineFormat">
+          <DataField>ActualWeight_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="Volume_GoodReceiptLine">
+          <DataField>Volume_GoodReceiptLine</DataField>
+        </Field>
+        <Field Name="Volume_GoodReceiptLineFormat">
+          <DataField>Volume_GoodReceiptLineFormat</DataField>
+        </Field>
+        <Field Name="No_LoadingSheetHeader">
+          <DataField>No_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="LoadingDate_LoadingSheetHeader">
+          <DataField>LoadingDate_LoadingSheetHeader</DataField>
+        </Field>
+        <Field Name="ULDWeight_LoadingSheetLine">
+          <DataField>ULDWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDWeight_LoadingSheetLineFormat">
+          <DataField>ULDWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="NoofBoxes_LoadingSheetLine">
+          <DataField>NoofBoxes_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="NoofBoxes_LoadingSheetLineFormat">
+          <DataField>NoofBoxes_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_LoadingSheetLine">
+          <DataField>ULDTypeCode_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLine">
+          <DataField>SkidPer_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="SkidPer_LoadingSheetLineFormat">
+          <DataField>SkidPer_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ConsigneeName_LoadingSheetLine">
+          <DataField>ConsigneeName_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_LoadingSheetLine">
+          <DataField>MAWBNo_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetLine">
+          <DataField>Dimension_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="Dimension_LoadingSheetLineFormat">
+          <DataField>Dimension_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLine">
+          <DataField>DepartureTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="DepartureTemperature_LoadingSheetLineFormat">
+          <DataField>DepartureTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="VolumeWeight_LoadingSheetLine">
+          <DataField>VolumeWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="VolumeWeight_LoadingSheetLineFormat">
+          <DataField>VolumeWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLine">
+          <DataField>FWLDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLDocketWeight_LoadingSheetLineFormat">
+          <DataField>FWLDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLine">
+          <DataField>FWLGrossWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="FWLGrossWeight_LoadingSheetLineFormat">
+          <DataField>FWLGrossWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLine">
+          <DataField>AirlineDocketWeight_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineDocketWeight_LoadingSheetLineFormat">
+          <DataField>AirlineDocketWeight_LoadingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="VaccumTemperature_LoadingSheetLine">
+          <DataField>VaccumTemperature_LoadingSheetLine</DataField>
+        </Field>
+        <Field Name="VaccumTemperature_LoadingSheetLineFormat">
+          <DataField>VaccumTemperature_LoadingSheetLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

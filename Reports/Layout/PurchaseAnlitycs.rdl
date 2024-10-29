@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,84 +11,6 @@
       <rd:DataSourceID>3ab5e79b-8233-4d9a-ab5a-8259918ad5c5</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_PurchInvLine">
-          <DataField>No_PurchInvLine</DataField>
-        </Field>
-        <Field Name="BuyfromVendorNo_PurchInvLine">
-          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DocumentNo_PurchInvLine">
-          <DataField>DocumentNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PostingDate_PurchInvLine">
-          <DataField>PostingDate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VendName">
-          <DataField>VendName</DataField>
-        </Field>
-        <Field Name="GlName">
-          <DataField>GlName</DataField>
-        </Field>
-        <Field Name="PaymentVoucherNo_PurchInvLine">
-          <DataField>PaymentVoucherNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ShortcutDimension1Code_PurchInvLine">
-          <DataField>ShortcutDimension1Code_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ShortcutDimension2Code_PurchInvLine">
-          <DataField>ShortcutDimension2Code_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Description_PurchInvLine">
-          <DataField>Description_PurchInvLine</DataField>
-        </Field>
-        <Field Name="CustName">
-          <DataField>CustName</DataField>
-        </Field>
-        <Field Name="Amount_PurchInvLine">
-          <DataField>Amount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Amount_PurchInvLineFormat">
-          <DataField>Amount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="Quantity_PurchInvLine">
-          <DataField>Quantity_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Quantity_PurchInvLineFormat">
-          <DataField>Quantity_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="Credit_DocNo">
-          <DataField>Credit_DocNo</DataField>
-        </Field>
-        <Field Name="Credit_No">
-          <DataField>Credit_No</DataField>
-        </Field>
-        <Field Name="Credit_Desc">
-          <DataField>Credit_Desc</DataField>
-        </Field>
-        <Field Name="Credit_PostingDate">
-          <DataField>Credit_PostingDate</DataField>
-        </Field>
-        <Field Name="Credit_Amt">
-          <DataField>Credit_Amt</DataField>
-        </Field>
-        <Field Name="Credit_AmtFormat">
-          <DataField>Credit_AmtFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1104,4 +1026,59 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_PurchInvLine">
+          <DataField>No_PurchInvLine</DataField>
+        </Field>
+        <Field Name="BuyfromVendorNo_PurchInvLine">
+          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DocumentNo_PurchInvLine">
+          <DataField>DocumentNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PostingDate_PurchInvLine">
+          <DataField>PostingDate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VendName">
+          <DataField>VendName</DataField>
+        </Field>
+        <Field Name="GlName">
+          <DataField>GlName</DataField>
+        </Field>
+        <Field Name="PaymentVoucherNo_PurchInvLine">
+          <DataField>PaymentVoucherNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension1Code_PurchInvLine">
+          <DataField>ShortcutDimension1Code_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension2Code_PurchInvLine">
+          <DataField>ShortcutDimension2Code_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Description_PurchInvLine">
+          <DataField>Description_PurchInvLine</DataField>
+        </Field>
+        <Field Name="CustName">
+          <DataField>CustName</DataField>
+        </Field>
+        <Field Name="Amount_PurchInvLine">
+          <DataField>Amount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Amount_PurchInvLineFormat">
+          <DataField>Amount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="Quantity_PurchInvLine">
+          <DataField>Quantity_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Quantity_PurchInvLineFormat">
+          <DataField>Quantity_PurchInvLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

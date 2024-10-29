@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,60 +10,6 @@
       <rd:DataSourceID>d76ec761-10c5-4ea0-8557-8027bf45ac33</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Company_Address">
-          <DataField>Company_Address</DataField>
-        </Field>
-        <Field Name="Company_City">
-          <DataField>Company_City</DataField>
-        </Field>
-        <Field Name="Company_Postcode">
-          <DataField>Company_Postcode</DataField>
-        </Field>
-        <Field Name="Company_Picture">
-          <DataField>Company_Picture</DataField>
-        </Field>
-        <Field Name="BillToName">
-          <DataField>BillToName</DataField>
-        </Field>
-        <Field Name="IncludeDetailed">
-          <DataField>IncludeDetailed</DataField>
-        </Field>
-        <Field Name="Destination_Ariport">
-          <DataField>Destination_Ariport</DataField>
-        </Field>
-        <Field Name="Item_Name">
-          <DataField>Item_Name</DataField>
-        </Field>
-        <Field Name="Total_Weight">
-          <DataField>Total_Weight</DataField>
-        </Field>
-        <Field Name="Total_WeightFormat">
-          <DataField>Total_WeightFormat</DataField>
-        </Field>
-        <Field Name="Total_Quantity">
-          <DataField>Total_Quantity</DataField>
-        </Field>
-        <Field Name="Total_QuantityFormat">
-          <DataField>Total_QuantityFormat</DataField>
-        </Field>
-        <Field Name="MAWBNo">
-          <DataField>MAWBNo</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1507,4 +1453,53 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Company_Address">
+          <DataField>Company_Address</DataField>
+        </Field>
+        <Field Name="Company_City">
+          <DataField>Company_City</DataField>
+        </Field>
+        <Field Name="Company_Postcode">
+          <DataField>Company_Postcode</DataField>
+        </Field>
+        <Field Name="Company_Picture">
+          <DataField>Company_Picture</DataField>
+        </Field>
+        <Field Name="BillToName">
+          <DataField>BillToName</DataField>
+        </Field>
+        <Field Name="IncludeDetailed">
+          <DataField>IncludeDetailed</DataField>
+        </Field>
+        <Field Name="Destination_Ariport">
+          <DataField>Destination_Ariport</DataField>
+        </Field>
+        <Field Name="Item_Name">
+          <DataField>Item_Name</DataField>
+        </Field>
+        <Field Name="Total_Weight">
+          <DataField>Total_Weight</DataField>
+        </Field>
+        <Field Name="Total_WeightFormat">
+          <DataField>Total_WeightFormat</DataField>
+        </Field>
+        <Field Name="Total_Quantity">
+          <DataField>Total_Quantity</DataField>
+        </Field>
+        <Field Name="Total_QuantityFormat">
+          <DataField>Total_QuantityFormat</DataField>
+        </Field>
+        <Field Name="MAWBNo">
+          <DataField>MAWBNo</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

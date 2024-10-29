@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,12 +11,200 @@
       <rd:DataSourceID>b14e411b-ae9a-4f84-95b2-0ea528d8baaa</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="PayTo">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=Fields!PayerInformation_GenJournalLine.Value</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PayTo</rd:DefaultName>
+            <Top>1.72792in</Top>
+            <Left>1.44667in</Left>
+            <Height>0.25in</Height>
+            <Width>3.5in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="AmountInWords">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!AmountInWords.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>AmountInWords</rd:DefaultName>
+            <Top>2.10986in</Top>
+            <Left>1.97792in</Left>
+            <Height>0.25in</Height>
+            <Width>3.78125in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="DocumentDate_GenJournalLine">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!DocumentDate_GenJournalLine.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>dd-MMM-yyyy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>DocumentDate_GenJournalLine</rd:DefaultName>
+            <Top>0.22792in</Top>
+            <Left>5.36333in</Left>
+            <Height>0.27083in</Height>
+            <Width>1.63542in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Amount_GenJournalLine">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value EvaluationMode="Auto">=First(Fields!Amount_GenJournalLine.Value, "DataSet_Result")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Amount_GenJournalLine</rd:DefaultName>
+            <Top>1.72792in</Top>
+            <Left>5.75916in</Left>
+            <Height>0.25in</Height>
+            <Width>1.23958in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>3.86459in</Height>
+        <Style />
+      </Body>
+      <Width>6.99875in</Width>
+      <Page>
+        <PageHeight>4in</PageHeight>
+        <PageWidth>7in</PageWidth>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
       <Fields>
         <Field Name="PayTo">
           <DataField>PayTo</DataField>
@@ -459,9 +647,6 @@
         <Field Name="DimensionSetID_GenJournalLine">
           <DataField>DimensionSetID_GenJournalLine</DataField>
         </Field>
-        <Field Name="CreditCardNo_GenJournalLine">
-          <DataField>CreditCardNo_GenJournalLine</DataField>
-        </Field>
         <Field Name="JobTaskNo_GenJournalLine">
           <DataField>JobTaskNo_GenJournalLine</DataField>
         </Field>
@@ -576,17 +761,11 @@
         <Field Name="DirectDebitMandateID_GenJournalLine">
           <DataField>DirectDebitMandateID_GenJournalLine</DataField>
         </Field>
-        <Field Name="PostingExchEntryNo_GenJournalLine">
-          <DataField>PostingExchEntryNo_GenJournalLine</DataField>
-        </Field>
         <Field Name="PayerInformation_GenJournalLine">
           <DataField>PayerInformation_GenJournalLine</DataField>
         </Field>
         <Field Name="TransactionInformation_GenJournalLine">
           <DataField>TransactionInformation_GenJournalLine</DataField>
-        </Field>
-        <Field Name="PostingExchLineNo_GenJournalLine">
-          <DataField>PostingExchLineNo_GenJournalLine</DataField>
         </Field>
         <Field Name="AppliedAutomatically_GenJournalLine">
           <DataField>AppliedAutomatically_GenJournalLine</DataField>
@@ -652,203 +831,10 @@
           <DataField>Comment_GenJournalLine</DataField>
         </Field>
       </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
     </DataSet>
   </DataSets>
-  <ReportSections>
-    <ReportSection>
-      <Body>
-        <ReportItems>
-          <Textbox Name="PayTo">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!PayerInformation_GenJournalLine.Value</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>PayTo</rd:DefaultName>
-            <Top>1.72792in</Top>
-            <Left>1.44667in</Left>
-            <Height>0.25in</Height>
-            <Width>3.5in</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Bottom</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="AmountInWords">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!AmountInWords.Value, "DataSet_Result")</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>AmountInWords</rd:DefaultName>
-            <Top>2.10986in</Top>
-            <Left>1.97792in</Left>
-            <Height>0.25in</Height>
-            <Width>3.78125in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="DocumentDate_GenJournalLine">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!DocumentDate_GenJournalLine.Value, "DataSet_Result")</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>dd-MMM-yyyy</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>DocumentDate_GenJournalLine</rd:DefaultName>
-            <Top>0.22792in</Top>
-            <Left>5.36333in</Left>
-            <Height>0.27083in</Height>
-            <Width>1.63542in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Amount_GenJournalLine">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!Amount_GenJournalLine.Value, "DataSet_Result")</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>#,0.00;(#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Amount_GenJournalLine</rd:DefaultName>
-            <Top>1.72792in</Top>
-            <Left>5.75916in</Left>
-            <Height>0.25in</Height>
-            <Width>1.23958in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-        </ReportItems>
-        <Height>3.86459in</Height>
-        <Style />
-      </Body>
-      <Width>6.99875in</Width>
-      <Page>
-        <PageHeight>4in</PageHeight>
-        <PageWidth>7in</PageWidth>
-        <Style />
-      </Page>
-    </ReportSection>
-  </ReportSections>
-  <Code>Public Function BlankZero(ByVal Value As Decimal)
-    if Value = 0 then
-        Return ""
-    end if
-    Return Value
-End Function
-
-Public Function BlankPos(ByVal Value As Decimal)
-    if Value &gt; 0 then
-        Return ""
-    end if
-    Return Value
-End Function
-
-Public Function BlankZeroAndPos(ByVal Value As Decimal)
-    if Value &gt;= 0 then
-        Return ""
-    end if
-    Return Value
-End Function
-
-Public Function BlankNeg(ByVal Value As Decimal)
-    if Value &lt; 0 then
-        Return ""
-    end if
-    Return Value
-End Function
-
-Public Function BlankNegAndZero(ByVal Value As Decimal)
-    if Value &lt;= 0 then
-        Return ""
-    end if
-    Return Value
-End Function
-</Code>
-  <Language>=User!Language</Language>
-  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
 </Report>

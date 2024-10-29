@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,135 +10,6 @@
       <rd:DataSourceID>8b8074f0-eb0a-4174-91e2-0aa4051895cc</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="DistributionDate_DlWeightDistHeader">
-          <DataField>DistributionDate_DlWeightDistHeader</DataField>
-        </Field>
-        <Field Name="No_DlWeightDistHeader">
-          <DataField>No_DlWeightDistHeader</DataField>
-        </Field>
-        <Field Name="DayofWeek_DlWeightDistHeader">
-          <DataField>DayofWeek_DlWeightDistHeader</DataField>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-        </Field>
-        <Field Name="City">
-          <DataField>City</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="PostCode">
-          <DataField>PostCode</DataField>
-        </Field>
-        <Field Name="AirlineCode_DlWeightDistByAirline">
-          <DataField>AirlineCode_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="AirlineName_DlWeightDistByAirline">
-          <DataField>AirlineName_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="TotalCapacityPlanned_DlWeightDistByAirline">
-          <DataField>TotalCapacityPlanned_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="TotalCapacityPlanned_DlWeightDistByAirlineFormat">
-          <DataField>TotalCapacityPlanned_DlWeightDistByAirlineFormat</DataField>
-        </Field>
-        <Field Name="ActualWeightBooked_DlWeightDistByAirline">
-          <DataField>ActualWeightBooked_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="ActualWeightBooked_DlWeightDistByAirlineFormat">
-          <DataField>ActualWeightBooked_DlWeightDistByAirlineFormat</DataField>
-        </Field>
-        <Field Name="DestinationCode_DlWeightDistByAirline">
-          <DataField>DestinationCode_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="FlightCode_DlWeightDistByAirline">
-          <DataField>FlightCode_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="SourceCode_DlWeightDistByAirline">
-          <DataField>SourceCode_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="SourceAirport_DlWeightDistByAirline">
-          <DataField>SourceAirport_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="DestinationAirport_DlWeightDistByAirline">
-          <DataField>DestinationAirport_DlWeightDistByAirline</DataField>
-        </Field>
-        <Field Name="CustomerNo_DlWeightDistByCustomer">
-          <DataField>CustomerNo_DlWeightDistByCustomer</DataField>
-        </Field>
-        <Field Name="CustomerName_DlWeightDistByCustomer">
-          <DataField>CustomerName_DlWeightDistByCustomer</DataField>
-        </Field>
-        <Field Name="GrossWeight_DlWeightDistByCustomer">
-          <DataField>GrossWeight_DlWeightDistByCustomer</DataField>
-        </Field>
-        <Field Name="GrossWeight_DlWeightDistByCustomerFormat">
-          <DataField>GrossWeight_DlWeightDistByCustomerFormat</DataField>
-        </Field>
-        <Field Name="DestinationCode_DlWeightDistByCustomer">
-          <DataField>DestinationCode_DlWeightDistByCustomer</DataField>
-        </Field>
-        <Field Name="DestinationAirport_DlWeightDistByCustomer">
-          <DataField>DestinationAirport_DlWeightDistByCustomer</DataField>
-        </Field>
-        <Field Name="DailyNo_DlWeightDistByItem">
-          <DataField>DailyNo_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="AirlineCode_DlWeightDistByItem">
-          <DataField>AirlineCode_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="CustomerNo_DlWeightDistByItem">
-          <DataField>CustomerNo_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="ItemNo_DlWeightDistByItem">
-          <DataField>ItemNo_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="Description_DlWeightDistByItem">
-          <DataField>Description_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="GrossWeight_DlWeightDistByItem">
-          <DataField>GrossWeight_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="GrossWeight_DlWeightDistByItemFormat">
-          <DataField>GrossWeight_DlWeightDistByItemFormat</DataField>
-        </Field>
-        <Field Name="DistributionDate_DlWeightDistByItem">
-          <DataField>DistributionDate_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_DlWeightDistByItem">
-          <DataField>BookingSheetNo_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="UnitofMeasure_DlWeightDistByItem">
-          <DataField>UnitofMeasure_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="DestinationCode_DlWeightDistByItem">
-          <DataField>DestinationCode_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="DayofWeek_DlWeightDistByItem">
-          <DataField>DayofWeek_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="FlightCode_DlWeightDistByItem">
-          <DataField>FlightCode_DlWeightDistByItem</DataField>
-        </Field>
-        <Field Name="DestinationAirport_DlWeightDistByItem">
-          <DataField>DestinationAirport_DlWeightDistByItem</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1712,4 +1583,128 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DistributionDate_DlWeightDistHeader">
+          <DataField>DistributionDate_DlWeightDistHeader</DataField>
+        </Field>
+        <Field Name="No_DlWeightDistHeader">
+          <DataField>No_DlWeightDistHeader</DataField>
+        </Field>
+        <Field Name="DayofWeek_DlWeightDistHeader">
+          <DataField>DayofWeek_DlWeightDistHeader</DataField>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="PostCode">
+          <DataField>PostCode</DataField>
+        </Field>
+        <Field Name="AirlineCode_DlWeightDistByAirline">
+          <DataField>AirlineCode_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="AirlineName_DlWeightDistByAirline">
+          <DataField>AirlineName_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="TotalCapacityPlanned_DlWeightDistByAirline">
+          <DataField>TotalCapacityPlanned_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="TotalCapacityPlanned_DlWeightDistByAirlineFormat">
+          <DataField>TotalCapacityPlanned_DlWeightDistByAirlineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeightBooked_DlWeightDistByAirline">
+          <DataField>ActualWeightBooked_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="ActualWeightBooked_DlWeightDistByAirlineFormat">
+          <DataField>ActualWeightBooked_DlWeightDistByAirlineFormat</DataField>
+        </Field>
+        <Field Name="DestinationCode_DlWeightDistByAirline">
+          <DataField>DestinationCode_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="FlightCode_DlWeightDistByAirline">
+          <DataField>FlightCode_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="SourceCode_DlWeightDistByAirline">
+          <DataField>SourceCode_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="SourceAirport_DlWeightDistByAirline">
+          <DataField>SourceAirport_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="DestinationAirport_DlWeightDistByAirline">
+          <DataField>DestinationAirport_DlWeightDistByAirline</DataField>
+        </Field>
+        <Field Name="CustomerNo_DlWeightDistByCustomer">
+          <DataField>CustomerNo_DlWeightDistByCustomer</DataField>
+        </Field>
+        <Field Name="CustomerName_DlWeightDistByCustomer">
+          <DataField>CustomerName_DlWeightDistByCustomer</DataField>
+        </Field>
+        <Field Name="GrossWeight_DlWeightDistByCustomer">
+          <DataField>GrossWeight_DlWeightDistByCustomer</DataField>
+        </Field>
+        <Field Name="GrossWeight_DlWeightDistByCustomerFormat">
+          <DataField>GrossWeight_DlWeightDistByCustomerFormat</DataField>
+        </Field>
+        <Field Name="DestinationCode_DlWeightDistByCustomer">
+          <DataField>DestinationCode_DlWeightDistByCustomer</DataField>
+        </Field>
+        <Field Name="DestinationAirport_DlWeightDistByCustomer">
+          <DataField>DestinationAirport_DlWeightDistByCustomer</DataField>
+        </Field>
+        <Field Name="DailyNo_DlWeightDistByItem">
+          <DataField>DailyNo_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="AirlineCode_DlWeightDistByItem">
+          <DataField>AirlineCode_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="CustomerNo_DlWeightDistByItem">
+          <DataField>CustomerNo_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="ItemNo_DlWeightDistByItem">
+          <DataField>ItemNo_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="Description_DlWeightDistByItem">
+          <DataField>Description_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="GrossWeight_DlWeightDistByItem">
+          <DataField>GrossWeight_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="GrossWeight_DlWeightDistByItemFormat">
+          <DataField>GrossWeight_DlWeightDistByItemFormat</DataField>
+        </Field>
+        <Field Name="DistributionDate_DlWeightDistByItem">
+          <DataField>DistributionDate_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_DlWeightDistByItem">
+          <DataField>BookingSheetNo_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_DlWeightDistByItem">
+          <DataField>UnitofMeasure_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="DestinationCode_DlWeightDistByItem">
+          <DataField>DestinationCode_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="DayofWeek_DlWeightDistByItem">
+          <DataField>DayofWeek_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="FlightCode_DlWeightDistByItem">
+          <DataField>FlightCode_DlWeightDistByItem</DataField>
+        </Field>
+        <Field Name="DestinationAirport_DlWeightDistByItem">
+          <DataField>DestinationAirport_DlWeightDistByItem</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,186 +10,6 @@
       <rd:DataSourceID>4f6eac5e-1b17-438c-8f29-98ebcac6b7e3</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="BookingSheetNo_BookingSheetLine">
-          <DataField>BookingSheetNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="LineNo_BookingSheetLine">
-          <DataField>LineNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Description_BookingSheetLine">
-          <DataField>Description_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_BookingSheetLine">
-          <DataField>UnitofMeasureCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Type_BookingSheetLine">
-          <DataField>Type_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ItemNo_BookingSheetLine">
-          <DataField>ItemNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetLine">
-          <DataField>BookedWeight_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedWeight_BookingSheetLineFormat">
-          <DataField>BookedWeight_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetLine">
-          <DataField>ActualWeight_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_BookingSheetLineFormat">
-          <DataField>ActualWeight_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_BookingSheetLine">
-          <DataField>ULDTypeCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ULDNo_BookingSheetLine">
-          <DataField>ULDNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetLine">
-          <DataField>Quantity_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetLineFormat">
-          <DataField>Quantity_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetLine">
-          <DataField>WeightDifference_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="WeightDifference_BookingSheetLineFormat">
-          <DataField>WeightDifference_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_BookingSheetLine">
-          <DataField>BookedLineAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookedLineAmount_BookingSheetLineFormat">
-          <DataField>BookedLineAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_BookingSheetLine">
-          <DataField>ActualLineAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ActualLineAmount_BookingSheetLineFormat">
-          <DataField>ActualLineAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="RateAmount_BookingSheetLine">
-          <DataField>RateAmount_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="RateAmount_BookingSheetLineFormat">
-          <DataField>RateAmount_BookingSheetLineFormat</DataField>
-        </Field>
-        <Field Name="LocationCode_BookingSheetLine">
-          <DataField>LocationCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ProductGroupCode_BookingSheetLine">
-          <DataField>ProductGroupCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="Status_BookingSheetLine">
-          <DataField>Status_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ApprovedBy_BookingSheetLine">
-          <DataField>ApprovedBy_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ApprovalDate_BookingSheetLine">
-          <DataField>ApprovalDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_BookingSheetLine">
-          <DataField>ConsigneeCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ClearingAgentCode_BookingSheetLine">
-          <DataField>ClearingAgentCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetLine">
-          <DataField>AirlineCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="FlightCode_BookingSheetLine">
-          <DataField>FlightCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_BookingSheetLine">
-          <DataField>MAWBNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PortofLoading_BookingSheetLine">
-          <DataField>PortofLoading_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="CutoffTime_BookingSheetLine">
-          <DataField>CutoffTime_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_BookingSheetLine">
-          <DataField>DestinationCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PortofDischarge_BookingSheetLine">
-          <DataField>PortofDischarge_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="PlaceofDelivery_BookingSheetLine">
-          <DataField>PlaceofDelivery_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ViaRouteTransist_BookingSheetLine">
-          <DataField>ViaRouteTransist_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="MAWBDate_BookingSheetLine">
-          <DataField>MAWBDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="TypeofDelivery_BookingSheetLine">
-          <DataField>TypeofDelivery_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="BookingDate_BookingSheetLine">
-          <DataField>BookingDate_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetLine">
-          <DataField>ShipperCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_BookingSheetLine">
-          <DataField>DivisionFarmCode_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="GoodReceiptNo_BookingSheetLine">
-          <DataField>GoodReceiptNo_BookingSheetLine</DataField>
-        </Field>
-        <Field Name="CompName">
-          <DataField>CompName</DataField>
-        </Field>
-        <Field Name="CompPicture">
-          <DataField>CompPicture</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_BookingSheetULDAllocation">
-          <DataField>BookingSheetNo_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="AirlineCode_BookingSheetULDAllocation">
-          <DataField>AirlineCode_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="ULDTypeCode_BookingSheetULDAllocation">
-          <DataField>ULDTypeCode_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetULDAllocation">
-          <DataField>Quantity_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Quantity_BookingSheetULDAllocationFormat">
-          <DataField>Quantity_BookingSheetULDAllocationFormat</DataField>
-        </Field>
-        <Field Name="ItemNo_BookingSheetULDAllocation">
-          <DataField>ItemNo_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="ShipperCode_BookingSheetULDAllocation">
-          <DataField>ShipperCode_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="FlightCode_BookingSheetULDAllocation">
-          <DataField>FlightCode_BookingSheetULDAllocation</DataField>
-        </Field>
-        <Field Name="Remarks_BookingSheetULDAllocation">
-          <DataField>Remarks_BookingSheetULDAllocation</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1350,4 +1170,179 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="BookingSheetNo_BookingSheetLine">
+          <DataField>BookingSheetNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="LineNo_BookingSheetLine">
+          <DataField>LineNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Description_BookingSheetLine">
+          <DataField>Description_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_BookingSheetLine">
+          <DataField>UnitofMeasureCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Type_BookingSheetLine">
+          <DataField>Type_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetLine">
+          <DataField>ItemNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLine">
+          <DataField>BookedWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedWeight_BookingSheetLineFormat">
+          <DataField>BookedWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLine">
+          <DataField>ActualWeight_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_BookingSheetLineFormat">
+          <DataField>ActualWeight_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_BookingSheetLine">
+          <DataField>ULDTypeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ULDNo_BookingSheetLine">
+          <DataField>ULDNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLine">
+          <DataField>Quantity_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetLineFormat">
+          <DataField>Quantity_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLine">
+          <DataField>WeightDifference_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="WeightDifference_BookingSheetLineFormat">
+          <DataField>WeightDifference_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLine">
+          <DataField>BookedLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookedLineAmount_BookingSheetLineFormat">
+          <DataField>BookedLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLine">
+          <DataField>ActualLineAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ActualLineAmount_BookingSheetLineFormat">
+          <DataField>ActualLineAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLine">
+          <DataField>RateAmount_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="RateAmount_BookingSheetLineFormat">
+          <DataField>RateAmount_BookingSheetLineFormat</DataField>
+        </Field>
+        <Field Name="LocationCode_BookingSheetLine">
+          <DataField>LocationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ProductGroupCode_BookingSheetLine">
+          <DataField>ProductGroupCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="Status_BookingSheetLine">
+          <DataField>Status_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovedBy_BookingSheetLine">
+          <DataField>ApprovedBy_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ApprovalDate_BookingSheetLine">
+          <DataField>ApprovalDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_BookingSheetLine">
+          <DataField>ConsigneeCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ClearingAgentCode_BookingSheetLine">
+          <DataField>ClearingAgentCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetLine">
+          <DataField>AirlineCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetLine">
+          <DataField>FlightCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_BookingSheetLine">
+          <DataField>MAWBNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofLoading_BookingSheetLine">
+          <DataField>PortofLoading_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="CutoffTime_BookingSheetLine">
+          <DataField>CutoffTime_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_BookingSheetLine">
+          <DataField>DestinationCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PortofDischarge_BookingSheetLine">
+          <DataField>PortofDischarge_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="PlaceofDelivery_BookingSheetLine">
+          <DataField>PlaceofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ViaRouteTransist_BookingSheetLine">
+          <DataField>ViaRouteTransist_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="MAWBDate_BookingSheetLine">
+          <DataField>MAWBDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="TypeofDelivery_BookingSheetLine">
+          <DataField>TypeofDelivery_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="BookingDate_BookingSheetLine">
+          <DataField>BookingDate_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetLine">
+          <DataField>ShipperCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_BookingSheetLine">
+          <DataField>DivisionFarmCode_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="GoodReceiptNo_BookingSheetLine">
+          <DataField>GoodReceiptNo_BookingSheetLine</DataField>
+        </Field>
+        <Field Name="CompName">
+          <DataField>CompName</DataField>
+        </Field>
+        <Field Name="CompPicture">
+          <DataField>CompPicture</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_BookingSheetULDAllocation">
+          <DataField>BookingSheetNo_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="AirlineCode_BookingSheetULDAllocation">
+          <DataField>AirlineCode_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="ULDTypeCode_BookingSheetULDAllocation">
+          <DataField>ULDTypeCode_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetULDAllocation">
+          <DataField>Quantity_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Quantity_BookingSheetULDAllocationFormat">
+          <DataField>Quantity_BookingSheetULDAllocationFormat</DataField>
+        </Field>
+        <Field Name="ItemNo_BookingSheetULDAllocation">
+          <DataField>ItemNo_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="ShipperCode_BookingSheetULDAllocation">
+          <DataField>ShipperCode_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="FlightCode_BookingSheetULDAllocation">
+          <DataField>FlightCode_BookingSheetULDAllocation</DataField>
+        </Field>
+        <Field Name="Remarks_BookingSheetULDAllocation">
+          <DataField>Remarks_BookingSheetULDAllocation</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -249,11 +249,11 @@ page 50017 "Shipper Card"
                               "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                 Visible = false;
             }
-            systempart(Seperator; Links)
+            systempart(System; Links)
             {
                 Visible = true;
             }
-            systempart(Seperator1; Notes)
+            systempart(System1; Notes)
             {
                 Visible = true;
             }

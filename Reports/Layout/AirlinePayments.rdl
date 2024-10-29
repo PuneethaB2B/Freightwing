@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,561 +11,6 @@
       <rd:DataSourceID>75addf7e-89ff-4abe-bc38-ac66cfd3495d</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Filter">
-          <DataField>Filter</DataField>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-        </Field>
-        <Field Name="AirlineCode_MAWBReceipt">
-          <DataField>AirlineCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBNo_MAWBReceipt">
-          <DataField>MAWBNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="ReceiptDate_MAWBReceipt">
-          <DataField>ReceiptDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceipt">
-          <DataField>MAWBFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="MAWBFees_MAWBReceiptFormat">
-          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Assigned_MAWBReceipt">
-          <DataField>Assigned_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="FreightChargeCode_MAWBReceipt">
-          <DataField>FreightChargeCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="Prepared_MAWBReceipt">
-          <DataField>Prepared_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="PrefixCode_MAWBReceipt">
-          <DataField>PrefixCode_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="BillNo_MAWBReceipt">
-          <DataField>BillNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="StartNo_MAWBReceipt">
-          <DataField>StartNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="EndNo_MAWBReceipt">
-          <DataField>EndNo_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="KAAFees_MAWBReceipt">
-          <DataField>KAAFees_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="KAAFees_MAWBReceiptFormat">
-          <DataField>KAAFees_MAWBReceiptFormat</DataField>
-        </Field>
-        <Field Name="Invoiced_MAWBReceipt">
-          <DataField>Invoiced_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="AssignedDate_MAWBReceipt">
-          <DataField>AssignedDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="InviocedDate_MAWBReceipt">
-          <DataField>InviocedDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="PreparedDate_MAWBReceipt">
-          <DataField>PreparedDate_MAWBReceipt</DataField>
-        </Field>
-        <Field Name="AirlineName">
-          <DataField>AirlineName</DataField>
-        </Field>
-        <Field Name="ShowSummary">
-          <DataField>ShowSummary</DataField>
-        </Field>
-        <Field Name="ShippedWeight">
-          <DataField>ShippedWeight</DataField>
-        </Field>
-        <Field Name="ShippedWeightFormat">
-          <DataField>ShippedWeightFormat</DataField>
-        </Field>
-        <Field Name="VendorName">
-          <DataField>VendorName</DataField>
-        </Field>
-        <Field Name="Prod">
-          <DataField>Prod</DataField>
-        </Field>
-        <Field Name="Curr">
-          <DataField>Curr</DataField>
-        </Field>
-        <Field Name="BuyfromVendorNo_PurchInvLine">
-          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DocumentNo_PurchInvLine">
-          <DataField>DocumentNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LineNo_PurchInvLine">
-          <DataField>LineNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Type_PurchInvLine">
-          <DataField>Type_PurchInvLine</DataField>
-        </Field>
-        <Field Name="No_PurchInvLine">
-          <DataField>No_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LocationCode_PurchInvLine">
-          <DataField>LocationCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PostingGroup_PurchInvLine">
-          <DataField>PostingGroup_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ExpectedReceiptDate_PurchInvLine">
-          <DataField>ExpectedReceiptDate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Description_PurchInvLine">
-          <DataField>Description_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Description2_PurchInvLine">
-          <DataField>Description2_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasure_PurchInvLine">
-          <DataField>UnitofMeasure_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Quantity_PurchInvLine">
-          <DataField>Quantity_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Quantity_PurchInvLineFormat">
-          <DataField>Quantity_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="DirectUnitCost_PurchInvLine">
-          <DataField>DirectUnitCost_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DirectUnitCost_PurchInvLineFormat">
-          <DataField>DirectUnitCost_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_PurchInvLine">
-          <DataField>UnitCostLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_PurchInvLineFormat">
-          <DataField>UnitCostLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="VAT_PurchInvLine">
-          <DataField>VAT_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VAT_PurchInvLineFormat">
-          <DataField>VAT_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="LineDiscount_PurchInvLine">
-          <DataField>LineDiscount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LineDiscount_PurchInvLineFormat">
-          <DataField>LineDiscount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="LineDiscountAmount_PurchInvLine">
-          <DataField>LineDiscountAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LineDiscountAmount_PurchInvLineFormat">
-          <DataField>LineDiscountAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="Amount_PurchInvLine">
-          <DataField>Amount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Amount_PurchInvLineFormat">
-          <DataField>Amount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_PurchInvLine">
-          <DataField>AmountIncludingVAT_PurchInvLine</DataField>
-        </Field>
-        <Field Name="AmountIncludingVAT_PurchInvLineFormat">
-          <DataField>AmountIncludingVAT_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitPriceLCY_PurchInvLine">
-          <DataField>UnitPriceLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitPriceLCY_PurchInvLineFormat">
-          <DataField>UnitPriceLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="AllowInvoiceDisc_PurchInvLine">
-          <DataField>AllowInvoiceDisc_PurchInvLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_PurchInvLine">
-          <DataField>GrossWeight_PurchInvLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_PurchInvLineFormat">
-          <DataField>GrossWeight_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="NetWeight_PurchInvLine">
-          <DataField>NetWeight_PurchInvLine</DataField>
-        </Field>
-        <Field Name="NetWeight_PurchInvLineFormat">
-          <DataField>NetWeight_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitsperParcel_PurchInvLine">
-          <DataField>UnitsperParcel_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitsperParcel_PurchInvLineFormat">
-          <DataField>UnitsperParcel_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitVolume_PurchInvLine">
-          <DataField>UnitVolume_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitVolume_PurchInvLineFormat">
-          <DataField>UnitVolume_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="AppltoItemEntry_PurchInvLine">
-          <DataField>AppltoItemEntry_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ShortcutDimension1Code_PurchInvLine">
-          <DataField>ShortcutDimension1Code_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ShortcutDimension2Code_PurchInvLine">
-          <DataField>ShortcutDimension2Code_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobNo_PurchInvLine">
-          <DataField>JobNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="IndirectCost_PurchInvLine">
-          <DataField>IndirectCost_PurchInvLine</DataField>
-        </Field>
-        <Field Name="IndirectCost_PurchInvLineFormat">
-          <DataField>IndirectCost_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="ReceiptNo_PurchInvLine">
-          <DataField>ReceiptNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ReceiptLineNo_PurchInvLine">
-          <DataField>ReceiptLineNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PaytoVendorNo_PurchInvLine">
-          <DataField>PaytoVendorNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="InvDiscountAmount_PurchInvLine">
-          <DataField>InvDiscountAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="InvDiscountAmount_PurchInvLineFormat">
-          <DataField>InvDiscountAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="VendorItemNo_PurchInvLine">
-          <DataField>VendorItemNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="GenBusPostingGroup_PurchInvLine">
-          <DataField>GenBusPostingGroup_PurchInvLine</DataField>
-        </Field>
-        <Field Name="GenProdPostingGroup_PurchInvLine">
-          <DataField>GenProdPostingGroup_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATCalculationType_PurchInvLine">
-          <DataField>VATCalculationType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TransactionType_PurchInvLine">
-          <DataField>TransactionType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TransportMethod_PurchInvLine">
-          <DataField>TransportMethod_PurchInvLine</DataField>
-        </Field>
-        <Field Name="AttachedtoLineNo_PurchInvLine">
-          <DataField>AttachedtoLineNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="EntryPoint_PurchInvLine">
-          <DataField>EntryPoint_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Area_PurchInvLine">
-          <DataField>Area_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TransactionSpecification_PurchInvLine">
-          <DataField>TransactionSpecification_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TaxAreaCode_PurchInvLine">
-          <DataField>TaxAreaCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TaxLiable_PurchInvLine">
-          <DataField>TaxLiable_PurchInvLine</DataField>
-        </Field>
-        <Field Name="TaxGroupCode_PurchInvLine">
-          <DataField>TaxGroupCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UseTax_PurchInvLine">
-          <DataField>UseTax_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATBusPostingGroup_PurchInvLine">
-          <DataField>VATBusPostingGroup_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATProdPostingGroup_PurchInvLine">
-          <DataField>VATProdPostingGroup_PurchInvLine</DataField>
-        </Field>
-        <Field Name="BlanketOrderNo_PurchInvLine">
-          <DataField>BlanketOrderNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="BlanketOrderLineNo_PurchInvLine">
-          <DataField>BlanketOrderLineNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATBaseAmount_PurchInvLine">
-          <DataField>VATBaseAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATBaseAmount_PurchInvLineFormat">
-          <DataField>VATBaseAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitCost_PurchInvLine">
-          <DataField>UnitCost_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitCost_PurchInvLineFormat">
-          <DataField>UnitCost_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="SystemCreatedEntry_PurchInvLine">
-          <DataField>SystemCreatedEntry_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LineAmount_PurchInvLine">
-          <DataField>LineAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="LineAmount_PurchInvLineFormat">
-          <DataField>LineAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="VATDifference_PurchInvLine">
-          <DataField>VATDifference_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VATDifference_PurchInvLineFormat">
-          <DataField>VATDifference_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="VATIdentifier_PurchInvLine">
-          <DataField>VATIdentifier_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ICPartnerRefType_PurchInvLine">
-          <DataField>ICPartnerRefType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ICPartnerReference_PurchInvLine">
-          <DataField>ICPartnerReference_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PrepaymentLine_PurchInvLine">
-          <DataField>PrepaymentLine_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ICPartnerCode_PurchInvLine">
-          <DataField>ICPartnerCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PostingDate_PurchInvLine">
-          <DataField>PostingDate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DimensionSetID_PurchInvLine">
-          <DataField>DimensionSetID_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobTaskNo_PurchInvLine">
-          <DataField>JobTaskNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineType_PurchInvLine">
-          <DataField>JobLineType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobUnitPrice_PurchInvLine">
-          <DataField>JobUnitPrice_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobUnitPrice_PurchInvLineFormat">
-          <DataField>JobUnitPrice_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobTotalPrice_PurchInvLine">
-          <DataField>JobTotalPrice_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobTotalPrice_PurchInvLineFormat">
-          <DataField>JobTotalPrice_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobLineAmount_PurchInvLine">
-          <DataField>JobLineAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineAmount_PurchInvLineFormat">
-          <DataField>JobLineAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobLineDiscountAmount_PurchInvLine">
-          <DataField>JobLineDiscountAmount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineDiscountAmount_PurchInvLineFormat">
-          <DataField>JobLineDiscountAmount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobLineDiscount_PurchInvLine">
-          <DataField>JobLineDiscount_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineDiscount_PurchInvLineFormat">
-          <DataField>JobLineDiscount_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobUnitPriceLCY_PurchInvLine">
-          <DataField>JobUnitPriceLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobUnitPriceLCY_PurchInvLineFormat">
-          <DataField>JobUnitPriceLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobTotalPriceLCY_PurchInvLine">
-          <DataField>JobTotalPriceLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobTotalPriceLCY_PurchInvLineFormat">
-          <DataField>JobTotalPriceLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobLineAmountLCY_PurchInvLine">
-          <DataField>JobLineAmountLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineAmountLCY_PurchInvLineFormat">
-          <DataField>JobLineAmountLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobLineDiscAmountLCY_PurchInvLine">
-          <DataField>JobLineDiscAmountLCY_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobLineDiscAmountLCY_PurchInvLineFormat">
-          <DataField>JobLineDiscAmountLCY_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobCurrencyFactor_PurchInvLine">
-          <DataField>JobCurrencyFactor_PurchInvLine</DataField>
-        </Field>
-        <Field Name="JobCurrencyFactor_PurchInvLineFormat">
-          <DataField>JobCurrencyFactor_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="JobCurrencyCode_PurchInvLine">
-          <DataField>JobCurrencyCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ProdOrderNo_PurchInvLine">
-          <DataField>ProdOrderNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="VariantCode_PurchInvLine">
-          <DataField>VariantCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="BinCode_PurchInvLine">
-          <DataField>BinCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="QtyperUnitofMeasure_PurchInvLine">
-          <DataField>QtyperUnitofMeasure_PurchInvLine</DataField>
-        </Field>
-        <Field Name="QtyperUnitofMeasure_PurchInvLineFormat">
-          <DataField>QtyperUnitofMeasure_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_PurchInvLine">
-          <DataField>UnitofMeasureCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="QuantityBase_PurchInvLine">
-          <DataField>QuantityBase_PurchInvLine</DataField>
-        </Field>
-        <Field Name="QuantityBase_PurchInvLineFormat">
-          <DataField>QuantityBase_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="FAPostingDate_PurchInvLine">
-          <DataField>FAPostingDate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="FAPostingType_PurchInvLine">
-          <DataField>FAPostingType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DepreciationBookCode_PurchInvLine">
-          <DataField>DepreciationBookCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="SalvageValue_PurchInvLine">
-          <DataField>SalvageValue_PurchInvLine</DataField>
-        </Field>
-        <Field Name="SalvageValue_PurchInvLineFormat">
-          <DataField>SalvageValue_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="DepruntilFAPostingDate_PurchInvLine">
-          <DataField>DepruntilFAPostingDate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DeprAcquisitionCost_PurchInvLine">
-          <DataField>DeprAcquisitionCost_PurchInvLine</DataField>
-        </Field>
-        <Field Name="MaintenanceCode_PurchInvLine">
-          <DataField>MaintenanceCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="InsuranceNo_PurchInvLine">
-          <DataField>InsuranceNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="BudgetedFANo_PurchInvLine">
-          <DataField>BudgetedFANo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="DuplicateinDepreciationBook_PurchInvLine">
-          <DataField>DuplicateinDepreciationBook_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UseDuplicationList_PurchInvLine">
-          <DataField>UseDuplicationList_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ResponsibilityCenter_PurchInvLine">
-          <DataField>ResponsibilityCenter_PurchInvLine</DataField>
-        </Field>
-        <Field Name="CrossReferenceNo_PurchInvLine">
-          <DataField>CrossReferenceNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCrossRef_PurchInvLine">
-          <DataField>UnitofMeasureCrossRef_PurchInvLine</DataField>
-        </Field>
-        <Field Name="CrossReferenceType_PurchInvLine">
-          <DataField>CrossReferenceType_PurchInvLine</DataField>
-        </Field>
-        <Field Name="CrossReferenceTypeNo_PurchInvLine">
-          <DataField>CrossReferenceTypeNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ItemCategoryCode_PurchInvLine">
-          <DataField>ItemCategoryCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="Nonstock_PurchInvLine">
-          <DataField>Nonstock_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PurchasingCode_PurchInvLine">
-          <DataField>PurchasingCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ProductGroupCode_PurchInvLine">
-          <DataField>ProductGroupCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ReturnReasonCode_PurchInvLine">
-          <DataField>ReturnReasonCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="PaymentVoucherNo_PurchInvLine">
-          <DataField>PaymentVoucherNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ChargeCode_PurchInvLine">
-          <DataField>ChargeCode_PurchInvLine</DataField>
-        </Field>
-        <Field Name="RoutingNo_PurchInvLine">
-          <DataField>RoutingNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="OperationNo_PurchInvLine">
-          <DataField>OperationNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="WorkCenterNo_PurchInvLine">
-          <DataField>WorkCenterNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="ProdOrderLineNo_PurchInvLine">
-          <DataField>ProdOrderLineNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="OverheadRate_PurchInvLine">
-          <DataField>OverheadRate_PurchInvLine</DataField>
-        </Field>
-        <Field Name="OverheadRate_PurchInvLineFormat">
-          <DataField>OverheadRate_PurchInvLineFormat</DataField>
-        </Field>
-        <Field Name="RoutingReferenceNo_PurchInvLine">
-          <DataField>RoutingReferenceNo_PurchInvLine</DataField>
-        </Field>
-        <Field Name="AmountLCY">
-          <DataField>AmountLCY</DataField>
-        </Field>
-        <Field Name="AmountLCYFormat">
-          <DataField>AmountLCYFormat</DataField>
-        </Field>
-        <Field Name="PaymentDocumentNo">
-          <DataField>PaymentDocumentNo</DataField>
-        </Field>
-        <Field Name="PaymentDate">
-          <DataField>PaymentDate</DataField>
-        </Field>
-        <Field Name="PaymentAmount">
-          <DataField>PaymentAmount</DataField>
-        </Field>
-        <Field Name="PaymentAmountFormat">
-          <DataField>PaymentAmountFormat</DataField>
-        </Field>
-        <Field Name="PaymentAmountLCY">
-          <DataField>PaymentAmountLCY</DataField>
-        </Field>
-        <Field Name="PaymentAmountLCYFormat">
-          <DataField>PaymentAmountLCYFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3691,4 +3136,554 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Filter">
+          <DataField>Filter</DataField>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="AirlineCode_MAWBReceipt">
+          <DataField>AirlineCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBNo_MAWBReceipt">
+          <DataField>MAWBNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="ReceiptDate_MAWBReceipt">
+          <DataField>ReceiptDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceipt">
+          <DataField>MAWBFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="MAWBFees_MAWBReceiptFormat">
+          <DataField>MAWBFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Assigned_MAWBReceipt">
+          <DataField>Assigned_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="FreightChargeCode_MAWBReceipt">
+          <DataField>FreightChargeCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="Prepared_MAWBReceipt">
+          <DataField>Prepared_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="PrefixCode_MAWBReceipt">
+          <DataField>PrefixCode_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="BillNo_MAWBReceipt">
+          <DataField>BillNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="StartNo_MAWBReceipt">
+          <DataField>StartNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="EndNo_MAWBReceipt">
+          <DataField>EndNo_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="KAAFees_MAWBReceipt">
+          <DataField>KAAFees_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="KAAFees_MAWBReceiptFormat">
+          <DataField>KAAFees_MAWBReceiptFormat</DataField>
+        </Field>
+        <Field Name="Invoiced_MAWBReceipt">
+          <DataField>Invoiced_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="AssignedDate_MAWBReceipt">
+          <DataField>AssignedDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="InviocedDate_MAWBReceipt">
+          <DataField>InviocedDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="PreparedDate_MAWBReceipt">
+          <DataField>PreparedDate_MAWBReceipt</DataField>
+        </Field>
+        <Field Name="AirlineName">
+          <DataField>AirlineName</DataField>
+        </Field>
+        <Field Name="ShowSummary">
+          <DataField>ShowSummary</DataField>
+        </Field>
+        <Field Name="ShippedWeight">
+          <DataField>ShippedWeight</DataField>
+        </Field>
+        <Field Name="ShippedWeightFormat">
+          <DataField>ShippedWeightFormat</DataField>
+        </Field>
+        <Field Name="VendorName">
+          <DataField>VendorName</DataField>
+        </Field>
+        <Field Name="Prod">
+          <DataField>Prod</DataField>
+        </Field>
+        <Field Name="Curr">
+          <DataField>Curr</DataField>
+        </Field>
+        <Field Name="BuyfromVendorNo_PurchInvLine">
+          <DataField>BuyfromVendorNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DocumentNo_PurchInvLine">
+          <DataField>DocumentNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LineNo_PurchInvLine">
+          <DataField>LineNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Type_PurchInvLine">
+          <DataField>Type_PurchInvLine</DataField>
+        </Field>
+        <Field Name="No_PurchInvLine">
+          <DataField>No_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LocationCode_PurchInvLine">
+          <DataField>LocationCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PostingGroup_PurchInvLine">
+          <DataField>PostingGroup_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ExpectedReceiptDate_PurchInvLine">
+          <DataField>ExpectedReceiptDate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Description_PurchInvLine">
+          <DataField>Description_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Description2_PurchInvLine">
+          <DataField>Description2_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_PurchInvLine">
+          <DataField>UnitofMeasure_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Quantity_PurchInvLine">
+          <DataField>Quantity_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Quantity_PurchInvLineFormat">
+          <DataField>Quantity_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="DirectUnitCost_PurchInvLine">
+          <DataField>DirectUnitCost_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DirectUnitCost_PurchInvLineFormat">
+          <DataField>DirectUnitCost_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_PurchInvLine">
+          <DataField>UnitCostLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_PurchInvLineFormat">
+          <DataField>UnitCostLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="VAT_PurchInvLine">
+          <DataField>VAT_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VAT_PurchInvLineFormat">
+          <DataField>VAT_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="LineDiscount_PurchInvLine">
+          <DataField>LineDiscount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LineDiscount_PurchInvLineFormat">
+          <DataField>LineDiscount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="LineDiscountAmount_PurchInvLine">
+          <DataField>LineDiscountAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LineDiscountAmount_PurchInvLineFormat">
+          <DataField>LineDiscountAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="Amount_PurchInvLine">
+          <DataField>Amount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Amount_PurchInvLineFormat">
+          <DataField>Amount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_PurchInvLine">
+          <DataField>AmountIncludingVAT_PurchInvLine</DataField>
+        </Field>
+        <Field Name="AmountIncludingVAT_PurchInvLineFormat">
+          <DataField>AmountIncludingVAT_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitPriceLCY_PurchInvLine">
+          <DataField>UnitPriceLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitPriceLCY_PurchInvLineFormat">
+          <DataField>UnitPriceLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="AllowInvoiceDisc_PurchInvLine">
+          <DataField>AllowInvoiceDisc_PurchInvLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_PurchInvLine">
+          <DataField>GrossWeight_PurchInvLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_PurchInvLineFormat">
+          <DataField>GrossWeight_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="NetWeight_PurchInvLine">
+          <DataField>NetWeight_PurchInvLine</DataField>
+        </Field>
+        <Field Name="NetWeight_PurchInvLineFormat">
+          <DataField>NetWeight_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitsperParcel_PurchInvLine">
+          <DataField>UnitsperParcel_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitsperParcel_PurchInvLineFormat">
+          <DataField>UnitsperParcel_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitVolume_PurchInvLine">
+          <DataField>UnitVolume_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitVolume_PurchInvLineFormat">
+          <DataField>UnitVolume_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="AppltoItemEntry_PurchInvLine">
+          <DataField>AppltoItemEntry_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension1Code_PurchInvLine">
+          <DataField>ShortcutDimension1Code_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ShortcutDimension2Code_PurchInvLine">
+          <DataField>ShortcutDimension2Code_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobNo_PurchInvLine">
+          <DataField>JobNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="IndirectCost_PurchInvLine">
+          <DataField>IndirectCost_PurchInvLine</DataField>
+        </Field>
+        <Field Name="IndirectCost_PurchInvLineFormat">
+          <DataField>IndirectCost_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="ReceiptNo_PurchInvLine">
+          <DataField>ReceiptNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ReceiptLineNo_PurchInvLine">
+          <DataField>ReceiptLineNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PaytoVendorNo_PurchInvLine">
+          <DataField>PaytoVendorNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="InvDiscountAmount_PurchInvLine">
+          <DataField>InvDiscountAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="InvDiscountAmount_PurchInvLineFormat">
+          <DataField>InvDiscountAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="VendorItemNo_PurchInvLine">
+          <DataField>VendorItemNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="GenBusPostingGroup_PurchInvLine">
+          <DataField>GenBusPostingGroup_PurchInvLine</DataField>
+        </Field>
+        <Field Name="GenProdPostingGroup_PurchInvLine">
+          <DataField>GenProdPostingGroup_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATCalculationType_PurchInvLine">
+          <DataField>VATCalculationType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TransactionType_PurchInvLine">
+          <DataField>TransactionType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TransportMethod_PurchInvLine">
+          <DataField>TransportMethod_PurchInvLine</DataField>
+        </Field>
+        <Field Name="AttachedtoLineNo_PurchInvLine">
+          <DataField>AttachedtoLineNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="EntryPoint_PurchInvLine">
+          <DataField>EntryPoint_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Area_PurchInvLine">
+          <DataField>Area_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TransactionSpecification_PurchInvLine">
+          <DataField>TransactionSpecification_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TaxAreaCode_PurchInvLine">
+          <DataField>TaxAreaCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TaxLiable_PurchInvLine">
+          <DataField>TaxLiable_PurchInvLine</DataField>
+        </Field>
+        <Field Name="TaxGroupCode_PurchInvLine">
+          <DataField>TaxGroupCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UseTax_PurchInvLine">
+          <DataField>UseTax_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATBusPostingGroup_PurchInvLine">
+          <DataField>VATBusPostingGroup_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATProdPostingGroup_PurchInvLine">
+          <DataField>VATProdPostingGroup_PurchInvLine</DataField>
+        </Field>
+        <Field Name="BlanketOrderNo_PurchInvLine">
+          <DataField>BlanketOrderNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="BlanketOrderLineNo_PurchInvLine">
+          <DataField>BlanketOrderLineNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATBaseAmount_PurchInvLine">
+          <DataField>VATBaseAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATBaseAmount_PurchInvLineFormat">
+          <DataField>VATBaseAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitCost_PurchInvLine">
+          <DataField>UnitCost_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitCost_PurchInvLineFormat">
+          <DataField>UnitCost_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="SystemCreatedEntry_PurchInvLine">
+          <DataField>SystemCreatedEntry_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LineAmount_PurchInvLine">
+          <DataField>LineAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="LineAmount_PurchInvLineFormat">
+          <DataField>LineAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="VATDifference_PurchInvLine">
+          <DataField>VATDifference_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VATDifference_PurchInvLineFormat">
+          <DataField>VATDifference_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="VATIdentifier_PurchInvLine">
+          <DataField>VATIdentifier_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ICPartnerRefType_PurchInvLine">
+          <DataField>ICPartnerRefType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ICPartnerReference_PurchInvLine">
+          <DataField>ICPartnerReference_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PrepaymentLine_PurchInvLine">
+          <DataField>PrepaymentLine_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ICPartnerCode_PurchInvLine">
+          <DataField>ICPartnerCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PostingDate_PurchInvLine">
+          <DataField>PostingDate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DimensionSetID_PurchInvLine">
+          <DataField>DimensionSetID_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobTaskNo_PurchInvLine">
+          <DataField>JobTaskNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineType_PurchInvLine">
+          <DataField>JobLineType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobUnitPrice_PurchInvLine">
+          <DataField>JobUnitPrice_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobUnitPrice_PurchInvLineFormat">
+          <DataField>JobUnitPrice_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobTotalPrice_PurchInvLine">
+          <DataField>JobTotalPrice_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobTotalPrice_PurchInvLineFormat">
+          <DataField>JobTotalPrice_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobLineAmount_PurchInvLine">
+          <DataField>JobLineAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineAmount_PurchInvLineFormat">
+          <DataField>JobLineAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobLineDiscountAmount_PurchInvLine">
+          <DataField>JobLineDiscountAmount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineDiscountAmount_PurchInvLineFormat">
+          <DataField>JobLineDiscountAmount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobLineDiscount_PurchInvLine">
+          <DataField>JobLineDiscount_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineDiscount_PurchInvLineFormat">
+          <DataField>JobLineDiscount_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobUnitPriceLCY_PurchInvLine">
+          <DataField>JobUnitPriceLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobUnitPriceLCY_PurchInvLineFormat">
+          <DataField>JobUnitPriceLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobTotalPriceLCY_PurchInvLine">
+          <DataField>JobTotalPriceLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobTotalPriceLCY_PurchInvLineFormat">
+          <DataField>JobTotalPriceLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobLineAmountLCY_PurchInvLine">
+          <DataField>JobLineAmountLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineAmountLCY_PurchInvLineFormat">
+          <DataField>JobLineAmountLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobLineDiscAmountLCY_PurchInvLine">
+          <DataField>JobLineDiscAmountLCY_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobLineDiscAmountLCY_PurchInvLineFormat">
+          <DataField>JobLineDiscAmountLCY_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobCurrencyFactor_PurchInvLine">
+          <DataField>JobCurrencyFactor_PurchInvLine</DataField>
+        </Field>
+        <Field Name="JobCurrencyFactor_PurchInvLineFormat">
+          <DataField>JobCurrencyFactor_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="JobCurrencyCode_PurchInvLine">
+          <DataField>JobCurrencyCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ProdOrderNo_PurchInvLine">
+          <DataField>ProdOrderNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="VariantCode_PurchInvLine">
+          <DataField>VariantCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="BinCode_PurchInvLine">
+          <DataField>BinCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="QtyperUnitofMeasure_PurchInvLine">
+          <DataField>QtyperUnitofMeasure_PurchInvLine</DataField>
+        </Field>
+        <Field Name="QtyperUnitofMeasure_PurchInvLineFormat">
+          <DataField>QtyperUnitofMeasure_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_PurchInvLine">
+          <DataField>UnitofMeasureCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="QuantityBase_PurchInvLine">
+          <DataField>QuantityBase_PurchInvLine</DataField>
+        </Field>
+        <Field Name="QuantityBase_PurchInvLineFormat">
+          <DataField>QuantityBase_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="FAPostingDate_PurchInvLine">
+          <DataField>FAPostingDate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="FAPostingType_PurchInvLine">
+          <DataField>FAPostingType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DepreciationBookCode_PurchInvLine">
+          <DataField>DepreciationBookCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="SalvageValue_PurchInvLine">
+          <DataField>SalvageValue_PurchInvLine</DataField>
+        </Field>
+        <Field Name="SalvageValue_PurchInvLineFormat">
+          <DataField>SalvageValue_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="DepruntilFAPostingDate_PurchInvLine">
+          <DataField>DepruntilFAPostingDate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DeprAcquisitionCost_PurchInvLine">
+          <DataField>DeprAcquisitionCost_PurchInvLine</DataField>
+        </Field>
+        <Field Name="MaintenanceCode_PurchInvLine">
+          <DataField>MaintenanceCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="InsuranceNo_PurchInvLine">
+          <DataField>InsuranceNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="BudgetedFANo_PurchInvLine">
+          <DataField>BudgetedFANo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="DuplicateinDepreciationBook_PurchInvLine">
+          <DataField>DuplicateinDepreciationBook_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UseDuplicationList_PurchInvLine">
+          <DataField>UseDuplicationList_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ResponsibilityCenter_PurchInvLine">
+          <DataField>ResponsibilityCenter_PurchInvLine</DataField>
+        </Field>
+        <Field Name="CrossReferenceNo_PurchInvLine">
+          <DataField>CrossReferenceNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCrossRef_PurchInvLine">
+          <DataField>UnitofMeasureCrossRef_PurchInvLine</DataField>
+        </Field>
+        <Field Name="CrossReferenceType_PurchInvLine">
+          <DataField>CrossReferenceType_PurchInvLine</DataField>
+        </Field>
+        <Field Name="CrossReferenceTypeNo_PurchInvLine">
+          <DataField>CrossReferenceTypeNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ItemCategoryCode_PurchInvLine">
+          <DataField>ItemCategoryCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="Nonstock_PurchInvLine">
+          <DataField>Nonstock_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PurchasingCode_PurchInvLine">
+          <DataField>PurchasingCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ProductGroupCode_PurchInvLine">
+          <DataField>ProductGroupCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ReturnReasonCode_PurchInvLine">
+          <DataField>ReturnReasonCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="PaymentVoucherNo_PurchInvLine">
+          <DataField>PaymentVoucherNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ChargeCode_PurchInvLine">
+          <DataField>ChargeCode_PurchInvLine</DataField>
+        </Field>
+        <Field Name="RoutingNo_PurchInvLine">
+          <DataField>RoutingNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="OperationNo_PurchInvLine">
+          <DataField>OperationNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="WorkCenterNo_PurchInvLine">
+          <DataField>WorkCenterNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="ProdOrderLineNo_PurchInvLine">
+          <DataField>ProdOrderLineNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="OverheadRate_PurchInvLine">
+          <DataField>OverheadRate_PurchInvLine</DataField>
+        </Field>
+        <Field Name="OverheadRate_PurchInvLineFormat">
+          <DataField>OverheadRate_PurchInvLineFormat</DataField>
+        </Field>
+        <Field Name="RoutingReferenceNo_PurchInvLine">
+          <DataField>RoutingReferenceNo_PurchInvLine</DataField>
+        </Field>
+        <Field Name="AmountLCY">
+          <DataField>AmountLCY</DataField>
+        </Field>
+        <Field Name="AmountLCYFormat">
+          <DataField>AmountLCYFormat</DataField>
+        </Field>
+        <Field Name="PaymentDocumentNo">
+          <DataField>PaymentDocumentNo</DataField>
+        </Field>
+        <Field Name="PaymentDate">
+          <DataField>PaymentDate</DataField>
+        </Field>
+        <Field Name="PaymentAmount">
+          <DataField>PaymentAmount</DataField>
+        </Field>
+        <Field Name="PaymentAmountFormat">
+          <DataField>PaymentAmountFormat</DataField>
+        </Field>
+        <Field Name="PaymentAmountLCY">
+          <DataField>PaymentAmountLCY</DataField>
+        </Field>
+        <Field Name="PaymentAmountLCYFormat">
+          <DataField>PaymentAmountLCYFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

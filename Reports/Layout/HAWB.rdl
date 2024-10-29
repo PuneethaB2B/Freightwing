@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,189 +10,6 @@
       <rd:DataSourceID>cf1e11af-5488-4a23-8020-285522221d0f</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_HAWBHeader">
-          <DataField>No_HAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperCode_HAWBHeader">
-          <DataField>ShipperCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperAddress_HAWBHeader">
-          <DataField>ShipperAddress_HAWBHeader</DataField>
-        </Field>
-        <Field Name="ShipperName_HAWBHeader">
-          <DataField>ShipperName_HAWBHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_HAWBHeader">
-          <DataField>ConsigneeCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="ConsigneeName_HAWBHeader">
-          <DataField>ConsigneeName_HAWBHeader</DataField>
-        </Field>
-        <Field Name="AgentsIATACode_HAWBHeader">
-          <DataField>AgentsIATACode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="CarrierAgentCode_HAWBHeader">
-          <DataField>CarrierAgentCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="SourceAirport_HAWBHeader">
-          <DataField>SourceAirport_HAWBHeader</DataField>
-        </Field>
-        <Field Name="AirlineCode_HAWBHeader">
-          <DataField>AirlineCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="DestinationAirport_HAWBHeader">
-          <DataField>DestinationAirport_HAWBHeader</DataField>
-        </Field>
-        <Field Name="FlightCode_HAWBHeader">
-          <DataField>FlightCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="DestinationCode_HAWBHeader">
-          <DataField>DestinationCode_HAWBHeader</DataField>
-        </Field>
-        <Field Name="FlightDate_HAWBHeader">
-          <DataField>FlightDate_HAWBHeader</DataField>
-        </Field>
-        <Field Name="MAWBNo_HAWBHeader">
-          <DataField>MAWBNo_HAWBHeader</DataField>
-        </Field>
-        <Field Name="Invoiced_HAWBHeader">
-          <DataField>Invoiced_HAWBHeader</DataField>
-        </Field>
-        <Field Name="EuroFormNo_HAWBHeader">
-          <DataField>EuroFormNo_HAWBHeader</DataField>
-        </Field>
-        <Field Name="CustomerEntryNo_HAWBHeader">
-          <DataField>CustomerEntryNo_HAWBHeader</DataField>
-        </Field>
-        <Field Name="PhytoCertificateNo_HAWBHeader">
-          <DataField>PhytoCertificateNo_HAWBHeader</DataField>
-        </Field>
-        <Field Name="BookingSheetNo_HAWBHeader">
-          <DataField>BookingSheetNo_HAWBHeader</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Name">
-          <DataField>CompanyInfo_Name</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Address">
-          <DataField>CompanyInfo_Address</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Address2">
-          <DataField>CompanyInfo_Address2</DataField>
-        </Field>
-        <Field Name="HAWBNo_HAWBLine">
-          <DataField>HAWBNo_HAWBLine</DataField>
-        </Field>
-        <Field Name="ItemNo_HAWBLine">
-          <DataField>ItemNo_HAWBLine</DataField>
-        </Field>
-        <Field Name="Description_HAWBLine">
-          <DataField>Description_HAWBLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_HAWBLine">
-          <DataField>GrossWeight_HAWBLine</DataField>
-        </Field>
-        <Field Name="GrossWeight_HAWBLineFormat">
-          <DataField>GrossWeight_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="UnitofMeasure_HAWBLine">
-          <DataField>UnitofMeasure_HAWBLine</DataField>
-        </Field>
-        <Field Name="RateCharge_HAWBLine">
-          <DataField>RateCharge_HAWBLine</DataField>
-        </Field>
-        <Field Name="RateCharge_HAWBLineFormat">
-          <DataField>RateCharge_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_HAWBLine">
-          <DataField>ChargeableWeight_HAWBLine</DataField>
-        </Field>
-        <Field Name="ChargeableWeight_HAWBLineFormat">
-          <DataField>ChargeableWeight_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="InvoiceNo_HAWBLine">
-          <DataField>InvoiceNo_HAWBLine</DataField>
-        </Field>
-        <Field Name="LineAmount_HAWBLine">
-          <DataField>LineAmount_HAWBLine</DataField>
-        </Field>
-        <Field Name="LineAmount_HAWBLineFormat">
-          <DataField>LineAmount_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="Quantity_HAWBLine">
-          <DataField>Quantity_HAWBLine</DataField>
-        </Field>
-        <Field Name="Quantity_HAWBLineFormat">
-          <DataField>Quantity_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="LineNo_HAWBLine">
-          <DataField>LineNo_HAWBLine</DataField>
-        </Field>
-        <Field Name="DivisionFarmCode_HAWBLine">
-          <DataField>DivisionFarmCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="AirlineCode_HAWBLine">
-          <DataField>AirlineCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="ConsigneeCode_HAWBLine">
-          <DataField>ConsigneeCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="FlightCode_HAWBLine">
-          <DataField>FlightCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="DestinationCode_HAWBLine">
-          <DataField>DestinationCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="FlightDate_HAWBLine">
-          <DataField>FlightDate_HAWBLine</DataField>
-        </Field>
-        <Field Name="UnitofMeasureCode_HAWBLine">
-          <DataField>UnitofMeasureCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="Type_HAWBLine">
-          <DataField>Type_HAWBLine</DataField>
-        </Field>
-        <Field Name="ShipperCode_HAWBLine">
-          <DataField>ShipperCode_HAWBLine</DataField>
-        </Field>
-        <Field Name="MAWBNo_HAWBLine">
-          <DataField>MAWBNo_HAWBLine</DataField>
-        </Field>
-        <Field Name="MAWBPrepared_HAWBLine">
-          <DataField>MAWBPrepared_HAWBLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_HAWBLine">
-          <DataField>ActualWeight_HAWBLine</DataField>
-        </Field>
-        <Field Name="ActualWeight_HAWBLineFormat">
-          <DataField>ActualWeight_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="TotalQuantity_HAWBLine">
-          <DataField>TotalQuantity_HAWBLine</DataField>
-        </Field>
-        <Field Name="TotalQuantity_HAWBLineFormat">
-          <DataField>TotalQuantity_HAWBLineFormat</DataField>
-        </Field>
-        <Field Name="SplitFactor_HAWBLine">
-          <DataField>SplitFactor_HAWBLine</DataField>
-        </Field>
-        <Field Name="SplitFactor_HAWBLineFormat">
-          <DataField>SplitFactor_HAWBLineFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -775,4 +592,182 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_HAWBHeader">
+          <DataField>No_HAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperCode_HAWBHeader">
+          <DataField>ShipperCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperAddress_HAWBHeader">
+          <DataField>ShipperAddress_HAWBHeader</DataField>
+        </Field>
+        <Field Name="ShipperName_HAWBHeader">
+          <DataField>ShipperName_HAWBHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_HAWBHeader">
+          <DataField>ConsigneeCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="ConsigneeName_HAWBHeader">
+          <DataField>ConsigneeName_HAWBHeader</DataField>
+        </Field>
+        <Field Name="AgentsIATACode_HAWBHeader">
+          <DataField>AgentsIATACode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="CarrierAgentCode_HAWBHeader">
+          <DataField>CarrierAgentCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="SourceAirport_HAWBHeader">
+          <DataField>SourceAirport_HAWBHeader</DataField>
+        </Field>
+        <Field Name="AirlineCode_HAWBHeader">
+          <DataField>AirlineCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="DestinationAirport_HAWBHeader">
+          <DataField>DestinationAirport_HAWBHeader</DataField>
+        </Field>
+        <Field Name="FlightCode_HAWBHeader">
+          <DataField>FlightCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="DestinationCode_HAWBHeader">
+          <DataField>DestinationCode_HAWBHeader</DataField>
+        </Field>
+        <Field Name="FlightDate_HAWBHeader">
+          <DataField>FlightDate_HAWBHeader</DataField>
+        </Field>
+        <Field Name="MAWBNo_HAWBHeader">
+          <DataField>MAWBNo_HAWBHeader</DataField>
+        </Field>
+        <Field Name="Invoiced_HAWBHeader">
+          <DataField>Invoiced_HAWBHeader</DataField>
+        </Field>
+        <Field Name="EuroFormNo_HAWBHeader">
+          <DataField>EuroFormNo_HAWBHeader</DataField>
+        </Field>
+        <Field Name="CustomerEntryNo_HAWBHeader">
+          <DataField>CustomerEntryNo_HAWBHeader</DataField>
+        </Field>
+        <Field Name="PhytoCertificateNo_HAWBHeader">
+          <DataField>PhytoCertificateNo_HAWBHeader</DataField>
+        </Field>
+        <Field Name="BookingSheetNo_HAWBHeader">
+          <DataField>BookingSheetNo_HAWBHeader</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Name">
+          <DataField>CompanyInfo_Name</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address">
+          <DataField>CompanyInfo_Address</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Address2">
+          <DataField>CompanyInfo_Address2</DataField>
+        </Field>
+        <Field Name="HAWBNo_HAWBLine">
+          <DataField>HAWBNo_HAWBLine</DataField>
+        </Field>
+        <Field Name="ItemNo_HAWBLine">
+          <DataField>ItemNo_HAWBLine</DataField>
+        </Field>
+        <Field Name="Description_HAWBLine">
+          <DataField>Description_HAWBLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_HAWBLine">
+          <DataField>GrossWeight_HAWBLine</DataField>
+        </Field>
+        <Field Name="GrossWeight_HAWBLineFormat">
+          <DataField>GrossWeight_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="UnitofMeasure_HAWBLine">
+          <DataField>UnitofMeasure_HAWBLine</DataField>
+        </Field>
+        <Field Name="RateCharge_HAWBLine">
+          <DataField>RateCharge_HAWBLine</DataField>
+        </Field>
+        <Field Name="RateCharge_HAWBLineFormat">
+          <DataField>RateCharge_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_HAWBLine">
+          <DataField>ChargeableWeight_HAWBLine</DataField>
+        </Field>
+        <Field Name="ChargeableWeight_HAWBLineFormat">
+          <DataField>ChargeableWeight_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="InvoiceNo_HAWBLine">
+          <DataField>InvoiceNo_HAWBLine</DataField>
+        </Field>
+        <Field Name="LineAmount_HAWBLine">
+          <DataField>LineAmount_HAWBLine</DataField>
+        </Field>
+        <Field Name="LineAmount_HAWBLineFormat">
+          <DataField>LineAmount_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="Quantity_HAWBLine">
+          <DataField>Quantity_HAWBLine</DataField>
+        </Field>
+        <Field Name="Quantity_HAWBLineFormat">
+          <DataField>Quantity_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="LineNo_HAWBLine">
+          <DataField>LineNo_HAWBLine</DataField>
+        </Field>
+        <Field Name="DivisionFarmCode_HAWBLine">
+          <DataField>DivisionFarmCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="AirlineCode_HAWBLine">
+          <DataField>AirlineCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="ConsigneeCode_HAWBLine">
+          <DataField>ConsigneeCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="FlightCode_HAWBLine">
+          <DataField>FlightCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="DestinationCode_HAWBLine">
+          <DataField>DestinationCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="FlightDate_HAWBLine">
+          <DataField>FlightDate_HAWBLine</DataField>
+        </Field>
+        <Field Name="UnitofMeasureCode_HAWBLine">
+          <DataField>UnitofMeasureCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="Type_HAWBLine">
+          <DataField>Type_HAWBLine</DataField>
+        </Field>
+        <Field Name="ShipperCode_HAWBLine">
+          <DataField>ShipperCode_HAWBLine</DataField>
+        </Field>
+        <Field Name="MAWBNo_HAWBLine">
+          <DataField>MAWBNo_HAWBLine</DataField>
+        </Field>
+        <Field Name="MAWBPrepared_HAWBLine">
+          <DataField>MAWBPrepared_HAWBLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_HAWBLine">
+          <DataField>ActualWeight_HAWBLine</DataField>
+        </Field>
+        <Field Name="ActualWeight_HAWBLineFormat">
+          <DataField>ActualWeight_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="TotalQuantity_HAWBLine">
+          <DataField>TotalQuantity_HAWBLine</DataField>
+        </Field>
+        <Field Name="TotalQuantity_HAWBLineFormat">
+          <DataField>TotalQuantity_HAWBLineFormat</DataField>
+        </Field>
+        <Field Name="SplitFactor_HAWBLine">
+          <DataField>SplitFactor_HAWBLine</DataField>
+        </Field>
+        <Field Name="SplitFactor_HAWBLineFormat">
+          <DataField>SplitFactor_HAWBLineFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

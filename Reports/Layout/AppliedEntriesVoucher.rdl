@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,72 +11,6 @@
       <rd:DataSourceID>b6f56f9d-b0c0-468f-ae8a-016993d4ef20</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Payment_PostingDate">
-          <DataField>Payment_PostingDate</DataField>
-        </Field>
-        <Field Name="Payment_DocumentNo">
-          <DataField>Payment_DocumentNo</DataField>
-        </Field>
-        <Field Name="Payment_AccName">
-          <DataField>Payment_AccName</DataField>
-        </Field>
-        <Field Name="Payment_Amount">
-          <DataField>Payment_Amount</DataField>
-        </Field>
-        <Field Name="Payment_AmountFormat">
-          <DataField>Payment_AmountFormat</DataField>
-        </Field>
-        <Field Name="Payment_CurrencyCode">
-          <DataField>Payment_CurrencyCode</DataField>
-        </Field>
-        <Field Name="Payment_BankAccName">
-          <DataField>Payment_BankAccName</DataField>
-        </Field>
-        <Field Name="Payment_MessageToRecipient">
-          <DataField>Payment_MessageToRecipient</DataField>
-        </Field>
-        <Field Name="Payment_Amountinwords">
-          <DataField>Payment_Amountinwords</DataField>
-        </Field>
-        <Field Name="VLE_PostingDate">
-          <DataField>VLE_PostingDate</DataField>
-        </Field>
-        <Field Name="VLE_DocumentNo">
-          <DataField>VLE_DocumentNo</DataField>
-        </Field>
-        <Field Name="VLE_ExternalDocNo">
-          <DataField>VLE_ExternalDocNo</DataField>
-        </Field>
-        <Field Name="VLE_CurrencyCode">
-          <DataField>VLE_CurrencyCode</DataField>
-        </Field>
-        <Field Name="VLE_RemainingAmt">
-          <DataField>VLE_RemainingAmt</DataField>
-        </Field>
-        <Field Name="VLE_RemainingAmtFormat">
-          <DataField>VLE_RemainingAmtFormat</DataField>
-        </Field>
-        <Field Name="VLE_AmountToApply">
-          <DataField>VLE_AmountToApply</DataField>
-        </Field>
-        <Field Name="VLE_AmountToApplyFormat">
-          <DataField>VLE_AmountToApplyFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1622,4 +1556,65 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Payment_PostingDate">
+          <DataField>Payment_PostingDate</DataField>
+        </Field>
+        <Field Name="Payment_DocumentNo">
+          <DataField>Payment_DocumentNo</DataField>
+        </Field>
+        <Field Name="Payment_AccName">
+          <DataField>Payment_AccName</DataField>
+        </Field>
+        <Field Name="Payment_Amount">
+          <DataField>Payment_Amount</DataField>
+        </Field>
+        <Field Name="Payment_AmountFormat">
+          <DataField>Payment_AmountFormat</DataField>
+        </Field>
+        <Field Name="Payment_CurrencyCode">
+          <DataField>Payment_CurrencyCode</DataField>
+        </Field>
+        <Field Name="Payment_BankAccName">
+          <DataField>Payment_BankAccName</DataField>
+        </Field>
+        <Field Name="Payment_MessageToRecipient">
+          <DataField>Payment_MessageToRecipient</DataField>
+        </Field>
+        <Field Name="Payment_Amountinwords">
+          <DataField>Payment_Amountinwords</DataField>
+        </Field>
+        <Field Name="VLE_PostingDate">
+          <DataField>VLE_PostingDate</DataField>
+        </Field>
+        <Field Name="VLE_DocumentNo">
+          <DataField>VLE_DocumentNo</DataField>
+        </Field>
+        <Field Name="VLE_ExternalDocNo">
+          <DataField>VLE_ExternalDocNo</DataField>
+        </Field>
+        <Field Name="VLE_CurrencyCode">
+          <DataField>VLE_CurrencyCode</DataField>
+        </Field>
+        <Field Name="VLE_RemainingAmt">
+          <DataField>VLE_RemainingAmt</DataField>
+        </Field>
+        <Field Name="VLE_RemainingAmtFormat">
+          <DataField>VLE_RemainingAmtFormat</DataField>
+        </Field>
+        <Field Name="VLE_AmountToApply">
+          <DataField>VLE_AmountToApply</DataField>
+        </Field>
+        <Field Name="VLE_AmountToApplyFormat">
+          <DataField>VLE_AmountToApplyFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

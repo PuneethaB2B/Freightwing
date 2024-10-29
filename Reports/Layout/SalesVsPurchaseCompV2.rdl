@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -11,189 +11,6 @@
       <rd:DataSourceID>1d11f956-79b2-426c-b66d-379fe1166ef8</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="MAWB_No">
-          <DataField>MAWB_No</DataField>
-        </Field>
-        <Field Name="MAWB_Airline_Name">
-          <DataField>MAWB_Airline_Name</DataField>
-        </Field>
-        <Field Name="MAWB_Charge">
-          <DataField>MAWB_Charge</DataField>
-        </Field>
-        <Field Name="MAWB_ChargeFormat">
-          <DataField>MAWB_ChargeFormat</DataField>
-        </Field>
-        <Field Name="ShowSummary">
-          <DataField>ShowSummary</DataField>
-        </Field>
-        <Field Name="ShowLosses">
-          <DataField>ShowLosses</DataField>
-        </Field>
-        <Field Name="TotalSalesNos">
-          <DataField>TotalSalesNos</DataField>
-        </Field>
-        <Field Name="TotalPurchasesNos">
-          <DataField>TotalPurchasesNos</DataField>
-        </Field>
-        <Field Name="TotalWeight">
-          <DataField>TotalWeight</DataField>
-        </Field>
-        <Field Name="TotalWeightFormat">
-          <DataField>TotalWeightFormat</DataField>
-        </Field>
-        <Field Name="ShowClient">
-          <DataField>ShowClient</DataField>
-        </Field>
-        <Field Name="showAssignDate">
-          <DataField>showAssignDate</DataField>
-        </Field>
-        <Field Name="AssignedDate">
-          <DataField>AssignedDate</DataField>
-        </Field>
-        <Field Name="BillToName">
-          <DataField>BillToName</DataField>
-        </Field>
-        <Field Name="Commodity">
-          <DataField>Commodity</DataField>
-        </Field>
-        <Field Name="Sales_Assigned_Date">
-          <DataField>Sales_Assigned_Date</DataField>
-        </Field>
-        <Field Name="SalesCount">
-          <DataField>SalesCount</DataField>
-        </Field>
-        <Field Name="PurchaseCount">
-          <DataField>PurchaseCount</DataField>
-        </Field>
-        <Field Name="PurchaseInvAmt">
-          <DataField>PurchaseInvAmt</DataField>
-        </Field>
-        <Field Name="PurchaseInvAmtFormat">
-          <DataField>PurchaseInvAmtFormat</DataField>
-        </Field>
-        <Field Name="PurchaseCrAmt">
-          <DataField>PurchaseCrAmt</DataField>
-        </Field>
-        <Field Name="PurchaseCrAmtFormat">
-          <DataField>PurchaseCrAmtFormat</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_No">
-          <DataField>Sales_Invoice_No</DataField>
-        </Field>
-        <Field Name="Sales_Inv_Posting_Date">
-          <DataField>Sales_Inv_Posting_Date</DataField>
-        </Field>
-        <Field Name="Sales_Customer_Name">
-          <DataField>Sales_Customer_Name</DataField>
-        </Field>
-        <Field Name="Sales_Total_Weight">
-          <DataField>Sales_Total_Weight</DataField>
-        </Field>
-        <Field Name="Sales_Total_WeightFormat">
-          <DataField>Sales_Total_WeightFormat</DataField>
-        </Field>
-        <Field Name="Sales_Commodity">
-          <DataField>Sales_Commodity</DataField>
-        </Field>
-        <Field Name="PurchTotalAmount">
-          <DataField>PurchTotalAmount</DataField>
-        </Field>
-        <Field Name="PurchTotalAmountFormat">
-          <DataField>PurchTotalAmountFormat</DataField>
-        </Field>
-        <Field Name="SalesLine_Amount_ACY">
-          <DataField>SalesLine_Amount_ACY</DataField>
-        </Field>
-        <Field Name="SalesLine_Amount_ACYFormat">
-          <DataField>SalesLine_Amount_ACYFormat</DataField>
-        </Field>
-        <Field Name="SalesLine_Amount_LCY">
-          <DataField>SalesLine_Amount_LCY</DataField>
-        </Field>
-        <Field Name="SalesLine_Amount_LCYFormat">
-          <DataField>SalesLine_Amount_LCYFormat</DataField>
-        </Field>
-        <Field Name="SalesLine_Description">
-          <DataField>SalesLine_Description</DataField>
-        </Field>
-        <Field Name="Sales_Cr_No">
-          <DataField>Sales_Cr_No</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Customer_Name">
-          <DataField>Sales_Cr_Customer_Name</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Amount_ACY">
-          <DataField>Sales_Cr_Amount_ACY</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Amount_ACYFormat">
-          <DataField>Sales_Cr_Amount_ACYFormat</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Amount_LCY">
-          <DataField>Sales_Cr_Amount_LCY</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Amount_LCYFormat">
-          <DataField>Sales_Cr_Amount_LCYFormat</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Description">
-          <DataField>Sales_Cr_Description</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Document_No">
-          <DataField>Purch_Inv_Document_No</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Amount_ACY">
-          <DataField>Purch_Inv_Amount_ACY</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Amount_ACYFormat">
-          <DataField>Purch_Inv_Amount_ACYFormat</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Description">
-          <DataField>Purch_Inv_Description</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Vendor_Name">
-          <DataField>Purch_Inv_Vendor_Name</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Amount_LCY">
-          <DataField>Purch_Inv_Amount_LCY</DataField>
-        </Field>
-        <Field Name="Purch_Inv_Amount_LCYFormat">
-          <DataField>Purch_Inv_Amount_LCYFormat</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Document_No">
-          <DataField>Purch_Cr_Document_No</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Amount_ACY">
-          <DataField>Purch_Cr_Amount_ACY</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Amount_ACYFormat">
-          <DataField>Purch_Cr_Amount_ACYFormat</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Description">
-          <DataField>Purch_Cr_Description</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Vendor_Name">
-          <DataField>Purch_Cr_Vendor_Name</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Amount_LCY">
-          <DataField>Purch_Cr_Amount_LCY</DataField>
-        </Field>
-        <Field Name="Purch_Cr_Amount_LCYFormat">
-          <DataField>Purch_Cr_Amount_LCYFormat</DataField>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSet</rd:DataSetName>
-        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
-        <rd:TableName>Result</rd:TableName>
-      </rd:DataSetInfo>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -6063,4 +5880,182 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="MAWB_No">
+          <DataField>MAWB_No</DataField>
+        </Field>
+        <Field Name="MAWB_Airline_Name">
+          <DataField>MAWB_Airline_Name</DataField>
+        </Field>
+        <Field Name="MAWB_Charge">
+          <DataField>MAWB_Charge</DataField>
+        </Field>
+        <Field Name="MAWB_ChargeFormat">
+          <DataField>MAWB_ChargeFormat</DataField>
+        </Field>
+        <Field Name="ShowSummary">
+          <DataField>ShowSummary</DataField>
+        </Field>
+        <Field Name="ShowLosses">
+          <DataField>ShowLosses</DataField>
+        </Field>
+        <Field Name="TotalSalesNos">
+          <DataField>TotalSalesNos</DataField>
+        </Field>
+        <Field Name="TotalPurchasesNos">
+          <DataField>TotalPurchasesNos</DataField>
+        </Field>
+        <Field Name="TotalWeight">
+          <DataField>TotalWeight</DataField>
+        </Field>
+        <Field Name="TotalWeightFormat">
+          <DataField>TotalWeightFormat</DataField>
+        </Field>
+        <Field Name="ShowClient">
+          <DataField>ShowClient</DataField>
+        </Field>
+        <Field Name="showAssignDate">
+          <DataField>showAssignDate</DataField>
+        </Field>
+        <Field Name="AssignedDate">
+          <DataField>AssignedDate</DataField>
+        </Field>
+        <Field Name="BillToName">
+          <DataField>BillToName</DataField>
+        </Field>
+        <Field Name="Commodity">
+          <DataField>Commodity</DataField>
+        </Field>
+        <Field Name="Sales_Assigned_Date">
+          <DataField>Sales_Assigned_Date</DataField>
+        </Field>
+        <Field Name="SalesCount">
+          <DataField>SalesCount</DataField>
+        </Field>
+        <Field Name="PurchaseCount">
+          <DataField>PurchaseCount</DataField>
+        </Field>
+        <Field Name="PurchaseInvAmt">
+          <DataField>PurchaseInvAmt</DataField>
+        </Field>
+        <Field Name="PurchaseInvAmtFormat">
+          <DataField>PurchaseInvAmtFormat</DataField>
+        </Field>
+        <Field Name="PurchaseCrAmt">
+          <DataField>PurchaseCrAmt</DataField>
+        </Field>
+        <Field Name="PurchaseCrAmtFormat">
+          <DataField>PurchaseCrAmtFormat</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_No">
+          <DataField>Sales_Invoice_No</DataField>
+        </Field>
+        <Field Name="Sales_Inv_Posting_Date">
+          <DataField>Sales_Inv_Posting_Date</DataField>
+        </Field>
+        <Field Name="Sales_Customer_Name">
+          <DataField>Sales_Customer_Name</DataField>
+        </Field>
+        <Field Name="Sales_Total_Weight">
+          <DataField>Sales_Total_Weight</DataField>
+        </Field>
+        <Field Name="Sales_Total_WeightFormat">
+          <DataField>Sales_Total_WeightFormat</DataField>
+        </Field>
+        <Field Name="Sales_Commodity">
+          <DataField>Sales_Commodity</DataField>
+        </Field>
+        <Field Name="PurchTotalAmount">
+          <DataField>PurchTotalAmount</DataField>
+        </Field>
+        <Field Name="PurchTotalAmountFormat">
+          <DataField>PurchTotalAmountFormat</DataField>
+        </Field>
+        <Field Name="SalesLine_Amount_ACY">
+          <DataField>SalesLine_Amount_ACY</DataField>
+        </Field>
+        <Field Name="SalesLine_Amount_ACYFormat">
+          <DataField>SalesLine_Amount_ACYFormat</DataField>
+        </Field>
+        <Field Name="SalesLine_Amount_LCY">
+          <DataField>SalesLine_Amount_LCY</DataField>
+        </Field>
+        <Field Name="SalesLine_Amount_LCYFormat">
+          <DataField>SalesLine_Amount_LCYFormat</DataField>
+        </Field>
+        <Field Name="SalesLine_Description">
+          <DataField>SalesLine_Description</DataField>
+        </Field>
+        <Field Name="Sales_Cr_No">
+          <DataField>Sales_Cr_No</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Customer_Name">
+          <DataField>Sales_Cr_Customer_Name</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Amount_ACY">
+          <DataField>Sales_Cr_Amount_ACY</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Amount_ACYFormat">
+          <DataField>Sales_Cr_Amount_ACYFormat</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Amount_LCY">
+          <DataField>Sales_Cr_Amount_LCY</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Amount_LCYFormat">
+          <DataField>Sales_Cr_Amount_LCYFormat</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Description">
+          <DataField>Sales_Cr_Description</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Document_No">
+          <DataField>Purch_Inv_Document_No</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Amount_ACY">
+          <DataField>Purch_Inv_Amount_ACY</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Amount_ACYFormat">
+          <DataField>Purch_Inv_Amount_ACYFormat</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Description">
+          <DataField>Purch_Inv_Description</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Vendor_Name">
+          <DataField>Purch_Inv_Vendor_Name</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Amount_LCY">
+          <DataField>Purch_Inv_Amount_LCY</DataField>
+        </Field>
+        <Field Name="Purch_Inv_Amount_LCYFormat">
+          <DataField>Purch_Inv_Amount_LCYFormat</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Document_No">
+          <DataField>Purch_Cr_Document_No</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Amount_ACY">
+          <DataField>Purch_Cr_Amount_ACY</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Amount_ACYFormat">
+          <DataField>Purch_Cr_Amount_ACYFormat</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Description">
+          <DataField>Purch_Cr_Description</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Vendor_Name">
+          <DataField>Purch_Cr_Vendor_Name</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Amount_LCY">
+          <DataField>Purch_Cr_Amount_LCY</DataField>
+        </Field>
+        <Field Name="Purch_Cr_Amount_LCYFormat">
+          <DataField>Purch_Cr_Amount_LCYFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
