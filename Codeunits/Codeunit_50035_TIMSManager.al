@@ -55,7 +55,10 @@ codeunit 50035 "TIMS Manager."
         QRCodeInput: Text;
         FileNameTxt: Text;
         BmpFormat: Label '.bmp';
-        QRCodeFileName: Text;
+        QRCodeTxt: Text;
+        QRCodeGenerator: Codeunit "Swiss QR Code Helper";
+        CF: Char;
+        LF: Char;
         TempBlob2: Codeunit "Temp Blob";
         FileManager: Codeunit "File Management";
         QRFileName: Text;
@@ -337,14 +340,17 @@ codeunit 50035 "TIMS Manager."
                                         SalesInvHeader."TIMS Time" := CURRENTDATETIME;
                                         QRCodeInput := TempPostingExchField.Value;
                                         IF QRCodeInput <> '' THEN BEGIN
-                                            //GetQRCodeProvider();
-                                            CLEAR(TempBlob2);
-                                            /* FileManager.BLOBImportFromServerFile(TempBlob2, QRCodeFileName);
+
+                                            /* GetQRCodeProvider();
+                                           CLEAR(TempBlob2);
+                                            FileManager.BLOBImportFromServerFile(TempBlob2, QRCodeFileName);
                                             SalesInvHeader."QR Code" := TempBlob2.Blob; */
-                                            FileManager.BLOBImport(TempBlob2, QRCodeFileName);
+
+                                            QRCodeTxt := SalesInvHeader."No.";
                                             TempBlob2.CreateInStream(InsStr);
+                                            QRCodeGenerator.GenerateQRCodeImage(QRCodeTxt, TempBlob2);
                                             SalesInvHeader."QR Code".CreateOutStream(OutStr);
-                                            CopyStream(OutStr, InsStr);
+                                            CopyStream(OutStr, InsStr);  //Handled using streams 
                                         END;
                                     END;
                                 'CUSN':
@@ -574,14 +580,16 @@ codeunit 50035 "TIMS Manager."
                                         SalesCrHeader."TIMS Time" := CURRENTDATETIME;
                                         QRCodeInput := TempPostingExchField.Value;
                                         IF QRCodeInput <> '' THEN BEGIN
-                                            //GetQRCodeProvider();
+                                            /* GetQRCodeProvider();
                                             CLEAR(TempBlob2);
-                                            /*   FileManager.BLOBImportFromServerFile(TempBlob2, QRCodeFileName);
-                                              SalesCrHeader."QR Code" := TempBlob2; */
-                                            FileManager.BLOBImport(TempBlob2, QRCodeFileName);
+                                               FileManager.BLOBImportFromServerFile(TempBlob2, QRCodeFileName);
+                                              SalesCrHeader."QR Code" := TempBlob2;  */
+
+                                            QRCodeTxt := SalesCrHeader."No.";
                                             TempBlob2.CreateInStream(InsStr);
+                                            QRCodeGenerator.GenerateQRCodeImage(QRCodeTxt, TempBlob2);
                                             SalesCrHeader."QR Code".CreateOutStream(OutStr);
-                                            CopyStream(OutStr, InsStr);
+                                            CopyStream(OutStr, InsStr);  //Handled using streams 
                                         END;
                                     END;
                                 'CUSN':
@@ -766,8 +774,9 @@ codeunit 50035 "TIMS Manager."
 
 
     /* procedure GetQRCodeProvider()
+
     begin
-        Encoder := Encoder.EncodingOptions();
+     Encoder := Encoder.EncodingOptions();
         Encoder.Height := 330;
         Encoder.Width := 330;
 
@@ -777,16 +786,11 @@ codeunit 50035 "TIMS Manager."
 
         BitMatrix := QRCodeProvider.Encode(QRCodeInput);
         bitmap := QRCodeProvider.Write(BitMatrix);
-        QRFileName := MoveToPath(FileNameTxt);
-    end; */    //need to check in testing
+        QRFileName := MoveToPath(FileNameTxt); 
 
-
+    end; */
 
     /* procedure MoveToPath(SourceFileName: Text) DestinationFileName: Text
-    var
-        TempBlob: Codeunit "Temp Blob";
-        OutStr: OutStream;
-        InStream: InStream;
     begin
         DestinationFileName := Setup."QR Location" + SourceFileName + BmpFormat;
 
