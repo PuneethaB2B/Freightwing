@@ -123,12 +123,12 @@ pageextension 50004 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
-                /* trigger OnAction()
+                trigger OnAction()
                 var
                     TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.ProcessSalesDocument(Rec);
-                end; */ //B2BUPG Integration
+                end; //B2BUPG Integration
             }
             action("Generate JSON")
             {
@@ -138,12 +138,12 @@ pageextension 50004 PostedSalesInvoiceExt extends "Posted Sales Invoice"
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
-               /*  trigger OnAction()
+                trigger OnAction()
                 var
                     TIMSManager: Codeunit "TIMS Manager.";
                 begin
                     TIMSManager.GetJSONData(Rec);
-                end; */ //B2BUPG Integration
+                end; //B2BUPG Integration
             }
         }
     }
