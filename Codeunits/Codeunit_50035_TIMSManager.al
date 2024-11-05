@@ -40,6 +40,7 @@ codeunit 50035 "TIMS Manager."
         GetJSONObj: JsonObject;
         GetJsonSubObj: JsonObject;
         GetJSONArr: JsonArray;
+        JsonMsgTxt: Text;
         bitmap: Text;
         MainGetJSONObj: JsonObject;
 
@@ -100,6 +101,8 @@ codeunit 50035 "TIMS Manager."
         AllowedChars: Label 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         InsStr: InStream;
         OutStr: OutStream;
+        OutStreams: OutStream;
+        TempBlob2: Codeunit "Temp Blob";
     begin
         CLEAR(Url);
         Setup.GET();
@@ -124,11 +127,12 @@ codeunit 50035 "TIMS Manager."
                         EXIT;
 
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);// 
-                                                      /*    IF EXISTS(FileNamex) THEN
-                                                            ERASE(FileNamex);
-                                                         TestFile.CREATE(FileNamex);
-                                                          TestFile.CREATEOUTSTREAM(OutStreamObj); */  // B2BUPG handled above using streams
+                    TempBlob2.CreateOutStream(OutStreams);
+                    //OutStreamObj.WriteText(FileNamex);// 
+                    /*    IF EXISTS(FileNamex) THEN
+                          ERASE(FileNamex);
+                       TestFile.CREATE(FileNamex);
+                        TestFile.CREATEOUTSTREAM(OutStreamObj); */  // B2BUPG handled above using streams
 
 
                     AmountInc := GetTotalSalesLine(SalesInvHeader."No.", FALSE);
@@ -157,9 +161,9 @@ codeunit 50035 "TIMS Manager."
                     JSonSales.Add('cuin', '');
                     JSonSales.Add('till', FORMAT(1));
                     JSonSales.Add('rctNo', DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars)));
-                    OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars))));
-                    OutStreamObj.WRITETEXT();
-
+                    /*  OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars))));
+                     OutStreamObj.WRITETEXT();
+  */
                     /* JsonTextWriter.WritePropertyName('total');
                     JsonTextWriter.WriteValue(TotalAmt);
                     JsonTextWriter.WritePropertyName('Paid');
@@ -167,8 +171,8 @@ codeunit 50035 "TIMS Manager."
 
                     JSonSales.Add('total', TotalAmt);
                     JSonSales.Add('Paid', TotalAmt);
-                    OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
+                     OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('Payment');
                     JsonTextWriter.WriteValue('Credit');
@@ -176,8 +180,8 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.WriteValue(Customer."VAT Registration No."); */
                     JSonSales.Add('Payment', 'Credit');
                     JSonSales.Add('CustomerPIN', Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
+                     OutStreamObj.WRITETEXT(); */
 
                     /*   JsonTextWriter.WritePropertyName('VAT_A_Net');
                       IF SalesInvHeader."Prices Including VAT" THEN
@@ -188,11 +192,11 @@ codeunit 50035 "TIMS Manager."
                         JSonSales.Add('VAT_A_Net', AmtInc - VatAmt)
                     ELSE
                         JSonSales.Add('VAT_A_Net', AmtInc - VatAmt);
-                    OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
+                    OutStreamObj.WRITETEXT(); */
 
-                    OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
+                    OutStreamObj.WRITETEXT(); */
                     /*  JsonTextWriter.WritePropertyName('VAT_A');
                      JsonTextWriter.WriteValue(VatAmt);*/
                     JSonSales.Add('VAT_A', VatAmt);
@@ -204,22 +208,23 @@ codeunit 50035 "TIMS Manager."
                     /*  JsonTextWriter.WritePropertyName('VAT_E');
                      JsonTextWriter.WriteValue(0); */
                     JSonSales.Add('VAT_E', 0);
-                    OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
+                    /* OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
                     OutStreamObj.WRITETEXT();
-
+ */
 
                     /*   JsonTextWriter.WritePropertyName('data');
                       JsonTextWriter.WriteStartArray; */
-                    OutStreamObj.WRITETEXT('Start Lines');
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('Start Lines');
+                    OutStreamObj.WRITETEXT(); */
 
                     SalesInvoiceLine.RESET;
                     SalesInvoiceLine.SETRANGE("Document No.", SalesInvHeader."No.");
                     SalesInvoiceLine.SETFILTER("No.", '<>%1', '');
                     IF SalesInvoiceLine.FINDSET() THEN
                         REPEAT
-                            // JsonTextWriter.WriteStartObject;
-                            // JsonTextWriter.WritePropertyName('productCode');
+                            Clear(JsonSubSales);
+                            /*  JsonTextWriter.WriteStartObject;
+                         JsonTextWriter.WritePropertyName('productCode'); */
                             CASE SalesInvoiceLine.Type OF
                                 SalesInvoiceLine.Type::"G/L Account":
                                     BEGIN
@@ -227,8 +232,8 @@ codeunit 50035 "TIMS Manager."
                                         GLAccount.TESTFIELD("HS Code");
                                         // JsonTextWriter.WriteValue(GLAccount."HS Code");
                                         JsonSubSales.Add('productCode', GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT();
+                                        /*  OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
+                                         OutStreamObj.WRITETEXT(); */
 
                                     END;
                                 SalesInvoiceLine.Type::Item:
@@ -246,7 +251,7 @@ codeunit 50035 "TIMS Manager."
                               JsonTextWriter.WriteValue(1); */
                             JsonSubSales.Add('productDesc', SalesInvoiceLine.Description);
                             JsonSubSales.Add('quantity', 1);
-                            /* // JsonTextWriter.WritePropertyName('UnitPrice');
+                            /*  JsonTextWriter.WritePropertyName('UnitPrice');
                             IF SalesInvHeader."Currency Factor" <> 0 THEN BEGIN
                                 IF SalesInvHeader."Prices Including VAT" THEN
                                     UnitPrice := (SalesInvoiceLine."Unit Price" * SalesInvoiceLine.Quantity) / SalesInvHeader."Currency Factor"
@@ -259,12 +264,12 @@ codeunit 50035 "TIMS Manager."
                                     UnitPrice := ((SalesInvoiceLine."Unit Price" * SalesInvoiceLine.Quantity) * ((100 + SalesInvoiceLine."VAT %") / 100));
 
                             END;
-                            //UnitPrice *= SalesInvoiceLine.Quantity;
+                            UnitPrice *= SalesInvoiceLine.Quantity;
                             UnitPrice := ROUND(UnitPrice, 1, '=');
-                            //UnitP := UnitPrice;
+                        UnitP := UnitPrice;
                             OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
                             OutStreamObj.WRITETEXT();
-                            // JsonTextWriter.WriteValue(UnitPrice);
+                             JsonTextWriter.WriteValue(UnitPrice);
                             JSonSales.Add('UnitPrice', UnitPrice); */
 
                             IF SalesInvHeader."Currency Factor" <> 0 THEN BEGIN
@@ -282,8 +287,8 @@ codeunit 50035 "TIMS Manager."
                             //UnitPrice *= SalesInvoiceLine.Quantity;
                             UnitPrice := ROUND(UnitPrice, 1, '=');
                             //UnitP := UnitPrice;
-                            OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
-                            OutStreamObj.WRITETEXT();
+                            /* OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
+                            OutStreamObj.WRITETEXT(); */
 
                             JsonSubSales.Add('UnitPrice', UnitPrice);
                             /* JsonTextWriter.WritePropertyName('discount');
@@ -296,20 +301,31 @@ codeunit 50035 "TIMS Manager."
                               JsonTextWriter.WriteValue(TaxRate); */
 
                             TaxRate := ROUND(SalesInvoiceLine."VAT %", 1, '=');
-                            OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
-                            OutStreamObj.WRITETEXT();
+                            /*  OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
+                             OutStreamObj.WRITETEXT(); */
                             JsonSubSales.Add('taxtype', TaxRate);
-                        //  JsonTextWriter.WriteEndObject;
+                            //  JsonTextWriter.WriteEndObject;
+                            GetJSONArr.Add(JsonSubSales);
                         UNTIL SalesInvoiceLine.NEXT() = 0;
-                    GetJSONArr.Add(JsonSubSales);
                     JSonSales.Add('data', GetJSONArr);
+                    /*  JSonSales.WriteTo(JsonMsgTxt);
+                     Message(JsonMsgTxt); */
 
                     /*   JsonTextWriter.WriteEndArray;
                       JsonTextWriter.WriteEndObject;
-                      JsonTextWriter.Flush; */
-                    //  JSonString := GetJSon;
+                      JsonTextWriter.Flush; 
+                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    //TestFile.CLOSE;
+                    TestFile.CLOSE;
+                 OutStreamObj.WRITETEXT();*/
+                    JSonSales.WriteTo(OutStreams);
+                    /*       OutStreams.WriteText()
+                          TestFile.CLOSE;
+                          Display Json Structure
+                          TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+                           Tempblob2.CreateInStream(InStr);
+                           FileNameTxt := 'Sales invoice' + SalesInvHeader."No." + '.Json';
+                           DownloadFromStream(InStr, '', '', '', FileNameTxt); */// B2BUPG handled using streams
 
 
                     IF NOT CallWebService(Setup."Invoice Url", 'POST') THEN
@@ -358,19 +374,14 @@ codeunit 50035 "TIMS Manager."
                                         SalesInvHeader."Deivice Code" := TempPostingExchField.Value;
                                     END;
 
-
                             END;
                         UNTIL TempPostingExchField.NEXT = 0;
                         IF EventsAndSubs.ModifySalesInv(SalesInvHeader) THEN
-                            // IF EXISTS(QRFileName) THEN
-                            //     ERASE(QRFileName);
+                            /*  IF EXISTS(QRFileName) THEN
+                                  ERASE(QRFileName); */
 
                         COMMIT;
                     END;
-                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
-
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled using streams
-
                 END;
             DATABASE::"Sales Cr.Memo Header":
                 BEGIN
@@ -388,11 +399,12 @@ codeunit 50035 "TIMS Manager."
                         EXIT;
 
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);
-                    /*  IF EXISTS(FileNamex) THEN
-                         ERASE(FileNamex);
-                     TestFile.CREATE(FileNamex);
-                     TestFile.CREATEOUTSTREAM(OutStreamObj); */ // B2BUPG handled above using streams
+                    TempBlob2.CreateOutStream(OutStreams);
+                    /*  OutStreamObj.WriteText(FileNamex);
+                      IF EXISTS(FileNamex) THEN
+                          ERASE(FileNamex);
+                      TestFile.CREATE(FileNamex);
+                      TestFile.CREATEOUTSTREAM(OutStreamObj); */ // B2BUPG handled above using streams
 
 
                     AmountInc := GetTotalSalesCreditLine(SalesCrHeader."No.", GetTotalVATSalesCreditLine(SalesCrHeader."No.") = 0);
@@ -401,20 +413,20 @@ codeunit 50035 "TIMS Manager."
                     VatAmt := VATAmount;
                     AmtInc := AmountInc;
                     TotalAmt := GetTotalSalesCreditLine(SalesCrHeader."No.", FALSE) + GetTotalSalesCreditLine(SalesCrHeader."No.", TRUE);
-                    // Initialize;
-                    //  JsonTextWriter.WriteStartObject;
-                    /* JsonTextWriter.WritePropertyName('saleType');
+                    /*  Initialize;
+                     JsonTextWriter.WriteStartObject;
+                     JsonTextWriter.WritePropertyName('saleType');
 
-                    JsonTextWriter.WriteValue('refund'); */
+                    JsonTextWriter.WriteValue('refund');  */
                     JSonSales.Add('saleType', 'refund');
-                    OutStreamObj.WRITETEXT('refund');
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('refund');
+                    OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('cuin');
                     JsonTextWriter.WriteValue(SalesInvHeader."Invoice Number"); */
                     JSonSales.Add('cuin', SalesInvHeader."Invoice Number");
-                    OutStreamObj.WRITETEXT('cuin ' + SalesInvHeader."Invoice Number");
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('cuin ' + SalesInvHeader."Invoice Number");
+                     OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('till');
                     JsonTextWriter.WriteValue(FORMAT(1));
@@ -422,8 +434,8 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.WriteValue(DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars))); */
                     JSonSales.Add('till', FORMAT(1));
                     JSonSales.Add('rctNo', DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars)));
-                    OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars))));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars))));
+                    OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('total');
                     JsonTextWriter.WriteValue(TotalAmt);
@@ -431,8 +443,8 @@ codeunit 50035 "TIMS Manager."
                     JsonTextWriter.WriteValue(TotalAmt); */
                     JSonSales.Add('total', TotalAmt);
                     JSonSales.Add('Paid', TotalAmt);
-                    OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
+                    OutStreamObj.WRITETEXT(); */
 
                     /*  JsonTextWriter.WritePropertyName('Payment');
                      JsonTextWriter.WriteValue('Credit');
@@ -440,8 +452,8 @@ codeunit 50035 "TIMS Manager."
                      JsonTextWriter.WriteValue(Customer."VAT Registration No."); */
                     JSonSales.Add('Payment', 'Credit');
                     JSonSales.Add('CustomerPIN', Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
+                     OutStreamObj.WRITETEXT(); */
 
                     /*  JsonTextWriter.WritePropertyName('VAT_A_Net');
                      IF SalesCrHeader."Prices Including VAT" THEN
@@ -453,11 +465,11 @@ codeunit 50035 "TIMS Manager."
                         JSonSales.Add('VAT_A_Net', AmtInc - VatAmt)
                     ELSE
                         JSonSales.Add('VAT_A_Net', AmtInc - VatAmt);
-                    OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
+                     OutStreamObj.WRITETEXT(); */
 
-                    OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
+                    OutStreamObj.WRITETEXT(); */
                     /*  JsonTextWriter.WritePropertyName('VAT_A');
                      JsonTextWriter.WriteValue(VatAmt); */
                     JSonSales.Add('VAT_A', VatAmt);
@@ -470,22 +482,23 @@ codeunit 50035 "TIMS Manager."
                     /*  JsonTextWriter.WritePropertyName('VAT_E');
                      JsonTextWriter.WriteValue(0); */
                     JSonSales.Add('VAT_E', 0);
-                    OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
+                    OutStreamObj.WRITETEXT(); */
 
 
                     /* JsonTextWriter.WritePropertyName('data');
                     JsonTextWriter.WriteStartArray; */
-                    OutStreamObj.WRITETEXT('Start Lines');
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Start Lines');
+                     OutStreamObj.WRITETEXT(); */
 
                     SalesCrMemoLine.RESET;
                     SalesCrMemoLine.SETRANGE("Document No.", SalesCrHeader."No.");
                     SalesCrMemoLine.SETFILTER("No.", '<>%1', '');
                     IF SalesCrMemoLine.FINDSET() THEN
                         REPEAT
-                            //  JsonTextWriter.WriteStartObject;
-                            // JsonTextWriter.WritePropertyName('productCode');
+                            Clear(JsonSubSales);
+                            /*   JsonTextWriter.WriteStartObject;
+                         JsonTextWriter.WritePropertyName('productCode'); */
                             CASE SalesCrMemoLine.Type OF
                                 SalesCrMemoLine.Type::"G/L Account":
                                     BEGIN
@@ -493,8 +506,8 @@ codeunit 50035 "TIMS Manager."
                                         GLAccount.TESTFIELD("HS Code");
                                         //JsonTextWriter.WriteValue(GLAccount."HS Code");
                                         JsonSubSales.Add('productCode', GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT();
+                                        /*   OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
+                                          OutStreamObj.WRITETEXT(); */
 
                                     END;
                                 SalesCrMemoLine.Type::Item:
@@ -528,8 +541,8 @@ codeunit 50035 "TIMS Manager."
                             // UnitPrice *= SalesCrMemoLine.Quantity;
                             UnitPrice := ROUND(UnitPrice, 1, '=');
                             //UnitP := UnitPrice;
-                            OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
-                            OutStreamObj.WRITETEXT();
+                            /*  OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
+                             OutStreamObj.WRITETEXT(); */
                             // JsonTextWriter.WriteValue(UnitPrice);
                             JsonSubSales.Add('UnitPrice', UnitPrice);
                             /*  JsonTextWriter.WritePropertyName('discount');
@@ -537,20 +550,32 @@ codeunit 50035 "TIMS Manager."
                             JsonSubSales.Add('discount', SalesCrMemoLine."Line Discount Amount");
                             //JsonTextWriter.WritePropertyName('taxtype');
                             TaxRate := ROUND(SalesCrMemoLine."VAT %", 1, '=');
-                            OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
-                            OutStreamObj.WRITETEXT();
+                            /*  OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
+                             OutStreamObj.WRITETEXT(); */
                             //JsonTextWriter.WriteValue(TaxRate);
+
                             JsonSubSales.Add('taxtype', TaxRate);
-                        //  JsonTextWriter.WriteEndObject;
+                            //  JsonTextWriter.WriteEndObject;
+                            GetJSONArr.Add(JsonSubSales);
                         UNTIL SalesCrMemoLine.NEXT() = 0;
-                    GetJSONArr.Add(JsonSubSales);
                     JSonSales.Add('data', GetJSONArr);
-                    /*   JsonTextWriter.WriteEndArray;
+                    /* JSonSales.WriteTo(JsonMsgTxt);
+                    Message(JsonMsgTxt); 
+                       JsonTextWriter.WriteEndArray;
                       JsonTextWriter.WriteEndObject;
-                      JsonTextWriter.Flush; */
-                    // JSonString := GetJSon;
+                      JsonTextWriter.Flush; 
+                     JSonString := GetJSon;
                     OutStreamObj.WRITETEXT();
-                    //  TestFile.CLOSE;
+                      TestFile.CLOSE;
+                    OutStreamObj.WRITETEXT();*/
+                    JSonSales.WriteTo(OutStreams);
+                    /*   OutStreams.WriteText()
+                    TestFile.CLOSE;
+                       Display Json Structure
+                       TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+                         Tempblob2.CreateInStream(InStr);
+                        FileNameTxt := 'Sales Credit Memo ' + SalesCrHeader."No." + '.Json';
+                        DownloadFromStream(InStr, '', '', '', FileNameTxt); */// B2BUPG handled using streams
 
                     IF NOT CallWebService(Setup."Invoice Url", 'POST') THEN
                         EXIT;
@@ -599,14 +624,11 @@ codeunit 50035 "TIMS Manager."
                             END;
                         UNTIL TempPostingExchField.NEXT = 0;
                         IF EventsAndSubs.ModifySalesCreditMemo(SalesCrHeader) THEN
-                            // IF EXISTS(QRFileName) THEN
-                            //     ERASE(QRFileName);
+                            /* IF EXISTS(QRFileName) THEN
+                                ERASE(QRFileName); */
 
                         COMMIT;
                     END;
-                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
-
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled  using streams
 
                 END;
         END;
@@ -627,7 +649,8 @@ codeunit 50035 "TIMS Manager."
         // TempBlob.INIT;
         TempBlob.CREATEINSTREAM(InStr);
         EXIT(HttpWebRequestMgt.GetResponse(InStr, HttpStatusCode, ResponseHeaders)); */
-        MainGetJSONObj.WriteTo(JsonTxt);
+
+        JSonSales.WriteTo(JsonTxt);
         Clear(HttpRequestMessageG);
         Clear(HttpClientG);
         Clear(HttpContentG);
@@ -637,6 +660,9 @@ codeunit 50035 "TIMS Manager."
         HttpRequestMessageG.SetRequestUri(URL);
         HttpRequestMessageG.Method := 'POST';
         HeadersG := HttpClientG.DefaultRequestHeaders;
+        HttpClientG.DefaultRequestHeaders.Clear();
+        HttpContentG.GetHeaders(HttpHeadersG);
+        HttpHeadersG.Clear();
         HttpHeadersG.Add('Content-Type', 'application/json');
         HttpContentG.WriteFrom(JsonTxt);//Attcah Body                                      
         HttpRequestMessageG.Content := HttpContentG;
@@ -672,67 +698,67 @@ codeunit 50035 "TIMS Manager."
 
     local procedure ReadJson(var String: Text; var TempPostingExchField: Record "Data Exch. Field." temporary)
     var
-        // JsonToken: DotNet JsonToken;
-        // PropertyName: Text;
-        // JsonArray: DotNet JsonArrayAttribute;
-        // JsonObject: DotNet JsonObjectAttribute;
-        // PrefixArray: DotNet Array;
-        // PrefixString: DotNet String;
+        /* JsonToken: DotNet JsonToken;
+        PropertyName: Text;
+        JsonArray: DotNet JsonArrayAttribute;
+        JsonObject: DotNet JsonObjectAttribute;
+        PrefixArray: DotNet Array;
+        PrefixString: DotNet String;
         InArray: array[300] of Boolean;
         ColumnNo: Integer;
         PropertyName2: Text;
-        // PrefixArray := PrefixArray.CreateInstance(GETDOTNETTYPE(String), 250);
-        // StringReader := StringReader.StringReader(String);
-        // JsonTextReader := JsonTextReader.JsonTextReader(StringReader);
-        // WHILE JsonTextReader.Read DO
-        //     CASE TRUE OF
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.StartObject) = 0:
-        //             ;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.StartArray) = 0:
-        //             BEGIN
-        //                 InArray[JsonTextReader.Depth + 1] := TRUE;
-        //                 ColumnNo := 0;
-        //             END;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.StartConstructor) = 0:
-        //             ;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.PropertyName) = 0:
-        //             BEGIN
-        //                 PrefixArray.SetValue(JsonTextReader.Value, JsonTextReader.Depth - 1);
-        //                 PropertyName2 := FORMAT(JsonTextReader.Value, 0, 9);
-        //                 IF JsonTextReader.Depth > 1 THEN BEGIN
-        //                     PrefixString := PrefixString.Join('.', PrefixArray, 0, JsonTextReader.Depth - 1);
-        //                     IF PrefixString.Length > 0 THEN
-        //                         PropertyName := FORMAT(JsonTextReader.Value, 0, 9)
-        //                     ELSE
-        //                         PropertyName := FORMAT(JsonTextReader.Value, 0, 9);
-        //                 END ELSE
-        //                     PropertyName := FORMAT(JsonTextReader.Value, 0, 9);
-        //             END;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.String) = 0,
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.Integer) = 0,
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.Float) = 0,
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.Boolean) = 0,
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.Date) = 0,
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.Bytes) = 0:
-        //             BEGIN
-        //                 TempPostingExchField."Data Exch. No." := JsonTextReader.Depth;
-        //                 TempPostingExchField."Line No." := JsonTextReader.LineNumber;
-        //                 TempPostingExchField."Column No." := ColumnNo;
-        //                 TempPostingExchField."Node ID" := PropertyName;
-        //                 TempPostingExchField.Value := FORMAT(JsonTextReader.Value, 0, 9);
-        //                 TempPostingExchField."Data Exch. Line Def Code" := JsonTextReader.TokenType.ToString;
-        //                 //TempPostingExchField."Node ID 2" := PropertyName2;
-        //                 TempPostingExchField.INSERT;
-        //                 LastColumn := ColumnNo;
-        //             END;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.EndConstructor) = 0:
-        //             ;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.EndArray) = 0:
-        //             InArray[JsonTextReader.Depth + 1] := FALSE;
-        //         JsonTextReader.TokenType.CompareTo(JsonToken.EndObject) = 0:
-        //             IF JsonTextReader.Depth > 0 THEN
-        //                 IF InArray[JsonTextReader.Depth] THEN ColumnNo += 1;
-        //     END;
+        PrefixArray := PrefixArray.CreateInstance(GETDOTNETTYPE(String), 250);
+        StringReader := StringReader.StringReader(String);
+        JsonTextReader := JsonTextReader.JsonTextReader(StringReader);
+        WHILE JsonTextReader.Read DO
+            CASE TRUE OF
+                JsonTextReader.TokenType.CompareTo(JsonToken.StartObject) = 0:
+                    ;
+                JsonTextReader.TokenType.CompareTo(JsonToken.StartArray) = 0:
+                    BEGIN
+                        InArray[JsonTextReader.Depth + 1] := TRUE;
+                        ColumnNo := 0;
+                    END;
+                JsonTextReader.TokenType.CompareTo(JsonToken.StartConstructor) = 0:
+                    ;
+                JsonTextReader.TokenType.CompareTo(JsonToken.PropertyName) = 0:
+                    BEGIN
+                        PrefixArray.SetValue(JsonTextReader.Value, JsonTextReader.Depth - 1);
+                        PropertyName2 := FORMAT(JsonTextReader.Value, 0, 9);
+                        IF JsonTextReader.Depth > 1 THEN BEGIN
+                            PrefixString := PrefixString.Join('.', PrefixArray, 0, JsonTextReader.Depth - 1);
+                            IF PrefixString.Length > 0 THEN
+                                PropertyName := FORMAT(JsonTextReader.Value, 0, 9)
+                            ELSE
+                                PropertyName := FORMAT(JsonTextReader.Value, 0, 9);
+                        END ELSE
+                            PropertyName := FORMAT(JsonTextReader.Value, 0, 9);
+                    END;
+                JsonTextReader.TokenType.CompareTo(JsonToken.String) = 0,
+                JsonTextReader.TokenType.CompareTo(JsonToken.Integer) = 0,
+                JsonTextReader.TokenType.CompareTo(JsonToken.Float) = 0,
+                JsonTextReader.TokenType.CompareTo(JsonToken.Boolean) = 0,
+                JsonTextReader.TokenType.CompareTo(JsonToken.Date) = 0,
+                JsonTextReader.TokenType.CompareTo(JsonToken.Bytes) = 0:
+                    BEGIN
+                        TempPostingExchField."Data Exch. No." := JsonTextReader.Depth;
+                        TempPostingExchField."Line No." := JsonTextReader.LineNumber;
+                        TempPostingExchField."Column No." := ColumnNo;
+                        TempPostingExchField."Node ID" := PropertyName;
+                        TempPostingExchField.Value := FORMAT(JsonTextReader.Value, 0, 9);
+                        TempPostingExchField."Data Exch. Line Def Code" := JsonTextReader.TokenType.ToString;
+                        //TempPostingExchField."Node ID 2" := PropertyName2;
+                        TempPostingExchField.INSERT;
+                        LastColumn := ColumnNo;
+                    END;
+                JsonTextReader.TokenType.CompareTo(JsonToken.EndConstructor) = 0:
+                    ;
+                JsonTextReader.TokenType.CompareTo(JsonToken.EndArray) = 0:
+                    InArray[JsonTextReader.Depth + 1] := FALSE;
+                JsonTextReader.TokenType.CompareTo(JsonToken.EndObject) = 0:
+                    IF JsonTextReader.Depth > 0 THEN
+                        IF InArray[JsonTextReader.Depth] THEN ColumnNo += 1;
+            END; */
 
 
         JObject: JsonObject;
@@ -746,30 +772,35 @@ codeunit 50035 "TIMS Manager."
         DtStmpVar: Text[20];
         ResponseL: Text[350];
     begin
-        ResponseL := '{"ResponseCode":"000","Message":"Success","TSIN":"1245","CUSN":"KRAMW000000000000002","CUIN":"0000000020000001540","QRCode":"https://itax.kra.go.ke/KRASTXPortal/invoiceChk.htm?actionCode=loadPage&invoiceNo=0000000020000001540","dtStmp":"10/06/2022 17:09"}';
-        JObject.ReadFrom(ResponseL);
+        JObject.ReadFrom(String);
         if JObject.Get('ResponseCode', JToken) then
-            ResponseCodeVar := JToken.AsValue().AsCode();
+            if JToken.IsValue then
+                ResponseCodeVar := JToken.AsValue().AsCode();
+        Clear(JToken);
         if JObject.Get('Message', JToken) then
-            MessageVar := JToken.AsValue().AsText();
+            if JToken.IsValue then
+                MessageVar := JToken.AsValue().AsText();
+        Clear(JToken);
         if JObject.Get('TSIN', JToken) then
-            TSINVar := JToken.AsValue().AsCode();
+            if JToken.IsValue then
+                TSINVar := JToken.AsValue().AsCode();
+        Clear(JToken);
         if JObject.Get('CUSN', JToken) then
-            CUSNVar := JToken.AsValue().AsCode();
+            if JToken.IsValue then
+                CUSNVar := JToken.AsValue().AsCode();
+        Clear(JToken);
         if JObject.Get('CUIN', JToken) then
-            CUINVar := JToken.AsValue().AsCode();
+            if JToken.IsValue then
+                CUINVar := JToken.AsValue().AsCode();
+        Clear(JToken);
         if JObject.Get('QRCode', JToken) then
-            QRCodeVar := JToken.AsValue().AsText();
+            if JToken.IsValue then
+                QRCodeVar := JToken.AsValue().AsText();
+        Clear(JToken);
         if JObject.Get('dtStmp', JToken) then
-            DtStmpVar := JToken.AsValue().AsText();
-
-        Message('ResponseCode: %1', ResponseCodeVar);
-        Message('Message: %1', MessageVar);
-        Message('TSIN: %1', TSINVar);
-        Message('CUSN: %1', CUSNVar);
-        Message('CUIN: %1', CUINVar);
-        Message('QRCode: %1', QRCodeVar);
-        Message('DtStmp: %1', DtStmpVar);
+            if JToken.IsValue then
+                DtStmpVar := JToken.AsValue().AsText();
+        Clear(JToken);
     end;
 
 
@@ -966,12 +997,13 @@ codeunit 50035 "TIMS Manager."
         TestFile: File;
         FileNamex: Text;
         OutStreamObj: OutStream;
+        OutStreams: OutStream;
         UnitP: Decimal;
         VatAmt: Decimal;
         AmtInc: Decimal;
         TotalAmt: Decimal;
         AllowedChars: Label 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        TempBlob: Codeunit "Temp Blob";
+        TempBlob, Tempblob2 : Codeunit "Temp Blob";
     begin
         //Replicated the Feature to get the JSON Data for the both Invoice and Credit Memo
         CLEAR(Url);
@@ -996,7 +1028,8 @@ codeunit 50035 "TIMS Manager."
                       EXIT;*///BT
                     //Naveen B2BUPG---->>>>
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);
+                    Tempblob2.CreateOutStream(OutStreams);
+                    // OutStreamObj.WriteText(FileNamex);
                     /* IF EXISTS(FileNamex) THEN
                         ERASE(FileNamex);
                     TestFile.CREATE(FileNamex);
@@ -1029,8 +1062,8 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('till', 1);
                     GetJSONObj.Add('rctNo', DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars)));
 
-                    OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars))));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesInvHeader."No.", '=', DELCHR(SalesInvHeader."No.", '=', AllowedChars))));
+                     OutStreamObj.WRITETEXT(); */
                     /* JsonTextWriter.WritePropertyName('total');
                     JsonTextWriter.WriteValue(TotalAmt);
                     JsonTextWriter.WritePropertyName('Paid');
@@ -1039,10 +1072,10 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('total', TotalAmt);
                     GetJSONObj.Add('Paid', TotalAmt);
 
-                    OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
+                     OutStreamObj.WRITETEXT(); 
 
-                    /* JsonTextWriter.WritePropertyName('Payment');
+                     JsonTextWriter.WritePropertyName('Payment');
                     JsonTextWriter.WriteValue('Credit');
                     JsonTextWriter.WritePropertyName('CustomerPIN');
                     JsonTextWriter.WriteValue(Customer."VAT Registration No."); */
@@ -1050,10 +1083,10 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('Payment', 'Credit');
                     GetJSONObj.Add('CustomerPIN', Customer."VAT Registration No.");
 
-                    OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT();
-
-                    /* JsonTextWriter.WritePropertyName('VAT_A_Net');
+                    /*   OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
+                      OutStreamObj.WRITETEXT();
+   
+                     JsonTextWriter.WritePropertyName('VAT_A_Net');
                     IF SalesInvHeader."Prices Including VAT" THEN
                         JsonTextWriter.WriteValue(AmtInc - VatAmt)
                     ELSE
@@ -1064,11 +1097,11 @@ codeunit 50035 "TIMS Manager."
                     ELSE
                         GetJSONObj.Add('VAT_A_Net', AmtInc - VatAmt);
 
-                    OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
+                    /* OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
                     OutStreamObj.WRITETEXT();
 
                     OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
-                    OutStreamObj.WRITETEXT();
+                    OutStreamObj.WRITETEXT(); */
                     /*  JsonTextWriter.WritePropertyName('VAT_A');
                      JsonTextWriter.WriteValue(VatAmt);
                      JsonTextWriter.WritePropertyName('VAT_E_Net'); */
@@ -1083,19 +1116,20 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('VAT_E_Net', TotalAmt);
                     GetJSONObj.Add('VAT_E', 0);
 
-                    OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
+                     OutStreamObj.WRITETEXT(); */
 
                     /*  JsonTextWriter.WritePropertyName('data');
                      JsonTextWriter.WriteStartArray; */
-                    OutStreamObj.WRITETEXT('Start Lines');
+                    /* OutStreamObj.WRITETEXT('Start Lines');
                     OutStreamObj.WRITETEXT();
-
+ */
                     SalesInvoiceLine.RESET;
                     SalesInvoiceLine.SETRANGE("Document No.", SalesInvHeader."No.");
                     SalesInvoiceLine.SETFILTER("No.", '<>%1', '');
                     IF SalesInvoiceLine.FINDSET() THEN
                         REPEAT
+                            Clear(GetJsonSubObj);
                             /* JsonTextWriter.WriteStartObject;
                              JsonTextWriter.WritePropertyName('productCode'); */
                             CASE SalesInvoiceLine.Type OF
@@ -1104,18 +1138,16 @@ codeunit 50035 "TIMS Manager."
                                         GLAccount.GET(SalesInvoiceLine."No.");
                                         GLAccount.TESTFIELD("HS Code");
                                         // JsonTextWriter.WriteValue(GLAccount."HS Code");
-
                                         GetJsonSubObj.Add('productCode', GLAccount."HS Code");
 
-                                        OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT();
+                                        /*  OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
+                                         OutStreamObj.WRITETEXT(); */
                                     END;
                                 SalesInvoiceLine.Type::Item:
                                     BEGIN
                                         Item.GET(SalesInvoiceLine."No.");
                                         Item.TESTFIELD("HS Code");
                                         // JsonTextWriter.WriteValue(Item."HS Code");
-
                                         GetJsonSubObj.Add('productCode', Item."HS Code");
                                     END;
                             END;
@@ -1142,8 +1174,8 @@ codeunit 50035 "TIMS Manager."
                             //UnitPrice *= SalesInvoiceLine.Quantity;
                             UnitPrice := ROUND(UnitPrice, 1, '=');
                             //UnitP := UnitPrice;
-                            OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
-                            OutStreamObj.WRITETEXT();
+                            /* OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
+                            OutStreamObj.WRITETEXT(); */
                             /*  JsonTextWriter.WriteValue(UnitPrice);
                              JsonTextWriter.WritePropertyName('discount');
                              JsonTextWriter.WriteValue(SalesInvoiceLine."Line Discount Amount");
@@ -1153,30 +1185,33 @@ codeunit 50035 "TIMS Manager."
                             GetJsonSubObj.Add('discount', SalesInvoiceLine."Line Discount Amount");
 
                             TaxRate := ROUND(SalesInvoiceLine."VAT %", 1, '=');
-                            OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
-                            OutStreamObj.WRITETEXT();
+                            /* OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
+                            OutStreamObj.WRITETEXT(); */
                             // JsonTextWriter.WriteValue(TaxRate);
 
                             GetJsonSubObj.Add('taxtype', 'VAT ' + FORMAT(TaxRate));
-
+                            GetJSONArr.Add(GetJsonSubObj);
                         //  JsonTextWriter.WriteEndObject;
                         UNTIL SalesInvoiceLine.NEXT() = 0;
                     /*  JsonTextWriter.WriteEndArray;
                      JsonTextWriter.WriteEndObject;
                      JsonTextWriter.Flush; */
 
-                    GetJSONArr.Add(GetJsonSubObj);
                     GetJSONObj.Add('data', GetJSONArr);
+                    GetJSONObj.WriteTo(JsonMsgTxt);
+                    MESSAGE(Format(JsonMsgTxt));
 
-                    // JSonString := GetJSon;
-                    OutStreamObj.WRITETEXT();
-                    // TestFile.CLOSE;
-                    //Display Json Structure
-                    TempBlob.CreateInStream(InStr); // B2BUPG handled using streams
+                    /* JSonString := GetJSon;
+                     OutStreamObj.WRITETEXT(); */
+                    GetJSONObj.WriteTo(OutStreams);
+                    /* OutStreams.WriteText()
+                    TestFile.CLOSE;
+                    Display Json Structure
+                    TempBlob.CreateInStream(InStr); */ // B2BUPG handled using streams
+                    Tempblob2.CreateInStream(InStr);
+                    FileNameTxt := 'Sale invoice ' + SalesInvHeader."No." + '.Json';
+                    DownloadFromStream(InStr, '', '', '', FileNameTxt);// B2BUPG handled using streams
 
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled using streams
-
-                    //  MESSAGE(FORMAT(JSonString));
                     //Naveen B2BUPG----<<<<
                 END;
             DATABASE::"Sales Cr.Memo Header":
@@ -1188,13 +1223,15 @@ codeunit 50035 "TIMS Manager."
                     SalesInvHeader.TESTFIELD("Invoice Number");
                     Customer.GET(SalesCrHeader."Sell-to Customer No.");
                     SalesCrHeader.CALCFIELDS("Amount Including VAT", Amount);
-                    FileNameTxt := SalesCrHeader."No.";
-                    FileNamex := Setup."QR Location" + 'Json.TXT';
+                    //  FileNameTxt := SalesCrHeader."No.";
+                    FileNamex := Setup."QR Location" + '.Json';
+                    FileNameTxt := 'Sales Invoice' + SalesInvHeader."No." + '.Json';
                     /*IF NOT ( SalesCrHeader."Invoi
                       EXIT;*/
                     //Naveen B2BUPG---->>>>
                     TempBlob.CreateOutStream(OutStreamObj);
-                    OutStreamObj.WriteText(FileNamex);
+                    Tempblob2.CreateOutStream(OutStreams);
+                    //  OutStreamObj.WriteText(FileNamex);
                     /*  IF EXISTS(FileNamex) THEN
                          ERASE(FileNamex);
                      TestFile.CREATE(FileNamex);
@@ -1215,16 +1252,16 @@ codeunit 50035 "TIMS Manager."
 
                     GetJSONObj.Add('saleType', 'refund');
 
-                    OutStreamObj.WRITETEXT('refund');
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('refund');
+                    OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('cuin');
                     JsonTextWriter.WriteValue(SalesInvHeader."Invoice Number"); */
 
                     GetJSONObj.Add('cuin', SalesInvHeader."Invoice Number");
 
-                    OutStreamObj.WRITETEXT('cuin ' + SalesInvHeader."Invoice Number");
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('cuin ' + SalesInvHeader."Invoice Number");
+                    OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('till');
                     JsonTextWriter.WriteValue(FORMAT(1));
@@ -1234,8 +1271,8 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('till', FORMAT(1));
                     GetJSONObj.Add('rctNo', DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars)));
 
-                    OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars))));
-                    OutStreamObj.WRITETEXT();
+                    /* OutStreamObj.WRITETEXT('RctNo ' + FORMAT(DELCHR(SalesCrHeader."No.", '=', DELCHR(SalesCrHeader."No.", '=', AllowedChars))));
+                    OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('total');
                     JsonTextWriter.WriteValue(TotalAmt);
@@ -1245,8 +1282,8 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('total', TotalAmt);
                     GetJSONObj.Add('Paid', TotalAmt);
 
-                    OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Total Amount ' + FORMAT(TotalAmt));
+                     OutStreamObj.WRITETEXT(); */
 
                     /* JsonTextWriter.WritePropertyName('Payment');
                     JsonTextWriter.WriteValue('Credit');
@@ -1256,9 +1293,9 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('Payment', 'Credit');
                     GetJSONObj.Add('CustomerPIN', Customer."VAT Registration No.");
 
-                    OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
-                    OutStreamObj.WRITETEXT();
-
+                    /*  OutStreamObj.WRITETEXT('Customer PIN ' + Customer."VAT Registration No.");
+                     OutStreamObj.WRITETEXT();
+  */
                     /* JsonTextWriter.WritePropertyName('VAT_A_Net');
                     IF SalesCrHeader."Prices Including VAT" THEN
                         JsonTextWriter.WriteValue(AmtInc - VatAmt)
@@ -1270,11 +1307,11 @@ codeunit 50035 "TIMS Manager."
                     ELSE
                         GetJSONObj.Add('VAT_A_Net', AmtInc - VatAmt);
 
-                    OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('VAT A Amount ' + FORMAT((AmtInc - VatAmt)));
+                     OutStreamObj.WRITETEXT();
 
-                    OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
-                    OutStreamObj.WRITETEXT();
+                     OutStreamObj.WRITETEXT('VAT Amount ' + FORMAT(VatAmt));
+                     OutStreamObj.WRITETEXT(); */
                     /*  JsonTextWriter.WritePropertyName('VAT_A');
                      JsonTextWriter.WriteValue(VatAmt);
                      JsonTextWriter.WritePropertyName('VAT_E_Net'); */
@@ -1289,21 +1326,22 @@ codeunit 50035 "TIMS Manager."
                     GetJSONObj.Add('VAT_E_Net', TotalAmt);
                     GetJSONObj.Add('VAT_E', 0);
 
-                    OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('VAT E Amount ' + FORMAT(TotalAmt));
+                     OutStreamObj.WRITETEXT(); */
 
                     /*  JsonTextWriter.WritePropertyName('data');
                      JsonTextWriter.WriteStartArray; */
-                    OutStreamObj.WRITETEXT('Start Lines');
-                    OutStreamObj.WRITETEXT();
+                    /*  OutStreamObj.WRITETEXT('Start Lines');
+                     OutStreamObj.WRITETEXT(); */
 
                     SalesCrMemoLine.RESET;
                     SalesCrMemoLine.SETRANGE("Document No.", SalesCrHeader."No.");
                     SalesCrMemoLine.SETFILTER("No.", '<>%1', '');
                     IF SalesCrMemoLine.FINDSET() THEN
                         REPEAT
-                            //  JsonTextWriter.WriteStartObject;
-                            // JsonTextWriter.WritePropertyName('productCode'); 
+                            Clear(GetJsonSubObj);
+                            /*   JsonTextWriter.WriteStartObject;
+                             JsonTextWriter.WritePropertyName('productCode');  */
                             CASE SalesCrMemoLine.Type OF
                                 SalesCrMemoLine.Type::"G/L Account":
                                     BEGIN
@@ -1312,15 +1350,15 @@ codeunit 50035 "TIMS Manager."
                                         //JsonTextWriter.WriteValue(GLAccount."HS Code");
                                         GetJsonSubObj.Add('productCode', GLAccount."HS Code");
 
-                                        OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
-                                        OutStreamObj.WRITETEXT();
+                                        /* OutStreamObj.WRITETEXT('HS Code ' + GLAccount."HS Code");
+                                        OutStreamObj.WRITETEXT(); */
                                     END;
                                 SalesCrMemoLine.Type::Item:
                                     BEGIN
                                         Item.GET(SalesCrMemoLine."No.");
                                         Item.TESTFIELD("HS Code");
-                                        //JsonTextWriter.WriteValue(Item."HS Code");
-                                        GetJsonSubObj.Add('productCode', Item."HS Code");
+                                        /*JsonTextWriter.WriteValue(Item."HS Code");
+                                          GetJsonSubObj.Add('productCode', Item."HS Code"); */
                                     END;
                             END;
                             /*  JsonTextWriter.WritePropertyName('productDesc');
@@ -1346,8 +1384,8 @@ codeunit 50035 "TIMS Manager."
                             // UnitPrice *= SalesCrMemoLine.Quantity;
                             UnitPrice := ROUND(UnitPrice, 1, '=');
                             //UnitP := UnitPrice;
-                            OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
-                            OutStreamObj.WRITETEXT();
+                            /* OutStreamObj.WRITETEXT('Unit Price ' + FORMAT(UnitPrice));
+                            OutStreamObj.WRITETEXT(); */
                             /*  JsonTextWriter.WriteValue(UnitPrice);
                              JsonTextWriter.WritePropertyName('discount');
                              JsonTextWriter.WriteValue(SalesCrMemoLine."Line Discount Amount"); 
@@ -1357,30 +1395,34 @@ codeunit 50035 "TIMS Manager."
                             GetJsonSubObj.Add('discount', SalesCrMemoLine."Line Discount Amount");
 
                             TaxRate := ROUND(SalesCrMemoLine."VAT %", 1, '=');
-                            OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
-                            OutStreamObj.WRITETEXT();
+                            /* OutStreamObj.WRITETEXT('VAT ' + FORMAT(TaxRate));
+                            OutStreamObj.WRITETEXT(); */
                             //JsonTextWriter.WriteValue(TaxRate);
 
                             GetJsonSubObj.Add('taxtype', 'VAT ' + FORMAT(TaxRate));
 
-                        //JsonTextWriter.WriteEndObject;
+                            //JsonTextWriter.WriteEndObject;
+                            GetJSONArr.Add(GetJsonSubObj);
                         UNTIL SalesCrMemoLine.NEXT() = 0;
 
-                    GetJSONArr.Add(GetJsonSubObj);
                     GetJSONObj.Add('data', GetJSONArr);
-
+                    GetJSONObj.WriteTo(JsonMsgTxt);
+                    MESSAGE(JsonMsgTxt);
                     /*  JsonTextWriter.WriteEndArray;
                      JsonTextWriter.WriteEndObject;
                      JsonTextWriter.Flush; */
 
-                    // JSonString := GetJSon;
-                    OutStreamObj.WRITETEXT();
-                    TempBlob.CreateInStream(InStr); // B2BUPG handled  using streams
+                    /* JSonString := GetJSon;
+                    OutStreamObj.WRITETEXT(); */
+                    GetJSONObj.WriteTo(OutStreams);
+                    /*OutStreams.WriteText()
+                    TestFile.CLOSE;
+                    Display Json Structure
+                    TempBlob.CreateInStream(InStr); */ // B2BUPG handled using streams
+                    Tempblob2.CreateInStream(InStr);
+                    FileNameTxt := 'Sales Credit Memo ' + SalesCrHeader."No." + '.Json';
+                    DownloadFromStream(InStr, '', '', '', FileNameTxt);// B2BUPG handled using streams
 
-                    DownloadFromStream(InStr, '', '', 'TXT', FileNamex);// B2BUPG handled  using streams
-                                                                        //Naveen B2BUPG----<<<<
-
-                    // MESSAGE(FORMAT(JSonString));
                 END;
         END;
     end;
