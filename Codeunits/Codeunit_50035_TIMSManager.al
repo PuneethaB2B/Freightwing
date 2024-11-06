@@ -667,6 +667,8 @@ codeunit 50035 "TIMS Manager."
         HttpContentG.WriteFrom(JsonTxt);//Attcah Body                                      
         HttpRequestMessageG.Content := HttpContentG;
         HttpClientG.Send(HttpRequestMessageG, HttpResponseMessageG);
+        if not HttpResponseMessageG.IsSuccessStatusCode then
+            exit(false);
         HttpResponseMessageG.Content().ReadAs(ResponseG);
     end;
     //Naveen B2bUPG--<<
