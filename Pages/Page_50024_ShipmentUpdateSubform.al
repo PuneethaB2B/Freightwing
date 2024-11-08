@@ -8,10 +8,11 @@ page 50024 "Shipment Update Subform"
     {
         area(content)
         {
-            repeater(Group)
+            repeater(Lines)
             {
                 field("Activity Code"; Rec."Activity Code")
                 {
+
                 }
                 field("Pre Alert No"; Rec."Pre Alert No")
                 {
