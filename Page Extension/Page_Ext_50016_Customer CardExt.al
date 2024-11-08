@@ -46,5 +46,21 @@ pageextension 50016 CustomerCardExt extends "Customer Card"
         {
             Visible = false;
         }
+        modify(TotalSales2)
+        {
+            Visible = false;
+        }
+        modify("CustSalesLCY - CustProfit - AdjmtCostLCY")
+        {
+            Visible = false;
+        }
+        modify(AdjCustProfit)
+        {
+            Visible = false;
+        }
+        modify(AdjProfitPct)
+        {
+            Visible = false;
+        }
     }
 }

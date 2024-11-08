@@ -11,6 +11,12 @@
   "url": "",
   "logo": "",
   "dependencies": [
+    {
+      "id": "87990153-0e35-4e5d-ba61-2e93077d1699",
+      "name": "Review General Ledger Entries",
+      "publisher": "Microsoft",
+      "version": "24.0.16410.18056"
+    }
   ],
   "screenshots": [],
   "platform": "1.0.0.0",

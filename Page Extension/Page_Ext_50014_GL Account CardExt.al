@@ -9,5 +9,10 @@ pageextension 50014 GLAccountCardExt extends "G/L Account Card"
                 ApplicationArea = all;
             }
         }
+        modify("Review Policy")
+        {
+            Visible = false;
+        }
     }
+
 }
