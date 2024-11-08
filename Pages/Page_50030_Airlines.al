@@ -10,7 +10,7 @@ page 50030 Airlines
     {
         area(content)
         {
-            repeater(Group)
+            repeater(control)
             {
                 field(Code; Rec.Code)
                 {
@@ -53,12 +53,16 @@ page 50030 Airlines
                     Promoted = true;
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
-                    RunObject = Page Flights;
-                    RunPageLink = "Airline Code" = FIELD(Code);
-
+                    /*  RunObject = Page Flights;
+                     RunPageLink = "Airline Code" = FIELD(Code);*/
                     trigger OnAction()
+                    var
+                        FlightLRec: Record Flight;
                     begin
                         //DocPrint.PrintPurchHeader(Rec);
+                        FlightLRec.Reset();
+                        FlightLRec.SetRange("Airline Code", Rec.Code);
+                        Page.RunModal(Page::Flights, FlightLRec);
                     end;
                 }
             }

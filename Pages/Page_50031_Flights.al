@@ -10,7 +10,7 @@ page 50031 Flights
     {
         area(content)
         {
-            repeater(Group)
+            repeater(control)
             {
                 field("Flight Code"; Rec."Flight Code")
                 {
