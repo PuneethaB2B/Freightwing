@@ -2,7 +2,7 @@ page 50156 "Pre Alert"
 {
     SourceTable = "Pre Alert Header";
     ApplicationArea = All;
-
+    DelayedInsert = true;
     layout
     {
         area(content)
@@ -11,12 +11,14 @@ page 50156 "Pre Alert"
             {
                 field("No."; Rec."No.")
                 {
-                }
-                field("Manifest No"; Rec."Manifest No")
-                {
-                    ShowMandatory = true;
+                    Visible = false;
                 }
                 field("MAWB No"; Rec."MAWB No")
+                {
+                    ShowMandatory = true;
+
+                }
+                field("Manifest No"; Rec."Manifest No")
                 {
                     ShowMandatory = true;
                 }

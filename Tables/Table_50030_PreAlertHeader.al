@@ -22,7 +22,7 @@ table 50030 "Pre Alert Header"
         }
         field(3; "MAWB No"; Code[20])
         {
-            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = FILTER(false));
+            TableRelation = "MAWB Receipt"."MAWB No." WHERE(Assigned = const(false));
         }
         field(4; "Delivery Agent"; Code[20])
         {
