@@ -11,14 +11,12 @@ page 50156 "Pre Alert"
             {
                 field("No."; Rec."No.")
                 {
-                    Visible = false;
-                }
-                field("MAWB No"; Rec."MAWB No")
-                {
-                    ShowMandatory = true;
-
                 }
                 field("Manifest No"; Rec."Manifest No")
+                {
+                    ShowMandatory = true;
+                }
+                field("MAWB No"; Rec."MAWB No")
                 {
                     ShowMandatory = true;
                 }
