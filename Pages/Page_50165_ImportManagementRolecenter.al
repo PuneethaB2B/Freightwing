@@ -452,6 +452,246 @@ page 50165 ImportManagementRolecenter
 
                     }
                 }
+                group(ReportsAndAnalysis)
+                {
+                    Caption = 'Reports And Analysis';
+                    group("Reports&")
+                    {
+                        Caption = 'Reports';
+                        action(DailyWeightDistribution)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Daily Weight Distribution';
+                            RunObject = report "Daily Weight Distribution";
+                        }
+                        action(BookingSheet)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Booking Sheet';
+                            RunObject = report "Booking Sheet";
+                        }
+                        action(GatePass)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Gate Pass';
+                            RunObject = report "Gate Pass";
+                        }
+                        action(IATAReconciliation)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'IATA Reconciliation';
+                            RunObject = report "IATA Reconciliation";
+                        }
+                        action(FreightReconciliation)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Freight Reconciliation';
+                            RunObject = report "Freight Reconciliation";
+                        }
+                        action(GoodsReceiptNote)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Goods Receipt Note';
+                            RunObject = report "Goods Receipt Note";
+                        }
+                        action(FlightPerformance)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Flight Performance';
+                            RunObject = report "Flight Performance";
+                        }
+                        action(MAWBUsage)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'MAWB Usage';
+                            RunObject = report "MAWB Usage";
+                        }
+                        action(ShipmentReport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Shipment Report';
+                            RunObject = report "Shipment Report";
+                        }
+                        action(AirlinePayments)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Airline Payments';
+                            RunObject = report "Airline Payments";
+                        }
+                        action(MAWBStock)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'MAWB Stock';
+                            RunObject = report "MAWB Stock";
+                        }
+                        action(MAWBStockSummary)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'MAWB Stock Summary';
+                            RunObject = report "MAWB Stock Summary";
+                        }
+                        action(AirlineFreight)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Airline Freight';
+                            RunObject = report "Airline Freight Monthly";
+                        }
+                        action(ExportsSummary)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Exports Summary';
+                            RunObject = report "Exports Summary";
+                        }
+                        action(ExportsByDestination)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Exports By Destination';
+                            RunObject = report "Exports By Destination";
+                        }
+                        action(AirlineFreightRates)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Airline Freight Rates';
+                            RunObject = report "Airline Freight Rates";
+                        }
+                        action(AirlinePaymentsSummary)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Airline Payments Summary';
+                            RunObject = report "Airline Payments";
+                        }
+                        action(WeightDistributions)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Weight Distributions';
+                            RunObject = report "Weight Distributions";
+                        }
+                        action(MAWBState)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'MAWB State';
+                            RunObject = report "MAWB Status";
+                        }
+                        action(ExportsByDestinationCustomerWise)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Exports By Destination Customer Wise';
+                            RunObject = report "Exports By Cust. Destination";
+                        }
+                        action(ExportsByDestinationAirline)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Exports By Destination Airline';
+                            RunObject = report "Exports By Dest. AirLines";
+                        }
+                        action(FreightImport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Freight Import';
+                            RunObject = report "Freight Import";
+                        }
+                        action(JobCosting)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Job Costing';
+                            RunObject = report "Job Costing";
+                        }
+                        action(AirlinesComodityReport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Airlines Comodity Report ';
+                            RunObject = report "Airlines Comodity Report";
+                        }
+                        action(SalesPurchComp)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Sales Purch Comp';
+                            RunObject = report "Sales Purch Comp";
+                        }
+                        action("Sales&PurchaseComparision")
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Sales & Purchase Comparision';
+                            RunObject = report "Sales & Purchase Comparision";
+                        }
+                        action(SalesVsPurchaseCompV2)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Sales Vs Purchase Comp V2';
+                            RunObject = report "Sales Vs Purchase Comp V2";
+                        }
+                        action(PurchaseAnalysis)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Purchase Analysis';
+                            RunObject = report "Purchase Analysis";
+                        }
+                        action(MAWBDetails)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'MAWB Detailss';
+                            RunObject = report "MAWB Detailss";
+                        }
+                        action(TallySalesImport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Tally Sales Import';
+                            RunObject = report "Tally Sales Import";
+                        }
+                        action(TallyPurchaseImport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Tally Purchase Import';
+                            RunObject = report "Tally Purchase Import";
+                        }
+                        action("P&LScheduleReport")
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'P & L Schedule';
+                            RunObject = report "P&L Schedule Report";
+                        }
+                        action(CurrencyReconciliationReport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Currency Reconciliation Report';
+                            RunObject = report "Currency Reconciliation Report";
+                        }
+                        action(CurrencyReconciliation2)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Currency Reconciliation 2';
+                            RunObject = report "General Purchase Zero VAT";
+                        }
+                        action("Customer-SummaryAging")
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Customer - Summary Aging';
+                            RunObject = report "Customer - Summary AgingCopy";
+                        }
+                        action(OperationalReport)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Operational Report';
+                            RunObject = report "Operational Report";
+                        }
+                        action(DetailTrialBalance)
+                        {
+                            ApplicationArea = ALL;
+                            Caption = 'Detail Trial Balance';
+                            RunObject = report "Detail Trial Balance FWL";
+                        }
+                    }
+                    group("Operation Report&")
+                    {
+                        Caption = 'Operation Report';
+                        action("OperationalReport&")
+                        {
+                            Caption = 'Operational Report';
+                            ApplicationArea = all;
+                            RunObject = report "Operational Report";
+                        }
+                    }
+                }
             }
         }
     }
