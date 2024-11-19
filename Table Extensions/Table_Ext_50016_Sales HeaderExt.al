@@ -259,7 +259,7 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
         }
     }
 
-   
+
 
     local procedure GetPurchAmount(mawb: Code[50]; Charge: Code[10]) Amnt: Decimal
     var
@@ -689,12 +689,12 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
 
     end;
 
-    procedure SplitMAWBInvoice()
-    var
+    PROCEDURE SplitMAWBInvoice();
+    VAR
         BookingSheetLine: Record "Booking Sheet Line";
         BookedWeight: Decimal;
         Customer: Record Customer;
-    begin
+    BEGIN
         //==========SPLIT THE INVOICE============
         IF CONFIRM(Text50003, FALSE, FIELDCAPTION("MAWB No."), "MAWB No.") THEN BEGIN
             BookedWeight := 0;
@@ -712,8 +712,7 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
                         BookedWeight += MAWBLine4."Chargeable Weight";
                     UNTIL MAWBLine4.NEXT = 0;
             END;
-
-            IF NOT SalesLinesExist THEN
+            IF NOT SalesLinesRecExist() THEN
                 ERROR(Text50001, "Document Type", "No.")
             ELSE BEGIN
                 REPEAT
@@ -899,7 +898,7 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
             END;
         END ELSE
             EXIT;
-    end;
+    END;
 
     procedure InsertUnrecoveredCharges()
     var
@@ -970,7 +969,16 @@ tableextension 50016 SalesHeaderExt extends "Sales Header"
         END;
     end;
 
+    procedure SalesLinesRecExist(): Boolean
+    begin
+        SalesLine.Reset();
+        SalesLine.SetRange("Document Type", Rec."Document Type");
+        SalesLine.SetRange("Document No.", Rec."No.");
+        exit(SalesLine.FindSet());
+    end;
+
     var
+        SalesLineRec: Record "Sales Line";
         MAWBInCharg: Record "MAWB Invoice Charge";
         AmmendCharge: Codeunit "Ammend Charges";
         GPHeader: Record "Gate Pass Header";

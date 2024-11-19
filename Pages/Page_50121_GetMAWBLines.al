@@ -27,6 +27,10 @@ page 50121 "Get MAWB Lines"
                 field(Description; Rec.Description)
                 {
                 }
+                field("Invoice No."; Rec."Invoice No.")
+                {
+
+                }
                 field("Unit of Measure"; Rec."Unit of Measure")
                 {
                     Visible = false;

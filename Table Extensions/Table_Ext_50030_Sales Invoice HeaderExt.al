@@ -62,11 +62,11 @@ tableextension 50030 SalesInvoiceHeaderExt extends "Sales Invoice Header"
         {
 
         }
-        field(50017; "QR Code"; Blob)
+        field(60017; "QR Code"; Blob)
         {
             Subtype = Bitmap;
         }
-        field(50018; "Invoice Number"; Code[50])
+        field(60018; "Invoice Number"; Code[50])
         {
 
         }

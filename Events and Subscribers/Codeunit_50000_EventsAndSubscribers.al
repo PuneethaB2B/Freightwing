@@ -1,5 +1,13 @@
 codeunit 50000 "Events And Subscribers"
 {
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnValidateLineAmountOnbeforeTestUnitPrice', '', false, false)]
+    local procedure OnValidateLineAmountOnbeforeTestUnitPrice(var SalesLine: Record "Sales Line"; var IsHandled: Boolean; CurrentFieldNo: Integer)
+    begin
+        IsHandled := true;
+    end;
+
+
+
     //Codeunit 22 Item Jnl.-Post Line>>
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
     local procedure OnAfterInitItemLedgEntry(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line"; var ItemLedgEntryNo: Integer)
@@ -477,7 +485,20 @@ codeunit 50000 "Events And Subscribers"
         END;
     END;
 
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", OnBeforePostPurchaseDoc, '', false, false)]
+    local procedure OnBeforePostPurchaseDoc(var PurchaseHeader: Record "Purchase Header"; PreviewMode: Boolean; CommitIsSupressed: Boolean; var HideProgressWindow: Boolean; var ItemJnlPostLine: Codeunit "Item Jnl.-Post Line"; var IsHandled: Boolean)
+    var
+        txt002: TextConst ENN = 'Invoice %1 must be approved and released before you can perform this action.';
+    begin
+        if PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Invoice then begin
+            if PurchaseHeader.Status = PurchaseHeader.Status::Open then
+                Error(STRSUBSTNO(txt002, PurchaseHeader."No."))
+        end;
+    end;
+
     //Codeunit 452 Report Distribution Management<<
+
 
 }
 
